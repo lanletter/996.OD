@@ -25,7 +25,7 @@ button {
 }
 
 body {
-  font: 0.3rem/1.5 'sans-serif',"宋体", "Arial Narrow", HELVETICA;
+  font: 0.3rem/1.5 'PingFangSC-Regular','sans-serif','Microsoft YaHei','Microsoft YaHei',"微软雅黑", "Arial Narrow", HELVETICA;
   background: #ededed;
   -webkit-text-size-adjust: 100%;
   color: #4c5051;
@@ -85,9 +85,10 @@ p {
 }
 /*每部分的标题*/
 .section-title { 
-  padding: 0.2rem;
-  margin-bottom: 0.3rem;
+  padding: 0.16rem;
+    font-size: 0.28rem;
   font-weight: normal;
+
 }
 
 .section-title:before {
@@ -110,33 +111,35 @@ p {
 /*头部的一些数据显示*/
 .header__opt{
 	text-align: center;
-	margin-top: 0.35rem ;
-	padding-bottom: 0.6rem;
+	margin-top: 0.16rem;
 }
 .header__opt span{
 	display: inline-block;
-	padding: 0 0.2rem;
-	color: #4c5051;
+  line-height: 0.36rem;
+	margin-right: 0.28rem;
+	color: rgb(130,130,130);
+  font-weight: 400;
+  font-size: 0.2rem;
 }
 .header__opt span:before{
 	display: inline-block;
 	content: '';
-	width: 0.4rem;
-	height: 0.4rem;
-	margin-right: 0.2rem;
+	width: 0.36rem;
+	height: 0.36rem;
+	margin-right: 0.12rem;
 	vertical-align: top;
 }
 .header__opt .view-count:before{
-	background: url('../img/view.png') no-repeat;
+	background: url('../img/rectangle2.png') no-repeat;
 	background-size: 0.4rem 0.4rem;
 }
 
 .header__opt .comment-count:before{
-	background: url('../img/comment.png') no-repeat;
+	background: url('../img/rectangle775.png') no-repeat;
 	background-size: 0.4rem 0.4rem;
 }
 .header__opt .favorite-count:before{
-	background: url('../img/fav.png') no-repeat;
+	background: url('../img/invalidName.png') no-repeat;
 	background-size: 0.4rem 0.4rem;
 }
 

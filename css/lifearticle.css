@@ -1,108 +1,155 @@
-.header{
-	background: #fff;
-	color: #4d5051;
-}
-.header__main .video{
-	width: 7.5rem;
-	position: relative;
-}
-.header__main video{
-	width: 7.5rem;
-}
-.header__main hgroup{
-	margin-top: 0.2rem;
-}
-.header__main h3{
-	text-align: center;
-}
-.header__main .play{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 1.2rem;
-	height: 1.2rem;
-	background: url('../img/play.png');
-	background-size: 1.2rem 1.2rem;
-	margin-left: -0.6rem;
-	margin-top: -0.6rem;
-	border: none;
-}
-.header__main .play:focus{
-	border: none;
-	outline: none;
+.header {
+    background: #fff;
+    color: #4d5051;
 }
 
-.author{
-  background-color: #fff;
-  padding: 0.2rem;
+.header__main .video {
+    width: 7.5rem;
+    position: relative;
 }
-.author__title span{
-  color: #4d5051;
-  font-size: 0.2rem;
-  display: inline-block;
-  padding-bottom: 0.05rem;
-  width: 0.7rem;
-  border-bottom: 0.07rem solid #4d5051;
+
+.header__main video {
+    width: 7.5rem;
 }
-.author__info{
-  margin-top: 0.3rem;
-  float: left;
+
+.header__main hgroup {
+    margin-top: 0.2rem;
 }
-.author__info img{
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 50%;
+
+.header__main h3 {
+    text-align: center;
+    font-size: 0.36rem;
+    color: rgb(76,80,81);
 }
-.author__info span{
-  color: #4d5051;
-  margin-left: 0.2rem;
+
+.header__main .play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url('../img/play.png');
+    background-size: 1.2rem 1.2rem;
+    margin-left: -0.6rem;
+    margin-top: -0.6rem;
+    border: none;
 }
-.author .add-care{
-  width: 1.6rem;
-  padding: 0;
-  height: 0.45rem;
-  color: #fff;
-  background-color: #fd6669;
-  float: right;
-  margin-top: 0.4rem;
-  border: none;
-  border-radius: 10px;
+
+.header__main .play:focus {
+    border: none;
+    outline: none;
 }
-.author .add-care:before{
-  content: '';
-  display: inline-block;
-  width: 0.3rem;
-  height: 0.3rem;
-  background: url(../img/care.png);
-  background-size: 0.3rem 0.3rem;
-  vertical-align: middle;
-  margin-right: 0.06rem;
+
+.author {
+    background-color: #fff;
+    padding:0 0.2rem;
 }
-.content{
-  background: #fff;
-  padding: 0.24rem;
-  font-size: 0.33rem;
+
+.author__title span {
+    color: #4d5051;
+    font-size: 0.2rem;
+    display: inline-block;
+    padding-bottom: 0.05rem;
+    width: 0.7rem;
+    border-bottom: 0.04rem solid #4d5051;
 }
-.content img{
-  width: 7.06rem;
+
+.author__info {
+    margin-top: 0.4rem;
+    float: left;
 }
-.recommend{
-  background-color: #fff;
-  margin-top: 0.2rem;
-  padding: 0.15rem;
+
+.author__info img {
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
 }
-.recommend ul{
-  padding: 0 0.2rem;
+
+.author__info span {
+    color: #4d5051;
+    margin-left: 0.2rem;
+    font-size: 0.2rem;
+    font-weight: bold;
 }
-.recommend__info{
-  margin-bottom: 0.3rem;
+
+.author .add-care {
+    width: 1.28rem;
+    padding: 0;
+    height: 0.44rem;
+    color: #fff;
+    background-color: #fd6669;
+    float: right;
+    margin-top: 0.58rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.16rem;
 }
-.recommend__info img{
-  width: 1.2rem;
-  height: 1.2rem;
+
+.author .add-care:before {
+    content: '';
+    display: inline-block;
+    width: 0.28rem;
+    height: 0.28rem;
+    background: url(../img/care.png);
+    background-size: 0.28rem 0.28rem;
+    vertical-align: middle;
+    margin-right: 0.08rem;
 }
-.recommend__info > div{
-  display: inline-block;
-  width: 5.4rem;
-  text-align: center;
+
+.content {
+    background: #fff;
+    padding: 0.48rem;
+    font-size: 0.32rem;
+    font-weight: 100;
+    letter-spacing: 0.03rem;
+    color: rgb(76,80,81);
+}
+
+.content img {
+    width: 7.18rem;
+    margin: 0 -0.32rem;
+}
+
+.recommend {
+    background-color: #fff;
+    margin-top: 0.2rem;
+    padding-bottom: 0.16rem;
+}
+
+.recommend ul {
+    padding: 0 0.16rem;
+}
+
+.recommend__info {
+    margin-bottom: 0.16rem;
+}
+
+.recommend__info img {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.recommend__info > div {
+    display: inline-block;
+    width: 5.4rem;
+    height: 0.6rem;
+    text-align: left;
+    position: absolute;
+    margin-top: 0.3rem;
+}
+.recommend__info > div h5{
+    width: 3.8rem;
+    height: 0.28rem;
+    font-size: 0.2rem;
+    margin:0 0 0 0.72rem;
+    color:rgb(47,47,47) ;
+    white-space:nowrap;
+    text-overflow:ellipsis; /* for internet explorer */
+    overflow:hidden;
+}
+.recommend__info > div span{
+    height: 0.28rem;
+    font-size: 0.2rem;
+    margin:0 0 0 1.66rem ;
+    color:rgb(130,130,130) ;
 }
