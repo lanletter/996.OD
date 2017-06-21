@@ -1,0 +1,70 @@
+.ft-comment {
+  padding: 0.7rem 0.4rem;
+}
+
+.ft-comment li{
+  margin-bottom: 0.2rem;
+}
+
+.ft-comment .more {
+  text-align: center;
+  margin-left: 0.2rem;
+}
+
+.ft-comment__header {
+  margin-bottom: 0.8rem;
+}
+
+.ft-comment__header .comment {
+  background: url('../img/cmt_btn.png');
+  background-size: 1.5rem 0.7rem;
+  width: 1.5rem;
+  height: 0.7rem;
+}
+
+.ft-comment__content .name {
+  color: #2f2f2f;
+  font-size: 0.33rem;
+}
+
+.ft-comment__content .time {
+  font-size: 0.2rem;
+}
+
+.ft-comment__content .header-pic {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+}
+
+.ft-comment__content p {
+  width: 5.65rem;
+}
+.ft-comment__content .title-box{
+  display: block;
+  padding-right: 0.2rem;
+}
+.ft-comment__content img {
+  width: 5rem;
+  margin-bottom: 0.2rem;
+}
+.ft-comment__content .text {
+  display: block;
+  font-size: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.ft-comment__content .reply {
+  color: #4c5051;
+  margin-top: 0.1rem;
+}
+
+.ft-comment__content .reply:before {
+  content: ' ';
+  display: inline-block;
+  height: 0.4rem;
+  width: 0.4rem;
+  background: url(../img/comment.png);
+  background-size: 0.4rem 0.4rem;
+  vertical-align: bottom;
+}

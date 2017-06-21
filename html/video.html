@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>直播</title>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link href="http://vjs.zencdn.net/5.19.2/video-js.css" rel="stylesheet">
+  <style type="text/css">
+    html, body{
+      height: 100%;
+    }
+    #fotile{
+      width: 7.5rem;
+      height: auto;
+    }
+    .video-js .vjs-tech{
+      width: 7.5rem;
+      position: static;
+    }
+    .vjs-big-play-centered .vjs-big-play-button{
+      top: 50%;
+    left: 50%;
+    margin: 0;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    }
+    .vjs-poster{
+      background-size: 100% 100%;
+      height: 800px;
+    }
+
+    .video-box{
+      width: 7.5rem;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .view-count{
+      position: absolute;
+      top:0;
+      left: 0;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.4);
+      color: #fff;
+      height: 1rem;
+      width: 7.5rem;
+    }
+    .view-count img{
+     width: 1rem;
+     height: 1rem;
+    }
+
+    .horizontal{
+      text-align: center;
+    }
+    .horizontal p{
+      color:#fff;
+      font-weight: bold;
+      margin: 1rem 0;
+      font-size: 0.3rem;
+    }
+    .horizontal img{
+      width: 4.5rem;
+    }
+    .end{
+      display: none;
+      height: 100%;
+      overflow: hidden;
+    }
+    .end img{
+      width: 7.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-box">
+    <div class="view-count">
+     <img src="../img/logo180.png">
+     <span> <i class="count"></i></span>
+    </div>
+    <video id="fotile" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" 
+    data-setup='{}' webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" >
+    </video>
+    <div class="horizontal">
+      <p>横屏观看效果更佳哦～</p>
+      <img src="../img/horizontal_tip.png">
+    </div>
+    <div class="end">
+      <img src="../img/end.png">
+    </div>
+  </div>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/video.min.js'></script>
+<script type="text/javascript" src='../js/video-hls.js'></script>
+<script type="text/javascript">
+  $api.post('http://121.40.135.115:8180/fotile-api-0.0.2/video/getVideoDetailInfo.json', {}, function(res) {
+    $('.view-count .count').text(res.data.name)
+  })
+  
+  var player = videojs('fotile', {
+    poster:'../img/food.jpg',
+    // 直播资源列表
+    sources: [
+      {
+        src: 'http://lifevideo.fotile.com/AppName/StreamName.m3u8',
+        type: 'application/x-mpegURL'
+      }, 
+      {
+        src: 'http://pic.qiantucdn.com/58pic/shipin/22/15/04/22150421.mp4',
+        type: 'video/mp4'
+      }
+    ],
+  });
+
+  function callback() {
+    this.dispose();
+    $('.view-count, .horizontal').hide();
+    $('.end').show();
+  }
+
+  player.on('ended', function() {
+    callback.call(this);
+  });
+  player.on('error', function() {
+    callback.call(this);
+  })
+</script>
+</body>
+</html>

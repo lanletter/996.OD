@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>活动内页</title>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
+  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
+  <style type="text/css">
+    .header__main .title{
+      background: transparent;
+    }
+    .header__main .title time{
+      position: static;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <header class="header">
+      <div class="header__main">
+        <div class="img"></div>
+        <div class="">
+        </div>
+        <div class="title">
+          <h3>
+        	
+	        </h3>
+          <time>2016-09-09</time>
+        </div>
+      </div>
+      <div class="header__opt">
+        <span class="view-count"><strong></strong></span>
+        <span class="comment-count"><strong></strong></span>
+      </div>
+    </header>
+    <article class="content">
+    </article>
+    <div class="active-rule">
+      <h3 class="section-title">活动规则</h3>
+      <ul>
+        <li>1.搜索微信号“fotilestyle123”，添加赏食令小助手，直接拉你入群。</li>
+        <li>2.根据小助手的发布的主题制作你的食谱</li>
+        <li>3.以一下两种方式上传菜谱</li>
+        <li>4.根方太生活家发布的每期主题相关</li>
+        <li>5.步骤清晰完整，不少于5步（图片与步骤可以参考方太生活家APP菜谱）</li>
+        <li>6.仅限原创，如有盗图等行为则取消活动资格</li>
+      </ul>
+    </div>
+    <div class="ft-comment"></div>
+  </div>
+  <script type="text/javascript" src='../js/lib.js'></script>
+  <script type="text/javascript" src='../js/api.js'></script>
+  <script type="text/javascript" src='../js/loadcomment.js'></script>
+  <script type="text/javascript">
+    $(function () {
+      var $header = $('.header')
+
+      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/activity/detail', {
+        id: 1231
+      }, function(res) {
+        data = res.data;
+        $api.imgAdapt($header.find('.header__main .img'), data.coverPicture.path);
+
+        $header.find('h3').text(data.longTitle);
+        $header.find('.view-count').text(data.viewCount);
+        $header.find('.comment-count').text(data.commentCount);
+        $('.content').append($(data.content));
+      });
+      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6,"userId":81177});
+    });
+  </script>
+</body>
+</html>

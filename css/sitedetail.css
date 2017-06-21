@@ -1,0 +1,161 @@
+
+.header{
+	background-color: #fff;
+}
+.header img{
+	width: 7.5rem;
+}
+.header__main h3{
+	width: 7.5rem;
+	text-align: center;
+	color: #4d5051;
+	margin: 0.5rem 0 0.3rem 0;
+}
+
+.header .site-info {
+	padding: 0.4rem;
+}
+.site-info .des{
+	text-align: justify;
+	font-size: 0.33rem;
+}
+.info ul{
+	border-radius: 10px;
+	margin-top: 0.5rem;
+	overflow: hidden;
+	box-shadow: 2px 2px 1px #ededed;
+}
+.info ul li{
+	padding: 0.3rem 0.6rem;
+	border-bottom: 1px dashed #d8dae1;
+}
+.info ul li:last-child{border-bottom: none;}
+.info li p{
+	display: inline-block;
+}
+.info li i{
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+	width: 0.7rem;
+	height: 0.7rem;
+}
+.info li p span{
+	color: #4d5051;
+	font-size: 0.3rem;
+	display: inline-block;
+	max-width: 4rem;
+}
+.info li p strong{
+	display: block;
+	font-size: 0.27rem;
+	color: #d8dae1;
+}
+.site-info .address{
+	background-color: #f7f7f7;
+}
+.site-info .address i{
+	background:url(../img/car.png);
+	background-size: 0.7rem 0.7rem;
+}
+.site-info .tel i{
+	background:url(../img/phone.png);
+	background-size: 0.7rem 0.7rem;
+}
+.site-info .tel,
+.site-info .service-time{
+	background-color: #ededed;
+}
+
+.content .site-service,
+.content .site-pic{
+	padding: 0.2rem;
+	margin-top: 0.2rem;
+	background-color: #fff;
+}
+.content .site-service ul{
+	padding: 0 0.5rem;
+	line-height: 0.4rem;
+}
+.site-service .red-btn{
+	float: right;
+	margin: 0.5rem 0.25rem 0 0;
+	padding: 0.06rem 0.6rem;
+} 
+.content .site-pic figure{
+	width: 7.1rem;
+	position: relative;
+	margin-bottom: 0.2rem;
+}
+.site-pic figcaption{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	padding-bottom: 0.3rem;
+}
+.site-pic img{
+	width: 100%;
+	border-radius: 10px;
+}
+
+.order-pop{
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+.order-pop .pop{
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 6rem;
+	height: 7rem;
+	background-color: #fff;
+	border-radius: 5px;
+	padding: 0.4rem;
+}
+.pop .key{
+	font-weight: bold;
+	color: #000;
+	font-size: 0.2rem;
+	display: block;
+	margin: 0.4rem 0 0.2rem 0;
+}
+.pop .key.first{
+	margin-top: 0;
+}
+
+.pop input{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid #ededed;
+	outline: none;
+}
+
+.order-type .type-btn{
+	background: #ededed;
+	color: #fff;
+	border-radius: 10px;
+	line-height: 1.5;
+	padding:0  10px;
+	margin-right: 0.2rem;
+}
+.order-type .check{
+	background-color: #fd6669;
+}
+
+.pop li:last-child .red-btn{
+	width: 4.5rem;
+	line-height: 2;
+	letter-spacing: 0.2rem;
+}
+.pop li:last-child{
+	text-align: center;
+	line-height: 1.6rem;
+}

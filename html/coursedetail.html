@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>课程详情页</title>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
+  <link rel="stylesheet" type="text/css" href="../css/sitedetail.css">
+  <style type="text/css">
+    .red-btn {
+      padding: 0.06rem 0.2rem;
+    }
+    
+    .header__main {
+      position: relative;
+    }
+    
+    .header__main .buy {
+      position: absolute;
+      bottom: 0.7rem;
+      right: 0.2rem;
+    }
+    .header__main .dis{
+      background: #676a6c;
+    }
+    .course-des{
+      padding: 0.2rem;
+    }
+    .course-info {
+      background: #fff;
+      margin-top: 0.2rem;
+    }
+    
+    .author__info {
+      margin-top: 0.3rem;
+      float: left;
+    }
+    
+    .author__info img {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      vertical-align: sub;
+    }
+    
+    .author__info span {
+      color: #4d5051;
+      margin-left: 0.2rem;
+    }
+    
+    .course-info-box {
+      padding: 0 0.4rem 0.2rem 0.4rem;
+    }
+    
+    .course-info ul {
+      margin-top: 0;
+    }
+    
+    .course-info .teacher-box,
+    .course-time,
+    .people-num,
+    .food-type {
+      background: #f7f7f7;
+    }
+    
+    .title-box h3 {
+      float: left;
+      margin-bottom: 0;
+    }
+    
+    .title-box span:after {
+      content: '';
+      display: inline-block;
+      background: url(../img/nen.png);
+      background-size: 0.1rem 0.2rem;
+      width: 0.1rem;
+      height: 0.2rem;
+      vertical-align: -0.01rem;
+    }
+    
+    .course-info li:last-child {
+      margin-top: -1px;
+      height: 1rem;
+      font-size: 0.4rem;
+      color: #fff;
+      line-height: 1rem;
+      text-align: center;
+    }
+    
+    .teacher .red-btn {
+      float: right;
+      margin-top: 0.4rem;
+    }
+    
+    .teacher .say {
+      max-width: 2.6rem;
+    }
+    
+    .teacher .red-btn:before {
+      content: '';
+      display: inline-block;
+      width: 0.3rem;
+      height: 0.3rem;
+      background: url(../img/care.png);
+      background-size: 0.3rem 0.3rem;
+      vertical-align: middle;
+      margin-right: 0.02rem;
+    }
+    
+    .people-num {
+      position: relative;
+    }
+    
+    .people-num svg {
+      position: absolute;
+      left: 1.9rem;
+    }
+    
+    .title-box span {
+      float: right;
+      margin: 0.2rem 0.2rem 0 0;
+    }
+    
+    .course-time p:nth-of-type(2) {
+      margin-left: 1.5rem;
+    }
+    
+    .buy-box {
+      background: #fd6669;
+    }
+    .buy-box a{
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <header class="header">
+      <div class="header__main">
+        <div class="img"></div>
+        <h3>方太生活家杭州体验</h3>
+        <a href='#' class="red-btn buy able">购买 &yen;<b></b></a>
+        <span class="red-btn buy dis"></span>
+      </div>
+      <div class="header__opt">
+        <span class="view-count"><i></i><strong>8828</strong></span
+			><span class="comment-count"><i></i><strong>84</strong></span>
+      </div>
+      <p class="course-des">发达饭店萨法</p>
+    </header>
+    <section class="content">
+      <div class="course-info site-info info">
+        <div class="clearfix title-box">
+          <h3 class="section-title">课程信息</h3>
+          <span>加入我的课程 </span>
+        </div>
+        <div class="course-info-box">
+          <ul>
+            <li class="teacher-box">
+            
+            </li>
+            <li class="course-time">
+              <p>
+                <span><time>10月24日 周二</time></span>
+                <strong>课程日期</strong>
+              </p>
+              <p>
+                <span><time>10:00-－18:00</time></span>
+                <strong>课程时间</strong>
+              </p>
+            </li>
+            <li class="people-num">
+              <p>
+                <span><b class="overplus">10</b>人</span>
+                <strong>剩余人数</strong>
+              </p>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height='35px'>
+                <line x1="0" y1="35" x2="10" y2="0" style="stroke:#d8dae1;stroke-width:2" />
+              </svg>
+              <p style="margin-left: 0.4rem">
+                <span><b class="total">12</b>人</span>
+                <strong>总人数</strong>
+              </p>
+            </li>
+            <li class="food-type">
+              <p>
+                <span>日式料理</span>
+                <strong>菜式类别</strong>
+              </p>
+            </li>
+            <li class="address">
+              <p>
+                <span>上海徐汇去桃江路8号</span>
+                <strong>场馆地址</strong>
+              </p>
+              <i class="to-map"></i>
+            </li>
+            <li class="tel">
+              <p>
+                <span>021-64735058</span>
+                <strong>场馆电话</strong>
+              </p>
+              <i class="to-call"></i>
+            </li>
+            <li class="service-time">
+              <p>
+                <span>全年 <time></time></span>
+                <strong>服务时间</strong>
+              </p>
+            </li>
+            <li class="buy-box">
+              <a href="#" class="buy able">立即购买 &yen;<b></b></a>
+              <span class="dis"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-pic">
+        <h3 class="section-title">菜式图集</h3>
+      </div>
+    </section>
+    <div class="ft-comment"></div>
+  </div>
+  <script type="text/javascript" src='../js/lib.js'></script>
+  <script type="text/javascript" src='../js/api.js'></script>
+  <script type="text/javascript" src='../js/loadcomment.js'></script>
+  <script type="text/javascript">
+    $(function () {
+      var $header = $('.header')
+  
+
+      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/curriculumn/detail', {
+         "userName": "test",
+          "address": "gz", 
+          id: 123 
+      }, function(data) {
+        data = data.data;
+          $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
+
+          $header.find('h3').text(data.curriculumName);
+          $header.find('.view-count').text(data.viewCount);
+          $header.find('.comment-count').text(data.commentCount);
+          $header.find('.course-des').text(data.curriculumDesc)
+          $('.address span').text(data.store.detailAddress)
+          $('.tel span').text(data.store.tel);
+          $('.service-time time').text(data.store.serviceTime);
+          $('.overplus').text(parseInt(data.totalCount) - parseInt(data.currentCount));
+          $('.total').text(data.totalCount);
+          $('.food-type span').text(data.styleType);
+
+          switch(data.status) {
+            case 'NEW': // 起售
+              
+            case 'PRE': // 预售
+              $('.buy b').text(parseInt(data.price).toFixed(2));
+              $('.dis').hide();
+            break;
+            case 'EXD': // 已失效
+              $('.able').hide();
+              $('.dis').text('已开课');
+              $('.buy-box').css('background', '#676a6c')
+            break;
+            case 'DON': //已售罄
+              $('.able').hide();
+              $('.dis').text('已售罄');
+              $('.buy-box').css('background', '#676a6c')
+            break;
+            case 'DBL': // 不可用
+              $('.able').hide();
+              $('.dis').text('不可用');
+              $('.buy-box').css('background', '#676a6c')
+            break;
+            default:
+             console.log('no');
+
+          }
+          
+
+          data.cookList.forEach(function(item, index) {
+            var cooker = $('<section class="author teacher">\
+                <div class="clearfix">\
+                  <p class="author__info">\
+                    <img src="' + item.picture.path + '">\
+                    <span>\
+                      <b>' + item.cookName + '</b>\
+                      <strong class="text-overflow say">' + item.remark + '</strong>\
+                    </span></p>\
+                  <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button>\
+                </div>\
+              </section>');
+            $('.teacher-box').append(cooker);
+          })
+
+          data.menuList.forEach(function(item, index) {
+            console.log(item);
+            var img = $('<figure>\
+              <img src="' + item.picture.path + '">\
+              <figcaption>' + item.remark + '</figcaption>\
+            </figure>');
+            $('.site-pic').append(img);
+
+          })
+      })
+
+      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":2,"userId":81177});
+
+      $('.course-info').on('click', '.add-care', function(e) {
+        var id = $(e.target).data('id'),
+          follow = $(e.target).data('follow');
+        if (follow) {
+          $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cookCancel', { 
+            "refId": id, 
+            "type": 2, 
+            "userId": 85507
+          }, function (data) {
+            $(e.target).data('follow', false).text('加关注');
+          });
+        } else {
+          $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cook', { 
+            "refId": id, 
+            "type": 2, 
+            "userId": 85507
+          }, function (data) {
+            $(e.target).data('follow', true).text('已关注');
+          });
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>

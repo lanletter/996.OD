@@ -1,0 +1,54 @@
+.header{
+	background-color: #fff;
+}
+.header__main{
+	position: relative;
+	height: 4.1rem;
+	overflow: hidden;
+}
+.header__main img{
+	width: 7.5rem;
+}
+.header__main .title{
+	position: absolute;
+	bottom: 1rem;
+	width: 4.7rem;
+	height: 3rem;
+	left: 1.4rem;
+	margin: 0 auto;
+	text-align: center;
+	color: #fff;
+	background: url('../img/title_box.png') no-repeat;
+	background-size: 4.7rem 3rem;
+}
+.header__main h3{
+	font-size: 18px;
+	margin-top: 1.7rem;
+}
+
+.header__main time{
+	position: absolute;
+	bottom: 0.2rem;
+	right: 0.4rem;
+	font-size: 14px;
+	color: #fff;
+}
+
+.content{
+	padding: 0.2rem 0.24rem;
+	background-color: #fff;
+	color: #4c5051;
+	font-size: 0.33rem;
+}
+.content .MsoNormal,
+.content .MsoNormal img{
+	width: 7.05rem;
+}
+
+.active-rule{
+	background-color: #fff;
+	padding-bottom: 0.2rem;
+}
+.active-rule ul{
+	margin-left: 0.5rem;
+}

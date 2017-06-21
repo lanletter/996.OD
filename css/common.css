@@ -1,0 +1,163 @@
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select,
+figure,
+button {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  font: 0.3rem/1.5 'sans-serif',"宋体", "Arial Narrow", HELVETICA;
+  background: #ededed;
+  -webkit-text-size-adjust: 100%;
+  color: #4c5051;
+}
+
+a {
+  color: #2d374b;
+  text-decoration: none
+}
+
+i {
+  font-style: normal;
+}
+
+strong,b {
+  font-weight: normal;
+}
+
+a:hover {
+  color: #cd0200;
+  text-decoration: underline
+}
+
+em {
+  font-style: normal
+}
+
+li {
+  list-style: none
+}
+
+img {
+  border: 0;
+  vertical-align: middle
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+p {
+  word-wrap: break-word
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
+
+:focus, button {
+  outline: none;
+  border: none;
+  background: transparent;
+}
+/*每部分的标题*/
+.section-title { 
+  padding: 0.2rem;
+  margin-bottom: 0.3rem;
+  font-weight: normal;
+}
+
+.section-title:before {
+  content: '';
+  display: inline-block;
+  height: 0.33rem;
+  width: 0.06rem;
+  background-color: #000;
+  margin-right: 0.1rem;
+  vertical-align: -0.05rem;
+}
+/*红色按钮*/
+.red-btn{ 
+	background-color: #fd6669;
+	border-radius: 10px;
+	border: none;
+	outline: none;
+	color: #fff;
+}
+/*头部的一些数据显示*/
+.header__opt{
+	text-align: center;
+	margin-top: 0.35rem ;
+	padding-bottom: 0.6rem;
+}
+.header__opt span{
+	display: inline-block;
+	padding: 0 0.2rem;
+	color: #4c5051;
+}
+.header__opt span:before{
+	display: inline-block;
+	content: '';
+	width: 0.4rem;
+	height: 0.4rem;
+	margin-right: 0.2rem;
+	vertical-align: top;
+}
+.header__opt .view-count:before{
+	background: url('../img/view.png') no-repeat;
+	background-size: 0.4rem 0.4rem;
+}
+
+.header__opt .comment-count:before{
+	background: url('../img/comment.png') no-repeat;
+	background-size: 0.4rem 0.4rem;
+}
+.header__opt .favorite-count:before{
+	background: url('../img/fav.png') no-repeat;
+	background-size: 0.4rem 0.4rem;
+}
+
+/*文章超长显示三个点*/
+
+.text-overflow{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block;
+}
+
+/* 左右两栏*/
+.left-right{
+  display: block;
+}
+.left-right .right{
+  float: right;
+  display: inline-block;
+}
+.left-right .left{
+  float: left;
+  display: inline-block;
+}

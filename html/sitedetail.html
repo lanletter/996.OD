@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>场馆详情页</title>
+  <meta charset="utf-8">
+  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+  <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
+  <link rel="stylesheet" type="text/css" href="../css/sitedetail.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobiscroll.core-2.6.2.css">
+  <link rel="stylesheet" type="text/css" href="../css/mobiscroll.animation-2.6.2.css">
+</head>
+
+<body>
+  <div>
+    <header class="header">
+      <div class="header__main">
+        <div class='img'></div>
+        <h3></h3>
+      </div>
+      <div class="header__opt">
+        <span class="view-count"><i></i><strong></strong></span
+      ><span class="comment-count"><i></i><strong></strong></span>
+      </div>
+      <div class="site-info info">
+        <p class="des"></p>
+        <ul>
+          <li class="address">
+            <p>
+              <span></span>
+              <strong>场馆地址</strong>
+            </p>
+            <a href="#"><i class="to-map"></i></a>
+          </li>
+          <li class="tel">
+            <p>
+              <span></span>
+              <strong>场馆电话</strong>
+            </p>
+            <i class="to-call"></i>
+          </li>
+          <li class="service-time">
+            <p>
+              <span>全年 <time></time></span>
+              <strong>服务时间</strong>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <section class="content">
+      <div class="site-service clearfix">
+        <h3 class='section-title'>场馆服务</h3>
+        <ul>
+        </ul>
+        <button class="red-btn mark">立即预约</button>
+      </div>
+      <div class="site-pic">
+        <h3 class="section-title">场馆图集</h3>
+      </div>
+    </section>
+    <div class="ft-comment"></div>
+    <div class="order-pop">
+      <ul class="pop">
+        <li>
+          <label>
+            <span class="key first">您的姓名</span>
+            <input class="name" type="text" placeholder="姓名">
+          </label>
+        </li>
+        <li>
+          <label>
+            <span class="key">联系方式</span>
+            <input type="tel" class="tel" placeholder="联系方式">
+          </label>
+        </li>
+        <li>
+          <div class="order-type">
+            <span class="key">预约类型</span>
+            <div>
+              <button class="type-btn">场地参观</button>
+              <button class="type-btn">场地租赁</button>
+              <button class="type-btn">定制课程</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <label>
+            <span class="key">预约时间</span>
+            <input type="text" class="order-time" placeholder="预约时间">
+          </label>
+        </li>
+        <li>
+          <label>
+            <span class="key">备注</span>
+            <input type='text' class="des" placeholder="备注">
+          </label>
+        </li>
+        <li>
+          <button class="red-btn do-order">提交</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript" src='../js/lib.js'></script>
+  <script type="text/javascript" src='../js/api.js'></script>
+  <script type="text/javascript" src='../js/loadcomment.js'></script>
+  <script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
+  <script type="text/javascript">
+  var $header = $('.header');
+  $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/store/detail', {
+    "userName": "test",
+    "address": "gz",
+    id: 123
+  }, function(res) {
+    data = res.data;
+    $api.imgAdapt($header.find('.header__main .img'), data.titlePicture.path);
+
+    $header.find('h3').text(data.storeName);
+    $header.find('.view-count').text(data.viewCount);
+    $header.find('.comment-count').text(data.commentCount);
+    $header.find('.des').text(data.storeDesc);
+    $header.find('.address span').text(data.detailAddress)
+    $header.find('.tel span').text(data.tel);
+    $header.find('.service-time time').text(data.serviceTime);
+
+    data.storeServices.forEach(function(item, index) {
+      var item = $('<li>' + item.serviceName + '</li>');
+      $('.site-service ul').append(item);
+    })
+
+
+    data.storePictures.forEach(function(item, index) {
+      console.log(item);
+      var img = $('<figure>\
+            <img src="' + item.picture.path + '">\
+            <figcaption>' + item.remark + '</figcaption>\
+          </figure>');
+      $('.site-pic').append(img);
+    });
+  });
+  $.loadComment({
+    "pageNum": 1,
+    "pageSize": 5,
+    "refId": 434,
+    "type": 4,
+    "userId": 81177
+  });
+
+  $('.mark').on('click', function() {
+    $('.order-pop').show();
+  })
+  
+  $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":8,"userId":81177});
+
+  +function() {
+    var curr = new Date().getFullYear();
+
+    var opt = {
+      display: "bottom",
+      lang: "zh",
+      maxDate: new Date(2100, 3, 10, 9, 22),
+      minDate: new Date(),
+      mode: "scroller",
+      preset: "datetime",
+      stepMinute: 5,
+      theme: "ios",
+    };
+
+    $('.order-time').val('').scroller('destroy').scroller(opt);
+  }();
+
+  +function () {
+    $('.order-type').on('click', 'button', function(e) {
+      $('.order-type button').removeClass('check');
+      $(e.target).addClass('check');
+    })
+  }();
+
+  $('.do-order').on('click', function() {
+      var orderInfo = $('.pop'),
+        name = orderInfo.find('.name').val().trim(),
+        tel = orderInfo.find('.tel').val().trim(),
+        type = orderInfo.find('.order-type .check').text(),
+        time = orderInfo.find('.order-time').val().trim(),
+        des = orderInfo.find('.des').val();
+      if(!name) {
+        alert('请输入姓名');
+        return;
+      }
+
+      if(!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
+        alert('请正确输入联系方式');
+        return;
+      }
+
+      if (orderInfo.find('.order-type .check').length == 0) {
+        alert('请选择预约类型');
+        return;
+      }
+
+      if(!time) {
+        alert('请选择预约时间');
+        return;
+      }
+
+
+      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/user/appoint', {
+        name: name,
+        phoneNum: tel,
+        orderType: type,
+        orderDate: time,
+        des: des
+      }, function(data) {
+        console.log(data);
+        $('.order-pop').hide();
+      })
+    });
+  </script>
+</body>
+
+</html>
