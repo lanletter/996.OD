@@ -13,16 +13,24 @@
 <body>
   <header class="header">
     <div class="header__main">
-      <div class='video'>
-      	<video poster="http://pic.qiantucdn.com/58pic/17/09/84/45U58PICTGg_1024.jpg!/watermark/url/L3dhdGVybWFyay12MS4zLnBuZw==/align/center">
-      		<source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
-      	</video>
-      	<button class="play"></button>
-      </div>
-      <hgroup>
-      	<h3>一道冬天就想到的菜肴</h3>
-      	<h3>一道冬天就想到的菜肴</h3>
-      </hgroup>
+        <!-- 视频无背景 -->
+        <!--<div class='video'>-->
+            <!--<video poster="http://pic.qiantucdn.com/58pic/17/09/84/45U58PICTGg_1024.jpg!/watermark/url/L3dhdGVybWFyay12MS4zLnBuZw==/align/center">-->
+                <!--<source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">-->
+            <!--</video>-->
+            <!--<button class="play"></button>-->
+        <!--</div>-->
+        <!-- 视频有背景 -->
+        <div class='video'>
+            <video poster="none">
+                <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
+            </video>
+            <button class="play"></button>
+        </div>
+        <hgroup>
+      	    <h3>一道冬天就想到的菜肴</h3>
+      	    <h3>一道冬天就想到的菜肴</h3>
+        </hgroup>
     </div>
     <div class="header__opt">
       <span class="view-count"><strong>234</strong></span>
@@ -37,9 +45,12 @@
   		<button class="add-care">加关注</button>
   	</div>
   </section>
+
   <article class="content">
   	
   </article>
+
+  <div class="bottomdiv"></div>
 
   <section class="recommend">
   	<h3 class="section-title">推荐阅读</h3>
@@ -47,7 +58,11 @@
   		
   	</ul>
   </section>
+
+  <div class="bottomdiv"></div>
+
   <div class="ft-comment"></div>
+
   <script type="text/javascript" src='../js/lib.js'></script>
   <script type="text/javascript" src='../js/api.js'></script>
   <script type="text/javascript" src='../js/loadcomment.js'></script>

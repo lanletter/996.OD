@@ -5,7 +5,9 @@
 
 .header__main .video {
     width: 7.5rem;
+    height: 10rem;
     position: relative;
+    background: url("../img/food.jpg") no-repeat;
 }
 
 .header__main video {
@@ -112,7 +114,6 @@
 
 .recommend {
     background-color: #fff;
-    margin-top: 0.2rem;
     padding-bottom: 0.16rem;
 }
 

@@ -2,14 +2,16 @@
 .header{
 	background-color: #fff;
 }
-.header img{
-	width: 7.5rem;
+.header .img{
+	width: 100%;
+	height: 10rem!important;
 }
 .header__main h3{
 	width: 7.5rem;
 	text-align: center;
 	color: #4d5051;
 	margin: 0.5rem 0 0.3rem 0;
+	font-size: 0.36rem;
 }
 
 .header .site-info {
@@ -17,19 +19,27 @@
 }
 .site-info .des{
 	text-align: justify;
-	font-size: 0.33rem;
+	font-weight: 100;
+	font-size: 0.24rem;
+	rgb(76,80,81);
+	letter-spacing: 2px;
 }
 .info ul{
 	border-radius: 10px;
 	margin-top: 0.5rem;
 	overflow: hidden;
 	box-shadow: 2px 2px 1px #ededed;
+	background: rgb(247,247,247);
 }
 .info ul li{
-	padding: 0.3rem 0.6rem;
+	padding: 0 0.24rem;
+}
+.info ul li div{
+	width: 6rem;
+	padding: 0.45rem 0;
 	border-bottom: 1px dashed #d8dae1;
 }
-.info ul li:last-child{border-bottom: none;}
+.info ul li:last-child div{border: none;}
 .info li p{
 	display: inline-block;
 }
@@ -42,17 +52,20 @@
 }
 .info li p span{
 	color: #4d5051;
-	font-size: 0.3rem;
+	font-size: 0.36rem;
 	display: inline-block;
 	max-width: 4rem;
 }
 .info li p strong{
 	display: block;
-	font-size: 0.27rem;
+	font-size: 0.24rem;
 	color: #d8dae1;
 }
-.site-info .address{
-	background-color: #f7f7f7;
+
+.address .hack{
+	position: absolute;
+	float: right;
+	margin: -1.5rem 0 0 5.3rem;
 }
 .site-info .address i{
 	background:url(../img/car.png);
@@ -62,6 +75,9 @@
 	background:url(../img/phone.png);
 	background-size: 0.7rem 0.7rem;
 }
+.site-info .address{
+	background-color:rgb(247,247,247);
+}
 .site-info .tel,
 .site-info .service-time{
 	background-color: #ededed;
@@ -70,16 +86,20 @@
 .content .site-service,
 .content .site-pic{
 	padding: 0.2rem;
-	margin-top: 0.2rem;
 	background-color: #fff;
 }
 .content .site-service ul{
 	padding: 0 0.5rem;
 	line-height: 0.4rem;
+	text-align: justify;
+	font-weight: 100;
+	font-size: 0.24rem;
+	rgb(76,80,81);
+	letter-spacing: 2px;
 }
 .site-service .red-btn{
 	float: right;
-	margin: 0.5rem 0.25rem 0 0;
+	margin: 0.48rem 0.24rem 0 0;
 	padding: 0.06rem 0.6rem;
 } 
 .content .site-pic figure{
@@ -97,6 +117,7 @@
 }
 .site-pic img{
 	width: 100%;
+	height: 4.1rem;
 	border-radius: 10px;
 }
 
@@ -158,4 +179,143 @@
 .pop li:last-child{
 	text-align: center;
 	line-height: 1.6rem;
+}
+
+/*移动*/
+
+.red-btn {
+	padding: 0.06rem 0.2rem;
+}
+
+.header__main {
+	position: relative;
+}
+.header__main .buy {
+	position: absolute;
+	bottom: 0.7rem;
+	right: 0.2rem;
+}
+.header__main .dis{
+	background: #676a6c;
+}
+.course {
+	background: #fff;
+	padding: 0.48rem;
+	padding-top: 0.3rem;
+}
+.course-des{
+	font-size: 0.28rem;
+	font-weight: 100;
+	letter-spacing: 0.03rem;
+	color: rgb(76,80,81);
+}
+.course-info {
+	background: #fff;
+}
+
+.author__info {
+	margin-top: 0.3rem;
+	float: left;
+}
+
+.author__info img {
+	width: 0.8rem;
+	height: 0.8rem;
+	border-radius: 50%;
+	vertical-align: sub;
+}
+
+.author__info span {
+	color: #4d5051;
+	margin-left: 0.2rem;
+}
+
+.course-info-box {
+	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+}
+
+.course-info ul {
+	margin-top: 0;
+}
+
+.course-info .teacher-box,
+.course-time,
+.people-num,
+.food-type {
+	background: #f7f7f7;
+}
+
+.title-box h3 {
+	float: left;
+	margin-bottom: 0;
+}
+
+.title-box span:after {
+	content: '';
+	display: inline-block;
+	background: url(../img/nen.png);
+	background-size: 0.1rem 0.2rem;
+	width: 0.1rem;
+	height: 0.2rem;
+	vertical-align: -0.01rem;
+}
+
+.course-info li:last-child {
+	margin-top: -1px;
+	height: 1rem;
+	font-size: 0.4rem;
+	color: #fff;
+	line-height: 1rem;
+	text-align: center;
+}
+
+.teacher .red-btn {
+	float: right;
+	margin-top: 0.4rem;
+}
+
+.teacher .say {
+	max-width: 2.6rem;
+}
+
+.teacher .red-btn:before {
+	content: '';
+	display: inline-block;
+	width: 0.3rem;
+	height: 0.3rem;
+	background: url(../img/care.png);
+	background-size: 0.3rem 0.3rem;
+	vertical-align: middle;
+	margin-right: 0.02rem;
+}
+
+.people-num {
+	position: relative;
+}
+
+.people-num svg {
+	position: absolute;
+	left: 1.55rem;
+	top:0.6rem;
+}
+
+.title-box span {
+	float: right;
+	margin: 0.2rem 0.2rem 0 0;
+}
+
+.course-time p{
+	display: inline-block;
+}
+.course-time p:nth-of-type(2) {
+	margin-left: 1rem;
+}
+
+.buy-box {
+	height: 1.9rem!important;
+	line-height: 1.9rem!important;
+	background: rgb(255,101,101);
+}
+.buy-box a{
+	color: #fff;
 }
