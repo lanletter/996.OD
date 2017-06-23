@@ -1,4 +1,5 @@
 + function() {
+  var isEmpty = false;
 
   function loadComment(obj, pageNum) {
     obj.pageNum = pageNum
@@ -10,6 +11,7 @@
 
     function callback(res) {
       var data = res.data;
+      isEmpty = data.length == 0;
       if (data.length == 0 && obj.pageNum == 1) {
         var noComment = '<div class="ft-comment__header clearfix left-right">\
           <span class="left">评论 <i></i></span>\
@@ -59,6 +61,7 @@
       var scrollHeight = $(document).height();　　
       var windowHeight = $(this).height();　　
       if (scrollTop + windowHeight == scrollHeight) {
+        if (isEmpty) return;
         pageNum += 1;
         loadComment(obj, pageNum);
       }

@@ -71,45 +71,48 @@
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
     <div class="order-pop">
-      <ul class="pop">
-        <li>
-          <label>
-            <span class="key first">您的姓名</span>
-            <input class="name" type="text" placeholder="姓名">
-          </label>
-        </li>
-        <li>
-          <label>
-            <span class="key">联系方式</span>
-            <input type="tel" class="tel" placeholder="联系方式">
-          </label>
-        </li>
-        <li>
-          <div class="order-type">
-            <span class="key">预约类型</span>
-            <div>
-              <button class="type-btn">场地参观</button>
-              <button class="type-btn">场地租赁</button>
-              <button class="type-btn">定制课程</button>
+      <div class="pop">
+        <span class="close"></span>
+        <ul>
+          <li>
+            <label>
+              <span class="key first">您的姓名</span>
+              <input class="name" type="text" placeholder="姓名">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span class="key">联系方式</span>
+              <input type="tel" class="tel" placeholder="联系方式">
+            </label>
+          </li>
+          <li>
+            <div class="order-type">
+              <span class="key">预约类型</span>
+              <div>
+                <button class="type-btn">场地参观</button>
+                <button class="type-btn">场地租赁</button>
+                <button class="type-btn">定制课程</button>
+              </div>
             </div>
-          </div>
-        </li>
-        <li>
-          <label>
-            <span class="key">预约时间</span>
-            <input type="text" class="order-time" placeholder="预约时间">
-          </label>
-        </li>
-        <li>
-          <label>
-            <span class="key">备注</span>
-            <input type='text' class="des" placeholder="备注">
-          </label>
-        </li>
-        <li>
-          <button class="red-btn do-order">提交</button>
-        </li>
-      </ul>
+          </li>
+          <li>
+            <label>
+              <span class="key">预约时间</span>
+              <input type="text" class="order-time" placeholder="预约时间">
+            </label>
+          </li>
+          <li>
+            <label>
+              <span class="key">备注</span>
+              <input type='text' class="des" placeholder="备注">
+            </label>
+          </li>
+          <li>
+            <button class="red-btn do-order">提交</button>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   </div>
@@ -161,10 +164,16 @@
   $('.mark').on('click', function() {
     $('.order-pop').show();
   })
-  
-  $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":8,"userId":81177}, 1);
 
-  +function() {
+  $.loadComment({
+    "pageNum": 1,
+    "pageSize": 5,
+    "refId": 434,
+    "type": 8,
+    "userId": 81177
+  }, 1);
+
+  + function() {
     var curr = new Date().getFullYear();
 
     var opt = {
@@ -181,7 +190,7 @@
     $('.order-time').val('').scroller('destroy').scroller(opt);
   }();
 
-  +function () {
+  + function() {
     $('.order-type').on('click', 'button', function(e) {
       $('.order-type button').removeClass('check');
       $(e.target).addClass('check');
@@ -189,44 +198,47 @@
   }();
 
   $('.do-order').on('click', function() {
-      var orderInfo = $('.pop'),
-        name = orderInfo.find('.name').val().trim(),
-        tel = orderInfo.find('.tel').val().trim(),
-        type = orderInfo.find('.order-type .check').text(),
-        time = orderInfo.find('.order-time').val().trim(),
-        des = orderInfo.find('.des').val();
-      if(!name) {
-        alert('请输入姓名');
-        return;
-      }
+    var orderInfo = $('.pop'),
+      name = orderInfo.find('.name').val().trim(),
+      tel = orderInfo.find('.tel').val().trim(),
+      type = orderInfo.find('.order-type .check').text(),
+      time = orderInfo.find('.order-time').val().trim(),
+      des = orderInfo.find('.des').val();
+    if (!name) {
+      alert('请输入姓名');
+      return;
+    }
 
-      if(!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
-        alert('请正确输入联系方式');
-        return;
-      }
+    if (!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
+      alert('请正确输入联系方式');
+      return;
+    }
 
-      if (orderInfo.find('.order-type .check').length == 0) {
-        alert('请选择预约类型');
-        return;
-      }
+    if (orderInfo.find('.order-type .check').length == 0) {
+      alert('请选择预约类型');
+      return;
+    }
 
-      if(!time) {
-        alert('请选择预约时间');
-        return;
-      }
+    if (!time) {
+      alert('请选择预约时间');
+      return;
+    }
 
 
-      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/user/appoint', {
-        name: name,
-        phoneNum: tel,
-        orderType: type,
-        orderDate: time,
-        des: des
-      }, function(data) {
-        console.log(data);
-        $('.order-pop').hide();
-      })
-    });
+    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/user/appoint', {
+      name: name,
+      phoneNum: tel,
+      orderType: type,
+      orderDate: time,
+      des: des
+    }, function(data) {
+      console.log(data);
+      $('.order-pop').hide();
+    })
+  });
+  $('.close').on('click', function () {
+    $('.order-pop').hide();
+  })
   </script>
 </body>
 

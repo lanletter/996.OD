@@ -134,13 +134,22 @@
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.2);
 }
+.pop .close{
+	background: url(../img/close.png);
+	background-size: 16px 16px;
+	position: absolute;
+	right: 0.5rem;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
 .order-pop .pop{
 	position: absolute;
 	top:50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 6rem;
-	height: 7.6rem;
+	height: 8rem;
 	background-color: #fff;
 	border-radius: 5px;
 	padding: 0.4rem;
