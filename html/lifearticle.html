@@ -105,6 +105,8 @@
         $header.find('.comment-count strong').text(data.commentCount);
         $header.find('.favorite-count strong').text(data.favoriteCount);
 
+        $('.add-care').data('id', data.id).data('follow', false);
+
         $('.author__info img').attr('src', data.author.picture.path);
         $('.author__info span').text(data.author.name);
 
@@ -124,15 +126,26 @@
 
       $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":5,"userId":81177}, 1);
 
-      $('.add-care').on('click', function() { // 添加关注
-        console.log('关注');
-        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cook',{
-          "refId": 961,
-          "type": 1,
-          "userId": 85507
-        }, function (data) {
-          console.log(data);
-        })
+      $('.add-care').on('click', function(e) {
+        var id = $(e.target).data('id'),
+          follow = $(e.target).data('follow');
+        if (follow) {
+          $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cookCancel', { 
+            "refId": id, 
+            "type": 2, 
+            "userId": 85507
+          }, function (data) {
+            $(e.target).data('follow', false).text('加关注');
+          });
+        } else {
+          $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cook', { 
+            "refId": id, 
+            "type": 2, 
+            "userId": 85507
+          }, function (data) {
+            $(e.target).data('follow', true).text('已关注');
+          });
+        }
       })
     });
   </script>
