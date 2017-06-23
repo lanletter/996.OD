@@ -7,11 +7,15 @@
 	height: 10rem!important;
 }
 .header__main h3{
-	width: 7.5rem;
+	width: 3.6rem;
+	max-height: 1rem;
 	text-align: center;
 	color: #4d5051;
-	margin: 0.5rem 0 0.3rem 0;
+	margin: 0.54rem auto 0.16rem auto;
 	font-size: 0.36rem;
+	word-break:keep-all;
+	white-space:nowrap;
+	display: block;
 }
 
 .header .site-info {
@@ -136,7 +140,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 6rem;
-	height: 7rem;
+	height: 7.6rem;
 	background-color: #fff;
 	border-radius: 5px;
 	padding: 0.4rem;
@@ -192,7 +196,7 @@
 }
 .header__main .buy {
 	position: absolute;
-	bottom: 0.7rem;
+	top: 9.68rem;
 	right: 0.2rem;
 }
 .header__main .dis{

@@ -23,12 +23,15 @@
 	text-align: center;
 }
 .title h3{
-	width: 3.34rem;
+	width: 3.36rem;
 	height: 0.8rem;
 	text-align: center;
 	font-size: 0.28rem;
 	text-shadow:0 2px 2px rgba(0,0,0, 0.5) ;
 	margin: 1.52rem 0 0 0.68rem;
+	word-break:keep-all;
+	white-space:nowrap;
+	display: block;
 }
 .lifetime{
 	position: absolute;

@@ -8,10 +8,13 @@
     height: 10rem;
     position: relative;
     background: url("../img/food.jpg") no-repeat;
+    background-size: cover;
 }
 
 .header__main video {
     width: 7.5rem;
+    position: absolute;
+    top:0;
 }
 
 .header__main hgroup {
@@ -19,9 +22,15 @@
 }
 
 .header__main h3 {
+    width: 3.6rem;
+    height: 1rem;
     text-align: center;
     font-size: 0.36rem;
     color: rgb(76,80,81);
+    word-break:keep-all;
+    white-space:nowrap;
+    display: block;
+    margin: 0 auto;
 }
 
 .header__main .play {
