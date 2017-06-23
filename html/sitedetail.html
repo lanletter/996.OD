@@ -16,7 +16,7 @@
   <div>
     <header class="header">
       <div class="header__main">
-        <div class="img"></div>
+        <div class="site-img"></div>
         <h3></h3>
       </div>
       <div class="header__opt">
@@ -128,7 +128,7 @@
     id: 123
   }, function(res) {
     data = res.data;
-    $api.imgAdapt($header.find('.header__main .img'), data.titlePicture.path);
+    $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 3/4);
 
     $header.find('h3').text(data.storeName);
     $header.find('.view-count').text(data.viewCount);
@@ -145,7 +145,6 @@
 
 
     data.storePictures.forEach(function(item, index) {
-      console.log(item);
       var img = $('<figure>\
             <img src="' + item.picture.path + '">\
             <figcaption>' + item.remark + '</figcaption>\
@@ -159,7 +158,7 @@
     "refId": 434,
     "type": 4,
     "userId": 81177
-  });
+  }, 1);
 
   $('.mark').on('click', function() {
     $('.order-pop').show();
@@ -233,7 +232,7 @@
       des: des
     }, function(data) {
       $('.order-pop').hide();
-      $api.toast('提交陈功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 243000)
+      $api.toast('提交陈功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
     })
   });
   $('.close').on('click', function () {

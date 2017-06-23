@@ -570,9 +570,10 @@
     );
   };
 
-  u.imgAdapt = function(el, url) {
+  u.imgAdapt = function(el, url, scale) {
+    scale = scale || (9/ 16);
     var imgWidth = window.document.documentElement.getBoundingClientRect().width,
-      imgHeight = imgWidth * 9 / 16;
+      imgHeight = imgWidth * scale;
 
     el.css({
       'background': 'url("' + url + '") no-repeat center center',
