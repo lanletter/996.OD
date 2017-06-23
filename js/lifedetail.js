@@ -36,6 +36,6 @@
       $content.append(data.content);
     }
 
-    $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":5,"userId":81177});
+    $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":5,"userId":81177}, 1);
   });
 }(jQuery);

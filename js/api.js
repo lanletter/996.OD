@@ -625,6 +625,27 @@
       error: err
     });
   }
+
+  u.throttle = function (fn, delay, atleast, context, args) {
+  var timer = null;
+  var previous = null;
+
+  return function () {
+    var now = +new Date();
+
+    if (!previous) previous = now;
+
+    if (now - previous > atleast) {
+        fn.apply(context, args);
+        previous = now;
+    } else {
+       clearTimeout(timer);
+       timer = setTimeout(function () {
+         fn.apply(context, args);
+      }, delay)   
+    }
+  }
+}
     
 
 /*end*/

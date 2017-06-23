@@ -1,21 +1,25 @@
-+function() {
-  function loadComment(obj) {
-    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj, 
++ function() {
+
+  function loadComment(obj, pageNum) {
+    obj.pageNum = pageNum
+    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj,
       function(res) {
         callback(res);
       }
     )
-    function callback (res) {
+
+    function callback(res) {
       var data = res.data;
-      if(data.length == 0) {
+      if (data.length == 0 && obj.pageNum == 1) {
         var noComment = '<div class="ft-comment__header clearfix left-right">\
           <span class="left">评论 <i></i></span>\
           <a href="#""><span class="right comment"></span></a>\
         </div><p>暂无评论，快去抢沙发吧</p>';
-        $('.ft-comment').append($(noComment));
+        $('.ft-comment').empty().append($(noComment));
         return;
       }
-      var template = '<div class="ft-comment__header clearfix left-right">\
+      if (obj.pageNum > 1 && data.length > 0) {
+        var template = '<div class="ft-comment__header clearfix left-right">\
           <span class="left">评论 <i>' + data.length + '</i></span>\
           <a href="#""><span class="right comment"></span></a>\
         </div>\
@@ -41,13 +45,24 @@
           {{/data}}\
         </ul>';
 
-      res.data.forEach(function(item, index) {
-        item.createat = new Date(item.createat).app();
-      });
-      Mustache.parse(template);
-      var rendered = Mustache.render(template, res);
-      $('.ft-comment').append($(rendered));
+        res.data.forEach(function(item, index) {
+          item.createat = new Date(item.createat).app();
+        });
+        Mustache.parse(template);
+        var rendered = Mustache.render(template, res);
+        $('.ft-comment').empty().append($(rendered));
+      }
     }
+
+    $(window).off('scroll').on('scroll', $api.throttle(function() {
+      var scrollTop = $(this).scrollTop();　　
+      var scrollHeight = $(document).height();　　
+      var windowHeight = $(this).height();　　
+      if (scrollTop + windowHeight == scrollHeight) {
+        pageNum += 1;
+        loadComment(obj, pageNum);
+      }
+    }, 500, 200000))
   }
 
   $.loadComment = loadComment;
