@@ -232,8 +232,8 @@
       orderDate: time,
       des: des
     }, function(data) {
-      console.log(data);
       $('.order-pop').hide();
+      $api.toast('提交陈功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 243000)
     })
   });
   $('.close').on('click', function () {

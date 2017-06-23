@@ -513,46 +513,15 @@
       }
     }
   };
-  u.toast = function(title, text, time) {
-    var opts = {};
-    var show = function(opts, time) {
-      api.showProgress(opts);
-      setTimeout(function() {
-        api.hideProgress();
-      }, time);
-    };
-    if (arguments.length === 1) {
-      var time = time || 500;
-      if (typeof title === 'number') {
-        time = title;
-      } else {
-        opts.title = title + '';
-      }
-      show(opts, time);
-    } else if (arguments.length === 2) {
-      var time = time || 500;
-      var text = text;
-      if (typeof text === "number") {
-        var tmp = text;
-        time = tmp;
-        text = null;
-      }
-      if (title) {
-        opts.title = title;
-      }
-      if (text) {
-        opts.text = text;
-      }
-      show(opts, time);
-    }
-    if (title) {
-      opts.title = title;
-    }
-    if (text) {
-      opts.text = text;
-    }
+  u.toast = function(text, time) {
     time = time || 500;
-    show(opts, time);
+    var pop = $('<div class="toast-box">\
+        <p>' + text + '</p>\
+      </div>')
+    $('body').append(pop);
+    setTimeout(function() {
+      $('.toast-box').remove();
+    }, time);
   };
   u.post = function( /*url,data,fnSuc,dataType*/ ) {
     var argsToJson = parseArguments.apply(null, arguments);
@@ -626,29 +595,29 @@
     });
   }
 
-  u.throttle = function (fn, delay, atleast, context, args) {
-  var timer = null;
-  var previous = null;
+  u.throttle = function(fn, delay, atleast, context, args) {
+    var timer = null;
+    var previous = null;
 
-  return function () {
-    var now = +new Date();
+    return function() {
+      var now = +new Date();
 
-    if (!previous) previous = now;
+      if (!previous) previous = now;
 
-    if (now - previous > atleast) {
+      if (now - previous > atleast) {
         fn.apply(context, args);
         previous = now;
-    } else {
-       clearTimeout(timer);
-       timer = setTimeout(function () {
-         fn.apply(context, args);
-      }, delay)   
+      } else {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+          fn.apply(context, args);
+        }, delay)
+      }
     }
   }
-}
-    
 
-/*end*/
+
+  /*end*/
 
 
   window.$api = u;
