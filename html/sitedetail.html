@@ -41,7 +41,7 @@
                 <span></span>
                 <strong>场馆电话</strong>
               </p>
-              <i class="to-call"></i>
+              <a href="#"><i class="to-call"></i></a>
             </div>
           </li>
           <li class="service-time">
@@ -136,6 +136,7 @@
     $header.find('.des').text(data.storeDesc);
     $header.find('.address span').text(data.detailAddress)
     $header.find('.tel span').text(data.tel);
+    $header.find('.tel a').attr('href', 'tel:' + data.tel);
     $header.find('.service-time time').text(data.serviceTime);
 
     data.storeServices.forEach(function(item, index) {
