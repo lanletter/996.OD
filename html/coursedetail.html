@@ -91,7 +91,7 @@
                   <span>021-64735058</span>
                   <strong>场馆电话</strong>
                 </p>
-                <i class="to-call"></i>
+                <a href="#"><i class="to-call"></i></a>
               </div>
             </li>
             <li class="service-time">
@@ -139,6 +139,7 @@
           $header.find('.course-des').text(data.curriculumDesc)
           $('.address span').text(data.store.detailAddress)
           $('.tel span').text(data.store.tel);
+          $('.tel a').attr('href', 'tel:' + data.store.tel);
           $('.service-time time').text(data.store.serviceTime);
           $('.overplus').text(parseInt(data.totalCount) - parseInt(data.currentCount));
           $('.total').text(data.totalCount);
