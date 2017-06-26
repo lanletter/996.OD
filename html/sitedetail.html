@@ -128,7 +128,7 @@
     id: 123
   }, function(res) {
     data = res.data;
-    $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 3/4);
+    $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 4/3);
 
     $header.find('h3').text(data.storeName);
     $header.find('.view-count').text(data.viewCount);
@@ -232,7 +232,7 @@
       des: des
     }, function(data) {
       $('.order-pop').hide();
-      $api.toast('提交陈功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
+      $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
     })
   });
   $('.close').on('click', function () {
