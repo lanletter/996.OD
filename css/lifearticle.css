@@ -1,39 +1,17 @@
-.header {
-    background: #fff;
-    color: #4d5051;
-}
-
-.header__main .video {
+.video {
     width: 7.5rem;
     height: 10rem;
-    position: relative;
+    position: fixed;
     background: url("../img/food.jpg") no-repeat;
     background-size: cover;
+    z-index: 999999;
 }
-
-.header__main video {
+.video video{
     width: 7.5rem;
     position: absolute;
-    top:0;
+    left:-8rem;
 }
-
-.header__main hgroup {
-    margin-top: 0.2rem;
-}
-
-.header__main h3 {
-    width: 3.6rem;
-    height: 1rem;
-    text-align: center;
-    font-size: 0.36rem;
-    color: rgb(76,80,81);
-    word-break:keep-all;
-    white-space:nowrap;
-    display: block;
-    margin: 0 auto;
-}
-
-.header__main .play {
+.video .play {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -46,11 +24,54 @@
     border: none;
 }
 
-.header__main .play:focus {
+.video .noplay:focus {
+    border: none;
+    outline: none;
+}
+.video .noplay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    background: url('../img/play.png');
+    background-size: 1.2rem 1.2rem;
+    margin-left: -0.6rem;
+    margin-top: -0.6rem;
+    border: none;
+}
+
+.video .play:focus {
     border: none;
     outline: none;
 }
 
+#scroll{
+    position: absolute;
+    top:10rem;
+    overflow-y: scroll;
+}
+
+.header {
+    background: #fff;
+    color: #4d5051;
+}
+.header__main hgroup {
+    padding-top: 0.2rem;
+}
+
+.header__main h3 {
+    width: 5rem;
+    max-height: 1rem;
+    text-align: center;
+    font-size: 0.36rem;
+    color: rgb(76,80,81);
+    display: block;
+    margin: 0 auto;
+}
+
+
+.authorbox{overflow: hidden;}
 .author {
     background-color: #fff;
     padding:0 0.2rem;
@@ -85,15 +106,14 @@
 
 .author .add-care {
     width: 1.28rem;
-    padding: 0;
     height: 0.44rem;
     color: #fff;
     background-color: #fd6669;
     float: right;
     margin-top: 0.58rem;
-    border: none;
-    border-radius: 10px;
+    border-radius: 0.28rem;
     font-size: 0.16rem;
+    font-weight: 100;
 }
 
 .author .add-care:before {
@@ -104,14 +124,14 @@
     background: url(../img/care.png);
     background-size: 0.28rem 0.28rem;
     vertical-align: middle;
-    margin-right: 0.08rem;
+    margin: 0.08rem;
 }
 
 .content {
     background: #fff;
     padding: 0.48rem;
     font-size: 0.32rem;
-    font-weight: 100;
+    font-weight: lighter;
     letter-spacing: 0.03rem;
     color: rgb(76,80,81);
 }
@@ -135,7 +155,7 @@
 }
 
 .recommend__info img {
-    width: 1.2rem;
+    width: 2.12rem;
     height: 1.2rem;
 }
 
@@ -151,7 +171,8 @@
     width: 3.8rem;
     height: 0.28rem;
     font-size: 0.2rem;
-    margin:0 0 0 0.72rem;
+    font-weight: 100;
+    margin:0 0 0 0.4rem;
     color:rgb(47,47,47) ;
     white-space:nowrap;
     text-overflow:ellipsis; /* for internet explorer */
@@ -160,6 +181,7 @@
 .recommend__info > div span{
     height: 0.28rem;
     font-size: 0.2rem;
-    margin:0 0 0 1.66rem ;
+    font-weight: 100;
+    margin:0 0 0 0.4rem ;
     color:rgb(130,130,130) ;
 }

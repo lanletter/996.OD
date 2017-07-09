@@ -7,7 +7,6 @@
   <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
   <link rel="stylesheet" type="text/css" href="../css/common.css">
   <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
-  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
   <style type="text/css">
     .header__main .title{
       background: transparent;
@@ -29,12 +28,12 @@
           <h3 class="txt">
         	
           </h3>
-          <time>2017年3月4号-2017年4月20日</time>
+          <time></time>
         </div>
       </div>
       <div class="header__opt">
         <span class="view-count"><strong></strong></span>
-        <span class="comment-count"><strong></strong></span>
+        <span class="favorite-count"><strong></strong></span>
       </div>
     </header>
     <article class="content">
@@ -54,23 +53,60 @@
   </div>
   <script type="text/javascript" src='../js/lib.js'></script>
   <script type="text/javascript" src='../js/api.js'></script>
-  <script type="text/javascript" src='../js/loadcomment.js'></script>
   <script type="text/javascript">
     $(function () {
-      var $header = $('.header')
-
-      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/activity/detail', {
-        id: 1231
+      function GetQueryString(name)
+      {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+      }
+      var id = GetQueryString("id");
+      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/activity/detail', {
+        id: 1
       }, function(res) {
         data = res.data;
-        $api.imgAdapt($header.find('.header__main .img'), data.coverPicture.path);
+        console.log(data);
+        var $header = $('.header');
+        var $content = $('.content');
+        $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
+        $header.find('.header__main h3').text(data.longTitle);
+        $header.find('.view-count strong').text(data.viewCount);
+        $header.find('.favorite-count strong').text(data.likeCount);
+        /*title取值*/
+        var txt=data.title;
+        if(txt==undefined){
+          $('head title').text("活动详情");
+        }else {
+          $('head title').text(data.title);
+        }
+        /* 时间戳格式转换 */
+        var starttime=data.startDate;
+        var endtime=data.endDate;
+        function add0(m){return m<10?'0'+m:m }
+        function format(starttime)
+        {
+          var time = new Date(starttime);
+          var year = time.getFullYear();
+          var month = time.getMonth()+1;
+          var date = time.getDate();
+          return year+'年'+add0(month)+'月'+add0(date)+'号';
 
-        $header.find('h3').text(data.longTitle);
-        $header.find('.view-count').text(data.viewCount);
-        $header.find('.comment-count').text(data.commentCount);
-        $('.content').append($(data.content));
+        }
+        function format(endtime)
+        {
+          var time = new Date(endtime);
+          var year = time.getFullYear();
+          var month = time.getMonth()+1;
+          var date = time.getDate();
+          return year+'年'+add0(month)+'月'+add0(date)+'号';
+
+        }
+        $header.find('time').text(format(starttime)+'-'+format(endtime));
+
+        $content.append(data.content);
       });
-      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6,"userId":81177}, 1);
+      //$.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6,"userId":81177}, 1);
     });
   </script>
 </body>

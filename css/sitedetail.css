@@ -5,16 +5,16 @@
 .header .img{
 	width: 100%;
 	height: 10rem!important;
+	background-size:auto 10rem!important;
+	-webkit-background-size:auto 10rem!important;
 }
 .header__main h3{
-	width: 3.6rem;
+	width: 5rem;
 	max-height: 1rem;
 	text-align: center;
 	color: #4d5051;
 	margin: 0.54rem auto 0.16rem auto;
 	font-size: 0.36rem;
-	word-break:keep-all;
-	white-space:nowrap;
 	display: block;
 }
 
@@ -66,15 +66,30 @@
 	color: #d8dae1;
 }
 
-.address .hack{
-	position: absolute;
-	float: right;
-	margin: -1.5rem 0 0 5.3rem;
-}
+
 .site-info .address i{
 	background:url(../img/car.png);
 	background-size: 0.7rem 0.7rem;
 }
+.address{
+	position: relative;
+}
+.address div{
+	display:inline-block;
+}
+.address .to-map{
+	display:inline-block;
+	position: absolute;
+	right: 0.44rem;
+	top:50%;
+	margin-top: -0.35rem;
+	width: 0.7rem;
+	height:0.7rem;
+	background:url(../img/car.png);
+	background-size: 0.7rem 0.7rem;
+	border: none;
+}
+
 .site-info .tel i{
 	background:url(../img/phone.png);
 	background-size: 0.7rem 0.7rem;
@@ -89,7 +104,7 @@
 
 .content .site-service,
 .content .site-pic{
-	padding: 0.2rem;
+	padding: 0.08rem;
 	background-color: #fff;
 }
 .content .site-service ul{
@@ -107,9 +122,9 @@
 	padding: 0.06rem 0.6rem;
 } 
 .content .site-pic figure{
-	width: 7.1rem;
+	width: 7.34rem;
 	position: relative;
-	margin-bottom: 0.2rem;
+	margin-bottom: 0.08rem;
 }
 .site-pic figcaption{
 	position: absolute;
@@ -122,7 +137,7 @@
 .site-pic img{
 	width: 100%;
 	height: 4.1rem;
-	border-radius: 10px;
+	border-radius: 0.12rem;
 }
 
 .order-pop{
@@ -196,10 +211,6 @@
 
 /*移动*/
 
-.red-btn {
-	padding: 0.06rem 0.2rem;
-}
-
 .header__main {
 	position: relative;
 }
@@ -207,6 +218,15 @@
 	position: absolute;
 	top: 9.68rem;
 	right: 0.2rem;
+	width: 2.56rem;
+	height:0.72rem;
+	line-height: 0.72rem;
+	border-radius: 2rem;
+	text-align: center;
+	font-weight: 100;
+	font-size: 0.28rem;
+	color: #fff;
+	box-shadow:0px 2px 4px rgba(255,101,101,0.5) ;
 }
 .header__main .dis{
 	background: #676a6c;
@@ -232,23 +252,34 @@
 }
 
 .author__info img {
-	width: 0.8rem;
-	height: 0.8rem;
+	width: 0.96rem;
+	height: 0.96rem;
 	border-radius: 50%;
-	vertical-align: sub;
+	vertical-align: top;
 }
 
 .author__info span {
 	color: #4d5051;
 	margin-left: 0.2rem;
 }
+.author__info span b{
+	font-size: 0.24rem;
+	font-weight: bold;
+	rgb(47,47,47);
+}
+.author__info span strong{
+	font-size: 0.16rem;
+	font-weight: 100;
+	rgb(130,130,130);
 
+}
 .course-info-box {
 	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 }
 
 .course-info ul {
 	margin-top: 0;
+	box-shadow:0px 2px 4px rgba(0,0,0,0.16) ;
 }
 
 .course-info .teacher-box,
@@ -258,12 +289,12 @@
 	background: #f7f7f7;
 }
 
-.title-box h3 {
+.title-box2 h3 {
 	float: left;
 	margin-bottom: 0;
 }
 
-.title-box span:after {
+.title-box2 span:after {
 	content: '';
 	display: inline-block;
 	background: url(../img/nen.png);
@@ -284,7 +315,10 @@
 
 .teacher .red-btn {
 	float: right;
-	margin-top: 0.4rem;
+	width: 1.28rem;
+	height:0.44rem;
+	font-size: 0.2rem;
+	margin-top: 0.44rem;
 }
 
 .teacher .say {
@@ -294,12 +328,12 @@
 .teacher .red-btn:before {
 	content: '';
 	display: inline-block;
-	width: 0.3rem;
-	height: 0.3rem;
+	width: 0.26rem;
+	height: 0.26rem;
 	background: url(../img/care.png);
-	background-size: 0.3rem 0.3rem;
+	background-size: 0.26rem 0.26rem;
 	vertical-align: middle;
-	margin-right: 0.02rem;
+	margin:0 0.08rem 0 0;
 }
 
 .people-num {
@@ -312,7 +346,7 @@
 	top:0.6rem;
 }
 
-.title-box span {
+.title-box2 span {
 	float: right;
 	margin: 0.2rem 0.2rem 0 0;
 }

@@ -127,34 +127,35 @@ button {
 .header__opt span {
   display: inline-block;
   line-height: 0.4rem;
-  margin-right: 0.28rem;
-  color: rgb(130, 130, 130);
+  margin-right: 0.42rem;
+  color: rgb(201,203,213);
   font-weight: 400;
-  font-size: 0.2rem;
+  font-size: 0.24rem;
 }
+.header__opt span:last-child{margin-right: 0}
 
 .header__opt span:before {
   display: inline-block;
   content: '';
   width: 0.36rem;
   height: 0.36rem;
-  margin-right: 0.12rem;
+  margin-right: 0.04rem;
   vertical-align: top;
 }
 
 .header__opt .view-count:before {
   background: url('../img/rectangle2.png') no-repeat;
-  background-size: 0.4rem 0.4rem;
+  background-size: 0.36rem 0.36rem;
 }
 
 .header__opt .comment-count:before {
   background: url('../img/rectangle775.png') no-repeat;
-  background-size: 0.4rem 0.4rem;
+  background-size: 0.36rem 0.36rem;
 }
 
 .header__opt .favorite-count:before {
   background: url('../img/invalidName.png') no-repeat;
-  background-size: 0.4rem 0.4rem;
+  background-size: 0.36rem 0.36rem;
 }
 
 

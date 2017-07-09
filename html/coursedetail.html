@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>课程详情页</title>
+  <title>课程详情</title>
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
   <link rel="stylesheet" type="text/css" href="../css/common.css">
@@ -11,219 +11,122 @@
 </head>
 
 <body>
-  <div>
-    <header class="header">
-      <div class="header__main">
-        <div class="img" style="height: 10rem;"></div>
-        <a href='#' class="red-btn buy able">购买 &yen;<b></b></a>
-        <h3>方太生活家杭州体验</h3>
-        <span class="red-btn buy dis"></span>
-      </div>
-      <div class="header__opt">
-        <span class="view-count"><i></i><strong>8828</strong></span
-			><span class="comment-count"><i></i><strong>84</strong></span>
-      </div>
-      <article class="course">
-        <p class="course-des">发达饭店萨法</p>
-      </article>
-    </header>
+<div>
+  <header class="header">
+    <div class="header__main">
+      <div class="img" style="height: 10rem;"></div>
+      <a href='#' class="red-btn buy able">购买 &yen;<b></b></a>
+      <h3>
 
+      </h3>
+      <span class="red-btn buy dis"></span>
+    </div>
+    <div class="header__opt">
+        <span class="view-count"><i></i><strong></strong></span
+        ><span class="favorite-count"><i></i><strong></strong></span>
+    </div>
+    <article class="course">
+      <p class="course-des">
+
+      </p>
+    </article>
+  </header>
+
+  <div class="bottomdiv"></div>
+
+  <section class="content">
+    <div class="course-info site-info info">
+      <div class="clearfix title-box2">
+        <h3 class="section-title">课程信息</h3>
+        <span>加入我的课程 </span>
+      </div>
+      <div class="course-info-box">
+        <ul>
+          <li class="teacher-box">
+
+          </li>
+          <li class="course-time">
+            <div>
+              <p>
+                <span><time class="course-time-date">10月24日 周二</time></span>
+                <strong>课程日期</strong>
+              </p>
+              <p>
+                <span><time class="course-time-hour">10:00－18:00</time></span>
+                <strong>课程时间</strong>
+              </p>
+            </div>
+          </li>
+          <li class="people-num">
+            <div>
+              <p>
+                <span><b class="overplus"></b>人</span>
+                <strong>剩余人数</strong>
+              </p>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height='35px'>
+                <line x1="0" y1="35" x2="10" y2="0" style="stroke:#d8dae1;stroke-width:2" />
+              </svg>
+              <p style="margin-left: 0.7rem">
+                <span><b class="total"></b>人</span>
+                <strong>总人数</strong>
+              </p>
+            </div>
+          </li>
+          <li class="food-type">
+            <div>
+              <p>
+                <span></span>
+                <strong>菜式类别</strong>
+              </p>
+            </div>
+          </li>
+          <li class="address">
+            <div>
+              <p>
+                <span></span>
+                <strong>场馆地址</strong>
+              </p>
+            </div>
+            <form  name="frm"  method="get"  onsubmit = "return foo()" >
+              <input class="to-map"  type="submit" value=""/>
+            </form>
+          </li>
+          <li class="tel">
+            <div>
+              <p>
+                <span></span>
+                <strong>场馆电话</strong>
+              </p>
+              <a href="#"><i class="to-call"></i></a>
+            </div>
+          </li>
+          <li class="service-time">
+            <div>
+              <p>
+                <span>全年 <time></time></span>
+                <strong>服务时间</strong>
+              </p>
+            </div>
+          </li>
+          <li class="buy-box">
+            <a href="#" class="buy able">立即购买 &yen;<b></b></a>
+            <span class="dis"></span>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="bottomdiv"></div>
-
-    <section class="content">
-      <div class="course-info site-info info">
-        <div class="clearfix title-box">
-          <h3 class="section-title">课程信息</h3>
-          <span>加入我的课程 </span>
-        </div>
-        <div class="course-info-box">
-          <ul>
-            <li class="teacher-box">
-            
-            </li>
-            <li class="course-time">
-              <div>
-                <p>
-                  <span><time>10月24日 周二</time></span>
-                  <strong>课程日期</strong>
-                </p>
-                <p>
-                  <span><time>10:00-－18:00</time></span>
-                  <strong>课程时间</strong>
-                </p>
-              </div>
-            </li>
-            <li class="people-num">
-              <div>
-                <p>
-                  <span><b class="overplus">10</b>人</span>
-                  <strong>剩余人数</strong>
-                </p>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" height='35px'>
-                  <line x1="0" y1="35" x2="10" y2="0" style="stroke:#d8dae1;stroke-width:2" />
-                </svg>
-                <p style="margin-left: 0.7rem">
-                  <span><b class="total">12</b>人</span>
-                  <strong>总人数</strong>
-                </p>
-              </div>
-            </li>
-            <li class="food-type">
-              <div>
-                <p>
-                  <span>日式料理</span>
-                  <strong>菜式类别</strong>
-                </p>
-              </div>
-            </li>
-            <li class="address">
-              <div>
-                <p>
-                  <span>上海徐汇去桃江路8号</span>
-                  <strong>场馆地址</strong>
-                </p>
-              </div>
-              <i class="to-map hack"></i>
-            </li>
-            <li class="tel">
-              <div>
-                <p>
-                  <span>021-64735058</span>
-                  <strong>场馆电话</strong>
-                </p>
-                <a href="#"><i class="to-call"></i></a>
-              </div>
-            </li>
-            <li class="service-time">
-              <div>
-                <p>
-                  <span>全年 <time></time></span>
-                  <strong>服务时间</strong>
-                </p>
-              </div>
-            </li>
-            <li class="buy-box">
-              <a href="#" class="buy able">立即购买 &yen;<b></b></a>
-              <span class="dis"></span>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="bottomdiv"></div>
-      <div class="site-pic">
-        <h3 class="section-title">菜式图集</h3>
-      </div>
-    </section>
-    <div class="bottomdiv"></div>
-    <div class="ft-comment"></div>
-  </div>
-  <script type="text/javascript" src='../js/lib.js'></script>
-  <script type="text/javascript" src='../js/api.js'></script>
-  <script type="text/javascript" src='../js/loadcomment.js'></script>
-  <script type="text/javascript">
-    $(function () {
-      var $header = $('.header')
-  
-
-      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/curriculumn/detail', {
-         "userName": "test",
-          "address": "gz", 
-          id: 123 
-      }, function(data) {
-        data = data.data;
-          $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
-
-          $header.find('h3').text(data.curriculumName);
-          $header.find('.view-count').text(data.viewCount);
-          $header.find('.comment-count').text(data.commentCount);
-          $header.find('.course-des').text(data.curriculumDesc)
-          $('.address span').text(data.store.detailAddress)
-          $('.tel span').text(data.store.tel);
-          $('.tel a').attr('href', 'tel:' + data.store.tel);
-          $('.service-time time').text(data.store.serviceTime);
-          $('.overplus').text(parseInt(data.totalCount) - parseInt(data.currentCount));
-          $('.total').text(data.totalCount);
-          $('.food-type span').text(data.styleType);
-
-          switch(data.status) {
-            case 'NEW': // 起售
-              
-            case 'PRE': // 预售
-              $('.buy b').text(parseInt(data.price).toFixed(2));
-              $('.dis').hide();
-            break;
-            case 'EXD': // 已失效
-              $('.able').hide();
-              $('.dis').text('已开课');
-              $('.buy-box').css('background', '#676a6c')
-            break;
-            case 'DON': //已售罄
-              $('.able').hide();
-              $('.dis').text('已售罄');
-              $('.buy-box').css('background', '#676a6c')
-            break;
-            case 'DBL': // 不可用
-              $('.able').hide();
-              $('.dis').text('不可用');
-              $('.buy-box').css('background', '#676a6c')
-            break;
-            default:
-             console.log('no');
-
-          }
-          
-
-          data.cookList.forEach(function(item, index) {
-            var cooker = $('<section class="author teacher">\
-                <div class="clearfix">\
-                  <p class="author__info">\
-                    <img src="' + item.picture.path + '">\
-                    <span>\
-                      <b>' + item.cookName + '</b>\
-                      <strong class="text-overflow say">' + item.remark + '</strong>\
-                    </span></p>\
-                  <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button>\
-                </div>\
-              </section>');
-            $('.teacher-box').append(cooker);
-          })
-
-          data.menuList.forEach(function(item, index) {
-            console.log(item);
-            var img = $('<figure>\
-              <img src="' + item.picture.path + '">\
-              <figcaption>' + item.remark + '</figcaption>\
-            </figure>');
-            $('.site-pic').append(img);
-
-          })
-      })
-
-      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":2,"userId":81177}, 1);
-
-      $('.course-info').on('click', '.add-care', function(e) {
-        var id = $(e.target).data('id'),
-          follow = $(e.target).data('follow');
-        if (follow) {
-          $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cookCancel', { 
-            "refId": id, 
-            "type": 2, 
-            "userId": 85507
-          }, function (data) {
-            $(e.target).data('follow', false).text('加关注');
-          });
-        } else {
-          $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/follow/cook', { 
-            "refId": id, 
-            "type": 2, 
-            "userId": 85507
-          }, function (data) {
-            $(e.target).data('follow', true).text('已关注');
-          });
-        }
-      })
-    });
-  </script>
+    <div class="site-pic">
+      <h3 class="section-title">菜式图集</h3>
+    </div>
+  </section>
+  <div class="bottomdiv"></div>
+  <div class="ft-comment"></div>
+</div>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src="../js/coursedetail.js"></script>
 </body>
 
 </html>
