@@ -5,16 +5,16 @@
 .header .img{
 	width: 100%;
 	height: 10rem!important;
+	background-size:auto 10rem!important;
+	-webkit-background-size:auto 10rem!important;
 }
 .header__main h3{
-	width: 3.6rem;
+	width: 5rem;
 	max-height: 1rem;
 	text-align: center;
 	color: #4d5051;
 	margin: 0.54rem auto 0.16rem auto;
 	font-size: 0.36rem;
-	word-break:keep-all;
-	white-space:nowrap;
 	display: block;
 }
 
@@ -66,15 +66,30 @@
 	color: #d8dae1;
 }
 
-.address .hack{
-	position: absolute;
-	float: right;
-	margin: -1.5rem 0 0 5.3rem;
-}
+
 .site-info .address i{
 	background:url(../img/car.png);
 	background-size: 0.7rem 0.7rem;
 }
+.address{
+	position: relative;
+}
+.address div{
+	display:inline-block;
+}
+.address .to-map{
+	display:inline-block;
+	position: absolute;
+	right: 0.44rem;
+	top:50%;
+	margin-top: -0.35rem;
+	width: 0.7rem;
+	height:0.7rem;
+	background:url(../img/car.png);
+	background-size: 0.7rem 0.7rem;
+	border: none;
+}
+
 .site-info .tel i{
 	background:url(../img/phone.png);
 	background-size: 0.7rem 0.7rem;
@@ -89,7 +104,7 @@
 
 .content .site-service,
 .content .site-pic{
-	padding: 0.2rem;
+	padding: 0.08rem;
 	background-color: #fff;
 }
 .content .site-service ul{
@@ -107,9 +122,9 @@
 	padding: 0.06rem 0.6rem;
 } 
 .content .site-pic figure{
-	width: 7.1rem;
+	width: 7.34rem;
 	position: relative;
-	margin-bottom: 0.2rem;
+	margin-bottom: 0.08rem;
 }
 .site-pic figcaption{
 	position: absolute;
@@ -122,7 +137,7 @@
 .site-pic img{
 	width: 100%;
 	height: 4.1rem;
-	border-radius: 10px;
+	border-radius: 0.12rem;
 }
 
 .order-pop{
@@ -196,10 +211,6 @@
 
 /*移动*/
 
-.red-btn {
-	padding: 0.06rem 0.2rem;
-}
-
 .header__main {
 	position: relative;
 }
@@ -207,6 +218,15 @@
 	position: absolute;
 	top: 9.68rem;
 	right: 0.2rem;
+	width: 2.56rem;
+	height:0.72rem;
+	line-height: 0.72rem;
+	border-radius: 2rem;
+	text-align: center;
+	font-weight: 100;
+	font-size: 0.28rem;
+	color: #fff;
+	box-shadow:0px 2px 4px rgba(255,101,101,0.5) ;
 }
 .header__main .dis{
 	background: #676a6c;
@@ -232,23 +252,34 @@
 }
 
 .author__info img {
-	width: 0.8rem;
-	height: 0.8rem;
+	width: 0.96rem;
+	height: 0.96rem;
 	border-radius: 50%;
-	vertical-align: sub;
+	vertical-align: top;
 }
 
 .author__info span {
 	color: #4d5051;
 	margin-left: 0.2rem;
 }
+.author__info span b{
+	font-size: 0.24rem;
+	font-weight: bold;
+	rgb(47,47,47);
+}
+.author__info span strong{
+	font-size: 0.16rem;
+	font-weight: 100;
+	rgb(130,130,130);
 
+}
 .course-info-box {
 	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 }
 
 .course-info ul {
 	margin-top: 0;
+	box-shadow:0px 2px 4px rgba(0,0,0,0.16) ;
 }
 
 .course-info .teacher-box,
@@ -258,12 +289,25 @@
 	background: #f7f7f7;
 }
 
-.title-box h3 {
+.title-box2 h3 {
 	float: left;
 	margin-bottom: 0;
 }
-
-.title-box span:after {
+.title-box2 span {
+	float: right;
+	margin: 0.2rem 0.2rem 0 0;
+}
+ .title-box2 span:before {
+	 content: '';
+	 display: inline-block;
+	 background: url(../img/shoppingcart.png);
+	 background-size: 0.4rem 0.4rem;
+	 width: 0.4rem;
+	 height: 0.4rem;
+	 vertical-align: -0.1rem;
+	 margin-right: 0.1rem;
+ }
+.title-box2 span:after {
 	content: '';
 	display: inline-block;
 	background: url(../img/nen.png);
@@ -284,7 +328,10 @@
 
 .teacher .red-btn {
 	float: right;
-	margin-top: 0.4rem;
+	width: 1.28rem;
+	height:0.44rem;
+	font-size: 0.2rem;
+	margin-top: 0.44rem;
 }
 
 .teacher .say {
@@ -294,12 +341,12 @@
 .teacher .red-btn:before {
 	content: '';
 	display: inline-block;
-	width: 0.3rem;
-	height: 0.3rem;
+	width: 0.26rem;
+	height: 0.26rem;
 	background: url(../img/care.png);
-	background-size: 0.3rem 0.3rem;
+	background-size: 0.26rem 0.26rem;
 	vertical-align: middle;
-	margin-right: 0.02rem;
+	margin:0 0.08rem 0 0;
 }
 
 .people-num {
@@ -312,10 +359,7 @@
 	top:0.6rem;
 }
 
-.title-box span {
-	float: right;
-	margin: 0.2rem 0.2rem 0 0;
-}
+
 
 .course-time p{
 	display: inline-block;
@@ -328,7 +372,194 @@
 	height: 1.9rem!important;
 	line-height: 1.9rem!important;
 	background: rgb(255,101,101);
+	box-shadow:0px 2px 4px rgba(0,0,0,0.16) ;
 }
 .buy-box a{
+	display: block;
 	color: #fff;
+	height: 1.9rem!important;
+	line-height: 1.9rem!important;
+}
+
+.dark-bg{
+	width: 100%;
+	height: 100%;
+	background:rgba(47,47,47,0.7);
+	z-index: 1;
+	display: none;
+	position: fixed;
+	top:0;
+	left: 0;
+}
+.buynow-div{
+	z-index: 2;
+	width: 100%;
+	height:9.8rem;
+	background: #fff;
+	display: none;
+	position: fixed;
+	bottom:0;
+	left: 0;
+}
+.buynow-div .editlist{
+	margin:0 0.22rem 0 0.22rem;
+}
+.buynow-div .editlist>li{
+	padding:0.2rem 0;
+	position: relative;
+}
+.buynow-div .boedert{
+	border-top: 1px solid rgb(237,237,237);
+	padding-bottom: 0.25rem;
+	margin-top: 0.05rem;
+}
+.buynow-div .editlist>li span{
+	color: rgb(47,47,47);
+	font-size: 0.32rem;
+	vertical-align: top;
+}
+.buynow-div .editlist>li p{
+	color: rgb(47,47,47);
+	font-size: 0.28rem;
+}
+.buynow-div .editlist>li .lightgrey{
+	display: inline-block;
+	color: rgb(155,155,155);
+	font-size: 0.28rem;
+	max-width: 5rem;
+	margin-top: 2px;
+	line-height: 0.5rem;
+}
+#close-div{
+	width:0.52rem ;
+	height: 0.52rem;
+	position: absolute;
+	right:0.18rem ;
+	top: 0.18rem;
+}
+.buynow-div .editpic{
+	width: 0.34rem;
+	height: 0.34rem;
+	position: absolute;
+	float: right;
+	right: 0.44rem;
+	top:0.28rem;
+}
+.buynow-div .coupon{
+	float: right;
+	color: rgb(255,101,101);
+	font-size: 0.28rem;
+	line-height: 0.5rem;
+}
+.buynow-div .coupon:after{
+	content: '';
+	display: inline-block;
+	background: url(../img/nen2.png);
+	background-size: 0.4rem 0.4rem;
+	width: 0.4rem;
+	height: 0.4rem;
+	vertical-align: -0.09rem;
+}
+.buynow-div .numbox{
+	float: right;
+}
+.buynow-div .numbox input{
+	display: inline-block;
+	height: 0.48rem;
+	width: 0.48rem;
+	background-size: 0.4rem 0.4rem!important;
+	-webkit-background-size:0.4rem 0.4rem!important;
+	border: none;
+}
+.buynow-div .numbox input:first-child{
+	background: url("../img/path2Copy.png") 0.04rem 0.04rem no-repeat ;
+}
+.buynow-div .numbox input:last-child{
+	background: url("../img/group3.png") 0.04rem 0.04rem no-repeat;
+}
+.buynow-div .numbox .num{
+	background: rgb(245,245,245);
+	border: 1px solid rgb(203,203,203);
+	border-radius: 0.08rem;
+	width: 0.92rem;
+	height: 0.48rem;
+	text-align: center;
+	display: inline-block;
+	margin: 0 0.3rem;
+}
+.buynow-div .titlepic{
+	width:3.2rem!important;
+	height: 1.8rem!important;
+	border-radius: 0.08rem!important;
+	display: inline-block;
+	border: none!important;
+}
+.buynow-div .titletxt{
+	display: inline-block;
+	width: 2.88rem;
+	color: rgb(47,47,47);
+	font-size: 0.32rem;
+	line-height: 0.44rem;
+	vertical-align: top;
+	margin: 0.14rem;
+}
+.buynow-div .ttprice{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	border-top:1px solid rgb(237,237,237);
+}
+.buynow-div .ttprice span{
+	font-size: 0.32rem;
+	color: rgb(211,174,77);
+	margin-left: 0.24rem;
+}
+.buynow-div .ttprice s{
+	font-size: 0.28rem;
+	color: rgb(203,203,203);
+	margin-left: 0.14rem;
+	text-decoration: line-through;
+}
+.buynow-div .editbtn{
+	float: right;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	width: 1.8rem;
+	background: rgb(255,101,101);
+	font-size: 0.28rem;
+	color: #fff;
+	letter-spacing: 2px;
+}
+.editarea{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	padding:0.25rem ;
+	display: none;
+	z-index: 3;
+}
+.editarea textarea{
+	width: 6.6rem;
+	height: 2rem;
+	padding: 0.2rem;
+	line-height: 0.5rem;
+	color: #666666;
+	background: rgb(247,247,247);
+	border: none;
+	font-size: 0.28rem;
+	resize:none;
+}
+.editarea button{
+	margin-top: 0.25rem;
+	width: 7rem;
+	height:0.9rem;
+	line-height: 0.9rem;
+	background: rgb(255,101,101);
+	color: #fff;
+	font-size:0.28rem ;
 }

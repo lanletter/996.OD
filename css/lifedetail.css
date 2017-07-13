@@ -29,8 +29,6 @@
 	font-size: 0.28rem;
 	text-shadow:0 2px 2px rgba(0,0,0, 0.5) ;
 	margin: 1.52rem 0 0 0.68rem;
-	word-break:keep-all;
-	white-space:nowrap;
 	display: block;
 }
 .lifetime{
@@ -47,6 +45,7 @@
 	height: 0.4rem;
 	text-align: center;
 	font-size: 0.28rem;
+	font-weight: bold;
 	text-shadow:0 2px 2px rgba(0,0,0, 0.5) ;
 	margin: 1.66rem 0 0 -0.7rem;
 	letter-spacing: 2px;
@@ -61,6 +60,7 @@
 }
 
 .content{
+	min-height:2.4rem ;
 	padding: 0.48rem;
 	background-color: #fff;
 	color: #4c5051;
@@ -69,11 +69,11 @@
 .content .MsoNormal{
 	width: 6.54rem;
 }
-.content .MsoNormal img{
+.content img{
 	width: 7.18rem;
 	margin: 0 -0.32rem;
 }
-
+.MsoNormal:last-child img{margin-bottom: -0.32rem;}
 .active-rule{
 	background-color: #fff;
 	padding-bottom: 0.2rem;

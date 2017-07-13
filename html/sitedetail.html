@@ -2,9 +2,9 @@
 <html>
 
 <head>
-  <title>场馆详情页</title>
+  <title>场馆详情</title>
   <meta charset="utf-8">
-  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0,telephone=yes'>
   <link rel="stylesheet" type="text/css" href="../css/common.css">
   <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
   <link rel="stylesheet" type="text/css" href="../css/sitedetail.css">
@@ -16,12 +16,12 @@
   <div>
     <header class="header">
       <div class="header__main">
-        <div class="site-img"></div>
+        <div class="site-img img"></div>
         <h3></h3>
       </div>
       <div class="header__opt">
-        <span class="view-count"><i></i><strong></strong></span
-      ><span class="comment-count"><i></i><strong></strong></span>
+        <span class="view-count"><i></i><strong></strong></span>
+        <span class="favorite-count"><strong>4321</strong></span>
       </div>
       <div class="site-info info">
         <p class="des"></p>
@@ -32,7 +32,9 @@
                 <span></span>
                 <strong>场馆地址</strong>
               </p>
-              <a href="#"><i class="to-map"></i></a>
+              <form  name="frm"  method="get"  onsubmit = "return foo()" >
+                <input  class="to-map" type="submit" value=""/>
+              </form>
             </div>
           </li>
           <li class="tel">
@@ -69,7 +71,6 @@
       </div>
     </section>
     <div class="bottomdiv"></div>
-    <div class="ft-comment"></div>
     <div class="order-pop">
       <div class="pop">
         <span class="close"></span>
@@ -115,130 +116,12 @@
       </div>
     </div>
   </div>
-  </div>
   <script type="text/javascript" src='../js/lib.js'></script>
   <script type="text/javascript" src='../js/api.js'></script>
   <script type="text/javascript" src='../js/loadcomment.js'></script>
   <script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
+  <script type="text/javascript" src="../js/sitedetail.js"></script>
   <script type="text/javascript">
-  var $header = $('.header');
-  $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/store/detail', {
-    "userName": "test",
-    "address": "gz",
-    id: 123
-  }, function(res) {
-    data = res.data;
-    $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 4/3);
-
-    $header.find('h3').text(data.storeName);
-    $header.find('.view-count').text(data.viewCount);
-    $header.find('.comment-count').text(data.commentCount);
-    $header.find('.des').text(data.storeDesc);
-    $header.find('.address span').text(data.detailAddress)
-    $header.find('.tel span').text(data.tel);
-    $header.find('.tel a').attr('href', 'tel:' + data.tel);
-    $header.find('.service-time time').text(data.serviceTime);
-
-    data.storeServices.forEach(function(item, index) {
-      var item = $('<li>' + item.serviceName + '</li>');
-      $('.site-service ul').append(item);
-    })
-
-
-    data.storePictures.forEach(function(item, index) {
-      var img = $('<figure>\
-            <img src="' + item.picture.path + '">\
-            <figcaption>' + item.remark + '</figcaption>\
-          </figure>');
-      $('.site-pic').append(img);
-    });
-  });
-  $.loadComment({
-    "pageNum": 1,
-    "pageSize": 5,
-    "refId": 434,
-    "type": 4,
-    "userId": 81177
-  }, 1);
-
-  $('.mark').on('click', function() {
-    $('.order-pop').show();
-  })
-
-  $.loadComment({
-    "pageNum": 1,
-    "pageSize": 5,
-    "refId": 434,
-    "type": 8,
-    "userId": 81177
-  }, 1);
-
-  + function() {
-    var curr = new Date().getFullYear();
-
-    var opt = {
-      display: "bottom",
-      lang: "zh",
-      maxDate: new Date(2100, 3, 10, 9, 22),
-      minDate: new Date(),
-      mode: "scroller",
-      preset: "datetime",
-      stepMinute: 5,
-      theme: "ios",
-    };
-
-    $('.order-time').val('').scroller('destroy').scroller(opt);
-  }();
-
-  + function() {
-    $('.order-type').on('click', 'button', function(e) {
-      $('.order-type button').removeClass('check');
-      $(e.target).addClass('check');
-    })
-  }();
-
-  $('.do-order').on('click', function() {
-    var orderInfo = $('.pop'),
-      name = orderInfo.find('.name').val().trim(),
-      tel = orderInfo.find('.tel').val().trim(),
-      type = orderInfo.find('.order-type .check').text(),
-      time = orderInfo.find('.order-time').val().trim(),
-      des = orderInfo.find('.des').val();
-    if (!name) {
-      alert('请输入姓名');
-      return;
-    }
-
-    if (!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
-      alert('请正确输入联系方式');
-      return;
-    }
-
-    if (orderInfo.find('.order-type .check').length == 0) {
-      alert('请选择预约类型');
-      return;
-    }
-
-    if (!time) {
-      alert('请选择预约时间');
-      return;
-    }
-
-
-    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/user/appoint', {
-      name: name,
-      phoneNum: tel,
-      orderType: type,
-      orderDate: time,
-      des: des
-    }, function(data) {
-      $('.order-pop').hide();
-      $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
-    })
-  });
-  $('.close').on('click', function () {
-    $('.order-pop').hide();
-  })
   </script>
 </body>
 
