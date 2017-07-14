@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="../css/common/reset.css" rel="stylesheet">
+    <link href="../css/common/common.css" rel="stylesheet"> 
+    <link href="../css/index.css" rel="stylesheet">    
+    <title>菜谱专题</title>
+  </head>
+  <body>
+    <div class="topic">
+      <div class="box">
+        <img :src="url" alt="">
+        <div class="pictext">
+          <h4>{{title}}</h4>
+          <p>{{data.tags}}</p>
+        </div>
+      </div>
+      <p class="info">{{desc}}</p>
+      <ul class="box-li">
+        <li v-for="item in products">
+          <div class="box-li">
+            <a :href="item.menu.url"><img :src="item.menu.picture.path" alt=""></a>
+            <div class="pictext">
+              <h4>{{item.title}}</h4>
+              <p>{{item.tags}}</p>
+            </div>
+          </div>
+          <p class="info-li">{{item.desc}}</p>    
+        </li>
+
+      </ul>
+    </div>
+
+    <script>
+
+      // 字体控制
+      function setFontsize() {
+          document.querySelector('html').style.fontSize = (window.screen.width / 375 * 10 + 'px');
+      }
+      setFontsize();
+      window.onresize = function() {
+          setFontsize();
+      }
+
+
+
+    </script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-resource1.3.4.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '.topic',
+            data:{
+              title:'',
+              url:'',
+              desc:'',
+              products:'',
+              data:{}
+            },
+            created:function(){
+                var $this = this;
+                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/special/detail','{"id":"67"}').then(function(data){
+                    var data = data.data;
+                    if(data.status == 200){
+                        $this.title = data.data.title;
+                        $this.desc = data.data.desc;
+                        $this.products = data.data.products;
+                        $this.url = data.data.picture.path;
+                        $this.data = data.data;
+                    }
+                    
+                },function(){
+                    console.info('error');
+                });
+
+            }
+        });
+
+    </script>
+
+  </body>
+</html>

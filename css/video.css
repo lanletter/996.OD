@@ -1,0 +1,240 @@
+html, body {
+    height: 100%;
+    background: #fff;
+}
+
+.video-box {
+    width: 7.5rem;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.horizontal {
+    text-align: center;
+}
+
+.horizontal p {
+    color: #fff;
+    font-weight: bold;
+    margin: 1rem 0;
+    font-size: 0.3rem;
+}
+
+.horizontal img {
+    width: 4.5rem;
+}
+
+.end {
+    display: none;
+    height: 100%;
+    overflow: hidden;
+}
+
+.end img {
+    width: 7.5rem;
+}
+
+/* videolist */
+.endlist {
+    display: none;
+    height: 4.04rem;
+    width: 7.18rem;
+    overflow: hidden;
+}
+
+.endlist img {
+    width: 7.18rem;
+    height: 4.04rem;
+}
+
+.video-top {
+    margin: 0.16rem;
+    width: 7.18rem;
+    height: 4.04rem;
+    border-radius: 0.12rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-info {
+    position: absolute;
+    width: 7.18rem;
+    height: 4.04rem;
+}
+
+.video-info .anchor {
+    position: absolute;
+    left: 0.12rem;
+    top: 0.06rem;
+    font-size: 0.2rem;
+    color: rgb(247, 247, 247);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.video-info .livebtn {
+    position: absolute;
+    right: 0.16rem;
+    top: 0.16rem;
+    width: 1.48rem;
+    height: 0.46rem;
+    color: #ffffff;
+    font-size: 0.24rem;
+    text-align: center;
+    border: 1px solid #fff;
+    border-radius: 1.16rem;
+    background: rgba(216, 216, 216, 0.65);
+
+}
+
+.video-info .livetitle {
+    position: absolute;
+    left: 0.16rem;
+    bottom: 0.16rem;
+    font-size: 0.24rem;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.video-info .audience {
+    position: absolute;
+    right: 0.16rem;
+    bottom: 0.16rem;
+    color: #fff;
+    font-weight: 100;
+    font-size: 0.2rem;
+}
+
+.video-list-box {
+    width: 100%;
+}
+
+.video-list-title {
+rgb(47, 47, 47);
+    padding: 0.16rem;
+    font-size: 0.28rem;
+    font-weight: normal;
+}
+
+.video-list-title:before {
+    content: '';
+    display: inline-block;
+    height: 0.33rem;
+    width: 0.06rem;
+    background-color: #000;
+    margin-right: 0.1rem;
+    vertical-align: -0.05rem;
+}
+
+.video-list-ul {
+    background: #ededed;
+}
+
+.video-list-ul li {
+    margin-bottom: 1px;
+    background: #fff;
+    padding: 0.24rem 0 0.24rem 0.24rem;
+    height: 1.92rem;
+    position: relative;
+}
+
+.video-list-ul li time {
+    width: 1.28rem;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    position: absolute;
+    top: 1.84rem;
+    left: 2.38rem;
+    background: rgb(47, 47, 47);
+    border-radius: 0.04rem;
+    color: #fff;
+    text-align: center;
+    font-size: 0.16rem;
+}
+
+.video-list-ul li img {
+    float: left;
+    width: 3.42rem;
+    height: 1.92rem;
+    border-radius: 0.04rem;
+}
+
+.video-describe {
+    float: left;
+    margin-left: 0.24rem;
+    width: 3.38rem;
+}
+
+.video-describe p {
+rgb(47, 47, 47);
+    font-size: 0.28rem;
+    font-weight: bold;
+    height: 0.78rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.video-describe span {
+    display: inline-block;
+    line-height: 0.4rem;
+    margin-right: 0.28rem;
+    color: rgb(130, 130, 130);
+    font-weight: 400;
+    font-size: 0.2rem;
+}
+
+.header__opt {
+    text-align: left !important;
+}
+
+.header__opt span {
+    margin: 0 0.12rem 0 0 !important;
+}
+
+.header__opt span:before {
+    margin: 0 0.22rem 0 0 !important;
+}
+
+/* tab*/
+.video-list-ul li{
+    list-style: none;
+    float:left;
+}
+#tabCon{
+    clear: both;
+    width: 100%;
+}
+#tabCon_1,#tabCon_2,#tabCon_3{
+    display: none;
+}
+#tab ul {
+    height: 0.72rem;
+    background: rgb(247,247,247);
+}
+#tab ul li {
+    float: left;
+    list-style: none;
+    width: 2.4rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+#tab ul li a {
+    display: block;
+    width: 2.4rem;
+    height: 0.68rem;
+    text-decoration: none;
+    color: rgb(201,203,213);
+    font-size: 0.24rem;
+}
+#tab .selected a{
+    color: rgb(255, 101, 101);
+    border-bottom: 0.04rem solid rgb(255, 101, 101);
+}
+

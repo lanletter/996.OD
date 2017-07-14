@@ -1,0 +1,146 @@
+@charset "UTF-8";
+body,
+h1,
+h2,
+h3,
+p,
+dl,
+dd,
+ol,
+ul,
+th,
+td,
+form,
+fieldset,
+input,
+button,
+textarea {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent; }
+
+html {
+  word-wrap: break-word;
+  -webkit-text-size-adjust: none !important; }
+
+body {
+  font-family: Tahoma,Arial,Roboto,”Droid Sans”,”Helvetica Neue”,”Droid Sans Fallback”,”Heiti SC”,sans-self;
+  -webkit-user-select: none;
+  user-select: none; }
+
+h1,
+h2,
+h3 {
+  font-size: 100%; }
+
+ol,
+ul {
+  list-style: none; }
+
+table {
+  font-size: inherit;
+  empty-cells: show;
+  border-spacing: 0;
+  border-collapse: collapse; }
+
+fieldset,
+img {
+  border: 0; }
+
+cite,
+em,
+s,
+i,
+b {
+  font-style: normal; }
+
+input,
+button,
+textarea,
+select {
+  font-size: 100%; }
+
+body,
+input,
+button,
+textarea,
+select,
+option {
+  font-size: normal; }
+
+a,
+input,
+textarea {
+  text-decoration: none;
+  outline: 0; }
+
+li,
+img,
+label,
+input {
+  vertical-align: middle; }
+
+var {
+  font-style: normal; }
+
+ins {
+  text-decoration: none; }
+
+body {
+  -webkit-taphighlight-color: transparent; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body,
+div,
+p,
+ul,
+li,
+textarea,
+form,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+dl,
+dt,
+dd,
+img,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+dialog,
+figure,
+hgroup {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none; }
+
+body {
+  min-width: 320px;
+  /*  max-width:750px;*/
+  margin: 0 auto; }
+
+img {
+  height: auto; }
+
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+input[type='text'],
+input[type='checkbox'] {
+  outline: none;
+  -webkit-appearance: none;
+  /* 去除ios美化input */ }
+
+/*# sourceMappingURL=../../sourcemap/common/reset.css.map */

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="../css/common/reset.css" rel="stylesheet">
+    <link href="../css/common/common.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/jf-info.css" rel="stylesheet">
+    <link href="../css/menu-inpage.css" rel="stylesheet">
+    <title>菜谱内页</title>
+    <style>
+        /*        video::-webkit-media-controls {
+                  display:none !important;
+                }*/
+    </style>
+
+</head>
+<body>
+<div class="jf-buy menupage" v-cloak>
+    <div v-if="data.video" class="focus" style="height:18.75rem;">
+        <div class="playbox">
+            <video  id="video" width="100%" controls="true" :poster="data.picture">
+                <source :src="data.video" type="video/mp4" />
+                Your browser does not support HTML5 video.
+            </video>
+            <div id="play" class="play" @click="play"></div>
+        </div>
+
+
+    </div>
+    <div class="focus" v-else>
+        <!--             <img :src="data.images[0]" alt=""> -->
+        <mt-swipe :auto="4000">
+            <mt-swipe-item v-for="item in data.images">
+                <img :src="item" alt="">
+            </mt-swipe-item>
+
+        </mt-swipe>
+    </div>
+    <div class="title">
+        <h4>{{data.name}}</h4>
+        <p>
+            <span><i class="icon-msg"></i> {{data.comment_count || 0}}</span>
+            <span><i class="icon-broswer"></i> {{data.like_count}}</span>
+        </p>
+        <div class="text">
+            <h5><span>来源</span></h5>
+            <ul class="from h_box">
+                <li class="flex_1">
+                    <img :src="data.users[0].picturePath" alt="">{{data.users[0].name}}
+                </li>
+                <!--                     <li class="flex_1 t-r">
+                                        <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
+                                    </li> -->
+            </ul>
+            <p>{{data.users[0].desc}}</p>
+            <ul class="h_box special">
+                <li>
+                    <i class="icon-easy"></i><span>容易<br/><em>难易程度</em></span>
+                </li>
+                <li><i class="icon-time"></i><span>110分钟<br/><em>预计耗时</em></span></li>
+                <li><i class="icon-num"></i><span>2人<br/><em>适宜人数</em></span></li>
+            </ul>
+        </div>
+
+        <div class="qingdan">
+            <dl>
+                <dt class="tit">
+                    <span class="txt"><i class="icon-1"></i>材料清单</span>
+                    <span class="addin fr">加入菜篮子</span>
+                </dt>
+                <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
+                <!--                     <div class="box"></div> -->
+                <!--                     <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
+            </dl>
+        </div>
+
+
+    </div>
+
+    <div class="step">
+        <div v-for="item in data.cooking_steps" class="stepbox">
+            <h4>步骤 <em>{{item.index}}/{{data.cooking_steps.length}}</em></h4>
+            <img v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt">{{item.description}}</p>
+            <div class="introduc" v-show="item.reminder">
+                <i class="icon-tips"></i>{{item.reminder}}
+            </div>
+        </div>
+    </div>
+
+
+    <div class="equipment" v-if="data.devices.length > 0">
+        <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
+        <ul class="h_box">
+            <li class="flex_1" v-for="item in data.devices">
+                <a :href="item.url"><img :src="item.picturePath" alt="">
+                    <p>{{item.name}}</p>
+                </a>
+            </li>
+            <li class="flex_1" v-for="item in data.devices">
+                <a :href="item.url"><img :src="item.picturePath" alt="">
+                    <p>{{item.name}}</p>
+                </a>
+            </li>
+            <li class="flex_1" v-for="item in data.devices">
+                <a :href="item.url"><img :src="item.picturePath" alt="">
+                    <p>{{item.name}}</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="menutype" v-if="data.classification.length > 0">
+        <h3>菜谱分类 <a class="fr" href="">全部分类</a></h3>
+        <div class="typebox">
+            <span v-for="item in data.classification">{{item.sub.name}}</span>
+        </div>
+    </div>
+
+    <div class="menutype" style="border:none;" v-if="data.kitchenwares.length > 0">
+        <h3>厨具列表 <a class="fr" href="">更多</a></h3>
+        <ul class="list h_box">
+            <li class="flex_1" v-for="item in data.kitchenwares"><a :href="item.url"><img :src="item.picturePath" alt=""></a></li>
+        </ul>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+
+
+<script>
+    function setFontSize(){
+        document.documentElement.style.fontSize = document.documentElement.clientWidth/375*10+"px";
+    }
+    setFontSize();
+    window.onresize = function(){
+        setFontSize();
+
+    };
+</script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+<script>
+    var vm = new Vue({
+        el: '.menupage',
+        data:{
+            data:{},
+            isgray:false,
+            isshow:false
+        },
+        created:function(){
+            var $this = this;
+            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail',{"_id":"1311"}).then(function(data){
+                var data = data.data;
+                if(data.status == 200){
+                    //console.info(data);
+                    $this.data = data.data;
+                }
+
+            },function(){
+                console.info('error');
+            });
+
+        },
+        methods:{
+            atten:function(){
+                if(this.isgray)return;
+                this.isgray = true;
+                console.info(11);
+            },
+            play:function(obj){
+                var obj = document.getElementById("video");
+                obj.play();
+                document.getElementById("play").style.display = 'none';
+                obj.controls=true;
+                obj.addEventListener('ended',function () {
+                    document.getElementById("play").style.display = 'block';
+                    obj.controls=false;
+                });
+                obj.addEventListener('pause',function () {
+                    document.getElementById("play").style.display = 'block';
+                    obj.controls=false;
+                });
+                //console.info(55);
+            }
+        }
+    });
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
