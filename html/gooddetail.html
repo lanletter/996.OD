@@ -1,181 +1,227 @@
-<!doctype html>
-<html class="no-js">
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport"
-          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
-    <meta name="format-detection" content="telephone=no">
-    <title>商城详情</title>
-    <link rel="stylesheet" href="../css/swiper.min.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <!--<link rel="stylesheet" href="../css/common.css">-->
-    <link rel="stylesheet" href="../css/gooddetail.css">
-    <link rel="stylesheet" href="../css/app.css" id="appcss" disabled>
-    <style>
-        .swiper-slide i {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 100px;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
-            z-index: 3;
-        }
-    </style>
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="../css/common/reset.css" rel="stylesheet">
+    <link href="../css/common/common.css" rel="stylesheet">
+    <link href="../css/animate.css" rel="stylesheet">
+    <link href="../css/jf-info.css" rel="stylesheet">
+    <link href="../css/download.css" rel="stylesheet">
+    <title>商品详情</title>
 </head>
 <body>
+<div id="buybox">
+    <div class="jf-buy">
+        <div class="focus">
+            <mt-swipe :auto="4000">
+                <mt-swipe-item v-for="item in url">
+                    <img :src="item.picture.path" alt="">
+                </mt-swipe-item>
+            </mt-swipe>
 
-<div id="main">
-
-    <div class="slideBox">
-            <div class="swiper-container">
-                <div class="swiper-wrapper" id="wrapper">
-
-                </div>
-                <img src="../img/shadebg.png" class="bgimg">
-                <div class="swiper-pagination"></div>
-            </div>
-    </div>
-
-    <div class="info">
-        <h2>主标题</h2>
-        <p>短标题</p>
-        <div class="header__opt">
-            <span class="view-count"><i></i><strong></strong></span>
-            <span class="favorite-count"><i></i><strong></strong></span>
         </div>
-        <div class="txt">描述</div>
-        <a tapmode="onon" href="#" class="more">查看产品详情</a>
-    </div>
-
-    <div class="main">
-        <h3 class="icon1">产品参数</h3>
-        <div class="tb">
-            <table width="95%" border="0" cellspacing="0" cellpadding="0">
-
-            </table>
-            <div class="txt">
-                <span class="argname"></span>:
-                <span class="argvalue"></span>
-            </div>
+        <div class="title">
+            <h4>{{title}}</h4>
+            <p>{{model}}</p>
+            <p>
+                <span><i class="icon-msg"></i> {{commentCount}}</span>
+                <span><i class="icon-broswer"></i> {{viewCount}}</span>
+            </p>
         </div>
-        <h3 class="icon2">物流说明</h3>
-        <div class="txt2 logistics"></div>
-        <h3 class="icon3">售后保障</h3>
-        <div class="txt2 sales"></div>
-    </div>
+        <div class="sku">
+            <ul>
+                <li class="h_box">
+                    <span class="tit">商品分类</span>
+                    <p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
+                             :class="merchandiseClasses == item.id?'cur':''"
+                             @click="selectType(item.id,item.stock,item.paidAmount,item.amount,item)">{{item.argName}}</span>
+                    </p>
+                </li>
+                <li class="h_box mt25">
+                    <span class="tit">选择数量</span><em>(剩余{{stock}}张)</em>
+                    <p class="textalign" style="width:17rem;">
+                        <span class="icon-reduce" @click="changeNum(0)"></span>
+                        <input v-model="count" value="" placeholder="0" class="inputText" readonly type="number">
+                        <span class="icon-add" @click="changeNum(1)"></span>
 
-    <br/><br/><br/>
-
-    <div class="fixd">
-        <div class="jf" tapmode="onon" onclick="addShopcart()">
-            <p class="buy" style="background:none;text-indent:0;">购买</p>
-            <p id="scorenum">积分</p>
+                    </p>
+                </li>
+            </ul>
         </div>
-        <div class="btn" tapmode="onon" onclick="addShopcart()">购买</div>
+
+        <div class="details">
+            <h3>商品详情</h3>
+            <div class="msg">{{content}}</div>
+        </div>
+
+        <div class="details">
+            <h3>物流说明</h3>
+            <div class="msg">{{logistics}}</div>
+        </div>
+
+        <div class="details">
+            <h3>售后服务</h3>
+            <div class="msg">{{salesSupport}}</div>
+        </div>
+
+        <div class="details" style="padding-bottom:6.4rem;">
+            <!--                 <h3>联系客服</h3>
+                            <div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div> -->
+        </div>
+
     </div>
+    <div class="btnbox">
+        <ul class="h_box">
+            <li>{{payamount}}X{{count}}<em>￥元</em> <span v-if="amount > payamount">{{amount}}X{{count}}￥元</span></li>
+            <li class="buy" @click="submit(dataAll.id,dataAll.paidAmount)">购买</li>
+        </ul>
+    </div>
+
 </div>
-<script type="text/javascript" src='../js/lib.js'></script>
-<script type="text/javascript" src='../js/api.js'></script>
-<script src="../js/jquery-2.1.1.min.js"></script>
-<script src="../js/swiper.min.js"></script>
-<script src="../js/doT.min.js"></script>
-<script src="../js/s.js"></script>
-<script>
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
-        return null;
-    }
 
-    var id = GetQueryString("id");
-    var id = 505;
-    $.ajax({
-        url: 'http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail',
-        type: 'POST', //GET
-        data: JSON.stringify({id: id}),
-        timeout: 5000, //超时时间
-        contentType: "application/json;charset=utf-8",
-        dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-        success: function (data, textStatus, jqXHR) {
-            callback(data);
+
+<script>
+    function setFontSize() {
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 10 + "px";
+    }
+    setFontSize();
+    window.onresize = function () {
+        setFontSize();
+
+    };
+</script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+<script>
+
+
+    var vm = new Vue({
+        el: '#buybox',
+        data: {
+            title: '',
+            salesSupport: '',
+            logistics: '',
+            content: '商品详情',
+            viewCount: '',
+            commentCount: '',
+            dataAll: [],
+            payamount: '',
+            amount: '',
+            count: '',
+            receiptAddress: '',
+            userId: '',
+            stock: '',
+            merchandiseClasses: '',
+            url: [],
+            totalamount:''
+
         },
-        error: function (xhr, textStatus) {
-            console.log('错误');
-            console.log(JSON.stringify(xhr));
-            console.log(JSON.stringify(textStatus))
+        component: {},
+        created: function () {
+            var $this = this;
+            this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail', {"id": 505}).then(function (data) {
+                var data = data.data;
+                console.log(data);
+                if (data.status == 200) {
+                    $this.logistics = data.data.logisticsDesc;
+                    $this.salesSupport = data.data.salesSupport;
+                    $this.content = data.data.desc;
+                    $this.title = data.data.title;
+                    $this.model = data.data.model;
+                    $this.viewCount = data.data.viewCount;
+                    $this.commentCount = data.data.commentCount;
+                    $this.dataAll = data.data;
+                    $this.payamount = data.data.paidAmount;
+                    $this.stock = data.data.stock;
+                    $this.merchandiseClasses = data.data.selectMerchandiseClass;
+                    $this.url = data.data.merchandisePictures;
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+        },
+        methods: {
+            submit: function (id, b) {
+                //fotile-api-0.0.2/order/createByamount
+                var flag = confirm("确认购买该商品吗？");
+                if (!flag)return;
+                var $this = this;
+                this.userId = 85908;
+                this.getAddress(this.userId);
+
+            },
+            getAddress: function (userId, back) {
+                var $this = this;
+                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/receiptAddress/default', {"userId": this.userId}).then(function (data) {
+                    $this.receiptAddress = data.data.data.id;
+                    console.info($this.receiptAddress);
+                    $this.submitFn($this.receiptAddress);
+
+                }, function (err) {
+
+                });
+            },
+            submitFn: function (address) {
+                var $this = this;
+                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/order/createByIntegral', {
+                    'userId': $this.userId,
+                    'receiptAddressId': address,
+                    'productId': $this.dataAll.id,
+                    'count': $this.count,
+                    'classId': $this.merchandiseClasses,
+                    'totalcount':$this.totalcount
+
+                }).then(function (data) {
+                    console.info(data.status);
+                    if (data.status == 200) {
+                        alert('兑换成功');
+                    }
+                }, function (err) {
+
+                });
+            },
+            selectType: function (classid, stock, paidAmount, amount, item) {
+                var $this = this;
+                //console.info(item);
+                $this.merchandiseClasses = classid;
+                $this.stock = stock;
+                $this.payamount = paidAmount;
+                $this.amount = amount;
+                $this.url.length = 0;
+                $this.url.push(item);
+                //console.info(item.picture.path);
+
+            },
+            changeNum: function (type) {
+                //this.count=1;
+                if (type == 0) {
+                    this.count = this.count - 1 > 1 ? this.count - 1 : 1;
+                } else {
+                    this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
+                }
+            }
+
         }
     });
 
-    function callback(res) {
-        if (res.status !== 200) {
-            alert(res.errorMessage);
-            return;
-        }
-        var data = res.data;
-        console.log(data);
-        var $info = $('.info');
-        var $main = $('.main');
-        $info.find('h2').text(data.title);
-        $info.find('p').text(data.model);
-        $info.find('.txt').text(data.desc);
-        $info.find('.view-count').text(data.viewCount);
-        $info.find('.favorite-count').text(data.likeCount);
-        $main.find('.logistics').text(data.logisticsDesc);
-        $main.find('.sales').text(data.salesSupport);
-        data.merchandiseParams.forEach(function (item, index) {
-            if (index < data.merchandiseParams.length - 1) {
-                var el = $('<tr>\
-                <td width="40%">' + item.argName + '</td>\
-                <td width="60%" class="col">' + item.argValue + '}</td>\
-          </tr>');
-                $('table').append(el);
-            }
-        });
-        $main.find('.argname').text(data.merchandiseParams[data.merchandiseParams.length - 1].argName);
-        $main.find('.argvalue').text(data.merchandiseParams[data.merchandiseParams.length - 1].argValue);
-
-        /*轮播图start*/
-        data.merchandisePictures.forEach(function (item, index) {
-            var el = $('<div class="swiper-slide">\
-                <img src="' + item.picture.path + '" width="100%" height="100%"/>\
-          </div>');
-            $('#wrapper').append(el);
-        });
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            paginationClickable: true,
-            autoplay : 5000,
-            loop : true
-        });
-        /*轮播图end*/
-
-        switch (data.type) {
-            case 1: // 可售
-                $('.fixd .jf .buy').show();
-                $('.fixd .jf #scorenum').hide();
-                $('.fixd .btn').hide();
-                break;
-            case 2: // 积分购
-                $('.fixd .jf #scorenum').text(data.integral + "积分");
-                $('.fixd .jf .buy').hide();
-                $('.fixd .btn').hide();
-                break;
-            case 3: // 已失效
-                $('.fixd .jf').hide();
-                $('.fixd .btn').show();
-                break;
-            default:
-                console.log('no');
-
-        }
-
-    }
 
 </script>
+
+
 </body>
 </html>

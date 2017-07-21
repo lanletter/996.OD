@@ -15,7 +15,10 @@
   margin-bottom: 0.16rem;
   line-height: 0.6rem;
 }
-
+.ft-comment__header .left {
+  font-size: 0.36rem;
+  color: rgb(47,47,47);
+}
 .ft-comment__header .comment {
   width: 1.72rem;
   height: 0.6rem;
@@ -83,6 +86,12 @@
   overflow: hidden;
   position: relative;
 }
+.ft-comment__content .key {
+  display: none;
+  padding: 0;
+  margin: 0;
+  height: 0;
+}
 .ft-comment__content .right {
   width: 5.34rem;
   overflow: hidden;
@@ -121,17 +130,27 @@
   font-size: 0.16rem;
   color: rgb(201,203,213);
 }
-
-.ft-comment__content .praise:before {
+.praisebg:before {
   content: ' ';
   display: inline-block;
   height: 0.26rem;
   width: 0.24rem;
-  background: url(../img/praise.png);
+  background: url(../img/praise.png) left top no-repeat;
   background-size: 0.24rem 0.26rem;
   vertical-align:middle;
   margin-right: 0.08rem;
 }
+.praisebg2:before {
+  content: ' ';
+  display: inline-block;
+  height: 0.26rem;
+  width: 0.24rem;
+  background: url(../img/praise-red.png) left top no-repeat;
+  background-size: 0.24rem 0.26rem;
+  vertical-align:middle;
+  margin-right: 0.08rem;
+}
+
 .ft-comment__content .review {
   font-size: 0.16rem;
   color: rgb(201,203,213);

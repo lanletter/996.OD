@@ -196,9 +196,9 @@
                     });
                 };
             }
-            console.log(array);
+            //console.log(array);
             opt.formData.array=array;
-            console.log(opt);
+            //console.log(opt);
         }
 
     });

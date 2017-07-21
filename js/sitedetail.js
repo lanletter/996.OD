@@ -1,17 +1,4 @@
 /*id传值*/
-function foo() {
-    function GetQueryString(name)
-    {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  unescape(r[2]); return null;
-    }
-    var id = GetQueryString("id");
-    var id=15;
-    var urlstr = "mapsite.html?id="+id;
-    window.location.replace(urlstr);
-    return false;
-}
 
 $(function () {
 
@@ -28,6 +15,19 @@ $(function () {
     }, function(res) {
         data = res.data;
         console.log(data);
+
+        $("#foo").on("click", function () {
+            var id = data.id;
+            var lng = data.lng;
+            var lat = data.lat;
+            var sitename=data.storeName;
+            var urlstr = "map.html?id="+id+"&"+"lng="+lng+"&"+"lat="+lat+"&"+"sitename="+sitename;
+            alert(urlstr);
+            window.location.href=encodeURI(urlstr);
+            //window.location.replace(urlstr);
+            return false;
+        });
+
         var $header = $('.header');
         $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 4/3);
         $header.find('h3').text(data.storeName);
@@ -54,11 +54,19 @@ $(function () {
 
         /*菜谱图集*/
         data.storePictures.forEach(function(item, index) {
-            var img = $('<figure>\
+
+            if(item.remark!=null) {
+                var img = $('<figure>\
                 <img src="' + item.picture.path + '">\
                 <figcaption>' + item.remark + '</figcaption>\
-              </figure>');
+                </figure>');
+            }else {
+                var img = $('<figure>\
+                <img src="' + item.picture.path + '">\
+                </figure>');
+            }
             $('.site-pic').append(img);
+
         });
     });
 
@@ -139,4 +147,6 @@ $(function () {
     $('.close').on('click', function () {
         $('.order-pop').hide();
     })
+    $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":8,"userId":81177}, 1);
+
 });

@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
   <link rel="stylesheet" type="text/css" href="../css/common.css">
+  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
   <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
   <style type="text/css">
     .header__main .title{
@@ -50,9 +51,12 @@
       </ul>
     </div>
     <div class="bottomdiv"></div>
+    <div class="ft-comment"></div>
+
   </div>
   <script type="text/javascript" src='../js/lib.js'></script>
   <script type="text/javascript" src='../js/api.js'></script>
+  <script type="text/javascript" src='../js/loadcomment.js'></script>
   <script type="text/javascript">
     $(function () {
       function GetQueryString(name)
@@ -62,8 +66,9 @@
         if(r!=null)return  unescape(r[2]); return null;
       }
       var id = GetQueryString("id");
+      var id=1;
       $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/activity/detail', {
-        id: 1
+        id: id
       }, function(res) {
         data = res.data;
         console.log(data);
@@ -91,7 +96,6 @@
           var month = time.getMonth()+1;
           var date = time.getDate();
           return year+'年'+add0(month)+'月'+add0(date)+'号';
-
         }
         function format(endtime)
         {
@@ -100,13 +104,12 @@
           var month = time.getMonth()+1;
           var date = time.getDate();
           return year+'年'+add0(month)+'月'+add0(date)+'号';
-
         }
         $header.find('time').text(format(starttime)+'-'+format(endtime));
 
         $content.append(data.content);
       });
-      //$.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6,"userId":81177}, 1);
+      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6,"userId":81177}, 1);
     });
   </script>
 </body>

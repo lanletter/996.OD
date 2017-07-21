@@ -87,9 +87,11 @@
                 <strong>场馆地址</strong>
               </p>
             </div>
-            <form  name="frm"  method="get"  onsubmit = "return foo()" >
-              <input class="to-map"  type="submit" value=""/>
-            </form>
+            <a id="sitename"></a>
+            <a href="" id="foo" class="to-map"></a>
+            <!--<form  name="frm"  method="get"  onsubmit = "return foo()" >-->
+              <!--<input  class="to-map" id="foo" type="submit" value=""/>-->
+            <!--</form>-->
           </li>
           <li class="tel">
             <div>
@@ -139,14 +141,13 @@
               <input type="button" value="-" />
               <span class="num">0</span>
               <input type="button" value="+" />
-              <!--单价:<span>88元</span>-->
-              <!--小计:<span>0元</span>-->
             </li>
           </ul>
         </li>
         <li class="boedert">
           <span>优惠券：</span>
           <a href="#" class="coupon" id="selectCoupon">选择优惠券</a>
+          <p style="display: none;border: 1px solid red"><span class="coupontype"></span><span class="couponumber"></span></p>
         </li>
         <li class="boedert">
           <span>备注：</span>
@@ -155,8 +156,9 @@
         </li>
       </ul>
       <div class="ttprice">
-        <span>¥<b id="allpcice">88.00</b></span>
-        <s>¥<b id="orlprice">288.00</b></s>
+        <!--<span id="max">0</span>-->
+        <span>¥<b id="allprice">0</b></span>
+        <s>¥<b id="oldprice">0</b></s>
         <button class="editbtn" id="purchase">确定</button>
       </div>
       <div class="editarea">

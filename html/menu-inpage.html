@@ -50,8 +50,8 @@
     <div class="title">
         <h4>{{data.name}}</h4>
         <p>
-            <span><i class="icon-msg"></i> {{data.comment_count || 0}}</span>
-            <span><i class="icon-broswer"></i> {{data.like_count}}</span>
+            <span><i class="icon-broswer"></i> {{data.pageviews}}</span>
+            <span><i class="icon-msg" id="star"></i> {{data.comment_count || 0}}</span>
         </p>
         <div class="text">
             <h5><span>来源</span></h5>
@@ -97,26 +97,31 @@
                 <i class="icon-tips"></i>{{item.reminder}}
             </div>
         </div>
+
+
     </div>
 
 
     <div class="equipment" v-if="data.devices.length > 0">
         <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
-        <ul class="h_box">
+        <ul class="h_box" id="callKitchenware">
             <li class="flex_1" v-for="item in data.devices">
                 <a :href="item.url"><img :src="item.picturePath" alt="">
                     <p>{{item.name}}</p>
                 </a>
+
             </li>
             <li class="flex_1" v-for="item in data.devices">
                 <a :href="item.url"><img :src="item.picturePath" alt="">
                     <p>{{item.name}}</p>
                 </a>
+
             </li>
             <li class="flex_1" v-for="item in data.devices">
                 <a :href="item.url"><img :src="item.picturePath" alt="">
                     <p>{{item.name}}</p>
                 </a>
+
             </li>
         </ul>
     </div>
@@ -132,6 +137,7 @@
         <h3>厨具列表 <a class="fr" href="">更多</a></h3>
         <ul class="list h_box">
             <li class="flex_1" v-for="item in data.kitchenwares"><a :href="item.url"><img :src="item.picturePath" alt=""></a></li>
+
         </ul>
     </div>
 
@@ -155,6 +161,7 @@
 
     };
 </script>
+<script src="../js/jquery-2.1.1.min.js"></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
@@ -169,11 +176,23 @@
         },
         created:function(){
             var $this = this;
-            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail',{"_id":"1311"}).then(function(data){
+            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail',{"_id":"1278"}).then(function(data){
                 var data = data.data;
+                console.log(data);
                 if(data.status == 200){
                     //console.info(data);
                     $this.data = data.data;
+//                    //app交互——直接购买
+//                    $("#callKitchenware li a").on("click", function () {
+//                        ft.callKitchenware({
+//                            creator: data.creator,
+//                            status: data.status,
+//                            _id: data.id,
+//                            id: data.devices.id,
+//                            type: data.type
+//                        }, function (result) {
+//                        })
+//                    });
                 }
 
             },function(){

@@ -154,9 +154,13 @@ button {
 }
 
 .header__opt .favorite-count:before {
-  background: url('../img/invalidName.png') no-repeat;
+  background: url('../img/star.png') no-repeat;
   background-size: 0.36rem 0.36rem;
 }
+.header__opt .favorite-count2:before {
+   background: url('../img/star-red.png') no-repeat;
+   background-size: 0.36rem 0.36rem;
+ }
 
 
 /*文章超长显示三个点*/
