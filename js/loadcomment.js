@@ -12,7 +12,7 @@
         function callback(res) {
             var data = res.data;
             console.log(res.data);
-            var userid=1;
+            var userid;
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '<div class="ft-comment__header clearfix left-right">\
@@ -85,7 +85,8 @@
                         if (errorcode == "1") {
                             $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
-
+                            window.userid =userid;
+                            alert(userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
                         } else if (errorCode == "-1") {
@@ -279,6 +280,8 @@
                         if (errorcode == "1") {
                             $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+                            window.userid =userid;
+                            alert(userid);
 
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -354,7 +357,8 @@
                                 if (errorcode == "1") {
                                     $api.toast('登陆成功', 2000);
                                     userid = result.data.userId.toString();
-
+                                    window.userid =userid;
+                                    alert(userid);
                                 } else if (errorCode == "0") {
                                     $api.toast('登陆取消', 2000);
                                 } else if (errorCode == "-1") {
@@ -400,6 +404,8 @@
                                 console.log(data);
                             }
                             $('#leave-words2').hide();
+                            history.go(-1);
+                            location.reload();
                         });
                     });
                 });
