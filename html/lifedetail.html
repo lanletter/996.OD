@@ -29,7 +29,7 @@
       <div class="header__opt">
         <span class="view-count"><strong></strong></span>
         <span class="comment-count"><strong></strong></span>
-        <span class="favorite-count"><strong></strong></span>
+        <span class="favorite-count" id="star"><strong></strong></span>
       </div>
     </header>
     <article class="content">
@@ -54,7 +54,130 @@
   <script type="text/javascript" src='../js/lib.js'></script>
   <script type="text/javascript" src='../js/api.js'></script>
   <script type="text/javascript" src='../js/loadcomment.js'></script>
-  <script type="text/javascript" src='../js/lifedetail.js'></script>
+  <script type="text/javascript" src='../js/ft.js'></script>
+  <script>
+    + function($) {
+      $(function() {
+        var $header = $('.header'),
+                $content = $('.content');
+        var url = 'http://121.40.135.115:8080/fotile-api-0.0.2/test/wantFeel/detail';
+
+        function GetQueryString(name)
+        {
+          var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+          var r = window.location.search.substr(1).match(reg);
+          if(r!=null)return  unescape(r[2]); return null;
+        }
+        var id = GetQueryString("id");
+        var id=439
+        $.ajax({
+          url: 'http://121.40.135.115:8080/fotile-api-0.0.2/wantFeel/detail',
+          type: 'POST', //GET
+          data: JSON.stringify({ id: id }),
+          timeout: 5000, //超时时间
+          contentType: "application/json;charset=utf-8",
+          dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+          success: function(data, textStatus, jqXHR) {
+            callback(data);
+          },
+          error: function(xhr, textStatus) {
+            console.log('错误')
+            console.log(JSON.stringify(xhr))
+            console.log(JSON.stringify(textStatus))
+          }
+        })
+
+        function callback(res) {
+          if (res.status !== 200) {
+            alert(res.errorMessage)
+            return;
+          }
+          var data = res.data;
+          console.log(data);
+          $header.find('.header__main h3').text(data.title || data.shortTitle || ' ');
+          $api.imgAdapt($header.find('.header__main .img'), data.picture.path)
+          $header.find('.view-count strong').text(data.viewCount);
+          $header.find('.comment-count strong').text(data.commentCount);
+          $header.find('.favorite-count strong').text(data.favoriteCount);
+
+          /*title取值*/
+          var txt=data.title;
+          if(txt==undefined){
+            $('head title').text("生活志");
+          }else {
+            $('head title').text(data.title);
+          }
+
+          /* 时间戳格式转换 */
+          var timestamp=data.createat;
+          function add0(m){return m<10?'0'+m:m }
+          function format(timestamp)
+          {
+            var time = new Date(timestamp);
+            var year = time.getFullYear();
+            var month = time.getMonth()+1;
+            var date = time.getDate();
+            var hours = time.getHours();
+            var minutes = time.getMinutes();
+            var seconds = time.getSeconds();
+            return year+'.'+add0(month)+'.'+add0(date);
+          }
+          $header.find('.lifetime').text(format(timestamp));
+
+          $content.append(data.content);
+        }
+
+        //app交互——获取登录状态
+        $('.header__opt').on('click', '#star', function(e) {
+          ft.isLogin(function (result) {
+            var errorcode = result.errorCode.toString();
+            if (errorcode == "1") {
+              $api.toast('登陆成功', 2000);
+              userid = result.data.userId.toString();
+              //alert(userid);
+              //收藏
+              var id = $(e.target).data('id'),
+                      follow = $(e.target).attr('class');
+              if (follow == "favorite-count") {
+                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+                  "refId": id,
+                  "type": 5,
+                  "userId": userid
+                }, function (data) {
+                  console.log(data);
+                  console.log("111");
+                  $("#star").addClass("favorite-count2");
+                  $("#star").removeClass("favorite-count");
+                  $api.toast('收藏成功！', 3000);
+                });
+              } else if(follow == "favorite-count2") {
+                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+                  "refId": id,
+                  "type": 5,
+                  "userId": userid
+                }, function (data) {
+                  console.log(data);
+                  console.log("222");
+                  $("#star").addClass("favorite-count");
+                  $("#star").removeClass("favorite-count2");
+                  $api.toast('取消收藏！', 3000);
+                });
+              }
+              //location.reload();
+            } else if (errorCode == "0") {
+              $api.toast('登陆取消', 2000);
+            } else if (errorCode == "-1") {
+              $api.toast('登陆失败', 2000);
+            } else if (errorCode == "-2") {
+              $api.toast('登陆不支持', 2000);
+            }
+          })
+        });
+
+        $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":5}, 1);
+      });
+    }(jQuery);
+  </script>
 </body>
 
 </html>

@@ -57,6 +57,7 @@
   <script type="text/javascript" src='../js/lib.js'></script>
   <script type="text/javascript" src='../js/api.js'></script>
   <script type="text/javascript" src='../js/loadcomment.js'></script>
+  <script type="text/javascript" src='../js/ft.js'></script>
   <script type="text/javascript">
     $(function () {
       function GetQueryString(name)
@@ -75,7 +76,7 @@
         var $header = $('.header');
         var $content = $('.content');
         $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
-        $header.find('.header__main h3').text(data.longTitle);
+        $header.find('.header__main h3').text(data.title);
         $header.find('.view-count strong').text(data.viewCount);
         $header.find('.favorite-count strong').text(data.likeCount);
         /*title取值*/
@@ -109,7 +110,7 @@
 
         $content.append(data.content);
       });
-      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6,"userId":81177}, 1);
+      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":6}, 1);
     });
   </script>
 </body>

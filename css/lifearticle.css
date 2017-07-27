@@ -50,6 +50,10 @@
     position: absolute;
     top:10rem;
     overflow-y: scroll;
+    overflow-x: hidden;
+    width: 7.5rem;
+    padding: 0;
+    margin: 0;
 }
 
 .header {
@@ -68,6 +72,7 @@
     color: rgb(76,80,81);
     display: block;
     margin: 0 auto;
+    font-family: "PingFangSC-Semibold";
 }
 
 
@@ -128,17 +133,18 @@
 }
 
 .content {
+    width:6.54rem;
     background: #fff;
     padding: 0.48rem;
     font-size: 0.32rem;
     font-weight: lighter;
     letter-spacing: 0.03rem;
     color: rgb(76,80,81);
+    font-family: "PingFangSC-Light"!important;
 }
-
 .content img {
     width: 7.18rem;
-    margin: 0 -0.32rem;
+    margin: 0.48rem -0.32rem;
 }
 
 .recommend {
@@ -153,13 +159,15 @@
 .recommend__info {
     margin-bottom: 0.16rem;
 }
-
-.recommend__info img {
+.recommend__info a{
+    display: block;width: 100%;height: 100%;
+}
+.recommend__info a img {
     width: 2.12rem;
     height: 1.2rem;
 }
 
-.recommend__info > div {
+.recommend__info a > div {
     display: inline-block;
     width: 5.4rem;
     height: 0.6rem;
@@ -167,7 +175,7 @@
     position: absolute;
     margin-top: 0.3rem;
 }
-.recommend__info > div h5{
+.recommend__info a > div h5{
     width: 3.8rem;
     height: 0.28rem;
     font-size: 0.2rem;
@@ -178,7 +186,7 @@
     text-overflow:ellipsis; /* for internet explorer */
     overflow:hidden;
 }
-.recommend__info > div span{
+.recommend__info a > div span{
     height: 0.28rem;
     font-size: 0.2rem;
     font-weight: 100;

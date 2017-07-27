@@ -8,15 +8,18 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <!-- 不要让设备识别电话号码和邮箱地址-->
     <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="../css/common/reset.css" rel="stylesheet">
-    <link href="../css/common/common.css" rel="stylesheet">
+    <!--<link href="../css/common/reset.css" rel="stylesheet">-->
+    <link href="../css/common.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/jf-info.css" rel="stylesheet">
     <link href="../css/menu-inpage.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/video-js.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <title>菜谱内页</title>
     <style>
         /*        video::-webkit-media-controls {
@@ -26,32 +29,36 @@
 
 </head>
 <body>
+<div id="videobox" class="video">
+    <video id="vd">
+        <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
+    </video>
+    <button class="play"></button>
+</div>
 <div class="jf-buy menupage" v-cloak>
-    <div v-if="data.video" class="focus" style="height:18.75rem;">
-        <div class="playbox">
-            <video  id="video" width="100%" controls="true" :poster="data.picture">
-                <source :src="data.video" type="video/mp4" />
-                Your browser does not support HTML5 video.
-            </video>
-            <div id="play" class="play" @click="play"></div>
-        </div>
+    <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
+        <!--<div class="playbox">-->
+            <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
+                <!--<source :src="data.video" type="video/mp4"/>-->
+                <!--Your browser does not support HTML5 video.-->
+            <!--</video>-->
+            <!--<div id="play" class="play" @click="play"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="focus" v-else>-->
+        <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
+        <!--<mt-swipe :auto="4000">-->
+            <!--<mt-swipe-item v-for="item in data.images">-->
+                <!--<img :src="item" alt="">-->
+            <!--</mt-swipe-item>-->
 
-
-    </div>
-    <div class="focus" v-else>
-        <!--             <img :src="data.images[0]" alt=""> -->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in data.images">
-                <img :src="item" alt="">
-            </mt-swipe-item>
-
-        </mt-swipe>
-    </div>
+        <!--</mt-swipe>-->
+    <!--</div>-->
     <div class="title">
         <h4>{{data.name}}</h4>
-        <p>
+        <p class="icons">
             <span><i class="icon-broswer"></i> {{data.pageviews}}</span>
-            <span><i class="icon-msg" id="star"></i> {{data.comment_count || 0}}</span>
+            <span><i class="icon-msg" id="star" @click="star"></i> {{data.comment_count || 0}}</span>
         </p>
         <div class="text">
             <h5><span>来源</span></h5>
@@ -77,7 +84,7 @@
             <dl>
                 <dt class="tit">
                     <span class="txt"><i class="icon-1"></i>材料清单</span>
-                    <span class="addin fr">加入菜篮子</span>
+                    <span class="addin fr">加入购物车</span>
                 </dt>
                 <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
                 <!--                     <div class="box"></div> -->
@@ -104,24 +111,12 @@
 
     <div class="equipment" v-if="data.devices.length > 0">
         <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
-        <ul class="h_box" id="callKitchenware">
+        <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
-                <a :href="item.url"><img :src="item.picturePath" alt="">
+                <a id="callKitchenware" @click="callKitchenware">
+                    <img :src="item.picturePath" alt="">
                     <p>{{item.name}}</p>
                 </a>
-
-            </li>
-            <li class="flex_1" v-for="item in data.devices">
-                <a :href="item.url"><img :src="item.picturePath" alt="">
-                    <p>{{item.name}}</p>
-                </a>
-
-            </li>
-            <li class="flex_1" v-for="item in data.devices">
-                <a :href="item.url"><img :src="item.picturePath" alt="">
-                    <p>{{item.name}}</p>
-                </a>
-
             </li>
         </ul>
     </div>
@@ -136,102 +131,176 @@
     <div class="menutype" style="border:none;" v-if="data.kitchenwares.length > 0">
         <h3>厨具列表 <a class="fr" href="">更多</a></h3>
         <ul class="list h_box">
-            <li class="flex_1" v-for="item in data.kitchenwares"><a :href="item.url"><img :src="item.picturePath" alt=""></a></li>
+            <li class="flex_1" v-for="item in data.kitchenwares"><a :href="item.url"><img :src="item.picturePath"
+                                                                                          alt=""></a></li>
 
         </ul>
     </div>
 
-
-
-
-
+    <div class="bottomdiv"></div>
+    <div class="ft-comment"></div>
 
 </div>
 
 
-
-
-<script>
-    function setFontSize(){
-        document.documentElement.style.fontSize = document.documentElement.clientWidth/375*10+"px";
-    }
-    setFontSize();
-    window.onresize = function(){
-        setFontSize();
-
-    };
-</script>
 <script src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
-<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+<script type="text/javascript" src='../js/video.min.js'></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
 <script>
+    (function () {
+        var video = $('#videobox video')[0],
+                playBtn = $('#videobox .play');
+        playBtn.on('click', function () {
+            $(this).hide();
+            var vheight = $("#videobox video").height();
+            $('#vd').css({"position": "absolute", "left": "0"});
+            $('#videobox').css({"position": "fixed"});
+            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
+            $(".jf-buy").animate({top: vheight - 1,}, 1000);
+            video.play();
+            video.controls = true;
+        });
+
+        video.addEventListener('ended', function () {
+            playBtn.show();
+            video.controls = false;
+            $('#videobox').css({"position": "absolute"});
+        }, false);
+        video.addEventListener('pause', function () {
+            playBtn.show();
+            video.controls = false;
+        }, false);
+
+    })();
+</script>
+<script>
+
     var vm = new Vue({
         el: '.menupage',
-        data:{
-            data:{},
-            isgray:false,
-            isshow:false
+        data: {
+            data: {},
+            isgray: false,
+            isshow: false
         },
-        created:function(){
+        created: function () {
+            function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null)return unescape(r[2]);
+                return null;
+            }
+
+            var id = GetQueryString("id");
+            var id = 1278;
             var $this = this;
-            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail',{"_id":"1278"}).then(function(data){
+            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail', {"id": id}).then(function (data) {
                 var data = data.data;
                 console.log(data);
-                if(data.status == 200){
+                if (data.status == 200) {
                     //console.info(data);
                     $this.data = data.data;
-//                    //app交互——直接购买
-//                    $("#callKitchenware li a").on("click", function () {
-//                        ft.callKitchenware({
-//                            creator: data.creator,
-//                            status: data.status,
-//                            _id: data.id,
-//                            id: data.devices.id,
-//                            type: data.type
-//                        }, function (result) {
-//                        })
-//                    });
+                    id = $this.data.id;
+                    $('#star').attr('name', id);
                 }
+                $('#videobox').find('#vd').attr('src', data.data.video);
+                $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
 
-            },function(){
+
+            }, function () {
                 console.info('error');
             });
 
         },
-        methods:{
-            atten:function(){
-                if(this.isgray)return;
+        methods: {
+            atten: function () {
+                if (this.isgray)return;
                 this.isgray = true;
                 console.info(11);
             },
-            play:function(obj){
+            play: function (obj) {
                 var obj = document.getElementById("video");
                 obj.play();
                 document.getElementById("play").style.display = 'none';
-                obj.controls=true;
-                obj.addEventListener('ended',function () {
+                obj.controls = true;
+                obj.addEventListener('ended', function () {
                     document.getElementById("play").style.display = 'block';
-                    obj.controls=false;
+                    obj.controls = false;
                 });
-                obj.addEventListener('pause',function () {
+                obj.addEventListener('pause', function () {
                     document.getElementById("play").style.display = 'block';
-                    obj.controls=false;
+                    obj.controls = false;
                 });
                 //console.info(55);
+            },
+            callKitchenware: function (obj) {
+                //app交互——唤起智能菜谱
+                // $("#callKitchenware").on("click", function () {
+                //alert("111");
+                ft.callKitchenware(function (result) {
+
+                });
+                //});
+            },
+            star: function (obj) {
+                //app交互——获取登录状态
+                ft.isLogin(function (result) {
+                    var errorcode = result.errorCode.toString();
+                    if (errorcode == "1") {
+                        $api.toast('登陆成功', 2000);
+                        userid = result.data.userId.toString();
+                        //alert(userid);
+                        //收藏
+                        var id = $("#star").attr('name'),
+                                follow = $("#star").attr('class');
+                        if (follow == "icon-msg") {
+                            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+                                "refId": id,
+                                "type": 1,
+                                "userId": userid
+                            }, function (data) {
+                                console.log(data);
+                                console.log("111");
+                                $("#star").addClass("icon-msg2");
+                                $("#star").removeClass("icon-msg");
+                                $api.toast('收藏成功！', 3000);
+                            });
+                        } else if (follow == "icon-msg2") {
+                            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+                                "refId": id,
+                                "type": 1,
+                                "userId": userid
+                            }, function (data) {
+                                console.log(data);
+                                console.log("222");
+                                $("#star").addClass("icon-msg");
+                                $("#star").removeClass("icon-msg2");
+                                $api.toast('取消收藏！', 3000);
+                            });
+                        }
+                        //location.reload();
+                    } else if (errorCode == "0") {
+                        $api.toast('登陆取消', 2000);
+                    } else if (errorCode == "-1") {
+                        $api.toast('登陆失败', 2000);
+                    } else if (errorCode == "-2") {
+                        $api.toast('登陆不支持', 2000);
+                    }
+                });
+
             }
+
         }
     });
 
 
+    $.loadComment({"pageNum": 1, "pageSize": 5, "refId": 434, "type": 1}, 1);
 
 </script>
-
-
-
-
-
 
 
 </body>

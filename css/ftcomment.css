@@ -99,10 +99,14 @@
 .ft-comment__content .center {
   width: 6.54rem;
  }
+
+.ft-comment__content .center img:first-child {
+  margin-top: 0.32rem;
+}
 .ft-comment__content .bottom {
   width: 6.54rem;
-  height:0.36rem;
-  line-height: 0.24rem;
+  height:0.42rem;
+  line-height: 0.42rem;
   margin: 0.08rem 0;
   }
 .ft-comment__content button{
@@ -115,12 +119,13 @@
 }
 .ft-comment__content img {
   width: 6.54rem;
-  margin-bottom: 0.1rem;
 }
 .ft-comment__content .text {
   display: block;
   rgb(47,47,47);
-  font-size: 0.2rem;
+  font-family: "PingFangSC-Light";
+  font-weight: lighter;
+  font-size: 0.24rem;
   font-weight: 100;
   letter-spacing: 3px;
   margin-top: 0.04rem;
@@ -130,23 +135,27 @@
   font-size: 0.16rem;
   color: rgb(201,203,213);
 }
+
 .praisebg:before {
   content: ' ';
   display: inline-block;
-  height: 0.26rem;
-  width: 0.24rem;
+  height: 0.32rem;
+  width: 0.32rem;
   background: url(../img/praise.png) left top no-repeat;
-  background-size: 0.24rem 0.26rem;
+  background-size: 0.32rem 0.32rem;
   vertical-align:middle;
   margin-right: 0.08rem;
+}
+.praisebg2{
+  color: rgb(255,101,101)!important;
 }
 .praisebg2:before {
   content: ' ';
   display: inline-block;
-  height: 0.26rem;
-  width: 0.24rem;
+  height: 0.32rem;
+  width: 0.32rem;
   background: url(../img/praise-red.png) left top no-repeat;
-  background-size: 0.24rem 0.26rem;
+  background-size: 0.32rem 0.32rem;
   vertical-align:middle;
   margin-right: 0.08rem;
 }
@@ -159,10 +168,10 @@
 .ft-comment__content .review:before {
   content: ' ';
   display: inline-block;
-  height: 0.26rem;
-  width: 0.24rem;
+  height: 0.32rem;
+  width: 0.32rem;
   background: url(../img/comment.png);
-  background-size: 0.24rem 0.26rem;
+  background-size: 0.32rem 0.32rem;
   vertical-align:middle;
   margin-right: 0.08rem;
 }
@@ -181,7 +190,7 @@
   background: rgb(247,247,247);
   padding: 0.16rem;
   width: 6.22rem;
-  display: none;
+
 }
 .son-comments p {
   overflow: hidden;
@@ -216,6 +225,8 @@
   margin: 0 3px;
 }
 .son-comments .name a{
+  font-family: "PingFangSC-Light";
+  font-weight: lighter;
   color:rgb(250,101,101);
 }
 
@@ -230,8 +241,21 @@
   text-align: center;
   z-index: 999999;
 }
+/*.leave-words .notice{*/
+  /*display: block;*/
+  /*width: 100%;*/
+  /*height: 0.5rem;*/
+  /*line-height: 0.5rem;*/
+  /*position: absolute;*/
+  /*top:0 ;*/
+  /*text-align: left;*/
+  /*padding-left: 0.16rem;*/
+  /*color: red;*/
+  /*font-size: 0.24rem;*/
+  /*background: #ffffff;*/
+/*}*/
 .leave-words textarea{
-  padding: 0.16rem 0.22rem;
+  padding: 0.16rem 0.22rem 0.16rem 0.22rem;
   line-height: 0.44rem;
   font-size: 0.28rem;
   color: #333;
@@ -247,20 +271,24 @@
 ::-webkit-input-placeholder {
   color: rgb(201,203,213);
   font-size: 0.28rem;
+  font-weight: lighter;
 }
 :-moz-placeholder {
   /* Firefox 18- */
   color: rgb(201,203,213);
   font-size: 0.28rem;
+  font-weight: lighter;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: rgb(201,203,213);
   font-size: 0.28rem;
+  font-weight: lighter;
 }
 :-ms-input-placeholder {
   color: rgb(201,203,213);
   font-size: 0.28rem;
+  font-weight: lighter;
 }
 .leave-words button{
   width: 1.5rem;

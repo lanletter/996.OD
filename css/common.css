@@ -29,6 +29,8 @@ body {
   background: #ededed;
   -webkit-text-size-adjust: 100%;
   color: #4c5051;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -121,13 +123,14 @@ button {
 
 .header__opt {
   text-align: center;
-  margin-top: 0.16rem;
+  margin-top: 0.48rem;
+  padding-bottom: 1.2rem;
 }
 
 .header__opt span {
   display: inline-block;
-  line-height: 0.4rem;
-  margin-right: 0.42rem;
+  line-height: 0.48rem;
+  margin-right: 0.32rem;
   color: rgb(201,203,213);
   font-weight: 400;
   font-size: 0.24rem;
@@ -137,29 +140,29 @@ button {
 .header__opt span:before {
   display: inline-block;
   content: '';
-  width: 0.36rem;
-  height: 0.36rem;
+  width: 0.48rem;
+  height: 0.48rem;
   margin-right: 0.04rem;
   vertical-align: top;
 }
 
 .header__opt .view-count:before {
   background: url('../img/rectangle2.png') no-repeat;
-  background-size: 0.36rem 0.36rem;
+  background-size: 0.48rem 0.48rem;
 }
 
 .header__opt .comment-count:before {
   background: url('../img/rectangle775.png') no-repeat;
-  background-size: 0.36rem 0.36rem;
+  background-size: 0.48rem 0.48rem;
 }
 
 .header__opt .favorite-count:before {
-  background: url('../img/star.png') no-repeat;
-  background-size: 0.36rem 0.36rem;
+  background: url('../img/invalidName.png') no-repeat;
+  background-size: 0.48rem 0.48rem;
 }
 .header__opt .favorite-count2:before {
-   background: url('../img/star-red.png') no-repeat;
-   background-size: 0.36rem 0.36rem;
+   background: url('../img/invalidName-red.png') no-repeat;
+   background-size: 0.48rem 0.48rem;
  }
 
 
@@ -212,4 +215,8 @@ button {
 }
 .toast-box p{
   text-align: justify;
+}
+
+[v-cloak] {
+  display: none;
 }

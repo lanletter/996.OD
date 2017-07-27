@@ -24,9 +24,11 @@
 .site-info .des{
 	text-align: justify;
 	font-weight: 100;
-	font-size: 0.24rem;
+	font-size: 0.28rem;
 	rgb(76,80,81);
 	letter-spacing: 2px;
+	font-weight: lighter;
+	font-family: "PingFangSC-Light"!important;
 }
 .info ul{
 	border-radius: 10px;
@@ -55,7 +57,7 @@
 	height: 0.7rem;
 }
 .info li p span{
-	color: #4d5051;
+	color: rgb(47,47,47);
 	font-size: 0.36rem;
 	display: inline-block;
 	max-width: 4rem;
@@ -63,7 +65,7 @@
 .info li p strong{
 	display: block;
 	font-size: 0.24rem;
-	color: #d8dae1;
+	color: rgb(130,130,130);
 }
 
 
@@ -112,15 +114,22 @@
 	line-height: 0.4rem;
 	text-align: justify;
 	font-weight: 100;
-	font-size: 0.24rem;
+	font-size: 0.28rem;
 	rgb(76,80,81);
 	letter-spacing: 2px;
+	font-weight: lighter;
+	font-family: "PingFangSC-Light"!important;
 }
 .site-service .red-btn{
+	width: 2.8rem;
+	height: 0.52rem;
+	line-height: 0.52rem;
+	border-radius: 0.52rem;
 	float: right;
-	margin: 0.48rem 0.24rem 0 0;
-	padding: 0.06rem 0.6rem;
-} 
+	margin: 0.48rem 0.24rem 0.2rem 0;
+	text-align: center;
+	box-shadow: 0 2px 4px rgba(231,129,129, 0.6);
+}
 .content .site-pic figure{
 	width: 7.34rem;
 	position: relative;
@@ -185,6 +194,9 @@
 	border: none;
 	border-bottom: 1px solid #ededed;
 	outline: none;
+	height:0.5rem ;
+	line-height: 0.5rem;
+	border-radius: 0;
 }
 
 .order-type .type-btn{
@@ -238,10 +250,11 @@
 }
 .course-des{
 	font-size: 0.28rem;
-	font-weight: lighter;
 	letter-spacing: 0.03rem;
 	color: rgb(76,80,81);
 	text-align:justify;
+	font-weight: lighter;
+	font-family: "PingFangSC-Light";
 }
 .course-info {
 	background: #fff;
@@ -429,9 +442,23 @@
 	display: inline-block;
 	color: rgb(155,155,155);
 	font-size: 0.28rem;
-	max-width: 5rem;
-	margin-top: 2px;
+	margin-top: 1px;
 	line-height: 0.5rem;
+	max-width: 3rem;
+}
+.buynow-div .editlist>li textarea{
+	display: inline-block;
+	color: rgb(155,155,155);
+	font-size: 0.28rem;
+	margin-top: 1px;
+	line-height: 0.5rem;
+	width: 5rem;
+	border: none;
+	oulilne:none;
+	resize:none
+}
+.buynow-div .editlist>li textarea:focus{
+	oulilne:none;
 }
 #close-div{
 	width:0.52rem ;
@@ -452,6 +479,7 @@
 	float: right;
 	color: rgb(255,101,101);
 	font-size: 0.28rem;
+	font-weight: lighter;
 	line-height: 0.5rem;
 }
 .buynow-div .coupon:after{

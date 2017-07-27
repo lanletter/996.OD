@@ -1,7 +1,7 @@
 +function () {
     var isEmpty = false;
 
-    function loadComment(obj, pageNum, type, id, userId) {
+    function loadComment(obj, pageNum, type, id) {
         obj.pageNum = pageNum;
         console.log(obj);
         $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj,
@@ -12,11 +12,7 @@
         function callback(res) {
             var data = res.data;
             console.log(res.data);
-            var userid = obj.userId;
-            if (userid == "") {
-                userid = 54622;
-            }
-            console.log('userid:' + userid);
+            var userid=1;
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '<div class="ft-comment__header clearfix left-right">\
@@ -26,7 +22,7 @@
                   <p>暂无评论，快去抢沙发吧</p>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
-                  <textarea placeholder="请输入最新评论"></textarea>\
+                  <textarea placeholder="请输入最新评论..."></textarea>\
                   <div class="imgup">\
                     <div class="img-box full">\
                       <section class="img-section">\
@@ -45,7 +41,7 @@
                       </div>\
                     </aside>\
                     <script src="../js/jquery.min.js"></script>\
-                    <script src="../js/imgPluginNew.js"></script>\
+                    <script src="../js/imgUp.js"></script>\
                     <script>\
                         $(function(){\
                             $("#file").takungaeImgup({\
@@ -65,20 +61,40 @@
                   <button class="backto red-btn">取消</button>\
                 </div></form>';
 
-                res.data.forEach(function (item, index) {
-                    item.createat = new Date(item.createat).app();
-                    item.sonCommentList.forEach(function (item, index) {
-                        item.createat = new Date(item.createat).app();
-                    });
-                });
+                // res.data.forEach(function (item, index) {
+                //     item.createat = new Date(item.createat).app();
+                //     item.sonCommentList.forEach(function (item, index) {
+                //         item.createat = new Date(item.createat).app();
+                //     });
+                // });
 
                 $('.ft-comment').empty().append($(noComment));
                 /*留言*/
                 $('.leavewords').on('click', function () {
                     $('#leave-words').show();
                 });
+                /*取消留言*/
+                $('.backto').on('click', function () {
+                    $('.leave-words').hide();
+                });
 
                 $('#commit').on('click', function () {
+                    //app交互——获取登录状态
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            $api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
+                    });
+
                     var words = $('#leave-words'),
                         content = words.find('textarea').val().trim();
                     var picid = $('#ssr .picid');
@@ -107,6 +123,7 @@
                         contentType: "application/json;charset=UTF-8",
                         dataType: 'json',
                         success: function (data) {
+                            console.log('成功');
                             callback(data);
                         },
                         error: function () {
@@ -120,15 +137,12 @@
                         }
                         var data = res.data;
                         console.log(data);
-                        $('#leave-words').hide();
-                        $api.toast('提交成功！', 3000);
-                        location.reload();
                     }
+                    $('#leave-words').hide();
+                    history.go(-1);
+                    location.reload();
                 });
 
-                $('.backto').on('click', function () {
-                    $('.leave-words').hide();
-                });
 
                 //return;
             }
@@ -138,7 +152,7 @@
                   <a href="#" class="leavewords"><span class="right comment"></span></a>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
-                  <textarea placeholder="请输入最新评论"></textarea>\
+                  <textarea placeholder="请输入最新评论..."></textarea>\
                   <div class="imgup">\
                     <div class="img-box full">\
                       <section class="img-section">\
@@ -157,7 +171,7 @@
                       </div>\
                     </aside>\
                     <script src="../js/jquery.min.js"></script>\
-                    <script src="../js/imgPluginNew.js"></script>\
+                    <script src="../js/imgUp.js"></script>\
                     <script>\
                         $(function(){\
                             $("#file").takungaeImgup({\
@@ -195,19 +209,19 @@
                     </p>\
                     <p class="bottom">\
                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId">{{userId}}</span><span class="parentId">{{parentId}}</span></span>\
-                      <button class="praise praisebg">点赞({{isLike}})</button>\
-                      <button class="review">评论({{sonCommentList.length}})</button>\
+                      <button class="praise praisebg">{{isLike}}</button>\
+                      <button class="review">{{sonCommentList.length}}</button>\
                       <button class="reply" id="reply{{id}}">回复TA</button>\
                       <span class="time"> <time>{{createat}}</time></span>\
                       <form id="picForm2"><div id="leave-words2" class="leave-words">\
-                          <textarea placeholder="请输入最新评论"></textarea>\
+                          <textarea placeholder="请输入最新评论..."></textarea>\
                           <button id="commit2" class="commit red-btn">提交</button>\
                           <button class="backto red-btn">取消</button>\
                       </div></form>\
                     </p>\
                     <p class="words">\
                       {{#sonCommentList}}\
-                        <div class="son-comments add">\
+                        <div class="son-comments" style="display: none;">\
                           <img src="{{userInfomation.titlePicture}}" class="header-pic left">\
                           <p class="right">\
                             <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId">{{userId}}</span><span class="parentId">{{parentId}}</span></span>\
@@ -247,60 +261,34 @@
                 var rendered = Mustache.render(template, res);
                 $('.ft-comment').empty().append($(rendered));
 
+
+
                 /*留言*/
                 $('.leavewords').on('click', function () {
                     $('#leave-words').show();
                 });
-                $('.reply').on('click', function () {
-                    $(document).click(function (e) { // 在页面任意位置点击而触发此事件
-                        $(e.target).attr("id");     // e.target表示被点击的目标
-                        var $come = $(e.target).siblings(".key");//数据来自于
-                        //var $putin = $(e.target).closest("li");  //数据存放处
-
-                        $('#leave-words2').show();
-                        $('#commit2').on('click', function () {
-                            var words = $('#leave-words2');
-                            var content = words.find('textarea').val().trim();
-                            console.log(content);
-                            if (!content) {
-                                alert('请输入新评论');
-                                return;
-                            }
-                            $.ajax({
-                                type: 'POST',
-                                url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
-                                data: JSON.stringify({
-                                    "content": content,
-                                    "refId": $come.find('.refId').text(),
-                                    "type": $come.find('.type').text(),
-                                    "userId": obj.userId,
-                                    "parentId": $come.find('.Id').text()
-                                }),
-                                contentType: "application/json;charset=UTF-8",
-                                dataType: 'json',
-                                success: function (data) {
-                                    callback(data);
-                                },
-                                error: function () {
-                                    console.log('错误');
-                                }
-                            });
-                            function callback(res) {
-                                if (res.status !== 200) {
-                                    alert(res.errorMessage);
-                                    return;
-                                }
-                                var data = res.data;
-                                console.log(data);
-                                $('#leave-words').hide();
-                                $api.toast('提交成功！', 3000);
-                                location.reload();
-                            }
-                        });
-                    });
+                /*取消留言*/
+                $('.backto').on('click', function () {
+                    $('.leave-words').hide();
                 });
 
                 $('#commit').on('click', function () {
+                    //app交互——获取登录状态
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            $api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
+                    });
+
                     var words = $('#leave-words'),
                         content = words.find('textarea').val().trim();
                     var picid = $('#ssr .picid');
@@ -329,7 +317,11 @@
                         contentType: "application/json;charset=UTF-8",
                         dataType: 'json',
                         success: function (data) {
+                            console.log('成功');
                             callback(data);
+                            $('#leave-words').hide();
+                            history.go(-1);
+                            location.reload();
                         },
                         error: function () {
                             console.log('错误');
@@ -342,21 +334,81 @@
                         }
                         var data = res.data;
                         console.log(data);
-                        $('#leave-words').hide();
-                        $api.toast('提交成功！', 3000);
-                        location.reload();
                     }
+                    $('#leave-words').hide();
+                    history.go(-1);
+                    location.reload();
                 });
 
-                $('.backto').on('click', function () {
-                    $('.leave-words').hide();
+                $('.reply').on('click', function () {
+                    $(document).click(function (e) { // 在页面任意位置点击而触发此事件
+                        $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        //var $putin = $(e.target).closest("li");  //数据存放处
+
+                        $('#leave-words2').show();
+                        $('#commit2').on('click', function () {
+                            //app交互——获取登录状态
+                            ft.isLogin(function (result) {
+                                var errorcode = result.errorCode.toString();
+                                if (errorcode == "1") {
+                                    $api.toast('登陆成功', 2000);
+                                    userid = result.data.userId.toString();
+
+                                } else if (errorCode == "0") {
+                                    $api.toast('登陆取消', 2000);
+                                } else if (errorCode == "-1") {
+                                    $api.toast('登陆失败', 2000);
+                                } else if (errorCode == "-2") {
+                                    $api.toast('登陆不支持', 2000);
+                                }
+                            });
+
+                            var words = $('#leave-words2');
+                            var content = words.find('textarea').val().trim();
+                            console.log(content);
+                            if (!content) {
+                                alert('请输入新评论');
+                                return;
+                            }
+                            $.ajax({
+                                type: 'POST',
+                                url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
+                                data: JSON.stringify({
+                                    "content": content,
+                                    "refId": obj.refId,
+                                    "type": obj.type,
+                                    "userId": userid,
+                                    "parentId": $come.find('.Id').text()
+                                }),
+                                contentType: "application/json;charset=UTF-8",
+                                dataType: 'json',
+                                success: function (data) {
+                                    console.log('成功');
+                                    callback(data);
+                                },
+                                error: function () {
+                                    console.log('错误+1');
+                                }
+                            });
+                            function callback(res) {
+                                if (res.status !== 200) {
+                                    alert(res.errorMessage);
+                                    return;
+                                }
+                                var data = res.data;
+                                console.log(data);
+                            }
+                            $('#leave-words2').hide();
+                        });
+                    });
                 });
 
                 /*查看回复*/
                 $('.review').on('click', function (e) {
                     classname = $(e.target).attr("class");
                     if (classname = "review") {
-                        $(e.target).parent().parent().find('.add').show();
+                        $(e.target).parent().parent().find('.son-comments').slideToggle();;
                     }
                 });
 
@@ -366,12 +418,14 @@
                     $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/like/create', {
                         "refId": $come.find('.refId').text(),
                         "type": $come.find('.type').text(),
-                        "userId": obj.userId
+                        "userId": userid,
                     }, function (data) {
                         console.log(data);
                         console.log("111");
                         $(e.target).remove("praisebg");
                         $(e.target).addClass("praisebg2");
+                        var oldnum=$(e.target).text();
+                        $(e.target).text(parseInt(oldnum)+1);
                     });
                 });
             }
@@ -388,6 +442,7 @@
             }
         }, 500, 200000))
     }
+
 
     $.loadComment = loadComment;
 }();

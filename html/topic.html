@@ -34,6 +34,10 @@
               <h4>{{item.title}}</h4>
               <p>{{item.tags}}</p>
             </div>
+            <div class="header__opt">
+              <span class="view-count"><strong>{{item.menu.collect_count}}</strong></span>
+              <span class="favorite-count" id="star"><strong>{{item.menu.collect_count}}</strong></span>
+            </div>
           </div>
           <p class="info-li">{{item.desc}}</p>    
         </li>
@@ -68,10 +72,20 @@
               data:{}
             },
             created:function(){
+              function GetQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null)return unescape(r[2]);
+                return null;
+              }
+
+              var id = GetQueryString("id");
+              var id=67;
                 var $this = this;
-                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/special/detail','{"id":"67"}').then(function(data){
+                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/special/detail',{"id":id}).then(function(data){
                     var data = data.data;
                     if(data.status == 200){
+                        console.log(data);
                         $this.title = data.data.title;
                         $this.desc = data.data.desc;
                         $this.products = data.data.products;

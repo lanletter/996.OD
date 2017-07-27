@@ -6,9 +6,9 @@
           content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no">
     <title>商品详情</title>
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/swiper.min.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <!--<link rel="stylesheet" href="../css/common.css">-->
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <link rel="stylesheet" href="../css/gooddetail.css">
     <link rel="stylesheet" href="../css/app.css" id="appcss" disabled>
     <style>
@@ -48,7 +48,7 @@
             <!--<span class="favorite-count"><i></i><strong></strong></span>-->
         <!--</div>-->
         <div class="txt">描述</div>
-        <a tapmode="onon" href="#" class="more">查看产品详情</a>
+        <!--<a tapmode="onon" href="#" class="more">查看产品详情</a>-->
     </div>
 
     <div class="main">
@@ -68,8 +68,9 @@
         <div class="txt2 sales"></div>
     </div>
 
-    <br/><br/><br/>
-
+    <div class="bottomdiv"></div>
+    <div class="ft-comment"></div>
+    <br/><br/>
     <div class="fixd">
         <div class="jf" tapmode="onon" >
             <p class="buy" style="background:none;text-indent:0;" >购买</p>
@@ -84,6 +85,8 @@
 <script src="../js/swiper.min.js"></script>
 <script src="../js/doT.min.js"></script>
 <script src="../js/s.js"></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
 <script>
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -131,7 +134,7 @@
             if (index < data.merchandiseParams.length - 1) {
                 var el = $('<tr>\
                 <td width="40%">' + item.argName + '</td>\
-                <td width="60%" class="col">' + item.argValue + '}</td>\
+                <td width="60%" class="col">' + item.argValue + '</td>\
           </tr>');
                 $('table').append(el);
             }
@@ -162,7 +165,7 @@
                 $('.fixd .btn').hide();
                 $('.fixd').on("click", function () {
                     var link = data.link;
-                    alert(link);
+                    //alert(link);
                     window.location.href=(link);
                     //window.location.replace(link);
                 });
@@ -186,6 +189,8 @@
         }
 
     }
+
+    $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":10}, 1);
 
 </script>
 </body>

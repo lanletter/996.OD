@@ -25,7 +25,7 @@ body{ background:#f7f7f7;}
 .main .txt2{ font-size:14px; line-height:26px; padding-bottom:12px; margin-top:-10px;}
 
 .fixd{ position:fixed; left:0; bottom:0; height:65px; line-height:65px; background:#ff484d; width:100%; font-size:16px; color:#fff; text-align:center;}
-.fixd .jf,.fixd .btn{ width:100%; display:inline-block; float:left;}
+.fixd .jf,.fixd .btn{ width:100%; display:inline-block; float:left;z-index: 9999999;}
 .fixd .jf p{ background: url(../img/store/icon_04.png) no-repeat left center; background-size:25px; text-indent:32px; display:inline-block;}
 .fixd .btn{ background:#2f2f2f;}
 

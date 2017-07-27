@@ -220,19 +220,12 @@
             callbackId : generateID(),
             callback : noop
         },
-        // callKitchenware:{
-        //     name : "callKitchenware",
-        //     callbackId : generateID(),
-        //     callback : noop
-        // },
         callKitchenware:{
             name : "callKitchenware",
-            param:{
-                id:""
-            },
             callbackId : generateID(),
             callback : noop
         }
+
     };
 
 
@@ -265,7 +258,10 @@
     }
     function invoke(cmd) {
         log('invoke:', cmd);
+        //window.location.href = 'https://www.baidu.com/';
         window.location.href = 'ft://' + encodeURIComponent(cmd);
+        log( 'ft://' + encodeURIComponent(cmd));
+        //alert('ft://' + encodeURIComponent(cmd));
     }
 
     function callByJS(opt) {
@@ -358,15 +354,10 @@
     /*********************************************************************
      *                           唤起智能设备                             *
      **********************************************************************/
-    // ft.callKitchenware = function (fn) {
-    //     var callKitchenwareConfig = ft.mix( true,{},config.callKitchenware );
-    //     callKitchenwareConfig.callback =  fn;
-    //     callByJS(callKitchenwareConfig);
-    // }
     ft.callKitchenware = function (fn) {
         var callKitchenwareConfig = ft.mix( true,{},config.callKitchenware );
-        callKitchenwareConfig.param.id = option.id ||"" ;
         callKitchenwareConfig.callback =  fn;
         callByJS(callKitchenwareConfig);
     }
+
 }()

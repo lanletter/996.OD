@@ -13,8 +13,9 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="../css/common/reset.css" rel="stylesheet">
-    <link href="../css/common/common.css" rel="stylesheet">
+    <!--<link href="../css/common/reset.css" rel="stylesheet">-->
+    <link href="../css/common.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/jf-info.css" rel="stylesheet">
     <link href="../css/download.css" rel="stylesheet">
@@ -23,20 +24,20 @@
 <body>
 <div id="buybox">
     <div class="jf-buy">
-        <div class="focus">
-            <mt-swipe :auto="4000">
-                <mt-swipe-item v-for="item in url">
-                    <img :src="item.picture.path" alt="">
-                </mt-swipe-item>
-
-            </mt-swipe>
-
+        <div class="swiper">
+            <div class="focus">
+                <div :auto="4000">
+                    <div v-for="item in url">
+                        <img :src="item.picture.path" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="title">
-            <h4>{{title}}</h4>
+            <h4 v-cloak>{{title}}</h4>
             <p>
-                <span><i class="icon-msg"></i> {{commentCount}}</span>
-                <span><i class="icon-broswer"></i> {{viewCount}}</span>
+                <span v-cloak><i class="icon-msg"></i> {{commentCount}}</span>
+                <span v-cloak><i class="icon-broswer"></i> {{viewCount}}</span>
             </p>
         </div>
         <div class="sku">
@@ -45,12 +46,13 @@
                     <span class="tit">商品分类</span>
                     <p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
                              :class="merchandiseClasses == item.id?'cur':''"
-                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item)">{{item.argName}}</span>
+                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"  v-cloak>{{item.argName}}</span>
                     </p>
                 </li>
                 <li class="h_box mt25">
-                    <span class="tit">选择数量</span><em>(剩余{{stock}}张)</em>
-                    <p class="textalign" style="width:17rem;">
+                    <span class="tit">选择数量</span>
+                    <em v-cloak>(剩余{{stock}}张)</em>
+                    <p class="textalign" >
                         <span class="icon-reduce" @click="changeNum(0)"></span>
                         <input v-model="count" value="" class="inputText" readonly type="text">
                         <span class="icon-add" @click="changeNum(1)"></span>
@@ -61,31 +63,35 @@
 
         <div class="details">
             <h3>商品详情</h3>
-            <div class="msg">{{content}}</div>
+            <div class="msg" v-cloak>{{content}}</div>
         </div>
 
         <div class="details">
             <h3>物流说明</h3>
-            <div class="msg">{{logistics}}</div>
+            <div class="msg" v-cloak>{{logistics}}</div>
         </div>
 
         <div class="details">
             <h3>售后服务</h3>
-            <div class="msg">{{salesSupport}}</div>
+            <div class="msg" v-cloak>{{salesSupport}}</div>
         </div>
 
-        <div class="details" style="padding-bottom:6.4rem;">
-            <!--                 <h3>联系客服</h3>
-                            <div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div> -->
-        </div>
+        <!--<div class="details">-->
+            <!--<h3>联系客服</h3>-->
+            <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
+        <!--</div>-->
 
     </div>
+
+    <div class="bottomdiv"></div>
+    <div class="ft-comment"></div>
+
     <div class="btnbox">
         <ul class="h_box">
-            <li>
-                {{totalprice}}<em>积分</em>
-                <span class="price" @click="totalPrice()">{{payintegral}}</span>
-                <span v-if="integral > payintegral">{{integral}}积分</span>
+            <li v-cloak>
+                {{totalntegral}}<em>积分</em>
+                <!--<span class="price" >{{payintegral}}积分</span>-->
+                <span v-if="integral > payintegral" v-cloak>{{integral}}积分</span>
             </li>
             <li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">兑换</li>
         </ul>
@@ -95,20 +101,21 @@
 
 
 <script>
-    function setFontSize() {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 10 + "px";
-    }
-    setFontSize();
-    window.onresize = function () {
-        setFontSize();
-
-    };
 </script>
-<script src="../js/vue.min.js"></script>
-<script src="../js/vue-resource1.3.4.js"></script>
+
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
+
+
 <script>
+
+
 
     var vm = new Vue({
         el: '#buybox',
@@ -128,8 +135,7 @@
             stock: '',
             merchandiseClasses: '',
             url: [],
-            totalprice: ''
-
+            totalntegral: ''
         },
         component: {},
         created: function () {
@@ -141,9 +147,7 @@
             }
 
             var id = GetQueryString("id");
-            var userid = GetQueryString("id");
             id = 522;
-            userid = 85908;
             var $this = this;
             this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail', {"id": id}).then(function (data) {
                 var data = data.data;
@@ -168,14 +172,31 @@
         },
         methods: {
             submit: function (id, b) {
-                //fotile-api-0.0.2/order/createByIntegral
-                var flag = confirm("确认兑换该商品吗？");
-                if (!flag)return;
-                var $this = this;
-                this.userId = userid;
-                this.getAddress(this.userId);
+                alert("111");
+                //app交互——获取登录状态
+                ft.isLogin(function (result) {
+                    var errorcode = result.errorCode.toString();
+                    if (errorcode == "1") {
+                        $api.toast('登陆成功', 2000);
+                        userid = result.data.userId.toString();
+                        //alert(userid);
+                        //积分兑换
+                        var flag = confirm("确认兑换该商品吗？");
+                        if (!flag)return;
+                        var $this = this;
+                        this.userId = userid;
+                        this.getAddress(this.userId);
+                    } else if (errorCode == "0") {
+                        $api.toast('登陆取消', 2000);
+                    } else if (errorCode == "-1") {
+                        $api.toast('登陆失败', 2000);
+                    } else if (errorCode == "-2") {
+                        $api.toast('登陆不支持', 2000);
+                    }
+                });
             },
             getAddress: function (userId, back) {
+                alert("222");
                 var $this = this;
                 this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/receiptAddress/default', {"userId": this.userId}).then(function (data) {
                     $this.receiptAddress = data.data.data.id;
@@ -204,38 +225,40 @@
 
                 });
             },
-            selectType: function (classid, stock, paidIntegral, integral, item) {
+            selectType: function (classid, stock, paidIntegral, integral, item,totalntegral) {
                 var $this = this;
                 //console.info(item);
                 $this.merchandiseClasses = classid;
                 $this.stock = stock;
                 $this.payintegral = paidIntegral;
+                paidintegral=$this.payintegral;
                 $this.integral = integral;
                 $this.url.length = 0;
                 $this.url.push(item);
-                $this.totalprice = paidIntegral * count;
-                //console.info(item.picture.path);
+                $this.count=1;
+                if (stock>0){
+                    $this.count=1;
+                    $this.totalntegral=paidIntegral;
+                }else {
+                    $this.count=0;
+                    $this.totalntegral=0;
+                }
 
             },
-            changeNum: function (type) {
+            changeNum: function (type,totalntegral) {
                 if (type == 0) {
                     this.count = this.count - 1 > 1 ? this.count - 1 : 1;
+                    this.totalntegral = paidintegral * this.count;
                 } else {
                     this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
+                    this.totalntegral = paidintegral * this.count;
                 }
-            },
-            totalPrice: function (count,paidintegral) {
-                var count = document.getElementsByClassName('inputText').innerHTML;
-                var paidintegral=document.getElementsByClassName('price').innerHTML;
-                tatalprice=count*paidintegral;
-                alert(count);
-                alert(paidintegral);
-                alert(tatalprice);
             }
 
         }
     });
 
+    $.loadComment({"pageNum":1,"pageSize":5,"type":10}, 1);
 
 </script>
 
