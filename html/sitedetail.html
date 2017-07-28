@@ -277,7 +277,7 @@
         ft.isLogin(function (result) {
           var errorcode = result.errorCode.toString();
           if (errorcode == "1") {
-            $api.toast('登陆成功', 2000);
+            //$api.toast('登陆成功', 2000);
             userid = result.data.userId.toString();
             //alert(userid);
             //收藏
@@ -319,7 +319,7 @@
         })
       });
 
-      $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":8}, 1);
+      $.loadComment({"pageNum":1,"pageSize":5,"type":8,"refId":id}, 1);
 
     });
   </script>

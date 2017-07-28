@@ -4,6 +4,7 @@
     function loadComment(obj, pageNum, type, id) {
         obj.pageNum = pageNum;
         console.log(obj);
+        //alert(obj.refId);
         $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj,
             function (res) {
                 callback(res);

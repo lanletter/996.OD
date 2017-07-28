@@ -130,6 +130,7 @@
                 $header.find('.comment-count strong').text(data.commentCount);
                 $header.find('#star strong').text(data.favoriteCount);
                 $('#videobox').find('#vd').attr('src', data.video.path);
+                $(".video").css("background-image", 'url("'+data.picture.path+'")');
                 $content.append(data.content);
 
                 /*title取值*/
@@ -275,7 +276,7 @@
 //                }
 //            });
 
-            $.loadComment({"pageNum":1,"pageSize":5,"refId":434,"type":4}, 1);
+            $.loadComment({"pageNum":1,"pageSize":5,"refId":id,"type":4}, 1);
         });
     }(jQuery);
 </script>

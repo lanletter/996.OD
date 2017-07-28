@@ -24,14 +24,15 @@
 <body>
 <div id="buybox">
     <div class="jf-buy">
-        <div class="focus">
-            <mt-swipe :auto="4000">
-                <mt-swipe-item v-for="item in url">
-                    <img :src="item.picture.path" alt="">
-                </mt-swipe-item>
+        <div class="swiper">
+            <div class="focus">
+                <mt-swipe :auto="4000">
+                    <mt-swipe-item v-for="item in url">
+                        <img :src="item.picture.path" alt="">
+                    </mt-swipe-item>
 
-            </mt-swipe>
-
+                </mt-swipe>
+            </div>
         </div>
         <div class="title">
             <h4>{{title}}</h4>
@@ -59,6 +60,7 @@
                     </p>
                 </li>
             </ul>
+
         </div>
 
         <div class="details">
@@ -76,10 +78,10 @@
             <div class="msg">{{salesSupport}}</div>
         </div>
 
-        <div class="details">
-            <h3>联系客服</h3>
-            <div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>
-        </div>
+        <!--<div class="details">-->
+            <!--<h3>联系客服</h3>-->
+            <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
+        <!--</div>-->
 
     </div>
 
@@ -104,14 +106,24 @@
 </script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
+<!--<script src="https://unpkg.com/mint-ui/lib/index.js"></script>-->
+<!--<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">-->
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
-<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
 <script type="text/javascript" src='../js/ft.js'></script>
 
 <script>
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+
+    var id = GetQueryString("id");
+    id = 522;
     var vm = new Vue({
         el: '#buybox',
         data: {
@@ -135,17 +147,6 @@
         },
         component: {},
         created: function () {
-            function GetQueryString(name) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if (r != null)return unescape(r[2]);
-                return null;
-            }
-
-            var id = GetQueryString("id");
-            var userid = GetQueryString("id");
-            id = 522;
-            userid = 85908;
             var $this = this;
             this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail', {"id": id}).then(function (data) {
                 var data = data.data;
@@ -169,21 +170,23 @@
 
         },
         methods: {
+
             submit: function (id, b) {
+                var $this = this;
                 //app交互——获取登录状态
                 ft.isLogin(function (result) {
                     var errorcode = result.errorCode.toString();
                     if (errorcode == "1") {
-                        $api.toast('登陆成功', 2000);
+                        //$api.toast('登陆成功', 2000);
                         userid = result.data.userId.toString();
-                        window.userId=userid;
-                        //alert(userid);
+                        window.userid=userid;
+                        alert("userid"+userid);
                         //积分兑换
                         var flag = confirm("确认兑换该商品吗？");
-                        if (!flag)return;
-                        var $this = this;
-                        this.userId = userid;
-                        this.getAddress(this.userId);
+                        if(!flag)return;
+                        $this.userId =userid;
+                        $this.getAddress(this.userId);
+
                     } else if (errorCode == "0") {
                         $api.toast('登陆取消', 2000);
                     } else if (errorCode == "-1") {
@@ -192,14 +195,25 @@
                         $api.toast('登陆不支持', 2000);
                     }
                 });
+                  //积分兑换
+//                window.userid=120374;
+//                var flag = confirm("确认兑换该商品吗？");
+//                if(!flag)return;
+//                var $this = this;
+//                this.userId =userid;
+//                this.getAddress(this.userId);
             },
             getAddress: function (userId, back) {
                 var $this = this;
                 this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/receiptAddress/default', {"userId": this.userId}).then(function (data) {
+                    console.log(data.data.data);
+                    if(data.data.data==null){
+                        alert("请先编辑收货地址！");
+                        return;
+                    }
                     $this.receiptAddress = data.data.data.id;
                     console.info($this.receiptAddress);
                     $this.submitFn($this.receiptAddress);
-
                 }, function (err) {
 
                 });
@@ -255,7 +269,7 @@
         }
     });
 
-    $.loadComment({"pageNum":1,"pageSize":5,"type":10}, 1);
+    $.loadComment({"pageNum":1,"pageSize":5,"refId":id,"type":10}, 1);
 
 </script>
 

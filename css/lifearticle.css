@@ -2,8 +2,10 @@
     width: 7.5rem;
     height: 10rem;
     position: absolute;
-    background: url("../img/food.jpg") no-repeat;
-    background-size: cover;
+    background-repeat:no-repeat;
+    background-size:auto 10rem!important;
+    -webkit-background-size:auto 10rem!important;
+    background-position:center;
     z-index: 999999;
 }
 .video video{

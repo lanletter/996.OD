@@ -80,17 +80,17 @@
             </ul>
         </div>
 
-        <div class="qingdan">
-            <dl>
-                <dt class="tit">
-                    <span class="txt"><i class="icon-1"></i>材料清单</span>
-                    <span class="addin fr">加入购物车</span>
-                </dt>
-                <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
-                <!--                     <div class="box"></div> -->
-                <!--                     <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
-            </dl>
-        </div>
+        <!--<div class="qingdan">-->
+            <!--<dl>-->
+                <!--<dt class="tit">-->
+                    <!--<span class="txt"><i class="icon-1"></i>材料清单</span>-->
+                    <!--<span class="addin fr">加入购物车</span>-->
+                <!--</dt>-->
+                <!--<dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>-->
+                <!--&lt;!&ndash; <div class="box"></div> &ndash;&gt;-->
+                <!--&lt;!&ndash; <div class="tobuy"><span class="menubtn">一键购买</span></div> &ndash;&gt;-->
+            <!--</dl>-->
+        <!--</div>-->
 
 
     </div>
@@ -180,6 +180,16 @@
 </script>
 <script>
 
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+
+    var id = GetQueryString("id");
+    var id = 1278;
+
     var vm = new Vue({
         el: '.menupage',
         data: {
@@ -188,15 +198,6 @@
             isshow: false
         },
         created: function () {
-            function GetQueryString(name) {
-                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                var r = window.location.search.substr(1).match(reg);
-                if (r != null)return unescape(r[2]);
-                return null;
-            }
-
-            var id = GetQueryString("id");
-            var id = 1278;
             var $this = this;
             this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail', {"id": id}).then(function (data) {
                 var data = data.data;
@@ -205,7 +206,7 @@
                     //console.info(data);
                     $this.data = data.data;
                     id = $this.data.id;
-                    $('#star').attr('name', id);
+                    $('#star').attr('class', id);
                 }
                 $('#videobox').find('#vd').attr('src', data.data.video);
                 $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
@@ -247,16 +248,41 @@
                 //});
             },
             star: function (obj) {
+//                var follow = $("#star").attr('class');
+//                if (follow == "icon-msg") {
+//                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+//                        "refId": id,
+//                        "type": 1,
+//                        "userId": 85908
+//                    }, function (data) {
+//                        console.log(data);
+//                        console.log("111");
+//                        $("#star").addClass("icon-msg2");
+//                        $("#star").removeClass("icon-msg");
+//                        $api.toast('收藏成功！', 3000);
+//                    });
+//                } else if (follow == "icon-msg2") {
+//                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+//                        "refId": id,
+//                        "type": 1,
+//                        "userId": 85908
+//                    }, function (data) {
+//                        console.log(data);
+//                        console.log("222");
+//                        $("#star").addClass("icon-msg");
+//                        $("#star").removeClass("icon-msg2");
+//                        $api.toast('取消收藏！', 3000);
+//                    });
+//                }
                 //app交互——获取登录状态
                 ft.isLogin(function (result) {
                     var errorcode = result.errorCode.toString();
                     if (errorcode == "1") {
-                        $api.toast('登陆成功', 2000);
+                        //$api.toast('登陆成功', 2000);
                         userid = result.data.userId.toString();
                         //alert(userid);
                         //收藏
-                        var id = $("#star").attr('name'),
-                                follow = $("#star").attr('class');
+                        var follow = $("#star").attr('class');
                         if (follow == "icon-msg") {
                             $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
                                 "refId": id,
@@ -282,7 +308,6 @@
                                 $api.toast('取消收藏！', 3000);
                             });
                         }
-                        //location.reload();
                     } else if (errorCode == "0") {
                         $api.toast('登陆取消', 2000);
                     } else if (errorCode == "-1") {
@@ -298,7 +323,7 @@
     });
 
 
-    $.loadComment({"pageNum": 1, "pageSize": 5, "refId": 434, "type": 1}, 1);
+    $.loadComment({"pageNum": 1, "pageSize": 5, "type": 1,"refId":id}, 1);
 
 </script>
 

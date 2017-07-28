@@ -18,6 +18,7 @@ html, body {
   color: #828282; }
 
 .icon-msg {
+  margin-left: 0.42rem;
   display: inline-block;
   width: 0.48rem;
   height: 0.48rem;
@@ -26,6 +27,7 @@ html, body {
   vertical-align: middle;
   color: #828282; }
 .icon-msg2 {
+  margin-left: 0.42rem;
   display: inline-block;
   width: 0.48rem;
   height: 0.48rem;
@@ -105,8 +107,6 @@ html, body {
         line-height: 0.48rem;
         margin: 0.48rem 0 1.2rem 0;
       }
-  .jf-buy .icon-msg {
-    margin-left: 0.42rem; }
   .jf-buy .sku {
     margin: 0 0.24rem; }
     .jf-buy .sku .tit {
