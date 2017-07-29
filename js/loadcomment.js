@@ -13,7 +13,7 @@
         function callback(res) {
             var data = res.data;
             console.log(res.data);
-            var userid;
+            var userid=1;
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '<div class="ft-comment__header clearfix left-right">\
@@ -76,27 +76,26 @@
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
-                    $('.leave-words').hide();
+                    $('#leave-words').hide();
                 });
 
                 $('#commit').on('click', function () {
                     //app交互——获取登录状态
-                    ft.isLogin(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            $api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            window.userid =userid;
-                            alert(userid);
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
-
+                    // ft.isLogin(function (result) {
+                    //     var errorcode = result.errorCode.toString();
+                    //     if (errorcode == "1") {
+                    //         $api.toast('登陆成功', 2000);
+                    //         userid = result.data.userId.toString();
+                    //         window.userid =userid;
+                    //         alert(userid);
+                    //     } else if (errorCode == "0") {
+                    //         $api.toast('登陆取消', 2000);
+                    //     } else if (errorCode == "-1") {
+                    //         $api.toast('登陆失败', 2000);
+                    //     } else if (errorCode == "-2") {
+                    //         $api.toast('登陆不支持', 2000);
+                    //     }
+                    // });
                     var words = $('#leave-words'),
                         content = words.find('textarea').val().trim();
                     var picid = $('#ssr .picid');
@@ -111,6 +110,7 @@
                         alert('请输入新评论');
                         return;
                     }
+                    alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
                     $.ajax({
                         type: 'POST',
                         url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
@@ -141,7 +141,7 @@
                         console.log(data);
                     }
                     $('#leave-words').hide();
-                    history.go(-1);
+                    //history.go(-1);
                     location.reload();
                 });
 
@@ -271,28 +271,27 @@
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
-                    $('.leave-words').hide();
+                    $('#leave-words').hide();
+                    $('#leave-words2').hide();
                 });
 
                 $('#commit').on('click', function () {
                     //app交互——获取登录状态
-                    ft.isLogin(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            $api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            window.userid =userid;
-                            alert(userid);
-
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
-
+                    // ft.isLogin(function (result) {
+                    //     var errorcode = result.errorCode.toString();
+                    //     if (errorcode == "1") {
+                    //         $api.toast('登陆成功', 2000);
+                    //         userid = result.data.userId.toString();
+                    //         window.userid =userid;
+                    //         alert(userid);
+                    //     } else if (errorCode == "0") {
+                    //         $api.toast('登陆取消', 2000);
+                    //     } else if (errorCode == "-1") {
+                    //         $api.toast('登陆失败', 2000);
+                    //     } else if (errorCode == "-2") {
+                    //         $api.toast('登陆不支持', 2000);
+                    //     }
+                    // });
                     var words = $('#leave-words'),
                         content = words.find('textarea').val().trim();
                     var picid = $('#ssr .picid');
@@ -307,6 +306,7 @@
                         alert('请输入新评论');
                         return;
                     }
+                    alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
                     $.ajax({
                         type: 'POST',
                         url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
@@ -340,76 +340,80 @@
                         console.log(data);
                     }
                     $('#leave-words').hide();
-                    history.go(-1);
+                    //history.go(-1);
                     location.reload();
                 });
 
-                $('.reply').on('click', function () {
-                    $(document).click(function (e) { // 在页面任意位置点击而触发此事件
+                $('.reply').on('click', function (e) {
+                    //$(document).click(function (e) { // 在页面任意位置点击而触发此事件
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
                         //var $putin = $(e.target).closest("li");  //数据存放处
-
+                        parentid = $come.find('.Id').text();
+                        alert(parentid);
                         $('#leave-words2').show();
-                        $('#commit2').on('click', function () {
-                            //app交互——获取登录状态
-                            ft.isLogin(function (result) {
-                                var errorcode = result.errorCode.toString();
-                                if (errorcode == "1") {
-                                    $api.toast('登陆成功', 2000);
-                                    userid = result.data.userId.toString();
-                                    window.userid =userid;
-                                    alert(userid);
-                                } else if (errorCode == "0") {
-                                    $api.toast('登陆取消', 2000);
-                                } else if (errorCode == "-1") {
-                                    $api.toast('登陆失败', 2000);
-                                } else if (errorCode == "-2") {
-                                    $api.toast('登陆不支持', 2000);
-                                }
-                            });
-
-                            var words = $('#leave-words2');
-                            var content = words.find('textarea').val().trim();
-                            console.log(content);
-                            if (!content) {
-                                alert('请输入新评论');
+                        test(parentid);
+                    //});
+                });
+                function test(parentid) {
+                    $('#commit2').on('click', function () {
+                        //app交互——获取登录状态
+                        // ft.isLogin(function (result) {
+                        //     var errorcode = result.errorCode.toString();
+                        //     if (errorcode == "1") {
+                        //         $api.toast('登陆成功', 2000);
+                        //         userid = result.data.userId.toString();
+                        //         window.userid =userid;
+                        //         alert(userid);
+                        //     } else if (errorCode == "0") {
+                        //         $api.toast('登陆取消', 2000);
+                        //     } else if (errorCode == "-1") {
+                        //         $api.toast('登陆失败', 2000);
+                        //     } else if (errorCode == "-2") {
+                        //         $api.toast('登陆不支持', 2000);
+                        //     }
+                        // });
+                        var words = $('#leave-words2');
+                        var content = words.find('textarea').val().trim();
+                        console.log(content);
+                        if (!content) {
+                            alert('请输入新评论');
+                            return;
+                        }
+                        alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+parentid);
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
+                            data: JSON.stringify({
+                                "content": content,
+                                "refId": obj.refId,
+                                "type": obj.type,
+                                "userId": userid,
+                                "parentId": parentid
+                            }),
+                            contentType: "application/json;charset=UTF-8",
+                            dataType: 'json',
+                            success: function (data) {
+                                console.log('成功');
+                                callback(data);
+                            },
+                            error: function () {
+                                console.log('错误+1');
+                            }
+                        });
+                        function callback(res) {
+                            if (res.status !== 200) {
+                                alert(res.errorMessage);
                                 return;
                             }
-                            $.ajax({
-                                type: 'POST',
-                                url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
-                                data: JSON.stringify({
-                                    "content": content,
-                                    "refId": obj.refId,
-                                    "type": obj.type,
-                                    "userId": userid,
-                                    "parentId": $come.find('.Id').text()
-                                }),
-                                contentType: "application/json;charset=UTF-8",
-                                dataType: 'json',
-                                success: function (data) {
-                                    console.log('成功');
-                                    callback(data);
-                                },
-                                error: function () {
-                                    console.log('错误+1');
-                                }
-                            });
-                            function callback(res) {
-                                if (res.status !== 200) {
-                                    alert(res.errorMessage);
-                                    return;
-                                }
-                                var data = res.data;
-                                console.log(data);
-                            }
-                            $('#leave-words2').hide();
-                            history.go(-1);
-                            location.reload();
-                        });
+                            var data = res.data;
+                            console.log(data);
+                        }
+                        $('#leave-words2').hide();
+                        //history.go(-1);
+                        location.reload();
                     });
-                });
+                }
 
                 /*查看回复*/
                 $('.review').on('click', function (e) {

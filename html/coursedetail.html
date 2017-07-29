@@ -52,7 +52,7 @@
                 <strong>课程日期</strong>
               </p>
               <p>
-                <span><time class="course-time-hour">10:00－18:00</time></span>
+                <span><time class="course-time-hour">10:00－16:00</time></span>
                 <strong>课程时间</strong>
               </p>
             </div>
@@ -316,9 +316,15 @@
                 var time = new Date(starttime);
                 var hours = time.getHours();
                 var minutes = time.getMinutes();
+                if(minutes="0"){
+                  minutes="00";
+                }
                 var time2 = new Date(endtime);
                 var hours2 = time2.getHours();
                 var minutes2 = time2.getMinutes();
+                if(minutes2="0"){
+                  minutes2="00";
+                }
                 return hours + ':' + minutes + '-' + hours2 + ':' + minutes2;
 
               }
@@ -478,7 +484,7 @@
 
               $api.imgAdapt($buyedit.find('.titlepic'), data.picture.path);
               $buyedit.find('.titletxt').text(data.curriculumName);
-              $buyedit.find('.editlist .time').text(datatime2(starttime) + data.store.serviceTime);
+              $buyedit.find('.editlist .time').text(datatime2(starttime) + hourtime(starttime, endtime));
               $buyedit.find('.editlist .name').text(data.store.storeName);
               $buyedit.find('.editlist .place').text(data.store.detailAddress);
               $buyedit.find('.editlist .lightgrey b').text(remaining);

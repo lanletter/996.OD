@@ -182,6 +182,10 @@
                         window.userid=userid;
                         alert("userid"+userid);
                         //积分兑换
+                        if($this.count==0){
+                            alert("请先选择商品!");
+                            return;
+                        }
                         var flag = confirm("确认兑换该商品吗？");
                         if(!flag)return;
                         $this.userId =userid;
@@ -196,6 +200,10 @@
                     }
                 });
                   //积分兑换
+//                if($this.count==0){
+//                    alert("请先选择商品!");
+//                    return;
+//                }
 //                window.userid=120374;
 //                var flag = confirm("确认兑换该商品吗？");
 //                if(!flag)return;
