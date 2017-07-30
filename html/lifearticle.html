@@ -54,6 +54,7 @@
 </div>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js'></script>
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
@@ -276,7 +277,7 @@
 //                }
 //            });
 
-            $.loadComment({"pageNum":1,"pageSize":5,"refId":id,"type":4}, 1);
+            $.loadComment({"pageNum":1,"pageSize":5,"refId":parseInt(id),"type":4}, 1);
         });
     }(jQuery);
 </script>

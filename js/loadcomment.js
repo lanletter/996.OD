@@ -13,7 +13,6 @@
         function callback(res) {
             var data = res.data;
             console.log(res.data);
-            var userid=1;
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '<div class="ft-comment__header clearfix left-right">\
@@ -23,6 +22,7 @@
                   <p>暂无评论，快去抢沙发吧</p>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
+                  <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..."></textarea>\
                   <div class="imgup">\
                     <div class="img-box full">\
@@ -62,91 +62,109 @@
                   <button class="backto red-btn">取消</button>\
                 </div></form>';
 
-                // res.data.forEach(function (item, index) {
-                //     item.createat = new Date(item.createat).app();
-                //     item.sonCommentList.forEach(function (item, index) {
-                //         item.createat = new Date(item.createat).app();
-                //     });
-                // });
+                Mustache.parse(noComment);
+                var rendered0 = Mustache.render(noComment, res);
+                $('.ft-comment').empty().append($(rendered0));
+                //$('.ft-comment').empty().append($(noComment));
 
-                $('.ft-comment').empty().append($(noComment));
                 /*留言*/
                 $('.leavewords').on('click', function () {
                     $('#leave-words').show();
+                    //app交互——获取登录状态
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            $api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+                            //alert(userid);
+                            test1(userid);
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
+                    });
+
+                    // userid=1;
+                    // test2(userid);
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
+                    $('#leave-words2').hide();
                 });
 
-                $('#commit').on('click', function () {
-                    //app交互——获取登录状态
-                    // ft.isLogin(function (result) {
-                    //     var errorcode = result.errorCode.toString();
-                    //     if (errorcode == "1") {
-                    //         $api.toast('登陆成功', 2000);
-                    //         userid = result.data.userId.toString();
-                    //         window.userid =userid;
-                    //         alert(userid);
-                    //     } else if (errorCode == "0") {
-                    //         $api.toast('登陆取消', 2000);
-                    //     } else if (errorCode == "-1") {
-                    //         $api.toast('登陆失败', 2000);
-                    //     } else if (errorCode == "-2") {
-                    //         $api.toast('登陆不支持', 2000);
-                    //     }
-                    // });
-                    var words = $('#leave-words'),
-                        content = words.find('textarea').val().trim();
-                    var picid = $('#ssr .picid');
-                    var picarr = [];
-                    for (var i = 0; i < picid.size(); i++) {
-                        picarr[i] = picid.eq(i).attr("id");
-                    }
-                    console.log(picid);
-                    console.log(picarr);
-                    console.log(content);
-                    if (!content) {
-                        alert('请输入新评论');
-                        return;
-                    }
-                    alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
-                    $.ajax({
-                        type: 'POST',
-                        url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
-                        data: JSON.stringify({
-                            "commentPictureIdList": picarr,
-                            "content": content,
-                            "refId": obj.refId,
-                            "type": obj.type,
-                            "userId": userid,
-                            "parentId": 0
-                        }),
-                        contentType: "application/json;charset=UTF-8",
-                        dataType: 'json',
-                        success: function (data) {
-                            console.log('成功');
-                            callback(data);
-                        },
-                        error: function () {
-                            console.log('错误');
+                function test1(userid) {
+                    $('#commit').on('click', function () {
+                        var words = $('#leave-words'),
+                            content = words.find('textarea').val().trim();
+                        var picid = $('#ssr .picid');
+                        var picarr = [];
+
+                        var commentPictureIdLists = '';
+                        for (var i = 0; i < picid.size(); i++) {
+                            //picarr[i] = picid.eq(i).attr("id");
+                            commentPictureIdLists += '&commentPictureIdList=' + picid.eq(i).attr("id");
                         }
-                    });
-                    function callback(res) {
-                        if (res.status !== 200) {
-                            alert(res.errorMessage);
+                        console.log(picid);
+                        console.log(picarr);
+                        console.log(content);
+                        if (!content) {
+                            alert('请输入新评论');
                             return;
                         }
-                        var data = res.data;
-                        console.log(data);
-                    }
-                    $('#leave-words').hide();
-                    //history.go(-1);
-                    location.reload();
-                });
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        var url = "http://121.40.135.115:8080/fotile-api-0.0.2/comment/createGet?";
+                        var contenturl = "content=" + content;
+                        var refIdurl = "&refId=" + obj.refId;
+                        var typeurl = "&type=" + obj.type;
+                        var userIdurl = "&userId=" + userid;
+                        var parentidurl = "&parentId=" + 0;
+                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
+                        $.ajax({
+                            type: "get",
+                            url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists,
+                            // data: JSON.stringify({
+                            //     "commentPictureIdList": picarr,
+                            //     "content": content,
+                            //     "refId": obj.refId,
+                            //     "type": obj.type,
+                            //     "userId": userid,
+                            //     "parentId": 0
+                            // }),
+                            // contentType: "application/json;charset=UTF-8",
+                            // dataType: 'json',
+                            success: function (data) {
+                                console.log('成功');
+                                alert("评论创建成功！");
+                                callback(data);
+                            },
+                            error: function () {
+                                console.log('错误');
+                                alert("评论创建失败！");
+                            }
+                        });
+                        function callback(res) {
+                            if (res.status !== 200) {
+                                alert(res.errorMessage);
+                                return;
+                            }
+                            var data = res.data;
+                            console.log(data);
+                            alert("评论创建成功！");
+                        }
 
-                //return;
+                        $('#leave-words').hide();
+
+                        //alert("type:" + obj.type + "id:" + obj.refId);
+                        type = obj.type;
+                        id = obj.refId;
+                        refresh(type, id);
+                    });
+                }
             }
             if (obj.pageNum >= 1 && data.length > 0) {
                 var template = '<div class="ft-comment__header clearfix left-right">\
@@ -154,6 +172,7 @@
                   <a href="#" class="leavewords"><span class="right comment"></span></a>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
+                  <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..."></textarea>\
                   <div class="imgup">\
                     <div class="img-box full">\
@@ -216,6 +235,7 @@
                       <button class="reply" id="reply{{id}}">回复TA</button>\
                       <span class="time"> <time>{{createat}}</time></span>\
                       <form id="picForm2"><div id="leave-words2" class="leave-words">\
+                          <p class="bgfff"></p>\
                           <textarea placeholder="请输入最新评论..."></textarea>\
                           <button id="commit2" class="commit red-btn">提交</button>\
                           <button class="backto red-btn">取消</button>\
@@ -264,10 +284,28 @@
                 $('.ft-comment').empty().append($(rendered));
 
 
-
                 /*留言*/
                 $('.leavewords').on('click', function () {
                     $('#leave-words').show();
+                    //app交互——获取登录状态
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            $api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+                            //alert(userid);
+                            test2(userid);
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
+                    });
+
+                    // userid=1;
+                    // test2(userid);
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
@@ -275,130 +313,55 @@
                     $('#leave-words2').hide();
                 });
 
-                $('#commit').on('click', function () {
-                    //app交互——获取登录状态
-                    // ft.isLogin(function (result) {
-                    //     var errorcode = result.errorCode.toString();
-                    //     if (errorcode == "1") {
-                    //         $api.toast('登陆成功', 2000);
-                    //         userid = result.data.userId.toString();
-                    //         window.userid =userid;
-                    //         alert(userid);
-                    //     } else if (errorCode == "0") {
-                    //         $api.toast('登陆取消', 2000);
-                    //     } else if (errorCode == "-1") {
-                    //         $api.toast('登陆失败', 2000);
-                    //     } else if (errorCode == "-2") {
-                    //         $api.toast('登陆不支持', 2000);
-                    //     }
-                    // });
-                    var words = $('#leave-words'),
-                        content = words.find('textarea').val().trim();
-                    var picid = $('#ssr .picid');
-                    var picarr = [];
-                    for (var i = 0; i < picid.size(); i++) {
-                        picarr[i] = picid.eq(i).attr("id");
-                    }
-                    console.log(picid);
-                    console.log(picarr);
-                    console.log(content);
-                    if (!content) {
-                        alert('请输入新评论');
-                        return;
-                    }
-                    alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
-                    $.ajax({
-                        type: 'POST',
-                        url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
-                        data: JSON.stringify({
-                            "commentPictureIdList": picarr,
-                            "content": content,
-                            "refId": obj.refId,
-                            "type": obj.type,
-                            "userId": userid,
-                            "parentId": 0
-                        }),
-                        contentType: "application/json;charset=UTF-8",
-                        dataType: 'json',
-                        success: function (data) {
-                            console.log('成功');
-                            callback(data);
-                            $('#leave-words').hide();
-                            history.go(-1);
-                            location.reload();
-                        },
-                        error: function () {
-                            console.log('错误');
-                        }
-                    });
-                    function callback(res) {
-                        if (res.status !== 200) {
-                            alert(res.errorMessage);
-                            return;
-                        }
-                        var data = res.data;
-                        console.log(data);
-                    }
-                    $('#leave-words').hide();
-                    //history.go(-1);
-                    location.reload();
-                });
+                function test2(userid) {
+                    $('#commit').on('click', function () {
+                        var words = $('#leave-words'),
+                            content = words.find('textarea').val().trim();
+                        var picid = $('#ssr .picid');
+                        var picarr = [];
 
-                $('.reply').on('click', function (e) {
-                    //$(document).click(function (e) { // 在页面任意位置点击而触发此事件
-                        $(e.target).attr("id");     // e.target表示被点击的目标
-                        var $come = $(e.target).siblings(".key");//数据来自于
-                        //var $putin = $(e.target).closest("li");  //数据存放处
-                        parentid = $come.find('.Id').text();
-                        alert(parentid);
-                        $('#leave-words2').show();
-                        test(parentid);
-                    //});
-                });
-                function test(parentid) {
-                    $('#commit2').on('click', function () {
-                        //app交互——获取登录状态
-                        // ft.isLogin(function (result) {
-                        //     var errorcode = result.errorCode.toString();
-                        //     if (errorcode == "1") {
-                        //         $api.toast('登陆成功', 2000);
-                        //         userid = result.data.userId.toString();
-                        //         window.userid =userid;
-                        //         alert(userid);
-                        //     } else if (errorCode == "0") {
-                        //         $api.toast('登陆取消', 2000);
-                        //     } else if (errorCode == "-1") {
-                        //         $api.toast('登陆失败', 2000);
-                        //     } else if (errorCode == "-2") {
-                        //         $api.toast('登陆不支持', 2000);
-                        //     }
-                        // });
-                        var words = $('#leave-words2');
-                        var content = words.find('textarea').val().trim();
+                        var commentPictureIdLists = '';
+                        for (var i = 0; i < picid.size(); i++) {
+                            //picarr[i] = picid.eq(i).attr("id");
+                            commentPictureIdLists += '&commentPictureIdList=' + picid.eq(i).attr("id");
+                        }
+                        console.log(picid);
+                        console.log(picarr);
                         console.log(content);
                         if (!content) {
                             alert('请输入新评论');
                             return;
                         }
-                        alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+parentid);
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        var url = "http://121.40.135.115:8080/fotile-api-0.0.2/comment/createGet?";
+                        var contenturl = "content=" + content;
+                        var refIdurl = "&refId=" + obj.refId;
+                        var typeurl = "&type=" + obj.type;
+                        var userIdurl = "&userId=" + userid;
+                        var parentidurl = "&parentId=" + 0;
+                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+
                         $.ajax({
-                            type: 'POST',
-                            url: 'http://121.40.135.115:8080/fotile-api-0.0.2/comment/create',
-                            data: JSON.stringify({
-                                "content": content,
-                                "refId": obj.refId,
-                                "type": obj.type,
-                                "userId": userid,
-                                "parentId": parentid
-                            }),
-                            contentType: "application/json;charset=UTF-8",
-                            dataType: 'json',
+                            type: "get",
+                            url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists,
+                            // data: JSON.stringify({
+                            //     "commentPictureIdList": picarr,
+                            //     "content": content,
+                            //     "refId": obj.refId,
+                            //     "type": obj.type,
+                            //     "userId": userid,
+                            //     "parentId": 0
+                            // }),
+                            // contentType: "application/json;charset=UTF-8",
+                            // dataType: 'json',
                             success: function (data) {
                                 console.log('成功');
+                                alert("评论创建成功！");
                                 callback(data);
                             },
                             error: function () {
-                                console.log('错误+1');
+                                console.log('错误');
+                                alert("评论创建失败！");
                             }
                         });
                         function callback(res) {
@@ -408,10 +371,101 @@
                             }
                             var data = res.data;
                             console.log(data);
+                            alert("评论创建成功！");
                         }
+
+                        $('#leave-words').hide();
+
+                        //alert("type:" + obj.type + "id:" + obj.refId);
+                        type = obj.type;
+                        id = obj.refId;
+                        refresh(type, id);
+                    });
+                }
+
+                $('.reply').on('click', function (e) {
+                    $(e.target).attr("id");     // e.target表示被点击的目标
+                    var $come = $(e.target).siblings(".key");//数据来自于
+                    //var $putin = $(e.target).closest("li");  //数据存放处
+                    parentid = $come.find('.Id').text();
+                    $('#leave-words2').show();
+
+                    //app交互——获取登录状态
+                       ft.isLogin(function (result) {
+                           var errorcode = result.errorCode.toString();
+                           if (errorcode == "1") {
+                               $api.toast('登陆成功', 2000);
+                               userid = result.data.userId.toString();
+                               //alert(userid);
+                               test(parentid, userid);
+                           } else if (errorCode == "0") {
+                               $api.toast('登陆取消', 2000);
+                           } else if (errorCode == "-1") {
+                               $api.toast('登陆失败', 2000);
+                           } else if (errorCode == "-2") {
+                               $api.toast('登陆不支持', 2000);
+                           }
+                       });
+//                  userid=1;
+//                  test(parentid,userid);
+                });
+                function test(parentid, userid) {
+                    $('#commit2').on('click', function () {
+                        var words = $('#leave-words2');
+                        var content = words.find('textarea').val().trim();
+                        console.log(content);
+                        if (!content) {
+                            alert('请输入新评论');
+                            return;
+                        }
+                        //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
+                        var url = "http://121.40.135.115:8080/fotile-api-0.0.2/comment/createGet?";
+                        var contenturl = "content=" + content;
+                        var refIdurl = "&refId=" + obj.refId;
+                        var typeurl = "&type=" + obj.type;
+                        var userIdurl = "&userId=" + userid;
+                        var parentidurl = "&parentId=" + parentid;
+                        //alert(url+contenturl+refIdurl+typeurl+userId+parentidurl);
+                        $.ajax({
+                            type: "get",
+                            url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
+                            // data: JSON.stringify({
+                            //     "content": content,
+                            //     "refId": obj.refId,
+                            //     "type": obj.type,
+                            //     "userId": userid,
+                            //     "parentId": parentid
+                            // }),
+                            // contentType: "application/json;charset=UTF-8",
+                            //dataType: 'json',
+                            success: function (data) {
+                                console.log('创建成功！');
+                                alert("评论创建成功！");
+                                callback(data);
+
+                            },
+                            error: function () {
+                                console.log('创建失败！');
+                                alert("评论创建失败！");
+                            }
+                        });
+                        function callback(res) {
+                            if (res.status !== 200) {
+                                alert(res.errorMessage);
+                                return;
+                            }
+                            var data = res.data;
+                            console.log(data);
+                            alert("评论创建成功！");
+                        }
+
                         $('#leave-words2').hide();
-                        //history.go(-1);
-                        location.reload();
+
+                        //alert("type:" + obj.type + "id:" + obj.refId);
+                        type = obj.type;
+                        id = obj.refId;
+                        refresh(type, id);
+
                     });
                 }
 
@@ -419,28 +473,88 @@
                 $('.review').on('click', function (e) {
                     classname = $(e.target).attr("class");
                     if (classname = "review") {
-                        $(e.target).parent().parent().find('.son-comments').slideToggle();;
+                        $(e.target).parent().parent().find('.son-comments').slideToggle();
                     }
                 });
 
                 /*点赞*/
                 $('.praise').on('click', function (e) {
                     var $come = $(e.target).siblings(".key");//数据来自于
-                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/like/create', {
+                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
                         "refId": $come.find('.refId').text(),
                         "type": $come.find('.type').text(),
-                        "userId": userid,
+                        "userId": 1,
                     }, function (data) {
                         console.log(data);
                         console.log("111");
                         $(e.target).remove("praisebg");
                         $(e.target).addClass("praisebg2");
-                        var oldnum=$(e.target).text();
-                        $(e.target).text(parseInt(oldnum)+1);
+                        var oldnum = $(e.target).text();
+                        $(e.target).text(parseInt(oldnum) + 1);
                     });
                 });
             }
+            function refresh(type, id) {
+                alert("链接id=" + id);
+                // window.history.go(-2);
+                // location.reload();
+                switch (type) {
+                    case 1:
+                        var url = "http://app.fotilestyle.com/html/menu-inpage.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href = url;
+                        window.event.returnValue=false;
+                        break;
+                    case 2:
+                        var url = "http://app.fotilestyle.com/html/coursedetail.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href = url;
+                        window.event.returnValue=false;
+                        break;
+                    case 4:
+                        var url = "http://app.fotilestyle.com/html/lifearticle.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href=url;
+                        window.event.returnValue=false;
+                        break;
+                    case 5:
+                        var url = "http://app.fotilestyle.com/html/lifedetail.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href = url;
+                        window.event.returnValue=false;
+                        break;
+                    case 6:
+                        var url = "http://app.fotilestyle.com/html/activedetail.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href = url;
+                        window.event.returnValue=false;
+                        break;
+                    case 8:
+                        var url = "http://app.fotilestyle.com/html/sitedetail.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href = url;
+                        window.event.returnValue=false;
+                        break;
+                    case 10:
+                        var url = "http://app.fotilestyle.com/html/gooddetail3.0.html?id=" + id;
+                        console.log(url);
+                        alert(url);
+                        window.location.href = url;
+                        window.event.returnValue=false;
+                        break;
+                    default:
+                        return
+                }
+            }
         }
+
+
 
         $(window).off('scroll').on('scroll', $api.throttle(function () {
             var scrollTop = $(this).scrollTop();
@@ -452,6 +566,8 @@
                 loadComment(obj, pageNum);
             }
         }, 500, 200000))
+
+
     }
 
 

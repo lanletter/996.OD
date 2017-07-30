@@ -396,10 +396,13 @@ html, body {
   .menupage .equipment ul {
     -webkit-box-pack: start;
             justify-content: flex-start;
-    padding: 0.1rem 0; }
+    overflow: hidden;
+    padding: 0.16rem 0; }
     .menupage .equipment ul li {
+      float: left;
+      margin-right: 0.5rem;
       padding: 0 0.04rem;
-      width: 0.8rem;
+      width: 1.2rem;
       text-align: center; }
       .menupage .equipment ul li a {
         display: inline-block; }
@@ -411,7 +414,7 @@ html, body {
       width: 100%; }
     .menupage .equipment ul p {
       text-align: center;
-      font-size: 0.24rem;
+      font-size: 0.16rem;
       padding: 0.1rem 0; }
 
 .menupage .menutype {

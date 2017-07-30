@@ -35,8 +35,11 @@ body {
 
 a {
   color: #2d374b;
-  text-decoration: none
+  text-decoration: none!important;
 }
+a:link , a:visited , a:hover , a:active{
+   text-decoration: none!important;
+ }
 
 i {
   font-style: normal;

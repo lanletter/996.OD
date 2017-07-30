@@ -37,8 +37,8 @@
         <div class="title">
             <h4>{{title}}</h4>
             <p>
-                <span><i class="icon-msg"></i> {{commentCount}}</span>
-                <span><i class="icon-broswer"></i> {{viewCount}}</span>
+                <span v-cloak><i class="icon-msg"></i> {{commentCount}}</span>
+                <span v-cloak><i class="icon-broswer"></i> {{viewCount}}</span>
             </p>
         </div>
         <div class="sku">
@@ -106,8 +106,8 @@
 </script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
-<!--<script src="https://unpkg.com/mint-ui/lib/index.js"></script>-->
-<!--<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">-->
+<script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
@@ -123,7 +123,7 @@
     }
 
     var id = GetQueryString("id");
-    id = 522;
+    var id=521;
     var vm = new Vue({
         el: '#buybox',
         data: {
@@ -277,7 +277,7 @@
         }
     });
 
-    $.loadComment({"pageNum":1,"pageSize":5,"refId":id,"type":10}, 1);
+    $.loadComment({"pageNum":1,"pageSize":5,"refId":parseInt(id),"type":10}, 1);
 
 </script>
 

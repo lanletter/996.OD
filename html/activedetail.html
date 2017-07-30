@@ -67,12 +67,13 @@
         if(r!=null)return  unescape(r[2]); return null;
       }
       var id = GetQueryString("id");
-      var id=1;
+      var id=2;
+      alert(id);
       $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/activity/detail', {
         id: id
       }, function(res) {
         data = res.data;
-        console.log(data);
+        console.log(res);
         var $header = $('.header');
         var $content = $('.content');
         $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
@@ -110,7 +111,7 @@
 
         $content.append(data.content);
       });
-      $.loadComment({"pageNum":1,"pageSize":5,"type":6,"refId":id}, 1);
+      $.loadComment({"pageNum":1,"pageSize":5,"type":6,"refId":parseInt(id)}, 1);
     });
   </script>
 </body>
