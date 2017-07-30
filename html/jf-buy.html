@@ -19,6 +19,7 @@
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/jf-info.css" rel="stylesheet">
     <link href="../css/download.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://2.swiper.com.cn/dist/css/idangerous.swiper.css">
     <title>积分换购</title>
 </head>
 <body>
@@ -26,12 +27,22 @@
     <div class="jf-buy">
         <div class="swiper">
             <div class="focus">
-                <mt-swipe :auto="4000">
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="item in url">
+                        <a href=""><img :src="item.picture.path" alt=""></a>
+                    </div>
+
+                  </div>
+                  <div class="swiper-pagination"></div>
+                </div>
+
+<!--                 <mt-swipe :auto="4000">
                     <mt-swipe-item v-for="item in url">
                         <img :src="item.picture.path" alt="">
                     </mt-swipe-item>
 
-                </mt-swipe>
+                </mt-swipe> -->
             </div>
         </div>
         <div class="title">
@@ -112,7 +123,7 @@
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
-
+<script type="text/javascript" src="http://2.swiper.com.cn/dist/js/idangerous.swiper.min.js"></script>
 <script>
 
     function GetQueryString(name) {
@@ -168,6 +179,13 @@
                 console.info('error');
             });
 
+        },
+        updated:function(){
+            var mySwiper = new Swiper('.swiper-container', {
+                autoplay:4000,//可选选项，自动滑动
+                pagination : '.swiper-pagination',
+                paginationType:'bullets'
+            });
         },
         methods: {
 
