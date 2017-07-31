@@ -218,7 +218,7 @@
               $header.find('h3').text(data.curriculumName);
               $header.find('.view-count').text(data.viewCount);
               $header.find('.favorite-count').text(data.likeCount);
-              $header.find('.course-des').text(data.curriculumDesc);
+              $header.find('.course-des').html(data.curriculumDesc);
               var remaining = parseInt(data.totalCount) - parseInt(data.currentCount);
 
               $('.address span').text(data.store.detailAddress);
@@ -316,15 +316,15 @@
                 var time = new Date(starttime);
                 var hours = time.getHours();
                 var minutes = time.getMinutes();
-                if(minutes="0"){
-                  minutes="00";
+                if(minutes<10){
+                  minutes="0"+minutes;
                 }
                 var time2 = new Date(endtime);
                 var hours2 = time2.getHours();
                 var minutes2 = time2.getMinutes();
-                if(minutes2="0"){
-                  minutes2="00";
-                }
+                  if(minutes2<10){
+                      minutes2="0"+minutes2;
+                  }
                 return hours + ':' + minutes + '-' + hours2 + ':' + minutes2;
 
               }
@@ -513,7 +513,7 @@
                   break;
                 case 'DBL': // 不可用
                   $('.able').hide();
-                  $('.dis').text('不可用');
+                  $('.dis').text('已失效');
                   $('.buy-box').css('background', '#676a6c');
                   $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
                   break;

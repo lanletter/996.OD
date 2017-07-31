@@ -253,7 +253,7 @@
                             <span class="text">\
                                 {{content}}\
                             </span>\
-                            <button class="praise praisebg">点赞({{isLike}})</button>\
+                            <button class="praise praisebg">{{isLike}}</button>\
                             <button class="reply" id="replyy{{id}}">回复TA</button>\
                             <span class="time"> <time>{{createat}}</time></span>\
                           </p>\

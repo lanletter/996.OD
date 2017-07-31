@@ -172,16 +172,16 @@
 	top:50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 6rem;
-	height: 8rem;
+	width: 5.6rem;
+	height: 8.5rem;
 	background-color: #fff;
-	border-radius: 5px;
+	border-radius: 0.15rem;
 	padding: 0.4rem;
 }
 .pop .key{
 	font-weight: bold;
-	color: #000;
-	font-size: 0.2rem;
+	color:rgb(47,47,47);
+	font-size: 0.28rem;
 	display: block;
 	margin: 0.4rem 0 0.2rem 0;
 }
@@ -198,23 +198,29 @@
 	line-height: 0.5rem;
 	border-radius: 0;
 }
+.pop input::-webkit-input-placeholder { color:rgb(237,237,237); }
 
 .order-type .type-btn{
+	height: 0.52rem;
+	width: 1.22rem;
 	background: #ededed;
 	color: #fff;
-	border-radius: 10px;
-	line-height: 1.5;
-	padding:0  10px;
+	border-radius: 0.3rem;
+	line-height: 0.52rem;
+	text-align: center;
 	margin-right: 0.2rem;
+	font-size: 0.2rem;
 }
 .order-type .check{
 	background-color: #fd6669;
 }
 
 .pop li:last-child .red-btn{
-	width: 4.5rem;
+	width: 4.26rem;
+	height: 0.64rem;
 	line-height: 2;
 	letter-spacing: 0.2rem;
+	border-radius: 0.36rem;
 }
 .pop li:last-child{
 	text-align: center;
