@@ -34,7 +34,7 @@
       </div>
       <div class="header__opt">
         <span class="view-count"><strong></strong></span>
-        <span class="favorite-count"><strong></strong></span>
+        <span class="favorite-count" id="star"><strong></strong></span>
       </div>
     </header>
     <article class="content">
@@ -110,8 +110,60 @@
         $header.find('time').text(format(starttime)+'-'+format(endtime));
 
         $content.append(data.content);
+
+        //判断是否收藏
+        //app交互——获取登录状态
+        $('.header__opt').on('click', '#star', function(e) {
+          ft.isLogin(function (result) {
+            var errorcode = result.errorCode.toString();
+            if (errorcode == "1") {
+              //$api.toast('登陆成功', 2000);
+              userid = result.data.userId.toString();
+              //alert(userid);
+              //收藏
+              var id = $(e.target).data('id'),
+                      follow = $(e.target).attr('class');
+              if (follow == "favorite-count") {
+                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+                  "refId": id,
+                  "type": 4,
+                  "userId": userid
+                }, function (data) {
+                  console.log(data);
+                  console.log("111");
+                  $("#star").addClass("favorite-count2");
+                  $("#star").removeClass("favorite-count");
+                  $api.toast('收藏成功！', 3000);
+                  var oldnum=$(e.target).text();
+                  $(e.target).text(parseInt(oldnum)+1);
+                });
+              } else if(follow == "favorite-count2") {
+                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+                  "refId": id,
+                  "type": 4,
+                  "userId": userid
+                }, function (data) {
+                  console.log(data);
+                  console.log("222");
+                  $("#star").addClass("favorite-count");
+                  $("#star").removeClass("favorite-count2");
+                  $api.toast('取消收藏！', 3000);
+                  var oldnum=$(e.target).text();
+                  $(e.target).text(parseInt(oldnum)-1);
+                });
+              }
+              //location.reload();
+            } else if (errorCode == "0") {
+              $api.toast('登陆取消', 2000);
+            } else if (errorCode == "-1") {
+              $api.toast('登陆失败', 2000);
+            } else if (errorCode == "-2") {
+              $api.toast('登陆不支持', 2000);
+            }
+          })
+        });
       });
-      $.loadComment({"pageNum":1,"pageSize":5,"type":6,"refId":parseInt(id)}, 1);
+      $.loadComment({"pageNum":1,"pageSize":20,"type":6,"refId":parseInt(id)}, 1);
     });
   </script>
 </body>

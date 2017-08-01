@@ -37,40 +37,42 @@
 </div>
 <div class="jf-buy menupage" v-cloak>
     <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
-        <!--<div class="playbox">-->
-            <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
-                <!--<source :src="data.video" type="video/mp4"/>-->
-                <!--Your browser does not support HTML5 video.-->
-            <!--</video>-->
-            <!--<div id="play" class="play" @click="play"></div>-->
-        <!--</div>-->
+    <!--<div class="playbox">-->
+    <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
+    <!--<source :src="data.video" type="video/mp4"/>-->
+    <!--Your browser does not support HTML5 video.-->
+    <!--</video>-->
+    <!--<div id="play" class="play" @click="play"></div>-->
+    <!--</div>-->
     <!--</div>-->
     <!--<div class="focus" v-else>-->
-        <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
-        <!--<mt-swipe :auto="4000">-->
-            <!--<mt-swipe-item v-for="item in data.images">-->
-                <!--<img :src="item" alt="">-->
-            <!--</mt-swipe-item>-->
+    <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
+    <!--<mt-swipe :auto="4000">-->
+    <!--<mt-swipe-item v-for="item in data.images">-->
+    <!--<img :src="item" alt="">-->
+    <!--</mt-swipe-item>-->
 
-        <!--</mt-swipe>-->
+    <!--</mt-swipe>-->
     <!--</div>-->
     <div class="title">
         <h4>{{data.name}}</h4>
         <p class="icons">
-            <span><i class="icon-broswer"></i> {{data.pageviews}}</span>
-            <span><i class="icon-msg" id="star" @click="star"></i> {{data.comment_count || 0}}</span>
+            <span><i class="icon-broswer"></i> <b>{{data.pageviews}}</b></span>
+            <span><i class="icon-msg" id="star" @click="star"></i> <b>{{data.comment_count || 0}}</b></span>
         </p>
         <div class="text">
             <h5><span>来源</span></h5>
-            <ul class="from h_box">
-                <li class="flex_1">
-                    <img :src="data.users[0].picturePath" alt="">{{data.users[0].name}}
-                </li>
-                <!--                     <li class="flex_1 t-r">
-                                        <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
-                                    </li> -->
-            </ul>
-            <p>{{data.users[0].desc}}</p>
+            <div v-for="item in data.users">
+                <ul class="from h_box">
+                    <li class="flex_1">
+                        <img :src="item.picturePath" alt="">{{item.name}}
+                    </li>
+                    <!--                     <li class="flex_1 t-r">
+                                            <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
+                                        </li> -->
+                </ul>
+                <p class="desc">{{item.desc}}</p>
+            </div>
             <ul class="h_box special">
                 <li>
                     <i class="icon-easy"></i><span>容易<br/><em>难易程度</em></span>
@@ -87,16 +89,14 @@
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
                 <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
-                 <!--<div class="box"></div>-->
+                <div class="box"></div>
                 <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
             </dl>
         </div>
-
-
     </div>
 
     <div class="step">
-        <div v-for="item in data.cooking_steps" class="stepbox">
+        <div v-for="item in data.cooking_steps" class="stepbox" v-html="item.description">
             <h4>步骤 <em>{{item.index}}/{{data.cooking_steps.length}}</em></h4>
             <img v-for="ite in item.images" :src="ite" alt="">
             <p class="txt">{{item.description}}</p>
@@ -104,12 +104,10 @@
                 <i class="icon-tips"></i>{{item.reminder}}
             </div>
         </div>
-
-
     </div>
 
 
-    <div class="equipment" v-if="data.devices.length > 0">
+    <div class="equipment" id="devices">
         <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
@@ -121,25 +119,25 @@
         </ul>
     </div>
 
-    <div class="menutype" v-if="data.classification.length > 0">
+    <div class="menutype" id="classification">
         <h3>菜谱分类 <a class="fr" href="">全部分类</a></h3>
         <div class="typebox">
             <span v-for="item in data.classification">{{item.sub.name}}</span>
         </div>
     </div>
 
-    <div class="menutype" style="border:none;" v-if="data.kitchenwares.length > 0">
+    <div class="menutype" style="border:none;" id="kitchenwares">
         <h3>厨具列表 <a class="fr" href="">更多</a></h3>
         <ul class="list h_box">
-            <li class="flex_1" v-for="item in data.kitchenwares"><a :href="item.url"><img :src="item.picturePath"
-                                                                                          alt=""></a></li>
-
+            <li class="flex_1" v-for="item in data.kitchenwares">
+                <a :href="item.url"><img :src="item.picturePath" alt=""></a>
+            </li>
         </ul>
     </div>
 
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
-
+    <div class="bottomdiv"></div>
 </div>
 
 
@@ -179,6 +177,7 @@
 </script>
 <script>
 
+
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
@@ -187,7 +186,7 @@
     }
 
     var id = GetQueryString("id");
-    var id = 1412;
+    var id = 1311;
 
     var vm = new Vue({
         el: '.menupage',
@@ -201,15 +200,28 @@
             this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail', {"id": id}).then(function (data) {
                 var data = data.data;
                 console.log(data);
+
                 if (data.status == 200) {
                     //console.info(data);
                     $this.data = data.data;
                     id = $this.data.id;
-                    $('#star').attr('class', id);
+                    //$('#star').attr('class', id);
                 }
                 $('#videobox').find('#vd').attr('src', data.data.video);
                 $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
 
+                var deviceslength=data.data.devices.length;
+                var classificationlength=data.data.classification.length;
+                var kitchenwareslength=data.data.kitchenwares.length;
+                if(deviceslength==0){
+                    $("#devices").css("display", "none");
+                }
+                if(classificationlength==0){
+                    $("#classification").css("display", "none");
+                }
+                if(kitchenwareslength==0){
+                    $("#kitchenwares").css("display", "none");
+                }
 
             }, function () {
                 console.info('error');
@@ -292,6 +304,9 @@
                                 console.log("111");
                                 $("#star").addClass("icon-msg2");
                                 $("#star").removeClass("icon-msg");
+                                var oldnum=$("#star").next().text();
+                                alert(oldnum);
+                                $("#star").next().text(parseInt(oldnum)+1);
                                 $api.toast('收藏成功！', 3000);
                             });
                         } else if (follow == "icon-msg2") {
@@ -304,6 +319,9 @@
                                 console.log("222");
                                 $("#star").addClass("icon-msg");
                                 $("#star").removeClass("icon-msg2");
+                                var oldnum=$("#star").next().text();
+                                alert(oldnum);
+                                $("#star").next().text(parseInt(oldnum)-1);
                                 $api.toast('取消收藏！', 3000);
                             });
                         }
@@ -322,7 +340,7 @@
     });
 
 
-    $.loadComment({"pageNum":1,"pageSize":5,"refId":1412,"type":1}, 1);
+    $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1 }, 1);
 
 </script>
 

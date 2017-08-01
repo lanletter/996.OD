@@ -1,6 +1,8 @@
 .ft-comment {
+  overflow: hidden;
   padding: 0.34rem 0;
   background: #fff;
+  z-index: 999999;
 }
 
 .ft-comment li {

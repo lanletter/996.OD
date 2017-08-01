@@ -51,7 +51,7 @@
                 </li>
                 <li class="h_box mt25">
                     <span class="tit">选择数量</span>
-                    <em>(剩余{{stock}}张)</em>
+                    <em>(剩余{{stock}})</em>
                     <p class="textalign" >
                         <span class="icon-reduce" @click="changeNum(0)"></span>
                         <input v-model="count" value="" class="inputText" readonly type="text">
@@ -263,6 +263,10 @@
 
             },
             changeNum: function (type,totalntegral) {
+                if(this.count==0){
+                    alert("请先选择商品分类!");
+                    return;
+                }
                 if (type == 0) {
                     this.count = this.count - 1 > 1 ? this.count - 1 : 1;
                     this.totalntegral = paidintegral * this.count;
@@ -275,7 +279,7 @@
         }
     });
 
-    $.loadComment({"pageNum":1,"pageSize":5,"refId":parseInt(id),"type":10}, 1);
+    $.loadComment({"pageNum":1,"pageSize":20,"refId":parseInt(id),"type":10}, 1);
 
 </script>
 

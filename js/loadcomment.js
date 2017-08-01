@@ -12,7 +12,8 @@
         );
         function callback(res) {
             var data = res.data;
-            console.log(res.data);
+            //console.log(res);
+            console.log(data);
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '<div class="ft-comment__header clearfix left-right">\
@@ -94,6 +95,7 @@
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
                     $('#leave-words2').hide();
+                    refresh(type, id);
                 });
 
                 function test1(userid) {
@@ -139,12 +141,12 @@
                             // dataType: 'json',
                             success: function (data) {
                                 console.log('成功');
-                                alert("评论创建成功！");
+                                //alert("评论创建成功！");
                                 callback(data);
                             },
                             error: function () {
                                 console.log('错误');
-                                alert("评论创建失败！");
+                                //alert("评论创建失败！");
                             }
                         });
                         function callback(res) {
@@ -154,15 +156,15 @@
                             }
                             var data = res.data;
                             console.log(data);
-                            alert("评论创建成功！");
+                            //alert("评论创建成功！");
                         }
 
                         $('#leave-words').hide();
-
                         //alert("type:" + obj.type + "id:" + obj.refId);
                         type = obj.type;
                         id = obj.refId;
                         refresh(type, id);
+                        alert("评论创建成功！");
                     });
                 }
             }
@@ -311,6 +313,7 @@
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
                     $('#leave-words2').hide();
+                    refresh(type, id);
                 });
 
                 function test2(userid) {
@@ -356,12 +359,12 @@
                             // dataType: 'json',
                             success: function (data) {
                                 console.log('成功');
-                                alert("评论创建成功！");
+                                //alert("评论创建成功！");
                                 callback(data);
                             },
                             error: function () {
                                 console.log('错误');
-                                alert("评论创建失败！");
+                                //alert("评论创建失败！");
                             }
                         });
                         function callback(res) {
@@ -371,15 +374,15 @@
                             }
                             var data = res.data;
                             console.log(data);
-                            alert("评论创建成功！");
+                            //alert("评论创建成功！");
                         }
 
                         $('#leave-words').hide();
-
                         //alert("type:" + obj.type + "id:" + obj.refId);
                         type = obj.type;
                         id = obj.refId;
                         refresh(type, id);
+                        alert("评论创建成功！");
                     });
                 }
 
@@ -440,13 +443,13 @@
                             //dataType: 'json',
                             success: function (data) {
                                 console.log('创建成功！');
-                                alert("评论创建成功！");
+                                //alert("评论创建成功！");
                                 callback(data);
 
                             },
                             error: function () {
                                 console.log('创建失败！');
-                                alert("评论创建失败！");
+                                //alert("评论创建失败！");
                             }
                         });
                         function callback(res) {
@@ -456,15 +459,15 @@
                             }
                             var data = res.data;
                             console.log(data);
-                            alert("评论创建成功！");
+                            //alert("评论创建成功！");
                         }
 
                         $('#leave-words2').hide();
-
                         //alert("type:" + obj.type + "id:" + obj.refId);
                         type = obj.type;
                         id = obj.refId;
                         refresh(type, id);
+                        alert("评论创建成功！");
 
                     });
                 }
@@ -495,54 +498,55 @@
                 });
             }
             function refresh(type, id) {
-                alert("链接id=" + id);
+                //alert("链接id=" + id);
                 // window.history.go(-2);
                 // location.reload();
                 switch (type) {
                     case 1:
                         var url = "http://app.fotilestyle.com/html/menu-inpage.html?id=" + id;
                         console.log(url);
-                        alert(url);
+                        //alert(url);
                         window.location.href = url;
                         window.event.returnValue=false;
                         break;
                     case 2:
                         var url = "http://app.fotilestyle.com/html/coursedetail.html?id=" + id;
                         console.log(url);
-                        alert(url);
+                        //alert(url);
                         window.location.href = url;
                         window.event.returnValue=false;
                         break;
                     case 4:
                         var url = "http://app.fotilestyle.com/html/lifearticle.html?id=" + id;
                         console.log(url);
-                        alert(url);
+                        //alert(url);
                         window.location.href=url;
                         window.event.returnValue=false;
                         break;
                     case 5:
                         var url = "http://app.fotilestyle.com/html/lifedetail.html?id=" + id;
                         console.log(url);
-                        alert(url);
+                        //alert(url);
                         window.location.href = url;
                         window.event.returnValue=false;
                         break;
                     case 6:
                         var url = "http://app.fotilestyle.com/html/activedetail.html?id=" + id;
                         console.log(url);
-                        alert(url);
+                        //alert(url);
                         window.location.href = url;
                         window.event.returnValue=false;
                         break;
                     case 8:
                         var url = "http://app.fotilestyle.com/html/sitedetail.html?id=" + id;
                         console.log(url);
-                        alert(url);
+                        //alert(url);
                         window.location.href = url;
                         window.event.returnValue=false;
                         break;
                     case 10:
-                        var url = "http://app.fotilestyle.com/html/gooddetail3.0.html?id=" + id;
+                        //var url = "http://app.fotilestyle.com/html/jf-buy.html?id=" + id;
+                        var url = window.location.href;
                         console.log(url);
                         alert(url);
                         window.location.href = url;

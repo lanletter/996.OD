@@ -273,7 +273,7 @@ html, body {
     .menupage .text ul.from .gray {
       background: whitesmoke; }
   .menupage .text p {
-    padding: 0.32rem 0.48rem 0.52rem;
+    padding: 0.32rem 0.48rem 0rem;
     font-size: 0.28rem;
     font-weight: lighter;
     letter-spacing: 0.03rem;
@@ -283,6 +283,7 @@ html, body {
   .menupage .text .special {
     display: flex;
     flex-direction: row;
+    margin-top: 0.48rem;
     padding: 0rem 0.28rem;
     -webkit-box-pack: justify;
             justify-content: space-between; }
