@@ -67,8 +67,8 @@
         if(r!=null)return  unescape(r[2]); return null;
       }
       var id = GetQueryString("id");
-      if (id == null) { id = 2; }
-      alert(id);
+      if (id == null) { id = 1; }
+      var userid;
       $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/activity/detail', {
         id: id
       }, function(res) {
@@ -165,7 +165,7 @@
           })
         });
       });
-      $.loadComment({"pageNum":1,"pageSize":20,"type":6,"refId":parseInt(id)}, 1);
+      $.loadComment({"pageNum":1,"pageSize":20,"type":6,"refId":parseInt(id), "userId": parseInt(userid)}, 1);
     });
   </script>
 </body>

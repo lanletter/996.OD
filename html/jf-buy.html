@@ -143,6 +143,7 @@
 
     var id = GetQueryString("id");
     if (id == null) { id = 521; }
+    var userid;
     var vm = new Vue({
         el: '#buybox',
         data: {
@@ -201,7 +202,7 @@
                         //$api.toast('登陆成功', 2000);
                         userid = result.data.userId.toString();
                         window.userid=userid;
-                        alert("userid"+userid);
+                        //alert("userid"+userid);
                         //积分兑换
                         if($this.count==0){
                             alert("请先选择商品!");
@@ -262,7 +263,7 @@
                         alert('兑换成功');
                     }
                 }, function (err) {
-
+                    alert('余额不足');
                 });
             },
             selectType: function (classid, stock, paidIntegral, integral, item,count,totalntegral) {
@@ -302,7 +303,7 @@
         }
     });
 
-    $.loadComment({"pageNum":1,"pageSize":20,"refId":parseInt(id),"type":10}, 1);
+    $.loadComment({"pageNum":1,"pageSize":20,"refId":parseInt(id),"type":10, "userId": parseInt(userid)}, 1);
 
 </script>
 

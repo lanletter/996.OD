@@ -183,6 +183,14 @@
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript">
+    //记录是否阻止滚动
+    var disableScroll = false;
+    //如果弹出对话框时，底层的视图就不让滚动了
+    document.addEventListener('touchmove', function(e) {
+        if(disableScroll){
+            e.preventDefault();
+        }
+    }, false);
     $(function () {
         var $header = $('.header');
         var $content = $('.content');
@@ -194,9 +202,9 @@
             if (r != null)return unescape(r[2]);
             return null;
         }
-
         var id = GetQueryString("id");
-        if (id == null) { id = 580; }
+        if (id == null) { id = 675; }
+        var userid;
 
         $api.post('http://121.40.135.115:8080/fotile-api-0.0.2//curriculumn/detail ',
                 {id: id},
@@ -365,10 +373,7 @@
                         // setmax();
                         ft.selectCoupon(function (result) {
                             var errorcode = result.errorCode.toString();
-
-                            //alert(errorcode);
                             if (errorcode == "1") {
-                                alert("获取优惠券成功");
                                 $api.toast('获取优惠券成功', 2000);
                                 coupontype = result.data.type.toString();
                                 couponumber = result.data.number.toString();
@@ -385,7 +390,7 @@
                             } else if (errorcode == "0") {
                                 //alert("获取优惠券取消");
                                 $api.toast('获取优惠券取消', 2000);
-                                $('#selectCoupon').text('选择优惠券');
+                                $('#selectCoupon').text('不使用优惠券');
                             } else if (errorcode == "-1") {
                                 $api.toast('获取优惠券失败', 2000);
                             } else if (errorcode == "-2") {
@@ -459,22 +464,22 @@
 
                     //app交互——直接购买
                     $("#purchase").on("click", function () {
-               alert(
-                   "id:"+data.id+ '|' +
-                   "num:"+$('.numbox .num').text()+ '|' +
-                   "type:"+1+ '|' +
-                   "coupontype:"+coupontype.toString()+ '|' +
-                   "voucher:"+couponumber.toString()+ '|' +
-                   "remark:"+$('#remarks').val()+ '|' +
-                   "picturepath:"+data.picture.path+ '|' +
-                   "name:"+data.curriculumName+ '|' +
-                   "oldPrice:"+$('#oldprice').text()+ '|' +
-                   "newPrice:"+$('#allprice').text()+ '|' +
-                   "starttime:"+data.startDate+ '|' +
-                   "address1:"+data.store.storeName+ '|' +
-                   "address2:"+data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
-
-               );
+//             alert(
+//                 "id:"+data.id+ '|' +
+//                 "num:"+$('.numbox .num').text()+ '|' +
+//                 "type:"+1+ '|' +
+//                 "coupontype:"+coupontype.toString()+ '|' +
+//                 "voucher:"+couponumber.toString()+ '|' +
+//                 "remark:"+$('#remarks').val()+ '|' +
+//                 "picturepath:"+data.picture.path+ '|' +
+//                 "name:"+data.curriculumName+ '|' +
+//                 "oldPrice:"+$('#oldprice').text()+ '|' +
+//                 "newPrice:"+$('#allprice').text()+ '|' +
+//                 "starttime:"+data.startDate+ '|' +
+//                 "address1:"+data.store.storeName+ '|' +
+//                 "address2:"+data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
+//
+//             );
                         ft.purchase({
                             id: data.id,
                             price: data.price,
@@ -593,16 +598,22 @@
         });
 
         $('.buynow').on('click', function () {
+            $('.numbox .num').text("1");
+            $('#remarks').val("");
+            disableScroll = true;//禁止滚动
+            $("html,body").css({overflow:"hidden"}); //禁用滚动条
             $('.dark-bg').show();
             $('.buynow-div').show();
         });
         $('#close-div').on('click', function () {
+            disableScroll = false;//允许滚动
+            $("html,body").css({overflow:"auto"}); //启用滚动条
             $('.dark-bg').hide();
             $('.buynow-div').hide();
             //location.reload()
         });
 
-        $.loadComment({"pageNum": 1, "pageSize": 20, "type": 2, "refId": parseInt(id)}, 1);
+        $.loadComment({"pageNum": 1, "pageSize": 20, "type": 2, "refId": parseInt(id), "userId": parseInt(userid)}, 1);
 
     });
 </script>

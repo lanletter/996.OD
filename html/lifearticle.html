@@ -4,8 +4,14 @@
 <head>
     <title>生活志文章</title>
     <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
     <meta name='viewport'
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <link rel="stylesheet" type="text/css" href="../css/video-js.min.css">
@@ -14,8 +20,8 @@
 
 <body>
 <div id="videobox" class="video">
-    <video id="vd">
-        <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
+    <video id="vd" webkit-playsinline playsinline>
+        <source webkit-playsinline playsinline src="" type="video/mp4">
     </video>
     <button class="play"></button>
 </div>
@@ -55,8 +61,8 @@
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js'></script>
-<script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script>
     +function ($) {
@@ -87,7 +93,10 @@
                             video.addEventListener('ended', function () {
                                 playBtn.show();
                                 video.controls = false;
+                                $('#vd').css({"position": "absolute","left":"-10rem"});
                                 $('#videobox').css({"position": "absolute"});
+                                $("#videobox").animate({"height":"10rem"}, 1000);
+                                $("#scroll").animate({"top":"10rem"}, 1000);
                             }, false);
                             video.addEventListener('pause', function () {
                                 playBtn.show();
@@ -229,7 +238,7 @@
                         //判断是否收藏
                         //app交互——获取登录状态
                         $('#star').on('click', function (e) {
-                            alert("id:"+id+"type:"+4+"userid:"+userid);
+                            //alert("id:"+id+"type:"+4+"userid:"+userid);
                             ft.isLogin(function (result) {
                                 var errorcode = result.errorCode.toString();
                                 if (errorcode == "1") {
@@ -248,9 +257,8 @@
                                             console.log("111");
                                             $("#star").addClass("favorite-count2");
                                             $("#star").removeClass("favorite-count");
-                                            var oldnum = $("#star").next().text();
-                                            alert(oldnum);
-                                            $("#star").next().text(parseInt(oldnum) + 1);
+                                            var oldnum = $("#star strong").text();
+                                            $("#star strong").text(parseInt(oldnum) + 1);
                                             $api.toast('收藏成功！', 3000);
                                         });
                                     } else if (follow == "favorite-count2") {
@@ -263,9 +271,8 @@
                                             console.log("222");
                                             $("#star").removeClass("favorite-count2");
                                             $("#star").addClass("favorite-count");
-                                            var oldnum = $("#star").next().text();
-                                            alert(oldnum);
-                                            $("#star").next().text(parseInt(oldnum) - 1);
+                                            var oldnum = $("#star strong").text();
+                                            $("#star strong").text(parseInt(oldnum) - 1);
                                             $api.toast('取消收藏！', 3000);
                                         });
                                     }

@@ -48,7 +48,7 @@
 
     <div id="videobox" class="video">
         <video id="vd">
-            <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
+            <source src="" type="video/mp4">
         </video>
         <button class="play"></button>
         <div class="smartLabel" v-if="data.type == 1">智能菜谱</div>
@@ -140,17 +140,20 @@
         </div>
         <div class="bottomdiv"></div>
         <div class="menutype" id="classification" style="display: block;">
-            <h3>菜谱分类 <a class="fr" href="">全部分类</a></h3>
+            <h3>菜谱分类 <a class="fr" href="" id="classMenu">全部分类</a></h3>
             <div class="typebox">
                 <span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>
             </div>
         </div>
 
         <div class="menutype" style="border:none;" id="kitchenwares">
-            <h3>厨具列表 <a class="fr" href="">更多</a></h3>
+            <h3>厨具列表 <a class="fr" href="" id="moreKitchen">更多</a></h3>
             <ul class="list h_box">
                 <li class="flex_1" v-for="item in data.kitchenwares">
-                    <a :href="item.url"><img :src="item.picturePath" alt=""></a>
+                    <a :href="item.url">
+                        <img :src="item.picturePath" alt="">
+                        <p v-html="item.name"></p>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -187,7 +190,10 @@
         video.addEventListener('ended', function () {
             playBtn.show();
             video.controls = false;
+            $('#vd').css({"position": "absolute","left":"-10rem"});
             $('#videobox').css({"position": "absolute"});
+            $("#videobox").animate({"height":"10rem"}, 1000);
+            $("#scroll").animate({"top":"10rem"}, 1000);
         }, false);
         video.addEventListener('pause', function () {
             playBtn.show();
@@ -210,14 +216,15 @@
     if (id == null) { id = 1311; }
 
     //app交互—获取userid
-    var userid;
-    window.onload = function () {
-        ft.isLogin2(function (result) {
-            var $this = this;
-            var errorcode = result.errorCode.toString();
-            if (errorcode == "1") {
-                //$api.toast('登陆成功', 2000);
-                userid = result.data.userId.toString();
+//    var userid;
+//    window.onload = function () {
+//        ft.isLogin2(function (result) {
+//            var $this = this;
+//            var errorcode = result.errorCode.toString();
+//            if (errorcode == "1") {
+//                //$api.toast('登陆成功', 2000);
+//                userid = result.data.userId.toString();
+    var userid=1;
 
     var vm = new Vue({
         el: '.menuInpage',
@@ -228,7 +235,7 @@
         },
         created: function () {
             var $this = this;
-            alert(userid);
+            //alert(userid);
             this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail', {"id": id,"userId": userid}).then(function (data) {
                 var data = data.data;
                 console.log(data);
@@ -293,8 +300,16 @@
                 ft.callKitchenware(function (result) {
                 });
             },
+            classMenu: function (obj) {
+                ft.classMenu(function (result) {
+                });
+            },
+            moreKitchen: function (obj) {
+                ft.moreKitchen(function (result) {
+                });
+            },
             star: function (obj) {
-                alert("id:"+id+"type:"+1+"userid:"+userid);
+                //alert("id:"+id+"type:"+1+"userid:"+userid);
                 var follow = $("#star").attr('class');
                 if (follow == "icon-msg") {
                     $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
@@ -307,7 +322,6 @@
                         $("#star").addClass("icon-msg2");
                         $("#star").removeClass("icon-msg");
                         var oldnum=$("#star").next().text();
-                        alert(oldnum);
                         $("#star").next().text(parseInt(oldnum)+1);
                         $api.toast('收藏成功！', 3000);
                     });
@@ -384,16 +398,16 @@
     $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
 
 
-            }
-            else if (errorCode == "0") {
-                $api.toast('登陆取消', 2000);
-            } else if (errorCode == "-1") {
-                $api.toast('登陆失败', 2000);
-            } else if (errorCode == "-2") {
-                $api.toast('登陆不支持', 2000);
-            }
-        });
-    };
+//            }
+//            else if (errorCode == "0") {
+//                $api.toast('登陆取消', 2000);
+//            } else if (errorCode == "-1") {
+//                $api.toast('登陆失败', 2000);
+//            } else if (errorCode == "-2") {
+//                $api.toast('登陆不支持', 2000);
+//            }
+//        });
+//    };
 
 </script>
 
