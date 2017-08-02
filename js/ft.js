@@ -198,15 +198,17 @@
         purchase:{
             name : "purchase",
             param:{
-                id:"",//  购物车ID
-                num:"",// 购物车数量
-                type:"",// 购物车类型
-                voucher:"", //购物车优惠券
-                remark:"",// 购物车备注
-                picturepath:"",// 购物车图片路径
-                name:"", //购物车名称、标题
-                oldprice:"", //购物车原价
-                newprice:"" ,//购物车新价格
+                id:"",//  ID
+                price : "",//单价
+                num:"",// 数量
+                type:"",// 类型
+                coupontype:"",//优惠券类型
+                voucher:"", //优惠券
+                remark:"",// 备注
+                picturepath:"",// 图片路径
+                name:"", //名称、标题
+                oldprice:"", //原价
+                newprice:"" ,//新价格
                 starttime:"",//开课时间
                 address1:"",//开课地址1
                 address2:""//开课地址2
@@ -217,6 +219,11 @@
         },
         isLogin:{
             name : "isLogin",
+            callbackId : generateID(),
+            callback : noop
+        },
+        isLogin2:{
+            name : "isLogin2",
             callbackId : generateID(),
             callback : noop
         },
@@ -329,8 +336,10 @@
     ft.purchase = function (option,fn) {
         var purchaseConfig = ft.mix( true,{},config.purchase );
         purchaseConfig.param.id = option.id ||"" ;
+        purchaseConfig.param.price = option.price ||"";
         purchaseConfig.param.num = option.num ||"" ;
         purchaseConfig.param.type = option.type ||"" ;
+        purchaseConfig.param.coupontype = option.coupontype ||"";
         purchaseConfig.param.voucher = option.voucher ||"" ;
         purchaseConfig.param.remark = option.remark ||"";
         purchaseConfig.param.picturepath = option.picturepath ||"";
@@ -350,6 +359,14 @@
         var isLoginConfig = ft.mix( true,{},config.isLogin );
         isLoginConfig.callback =  fn;
         callByJS(isLoginConfig);
+    }
+    /*********************************************************************
+     *                           登录判断2                                 *
+     **********************************************************************/
+    ft.isLogin2 = function (fn) {
+        var isLoginConfig2 = ft.mix( true,{},config.isLogin2 );
+        isLoginConfig2.callback =  fn;
+        callByJS(isLoginConfig2);
     }
     /*********************************************************************
      *                           唤起智能设备                             *

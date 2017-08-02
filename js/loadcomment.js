@@ -1,8 +1,8 @@
 +function () {
     var isEmpty = false;
-
-    function loadComment(obj, pageNum, type, id) {
+    function loadComment(obj, pageNum, type, id,userId) {
         obj.pageNum = pageNum;
+        var userid = obj.userId;
         console.log(obj);
         //alert(obj.refId);
         $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj,
@@ -12,7 +12,6 @@
         );
         function callback(res) {
             var data = res.data;
-            //console.log(res);
             console.log(data);
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
@@ -59,14 +58,13 @@
                         })\
                     </script>\
                   </div>\
-                  <button id="commit" class="commit red-btn">提交</button>\
-                  <button class="backto red-btn">取消</button>\
+                  <button id="commit" class="commit">提交</button>\
+                  <button class="backto">取消</button>\
                 </div></form>';
 
                 Mustache.parse(noComment);
                 var rendered0 = Mustache.render(noComment, res);
                 $('.ft-comment').empty().append($(rendered0));
-                //$('.ft-comment').empty().append($(noComment));
 
                 /*留言*/
                 $('.leavewords').on('click', function () {
@@ -210,8 +208,8 @@
                         })\
                     </script>\
                   </div>\
-                  <button id="commit" class="commit red-btn">提交</button>\
-                  <button class="backto red-btn">取消</button>\
+                  <button id="commit" class="commit">提交</button>\
+                  <button class="backto">取消</button>\
                 </div></form>\
                 <ul id="ft-comment-ul">\
                   {{#data}}\
@@ -231,16 +229,16 @@
                       {{/commentPictureList}}\
                     </p>\
                     <p class="bottom">\
-                      <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId">{{userId}}</span><span class="parentId">{{parentId}}</span></span>\
-                      <button class="praise praisebg">{{isLike}}</button>\
+                      <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
+                      <button class="praise">{{likeCount}}</button>\
                       <button class="review">{{sonCommentList.length}}</button>\
                       <button class="reply" id="reply{{id}}">回复TA</button>\
                       <span class="time"> <time>{{createat}}</time></span>\
                       <form id="picForm2"><div id="leave-words2" class="leave-words">\
                           <p class="bgfff"></p>\
                           <textarea placeholder="请输入最新评论..."></textarea>\
-                          <button id="commit2" class="commit red-btn">提交</button>\
-                          <button class="backto red-btn">取消</button>\
+                          <button id="commit2" class="commit">提交</button>\
+                          <button class="backto">取消</button>\
                       </div></form>\
                     </p>\
                     <p class="words">\
@@ -248,14 +246,14 @@
                         <div class="son-comments" style="display: none;">\
                           <img src="{{userInfomation.titlePicture}}" class="header-pic left">\
                           <p class="right">\
-                            <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId">{{userId}}</span><span class="parentId">{{parentId}}</span></span>\
+                            <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
                             <span class="title-box clearfix left-right">\
                             <span class="left name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
                             </span>\
                             <span class="text">\
                                 {{content}}\
                             </span>\
-                            <button class="praise praisebg">{{isLike}}</button>\
+                            <button class="praise">{{likeCount}}</button>\
                             <button class="reply" id="replyy{{id}}">回复TA</button>\
                             <span class="time"> <time>{{createat}}</time></span>\
                           </p>\
@@ -305,9 +303,6 @@
                             $api.toast('登陆不支持', 2000);
                         }
                     });
-
-                    // userid=1;
-                    // test2(userid);
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
@@ -394,21 +389,21 @@
                     $('#leave-words2').show();
 
                     //app交互——获取登录状态
-                       ft.isLogin(function (result) {
-                           var errorcode = result.errorCode.toString();
-                           if (errorcode == "1") {
-                               $api.toast('登陆成功', 2000);
-                               userid = result.data.userId.toString();
-                               //alert(userid);
-                               test(parentid, userid);
-                           } else if (errorCode == "0") {
-                               $api.toast('登陆取消', 2000);
-                           } else if (errorCode == "-1") {
-                               $api.toast('登陆失败', 2000);
-                           } else if (errorCode == "-2") {
-                               $api.toast('登陆不支持', 2000);
-                           }
-                       });
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            $api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+                            //alert(userid);
+                            test(parentid, userid);
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
+                    });
 //                  userid=1;
 //                  test(parentid,userid);
                 });
@@ -480,13 +475,21 @@
                     }
                 });
 
+                /*判断点赞 */
+                console.log($(".isLike :contains(1)").text());
+                var $like=$(".isLike :contains(1)");
+                var $unlike=$(".isLike :contains(0)");
+                $like.parent().parent().siblings(".praise").addClass("praisebg2");
+                $unlike.parent().parent().siblings(".praise").addClass("praisebg");
+
+
                 /*点赞*/
-                $('.praise').on('click', function (e) {
+                $('.praise').bind('click', function (e) {
                     var $come = $(e.target).siblings(".key");//数据来自于
-                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
-                        "refId": $come.find('.refId').text(),
-                        "type": $come.find('.type').text(),
-                        "userId": 1,
+                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/like/create', {
+                        "refId": $come.find('.Id').text(),
+                        "type": 9,
+                        "userId": userid
                     }, function (data) {
                         console.log(data);
                         console.log("111");
@@ -495,12 +498,10 @@
                         var oldnum = $(e.target).text();
                         $(e.target).text(parseInt(oldnum) + 1);
                     });
+                    $(this).unbind("click");
                 });
             }
             function refresh(type, id) {
-                //alert("链接id=" + id);
-                // window.history.go(-2);
-                // location.reload();
                 switch (type) {
                     case 1:
                         var url = "http://app.fotilestyle.com/html/menu-inpage.html?id=" + id;

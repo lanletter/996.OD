@@ -260,7 +260,7 @@
   display: block;
   background:#ffffff;
   width: 100%;
-  height: 1rem;
+  height: 1.28rem;
 }
 .leave-words textarea{
   padding: 0.16rem 0.22rem 0.16rem 0.22rem;
@@ -299,10 +299,27 @@
   font-weight: lighter;
 }
 .leave-words button{
-  width: 1.5rem;
-  height: 0.5rem;
-  line-height: 0.5rem;
-  margin-top: 0.25rem;
+  width: 50%;
+  height: 0.94rem;
+  line-height: 0.94rem;
+  font-size: 0.28rem;
+  letter-spacing: 4px;
+  font-weight: 300;
+  color: rgb(247,247,247);
+  display: inline-block;
+}
+.leave-words .commit{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background: rgb(255,101,101);
+}
+.leave-words .backto{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgb(201,203,213);
 }
 
 /*上传图片插件的样式*/

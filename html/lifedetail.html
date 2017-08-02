@@ -69,7 +69,7 @@
           if(r!=null)return  unescape(r[2]); return null;
         }
         var id = GetQueryString("id");
-        var id=439
+        if (id == null) { id = 439; }
         $.ajax({
           url: 'http://121.40.135.115:8080/fotile-api-0.0.2/wantFeel/detail',
           type: 'POST', //GET

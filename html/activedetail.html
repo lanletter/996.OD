@@ -34,7 +34,7 @@
       </div>
       <div class="header__opt">
         <span class="view-count"><strong></strong></span>
-        <span class="favorite-count" id="star"><strong></strong></span>
+        <span class="comment-count" id="star"><strong></strong></span>
       </div>
     </header>
     <article class="content">
@@ -67,7 +67,7 @@
         if(r!=null)return  unescape(r[2]); return null;
       }
       var id = GetQueryString("id");
-      var id=2;
+      if (id == null) { id = 2; }
       alert(id);
       $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/activity/detail', {
         id: id
@@ -80,6 +80,8 @@
         $header.find('.header__main h3').text(data.title);
         $header.find('.view-count strong').text(data.viewCount);
         $header.find('.favorite-count strong').text(data.likeCount);
+        $header.find('.comment-count strong').text(data.commentCount);
+
         /*title取值*/
         var txt=data.title;
         if(txt==undefined){

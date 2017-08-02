@@ -13,190 +13,204 @@
 </head>
 
 <body>
-  <div>
-    <header class="header">
-      <div class="header__main">
-        <div class="site-img img"></div>
-        <h3></h3>
-      </div>
-      <!--<div class="header__opt">-->
-        <!--<span class="view-count"><i></i><strong></strong></span>-->
-        <!--<span class="favorite-count" id="star"><strong>4321</strong></span>-->
-      <!--</div>-->
-      <div class="site-info info">
-        <p class="des"></p>
-        <ul>
-          <li class="address">
-            <div>
-              <p>
-                <span></span>
-                <strong>场馆地址</strong>
-              </p>
-              <a href="" id="foo" class="to-map"></a>
-              <!--<form  name="frm"  method="get"  onsubmit = "return foo()" >-->
-                <!--<input  class="to-map" type="submit" value=""/>-->
-              <!--</form>-->
-            </div>
-          </li>
-          <li class="tel">
-            <div>
-              <p>
-                <span></span>
-                <strong>场馆电话</strong>
-              </p>
-              <a href="#"><i class="to-call"></i></a>
-            </div>
-          </li>
-          <li class="service-time">
-            <div>
-              <p>
-                <span>全年 <time></time></span>
-                <strong>服务时间</strong>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </header>
+<div>
+  <header class="header">
+    <div class="header__main">
+      <div class="site-img img"></div>
+      <h3></h3>
+    </div>
+    <!--<div class="header__opt">-->
+    <!--<span class="view-count"><i></i><strong></strong></span>-->
+    <!--<span class="favorite-count" id="star"><strong>4321</strong></span>-->
+    <!--</div>-->
+    <div class="site-info info">
+      <p class="des"></p>
+      <ul>
+        <li class="address">
+          <div>
+            <p>
+              <span></span>
+              <strong>场馆地址</strong>
+            </p>
+            <a href="" id="foo" class="to-map"></a>
+            <!--<form  name="frm"  method="get"  onsubmit = "return foo()" >-->
+            <!--<input  class="to-map" type="submit" value=""/>-->
+            <!--</form>-->
+          </div>
+        </li>
+        <li class="tel">
+          <div>
+            <p>
+              <span></span>
+              <strong>场馆电话</strong>
+            </p>
+            <a href="#"><i class="to-call"></i></a>
+          </div>
+        </li>
+        <li class="service-time">
+          <div>
+            <p>
+              <span>全年 <time></time></span>
+              <strong>服务时间</strong>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <div class="bottomdiv"></div>
+  <section class="content">
+    <div class="site-service clearfix">
+      <h3 class='section-title'>场馆服务</h3>
+      <ul>
+      </ul>
+      <button class="red-btn mark">立即预约</button>
+    </div>
     <div class="bottomdiv"></div>
-    <section class="content">
-      <div class="site-service clearfix">
-        <h3 class='section-title'>场馆服务</h3>
-        <ul>
-        </ul>
-        <button class="red-btn mark">立即预约</button>
-      </div>
-      <div class="bottomdiv"></div>
-      <div class="site-pic">
-        <h3 class="section-title">场馆图集</h3>
-      </div>
-    </section>
-    <div class="bottomdiv"></div>
-    <!--<div class="ft-comment"></div>-->
+    <div class="site-pic">
+      <h3 class="section-title">场馆图集</h3>
+    </div>
+  </section>
+  <div class="bottomdiv"></div>
+  <!--<div class="ft-comment"></div>-->
 
-    <div class="order-pop">
-      <div class="pop">
-        <span class="close"></span>
-        <ul>
-          <li>
-            <label>
-              <span class="key first">您的姓名</span>
-              <input class="name" type="text" placeholder="姓名">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span class="key">联系方式</span>
-              <input type="tel" class="tel" placeholder="联系方式">
-            </label>
-          </li>
-          <li>
-            <div class="order-type">
-              <span class="key">预约类型</span>
-              <div>
-                <button class="type-btn">场地参观</button>
-                <button class="type-btn">场地租赁</button>
-                <button class="type-btn">定制课程</button>
-              </div>
+  <div class="order-pop">
+    <div class="pop">
+      <span class="close"></span>
+      <ul>
+        <li>
+          <label>
+            <span class="key first">您的姓名</span>
+            <input class="name" type="text" placeholder="姓名">
+          </label>
+        </li>
+        <li>
+          <label>
+            <span class="key">联系方式</span>
+            <input type="tel" class="tel" placeholder="联系方式">
+          </label>
+        </li>
+        <li>
+          <div class="order-type">
+            <span class="key">预约类型</span>
+            <div>
+              <button class="type-btn">场地参观</button>
+              <button class="type-btn">场地租赁</button>
+              <button class="type-btn">定制课程</button>
             </div>
-          </li>
-          <li>
-            <label>
-              <span class="key">预约时间</span>
-              <input type="text" class="order-time" placeholder="（日期时间选择框，精确到小时）">
-            </label>
-          </li>
-          <li>
-            <label>
-              <span class="key">备注</span>
-              <input type='text' class="des" placeholder="备注">
-            </label>
-          </li>
-          <li>
-            <button class="red-btn do-order">提交</button>
-          </li>
-        </ul>
-      </div>
+          </div>
+        </li>
+        <li>
+          <label>
+            <span class="key">预约时间</span>
+            <input type="text" class="order-time" placeholder="（日期时间选择框，精确到小时）">
+          </label>
+        </li>
+        <li>
+          <label>
+            <span class="key">备注</span>
+            <input type='text' class="des" placeholder="备注">
+          </label>
+        </li>
+        <li>
+          <button class="red-btn do-order">提交</button>
+        </li>
+      </ul>
     </div>
   </div>
-  <script type="text/javascript" src='../js/lib.js'></script>
-  <script type="text/javascript" src='../js/api.js'></script>
-  <script type="text/javascript" src='../js/loadcomment.js'></script>
-  <script type="text/javascript" src='../js/ft.js'></script>
-  <script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
-  <script type="text/javascript">
-    $(function () {
+</div>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
+<script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
+<script type="text/javascript">
+  //记录是否阻止滚动
+  var disableScroll = false;
+  //如果弹出对话框时，底层的视图就不让滚动了
+  document.addEventListener('touchmove', function(e) {
+    if(disableScroll){
+      e.preventDefault();
+    }
+  }, false);
+  $(function () {
+    function GetQueryString(name)
+    {
+      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+      var r = window.location.search.substr(1).match(reg);
+      if(r!=null)return  unescape(r[2]); return null;
+    }
+    var id = GetQueryString("id");
+    if (id == null) { id = 15; }
+    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/store/detail', {
+      id: id
+    }, function(res) {
+      data = res.data;
+      console.log(data);
 
-      function GetQueryString(name)
-      {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  unescape(r[2]); return null;
+      $("#foo").on("click", function () {
+        var id = data.id;
+        var lng = data.lng;
+        var lat = data.lat;
+        var sitename=data.storeName;
+        var urlstr = "map.html?id="+id+"&"+"lng="+lng+"&"+"lat="+lat+"&"+"sitename="+sitename;
+        //alert(urlstr);
+        window.location.href=encodeURI(urlstr);
+        return false;
+      });
+
+      var $header = $('.header');
+      $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 4/3);
+      $header.find('h3').text(data.storeName);
+      $header.find('.view-count').text(data.viewCount);
+      $header.find('.favorite-count').text(data.likeCount);
+      $header.find('.des').text(data.storeDesc);
+      $header.find('.address span').text(data.detailAddress);
+      $header.find('.tel span').text(data.tel);
+      $header.find('.tel a').attr('href', 'tel:' + data.tel);
+      $header.find('.service-time time').text(data.serviceTime);
+
+      /*title取值*/
+      var txt=data.title;
+      if(txt==undefined){
+        $('head title').text("场馆详情");
+      }else {
+        $('head title').text(data.title);
       }
-      var id = GetQueryString("id");
-      var id=15;
-      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/store/detail', {
-        id: id
-      }, function(res) {
-        data = res.data;
-        console.log(data);
 
-        $("#foo").on("click", function () {
-          var id = data.id;
-          var lng = data.lng;
-          var lat = data.lat;
-          var sitename=data.storeName;
-          var urlstr = "map.html?id="+id+"&"+"lng="+lng+"&"+"lat="+lat+"&"+"sitename="+sitename;
-          //alert(urlstr);
-          window.location.href=encodeURI(urlstr);
-          return false;
-        });
+      data.storeServices.forEach(function(item, index) {
+        var item = $('<li>' + item.serviceName + '</li>');
+        $('.site-service ul').append(item);
+      });
 
-        var $header = $('.header');
-        $api.imgAdapt($header.find('.header__main .site-img'), data.titlePicture.path, 4/3);
-        $header.find('h3').text(data.storeName);
-        $header.find('.view-count').text(data.viewCount);
-        $header.find('.favorite-count').text(data.likeCount);
-        $header.find('.des').text(data.storeDesc);
-        $header.find('.address span').text(data.detailAddress);
-        $header.find('.tel span').text(data.tel);
-        $header.find('.tel a').attr('href', 'tel:' + data.tel);
-        $header.find('.service-time time').text(data.serviceTime);
+      /*菜谱图集*/
+      data.storePictures.forEach(function(item, index) {
 
-        /*title取值*/
-        var txt=data.title;
-        if(txt==undefined){
-          $('head title').text("场馆详情");
-        }else {
-          $('head title').text(data.title);
-        }
-
-        data.storeServices.forEach(function(item, index) {
-          var item = $('<li>' + item.serviceName + '</li>');
-          $('.site-service ul').append(item);
-        });
-
-        /*菜谱图集*/
-        data.storePictures.forEach(function(item, index) {
-
-          if(item.remark!=null) {
-            var img = $('<figure>\
+        if(item.remark!=null) {
+          var img = $('<figure>\
                 <img src="' + item.picture.path + '">\
                 <figcaption>' + item.remark + '</figcaption>\
                 </figure>');
-          }else {
-            var img = $('<figure>\
+        }else {
+          var img = $('<figure>\
                 <img src="' + item.picture.path + '">\
                 </figure>');
-          }
-          $('.site-pic').append(img);
+        }
+        $('.site-pic').append(img);
 
-        });
       });
+    });
 
-      $('.mark').on('click', function() {
-        $('.order-pop').show();
-      });
+    $('.mark').on('click', function() {
+      $('.order-pop').show();
+      $('.name').val("");
+      $('.tel').val("");
+      $('.order-type button').removeClass('check');
+      $('.order-time').val("");
+      $('.des').val("");
+      disableScroll = true;//禁止滚动
+      $("html,body").css({overflow:"hidden"}); //禁用滚动条
+    });
 
 //    $.loadComment({
 //      "pageNum": 1,
@@ -206,73 +220,78 @@
 //      "userId": 81177
 //    }, 1);
 
-      + function() {
-        var curr = new Date().getFullYear();
+    + function() {
+      var curr = new Date().getFullYear();
 
-        var opt = {
-          display: "bottom",
-          lang: "zh",
-          maxDate: new Date(2100, 3, 10, 9, 22),
-          minDate: new Date(),
-          mode: "scroller",
-          preset: "datetime",
-          stepMinute: 5,
-          theme: "ios"
-        };
+      var opt = {
+        display: "bottom",
+        lang: "zh",
+        maxDate: new Date(2100, 3, 10, 9, 22),
+        minDate: new Date(),
+        mode: "scroller",
+        preset: "datetime",
+        stepMinute: 5,
+        theme: "ios"
+      };
 
-        $('.order-time').val('').scroller('destroy').scroller(opt);
-      }();
+      $('.order-time').val('').scroller('destroy').scroller(opt);
+    }();
 
-      + function() {
-        $('.order-type').on('click', 'button', function(e) {
-          $('.order-type button').removeClass('check');
-          $(e.target).addClass('check');
-        })
-      }();
+    + function() {
+      $('.order-type').on('click', 'button', function(e) {
+        $('.order-type button').removeClass('check');
+        $(e.target).addClass('check');
+      })
+    }();
 
-      $('.do-order').on('click', function() {
-        var orderInfo = $('.pop'),
-                name = orderInfo.find('.name').val().trim(),
-                tel = orderInfo.find('.tel').val().trim(),
-                type = orderInfo.find('.order-type .check').text(),
-                time = orderInfo.find('.order-time').val().trim(),
-                des = orderInfo.find('.des').val();
-        if (!name) {
-          alert('请输入姓名');
-          return;
-        }
+    $('.do-order').on('click', function() {
 
-        if (!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
-          alert('请正确输入联系方式');
-          return;
-        }
+      var orderInfo = $('.pop'),
+              name = orderInfo.find('.name').val().trim(),
+              tel = orderInfo.find('.tel').val().trim(),
+              type = orderInfo.find('.order-type .check').text(),
+              time = orderInfo.find('.order-time').val().trim(),
+              des = orderInfo.find('.des').val();
+      if (!name) {
+        alert('请输入姓名');
+        return;
+      }
 
-        if (orderInfo.find('.order-type .check').length == 0) {
-          alert('请选择预约类型');
-          return;
-        }
+      if (!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
+        alert('请正确输入联系方式');
+        return;
+      }
 
-        if (!time) {
-          alert('请选择预约时间');
-          return;
-        }
+      if (orderInfo.find('.order-type .check').length == 0) {
+        alert('请选择预约类型');
+        return;
+      }
 
-        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/user/appoint', {
-          name: name,
-          phoneNum: tel,
-          orderType: type,
-          orderDate: time,
-          des: des
-        }, function(data) {
-          $('.order-pop').hide();
-          $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
-        })
-      });
-      $('.close').on('click', function () {
+      if (!time) {
+        alert('请选择预约时间');
+        return;
+      }
+
+      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/test/user/appoint', {
+        name: name,
+        phoneNum: tel,
+        orderType: type,
+        orderDate: time,
+        des: des
+      }, function(data) {
         $('.order-pop').hide();
-      });
+        disableScroll = false;//允许滚动
+        $("html,body").css({overflow:"auto"}); //启用滚动条
+        $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
+      })
+    });
+    $('.close').on('click', function () {
+      $('.order-pop').hide();
+      disableScroll = false;//允许滚动
+      $("html,body").css({overflow:"auto"}); //启用滚动条
+    });
 
-      //app交互——获取登录状态——点赞
+    //app交互——获取登录状态——点赞
 //      $('.header__opt').on('click', '#star', function(e) {
 //        ft.isLogin(function (result) {
 //          var errorcode = result.errorCode.toString();
@@ -321,8 +340,8 @@
 
 //      $.loadComment({"pageNum":1,"pageSize":5,"type":8,"refId":parseInt(id)}, 1);
 
-    });
-  </script>
+  });
+</script>
 </body>
 
 </html>

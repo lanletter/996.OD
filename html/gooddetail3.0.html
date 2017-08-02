@@ -96,7 +96,7 @@
     }
 
     var id = GetQueryString("id");
-    var id = 505;
+    if (id == null) { id = 505; }
     $.ajax({
         url: 'http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail',
         type: 'POST', //GET

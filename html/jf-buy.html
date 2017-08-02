@@ -20,6 +20,26 @@
     <link href="../css/jf-info.css" rel="stylesheet">
     <link href="../css/download.css" rel="stylesheet">
     <title>积分换购</title>
+    <style>
+        .icon-truck{
+            display: inline-block;
+            width: 0.56rem;
+            height: 0.56rem;
+            background: url(../img/truck2x.png) no-repeat center center;
+            background-size: cover;
+            vertical-align: middle;
+            margin-right: 0.2rem;
+        }
+        .icon-fix{
+            display: inline-block;
+            width: 0.56rem;
+            height: 0.56rem;
+            background: url(../img/fix2x.png) no-repeat center center;
+            background-size: cover;
+            vertical-align: middle;
+            margin-right: 0.2rem;
+        }
+    </style>
 </head>
 <body>
 <div id="buybox">
@@ -34,10 +54,10 @@
             </div>
         </div>
         <div class="title">
-            <h4>{{title}}</h4>
+            <h4 v-html="title"></h4>
             <p>
-                <span v-cloak><i class="icon-msg"></i> {{commentCount}}</span>
-                <span v-cloak><i class="icon-broswer"></i> {{viewCount}}</span>
+                <span><i class="icon-msg"></i><span v-html="commentCount"></span></span>
+                <span><i class="icon-broswer"></i><span v-html="viewCount"></span></span>
             </p>
         </div>
         <div class="sku">
@@ -46,12 +66,13 @@
                     <span class="tit">商品分类</span>
                     <p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
                              :class="merchandiseClasses == item.id?'cur':''"
-                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)">{{item.argName}}</span>
+                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
+                             v-html="item.argName"></span>
                     </p>
                 </li>
                 <li class="h_box mt25">
                     <span class="tit">选择数量</span>
-                    <em>(剩余{{stock}})</em>
+                    <em>(剩余<span v-html="stock"></span>)</em>
                     <p class="textalign" >
                         <span class="icon-reduce" @click="changeNum(0)"></span>
                         <input v-model="count" value="" class="inputText" readonly type="text">
@@ -64,22 +85,22 @@
 
         <div class="details">
             <h3>商品详情</h3>
-            <div class="msg">{{content}}</div>
+            <div class="msg" v-html="content"></div>
         </div>
 
         <div class="details">
-            <h3>物流说明</h3>
-            <div class="msg">{{logistics}}</div>
+            <h3><i class="icon-truck"></i>物流说明</h3>
+            <div class="msg" v-html="logistics"></div>
         </div>
 
         <div class="details">
-            <h3>售后服务</h3>
-            <div class="msg">{{salesSupport}}</div>
+            <h3><i class="icon-fix"></i>售后保障</h3>
+            <div class="msg" v-html="salesSupport"></div>
         </div>
 
         <!--<div class="details">-->
-            <!--<h3>联系客服</h3>-->
-            <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
+        <!--<h3>联系客服</h3>-->
+        <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
         <!--</div>-->
     </div>
 
@@ -89,9 +110,9 @@
     <div class="btnbox">
         <ul class="h_box">
             <li>
-                {{totalntegral}}<em>积分</em>
+                <div style="display: inline;" v-html="totalntegral"></div><em>积分</em>
                 <!--<span class="price" >{{payintegral}}积分</span>-->
-                <span v-if="integral > payintegral">{{integral}}积分</span>
+                <span v-if="integral > payintegral" v-html="integral">积分</span>
             </li>
             <li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">兑换</li>
         </ul>
@@ -121,7 +142,7 @@
     }
 
     var id = GetQueryString("id");
-    var id=521;
+    if (id == null) { id = 521; }
     var vm = new Vue({
         el: '#buybox',
         data: {
@@ -160,6 +181,8 @@
                     $this.stock = data.data.stock;
                     $this.merchandiseClasses = data.data.selectMerchandiseClass;
                     $this.url = data.data.merchandisePictures;
+                    var item = $this.dataAll.merchandiseClasses[0];
+                    $this.selectType(item.id,item.stock,item.paidIntegral,item.integral,item,$this.count,$this.totalntegral);
                 }
 
             }, function () {
@@ -197,7 +220,7 @@
                         $api.toast('登陆不支持', 2000);
                     }
                 });
-                  //积分兑换
+                //积分兑换
 //                if($this.count==0){
 //                    alert("请先选择商品!");
 //                    return;
@@ -250,8 +273,8 @@
                 $this.payintegral = paidIntegral;
                 paidintegral=$this.payintegral;
                 $this.integral = integral;
-                $this.url.length = 0;
-                $this.url.push(item);
+//              $this.url.length = 0;
+//              $this.url.push(item);
                 $this.count=1;
                 if (stock>0){
                     $this.count=1;
