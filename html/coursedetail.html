@@ -24,7 +24,7 @@
         </div>
         <div class="header__opt">
             <span class="view-count"><i></i><strong></strong></span>
-            <span class="comment-count"><strong></strong></span>
+            <span class="favorite-count" id="star"><i></i><strong></strong></span>
         </div>
         <article class="course">
             <p class="course-des">
@@ -127,42 +127,46 @@
                 </li>
                 <li class="boedert">
                     <span>开课时间</span>
-                    <p class="time">2017年2月12日 周日 14:00-16:00</p>
+                    <p class="time spantext">2017年2月12日 周日 14:00-16:00</p>
                 </li>
                 <li>
                     <span>开课地点</span>
-                    <p class="name">方太生活家上海体验馆</p>
-                    <p class="place">上海徐汇区桃江路8号</p>
+                    <p class="name spantext">方太生活家上海体验馆</p>
+                    <p class="place spantext">上海徐汇区桃江路8号</p>
                 </li>
                 <li>
-                    <span>数量</span>
+                    <span class="span14">数量</span>
                     <div class="lightgrey">（剩余：<b>113</b>）</div>
                     <ul class="numbox">
                         <li>
                             <input type="button" value="-"/>
-                            <span class="num">1</span>
+                            <span class="num spantext">1</span>
                             <input type="button" value="+"/>
                         </li>
                     </ul>
                 </li>
                 <li class="boedert">
-                    <span>优惠券：</span>
+                    <span class="span14">优惠券：</span>
                     <a href="#" class="coupon" id="selectCoupon">选择优惠券</a>
                     <p style="display: none;border: 1px solid red"><span class="coupontype"></span><span
                             class="couponumber"></span></p>
                 </li>
-                <li class="boedert">
-                    <span>备注：</span>
+                <li class="boedert" style="padding-bottom: 0rem;">
+                    <span class="span14">备注：</span>
                     <textarea id="remarks"></textarea>
                     <!--<div class="lightgrey" id="remarks"></div>-->
                     <img src="../img/invalidPen.png" class="editpic">
+                </li>
+                <li class="boedert">
+                    <span class="span14">说明：</span>
+                    <textarea id="desc">开课前7天可申请退课，若不足7天将无法退课；开课前5天可联系客服申请换课，若不足5天将无法换课</textarea>
                 </li>
             </ul>
             <div class="ttprice">
                 <!--<span id="max">0</span>-->
                 <span>¥<b id="allprice">0</b></span>
                 <s>¥<b id="oldprice">0</b></s>
-                <button class="editbtn" id="purchase">确定</button>
+                <button class="editbtn span14" id="purchase">确定</button>
             </div>
             <!--<div class="editarea">-->
             <!--<textarea></textarea>-->
@@ -186,8 +190,8 @@
     //记录是否阻止滚动
     var disableScroll = false;
     //如果弹出对话框时，底层的视图就不让滚动了
-    document.addEventListener('touchmove', function(e) {
-        if(disableScroll){
+    document.addEventListener('touchmove', function (e) {
+        if (disableScroll) {
             e.preventDefault();
         }
     }, false);
@@ -202,9 +206,9 @@
             if (r != null)return unescape(r[2]);
             return null;
         }
+
         var id = GetQueryString("id");
-        if (id == null) { id = 675; }
-        var userid;
+        var id = 680;
 
         $api.post('http://121.40.135.115:8080/fotile-api-0.0.2//curriculumn/detail ',
                 {id: id},
@@ -227,7 +231,6 @@
                     $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
                     $header.find('h3').text(data.curriculumName);
                     $header.find('.view-count').text(data.viewCount);
-                    $header.find('.comment-count strong').text(data.commentCount);
                     $header.find('.favorite-count').text(data.likeCount);
                     $header.find('.course-des').html(data.curriculumDesc);
                     var remaining = parseInt(data.totalCount) - parseInt(data.currentCount);
@@ -374,11 +377,11 @@
                         ft.selectCoupon(function (result) {
                             var errorcode = result.errorCode.toString();
                             if (errorcode == "1") {
-                                $api.toast('获取优惠券成功', 2000);
+                                //$api.toast('获取优惠券成功', 2000);
                                 coupontype = result.data.type.toString();
                                 couponumber = result.data.number.toString();
-//                                alert(coupontype);
-//                                alert(couponumber);
+//                    alert(coupontype);
+//                    alert(couponumber);
                                 $('.coupontype').text(coupontype);
                                 $('.couponumber').text(couponumber);
                                 if (coupontype == "1") {
@@ -388,9 +391,13 @@
                                 }
                                 setmax();
                             } else if (errorcode == "0") {
-                                //alert("获取优惠券取消");
-                                $api.toast('获取优惠券取消', 2000);
-                                $('#selectCoupon').text('不使用优惠券');
+                                //$api.toast('获取优惠券取消', 2000);
+                                $('#selectCoupon').text('不使用抵扣券');
+                                coupontype == "0";
+                                couponumber == "0";
+                                $('.coupontype').text(coupontype);
+                                $('.couponumber').text(couponumber);
+                                setmax();
                             } else if (errorcode == "-1") {
                                 $api.toast('获取优惠券失败', 2000);
                             } else if (errorcode == "-2") {
@@ -453,39 +460,38 @@
                             couponprice = countprice - price;
                             allprice.innerHTML = couponprice;
                             (couponprice < 0 ) ? (allprice = 0) : (allprice = couponprice);
+                        } else if (coupontype == "0") {
+                            allprice.innerHTML = countprice;
+                            allprice = countprice;
                         } else {
                             allprice.innerHTML = countprice;
                             allprice = countprice;
                         }
                         document.getElementById('allprice').innerHTML = allprice;
-
-                        //alert(allprice);
+                        alert(countprice);
                     }
 
                     //app交互——直接购买
                     $("#purchase").on("click", function () {
-//             alert(
-//                 "id:"+data.id+ '|' +
-//                 "num:"+$('.numbox .num').text()+ '|' +
-//                 "type:"+1+ '|' +
-//                 "coupontype:"+coupontype.toString()+ '|' +
-//                 "voucher:"+couponumber.toString()+ '|' +
-//                 "remark:"+$('#remarks').val()+ '|' +
-//                 "picturepath:"+data.picture.path+ '|' +
-//                 "name:"+data.curriculumName+ '|' +
-//                 "oldPrice:"+$('#oldprice').text()+ '|' +
-//                 "newPrice:"+$('#allprice').text()+ '|' +
-//                 "starttime:"+data.startDate+ '|' +
-//                 "address1:"+data.store.storeName+ '|' +
-//                 "address2:"+data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
+//               alert(
+//                   "id:"+data.id+ '|' +
+//                   "num:"+$('.numbox .num').text()+ '|' +
+//                   "type:"+1+ '|' +
+//                   "voucher:"+couponumber.toString()+ '|' +
+//                   "remark:"+$('#remarks').val()+ '|' +
+//                   "picturepath:"+data.picture.path+ '|' +
+//                   "name:"+data.curriculumName+ '|' +
+//                   "oldPrice:"+$('#oldprice').text()+ '|' +
+//                   "newPrice:"+$('#allprice').text()+ '|' +
+//                   "starttime:"+data.startDate+ '|' +
+//                   "address1:"+data.store.storeName+ '|' +
+//                   "address2:"+data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
 //
-//             );
+//               );
                         ft.purchase({
                             id: data.id,
-                            price: data.price,
                             num: $('.numbox .num').text(),
                             type: 1,
-                            coupontype:coupontype.toString(),
                             voucher: couponumber.toString(),
                             remark: $('#remarks').val(),
                             picturepath: data.picture.path,
@@ -601,19 +607,66 @@
             $('.numbox .num').text("1");
             $('#remarks').val("");
             disableScroll = true;//禁止滚动
-            $("html,body").css({overflow:"hidden"}); //禁用滚动条
+            $("html,body").css({overflow: "hidden"}); //禁用滚动条
             $('.dark-bg').show();
             $('.buynow-div').show();
         });
         $('#close-div').on('click', function () {
             disableScroll = false;//允许滚动
-            $("html,body").css({overflow:"auto"}); //启用滚动条
+            $("html,body").css({overflow: "auto"}); //启用滚动条
             $('.dark-bg').hide();
             $('.buynow-div').hide();
             //location.reload()
         });
 
-        $.loadComment({"pageNum": 1, "pageSize": 20, "type": 2, "refId": parseInt(id), "userId": parseInt(userid)}, 1);
+        //app交互——获取登录状态
+        $('.header__opt').on('click', '#star', function (e) {
+            ft.isLogin(function (result) {
+                var errorcode = result.errorCode.toString();
+                if (errorcode == "1") {
+                    //$api.toast('登陆成功', 2000);
+                    userid = result.data.userId.toString();
+                    //alert(userid);
+                    //收藏
+                    var id = $(e.target).data('id'),
+                            follow = $(e.target).attr('class');
+                    if (follow == "favorite-count") {
+                        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+                            "refId": id,
+                            "type": 2,
+                            "userId": userid
+                        }, function (data) {
+                            console.log(data);
+                            console.log("111");
+                            $("#star").addClass("favorite-count2");
+                            $("#star").removeClass("favorite-count");
+                            $api.toast('收藏成功！', 3000);
+                        });
+                    } else if (follow == "favorite-count2") {
+                        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+                            "refId": id,
+                            "type": 2,
+                            "userId": userid
+                        }, function (data) {
+                            console.log(data);
+                            console.log("222");
+                            $("#star").addClass("favorite-count");
+                            $("#star").removeClass("favorite-count2");
+                            $api.toast('取消收藏！', 3000);
+                        });
+                    }
+                    //location.reload();
+                } else if (errorCode == "0") {
+                    $api.toast('登陆取消', 2000);
+                } else if (errorCode == "-1") {
+                    $api.toast('登陆失败', 2000);
+                } else if (errorCode == "-2") {
+                    $api.toast('登陆不支持', 2000);
+                }
+            })
+        });
+
+        $.loadComment({"pageNum": 1, "pageSize": 20, "type": 2, "refId": parseInt(id)}, 1);
 
     });
 </script>

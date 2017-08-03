@@ -258,12 +258,15 @@
                     'classId': $this.merchandiseClasses
 
                 }).then(function (data) {
-                    console.info(data.status);
-                    if (data.status == 200) {
-                        alert('兑换成功');
+                    //alert(JSON.stringify(data.body.status));
+                    console.log(JSON.stringify(data.body.status));
+                    if (data.body.status == 408) {
+                        alert('余额不足！');
+                        return;
+                    }else{
+                        alert('兑换成功！');
                     }
                 }, function (err) {
-                    alert('余额不足');
                 });
             },
             selectType: function (classid, stock, paidIntegral, integral, item,count,totalntegral) {

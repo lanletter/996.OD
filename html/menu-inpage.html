@@ -25,6 +25,21 @@
         /*        video::-webkit-media-controls {
                   display:none !important;
                 }*/
+        .smartLabel {
+            position: absolute;
+            left: 5.14rem;
+            top: 8.96rem;
+            width: 2.36rem;
+            height: 0.58rem;
+            background-color: rgb(251, 76, 76);
+            border-top-left-radius: 1.32rem;
+            border-bottom-left-radius: 1.32rem;
+            color: #fff;
+            line-height: 0.58rem;
+            font-size: 0.28rem;
+            text-align: center;
+            letter-spacing: 0.024rem;
+        }
     </style>
 
 </head>
@@ -35,6 +50,7 @@
         <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
     </video>
     <button class="play"></button>
+    <div class="smartLabel" v-if="data.type == 1">智能菜谱</div>
 </div>
 <div class="jf-buy menupage" v-cloak>
     <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
@@ -102,8 +118,8 @@
             <h4>步骤 <em><span v-html="item.index"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
             <img v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-html="item.description"></p>
-            <div class="introduc">
-                <i class="icon-tips"></i>小贴士：123<span v-html="item.reminder"></span>
+            <div class="introduc" v-show="item.reminder">
+                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
             </div>
         </div>
     </div>
@@ -122,20 +138,24 @@
     </div>
     <div class="bottomdiv"></div>
     <div class="menutype" id="classification" style="display: block;">
-        <h3>菜谱分类 <a class="fr" href="" id="classMenu">全部分类</a></h3>
+        <h3>菜谱分类
+            <!--<a class="fr" href="">全部分类</a>-->
+        </h3>
         <div class="typebox">
             <span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>
         </div>
     </div>
 
     <div class="menutype" style="border:none;" id="kitchenwares">
-        <h3>厨具列表 <a class="fr" href="" id="moreKitchen">更多</a></h3>
+        <h3>厨具列表
+            <!--<a class="fr" href="">更多</a>-->
+        </h3>
         <ul class="list h_box">
             <li class="flex_1" v-for="item in data.kitchenwares">
-                <a :href="item.url">
-                    <img :src="item.picturePath" alt="">
-                    <p v-text="item.name" style="text-align: center;"></p>
-                </a>
+                <!--<a :href="item.url">-->
+                <img :src="item.picturePath" alt="">
+                <p v-text="item.name" style="text-align: center;"></p>
+                <!--</a>-->
             </li>
         </ul>
     </div>
