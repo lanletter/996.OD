@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -8,77 +8,82 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <!-- 不要让设备识别电话号码和邮箱地址-->
     <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link href="../css/common/reset.css" rel="stylesheet">
     <link href="../css/common/common.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/jf-info.css" rel="stylesheet">
-    <link href="../css/video-share.css" rel="stylesheet">    
-    <title>直播分享</title>    
-  </head>
-  <body>
-    <div class="vide-share">
-        <div class="videobox">
-            <video id="video" width="100%" controls="controls" :poster="data.picture">
-                <source :src="data.url" type="video/mp4" />            
-                Your browser does not support HTML5 video.
-            </video>
-            <span class="num">{{data.count}}</span>
-        </div>
-
-        <div class="anchor">
-            <h4>主播介绍</h4>
-            <ul>
-                <li class="tit">
-                    <img :src="data.cookPicture" alt="">
-                    <p>
-                        <strong>{{data.name}}</strong><br/>
-                        <em>{{data.topic}}</em>
-                    </p>
-                </li>
-                <li class="introduct">{{data.desc}}</li>
-            </ul>
-        </div>
+    <link rel="stylesheet" type="text/css" href="../css/video-js.min.css">
+    <link href="../css/video-share.css" rel="stylesheet">
+    <title>直播分享</title>
+</head>
+<body>
+<div class="vide-share">
+    <div class="videobox">
+        <video id="video" width="100%" controls="controls" :poster="data.picture">
+            <source :src="data.url" type="application/x-mpegURL"/>
+        Your browser does not support HTML5 video.
+        </video>
+        <span class="num">{{data.count}}</span>
     </div>
-    
+
+    <div class="anchor">
+        <h4>主播介绍</h4>
+        <ul>
+            <li class="tit">
+                <img :src="data.cookPicture" alt="">
+                <p>
+                    <strong>{{data.name}}</strong><br/>
+                    <em>{{data.topic}}</em>
+                </p>
+            </li>
+            <li class="introduct">{{data.desc}}</li>
+        </ul>
+    </div>
+</div>
 
 
-    <script>
-        function setFontSize(){
-            document.documentElement.style.fontSize = document.documentElement.clientWidth/375*10+"px";
-        }
+<script>
+    function setFontSize() {
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 10 + "px";
+    }
+    setFontSize();
+    window.onresize = function () {
         setFontSize();
-        window.onresize = function(){
-            setFontSize();
-                
-        };
-    </script>
-    <script src="../js/vue.min.js"></script>
-    <script src="../js/vue-resource1.3.4.js"></script>
-    <script>
-        var vm = new Vue({
-            el: '.vide-share',
-            data:{
-              data:{}
-            },
-            created:function(){
-                var $this = this;
-                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/video/detail',{"id":"1111"}).then(function(data){
-                    var data = data.data;
-                    if(data.status == 200){
-                        $this.data = data.data;
-                    }
-                    
-                },function(){
-                    console.info('error');
-                });
 
-            }
-        });
+    };
+</script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../js/video.min.js'></script>
+<script type="text/javascript" src='../js/video-hls.js'></script>
 
-    </script>
-  </body>
+<script>
+    var vm = new Vue({
+        el: '.vide-share',
+        data: {
+            data: {}
+        },
+        created: function () {
+            var $this = this;
+            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/video/detail', {"id": "1111"}).then(function (data) {
+                var data = data.data;
+                if (data.status == 200) {
+                    $this.data = data.data;
+                    console.log(data.data);
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+        }
+    });
+
+</script>
+</body>
 </html>

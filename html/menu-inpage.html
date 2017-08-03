@@ -25,145 +25,126 @@
         /*        video::-webkit-media-controls {
                   display:none !important;
                 }*/
-        .smartLabel {
-            position: absolute;
-            left: 5.14rem;
-            top: 8.96rem;
-            width: 2.36rem;
-            height: 0.58rem;
-            background-color: rgb(251, 76, 76);
-            border-top-left-radius: 1.32rem;
-            border-bottom-left-radius: 1.32rem;
-            color: #fff;
-            line-height: 0.58rem;
-            font-size: 0.28rem;
-            text-align: center;
-            letter-spacing: 0.024rem;
-        }
     </style>
 
 </head>
 <body>
-<div class="menuInpage">
-
-    <div id="videobox" class="video">
-        <video id="vd">
-            <source src="" type="video/mp4">
-        </video>
-        <button class="play"></button>
-        <div class="smartLabel" v-if="data.type == 1">智能菜谱</div>
-    </div>
-
-    <div class="jf-buy menupage" v-cloak>
-        <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
-        <!--<div class="playbox">-->
-        <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
-        <!--<source :src="data.video" type="video/mp4"/>-->
-        <!--Your browser does not support HTML5 video.-->
-        <!--</video>-->
-        <!--<div id="play" class="play" @click="play"></div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="focus" v-else>-->
-        <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
-        <!--<mt-swipe :auto="4000">-->
-        <!--<mt-swipe-item v-for="item in data.images">-->
-        <!--<img :src="item" alt="">-->
-        <!--</mt-swipe-item>-->
-
-        <!--</mt-swipe>-->
-        <!--</div>-->
-        <div class="title">
-            <h4 v-html="data.name"></h4>
-            <div style="display: none" id="userid"></div>
-            <p class="icons">
-                <span><i class="icon-broswer"></i> <b v-html="data.pageviews"></b></span>
-                <span><i class="" id="star" @click="star"></i> <b v-html="data.collect_count || 0"></b></span>
-            </p>
-            <div class="text">
-                <h5><span>来源</span></h5>
-                <div v-for="item in data.users">
-                    <ul class="from h_box">
-                        <li class="flex_1">
-                            <img :src="item.picturePath" alt=""> <span v-html="item.name"></span>
-                        </li>
-                        <!--                     <li class="flex_1 t-r">
-                                                <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
-                                            </li> -->
-                    </ul>
-                    <p class="desc" v-html="item.desc"></p>
-                </div>
-                <ul class="h_box special">
-                    <li>
-                        <i class="icon-easy"></i><span>容易<br/><em>难易程度</em></span>
-                    </li>
-                    <li><i class="icon-time"></i><span>110分钟<br/><em>预计耗时</em></span></li>
-                    <li><i class="icon-num"></i><span>2人<br/><em>适宜人数</em></span></li>
-                </ul>
-            </div>
-
-            <div class="qingdan">
-                <dl>
-                    <dt class="tit">
-                        <span class="txt"><i class="icon-1"></i>材料清单</span>
-                        <!--<span class="addin fr">加入购物车</span>-->
-                    </dt>
-                    <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
-                    <div class="box"></div>
-                    <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
-                </dl>
-            </div>
-        </div>
-
-        <div class="step">
-            <div v-for="item in data.cooking_steps" class="stepbox">
-                <h4>步骤 <em><span v-html="item.index"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
-                <img v-for="ite in item.images" :src="ite" alt="">
-                <p class="txt" v-html="item.description"></p>
-                <div class="introduc">
-                    <i class="icon-tips"></i>小贴士：123<span v-html="item.reminder"></span>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="equipment" id="devices">
-            <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
-            <ul class="h_box">
-                <li class="flex_1" v-for="item in data.devices">
-                    <a id="callKitchenware" @click="callKitchenware">
-                        <img :src="item.picturePath" alt="">
-                        <p v-html="item.name"></p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="bottomdiv"></div>
-        <div class="menutype" id="classification" style="display: block;">
-            <h3>菜谱分类 <a class="fr" href="" id="classMenu">全部分类</a></h3>
-            <div class="typebox">
-                <span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>
-            </div>
-        </div>
-
-        <div class="menutype" style="border:none;" id="kitchenwares">
-            <h3>厨具列表 <a class="fr" href="" id="moreKitchen">更多</a></h3>
-            <ul class="list h_box">
-                <li class="flex_1" v-for="item in data.kitchenwares">
-                    <a :href="item.url">
-                        <img :src="item.picturePath" alt="">
-                        <p v-html="item.name"></p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="bottomdiv"></div>
-        <div class="ft-comment"></div>
-        <div class="bottomdiv"></div>
-    </div>
-
+<div id="videobox" class="video">
+    <video id="vd" controls preload="auto"
+           webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" >
+        <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
+    </video>
+    <button class="play"></button>
 </div>
+<div class="jf-buy menupage" v-cloak>
+    <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
+    <!--<div class="playbox">-->
+    <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
+    <!--<source :src="data.video" type="video/mp4"/>-->
+    <!--Your browser does not support HTML5 video.-->
+    <!--</video>-->
+    <!--<div id="play" class="play" @click="play"></div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="focus" v-else>-->
+    <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
+    <!--<mt-swipe :auto="4000">-->
+    <!--<mt-swipe-item v-for="item in data.images">-->
+    <!--<img :src="item" alt="">-->
+    <!--</mt-swipe-item>-->
+
+    <!--</mt-swipe>-->
+    <!--</div>-->
+    <div class="title">
+        <h4 v-html="data.name"></h4>
+        <div style="display: none" id="userid"></div>
+        <p class="icons">
+            <span><i class="icon-broswer"></i> <b v-html="data.pageviews"></b></span>
+            <span><i class="" id="star" @click="star"></i> <b v-html="data.collect_count || 0"></b></span>
+        </p>
+        <div class="text">
+            <h5><span>来源</span></h5>
+            <div v-for="item in data.users">
+                <ul class="from h_box">
+                    <li class="flex_1">
+                        <img :src="item.picturePath" alt=""> <span v-html="item.name"></span>
+                    </li>
+                    <!--                     <li class="flex_1 t-r">
+                                            <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
+                                        </li> -->
+                </ul>
+                <p class="desc" v-html="item.desc"></p>
+            </div>
+            <ul class="h_box special">
+                <li>
+                    <i class="icon-easy"></i><span>容易<br/><em>难易程度</em></span>
+                </li>
+                <li><i class="icon-time"></i><span>110分钟<br/><em>预计耗时</em></span></li>
+                <li><i class="icon-num"></i><span>2人<br/><em>适宜人数</em></span></li>
+            </ul>
+        </div>
+
+        <div class="qingdan">
+            <dl>
+                <dt class="tit">
+                    <span class="txt"><i class="icon-1"></i>材料清单</span>
+                    <!--<span class="addin fr">加入购物车</span>-->
+                </dt>
+                <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
+                <div class="box"></div>
+                <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
+            </dl>
+        </div>
+    </div>
+
+    <div class="step">
+        <div v-for="item in data.cooking_steps" class="stepbox">
+            <h4>步骤 <em><span v-html="item.index"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
+            <img v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt" v-html="item.description"></p>
+            <div class="introduc">
+                <i class="icon-tips"></i>小贴士：123<span v-html="item.reminder"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="equipment" id="devices">
+        <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
+        <ul class="h_box">
+            <li class="flex_1" v-for="item in data.devices">
+                <a id="callKitchenware" @click="callKitchenware">
+                    <img :src="item.picturePath" alt="">
+                    <p v-html="item.name"></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="bottomdiv"></div>
+    <div class="menutype" id="classification" style="display: block;">
+        <h3>菜谱分类 <a class="fr" href="" id="classMenu">全部分类</a></h3>
+        <div class="typebox">
+            <span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>
+        </div>
+    </div>
+
+    <div class="menutype" style="border:none;" id="kitchenwares">
+        <h3>厨具列表 <a class="fr" href="" id="moreKitchen">更多</a></h3>
+        <ul class="list h_box">
+            <li class="flex_1" v-for="item in data.kitchenwares">
+                <a :href="item.url">
+                    <img :src="item.picturePath" alt="">
+                    <p v-text="item.name" style="text-align: center;"></p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="bottomdiv"></div>
+    <div class="ft-comment"></div>
+    <div class="bottomdiv"></div>
+</div>
+
 
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
@@ -193,18 +174,17 @@
             $('#vd').css({"position": "absolute","left":"-10rem"});
             $('#videobox').css({"position": "absolute"});
             $("#videobox").animate({"height":"10rem"}, 1000);
-            $("#scroll").animate({"top":"10rem"}, 1000);
+            $(".jf-buy").animate({"top":"10rem"}, 1000);
         }, false);
         video.addEventListener('pause', function () {
             playBtn.show();
             video.controls = false;
         }, false);
-
     })();
 </script>
 <script>
 
-    /*获取id*/
+
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
@@ -213,21 +193,23 @@
     }
 
     var id = GetQueryString("id");
-    if (id == null) { id = 1311; }
+    if (id == null) {
+        id = 1311;
+    }
 
     //app交互—获取userid
-//    var userid;
-//    window.onload = function () {
-//        ft.isLogin2(function (result) {
-//            var $this = this;
-//            var errorcode = result.errorCode.toString();
-//            if (errorcode == "1") {
-//                //$api.toast('登陆成功', 2000);
-//                userid = result.data.userId.toString();
-    var userid=1;
+    //    var userid;
+    //    window.onload = function () {
+    //        ft.isLogin2(function (result) {
+    //            var $this = this;
+    //            var errorcode = result.errorCode.toString();
+    //            if (errorcode == "1") {
+    //                //$api.toast('登陆成功', 2000);
+    //                userid = result.data.userId.toString();
+    var userid=230374;
 
     var vm = new Vue({
-        el: '.menuInpage',
+        el: '.menupage',
         data: {
             data: {},
             isgray: false,
@@ -235,41 +217,39 @@
         },
         created: function () {
             var $this = this;
-            //alert(userid);
             this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail', {"id": id,"userId": userid}).then(function (data) {
                 var data = data.data;
                 console.log(data);
+
                 if (data.status == 200) {
                     //console.info(data);
                     $this.data = data.data;
                     id = $this.data.id;
+                    //$('#star').attr('class', id);
                 }
                 $('#videobox').find('#vd').attr('src', data.data.video);
                 $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
 
-                var deviceslength = data.data.devices.length;
-                var classificationlength = data.data.classification.length;
-                var kitchenwareslength = data.data.kitchenwares.length;
-                if (deviceslength == 0) {
+                var deviceslength=data.data.devices.length;
+                var classificationlength=data.data.classification.length;
+                var kitchenwareslength=data.data.kitchenwares.length;
+                if(deviceslength==0){
                     $("#devices").css("display", "none");
                 }
-                if (classificationlength == 0) {
+                if(classificationlength==0){
                     $("#classification").css("display", "none");
                 }
-                if (kitchenwareslength == 0) {
+                if(kitchenwareslength==0){
                     $("#kitchenwares").css("display", "none");
                 }
-
                 //判断是否收藏
-                if (data.isFavorite == 1) {
+                if (data.data.isFavorite == 1) {
                     $("#star").addClass("icon-msg2");
                     $("#star").remove("icon-msg");
                 } else {
                     $("#star").addClass("icon-msg");
                     $("#star").remove("icon-msg2");
                 }
-
-                console.log(data);
             }, function () {
                 console.info('error');
             });
@@ -297,16 +277,13 @@
                 //console.info(55);
             },
             callKitchenware: function (obj) {
+                //app交互——唤起智能菜谱
+                // $("#callKitchenware").on("click", function () {
+                //alert("111");
                 ft.callKitchenware(function (result) {
+
                 });
-            },
-            classMenu: function (obj) {
-                ft.classMenu(function (result) {
-                });
-            },
-            moreKitchen: function (obj) {
-                ft.moreKitchen(function (result) {
-                });
+                //});
             },
             star: function (obj) {
                 //alert("id:"+id+"type:"+1+"userid:"+userid);
@@ -336,7 +313,6 @@
                         $("#star").addClass("icon-msg");
                         $("#star").removeClass("icon-msg2");
                         var oldnum=$("#star").next().text();
-                        alert(oldnum);
                         $("#star").next().text(parseInt(oldnum)-1);
                         $api.toast('取消收藏！', 3000);
                     });
@@ -361,7 +337,6 @@
 //                                $("#star").addClass("icon-msg2");
 //                                $("#star").removeClass("icon-msg");
 //                                var oldnum = $("#star").next().text();
-//                                alert(oldnum);
 //                                $("#star").next().text(parseInt(oldnum) + 1);
 //                                $api.toast('收藏成功！', 3000);
 //                            });
@@ -376,7 +351,6 @@
 //                                $("#star").addClass("icon-msg");
 //                                $("#star").removeClass("icon-msg2");
 //                                var oldnum = $("#star").next().text();
-//                                alert(oldnum);
 //                                $("#star").next().text(parseInt(oldnum) - 1);
 //                                $api.toast('取消收藏！', 3000);
 //                            });
@@ -395,20 +369,19 @@
         }
     });
 
-    $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
 
+    $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1 }, 1);
 
-//            }
-//            else if (errorCode == "0") {
-//                $api.toast('登陆取消', 2000);
-//            } else if (errorCode == "-1") {
-//                $api.toast('登陆失败', 2000);
-//            } else if (errorCode == "-2") {
-//                $api.toast('登陆不支持', 2000);
-//            }
-//        });
-//    };
-
+    //            }
+    //            else if (errorCode == "0") {
+    //                $api.toast('登陆取消', 2000);
+    //            } else if (errorCode == "-1") {
+    //                $api.toast('登陆失败', 2000);
+    //            } else if (errorCode == "-2") {
+    //                $api.toast('登陆不支持', 2000);
+    //            }
+    //        });
+    //    };
 </script>
 
 

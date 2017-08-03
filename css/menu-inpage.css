@@ -388,7 +388,7 @@ html, body {
   margin-right: 0.2rem; }
 
 .menupage .equipment {
-  padding: 0.16rem 0.44rem;
+  padding: 0.16rem 0rem;
   border-top: 1px solid #ededed;
   /*margin-bottom: 0.6rem;*/
   /*-webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);*/
@@ -403,15 +403,15 @@ html, body {
   font-size: 0.2rem; }
 .menupage .equipment ul {
   -webkit-box-pack: start;
-  justify-content: flex-start;
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap:wrap;
   overflow: hidden;
   padding: 0.16rem 0; }
 .menupage .equipment ul li {
-  float: left;
-  margin-right: 0.5rem;
   padding: 0 0.04rem;
-  width: 1.2rem;
-  text-align: center; }
+  width: 1.75rem;
+  text-align:center; }
 .menupage .equipment ul li a {
   display: inline-block; }
 .menupage .equipment ul li a img {
@@ -469,7 +469,7 @@ html, body {
   margin-bottom: 0.16rem; }
 .menupage .menutype .list li {
   float: left;
-  margin-bottom: 0.28rem;
+  margin-bottom: 0rem;
   padding-right: 0.08rem; }
 .menupage .menutype .list li:first-child {
   margin-left: -0.1rem; }
@@ -481,6 +481,12 @@ html, body {
   border-radius: 0.12rem;
   height: 2.7rem;
   width: 2.7rem; }
+.menupage .menutype .list p{
+  width: 2.7rem;
+  font-size: 0.28rem;
+  text-align: center!important;
+  line-height: 0.4rem;
+  }
 
 .menupage .menutype:last-of-type {
   padding: 0.16rem 0rem; }

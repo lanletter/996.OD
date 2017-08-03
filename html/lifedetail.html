@@ -29,7 +29,7 @@
       <div class="header__opt">
         <span class="view-count"><strong></strong></span>
         <span class="comment-count"><strong></strong></span>
-        <span class="favorite-count" id="star"><strong></strong></span>
+        <span class="" id="star"><strong></strong></span>
       </div>
     </header>
     <article class="content">
@@ -57,6 +57,15 @@
   <script type="text/javascript" src='../js/ft.js'></script>
   <script>
     + function($) {
+      var userid;
+      //app交互—获取userid
+//        window.onload = function () {
+//            ft.isLogin2(function (result) {
+//                var errorcode = result.errorCode.toString();
+//                if (errorcode == "1") {
+//                    //$api.toast('登陆成功', 2000);
+//                    userid = result.data.userId.toString();
+      userid=230374;
       $(function() {
         var $header = $('.header'),
                 $content = $('.content');
@@ -70,11 +79,10 @@
         }
         var id = GetQueryString("id");
         if (id == null) { id = 439; }
-        var userid;
         $.ajax({
           url: 'http://121.40.135.115:8080/fotile-api-0.0.2/wantFeel/detail',
           type: 'POST', //GET
-          data: JSON.stringify({ id: id }),
+          data: JSON.stringify({ "id": id, "userId": userid }),
           timeout: 5000, //超时时间
           contentType: "application/json;charset=utf-8",
           dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
@@ -95,11 +103,21 @@
           }
           var data = res.data;
           console.log(data);
+
+          //判断是否收藏
+          if (data.isFavorite == 1) {
+            $("#star").addClass("favorite-count2");
+            $("#star").remove("favorite-count");
+          } else {
+            $("#star").addClass("favorite-count");
+            $("#star").remove("favorite-count2");
+          }
+
           $header.find('.header__main h3').text(data.title || data.shortTitle || ' ');
           $api.imgAdapt($header.find('.header__main .img'), data.picture.path)
           $header.find('.view-count strong').text(data.viewCount);
           $header.find('.comment-count strong').text(data.commentCount);
-          $header.find('.favorite-count strong').text(data.favoriteCount);
+          $header.find('#star strong').text(data.favoriteCount);
 
           /*title取值*/
           var txt=data.title;
@@ -128,55 +146,101 @@
           $content.append(data.content);
         }
 
-        //app交互——获取登录状态
-        $('.header__opt').on('click', '#star', function(e) {
-          ft.isLogin(function (result) {
-            var errorcode = result.errorCode.toString();
-            if (errorcode == "1") {
-              //$api.toast('登陆成功', 2000);
-              userid = result.data.userId.toString();
-              //alert(userid);
-              //收藏
-              var id = $(e.target).data('id'),
-                      follow = $(e.target).attr('class');
-              if (follow == "favorite-count") {
-                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
-                  "refId": id,
-                  "type": 5,
-                  "userId": userid
-                }, function (data) {
-                  console.log(data);
-                  console.log("111");
-                  $("#star").addClass("favorite-count2");
-                  $("#star").removeClass("favorite-count");
-                  $api.toast('收藏成功！', 3000);
-                });
-              } else if(follow == "favorite-count2") {
-                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
-                  "refId": id,
-                  "type": 5,
-                  "userId": userid
-                }, function (data) {
-                  console.log(data);
-                  console.log("222");
-                  $("#star").addClass("favorite-count");
-                  $("#star").removeClass("favorite-count2");
-                  $api.toast('取消收藏！', 3000);
-                });
-              }
-              //location.reload();
-            } else if (errorCode == "0") {
-              $api.toast('登陆取消', 2000);
-            } else if (errorCode == "-1") {
-              $api.toast('登陆失败', 2000);
-            } else if (errorCode == "-2") {
-              $api.toast('登陆不支持', 2000);
-            }
-          })
+        $('#star').on('click', function (e) {
+          var follow = $("#star").attr('class');
+          if (follow == "favorite-count") {
+            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+              "refId": id,
+              "type": 5,
+              "userId": userid
+            }, function (data) {
+              console.log(data);
+              console.log("111");
+              $("#star").addClass("favorite-count2");
+              $("#star").removeClass("favorite-count");
+              var oldnum = $("#star").next().text();
+              $("#star").next().text(parseInt(oldnum) + 1);
+              $api.toast('收藏成功！', 3000);
+            });
+          } else if (follow == "favorite-count2") {
+            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+              "refId": id,
+              "type": 5,
+              "userId": userid
+            }, function (data) {
+              console.log(data);
+              console.log("222");
+              $("#star").addClass("favorite-count");
+              $("#star").removeClass("favorite-count2");
+              var oldnum = $("#star").next().text();
+              $("#star").next().text(parseInt(oldnum) - 1);
+              $api.toast('取消收藏！', 3000);
+            });
+          }
         });
+        //app交互——获取登录状态
+//        $('#star').on('click', function (e) {
+//          //alert("id:"+id+"type:"+4+"userid:"+userid);
+//          ft.isLogin(function (result) {
+//            var errorcode = result.errorCode.toString();
+//            if (errorcode == "1") {
+//              //$api.toast('登陆成功', 2000);
+//              userid = result.data.userId.toString();
+//              //alert(userid);
+//              //收藏
+//              var follow = $("#star").attr('class');
+//              if (follow == "favorite-count") {
+//                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+//                  "refId": id,
+//                  "type": 5,
+//                  "userId": userid
+//                }, function (data) {
+//                  console.log(data);
+//                  console.log("111");
+//                  $("#star").addClass("favorite-count2");
+//                  $("#star").removeClass("favorite-count");
+//                  var oldnum = $("#star").next().text();
+//                  $("#star").next().text(parseInt(oldnum) + 1);
+//                  $api.toast('收藏成功！', 3000);
+//                });
+//              } else if (follow == "favorite-count2") {
+//                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+//                  "refId": id,
+//                  "type": 5,
+//                  "userId": userid
+//                }, function (data) {
+//                  console.log(data);
+//                  console.log("222");
+//                  $("#star").addClass("favorite-count");
+//                  $("#star").removeClass("favorite-count2");
+//                  var oldnum = $("#star").next().text();
+//                  $("#star").next().text(parseInt(oldnum) - 1);
+//                  $api.toast('取消收藏！', 3000);
+//                });
+//              }
+//            } else if (errorCode == "0") {
+//              $api.toast('登陆取消', 2000);
+//            } else if (errorCode == "-1") {
+//              $api.toast('登陆失败', 2000);
+//            } else if (errorCode == "-2") {
+//              $api.toast('登陆不支持', 2000);
+//            }
+//          });
+//        });
 
         $.loadComment({"pageNum":1,"pageSize":20,"type":5,"refId":parseInt(id), "userId": parseInt(userid)}, 1);
       });
+
+      //                } else if (errorCode == "0") {
+//                    $api.toast('登陆取消', 2000);
+//                } else if (errorCode == "-1") {
+//                    $api.toast('登陆失败', 2000);
+//                } else if (errorCode == "-2") {
+//                    $api.toast('登陆不支持', 2000);
+//                }
+//            });
+//        };
+
     }(jQuery);
   </script>
 </body>

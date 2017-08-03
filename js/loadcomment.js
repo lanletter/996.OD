@@ -1,10 +1,11 @@
 +function () {
     var isEmpty = false;
+    var homeurl = window.location.href;
     function loadComment(obj, pageNum, type, id,userId) {
+        console.log(obj);
         obj.pageNum = pageNum;
         var userid = obj.userId;
-        console.log(obj);
-        //alert(obj.refId);
+        if(isNaN(userid)){ userid=1;}
         $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj,
             function (res) {
                 callback(res);
@@ -75,7 +76,6 @@
                         if (errorcode == "1") {
                             $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
-                            //alert(userid);
                             test1(userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -92,8 +92,7 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
-                    $('#leave-words2').hide();
-                    refresh(type, id);
+                    refresh(homeurl);
                 });
 
                 function test1(userid) {
@@ -137,14 +136,17 @@
                             // }),
                             // contentType: "application/json;charset=UTF-8",
                             // dataType: 'json',
+                            async: false,
                             success: function (data) {
                                 console.log('成功');
-                                //alert("评论创建成功！");
                                 callback(data);
                             },
                             error: function () {
                                 console.log('错误');
-                                //alert("评论创建失败！");
+                            },
+                            complete: function () {
+                                $('#leave-words').hide();
+                                refresh(homeurl);
                             }
                         });
                         function callback(res) {
@@ -154,15 +156,8 @@
                             }
                             var data = res.data;
                             console.log(data);
-                            //alert("评论创建成功！");
+                            $api.toast('评论创建成功！', 3000);
                         }
-
-                        $('#leave-words').hide();
-                        //alert("type:" + obj.type + "id:" + obj.refId);
-                        type = obj.type;
-                        id = obj.refId;
-                        refresh(type, id);
-                        alert("评论创建成功！");
                     });
                 }
             }
@@ -293,7 +288,6 @@
                         if (errorcode == "1") {
                             $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
-                            //alert(userid);
                             test2(userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -308,7 +302,7 @@
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
                     $('#leave-words2').hide();
-                    refresh(type, id);
+                    refresh(homeurl);
                 });
 
                 function test2(userid) {
@@ -352,14 +346,17 @@
                             // }),
                             // contentType: "application/json;charset=UTF-8",
                             // dataType: 'json',
+                            async: false,
                             success: function (data) {
                                 console.log('成功');
-                                //alert("评论创建成功！");
                                 callback(data);
                             },
                             error: function () {
                                 console.log('错误');
-                                //alert("评论创建失败！");
+                            },
+                            complete: function () {
+                                $('#leave-words').hide();
+                                refresh(homeurl);
                             }
                         });
                         function callback(res) {
@@ -369,15 +366,9 @@
                             }
                             var data = res.data;
                             console.log(data);
-                            //alert("评论创建成功！");
+                            $api.toast('评论创建成功！', 3000);
                         }
 
-                        $('#leave-words').hide();
-                        //alert("type:" + obj.type + "id:" + obj.refId);
-                        type = obj.type;
-                        id = obj.refId;
-                        refresh(type, id);
-                        alert("评论创建成功！");
                     });
                 }
 
@@ -387,14 +378,11 @@
                     //var $putin = $(e.target).closest("li");  //数据存放处
                     parentid = $come.find('.Id').text();
                     $('#leave-words2').show();
-
                     //app交互——获取登录状态
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();
                         if (errorcode == "1") {
-                            $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
-                            //alert(userid);
                             test(parentid, userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -404,8 +392,6 @@
                             $api.toast('登陆不支持', 2000);
                         }
                     });
-//                  userid=1;
-//                  test(parentid,userid);
                 });
                 function test(parentid, userid) {
                     $('#commit2').on('click', function () {
@@ -436,15 +422,18 @@
                             // }),
                             // contentType: "application/json;charset=UTF-8",
                             //dataType: 'json',
+                            async: false,
                             success: function (data) {
                                 console.log('创建成功！');
-                                //alert("评论创建成功！");
                                 callback(data);
 
                             },
                             error: function () {
                                 console.log('创建失败！');
-                                //alert("评论创建失败！");
+                            },
+                            complete: function () {
+                                $('#leave-words2').hide();
+                                refresh(homeurl);
                             }
                         });
                         function callback(res) {
@@ -454,15 +443,9 @@
                             }
                             var data = res.data;
                             console.log(data);
-                            //alert("评论创建成功！");
+                            $api.toast('评论创建成功！', 3000);
                         }
 
-                        $('#leave-words2').hide();
-                        //alert("type:" + obj.type + "id:" + obj.refId);
-                        type = obj.type;
-                        id = obj.refId;
-                        refresh(type, id);
-                        alert("评论创建成功！");
 
                     });
                 }
@@ -476,7 +459,7 @@
                 });
 
                 /*判断点赞 */
-                console.log($(".isLike :contains(1)").text());
+                //console.log($(".isLike :contains(1)").text());
                 var $like=$(".isLike :contains(1)");
                 var $unlike=$(".isLike :contains(0)");
                 $like.parent().parent().siblings(".praise").addClass("praisebg2");
@@ -501,65 +484,13 @@
                     $(this).unbind("click");
                 });
             }
-            function refresh(type, id) {
-                switch (type) {
-                    case 1:
-                        var url = "http://app.fotilestyle.com/html/menu-inpage.html?id=" + id;
-                        console.log(url);
-                        //alert(url);
-                        window.location.href = url;
+            function refresh(homeurl) {
+                console.log(homeurl);
+                        alert(homeurl);
+                        window.location.href = homeurl;
                         window.event.returnValue=false;
-                        break;
-                    case 2:
-                        var url = "http://app.fotilestyle.com/html/coursedetail.html?id=" + id;
-                        console.log(url);
-                        //alert(url);
-                        window.location.href = url;
-                        window.event.returnValue=false;
-                        break;
-                    case 4:
-                        var url = "http://app.fotilestyle.com/html/lifearticle.html?id=" + id;
-                        console.log(url);
-                        //alert(url);
-                        window.location.href=url;
-                        window.event.returnValue=false;
-                        break;
-                    case 5:
-                        var url = "http://app.fotilestyle.com/html/lifedetail.html?id=" + id;
-                        console.log(url);
-                        //alert(url);
-                        window.location.href = url;
-                        window.event.returnValue=false;
-                        break;
-                    case 6:
-                        var url = "http://app.fotilestyle.com/html/activedetail.html?id=" + id;
-                        console.log(url);
-                        //alert(url);
-                        window.location.href = url;
-                        window.event.returnValue=false;
-                        break;
-                    case 8:
-                        var url = "http://app.fotilestyle.com/html/sitedetail.html?id=" + id;
-                        console.log(url);
-                        //alert(url);
-                        window.location.href = url;
-                        window.event.returnValue=false;
-                        break;
-                    case 10:
-                        //var url = "http://app.fotilestyle.com/html/jf-buy.html?id=" + id;
-                        var url = window.location.href;
-                        console.log(url);
-                        alert(url);
-                        window.location.href = url;
-                        window.event.returnValue=false;
-                        break;
-                    default:
-                        return
-                }
             }
         }
-
-
 
         $(window).off('scroll').on('scroll', $api.throttle(function () {
             var scrollTop = $(this).scrollTop();

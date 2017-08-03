@@ -231,6 +231,16 @@
             name : "callKitchenware",
             callbackId : generateID(),
             callback : noop
+        },
+        classMenu:{
+            name : "classMenu",
+            callbackId : generateID(),
+            callback : noop
+        },
+        moreKitchen:{
+            name : "moreKitchen",
+            callbackId : generateID(),
+            callback : noop
         }
 
     };
@@ -375,6 +385,22 @@
         var callKitchenwareConfig = ft.mix( true,{},config.callKitchenware );
         callKitchenwareConfig.callback =  fn;
         callByJS(callKitchenwareConfig);
+    }
+    /*********************************************************************
+     *                           进入菜谱列表                             *
+     **********************************************************************/
+    ft.classMenu = function (fn) {
+        var classMenuConfig = ft.mix( true,{},config.classMenu );
+        classMenuConfig.callback =  fn;
+        callByJS(classMenuConfig);
+    }
+    /*********************************************************************
+     *                           进入商城厨具列表                             *
+     **********************************************************************/
+    ft.moreKitchen = function (fn) {
+        var moreKitchenConfig = ft.mix( true,{},config.moreKitchen );
+        moreKitchenConfig.callback =  fn;
+        callByJS(moreKitchenConfig);
     }
 
 }()
