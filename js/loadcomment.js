@@ -476,10 +476,15 @@
                     }, function (data) {
                         console.log(data);
                         console.log("111");
-                        $(e.target).remove("praisebg");
-                        $(e.target).addClass("praisebg2");
-                        var oldnum = $(e.target).text();
-                        $(e.target).text(parseInt(oldnum) + 1);
+                        var ispraise = $(e.target).attr('class');
+                        if(ispraise == "praise praisebg"){
+                            $(e.target).remove("praisebg");
+                            $(e.target).addClass("praisebg2");
+                            var oldnum = $(e.target).text();
+                            $(e.target).text(parseInt(oldnum) + 1);
+                        }else if(ispraise == "praisebg2"){
+                            return;
+                        }
                     });
                     $(this).unbind("click");
                 });

@@ -2,183 +2,214 @@
 <html>
 
 <head>
-  <title>生活志话题</title>
-  <meta charset="utf-8">
-  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
-  <link rel="stylesheet" type="text/css" href="../css/common.css">
-  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
-  <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
+    <title>生活志话题</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
+    <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
 </head>
 
 <body>
-  <div>
+<div>
     <header class="header">
-      <div class="header__main">
-        <div class="img"></div>
-        <div>
-          <a class="click"><img src="../img/invalidName.png" /></a>
-          <!--<a class="click"><img src="../img/group14Copy2.png" /></a>-->
-        </div>
-        <div class="title">
-          <h3>
+        <div class="header__main">
+            <div class="img"></div>
+            <div>
+                <a class="click"><img src="../img/invalidName.png"/></a>
+                <!--<a class="click"><img src="../img/group14Copy2.png" /></a>-->
+            </div>
+            <div class="title">
+                <h3>
 
-          </h3>
+                </h3>
+            </div>
+            <time class="lifetime"></time>
         </div>
-        <time class="lifetime"></time>
-      </div>
-      <div class="header__opt">
-        <span class="view-count"><strong></strong></span>
-        <span class="comment-count"><strong></strong></span>
-        <span class="" id="star"><strong></strong></span>
-      </div>
+        <div class="header__opt">
+            <span class="view-count"><strong></strong></span>
+            <span class="comment-count"><strong></strong></span>
+            <span class="" id="star"><strong></strong></span>
+        </div>
     </header>
     <article class="content">
     </article>
     <div class="bottomdiv"></div>
     <div class="active-rule">
-      <h3 class="section-title">活动规则</h3>
-      <ul>
-        <li>1.搜索微信号“fotilestyle123”，添加赏食令小助手，直接拉你入群。</li>
-        <li>2.根据小助手的发布的主题制作你的食谱</li>
-        <li>3.以一下两种方式上传菜谱</li>
-        <li>4.根方太生活家发布的每期主题相关</li>
-        <li>5.步骤清晰完整，不少于5步（图片与步骤可以参考方太生活家APP菜谱）</li>
-        <li>6.仅限原创，如有盗图等行为则取消活动资格</li>
-      </ul>
+        <h3 class="section-title">活动规则</h3>
+        <ul>
+            <li>1.搜索微信号“fotilestyle123”，添加赏食令小助手，直接拉你入群。</li>
+            <li>2.根据小助手的发布的主题制作你的食谱</li>
+            <li>3.以一下两种方式上传菜谱</li>
+            <li>4.根方太生活家发布的每期主题相关</li>
+            <li>5.步骤清晰完整，不少于5步（图片与步骤可以参考方太生活家APP菜谱）</li>
+            <li>6.仅限原创，如有盗图等行为则取消活动资格</li>
+        </ul>
     </div>
 
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
 
-  </div>
-  <script type="text/javascript" src='../js/lib.js'></script>
-  <script type="text/javascript" src='../js/api.js'></script>
-  <script type="text/javascript" src='../js/loadcomment.js'></script>
-  <script type="text/javascript" src='../js/ft.js'></script>
-  <script>
-    + function($) {
-      var userid;
-      //app交互—获取userid
-//        window.onload = function () {
-//            ft.isLogin2(function (result) {
-//                var errorcode = result.errorCode.toString();
-//                if (errorcode == "1") {
-//                    //$api.toast('登陆成功', 2000);
-//                    userid = result.data.userId.toString();
-      userid=230374;
-      $(function() {
-        var $header = $('.header'),
-                $content = $('.content');
-        var url = 'http://121.40.135.115:8080/fotile-api-0.0.2/test/wantFeel/detail';
+</div>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
+<script type="text/javascript" src='../js/judge.js'></script>
+<script>
+    +function ($) {
 
-        function GetQueryString(name)
-        {
-          var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-          var r = window.location.search.substr(1).match(reg);
-          if(r!=null)return  unescape(r[2]); return null;
-        }
-        var id = GetQueryString("id");
-        if (id == null) { id = 439; }
-        $.ajax({
-          url: 'http://121.40.135.115:8080/fotile-api-0.0.2/wantFeel/detail',
-          type: 'POST', //GET
-          data: JSON.stringify({ "id": id, "userId": userid }),
-          timeout: 5000, //超时时间
-          contentType: "application/json;charset=utf-8",
-          dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-          success: function(data, textStatus, jqXHR) {
-            callback(data);
-          },
-          error: function(xhr, textStatus) {
-            console.log('错误')
-            console.log(JSON.stringify(xhr))
-            console.log(JSON.stringify(textStatus))
-          }
-        })
+        if (judge.isBrowser() == true && judge.browser() == "WeiXin") {
+            alert("我是微信浏览器");
+            var userid = 230374;
+            choose();
+        } else {
+            alert("我是app");
+            var userid;
+            //app交互—获取userid
+            window.onload = function () {
+                ft.isLogin2(function (result) {
+                    var errorcode = result.errorCode.toString();
+                    alert(errorcode);
+                    console.log(errorcode);
+                    if (errorcode == "1") {
+                        userid = result.data.userId.toString();
 
-        function callback(res) {
-          if (res.status !== 200) {
-            alert(res.errorMessage)
-            return;
-          }
-          var data = res.data;
-          console.log(data);
+                        choose();
 
-          //判断是否收藏
-          if (data.isFavorite == 1) {
-            $("#star").addClass("favorite-count2");
-            $("#star").remove("favorite-count");
-          } else {
-            $("#star").addClass("favorite-count");
-            $("#star").remove("favorite-count2");
-          }
-
-          $header.find('.header__main h3').text(data.title || data.shortTitle || ' ');
-          $api.imgAdapt($header.find('.header__main .img'), data.picture.path)
-          $header.find('.view-count strong').text(data.viewCount);
-          $header.find('.comment-count strong').text(data.commentCount);
-          $header.find('#star strong').text(data.favoriteCount);
-
-          /*title取值*/
-          var txt=data.title;
-          if(txt==undefined){
-            $('head title').text("生活志");
-          }else {
-            $('head title').text(data.title);
-          }
-
-          /* 时间戳格式转换 */
-          var timestamp=data.createat;
-          function add0(m){return m<10?'0'+m:m }
-          function format(timestamp)
-          {
-            var time = new Date(timestamp);
-            var year = time.getFullYear();
-            var month = time.getMonth()+1;
-            var date = time.getDate();
-            var hours = time.getHours();
-            var minutes = time.getMinutes();
-            var seconds = time.getSeconds();
-            return year+'.'+add0(month)+'.'+add0(date);
-          }
-          $header.find('.lifetime').text(format(timestamp));
-
-          $content.append(data.content);
+                    } else if (errorCode == "0") {
+                        userid = 1;
+                    } else if (errorCode == "-1") {
+                        userid = 1;
+                    } else if (errorCode == "-2") {
+                        userid = 1;
+                    }
+                });
+            };
         }
 
-        $('#star').on('click', function (e) {
-          var follow = $("#star").attr('class');
-          if (follow == "favorite-count") {
-            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
-              "refId": id,
-              "type": 5,
-              "userId": userid
-            }, function (data) {
-              console.log(data);
-              console.log("111");
-              $("#star").addClass("favorite-count2");
-              $("#star").removeClass("favorite-count");
-              var oldnum = $("#star").next().text();
-              $("#star").next().text(parseInt(oldnum) + 1);
-              $api.toast('收藏成功！', 3000);
-            });
-          } else if (follow == "favorite-count2") {
-            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
-              "refId": id,
-              "type": 5,
-              "userId": userid
-            }, function (data) {
-              console.log(data);
-              console.log("222");
-              $("#star").addClass("favorite-count");
-              $("#star").removeClass("favorite-count2");
-              var oldnum = $("#star").next().text();
-              $("#star").next().text(parseInt(oldnum) - 1);
-              $api.toast('取消收藏！', 3000);
-            });
-          }
-        });
-        //app交互——获取登录状态
+        function choose() {
+            $(function () {
+                var $header = $('.header'),
+                        $content = $('.content');
+                var url = 'http://121.40.135.115:8080/fotile-api-0.0.2/test/wantFeel/detail';
+
+                function GetQueryString(name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null)return unescape(r[2]);
+                    return null;
+                }
+
+                var id = GetQueryString("id");
+                if (id == null) {
+                    id = 439;
+                }
+                $.ajax({
+                    url: 'http://121.40.135.115:8080/fotile-api-0.0.2/wantFeel/detail',
+                    type: 'POST', //GET
+                    data: JSON.stringify({"id": id, "userId": userid}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                    success: function (data, textStatus, jqXHR) {
+                        callback(data);
+                    },
+                    error: function (xhr, textStatus) {
+                        console.log('错误')
+                        console.log(JSON.stringify(xhr))
+                        console.log(JSON.stringify(textStatus))
+                    }
+                })
+
+                function callback(res) {
+                    if (res.status !== 200) {
+                        alert(res.errorMessage)
+                        return;
+                    }
+                    var data = res.data;
+                    console.log(data);
+
+                    //判断是否收藏
+                    if (data.isFavorite == 1) {
+                        $("#star").addClass("favorite-count2");
+                        $("#star").remove("favorite-count");
+                    } else {
+                        $("#star").addClass("favorite-count");
+                        $("#star").remove("favorite-count2");
+                    }
+
+                    $header.find('.header__main h3').text(data.title || data.shortTitle || ' ');
+                    $api.imgAdapt($header.find('.header__main .img'), data.picture.path)
+                    $header.find('.view-count strong').text(data.viewCount);
+                    $header.find('.comment-count strong').text(data.commentCount);
+                    $header.find('#star strong').text(data.favoriteCount);
+
+                    /*title取值*/
+                    var txt = data.title;
+                    if (txt == undefined) {
+                        $('head title').text("生活志");
+                    } else {
+                        $('head title').text(data.title);
+                    }
+
+                    /* 时间戳格式转换 */
+                    var timestamp = data.createat;
+
+                    function add0(m) {
+                        return m < 10 ? '0' + m : m
+                    }
+
+                    function format(timestamp) {
+                        var time = new Date(timestamp);
+                        var year = time.getFullYear();
+                        var month = time.getMonth() + 1;
+                        var date = time.getDate();
+                        var hours = time.getHours();
+                        var minutes = time.getMinutes();
+                        var seconds = time.getSeconds();
+                        return year + '.' + add0(month) + '.' + add0(date);
+                    }
+
+                    $header.find('.lifetime').text(format(timestamp));
+
+                    $content.append(data.content);
+                }
+
+                $('#star').on('click', function (e) {
+                    var follow = $("#star").attr('class');
+                    if (follow == "favorite-count") {
+                        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+                            "refId": id,
+                            "type": 5,
+                            "userId": userid
+                        }, function (data) {
+                            console.log(data);
+                            console.log("111");
+                            $("#star").addClass("favorite-count2");
+                            $("#star").removeClass("favorite-count");
+                            var oldnum = $("#star").next().text();
+                            $("#star").next().text(parseInt(oldnum) + 1);
+                            $api.toast('收藏成功！', 3000);
+                        });
+                    } else if (follow == "favorite-count2") {
+                        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+                            "refId": id,
+                            "type": 5,
+                            "userId": userid
+                        }, function (data) {
+                            console.log(data);
+                            console.log("222");
+                            $("#star").addClass("favorite-count");
+                            $("#star").removeClass("favorite-count2");
+                            var oldnum = $("#star").next().text();
+                            $("#star").next().text(parseInt(oldnum) - 1);
+                            $api.toast('取消收藏！', 3000);
+                        });
+                    }
+                });
+                //app交互——获取登录状态
 //        $('#star').on('click', function (e) {
 //          //alert("id:"+id+"type:"+4+"userid:"+userid);
 //          ft.isLogin(function (result) {
@@ -228,21 +259,20 @@
 //          });
 //        });
 
-        $.loadComment({"pageNum":1,"pageSize":20,"type":5,"refId":parseInt(id), "userId": parseInt(userid)}, 1);
-      });
+                $.loadComment({
+                    "pageNum": 1,
+                    "pageSize": 20,
+                    "type": 5,
+                    "refId": parseInt(id),
+                    "userId": parseInt(userid)
+                }, 1);
+            });
 
-      //                } else if (errorCode == "0") {
-//                    $api.toast('登陆取消', 2000);
-//                } else if (errorCode == "-1") {
-//                    $api.toast('登陆失败', 2000);
-//                } else if (errorCode == "-2") {
-//                    $api.toast('登陆不支持', 2000);
-//                }
-//            });
-//        };
+        }
+
 
     }(jQuery);
-  </script>
+</script>
 </body>
 
 </html>
