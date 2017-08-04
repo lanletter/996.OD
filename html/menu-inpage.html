@@ -47,7 +47,7 @@
 <div id="videobox" class="video">
     <video id="vd" controls preload="auto"
            webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" >
-        <source src="http://pic.qiantucdn.com/58pic/shipin/17/09/84/17098445.mp4" type="video/mp4">
+        <source src="" type="video/mp4">
     </video>
     <button class="play"></button>
     <div class="smartLabel" v-if="data.type == 1">智能菜谱</div>
@@ -197,8 +197,8 @@
             $(".jf-buy").animate({"top":"10rem"}, 1000);
         }, false);
         video.addEventListener('pause', function () {
-            playBtn.show();
-            video.controls = false;
+            playBtn.hide();
+            video.controls = true;
         }, false);
     })();
 </script>
