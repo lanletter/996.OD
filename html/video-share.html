@@ -17,31 +17,37 @@
     <link href="../css/common/common.css" rel="stylesheet">
     <link href="../css/animate.css" rel="stylesheet">
     <link href="../css/jf-info.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/video-js.min.css">
     <link href="../css/video-share.css" rel="stylesheet">
+    <link href="../css/video.css" rel="stylesheet">
+
+
     <title>直播分享</title>
 </head>
 <body>
-<div class="vide-share">
+<!--     <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="../src/z.m3u8" type="application/x-mpegURL">
+    </video> -->
+<div class="vide-share videobox">
+    <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="http://lifevideo.fotile.com/fotilestyle/shanghai.m3u8" type="application/x-mpegURL">
+    </video>
     <div class="videobox">
-        <video id="video" width="100%" controls="controls" :poster="data.picture">
-            <source :src="data.url" type="application/x-mpegURL"/>
-        Your browser does not support HTML5 video.
-        </video>
-        <span class="num">{{data.count}}</span>
+        <div id="J_prismPlayer" class="prism-player"></div>
+        <span class="num">{{kk.count}}</span>
     </div>
+
 
     <div class="anchor">
         <h4>主播介绍</h4>
         <ul>
             <li class="tit">
-                <img :src="data.cookPicture" alt="">
+                <img :src="kk.cookPicture" alt="">
                 <p>
-                    <strong>{{data.name}}</strong><br/>
-                    <em>{{data.topic}}</em>
+                    <strong>{{kk.name}}</strong><br/>
+                    <em>{{kk.topic}}</em>
                 </p>
             </li>
-            <li class="introduct">{{data.desc}}</li>
+            <li class="introduct">{{kk.desc}}</li>
         </ul>
     </div>
 </div>
@@ -57,33 +63,121 @@
 
     };
 </script>
+<script src="../js/jquery.min.js"></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
-<script type="text/javascript" src='../js/video.min.js'></script>
-<script type="text/javascript" src='../js/video-hls.js'></script>
+<script src="../js/url.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <script>
+
+
     var vm = new Vue({
         el: '.vide-share',
         data: {
-            data: {}
+            kk: {}
         },
         created: function () {
             var $this = this;
-            this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/video/detail', {"id": "1111"}).then(function (data) {
+            this.$http.post(urlport + 'video/detail', {"id": "1111"}).then(function (data) {
                 var data = data.data;
                 if (data.status == 200) {
-                    $this.data = data.data;
-                    console.log(data.data);
+
+                    $this.kk = data.data;
+                    console.info($this.kk);
+
+                    /*微信分享链接专用*/
+                    var sharetitle = data.data.topic;
+                    var sharedesc=data.data.desc;
+                    var shareimg = data.data.picture;
+                    var sharestr = window.location.href;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                    $.ajax({
+                        type: 'GET',
+                        url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
                 }
 
             }, function () {
                 console.info('error');
             });
 
+        },
+        updated: function () {
+            console.info(11);
+        },
+        mounted: function () {
+            //var myPlayer = neplayer("my-video");
+            // var $this = this;
+            // console.info();
+            // function InitPlayer(){
+            //     console.info($this.kk.url);
+            //     var player = new prismplayer({
+            //         id: "J_prismPlayer",    // 容器id
+            //         source: 'http://lifevideo.fotile.com/fotilestyle/shanghai.m3u8',  // 视频url 支持互联网可直接访问的视频地址
+            //         autoplay: true,       // 自动播放
+            //         width: "100%",        // 播放器宽度
+            //         height: "400px"      // 播放器高度
+            //     });
+            // }
+            // InitPlayer();
+        }, methods: function () {
+
         }
     });
 
 </script>
+<script src="../js/video.js"></script>
+<script src="../js/videojs-live.js"></script>
 </body>
 </html>

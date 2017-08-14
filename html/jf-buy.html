@@ -21,7 +21,7 @@
     <link href="../css/download.css" rel="stylesheet">
     <title>积分换购</title>
     <style>
-        .icon-truck{
+        .icon-truck {
             display: inline-block;
             width: 0.56rem;
             height: 0.56rem;
@@ -30,7 +30,8 @@
             vertical-align: middle;
             margin-right: 0.2rem;
         }
-        .icon-fix{
+
+        .icon-fix {
             display: inline-block;
             width: 0.56rem;
             height: 0.56rem;
@@ -73,7 +74,7 @@
                 <li class="h_box mt25">
                     <span class="tit">选择数量</span>
                     <em>(剩余<span v-html="stock"></span>)</em>
-                    <p class="textalign" >
+                    <p class="textalign">
                         <span class="icon-reduce" @click="changeNum(0)"></span>
                         <input v-model="count" value="" class="inputText" readonly type="text">
                         <span class="icon-add" @click="changeNum(1)"></span>
@@ -110,7 +111,8 @@
     <div class="btnbox">
         <ul class="h_box">
             <li>
-                <div style="display: inline;" v-html="totalntegral"></div><em>积分</em>
+                <div style="display: inline;" v-html="totalntegral"></div>
+                <em>积分</em>
                 <!--<span class="price" >{{payintegral}}积分</span>-->
                 <span v-if="integral > payintegral" v-html="integral">积分</span>
             </li>
@@ -131,6 +133,10 @@
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
+<script src="../js/url.js"></script>
+<script src="../js/judge.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
 
 <script>
 
@@ -142,172 +148,268 @@
     }
 
     var id = GetQueryString("id");
-    if (id == null) { id = 521; }
-    var userid;
-    var vm = new Vue({
-        el: '#buybox',
-        data: {
-            title: '',
-            salesSupport: '',
-            logistics: '',
-            content: '商品详情',
-            viewCount: '',
-            commentCount: '',
-            dataAll: [],
-            payintegral: '',
-            integral: '',
-            count: 0,
-            receiptAddress: '',
-            userId: '',
-            stock: '',
-            merchandiseClasses: '',
-            url: [],
-            totalntegral: ''
+    if (id == null) {
+        id = 521;
+    }
 
-        },
-        component: {},
-        created: function () {
-            var $this = this;
-            this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail', {"id": id}).then(function (data) {
-                var data = data.data;
-                console.log(data);
-                if (data.status == 200) {
-                    $this.logistics = data.data.logisticsDesc;
-                    $this.salesSupport = data.data.salesSupport;
-                    $this.content = data.data.content;
-                    $this.title = data.data.title;
-                    $this.viewCount = data.data.viewCount;
-                    $this.commentCount = data.data.commentCount;
-                    $this.dataAll = data.data;
-                    $this.stock = data.data.stock;
-                    $this.merchandiseClasses = data.data.selectMerchandiseClass;
-                    $this.url = data.data.merchandisePictures;
-                    var item = $this.dataAll.merchandiseClasses[0];
-                    $this.selectType(item.id,item.stock,item.paidIntegral,item.integral,item,$this.count,$this.totalntegral);
+    var device = GetQueryString("device");
+    if (device == "ios" || device == "android") {
+        var userid;
+        //app交互—获取userid
+        window.onload = function () {
+            ft.isLogin2(function (result) {
+                var errorcode = result.errorCode.toString();
+                //alert(errorcode);
+                console.log(errorcode);
+                if (errorcode == "1") {
+                    userid = result.data.userId.toString();
+
+                    choose();
+
+                } else if (errorCode == "0") {
+                } else if (errorCode == "-1") {
+                } else if (errorCode == "-2") {
                 }
-
-            }, function () {
-                console.info('error');
             });
+        };
+    } else if ((device == null)) {
+        var userid = 1;
+        choose();
+    }
+    function choose() {
+        var vm = new Vue({
+            el: '#buybox',
+            data: {
+                title: '',
+                salesSupport: '',
+                logistics: '',
+                content: '商品详情',
+                viewCount: '',
+                commentCount: '',
+                dataAll: [],
+                payintegral: '',
+                integral: '',
+                count: 0,
+                receiptAddress: '',
+                userId: '',
+                stock: '',
+                merchandiseClasses: '',
+                url: [],
+                totalntegral: ''
 
-        },
-        methods: {
-
-            submit: function (id, b) {
+            },
+            component: {},
+            created: function () {
                 var $this = this;
-                //app交互——获取登录状态
-                ft.isLogin(function (result) {
-                    var errorcode = result.errorCode.toString();
-                    if (errorcode == "1") {
-                        //$api.toast('登陆成功', 2000);
-                        userid = result.data.userId.toString();
-                        window.userid=userid;
-                        //alert("userid"+userid);
-                        //积分兑换
-                        if($this.count==0){
-                            alert("请先选择商品!");
+                this.$http.post(urlport + 'merchandise/detail', {"id": id}).then(function (data) {
+                    var data = data.data;
+                    console.log(data);
+                    if (data.status == 200) {
+                        $this.logistics = data.data.logisticsDesc;
+                        $this.salesSupport = data.data.salesSupport;
+                        $this.content = data.data.content;
+                        $this.title = data.data.title;
+                        $this.viewCount = data.data.viewCount;
+                        $this.commentCount = data.data.commentCount;
+                        $this.dataAll = data.data;
+                        $this.stock = data.data.stock;
+                        $this.merchandiseClasses = data.data.selectMerchandiseClass;
+                        $this.url = data.data.merchandisePictures;
+                        var item = $this.dataAll.merchandiseClasses[0];
+                        $this.selectType(item.id, item.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
+
+                        /*微信分享链接专用*/
+                        var sharetitle = data.data.title;
+                        var sharedesc;
+                        var contents = $(".msg").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+                        var count = contents.length;
+                        if (count > 40) {
+                            var nr = contents.substring(0, 40) + "...";
+                            sharedesc = nr;
+                        } else {
+                            sharedesc = contents;
+                        }
+                        var shareimg = data.data.picture.path;
+                        var sharestr = data.data.url;
+                        var sharelink = sharestr.replace(/api/, "h5");
+                        console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                        $.ajax({
+                            type: 'GET',
+                            url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                            success: function (data) {
+                                console.info(data.appId);
+                                wx.config({
+                                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                    appId: data.appId, // 必填，公众号的唯一标识
+                                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                    signature: data.signature,
+                                    jsApiList: [
+                                        "onMenuShareTimeline",
+                                        "onMenuShareAppMessage",
+                                        "onMenuShareQQ",
+                                        "onMenuShareWeibo",
+                                        "onMenuShareQZone"
+                                    ]
+                                });
+                                wx.ready(function () {
+                                    //分享给朋友圈
+                                    wx.onMenuShareTimeline({
+                                        title: sharetitle, // 分享标题
+                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                        imgUrl: shareimg, // 分享图标
+                                        success: function () {
+                                            // 用户确认分享后执行的回调函数
+                                        },
+                                        cancel: function () {
+                                            // 用户取消分享后执行的回调函数
+                                        }
+                                    });
+                                    //分享给朋友
+                                    wx.onMenuShareAppMessage({
+                                        title: sharetitle, // 分享标题
+                                        desc: sharedesc, // 分享描述
+                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                        imgUrl: shareimg, // 分享图标
+                                        type: '', // 分享类型,music、video或link，不填默认为link
+                                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                        success: function () {
+                                            // 用户确认分享后执行的回调函数
+                                        },
+                                        cancel: function () {
+                                            // 用户取消分享后执行的回调函数
+                                        }
+                                    });
+                                });
+                            },
+                            error: function (xhr, type) {
+                                //alert(111);
+                            }
+                        })
+                    }
+
+                }, function () {
+                    console.info('error');
+                });
+
+            },
+            methods: {
+
+                submit: function (id, b) {
+                    var $this = this;
+                    //app交互——获取登录状态
+//                ft.isLogin(function (result) {
+//                    var errorcode = result.errorCode.toString();
+//                    if (errorcode == "1") {
+//                        //$api.toast('登陆成功', 2000);
+//                        userid = result.data.userId.toString();
+//                        window.userid=userid;
+//                        //alert("userid"+userid);
+//                        //积分兑换
+//                        if($this.count==0){
+//                            alert("请先选择商品!");
+//                            return;
+//                        }
+//                        var flag = confirm("确认兑换该商品吗？");
+//                        if(!flag)return;
+//                        $this.userId =userid;
+//                        $this.getAddress(this.userId);
+//
+//                    } else if (errorCode == "0") {
+//                        $api.toast('登陆取消', 2000);
+//                    } else if (errorCode == "-1") {
+//                        $api.toast('登陆失败', 2000);
+//                    } else if (errorCode == "-2") {
+//                        $api.toast('登陆不支持', 2000);
+//                    }
+//                });
+                    //积分兑换
+                    if ($this.count == 0) {
+                        alert("请先选择商品!");
+                        return;
+                    }
+                    userid = 120374;
+                    var flag = confirm("确认兑换该商品吗？");
+                    if (!flag)return;
+                    var $this = this;
+                    this.userId = userid;
+                    this.getAddress(this.userId);
+                },
+                getAddress: function (userId, back) {
+                    var $this = this;
+                    this.$http.post(urlport + 'receiptAddress/default', {"userId": this.userId}).then(function (data) {
+                        console.log(data.data.data);
+                        if (data.data.data == null) {
+                            alert("请先编辑收货地址！");
                             return;
                         }
-                        var flag = confirm("确认兑换该商品吗？");
-                        if(!flag)return;
-                        $this.userId =userid;
-                        $this.getAddress(this.userId);
+                        $this.receiptAddress = data.data.data.id;
+                        console.info($this.receiptAddress);
+                        $this.submitFn($this.receiptAddress);
+                    }, function (err) {
 
-                    } else if (errorCode == "0") {
-                        $api.toast('登陆取消', 2000);
-                    } else if (errorCode == "-1") {
-                        $api.toast('登陆失败', 2000);
-                    } else if (errorCode == "-2") {
-                        $api.toast('登陆不支持', 2000);
-                    }
-                });
-                //积分兑换
-//                if($this.count==0){
-//                    alert("请先选择商品!");
-//                    return;
-//                }
-//                window.userid=120374;
-//                var flag = confirm("确认兑换该商品吗？");
-//                if(!flag)return;
-//                var $this = this;
-//                this.userId =userid;
-//                this.getAddress(this.userId);
-            },
-            getAddress: function (userId, back) {
-                var $this = this;
-                this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/receiptAddress/default', {"userId": this.userId}).then(function (data) {
-                    console.log(data.data.data);
-                    if(data.data.data==null){
-                        alert("请先编辑收货地址！");
-                        return;
-                    }
-                    $this.receiptAddress = data.data.data.id;
-                    console.info($this.receiptAddress);
-                    $this.submitFn($this.receiptAddress);
-                }, function (err) {
+                    });
+                },
+                submitFn: function (address) {
+                    var $this = this;
+                    this.$http.post(urlport + 'order/createByIntegral', {
+                        'userId': $this.userId,
+                        'receiptAddressId': address,
+                        'productId': $this.dataAll.id,
+                        'count': $this.count,
+                        'classId': $this.merchandiseClasses
 
-                });
-            },
-            submitFn: function (address) {
-                var $this = this;
-                this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/order/createByIntegral', {
-                    'userId': $this.userId,
-                    'receiptAddressId': address,
-                    'productId': $this.dataAll.id,
-                    'count': $this.count,
-                    'classId': $this.merchandiseClasses
-
-                }).then(function (data) {
-                    //alert(JSON.stringify(data.body.status));
-                    console.log(JSON.stringify(data.body.status));
-                    if (data.body.status == 408) {
-                        alert('余额不足！');
-                        return;
-                    }else{
-                        alert('兑换成功！');
-                    }
-                }, function (err) {
-                });
-            },
-            selectType: function (classid, stock, paidIntegral, integral, item,count,totalntegral) {
-                var $this = this;
-                //console.info(item);
-                $this.merchandiseClasses = classid;
-                $this.stock = stock;
-                $this.payintegral = paidIntegral;
-                paidintegral=$this.payintegral;
-                $this.integral = integral;
+                    }).then(function (data) {
+                        //alert(JSON.stringify(data.body.status));
+                        console.log(JSON.stringify(data.body.status));
+                        if (data.body.status == 408) {
+                            alert('余额不足！');
+                            return;
+                        } else {
+                            alert('兑换成功！');
+                        }
+                    }, function (err) {
+                    });
+                },
+                selectType: function (classid, stock, paidIntegral, integral, item, count, totalntegral) {
+                    var $this = this;
+                    //console.info(item);
+                    $this.merchandiseClasses = classid;
+                    $this.stock = stock;
+                    $this.payintegral = paidIntegral;
+                    paidintegral = $this.payintegral;
+                    $this.integral = integral;
 //              $this.url.length = 0;
 //              $this.url.push(item);
-                $this.count=1;
-                if (stock>0){
-                    $this.count=1;
-                    $this.totalntegral=paidIntegral;
-                }else {
-                    $this.count=0;
-                    $this.totalntegral=0;
+                    $this.count = 1;
+                    if (stock > 0) {
+                        $this.count = 1;
+                        $this.totalntegral = paidIntegral;
+                    } else {
+                        $this.count = 0;
+                        $this.totalntegral = 0;
+                    }
+
+                },
+                changeNum: function (type, totalntegral) {
+                    if (this.count == 0) {
+                        alert("库存不足!");
+                        return;
+                    }
+                    if (type == 0) {
+                        this.count = this.count - 1 > 1 ? this.count - 1 : 1;
+                        this.totalntegral = paidintegral * this.count;
+                    } else {
+                        this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
+                        this.totalntegral = paidintegral * this.count;
+                    }
                 }
 
-            },
-            changeNum: function (type,totalntegral) {
-                if(this.count==0){
-                    alert("请先选择商品分类!");
-                    return;
-                }
-                if (type == 0) {
-                    this.count = this.count - 1 > 1 ? this.count - 1 : 1;
-                    this.totalntegral = paidintegral * this.count;
-                } else {
-                    this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
-                    this.totalntegral = paidintegral * this.count;
-                }
             }
+        });
 
-        }
-    });
-
-
-    $.loadComment({"pageNum":1,"pageSize":20,"refId":parseInt(id),"type":10}, 1);
+        $.loadComment({"pageNum": 1, "pageSize": 20, "type": 20, "refId": parseInt(id), "userId": parseInt(userid)}, 1);
+    }
 
 </script>
 

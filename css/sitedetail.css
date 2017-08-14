@@ -22,12 +22,16 @@
 }
 .site-info .des{
 	text-align: justify;
-	font-weight: 100;
-	font-size: 0.28rem;
-rgb(76,80,81);
+	line-height: 0.6rem;
+	color: rgb(76,80,81);
 	letter-spacing: 2px;
+	font-size: 16px;
 	font-weight: lighter;
 	font-family: "PingFangSC-Light"!important;
+}
+.site-info .des img {
+	width: 7.18rem!important;
+	margin: 0.08rem -0.24rem!important;
 }
 .info ul{
 	border-radius: 10px;
@@ -103,21 +107,26 @@ rgb(76,80,81);
 	background-color: rgb(237,237,237);
 }
 
-.content .site-service,
+.site-service{
+	background: #fff;
+}
+.site-service ul{
+	padding:0.4rem;
+	line-height: 0.6rem;
+	letter-spacing: 2px;
+	text-align: justify;
+	color: rgb(76,80,81);
+	font-size: 16px;
+	font-weight: lighter;
+	font-family: "PingFangSC-Light"!important;
+}
+.content .site-service ul img {
+	width: 7.18rem!important;
+	margin: 0.08rem -0.24rem!important;
+}
 .content .site-pic{
 	padding: 0.08rem;
 	background-color: #fff;
-}
-.content .site-service ul{
-	padding: 0 0.5rem;
-	line-height: 0.4rem;
-	text-align: justify;
-	font-weight: 100;
-	font-size: 0.28rem;
-rgb(76,80,81);
-	letter-spacing: 2px;
-	font-weight: lighter;
-	font-family: "PingFangSC-Light"!important;
 }
 .site-service .red-btn{
 	width: 2.8rem;
@@ -125,6 +134,7 @@ rgb(76,80,81);
 	line-height: 0.52rem;
 	border-radius: 0.52rem;
 	float: right;
+	font-size: 0.28rem;
 	margin: 0.48rem 0.24rem 0.2rem 0;
 	text-align: center;
 	box-shadow: 0 2px 4px rgba(231,129,129, 0.6);
@@ -140,7 +150,7 @@ rgb(76,80,81);
 	width: 100%;
 	text-align: center;
 	color: #fff;
-	padding-bottom: 0.3rem;
+	padding-bottom: 0.76rem;
 }
 .site-pic img{
 	width: 100%;
@@ -254,12 +264,15 @@ rgb(76,80,81);
 	padding-top: 0.3rem;
 }
 .course-des{
-	font-size: 0.28rem;
-	letter-spacing: 0.03rem;
 	color: rgb(76,80,81);
-	text-align:justify;
+	letter-spacing: 2px;
+	font-size: 16px;
 	font-weight: lighter;
-	font-family: "PingFangSC-Light";
+	font-family: "PingFangSC-Light"!important;
+}
+.course-des img {
+	width: 7.18rem!important;
+	margin: 0.08rem -0.32rem!important;
 }
 .course-info {
 	background: #fff;
@@ -433,6 +446,7 @@ rgb(130,130,130);
 	border-top: 1px solid rgb(237,237,237);
 	padding-bottom: 0.25rem;
 	margin-top: 0.05rem;
+	min-height:0.52rem ;
 }
 /*.buynow-div .boedert1{
 	border-top: 1px solid rgb(237,237,237);
@@ -525,6 +539,7 @@ rgb(130,130,130);
 	font-size: 0.28rem;
 	font-weight: lighter;
 	line-height: 0.5rem;
+	overflow: hidden;
 }
 .buynow-div .coupon:after{
 	content: '';

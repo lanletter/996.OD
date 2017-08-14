@@ -223,3 +223,25 @@ button {
 [v-cloak] {
   display: none;
 }
+
+.overlayimg{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 富文本统一样式 */
+.richtext{
+  padding:0.4rem;
+  line-height: 0.6rem;
+  letter-spacing: 2px;
+  text-align: justify;
+  color: rgb(76,80,81);
+  font-size: 16px;
+  font-weight: lighter;
+  font-family: "PingFangSC-Light"!important;
+}
+.richtext img {
+  width: 7.18rem!important;
+  margin: 0.08rem -0.24rem!important;
+}

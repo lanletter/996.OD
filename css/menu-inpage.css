@@ -185,25 +185,25 @@ html, body {
 
 .icon-easy {
   display: inline-block;
-  width: 0.36rem;
-  height: 0.36rem;
-  background: url(../img/easy@2x.png) no-repeat center center;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url(../img/gray1.png) no-repeat center center;
   background-size: cover;
   vertical-align: middle; }
 
 .icon-time {
   display: inline-block;
-  width: 0.36rem;
-  height: 0.36rem;
-  background: url(../img/time@2x.png) no-repeat center center;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url(../img/gray2.png) no-repeat center center;
   background-size: cover;
   vertical-align: middle; }
 
 .icon-num {
   display: inline-block;
-  width: 0.36rem;
-  height: 0.36rem;
-  background: url(../img/num@2x.png) no-repeat center center;
+  width: 0.48rem;
+  height: 0.48rem;
+  background: url(../img/gray3.png) no-repeat center center;
   background-size: cover;
   vertical-align: middle; }
 
@@ -243,11 +243,26 @@ html, body {
 .menupage .text {
   padding: 0.04rem 0.16rem;
 }
+.menupage .text .users{
+  margin-bottom: 0.48rem;
+}
+.menupage .text .instructions{
+  text-align: justify;
+  padding: 0.32rem 0.48rem 0;
+  font-size: 0.28rem;
+  font-weight: lighter;
+  letter-spacing: 0.03rem;
+  color: rgb(76,80,81);
+  font-family: "PingFangSC-Light"!important;
+  margin-bottom: 0.48rem;
+  width:6.54rem;
+  background: #fff;
+}
 .menupage .text h5 {
   font-weight: lighter;
-  font-size: 0.24rem; }
+  font-size: 0.2rem; }
 .menupage .text h5 span {
-  border-bottom: 2px solid #2f2f2f;
+  border-bottom: 3px solid #2f2f2f;
   color: #2f2f2f;
   padding: 0 0.2rem 0.1rem 0; }
 .menupage .text ul.from {
@@ -283,7 +298,6 @@ html, body {
 .menupage .text .special {
   display: flex;
   flex-direction: row;
-  margin-top: 0.48rem;
   padding: 0rem 0.28rem;
   -webkit-box-pack: justify;
   justify-content: space-between; }
@@ -293,9 +307,12 @@ html, body {
   text-align: center;
   vertical-align: middle;
   line-height: 1;
+  color: rgb(130,130,130);
   margin-left: 0.1rem; }
+.menupage .text .special span b {
+  font-size: 0.28rem; }
 .menupage .text .special span em {
-  font-size: 0.1rem; }
+  font-size: 0.16rem; }
 
 .menupage .title {
   margin-bottom: 0 !important;
@@ -330,6 +347,10 @@ html, body {
 }
 .menupage .qingdan dd span{
   text-align: left;
+}
+.menupage .qingdan dd .type{
+  float: left;
+  margin-right: 0.5rem;
 }
 .menupage .qingdan .tit {
   padding: 0.74rem 0.4rem 0.54rem;
@@ -512,3 +533,22 @@ html, body {
   -webkit-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%); }
+
+
+.smartLabel {
+  position: absolute;
+  left: 5.14rem;
+  top: 8.96rem;
+  width: 2.36rem;
+  height: 0.58rem;
+  background-color: rgb(251, 76, 76);
+  border-top-left-radius: 1.32rem;
+  border-bottom-left-radius: 1.32rem;
+  color: #fff;
+  line-height: 0.58rem;
+  font-size: 0.28rem;
+  text-align: center;
+  letter-spacing: 0.024rem;
+  display: none;
+}
+

@@ -105,6 +105,7 @@
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+    <script src="../js/url.js"></script>
 <script>
 
 
@@ -132,7 +133,7 @@
         component: {},
         created: function () {
             var $this = this;
-            this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/merchandise/detail', {"id": 505}).then(function (data) {
+            this.$http.post(urlport+'merchandise/detail', {"id": 505}).then(function (data) {
                 var data = data.data;
                 console.log(data);
                 if (data.status == 200) {

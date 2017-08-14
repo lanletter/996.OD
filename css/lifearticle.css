@@ -136,10 +136,11 @@
 }
 
 .content {
+    text-align: justify;
     width:6.54rem;
     background: #fff;
     padding: 0.48rem;
-    font-size: 0.32rem;
+    font-size: 16px;
     font-weight: lighter;
     letter-spacing: 0.03rem;
     color: rgb(76,80,81);
@@ -147,6 +148,11 @@
 }
 .content img {
     width: 7.18rem;
+    margin: 0.08rem -0.32rem;
+}
+.content iframe {
+    width: 7.18rem!important;
+    height: 4rem!important;
     margin: 0.48rem -0.32rem;
 }
 

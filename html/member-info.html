@@ -59,6 +59,7 @@
     <script src="../js/vue.min.js"></script>
     <script src="../js/vue-resource1.3.4.js"></script>
     <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+    <script src="../js/url.js"></script>
     <script>
         var vm = new Vue({
             el: '.jf-info',
@@ -67,7 +68,7 @@
             },
             created:function(){
                 var $this = this;
-                this.$http.post('http://121.40.135.115:8080/fotile-api-0.0.2/instruction/detail',{"code":"member"}).then(function(data){
+                this.$http.post(urlport+'instruction/detail',{"code":"member"}).then(function(data){
                     console.info(data.data);
                     var data = data.data;
                     if(data.status == 200){

@@ -65,8 +65,9 @@
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/video-hls.js'></script>
+    <script src="../js/url.js"></script>
 <script type="text/javascript">
-  $api.post('http://121.40.135.115:8180/fotile-api-0.0.2/video/getVideoDetailInfo.json', {}, function(res) {
+  $api.post('urlport+'video/getVideoDetailInfo.json', {}, function(res) {
     $('.view-count .count').text(res.data.name)
   })
   

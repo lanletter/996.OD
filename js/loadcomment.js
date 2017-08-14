@@ -1,12 +1,12 @@
 +function () {
     var isEmpty = false;
     var homeurl = window.location.href;
-    function loadComment(obj, pageNum, type, id,userId) {
+
+    function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
         obj.pageNum = pageNum;
         var userid = obj.userId;
-        if(isNaN(userid)){ userid=1;}
-        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/comment/list', obj,
+        $api.post(urlport + 'comment/list', obj,
             function (res) {
                 callback(res);
             }
@@ -17,8 +17,8 @@
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '<div class="ft-comment__header clearfix left-right">\
-                  <span class="left">评论 <i></i></span>\
-                  <a href="#" class="leavewords"><span class="right comment"></span></a>\
+                  <span class="left">用户评论<i></i></span>\
+                  <button href="#" class="leavewords right comment"></button>\
                   <br/>\
                   <p>暂无评论，快去抢沙发吧</p>\
                 </div>\
@@ -48,7 +48,7 @@
                         $(function(){\
                             $("#file").takungaeImgup({\
                                 formData: { "path": "Content/Images/", "name": "uploadpic" },\
-                                url: "http://121.40.135.115:8080/fotile-api-0.0.2/picture/uploadPictureBase64", \
+                                url: urlport+"picture/uploadPictureBase64", \
                                 success: function (data) {\
                                 console.log(data);\
                                 },\
@@ -68,14 +68,14 @@
                 $('.ft-comment').empty().append($(rendered0));
 
                 /*留言*/
-                $('.leavewords').on('click', function () {
-                    $('#leave-words').show();
-                    //app交互——获取登录状态
+                $('.leavewords').on('click', function (e) {
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();
+                        //alert(errorcode);
                         if (errorcode == "1") {
                             $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+                            $('#leave-words').show();
                             test1(userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -85,9 +85,6 @@
                             $api.toast('登陆不支持', 2000);
                         }
                     });
-
-                    // userid=1;
-                    // test2(userid);
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
@@ -115,7 +112,7 @@
                             return;
                         }
                         //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
-                        var url = "http://121.40.135.115:8080/fotile-api-0.0.2/comment/createGet?";
+                        var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
@@ -164,7 +161,7 @@
             if (obj.pageNum >= 1 && data.length > 0) {
                 var template = '<div class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论</span>\
-                  <a href="#" class="leavewords"><span class="right comment"></span></a>\
+                  <button href="#" class="leavewords right comment"></button>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
@@ -192,7 +189,7 @@
                         $(function(){\
                             $("#file").takungaeImgup({\
                                 formData: { "path": "Content/Images/", "name": "uploadpic" },\
-                                url: "http://121.40.135.115:8080/fotile-api-0.0.2/picture/uploadPictureBase64", \
+                                url: urlport+"picture/uploadPictureBase64", \
                                 success: function (data) {\
                                 console.log(data);\
                                 },\
@@ -280,14 +277,14 @@
 
 
                 /*留言*/
-                $('.leavewords').on('click', function () {
-                    $('#leave-words').show();
-                    //app交互——获取登录状态
+                $('.leavewords').on('click', function (e) {
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();
+                        //alert(errorcode);
                         if (errorcode == "1") {
                             $api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+                            $('#leave-words').show();
                             test2(userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -325,7 +322,7 @@
                             return;
                         }
                         //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
-                        var url = "http://121.40.135.115:8080/fotile-api-0.0.2/comment/createGet?";
+                        var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
@@ -377,12 +374,12 @@
                     var $come = $(e.target).siblings(".key");//数据来自于
                     //var $putin = $(e.target).closest("li");  //数据存放处
                     parentid = $come.find('.Id').text();
-                    $('#leave-words2').show();
-                    //app交互——获取登录状态
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();
+                        //alert(errorcode);
                         if (errorcode == "1") {
                             userid = result.data.userId.toString();
+                            $('#leave-words2').show();
                             test(parentid, userid);
                         } else if (errorCode == "0") {
                             $api.toast('登陆取消', 2000);
@@ -403,7 +400,7 @@
                             return;
                         }
                         //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
-                        var url = "http://121.40.135.115:8080/fotile-api-0.0.2/comment/createGet?";
+                        var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
@@ -460,8 +457,8 @@
 
                 /*判断点赞 */
                 //console.log($(".isLike :contains(1)").text());
-                var $like=$(".isLike :contains(1)");
-                var $unlike=$(".isLike :contains(0)");
+                var $like = $(".isLike :contains(1)");
+                var $unlike = $(".isLike :contains(0)");
                 $like.parent().parent().siblings(".praise").addClass("praisebg2");
                 $unlike.parent().parent().siblings(".praise").addClass("praisebg");
 
@@ -469,31 +466,31 @@
                 /*点赞*/
                 $('.praise').bind('click', function (e) {
                     var $come = $(e.target).siblings(".key");//数据来自于
-                    $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/like/create', {
-                        "refId": $come.find('.Id').text(),
-                        "type": 9,
-                        "userId": userid
-                    }, function (data) {
-                        console.log(data);
-                        console.log("111");
-                        var ispraise = $(e.target).attr('class');
-                        if(ispraise == "praise praisebg"){
-                            $(e.target).remove("praisebg");
-                            $(e.target).addClass("praisebg2");
-                            var oldnum = $(e.target).text();
-                            $(e.target).text(parseInt(oldnum) + 1);
-                        }else if(ispraise == "praisebg2"){
-                            return;
-                        }
-                    });
+                    var ispraise = $(e.target).attr('class');
+                    if (ispraise == "praise praisebg") {
+                        $(e.target).remove("praisebg");
+                        $(e.target).addClass("praisebg2");
+                        var oldnum = $(e.target).text();
+                        $(e.target).text(parseInt(oldnum) + 1);
+                        $api.post(urlport + 'like/create', {
+                            "refId": $come.find('.Id').text(),
+                            "type": 9,
+                            "userId": userid
+                        }, function (data) {
+                            console.log(data);
+                            console.log("111");
+                        });
+                    } else if (ispraise == "praisebg2") {
+                        return;
+                    }
                     $(this).unbind("click");
                 });
             }
             function refresh(homeurl) {
                 console.log(homeurl);
-                        alert(homeurl);
-                        window.location.href = homeurl;
-                        window.event.returnValue=false;
+                //alert(homeurl);
+                window.location.href = homeurl;
+                window.event.returnValue = false;
             }
         }
 

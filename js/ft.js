@@ -275,7 +275,6 @@
     }
     function invoke(cmd) {
         log('invoke:', cmd);
-        //window.location.href = 'https://www.baidu.com/';
         window.location.href = 'ft://' + encodeURIComponent(cmd);
         log( 'ft://' + encodeURIComponent(cmd));
         //alert('ft://' + encodeURIComponent(cmd));

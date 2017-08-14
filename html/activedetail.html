@@ -2,172 +2,228 @@
 <html>
 
 <head>
-  <title>活动内页</title>
-  <meta charset="utf-8">
-  <meta name='viewport' content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
-  <link rel="stylesheet" type="text/css" href="../css/common.css">
-  <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
-  <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
-  <style type="text/css">
-    .header__main .title{
-      background: transparent;
-    }
-    .header__main .title time{
-      position: static;
-    }
-  </style>
+    <title>活动内页</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
+    <link rel="stylesheet" type="text/css" href="../css/lifedetail.css">
+    <style type="text/css">
+        .header__main .title {
+            background: transparent;
+        }
+
+        .header__main .title time {
+            position: static;
+        }
+    </style>
 </head>
 
 <body>
-  <div>
+<div>
     <header class="header">
-      <div class="header__main">
-        <div class="img"></div>
-        <div class="">
+        <div class="header__main">
+            <div class="img"></div>
+            <div class="">
+            </div>
+            <div class="title">
+                <h3 class="txt">
+
+                </h3>
+                <time></time>
+            </div>
         </div>
-        <div class="title">
-          <h3 class="txt">
-        	
-          </h3>
-          <time></time>
+        <div class="header__opt">
+            <span class="view-count"><strong></strong></span>
+            <span class="comment-count" id="star"><strong></strong></span>
         </div>
-      </div>
-      <div class="header__opt">
-        <span class="view-count"><strong></strong></span>
-        <span class="comment-count" id="star"><strong></strong></span>
-      </div>
     </header>
     <article class="content">
     </article>
     <div class="active-rule">
-      <h3 class="section-title">活动规则</h3>
-      <ul>
-        <li>1.搜索微信号“fotilestyle123”，添加赏食令小助手，直接拉你入群。</li>
-        <li>2.根据小助手的发布的主题制作你的食谱</li>
-        <li>3.以一下两种方式上传菜谱</li>
-        <li>4.根方太生活家发布的每期主题相关</li>
-        <li>5.步骤清晰完整，不少于5步（图片与步骤可以参考方太生活家APP菜谱）</li>
-        <li>6.仅限原创，如有盗图等行为则取消活动资格</li>
-      </ul>
+        <h3 class="section-title">活动规则</h3>
+        <ul>
+
+        </ul>
     </div>
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
 
-  </div>
-  <script type="text/javascript" src='../js/lib.js'></script>
-  <script type="text/javascript" src='../js/api.js'></script>
-  <script type="text/javascript" src='../js/loadcomment.js'></script>
-  <script type="text/javascript" src='../js/ft.js'></script>
-  <script type="text/javascript">
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
+<script type="text/javascript" src='../js/judge.js'></script>
+
+<script src="../js/url.js"></script>
+<script type="text/javascript">
     $(function () {
-      function GetQueryString(name)
-      {
-        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if(r!=null)return  unescape(r[2]); return null;
-      }
-      var id = GetQueryString("id");
-      if (id == null) { id = 1; }
-      var userid;
-      $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/activity/detail', {
-        id: id
-      }, function(res) {
-        data = res.data;
-        console.log(res);
-        var $header = $('.header');
-        var $content = $('.content');
-        $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
-        $header.find('.header__main h3').text(data.title);
-        $header.find('.view-count strong').text(data.viewCount);
-        $header.find('.favorite-count strong').text(data.likeCount);
-        $header.find('.comment-count strong').text(data.commentCount);
-
-        /*title取值*/
-        var txt=data.title;
-        if(txt==undefined){
-          $('head title').text("活动详情");
-        }else {
-          $('head title').text(data.title);
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null)return unescape(r[2]);
+            return null;
         }
-        /* 时间戳格式转换 */
-        var starttime=data.startDate;
-        var endtime=data.endDate;
-        function add0(m){return m<10?'0'+m:m }
-        function format(starttime)
-        {
-          var time = new Date(starttime);
-          var year = time.getFullYear();
-          var month = time.getMonth()+1;
-          var date = time.getDate();
-          return year+'年'+add0(month)+'月'+add0(date)+'号';
-        }
-        function format(endtime)
-        {
-          var time = new Date(endtime);
-          var year = time.getFullYear();
-          var month = time.getMonth()+1;
-          var date = time.getDate();
-          return year+'年'+add0(month)+'月'+add0(date)+'号';
-        }
-        $header.find('time').text(format(starttime)+'-'+format(endtime));
 
-        $content.append(data.content);
+        var id = GetQueryString("id");
+        if (id == null) {id = 1;}
+        var device = GetQueryString("device");
+        if (device == "ios" || device == "android") {
+            var userid;
+            //app交互—获取userid
+            window.onload = function () {
+                ft.isLogin2(function (result) {
+                    var errorcode = result.errorCode.toString();
+                    //alert(errorcode);
+                    console.log(errorcode);
+                    if (errorcode == "1") {
+                        userid = result.data.userId.toString();
 
-        //判断是否收藏
-        //app交互——获取登录状态
-        $('.header__opt').on('click', '#star', function(e) {
-          ft.isLogin(function (result) {
-            var errorcode = result.errorCode.toString();
-            if (errorcode == "1") {
-              //$api.toast('登陆成功', 2000);
-              userid = result.data.userId.toString();
-              //alert(userid);
-              //收藏
-              var id = $(e.target).data('id'),
-                      follow = $(e.target).attr('class');
-              if (follow == "favorite-count") {
-                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
-                  "refId": id,
-                  "type": 4,
-                  "userId": userid
-                }, function (data) {
-                  console.log(data);
-                  console.log("111");
-                  $("#star").addClass("favorite-count2");
-                  $("#star").removeClass("favorite-count");
-                  $api.toast('收藏成功！', 3000);
-                  var oldnum=$(e.target).text();
-                  $(e.target).text(parseInt(oldnum)+1);
+                        choose();
+
+                    } else if (errorCode == "0") {
+                    } else if (errorCode == "-1") {
+                    } else if (errorCode == "-2") {
+                    }
                 });
-              } else if(follow == "favorite-count2") {
-                $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
-                  "refId": id,
-                  "type": 4,
-                  "userId": userid
-                }, function (data) {
-                  console.log(data);
-                  console.log("222");
-                  $("#star").addClass("favorite-count");
-                  $("#star").removeClass("favorite-count2");
-                  $api.toast('取消收藏！', 3000);
-                  var oldnum=$(e.target).text();
-                  $(e.target).text(parseInt(oldnum)-1);
-                });
-              }
-              //location.reload();
-            } else if (errorCode == "0") {
-              $api.toast('登陆取消', 2000);
-            } else if (errorCode == "-1") {
-              $api.toast('登陆失败', 2000);
-            } else if (errorCode == "-2") {
-              $api.toast('登陆不支持', 2000);
-            }
-          })
-        });
-      });
+            };
+        } else if ((device == null)) {
+            var userid = 1;
+            choose();
+        }
+        function choose() {
+            $api.post(urlport + 'activity/detail', {
+                id: id
+            }, function (res) {
+                data = res.data;
+                console.log(res);
+                var $header = $('.header');
+                var $content = $('.content');
+                $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
+                $header.find('.header__main h3').text(data.title);
+                $header.find('.view-count strong').text(data.viewCount);
+                $header.find('.favorite-count strong').text(data.likeCount);
+                $header.find('.comment-count strong').text(data.commentCount);
+                $('.active-rule ul').html(data.rule);
 
-      $.loadComment({"pageNum":1,"pageSize":20,"type":6,"refId":parseInt(id), "userId": parseInt(userid)}, 1);
+                /*title取值*/
+                var txt = data.title;
+                if (txt == undefined) {
+                    $('head title').text("活动详情");
+                } else {
+                    $('head title').text(data.title);
+                }
+                /* 时间戳格式转换 */
+                var starttime = data.startDate;
+                var endtime = data.endDate;
+
+                function add0(m) {
+                    return m < 10 ? '0' + m : m
+                }
+
+                function format(starttime) {
+                    var time = new Date(starttime);
+                    var year = time.getFullYear();
+                    var month = time.getMonth() + 1;
+                    var date = time.getDate();
+                    return year + '年' + add0(month) + '月' + add0(date) + '号';
+                }
+
+                function format(endtime) {
+                    var time = new Date(endtime);
+                    var year = time.getFullYear();
+                    var month = time.getMonth() + 1;
+                    var date = time.getDate();
+                    return year + '年' + add0(month) + '月' + add0(date) + '号';
+                }
+
+                $header.find('time').text(format(starttime) + '-' + format(endtime));
+
+                $content.append(data.content);
+
+                /*微信分享链接专用*/
+                var sharetitle = data.title;
+                var sharedesc;
+                var contents = $content.text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+                var count = contents.length;
+                if (count > 40) {
+                    var nr = contents.substring(0, 40) + "...";
+                    sharedesc = nr;
+                } else {
+                    sharedesc = contents;
+                }
+                var shareimg = data.picture.path;
+                var sharestr = data.url;
+                var sharelink = sharestr.replace(/api/, "h5");
+                console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                    success: function (data) {
+                        console.info(data.appId);
+                        wx.config({
+                            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: data.appId, // 必填，公众号的唯一标识
+                            timestamp: data.timestamp, // 必填，生成签名的时间戳
+                            nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                            signature: data.signature,
+                            jsApiList: [
+                                "onMenuShareTimeline",
+                                "onMenuShareAppMessage",
+                                "onMenuShareQQ",
+                                "onMenuShareWeibo",
+                                "onMenuShareQZone"
+                            ]
+                        });
+                        wx.ready(function () {
+                            //分享给朋友圈
+                            wx.onMenuShareTimeline({
+                                title: sharetitle, // 分享标题
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                            //分享给朋友
+                            wx.onMenuShareAppMessage({
+                                title: sharetitle, // 分享标题
+                                desc: sharedesc, // 分享描述
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                type: '', // 分享类型,music、video或link，不填默认为link
+                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                        });
+                    },
+                    error: function (xhr, type) {
+                        //alert(111);
+                    }
+                })
+            });
+
+            $.loadComment({
+                "pageNum": 1,
+                "pageSize": 20,
+                "type": 6,
+                "refId": parseInt(id),
+                "userId": parseInt(userid)
+            }, 1);
+        }
+
     });
-  </script>
+</script>
 </body>
 </html>

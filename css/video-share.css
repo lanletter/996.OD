@@ -19,7 +19,9 @@ html, body {
       bottom: 3rem;
       color: #fff;
       font-size: 1rem;
-      background-color: #2f2f2f;
+      background: #2f2f2f url("../img/account.png") 1.2rem center no-repeat;
+      background-size: 1.8rem 1.8rem;
+      padding-left: 1.8rem;
       border-radius: 3rem;
       left: 0.8rem;
       bottom: 5rem; }

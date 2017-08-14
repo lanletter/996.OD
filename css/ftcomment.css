@@ -33,7 +33,7 @@
   font-size:0.24rem ;
   font-weight: bold;
   color: #fff;
-  margin-left: 0.8rem;
+  margin-left: 0.4rem;
  }
 .author .add-care {
   width: 1.28rem;
@@ -204,6 +204,9 @@
   padding-bottom: 0.24rem;
   border-bottom: 1px solid #ededed;
 }
+.son-comments:first-child {
+  background: red!important;
+}
 .son-comments .center {
   width: 6.54rem;
 }
@@ -220,11 +223,12 @@
 }
 .son-comments .name {
   font-size: 0.22rem!important;
-  font-weight: normal;
+  font-weight: bold;
 }
 .son-comments .name b{
   color:rgb(130,130,130);
   margin: 0 3px;
+  font-weight: lighter;
 }
 .son-comments .name a{
   font-family: "PingFangSC-Light";
@@ -299,7 +303,7 @@
   font-weight: lighter;
 }
 .leave-words button{
-  width: 50%;
+  width: 50%!important;
   height: 0.94rem;
   line-height: 0.94rem;
   font-size: 0.28rem;
@@ -308,18 +312,19 @@
   color: rgb(247,247,247);
   display: inline-block;
 }
-.leave-words .commit{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  background: rgb(255,101,101);
-}
 .leave-words .backto{
   position: fixed;
   bottom: 0;
   left: 0;
+  width: 50%;
   background: rgb(201,203,213);
+}
+.leave-words .commit{
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: 50%;
+  background: rgb(255,101,101);
 }
 
 /*上传图片插件的样式*/

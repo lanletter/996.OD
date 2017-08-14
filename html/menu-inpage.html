@@ -21,36 +21,16 @@
     <link rel="stylesheet" type="text/css" href="../css/video-js.min.css">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <title>菜谱内页</title>
-    <style>
-        /*        video::-webkit-media-controls {
-                  display:none !important;
-                }*/
-        .smartLabel {
-            position: absolute;
-            left: 5.14rem;
-            top: 8.96rem;
-            width: 2.36rem;
-            height: 0.58rem;
-            background-color: rgb(251, 76, 76);
-            border-top-left-radius: 1.32rem;
-            border-bottom-left-radius: 1.32rem;
-            color: #fff;
-            line-height: 0.58rem;
-            font-size: 0.28rem;
-            text-align: center;
-            letter-spacing: 0.024rem;
-        }
-    </style>
-
 </head>
 <body>
 <div id="videobox" class="video">
     <video id="vd" controls preload="auto"
-           webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" >
+           webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5"
+           x5-video-player-fullscreen="true" x5-video-ignore-metadata="true">
         <source src="" type="video/mp4">
     </video>
     <button class="play"></button>
-    <div class="smartLabel" v-if="data.type == 1">智能菜谱</div>
+    <div class="smartLabel">智能菜谱</div>
 </div>
 <div class="jf-buy menupage" v-cloak>
     <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
@@ -80,7 +60,7 @@
         </p>
         <div class="text">
             <h5><span>来源</span></h5>
-            <div v-for="item in data.users">
+            <div class="users" v-for="item in data.users">
                 <ul class="from h_box">
                     <li class="flex_1">
                         <img :src="item.picturePath" alt=""> <span v-html="item.name"></span>
@@ -91,12 +71,15 @@
                 </ul>
                 <p class="desc" v-html="item.desc"></p>
             </div>
+            <p class="instructions" v-show="data.instructions !== null" v-html="data.instructions "></p>
             <ul class="h_box special">
                 <li>
-                    <i class="icon-easy"></i><span><b>容易</b><br/><em>难易程度</em></span>
+                    <i class="icon-easy"></i><span><b></b><br/><em>难易程度</em></span>
                 </li>
-                <li><i class="icon-time"></i><span><b>110分钟</b><br/><em>预计耗时</em></span></li>
-                <li><i class="icon-num"></i><span><b>2人</b><br/><em>适宜人数</em></span></li>
+                <li><i class="icon-time"></i>
+                    <span><b class="timenum"></b><b class="timetype"></b><br/><em>预计耗时</em></span>
+                </li>
+                <li><i class="icon-num"></i><span><b></b>人<br/><em>适宜人数</em></span></li>
             </ul>
         </div>
 
@@ -106,7 +89,11 @@
                     <span class="txt"><i class="icon-1"></i>材料清单</span>
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
-                <dd v-for="item in data.major_ingredients">{{item.name}} <span>{{item.unit}}</span></dd>
+                <dd v-for="item in data.major_ingredients">
+                    <span class="type">{{item.type}}</span>
+                    {{item.name}}
+                    <span>{{item.unit}}</span>
+                </dd>
                 <div class="box"></div>
                 <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
             </dl>
@@ -114,12 +101,12 @@
     </div>
 
     <div class="step">
-        <div  class="stepbox" v-for="(item,index) in data.cooking_steps" track-by="$index">
-            <h4>步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
+        <div class="stepbox" v-for="(item,index) in data.ready_steps" track-by="$index">
+            <h4>准备步骤 <em><span v-html="index + 1"></span>/<span v-html="data.ready_steps.length"></span></em></h4>
             <img v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.descriptionText == undefined" v-html="item.description"></p>
+            <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
             <p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>
-            <div class="introduc" v-if="item.reminderText == undefined" v-show="item.reminder">
+            <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
             </div>
             <div class="introduc" v-if="item.reminderText" v-show="item.reminderText">
@@ -127,7 +114,34 @@
             </div>
         </div>
     </div>
-
+    <div class="step">
+        <div class="stepbox" v-for="(item,index) in data.cooking_steps" track-by="$index">
+            <h4>制作步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
+            <img v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
+            <p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>
+            <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
+                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+            </div>
+            <div class="introduc" v-if="item.reminderText" v-show="item.reminderText">
+                <i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>
+            </div>
+        </div>
+    </div>
+    <div class="step">
+        <div class="stepbox" v-for="(item,index) in data.end_steps" track-by="$index">
+            <h4>结束步骤 <em><span v-html="index + 1"></span>/<span v-html="data.end_steps.length"></span></em></h4>
+            <img v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
+            <p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>
+            <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
+                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+            </div>
+            <div class="introduc" v-if="item.reminderText" v-show="item.reminderText">
+                <i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>
+            </div>
+        </div>
+    </div>
 
     <div class="equipment" id="devices">
         <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
@@ -143,26 +157,26 @@
 
     <!--<div class="bottomdiv"></div>-->
     <!--<div class="menutype" id="classification" style="display: block;">-->
-        <!--<h3>菜谱分类-->
-            <!--&lt;!&ndash;<a class="fr" href="">全部分类</a>&ndash;&gt;-->
-        <!--</h3>-->
-        <!--<div class="typebox">-->
-            <!--<span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>-->
-        <!--</div>-->
+    <!--<h3>菜谱分类-->
+    <!--&lt;!&ndash;<a class="fr" href="">全部分类</a>&ndash;&gt;-->
+    <!--</h3>-->
+    <!--<div class="typebox">-->
+    <!--<span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>-->
+    <!--</div>-->
     <!--</div>-->
 
     <!--<div class="menutype" style="border:none;" id="kitchenwares">-->
-        <!--<h3>厨具列表-->
-            <!--&lt;!&ndash;<a class="fr" href="">更多</a>&ndash;&gt;-->
-        <!--</h3>-->
-        <!--<ul class="list h_box">-->
-            <!--<li class="flex_1" v-for="item in data.kitchenwares">-->
-                <!--&lt;!&ndash;<a :href="item.url">&ndash;&gt;-->
-                <!--<img :src="item.picturePath" alt="">-->
-                <!--<p v-text="item.name" style="text-align: center;"></p>-->
-                <!--&lt;!&ndash;</a>&ndash;&gt;-->
-            <!--</li>-->
-        <!--</ul>-->
+    <!--<h3>厨具列表-->
+    <!--&lt;!&ndash;<a class="fr" href="">更多</a>&ndash;&gt;-->
+    <!--</h3>-->
+    <!--<ul class="list h_box">-->
+    <!--<li class="flex_1" v-for="item in data.kitchenwares">-->
+    <!--&lt;!&ndash;<a :href="item.url">&ndash;&gt;-->
+    <!--<img :src="item.picturePath" alt="">-->
+    <!--<p v-text="item.name" style="text-align: center;"></p>-->
+    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+    <!--</li>-->
+    <!--</ul>-->
     <!--</div>-->
 
     <div class="bottomdiv"></div>
@@ -171,6 +185,7 @@
 </div>
 
 
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
@@ -179,19 +194,9 @@
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/judge.js'></script>
-<script>
-    /*获取id*/
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
-        return null;
-    }
-    var id = GetQueryString("id");
-    if (id == null) {
-        id = 1311;
-    }
+<script src="../js/url.js"></script>
 
+<script>
     /*播放器*/
     (function () {
         var video = $('#videobox video')[0],
@@ -203,6 +208,7 @@
             $('#videobox').css({"position": "fixed"});
             $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
             $(".jf-buy").animate({top: vheight - 1,}, 1000);
+            $(".smartLabel").hide();
             video.play();
             video.controls = true;
         });
@@ -210,10 +216,11 @@
         video.addEventListener('ended', function () {
             playBtn.show();
             video.controls = false;
-            $('#vd').css({"position": "absolute","left":"-10rem"});
+            $('#vd').css({"position": "absolute", "left": "-10rem"});
             $('#videobox').css({"position": "absolute"});
-            $("#videobox").animate({"height":"10rem"}, 1000);
-            $(".jf-buy").animate({"top":"10rem"}, 1000);
+            $("#videobox").animate({"height": "10rem"}, 1000);
+            $(".jf-buy").animate({"top": "10rem"}, 1000);
+            $(".smartLabel").show();
         }, false);
         video.addEventListener('pause', function () {
             playBtn.hide();
@@ -222,34 +229,38 @@
     })();
 </script>
 <script>
-
-    if (judge.isBrowser() == true && judge.browser() == "WeiXin") {
-        alert("我是微信浏览器");
-        var userid = 230374;
-        choose();
-    } else {
-        alert("我是app");
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    var id = GetQueryString("id");
+    if (id == null) {
+        id = 1982;
+    }
+    var device = GetQueryString("device");
+    if (device == "ios" || device == "android") {
         var userid;
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
                 var errorcode = result.errorCode.toString();
-                alert(errorcode);
+                //alert(errorcode);
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-
                     choose();
-
                 } else if (errorCode == "0") {
-                    userid = 1;
                 } else if (errorCode == "-1") {
-                    userid = 1;
                 } else if (errorCode == "-2") {
-                    userid = 1;
                 }
             });
         };
+    } else if ((device == null)) {
+        var userid = 1;
+        choose();
     }
 
     function choose() {
@@ -263,21 +274,31 @@
             },
             created: function () {
                 var $this = this;
-                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/menu/detail', {"id": id,"userId": userid}).then(function (data) {
+                this.$http.post(urlport + 'menu/detail', {"id": id, "userId": userid}).then(function (data) {
                     var data = data.data;
                     console.log(data);
-
                     if (data.status == 200) {
                         //console.info(data);
                         $this.data = data.data;
                         id = $this.data.id;
-                        //$('#star').attr('class', id);
                     }
-                    if(data.video==null){
+                    $(".icon-easy").next("span").find("b").text(data.data.properties.difficulty);
+                    $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
+                    $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
+                    $(".icon-num").next("span").find("b").text(data.data.fit_number);
+                    /*判断是否有播放器*/
+                    if (data.data.video == null || data.data.video == "") {
                         $(".play").css("display", "none");
-                    }else {
+                    } else {
                         $('#videobox').find('#vd').attr('src', data.data.video);
                     }
+                    /*判断是否有智能标签*/
+                    if (data.data.type == 2) {
+                        $(".smartLabel").css("display", "block");
+                    } else {
+                        $(".smartLabel").css("display", "none");
+                    }
+                    /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     //判断是否收藏
                     if (data.data.isFavorite == 1) {
@@ -287,10 +308,14 @@
                         $("#star").addClass("icon-msg");
                         $("#star").remove("icon-msg2");
                     }
-                    var deviceslength=data.data.devices.length;
+                    /*判断是否有来源*/
+                    if (data.data.users.length == 0) {
+                        $(".text h5").css("display", "none");
+                    }
+                    var deviceslength = data.data.devices.length;
 //                var classificationlength=data.data.classification.length;
 //                var kitchenwareslength=data.data.kitchenwares.length;
-                    if(deviceslength==0){
+                    if (deviceslength == 0) {
                         $("#devices").css("display", "none");
                     }
 //                if(classificationlength==0){
@@ -299,6 +324,76 @@
 //                if(kitchenwareslength==0){
 //                    $("#kitchenwares").css("display", "none");
 //                }
+
+                    $(".instructions").html(data.data.instructions);
+                    /*微信分享链接专用*/
+                    var sharetitle = data.data.name;
+                    var sharedesc;
+                    var contents=$(".instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g,"").replace(/\s/g,"");
+                    var count = contents.length;
+                    if (count > 40) {
+                        var nr = contents.substring(0, 40)+"...";
+                        sharedesc = nr;
+                    }else {
+                        sharedesc = contents;
+                    }
+                    var shareimg = data.data.images[0];
+                    var sharestr = data.data.url;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                    $.ajax({
+                        type: 'GET',
+                        url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
                 }, function () {
                     console.info('error');
                 });
@@ -338,7 +433,7 @@
                     //alert("id:"+id+"type:"+1+"userid:"+userid);
                     var follow = $("#star").attr('class');
                     if (follow == "icon-msg") {
-                        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+                        $api.post(urlport + 'favorite/create', {
                             "refId": id,
                             "type": 1,
                             "userId": userid
@@ -347,12 +442,12 @@
                             console.log("111");
                             $("#star").addClass("icon-msg2");
                             $("#star").removeClass("icon-msg");
-                            var oldnum=$("#star").next().text();
-                            $("#star").next().text(parseInt(oldnum)+1);
+                            var oldnum = $("#star").next().text();
+                            $("#star").next().text(parseInt(oldnum) + 1);
                             $api.toast('收藏成功！', 3000);
                         });
                     } else if (follow == "icon-msg2") {
-                        $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+                        $api.post(urlport + 'favorite/cancel', {
                             "refId": id,
                             "type": 1,
                             "userId": userid
@@ -361,8 +456,8 @@
                             console.log("222");
                             $("#star").addClass("icon-msg");
                             $("#star").removeClass("icon-msg2");
-                            var oldnum=$("#star").next().text();
-                            $("#star").next().text(parseInt(oldnum)-1);
+                            var oldnum = $("#star").next().text();
+                            $("#star").next().text(parseInt(oldnum) - 1);
                             $api.toast('取消收藏！', 3000);
                         });
                     }
@@ -376,7 +471,7 @@
 //                        //收藏
 //                        var follow = $("#star").attr('class');
 //                        if (follow == "icon-msg") {
-//                            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/create', {
+//                            $api.post(urlport+'favorite/create', {
 //                                "refId": id,
 //                                "type": 1,
 //                                "userId": userid
@@ -390,7 +485,7 @@
 //                                $api.toast('收藏成功！', 3000);
 //                            });
 //                        } else if (follow == "icon-msg2") {
-//                            $api.post('http://121.40.135.115:8080/fotile-api-0.0.2/favorite/cancel', {
+//                            $api.post(urlport+'favorite/cancel', {
 //                                "refId": id,
 //                                "type": 1,
 //                                "userId": userid
@@ -419,7 +514,7 @@
         });
 
 
-        $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1 , "userId": parseInt(userid)}, 1);
+        $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
 
     }
 
