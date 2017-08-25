@@ -24,10 +24,10 @@
 </head>
 <body>
 <div id="videobox" class="video">
-    <video id="vd" controls preload="auto"
+    <video id="vd"  controls="controls" preload="auto"
            webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5"
-           x5-video-player-fullscreen="true" x5-video-ignore-metadata="true">
-        <source src="" type="video/mp4">
+           x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" src="">
+        <source type="video/mp4">
     </video>
     <button class="play"></button>
     <div class="smartLabel">智能菜谱</div>
@@ -90,11 +90,11 @@
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
                 <dd v-for="item in data.major_ingredients">
-                    <span class="type">{{item.type}}</span>
+                    <!--<span class="type">{{item.type}}</span>-->
                     {{item.name}}
                     <span>{{item.unit}}</span>
                 </dd>
-                <div class="box"></div>
+                <!--<div class="box"></div>-->
                 <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
             </dl>
         </div>
@@ -105,13 +105,13 @@
             <h4>准备步骤 <em><span v-html="index + 1"></span>/<span v-html="data.ready_steps.length"></span></em></h4>
             <img v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
-            <p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>
+            <!--<p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>-->
             <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
             </div>
-            <div class="introduc" v-if="item.reminderText" v-show="item.reminderText">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>
-            </div>
+            <!--<div class="introduc" v-if="item.reminderText" v-show="item.reminderText">-->
+            <!--<i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>-->
+            <!--</div>-->
         </div>
     </div>
     <div class="step">
@@ -119,12 +119,8 @@
             <h4>制作步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
             <img v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
-            <p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>
             <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
-            </div>
-            <div class="introduc" v-if="item.reminderText" v-show="item.reminderText">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>
             </div>
         </div>
     </div>
@@ -133,12 +129,8 @@
             <h4>结束步骤 <em><span v-html="index + 1"></span>/<span v-html="data.end_steps.length"></span></em></h4>
             <img v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
-            <p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>
             <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
-            </div>
-            <div class="introduc" v-if="item.reminderText" v-show="item.reminderText">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>
             </div>
         </div>
     </div>
@@ -155,15 +147,15 @@
         </ul>
     </div>
 
-    <!--<div class="bottomdiv"></div>-->
-    <!--<div class="menutype" id="classification" style="display: block;">-->
-    <!--<h3>菜谱分类-->
-    <!--&lt;!&ndash;<a class="fr" href="">全部分类</a>&ndash;&gt;-->
-    <!--</h3>-->
-    <!--<div class="typebox">-->
-    <!--<span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>-->
-    <!--</div>-->
-    <!--</div>-->
+    <div class="bottomdiv"></div>
+    <div class="menutype" id="classification" style="display: block;">
+        <h3>菜谱分类
+            <!--<a class="fr" href="">全部分类</a>-->
+        </h3>
+        <div class="typebox">
+            <span v-for="item in data.classification"><span v-html="item.sub.name"></span></span>
+        </div>
+    </div>
 
     <!--<div class="menutype" style="border:none;" id="kitchenwares">-->
     <!--<h3>厨具列表-->
@@ -185,7 +177,7 @@
 </div>
 
 
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
@@ -301,12 +293,17 @@
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     //判断是否收藏
-                    if (data.data.isFavorite == 1) {
-                        $("#star").addClass("icon-msg2");
-                        $("#star").remove("icon-msg");
-                    } else {
+                    if(userid==1 || userid=="1"){
                         $("#star").addClass("icon-msg");
                         $("#star").remove("icon-msg2");
+                    }else {
+                        if (data.data.isFavorite == 1) {
+                            $("#star").addClass("icon-msg2");
+                            $("#star").remove("icon-msg");
+                        } else {
+                            $("#star").addClass("icon-msg");
+                            $("#star").remove("icon-msg2");
+                        }
                     }
                     /*判断是否有来源*/
                     if (data.data.users.length == 0) {
@@ -329,12 +326,12 @@
                     /*微信分享链接专用*/
                     var sharetitle = data.data.name;
                     var sharedesc;
-                    var contents=$(".instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g,"").replace(/\s/g,"");
+                    var contents = $(".instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
                     var count = contents.length;
                     if (count > 40) {
-                        var nr = contents.substring(0, 40)+"...";
+                        var nr = contents.substring(0, 40) + "...";
                         sharedesc = nr;
-                    }else {
+                    } else {
                         sharedesc = contents;
                     }
                     var shareimg = data.data.images[0];
@@ -343,11 +340,11 @@
                     console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                     $.ajax({
                         type: 'GET',
-                        url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                         success: function (data) {
                             console.info(data.appId);
                             wx.config({
-                                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                                 appId: data.appId, // 必填，公众号的唯一标识
                                 timestamp: data.timestamp, // 必填，生成签名的时间戳
                                 nonceStr: data.nonceStr, // 必填，生成签名的随机串
@@ -376,7 +373,7 @@
                                 //分享给朋友
                                 wx.onMenuShareAppMessage({
                                     title: sharetitle, // 分享标题
-                                    desc: sharedesc, // 分享描述
+                                    desc: contents, // 分享描述
                                     link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                                     imgUrl: shareimg, // 分享图标
                                     type: '', // 分享类型,music、video或link，不填默认为link
@@ -431,82 +428,82 @@
                 },
                 star: function (obj) {
                     //alert("id:"+id+"type:"+1+"userid:"+userid);
-                    var follow = $("#star").attr('class');
-                    if (follow == "icon-msg") {
-                        $api.post(urlport + 'favorite/create', {
-                            "refId": id,
-                            "type": 1,
-                            "userId": userid
-                        }, function (data) {
-                            console.log(data);
-                            console.log("111");
-                            $("#star").addClass("icon-msg2");
-                            $("#star").removeClass("icon-msg");
-                            var oldnum = $("#star").next().text();
-                            $("#star").next().text(parseInt(oldnum) + 1);
-                            $api.toast('收藏成功！', 3000);
-                        });
-                    } else if (follow == "icon-msg2") {
-                        $api.post(urlport + 'favorite/cancel', {
-                            "refId": id,
-                            "type": 1,
-                            "userId": userid
-                        }, function (data) {
-                            console.log(data);
-                            console.log("222");
-                            $("#star").addClass("icon-msg");
-                            $("#star").removeClass("icon-msg2");
-                            var oldnum = $("#star").next().text();
-                            $("#star").next().text(parseInt(oldnum) - 1);
-                            $api.toast('取消收藏！', 3000);
-                        });
-                    }
-                    //app交互——获取登录状态
-//                ft.isLogin(function (result) {
-//                    var errorcode = result.errorCode.toString();
-//                    if (errorcode == "1") {
-//                        //$api.toast('登陆成功', 2000);
-//                        userid = result.data.userId.toString();
-//                        //alert(userid);
-//                        //收藏
-//                        var follow = $("#star").attr('class');
-//                        if (follow == "icon-msg") {
-//                            $api.post(urlport+'favorite/create', {
-//                                "refId": id,
-//                                "type": 1,
-//                                "userId": userid
-//                            }, function (data) {
-//                                console.log(data);
-//                                console.log("111");
-//                                $("#star").addClass("icon-msg2");
-//                                $("#star").removeClass("icon-msg");
-//                                var oldnum = $("#star").next().text();
-//                                $("#star").next().text(parseInt(oldnum) + 1);
-//                                $api.toast('收藏成功！', 3000);
-//                            });
-//                        } else if (follow == "icon-msg2") {
-//                            $api.post(urlport+'favorite/cancel', {
-//                                "refId": id,
-//                                "type": 1,
-//                                "userId": userid
-//                            }, function (data) {
-//                                console.log(data);
-//                                console.log("222");
-//                                $("#star").addClass("icon-msg");
-//                                $("#star").removeClass("icon-msg2");
-//                                var oldnum = $("#star").next().text();
-//                                $("#star").next().text(parseInt(oldnum) - 1);
-//                                $api.toast('取消收藏！', 3000);
-//                            });
-//                        }
-//                    } else if (errorCode == "0") {
-//                        $api.toast('登陆取消', 2000);
-//                    } else if (errorCode == "-1") {
-//                        $api.toast('登陆失败', 2000);
-//                    } else if (errorCode == "-2") {
-//                        $api.toast('登陆不支持', 2000);
+//                    var follow = $("#star").attr('class');
+//                    if (follow == "icon-msg") {
+//                        $api.post(urlport + 'favorite/create', {
+//                            "refId": id,
+//                            "type": 1,
+//                            "userId": userid
+//                        }, function (data) {
+//                            console.log(data);
+//                            console.log("111");
+//                            $("#star").addClass("icon-msg2");
+//                            $("#star").removeClass("icon-msg");
+//                            var oldnum = $("#star").next().text();
+//                            $("#star").next().text(parseInt(oldnum) + 1);
+//                            $api.toast('收藏成功！', 3000);
+//                        });
+//                    } else if (follow == "icon-msg2") {
+//                        $api.post(urlport + 'favorite/cancel', {
+//                            "refId": id,
+//                            "type": 1,
+//                            "userId": userid
+//                        }, function (data) {
+//                            console.log(data);
+//                            console.log("222");
+//                            $("#star").addClass("icon-msg");
+//                            $("#star").removeClass("icon-msg2");
+//                            var oldnum = $("#star").next().text();
+//                            $("#star").next().text(parseInt(oldnum) - 1);
+//                            $api.toast('取消收藏！', 3000);
+//                        });
 //                    }
-//                });
+                    //app交互——获取登录状态
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            //$api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+                            //alert(userid);
+                            //收藏
+                            var follow = $("#star").attr('class');
+                            if (follow == "icon-msg") {
+                                $api.post(urlport + 'favorite/create', {
+                                    "refId": id,
+                                    "type": 1,
+                                    "userId": userid
+                                }, function (data) {
+                                    console.log(data);
+                                    console.log("111");
+                                    $("#star").addClass("icon-msg2");
+                                    $("#star").removeClass("icon-msg");
+                                    var oldnum = $("#star").next().text();
+                                    $("#star").next().text(parseInt(oldnum) + 1);
+                                    $api.toast('收藏成功！', 3000);
+                                });
+                            } else if (follow == "icon-msg2") {
+                                $api.post(urlport + 'favorite/cancel', {
+                                    "refId": id,
+                                    "type": 1,
+                                    "userId": userid
+                                }, function (data) {
+                                    console.log(data);
+                                    console.log("222");
+                                    $("#star").addClass("icon-msg");
+                                    $("#star").removeClass("icon-msg2");
+                                    var oldnum = $("#star").next().text();
+                                    $("#star").next().text(parseInt(oldnum) - 1);
+                                    $api.toast('取消收藏！', 3000);
+                                });
+                            }
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
+                    });
 
                 }
 
@@ -514,7 +511,7 @@
         });
 
 
-        $.loadComment({"pageNum": 1, "pageSize": 20, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
+        $.loadComment({"pageNum": 1, "pageSize": 30, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
 
     }
 

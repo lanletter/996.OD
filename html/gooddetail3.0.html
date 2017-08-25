@@ -31,7 +31,7 @@
 <div id="main">
 
     <div class="slideBox">
-        <div class="swiper-container">
+        <div class="swiper-container" >
             <div class="swiper-wrapper" id="wrapper">
 
             </div>
@@ -160,6 +160,10 @@
             $info.find('.favorite-count').text(data.likeCount);
             $main.find('.logistics').html(data.logisticsDesc);
             $main.find('.sales').html(data.salesSupport);
+            $(".fixd").css({
+                "top": window.innerHeight - $(".fixd").outerHeight()
+            });
+            
             data.merchandiseParams.forEach(function (item, index) {
                 if (index < data.merchandiseParams.length - 1) {
                     var el = $('<tr>\

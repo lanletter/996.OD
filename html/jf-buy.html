@@ -218,6 +218,9 @@
                         var item = $this.dataAll.merchandiseClasses[0];
                         $this.selectType(item.id, item.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
 
+                        $(".btnbox ul").css({
+                            "top": window.innerHeight - $(".btnbox ul").outerHeight(true)
+                        });
                         /*微信分享链接专用*/
                         var sharetitle = data.data.title;
                         var sharedesc;

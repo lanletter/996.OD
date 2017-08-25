@@ -1,7 +1,7 @@
 body{ background:#f7f7f7;}
 .slideBox{ position:relative;}
 .swiper-container{margin: 0;padding: 0;}
-.bgimg{width: 100%;position: absolute;bottom:4px;z-index:1; }
+.bgimg{width: 100%;position: absolute;bottom:0;z-index:1; }
 .swiper-wrapper{z-index: 0;margin: 0;padding: 0;}
 .swiper-pagination-bullet{ background:rgba(255,255,255,0.5); opacity:1;}
 .swiper-pagination{position: absolute;left: 0;bottom: 15px; z-index: 99;width: 100%;text-align: center;}

@@ -82,7 +82,7 @@
               var id = GetQueryString("id");
               var id=67;
                 var $this = this;
-                this.$http.post('http://121.40.135.115:8080//fotile-api-0.0.2/special/detail',{"id":id}).then(function(data){
+                this.$http.post(urlport+'special/detail',{"id":id}).then(function(data){
                     var data = data.data;
                     if(data.status == 200){
                         console.log(data);

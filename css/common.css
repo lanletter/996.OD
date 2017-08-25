@@ -23,7 +23,6 @@ button {
   margin: 0;
   padding: 0
 }
-
 body {
   font: 0.3rem/1.5 'PingFangSC-Regular', 'sans-serif', 'Microsoft YaHei', 'Microsoft YaHei', "微软雅黑", "Arial Narrow", HELVETICA;
   background: #ededed;
@@ -207,6 +206,7 @@ button {
 }
 
 .toast-box {
+  z-index: 999999;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -231,17 +231,29 @@ button {
 }
 
 /* 富文本统一样式 */
-.richtext{
-  padding:0.4rem;
-  line-height: 0.6rem;
-  letter-spacing: 2px;
+.richtext {
   text-align: justify;
-  color: rgb(76,80,81);
+  width:6.54rem;
+  background: #fff;
+  padding: 0.48rem;
   font-size: 16px;
   font-weight: lighter;
+  letter-spacing: 0.03rem;
+  color: rgb(76,80,81);
   font-family: "PingFangSC-Light"!important;
 }
 .richtext img {
+  width: 7.18rem;
+  margin: 0.08rem -0.32rem;
+}
+.richtext iframe {
   width: 7.18rem!important;
-  margin: 0.08rem -0.24rem!important;
+  height: 4rem!important;
+  margin: 0.48rem -0.32rem;
+}
+
+/*点击事件*/
+html{
+  -ms-touch-action:manipulation;
+  touch-action:manipulation;
 }

@@ -89,7 +89,7 @@ Date.prototype.app=function() {
 	document.body.style.opacity = 0;
 
 	function refreshRem () {
-		var width = docEle.getBoundingClientRect().width
+		var width = docEle.getBoundingClientRect().width;
 		if (width > 750) width = 750;
 		var rem = width / 7.5;
 		docEle.style.fontSize = rem + 'px';

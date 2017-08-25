@@ -246,17 +246,10 @@ html, body {
 .menupage .text .users{
   margin-bottom: 0.48rem;
 }
-.menupage .text .instructions{
-  text-align: justify;
-  padding: 0.32rem 0.48rem 0;
-  font-size: 0.28rem;
-  font-weight: lighter;
-  letter-spacing: 0.03rem;
-  color: rgb(76,80,81);
-  font-family: "PingFangSC-Light"!important;
-  margin-bottom: 0.48rem;
-  width:6.54rem;
-  background: #fff;
+.menupage .text .instructions iframe {
+  width: 7.18rem!important;
+  height: 4rem!important;
+  margin: 0.48rem -0.32rem;
 }
 .menupage .text h5 {
   font-weight: lighter;
@@ -276,6 +269,9 @@ html, body {
   height: 0.8rem;
   border-radius: 100%;
   margin-right: 0.2rem; }
+.menupage .text ul.from span {
+  font-size: 12px;
+}
 .menupage .text ul.from .attention {
   display: inline-block;
   background: #ff6565;
@@ -288,13 +284,30 @@ html, body {
 .menupage .text ul.from .gray {
   background: whitesmoke; }
 .menupage .text p {
-  padding: 0.32rem 0.48rem 0rem;
-  font-size: 0.28rem;
+  color: rgb(76,80,81);
+  font-size: 16px;
+  text-align: justify;
+  font-family: "PingFangSC-Light"!important;
   font-weight: lighter;
   letter-spacing: 0.03rem;
+}
+.menupage .text p b{font-weight: bold;}
+.menupage .text .desc {
+  padding: 0.32rem 0.48rem 0rem;
+  font-size: 14px;
   color: rgb(76,80,81);
-  font-family: "PingFangSC-Light"!important;
-  text-align: left; }
+  font-family: "PingFangSC-Light";
+  font-weight: lighter;
+  }
+.menupage .text .instructions {
+  padding: 0.32rem 0.48rem 0.4rem;
+  width:6.54rem;
+  margin: 0 -0.16rem;
+}
+.menupage .text .instructions img {
+  width: 7.18rem;
+  margin: 0.08rem -0.32rem;
+}
 .menupage .text .special {
   display: flex;
   flex-direction: row;
@@ -324,8 +337,8 @@ html, body {
   margin-bottom: 0.34rem; }
 .menupage .qingdan dl {
   border-top: 1px solid #ff6565;
-  -webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
-  box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
+  -webkit-box-shadow: 0 15px 25px rgba(130, 130, 130, 0.2);
+  box-shadow: 0 15px 25px rgba(130, 130, 130, 0.2);
   border-bottom: 1px solid #ededed; }
 .menupage .qingdan dl .box {
   padding-bottom: 1.4rem; }
@@ -392,7 +405,7 @@ html, body {
 .menupage .step h4 em {
   font-weight: normal; }
 .menupage .step .stepbox {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.48rem;
   -webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
   box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
   border-bottom: 1px solid #ededed; }
@@ -400,11 +413,21 @@ html, body {
   width: 100%;
   height: 5.2rem;
   display: inline-block; }
-.menupage .step .stepbox p {
+.menupage .step .stepbox .txt {
+  font-size: 16px;
+  color: rgb(130,130,130);
   padding: 0.56rem 0.52rem; }
 .menupage .step .stepbox .introduc {
+  font-size: 12px;
+  font-weight: lighter;
+  color:rgb(130,130,130);
   padding: 0.2rem 0.24rem;
   border-top: 1px solid #ededed; }
+.menupage .step .stepbox .introduc span{display:block;margin-top: 0.2rem}
+.menupage .step .stepbox p{
+  font-family: "PingFangSC-Light";
+  font-weight: lighter;
+  color:rgb(130,130,130);}
 .menupage .step .stepbox .icon-tips {
   margin-right: 0.2rem; }
 
@@ -479,12 +502,13 @@ html, body {
   background-size: 0.32rem 0.32rem;}
 .menupage .menutype .typebox span {
   display: inline-block;
-  padding: 0 0.24rem;
-  background: #ededed;
+  background: rgb(201,200,213);
   border-radius: 0.4rem;
   line-height: 0.4rem;
+  width: 1.2rem;
   height: 0.4rem;
   font-size: 0.24rem;
+  text-align: center;
   color: #fff;
   margin-right: 0.16rem;
   margin-bottom: 0.16rem; }

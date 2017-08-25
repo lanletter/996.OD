@@ -75,14 +75,14 @@
     color: rgb(76,80,81);
     display: block;
     margin: 0 auto;
+    margin-top: 0.24rem;
     font-family: "PingFangSC-Semibold";
 }
-
 
 .authorbox{overflow: hidden;}
 .author {
     background-color: #fff;
-    padding:0 0.2rem;
+    padding:0 0.2rem 0.48rem 0.2rem;
 }
 
 .author__title span {
@@ -139,7 +139,7 @@
     text-align: justify;
     width:6.54rem;
     background: #fff;
-    padding: 0.48rem;
+    padding: 0rem 0.48rem 0.48rem 0.48rem;
     font-size: 16px;
     font-weight: lighter;
     letter-spacing: 0.03rem;
@@ -155,6 +155,9 @@
     height: 4rem!important;
     margin: 0.48rem -0.32rem;
 }
+.content h2 {font-weight: bold!important;font-size: 18px!important;}
+.content h3 {font-weight: bold!important;font-size: 16px!important;}
+.content h4 {font-weight: normal!important;font-size: 10px!important;}
 
 .recommend {
     background-color: #fff;
@@ -175,8 +178,17 @@
     width: 2.12rem;
     height: 1.2rem;
 }
+.recommend__info a .imgbox {
+    display: inline-block;
+    width: 2.12rem;
+    height: 1.2rem;
+    background-repeat:no-repeat;
+    background-size:2.12rem auto!important;
+    -webkit-background-size:2.12rem auto!important;
+    background-position:center;
+}
 
-.recommend__info a > div {
+.recommend__info a .txtbox {
     display: inline-block;
     width: 5.4rem;
     height: 0.6rem;
@@ -184,10 +196,9 @@
     position: absolute;
     margin-top: 0.3rem;
 }
-.recommend__info a > div h5{
+.recommend__info a .txtbox h5{
     width: 3.8rem;
-    height: 0.28rem;
-    font-size: 0.2rem;
+    font-size: 14px;
     font-weight: 100;
     margin:0 0 0 0.4rem;
     color:rgb(47,47,47) ;
@@ -195,7 +206,7 @@
     text-overflow:ellipsis; /* for internet explorer */
     overflow:hidden;
 }
-.recommend__info a > div span{
+.recommend__info a .txtbox span{
     height: 0.28rem;
     font-size: 0.2rem;
     font-weight: 100;

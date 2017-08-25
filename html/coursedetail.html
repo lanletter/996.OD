@@ -139,9 +139,9 @@
                     <div class="lightgrey">（剩余：<b>113</b>）</div>
                     <ul class="numbox">
                         <li>
-                            <input type="button" value="-"/>
+                            <input type="button"/>
                             <span class="num spantext">1</span>
-                            <input type="button" value="+"/>
+                            <input type="button"/>
                         </li>
                     </ul>
                 </li>
@@ -182,7 +182,7 @@
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
 </div>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
@@ -250,7 +250,7 @@
                             var lng = data.store.lng;
                             var lat = data.store.lat;
                             var sitename = data.store.storeName;
-                            var urlstr = "map.html?id=" + id + "&" + "lng=" + lng + "&" + "lat=" + lat + "&" + "sitename=" + sitename;
+                            var urlstr = "http://h5.fotilestyle.com/html/map.html?id=" + id + "&" + "lng=" + lng + "&" + "lat=" + lat + "&" + "sitename=" + sitename;
                             //alert(urlstr);
                             window.location.href = encodeURI(urlstr);
                             //window.location.replace(urlstr);
@@ -272,6 +272,9 @@
                         $('.overplus').text(remaining);
                         $('.total').text(data.totalCount);
                         $('.food-type span').text(data.styleType);
+                        $('.buynow-div').css({
+                            "top": window.innerHeight - $(".buynow-div").outerHeight()
+                        });
 
                         /*title取值*/
                         var txt = data.title;
@@ -376,24 +379,68 @@
                         $content.find('.course-time-date').text(datatime(starttime));
                         $content.find('.course-time-hour').text(hourtime(starttime, endtime));
 
+
+                        $api.imgAdapt($buyedit.find('.titlepic'), data.picture.path);
+                        $buyedit.find('.titletxt').text(data.curriculumName);
+                        $buyedit.find('.editlist .time').text(datatime2(starttime) + hourtime(starttime, endtime));
+                        $buyedit.find('.editlist .name').text(data.store.storeName);
+                        $buyedit.find('.editlist .place').text(data.store.detailAddress);
+                        $buyedit.find('.editlist .lightgrey b').text(remaining);
+                        $buyedit.find('.ttprice span b').text(data.price);
+                        $buyedit.find('.ttprice s b').text(data.price);
+                        var remark = $('#remarks').val();
+
+                        switch (data.status) {
+                            case 'NEW': // 起售
+
+                            case 'PRE': // 预售
+                                $('.buy b').text(parseInt(data.price).toFixed(2));
+                                $('.dis').hide();
+                                break;
+                            case 'EXD': // 已开课
+                                $('.able').hide();
+                                $('.dis').text('已开课');
+                                $('.buy-box').css('background', '#676a6c');
+                                $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
+                                break;
+                            case 'DON': //已售罄
+                                $('.able').hide();
+                                $('.dis').text('已售罄');
+                                $('.buy-box').css('background', '#676a6c');
+                                $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
+                                break;
+                            case 'DBL': // 已失效
+                                $('.able').hide();
+                                $('.dis').text('已失效');
+                                $('.buy-box').css('background', '#676a6c');
+                                $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
+                                break;
+                            default:
+                                console.log('no');
+
+                        }
                         //app交互——加购物车
                         $("#addToCart").on("click", function () {
-                            ft.addToCart({
-                                refId: data.id,
-                                type: 1,
-                                count: 1
-                            }, function (result) {
-                                var errorcode = result.errorCode.toString();
-                                if (errorcode == "1") {
-                                    $api.toast('加入购物车成功', 2000);
-                                } else if (errorcode == "0") {
-                                    $api.toast('加入购物车取消', 2000);
-                                } else if (errorcode == "-1") {
-                                    $api.toast('加入购物车失败', 2000);
-                                } else if (errorcode == "-2") {
-                                    $api.toast('加入购物车不支持', 2000);
-                                }
-                            })
+                            if(data.status=="NEW"){
+                                ft.addToCart({
+                                    refId: data.id,
+                                    type: 1,
+                                    count: 1
+                                }, function (result) {
+                                    var errorcode = result.errorCode.toString();
+                                    if (errorcode == "1") {
+                                        $api.toast('加入购物车成功', 2000);
+                                    } else if (errorcode == "0") {
+                                        $api.toast('加入购物车取消', 2000);
+                                    } else if (errorcode == "-1") {
+                                        $api.toast('加入购物车失败', 2000);
+                                    } else if (errorcode == "-2") {
+                                        $api.toast('加入购物车不支持', 2000);
+                                    }
+                                })
+                            }else {
+                                return;
+                            }
                         });
                         //app交互——获取优惠券
                         $("#selectCoupon").on("click", function () {
@@ -539,47 +586,6 @@
                             })
                         });
 
-                        $api.imgAdapt($buyedit.find('.titlepic'), data.picture.path);
-                        $buyedit.find('.titletxt').text(data.curriculumName);
-                        $buyedit.find('.editlist .time').text(datatime2(starttime) + hourtime(starttime, endtime));
-                        $buyedit.find('.editlist .name').text(data.store.storeName);
-                        $buyedit.find('.editlist .place').text(data.store.detailAddress);
-                        $buyedit.find('.editlist .lightgrey b').text(remaining);
-                        $buyedit.find('.ttprice span b').text(data.price);
-                        $buyedit.find('.ttprice s b').text(data.price);
-                        var remark = $('#remarks').val();
-
-                        switch (data.status) {
-                            case 'NEW': // 起售
-
-                            case 'PRE': // 预售
-                                $('.buy b').text(parseInt(data.price).toFixed(2));
-                                $('.dis').hide();
-                                break;
-                            case 'EXD': // 已开课
-                                $('.able').hide();
-                                $('.dis').text('已开课');
-                                $('.buy-box').css('background', '#676a6c');
-                                $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
-                                break;
-                            case 'DON': //已售罄
-                                $('.able').hide();
-                                $('.dis').text('已售罄');
-                                $('.buy-box').css('background', '#676a6c');
-                                $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
-                                break;
-                            case 'DBL': // 已失效
-                                $('.able').hide();
-                                $('.dis').text('已失效');
-                                $('.buy-box').css('background', '#676a6c');
-                                $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
-                                break;
-                            default:
-                                console.log('no');
-
-                        }
-
-
                         data.cooks.forEach(function (item, index) {
                             var cooker = $('<section class="author teacher">\
                 <div class="clearfix">\
@@ -598,7 +604,7 @@
                         data.menuList.forEach(function (item, index) {
                             var img = $('<figure>\
               <img class="overlayimg" src="../img/Overlay Copy 2.png">\
-              <img src="' + item.picture.path + '">\
+              <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
               <figcaption>' + item.remark + '</figcaption>\
             </figure>');
                             $('.site-pic').append(img);
@@ -621,11 +627,11 @@
                         console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                         $.ajax({
                             type: 'GET',
-                            url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                            url:  urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                             success: function (data) {
                                 console.info(data.appId);
                                 wx.config({
-                                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                                     appId: data.appId, // 必填，公众号的唯一标识
                                     timestamp: data.timestamp, // 必填，生成签名的时间戳
                                     nonceStr: data.nonceStr, // 必填，生成签名的随机串
@@ -654,7 +660,7 @@
                                     //分享给朋友
                                     wx.onMenuShareAppMessage({
                                         title: sharetitle, // 分享标题
-                                        desc: sharedesc, // 分享描述
+                                        desc: contents, // 分享描述
                                         link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                                         imgUrl: shareimg, // 分享图标
                                         type: '', // 分享类型,music、video或link，不填默认为link
@@ -725,7 +731,7 @@
 
             $.loadComment({
                 "pageNum": 1,
-                "pageSize": 20,
+                "pageSize": 30,
                 "type": 2,
                 "refId": parseInt(id),
                 "userId": parseInt(userid)

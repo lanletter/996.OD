@@ -6,6 +6,7 @@
 }
 
 .ft-comment li {
+  z-index: 999999;
   padding: 0.16rem 0.38rem;
   margin-bottom: 0.2rem;
   border-bottom: 1px solid #ededed;
@@ -303,28 +304,28 @@
   font-weight: lighter;
 }
 .leave-words button{
+  position: fixed;
+  bottom: 0;
   width: 50%!important;
-  height: 0.94rem;
-  line-height: 0.94rem;
+  height: 48px;
+  line-height: 48px;
+  display: inline-block;
   font-size: 0.28rem;
   letter-spacing: 4px;
   font-weight: 300;
   color: rgb(247,247,247);
-  display: inline-block;
 }
 .leave-words .backto{
-  position: fixed;
-  bottom: 0;
   left: 0;
   width: 50%;
   background: rgb(201,203,213);
+  z-index: 999999;
 }
 .leave-words .commit{
-  position: fixed;
-  bottom: 0;
   left: 50%;
   width: 50%;
   background: rgb(255,101,101);
+  z-index: 999999;
 }
 
 /*上传图片插件的样式*/

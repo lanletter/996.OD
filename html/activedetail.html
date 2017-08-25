@@ -28,9 +28,9 @@
             <div class="">
             </div>
             <div class="title">
-                <h3 class="txt">
+                <p class="txt">
 
-                </h3>
+                </p>
                 <time></time>
             </div>
         </div>
@@ -51,7 +51,7 @@
     <div class="ft-comment"></div>
 
 </div>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
@@ -103,7 +103,7 @@
                 var $header = $('.header');
                 var $content = $('.content');
                 $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
-                $header.find('.header__main h3').text(data.title);
+                $header.find('.header__main .txt').text(data.title);
                 $header.find('.view-count strong').text(data.viewCount);
                 $header.find('.favorite-count strong').text(data.likeCount);
                 $header.find('.comment-count strong').text(data.commentCount);
@@ -129,7 +129,9 @@
                     var year = time.getFullYear();
                     var month = time.getMonth() + 1;
                     var date = time.getDate();
-                    return year + '年' + add0(month) + '月' + add0(date) + '号';
+                    var hour =time.getHours();
+                    var minute =time.getMinutes();
+                    return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
                 }
 
                 function format(endtime) {
@@ -137,7 +139,9 @@
                     var year = time.getFullYear();
                     var month = time.getMonth() + 1;
                     var date = time.getDate();
-                    return year + '年' + add0(month) + '月' + add0(date) + '号';
+                    var hour =time.getHours();
+                    var minute =time.getMinutes();
+                    return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
                 }
 
                 $header.find('time').text(format(starttime) + '-' + format(endtime));
@@ -161,11 +165,11 @@
                 console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                 $.ajax({
                     type: 'GET',
-                    url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                    url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                     success: function (data) {
                         console.info(data.appId);
                         wx.config({
-                            debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                             appId: data.appId, // 必填，公众号的唯一标识
                             timestamp: data.timestamp, // 必填，生成签名的时间戳
                             nonceStr: data.nonceStr, // 必填，生成签名的随机串
@@ -194,7 +198,7 @@
                             //分享给朋友
                             wx.onMenuShareAppMessage({
                                 title: sharetitle, // 分享标题
-                                desc: sharedesc, // 分享描述
+                                desc: contents, // 分享描述
                                 link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                                 imgUrl: shareimg, // 分享图标
                                 type: '', // 分享类型,music、video或link，不填默认为link
@@ -216,7 +220,7 @@
 
             $.loadComment({
                 "pageNum": 1,
-                "pageSize": 20,
+                "pageSize": 30,
                 "type": 6,
                 "refId": parseInt(id),
                 "userId": parseInt(userid)

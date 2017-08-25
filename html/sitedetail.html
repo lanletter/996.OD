@@ -125,7 +125,7 @@
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
 <script type="text/javascript">
     //记录是否阻止滚动
@@ -159,9 +159,10 @@
                 var lng = data.lng;
                 var lat = data.lat;
                 var sitename = data.storeName;
-                var urlstr = "map.html?id=" + id + "&" + "lng=" + lng + "&" + "lat=" + lat + "&" + "sitename=" + sitename;
+                var urlstr = "http://h5.fotilestyle.com/html/map.html?id=" + id + "&" + "lng=" + lng + "&" + "lat=" + lat + "&" + "sitename=" + sitename;
                 //alert(urlstr);
                 window.location.href = encodeURI(urlstr);
+                alert(encodeURI(urlstr));
                 return false;
             });
 
@@ -204,7 +205,7 @@
                 if (item.remark != null) {
                     var img = $('<figure>\
                 <img class="overlayimg" src="../img/Overlay Copy 2.png">\
-                <img src="' + item.picture.path + '">\
+                <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
                 <figcaption>' + item.remark + '</figcaption>\
                 </figure>');
                 } else {
@@ -272,7 +273,7 @@
                     alert('请输入姓名');
                     return;
                 }
-                if (!tel || !/^1[35847][0-9]{9}$/.test(tel)) {
+                if (!tel || !/^1\d{10}$/.test(tel) ) {
                     alert('请正确输入联系方式');
                     return;
                 }
@@ -293,7 +294,7 @@
                     return;
                 }
 
-                alert(name+"|"+tel+"|"+type+"|"+time2+"|"+des+"|"+data.id);
+                //alert(name+"|"+tel+"|"+type+"|"+time2+"|"+des+"|"+data.id);
                 $api.post(urlport + 'user/appoint', {
                     name: name,
                     tel: tel,
@@ -331,11 +332,11 @@
             console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
             $.ajax({
                 type: 'GET',
-                url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                 success: function (data) {
                     console.info(data.appId);
                     wx.config({
-                        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                         appId: data.appId, // 必填，公众号的唯一标识
                         timestamp: data.timestamp, // 必填，生成签名的时间戳
                         nonceStr: data.nonceStr, // 必填，生成签名的随机串
@@ -364,7 +365,7 @@
                         //分享给朋友
                         wx.onMenuShareAppMessage({
                             title: sharetitle, // 分享标题
-                            desc: sharedesc, // 分享描述
+                            desc: contents, // 分享描述
                             link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: shareimg, // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
