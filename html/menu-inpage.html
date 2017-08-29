@@ -24,7 +24,7 @@
 </head>
 <body>
 <div id="videobox" class="video">
-    <video id="vd"  controls="controls" preload="auto"
+    <video id="vd" controls="controls" preload="auto"
            webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5"
            x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" src="">
         <source type="video/mp4">
@@ -100,11 +100,11 @@
         </div>
     </div>
 
-    <div class="step">
+    <div class="step" id="ready_steps">
         <div class="stepbox" v-for="(item,index) in data.ready_steps" track-by="$index">
             <h4>准备步骤 <em><span v-html="index + 1"></span>/<span v-html="data.ready_steps.length"></span></em></h4>
-            <img v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
+            <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
             <!--<p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>-->
             <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
@@ -114,21 +114,21 @@
             <!--</div>-->
         </div>
     </div>
-    <div class="step">
+    <div class="step" id="cooking_steps">
         <div class="stepbox" v-for="(item,index) in data.cooking_steps" track-by="$index">
             <h4>制作步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
-            <img v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
+            <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
             <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
             </div>
         </div>
     </div>
-    <div class="step">
+    <div class="step" id="end_steps">
         <div class="stepbox" v-for="(item,index) in data.end_steps" track-by="$index">
             <h4>结束步骤 <em><span v-html="index + 1"></span>/<span v-html="data.end_steps.length"></span></em></h4>
-            <img v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined" v-html="item.description"></p>
+            <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
             <div class="introduc" v-if="item.reminder !== undefined" v-show="item.reminder">
                 <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
             </div>
@@ -229,9 +229,7 @@
         return null;
     }
     var id = GetQueryString("id");
-    if (id == null) {
-        id = 1982;
-    }
+    if(id==null){id=1978};
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
@@ -293,10 +291,10 @@
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     //判断是否收藏
-                    if(userid==1 || userid=="1"){
+                    if (userid == 1 || userid == "1") {
                         $("#star").addClass("icon-msg");
                         $("#star").remove("icon-msg2");
-                    }else {
+                    } else {
                         if (data.data.isFavorite == 1) {
                             $("#star").addClass("icon-msg2");
                             $("#star").remove("icon-msg");
@@ -309,18 +307,25 @@
                     if (data.data.users.length == 0) {
                         $(".text h5").css("display", "none");
                     }
-                    var deviceslength = data.data.devices.length;
-//                var classificationlength=data.data.classification.length;
-//                var kitchenwareslength=data.data.kitchenwares.length;
-                    if (deviceslength == 0) {
+                    if (data.data.devices.length == 0) {
                         $("#devices").css("display", "none");
                     }
-//                if(classificationlength==0){
-//                    $("#classification").css("display", "none");
-//                }
-//                if(kitchenwareslength==0){
+                    if (data.data.classification.length == 0) {
+                        $("#classification").css("display", "none");
+                        $("#classification").prev(".bottomdiv").css("display", "none");
+                    }
+//                if(ata.data.kitchenwares.length==0){
 //                    $("#kitchenwares").css("display", "none");
 //                }
+                    if(data.data.ready_steps.length==0){
+                        $("#ready_steps").css("display", "none");
+                    }
+                    if(data.data.cooking_steps.length==0){
+                        $("#cooking_steps").css("display", "none");
+                    }
+                    if(data.data.end_steps.length==0){
+                        $("#end_steps").css("display", "none");
+                    }
 
                     $(".instructions").html(data.data.instructions);
                     /*微信分享链接专用*/
@@ -340,7 +345,7 @@
                     console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                     $.ajax({
                         type: 'GET',
-                        url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                         success: function (data) {
                             console.info(data.appId);
                             wx.config({
@@ -510,7 +515,9 @@
             }
         });
 
-
+        if(id.length>5){
+            $(".ft-comment").css("display", "none");
+        }
         $.loadComment({"pageNum": 1, "pageSize": 30, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
 
     }

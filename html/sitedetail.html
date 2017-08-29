@@ -273,7 +273,7 @@
                     alert('请输入姓名');
                     return;
                 }
-                if (!tel || !/^1\d{10}$/.test(tel) ) {
+                if (!tel || !/^\d{7,}$/.test(tel) ) {
                     alert('请正确输入联系方式');
                     return;
                 }

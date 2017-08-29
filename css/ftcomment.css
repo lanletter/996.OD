@@ -424,29 +424,33 @@
   left: 0px;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.4);
+  background: rgba(47,47,47, 0.7);
 }
 .mask .mask-content{
-  width: 500px;
+  width: 5.4rem;
+  height: 3.44rem;
   position: absolute;
   top: 50%;
   left: 50%;
-  margin-left: -250px;
-  margin-top: -80px;
-  background: white;
-  height: 160px;
+  margin-left: -2.7rem;
+  margin-top: -1.72rem;
+  background-color:rgba(252,252,252, 0.8);
   text-align: center;
+  border-radius: 0.24rem;
+  box-shadow:inset 1px 1px 10px rgba(255,255,255, 0.5);
 }
 .mask .mask-content .del-p{
-  color: #555;
-  height: 94px;
-  line-height: 94px;
-  font-size: 18px;
+  color: rgb(130,130,130);
+  height: 2.57rem;
+  line-height: 2.57rem;
+  font-family: "PingFangSC-Light";
+  font-size: 14px;
+  font-weight: lighter;
   border-bottom: 1px solid #D1D1D1;
 }
 .mask-content .check-p{
-  height: 66px;
-  line-height: 66px;
+  height: 0.87rem;
+  line-height: 0.87rem;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -456,8 +460,9 @@
   width: 49%;
   display:inline-block;
   text-align: center;
-  color:#d4361d ;
-  font-size: 18px;
+  color:rgb(255,101,101);
+  font-size: 17px;
+  font-family: "PingFangSC-Light";
 }
 .check-p .del-com{
   border-right: 1px solid #D1D1D1;

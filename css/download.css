@@ -166,8 +166,9 @@ html, body {
   z-index: 999999;
   padding-bottom: 1.2rem; }
   .btnbox ul {
-	height: 48px;
-	line-height: 48px;
+    overflow: hidden;
+	height: 0.96rem;
+	line-height: 0.96rem;
     background-color: #2f2f2f;
     position: fixed;
     bottom: 0;
@@ -178,6 +179,7 @@ html, body {
     float: left;
     color: #fff;
     font-size: 0.48rem;
+    height: 0.96rem;
     line-height: 0.96rem;
     width: 5.42rem;
     padding-left: 0.5rem;
@@ -190,10 +192,13 @@ html, body {
   .btnbox li:first-child em {
     font-size: 0.28rem; }
   .btnbox li.buy {
+    overflow: hidden;
     float: left;
     width: 2.08rem;
     background-color: #ff6565;
+    height: 0.96rem;
     line-height: 0.96rem;
+    border: none;
     text-align: center;
     font-size: 0.28rem; }
 

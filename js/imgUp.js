@@ -69,7 +69,6 @@
                         $span.appendTo($section);
                         var $img0 = $("<img class='close-upimg'>").on("click", function (event) {
                             event.preventDefault();
-                            event.stopPropagation();
                             $(".works-mask").show();
                             delParent = $(this).parent();
                         });
@@ -98,7 +97,6 @@
 
             $(".z_photo").delegate(".close-upimg", "click", function (event) {
                 event.preventDefault();
-                event.stopPropagation();
                 $(".works-mask").show();
                 delParent = $(this).parent();
                 console.log(delParent.html() + "delegzat=======");

@@ -1,7 +1,13 @@
 +function () {
     var isEmpty = false;
     var homeurl = window.location.href;
-
+    var disableScroll = false;
+    //如果弹出对话框时，底层的视图就不让滚动了
+    document.addEventListener('touchmove', function (e) {
+        if (disableScroll) {
+            e.preventDefault();
+        }
+    }, false);
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
         obj.pageNum = pageNum;
@@ -38,8 +44,8 @@
                     </div>\
                     <aside class="mask works-mask">\
                       <div class="mask-content">\
-                        <p class="del-p">您确定要删除作品图片吗？</p>\
-                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>\
+                        <p class="del-p">您确定要删除图片吗？</p>\
+                        <p class="check-p"><span class="del-com wsdel-no">取消</span><span class="wsdel-ok">确定</span></p>\
                       </div>\
                     </aside>\
                     <script src="../js/jquery.min.js"></script>\
@@ -68,24 +74,23 @@
                 $('.ft-comment').empty().append($(rendered0));
 
                 /*留言*/
-                   // $('.leavewords').on('click', function (e) {
-                   //     ft.isLogin(function (result) {
-                   //         var errorcode = result.errorCode.toString();
-                   //         //alert(errorcode);
-                   //         if (errorcode == "1") {
-                   //             //$api.toast('登陆成功', 2000);
-                   //             userid = result.data.userId.toString();
-                   //             $('#leave-words').show();
-                   //             test1(userid);
-                   //         } else if (errorCode == "0") {
-                   //             $api.toast('登陆取消', 2000);
-                   //         } else if (errorCode == "-1") {
-                   //             $api.toast('登陆失败', 2000);
-                   //         } else if (errorCode == "-2") {
-                   //             $api.toast('登陆不支持', 2000);
-                   //         }
-                   //     });
-                   // });
+                // $('.leavewords').on('click', function (e) {
+                //     ft.isLogin(function (result) {
+                //         var errorcode = result.errorCode.toString();
+                //         //alert(errorcode);
+                //         if (errorcode == "1") {
+                //             userid = result.data.userId.toString();
+                //             $('#leave-words').show();
+                //             test1(userid);
+                //         } else if (errorCode == "0") {
+                //             $api.toast('登陆取消', 2000);
+                //         } else if (errorCode == "-1") {
+                //             $api.toast('登陆失败', 2000);
+                //         } else if (errorCode == "-2") {
+                //             $api.toast('登陆不支持', 2000);
+                //         }
+                //     });
+                // });
                 $('.leavewords').on('click', function (e) {
                     userid = 1;
                     $('#leave-words').show();
@@ -115,51 +120,51 @@
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
-                        }else {
-                            //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
-                            var url = urlport + "comment/createGet?";
-                            var contenturl = "content=" + content;
-                            var refIdurl = "&refId=" + obj.refId;
-                            var typeurl = "&type=" + obj.type;
-                            var userIdurl = "&userId=" + userid;
-                            var parentidurl = "&parentId=" + 0;
-                            //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                            return;
+                        }
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        var url = urlport + "comment/createGet?";
+                        var contenturl = "content=" + content;
+                        var refIdurl = "&refId=" + obj.refId;
+                        var typeurl = "&type=" + obj.type;
+                        var userIdurl = "&userId=" + userid;
+                        var parentidurl = "&parentId=" + 0;
+                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
-                            $.ajax({
-                                type: "get",
-                                url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists,
-                                // data: JSON.stringify({
-                                //     "commentPictureIdList": picarr,
-                                //     "content": content,
-                                //     "refId": obj.refId,
-                                //     "type": obj.type,
-                                //     "userId": userid,
-                                //     "parentId": 0
-                                // }),
-                                // contentType: "application/json;charset=UTF-8",
-                                // dataType: 'json',
-                                async: false,
-                                success: function (data) {
-                                    console.log('成功');
-                                    callback(data);
-                                },
-                                error: function () {
-                                    console.log('错误');
-                                },
-                                complete: function () {
-                                    $('#leave-words').hide();
-                                    refresh(homeurl);
-                                }
-                            });
-                            function callback(res) {
-                                if (res.status !== 200) {
-                                    alert(res.errorMessage);
-                                    return;
-                                }
-                                var data = res.data;
-                                console.log(data);
-                                $api.toast('评论创建成功！', 3000);
+                        $.ajax({
+                            type: "get",
+                            url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists,
+                            // data: JSON.stringify({
+                            //     "commentPictureIdList": picarr,
+                            //     "content": content,
+                            //     "refId": obj.refId,
+                            //     "type": obj.type,
+                            //     "userId": userid,
+                            //     "parentId": 0
+                            // }),
+                            // contentType: "application/json;charset=UTF-8",
+                            // dataType: 'json',
+                            async: false,
+                            success: function (data) {
+                                console.log('成功');
+                                callback(data);
+                            },
+                            error: function () {
+                                console.log('错误');
+                            },
+                            complete: function () {
+                                $('#leave-words').hide();
+                                refresh(homeurl);
                             }
+                        });
+                        function callback(res) {
+                            if (res.status !== 200) {
+                                alert(res.errorMessage);
+                                return;
+                            }
+                            var data = res.data;
+                            console.log(data);
+                            $api.toast('评论创建成功！', 3000);
                         }
                     });
                 }
@@ -185,7 +190,7 @@
                     </div>\
                     <aside class="mask works-mask">\
                       <div class="mask-content">\
-                        <p class="del-p">您确定要删除作品图片吗？</p>\
+                        <p class="del-p">您确定要删除图片吗？</p>\
                         <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>\
                       </div>\
                     </aside>\
@@ -288,7 +293,6 @@
                 //         var errorcode = result.errorCode.toString();
                 //         //alert(errorcode);
                 //         if (errorcode == "1") {
-                //             //$api.toast('登陆成功', 2000);
                 //             userid = result.data.userId.toString();
                 //             $('#leave-words').show();
                 //             test2(userid);
@@ -304,7 +308,7 @@
                 $('.leavewords').on('click', function (e) {
                     userid = 1;
                     $('#leave-words').show();
-                    test1(userid);
+                    test2(userid);
                 });
                 /*取消留言*/
                 $('.backto').on('click', function () {
@@ -331,51 +335,51 @@
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
-                        }else {
-                            //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
-                            var url = urlport + "comment/createGet?";
-                            var contenturl = "content=" + content;
-                            var refIdurl = "&refId=" + obj.refId;
-                            var typeurl = "&type=" + obj.type;
-                            var userIdurl = "&userId=" + userid;
-                            var parentidurl = "&parentId=" + 0;
-                            //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                            return;
+                        }
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        var url = urlport + "comment/createGet?";
+                        var contenturl = "content=" + content;
+                        var refIdurl = "&refId=" + obj.refId;
+                        var typeurl = "&type=" + obj.type;
+                        var userIdurl = "&userId=" + userid;
+                        var parentidurl = "&parentId=" + 0;
+                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
-                            $.ajax({
-                                type: "get",
-                                url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists,
-                                // data: JSON.stringify({
-                                //     "commentPictureIdList": picarr,
-                                //     "content": content,
-                                //     "refId": obj.refId,
-                                //     "type": obj.type,
-                                //     "userId": userid,
-                                //     "parentId": 0
-                                // }),
-                                // contentType: "application/json;charset=UTF-8",
-                                // dataType: 'json',
-                                async: false,
-                                success: function (data) {
-                                    console.log('成功');
-                                    callback(data);
-                                },
-                                error: function () {
-                                    console.log('错误');
-                                },
-                                complete: function () {
-                                    $('#leave-words').hide();
-                                    refresh(homeurl);
-                                }
-                            });
-                            function callback(res) {
-                                if (res.status !== 200) {
-                                    alert(res.errorMessage);
-                                    return;
-                                }
-                                var data = res.data;
-                                console.log(data);
-                                $api.toast('评论创建成功！', 3000);
+                        $.ajax({
+                            type: "get",
+                            url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists,
+                            // data: JSON.stringify({
+                            //     "commentPictureIdList": picarr,
+                            //     "content": content,
+                            //     "refId": obj.refId,
+                            //     "type": obj.type,
+                            //     "userId": userid,
+                            //     "parentId": 0
+                            // }),
+                            // contentType: "application/json;charset=UTF-8",
+                            // dataType: 'json',
+                            async: false,
+                            success: function (data) {
+                                console.log('成功');
+                                callback(data);
+                            },
+                            error: function () {
+                                console.log('错误');
+                            },
+                            complete: function () {
+                                $('#leave-words').hide();
+                                refresh(homeurl);
                             }
+                        });
+                        function callback(res) {
+                            if (res.status !== 200) {
+                                alert(res.errorMessage);
+                                return;
+                            }
+                            var data = res.data;
+                            console.log(data);
+                            $api.toast('评论创建成功！', 3000);
                         }
 
                     });
@@ -410,51 +414,53 @@
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
-                        }else {
-                            //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
-                            var url = urlport + "comment/createGet?";
-                            var contenturl = "content=" + content;
-                            var refIdurl = "&refId=" + obj.refId;
-                            var typeurl = "&type=" + obj.type;
-                            var userIdurl = "&userId=" + userid;
-                            var parentidurl = "&parentId=" + parentid;
-                            //alert(url+contenturl+refIdurl+typeurl+userId+parentidurl);
-                            $.ajax({
-                                type: "get",
-                                url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
-                                // data: JSON.stringify({
-                                //     "content": content,
-                                //     "refId": obj.refId,
-                                //     "type": obj.type,
-                                //     "userId": userid,
-                                //     "parentId": parentid
-                                // }),
-                                // contentType: "application/json;charset=UTF-8",
-                                //dataType: 'json',
-                                async: false,
-                                success: function (data) {
-                                    console.log('创建成功！');
-                                    callback(data);
-
-                                },
-                                error: function () {
-                                    console.log('创建失败！');
-                                },
-                                complete: function () {
-                                    $('#leave-words2').hide();
-                                    refresh(homeurl);
-                                }
-                            });
-                            function callback(res) {
-                                if (res.status !== 200) {
-                                    alert(res.errorMessage);
-                                    return;
-                                }
-                                var data = res.data;
-                                console.log(data);
-                                $api.toast('评论创建成功！', 3000);
-                            }
+                            return;
                         }
+                        //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
+                        var url = urlport + "comment/createGet?";
+                        var contenturl = "content=" + content;
+                        var refIdurl = "&refId=" + obj.refId;
+                        var typeurl = "&type=" + obj.type;
+                        var userIdurl = "&userId=" + userid;
+                        var parentidurl = "&parentId=" + parentid;
+                        //alert(url+contenturl+refIdurl+typeurl+userId+parentidurl);
+                        $.ajax({
+                            type: "get",
+                            url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
+                            // data: JSON.stringify({
+                            //     "content": content,
+                            //     "refId": obj.refId,
+                            //     "type": obj.type,
+                            //     "userId": userid,
+                            //     "parentId": parentid
+                            // }),
+                            // contentType: "application/json;charset=UTF-8",
+                            //dataType: 'json',
+                            async: false,
+                            success: function (data) {
+                                console.log('创建成功！');
+                                callback(data);
+
+                            },
+                            error: function () {
+                                console.log('创建失败！');
+                            },
+                            complete: function () {
+                                $('#leave-words2').hide();
+                                refresh(homeurl);
+                            }
+                        });
+                        function callback(res) {
+                            if (res.status !== 200) {
+                                alert(res.errorMessage);
+                                return;
+                            }
+                            var data = res.data;
+                            console.log(data);
+                            $api.toast('评论创建成功！', 3000);
+                        }
+
+
                     });
                 }
 
@@ -467,16 +473,12 @@
                 });
 
                 /*判断点赞 */
-                if(userid==1 || userid=="1"){
-                    $(".praise").addClass("praisebg");
-                    $(".praise").remove("praisebg2");
-                }else {
-                    //console.log($(".isLike :contains(1)").text());
-                    var $like = $(".isLike :contains(1)");
-                    var $unlike = $(".isLike :contains(0)");
-                    $like.parent().parent().siblings(".praise").addClass("praisebg2");
-                    $unlike.parent().parent().siblings(".praise").addClass("praisebg");
-                }
+                //console.log($(".isLike :contains(1)").text());
+                var $like = $(".isLike :contains(1)");
+                var $unlike = $(".isLike :contains(0)");
+                $like.parent().parent().siblings(".praise").addClass("praisebg2");
+                $unlike.parent().parent().siblings(".praise").addClass("praisebg");
+
 
                 /*点赞*/
                 $('.praise').bind('click', function (e) {
@@ -508,6 +510,7 @@
                 window.event.returnValue = false;
             }
         }
+
         $(window).off('scroll').on('scroll', $api.throttle(function () {
             var scrollTop = $(this).scrollTop();
             var scrollHeight = $(document).height();

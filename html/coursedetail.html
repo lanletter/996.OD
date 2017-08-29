@@ -272,9 +272,11 @@
                         $('.overplus').text(remaining);
                         $('.total').text(data.totalCount);
                         $('.food-type span').text(data.styleType);
-                        $('.buynow-div').css({
-                            "top": window.innerHeight - $(".buynow-div").outerHeight()
-                        });
+                        if (device == "ios"){
+                            $('.buynow-div').css({
+                                "top": window.innerHeight - "10.92rem"
+                            });
+                        }
 
                         /*title取值*/
                         var txt = data.title;
@@ -586,6 +588,23 @@
                             })
                         });
 
+                        $('.buynow').on('click', function () {
+                            $('.numbox .num').text("1");
+                            $('#allprice').text(data.price);
+                            $('#remarks').val("");
+                            disableScroll = true;//禁止滚动
+                            $("html,body").css({overflow: "hidden"}); //禁用滚动条
+                            $('.dark-bg').show();
+                            $('.buynow-div').show();
+                        });
+                        $('#close-div').on('click', function () {
+                            disableScroll = false;//允许滚动
+                            $("html,body").css({overflow: "auto"}); //启用滚动条
+                            $('.dark-bg').hide();
+                            $('.buynow-div').hide();
+                            //location.reload()
+                        });
+
                         data.cooks.forEach(function (item, index) {
                             var cooker = $('<section class="author teacher">\
                 <div class="clearfix">\
@@ -711,23 +730,6 @@
                     "userId": 41
                 });
             });
-
-            $('.buynow').on('click', function () {
-                $('.numbox .num').text("1");
-                $('#remarks').val("");
-                disableScroll = true;//禁止滚动
-                $("html,body").css({overflow: "hidden"}); //禁用滚动条
-                $('.dark-bg').show();
-                $('.buynow-div').show();
-            });
-            $('#close-div').on('click', function () {
-                disableScroll = false;//允许滚动
-                $("html,body").css({overflow: "auto"}); //启用滚动条
-                $('.dark-bg').hide();
-                $('.buynow-div').hide();
-                //location.reload()
-            });
-
 
             $.loadComment({
                 "pageNum": 1,

@@ -437,7 +437,7 @@ rgb(130,130,130);
 .buynow-div{
 	z-index: 2;
 	width: 100%;
-	height:546px;
+	height:10.92rem;
 	background: #fff;
 	display: none;
 	position: fixed;
@@ -455,6 +455,7 @@ rgb(130,130,130);
 	border-top: 1px solid rgb(237,237,237);
 	padding-bottom: 0.25rem;
 	min-height:0.52rem ;
+	overflow: hidden;
 }
 /*.buynow-div .boedert1{
 	border-top: 1px solid rgb(237,237,237);
@@ -475,6 +476,7 @@ rgb(130,130,130);
 	color: rgb(47,47,47);
 	font-size: 0.28rem;
 	line-height: 0.5rem;
+	vertical-align: top;
 }
 .buynow-div .editlist>li p{
 	color: rgb(47,47,47);
