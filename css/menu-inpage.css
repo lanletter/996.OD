@@ -303,6 +303,9 @@ html, body {
   padding: 0.32rem 0.48rem 0.4rem;
   width:6.54rem;
   margin: 0 -0.16rem;
+  font-size: 16px;
+  font-family: "PingFangSC-Light";
+  font-weight: lighter;
 }
 .menupage .text .instructions img {
   width: 7.18rem;
@@ -411,7 +414,6 @@ html, body {
   border-bottom: 1px solid #ededed; }
 .menupage .step .stepbox img {
   width: 100%;
-  height: 5.2rem;
   display: inline-block; }
 .menupage .step .stepbox .txt {
   font-size: 16px;
@@ -448,13 +450,13 @@ html, body {
 .menupage .equipment ul {
   -webkit-box-pack: start;
   display: flex;
-  justify-content:flex-start;
+  justify-content:center;
   flex-wrap:wrap;
   overflow: hidden;
   padding: 0.16rem 0; }
 .menupage .equipment ul li {
   padding: 0 0.04rem;
-  width: 1.75rem;
+  width: 1.4rem;
   text-align:center; }
 .menupage .equipment ul li a {
   display: inline-block; }
@@ -483,6 +485,7 @@ html, body {
   height: 0.28rem;
   background: rgb(47,47,47);}
 .menupage .menutype h3 {
+  font-size: 14px;
   font-weight: 300;
   margin-bottom: 0.24rem; }
 .menupage .menutype h3 a {
@@ -507,6 +510,7 @@ html, body {
   line-height: 0.4rem;
   width: 1.2rem;
   height: 0.4rem;
+  overflow: hidden;
   font-size: 0.24rem;
   text-align: center;
   color: #fff;

@@ -5,8 +5,10 @@ html, body {
 .textalign {
   width: 2.8rem!important;
   position: absolute;
-  right: 0.24rem;
-  text-align: right; }
+  right: 0;
+  display: inline-block;
+  overflow: hidden;
+}
 
 .icon-broswer {
   display: inline-block;
@@ -19,9 +21,9 @@ html, body {
 
 .icon-msg {
   display: inline-block;
-  width: 0.36rem;
-  height: 0.36rem;
-  line-height: 0.36rem;
+  width: 0.48rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
   background: url(../img/msg@2x.png) no-repeat center center;
   background-size: cover;
   vertical-align: middle;
@@ -62,7 +64,8 @@ html, body {
 
 .mt25 {
   margin-top: 0.5rem; }
-
+.mt15 {
+  margin-top: 0.3rem; }
 .mr10 {
   margin-right: 0.2rem; }
 
@@ -88,7 +91,7 @@ html, body {
       width: 100%;
       height: 7.5rem; }
   .jf-buy .title {
-    margin-bottom: 0.64rem; }
+    margin-bottom: 0.84rem; }
     .jf-buy .title h4 {
       width: 4.92rem;
       margin: 0 auto;
@@ -97,17 +100,26 @@ html, body {
       font-family: "PingFangSC-Medium";
       font-size: 0.44rem; }
     .jf-buy .title p {
-      font-size: 0.24rem;
-      color: rgb(130,130,130);
+      margin-top: 0.24rem;
+      height: 0.48rem;
+      font-size: 12px;
+      color: rgb(201,203,213);
       text-align: center; }
-    .jf-buy .title p i{margin-right: 0.04rem;}
-  .jf-buy .icon-broswer {
-    margin-left:0.3rem; }
+    .jf-buy .title p span{display: inline-block;line-height: 0.48rem;}
+    .jf-buy .title p i{
+      display: inline-block;
+      margin-right: 0.04rem;}
+    .jf-buy .title p b{
+      float: right;
+      line-height: 0.52rem;
+      height:0.48rem;  }
+  .jf-buy .icon-msg {
+    margin-left:0.32rem; }
   .jf-buy .sku {
     z-index: 999999;
     overflow: hidden;
     margin: 0 0.24rem; }
-    .jf-buy .h_box{overflow: hidden;}
+    .jf-buy .h_box{overflow: hidden;position: relative;}
     .jf-buy .sku .tit {
       float: left;
       margin-right: 0.04rem;
@@ -132,7 +144,7 @@ html, body {
         width: 1.08rem;
         height: 0.48rem;
         background: whitesmoke;
-        margin: 0 0 0rem 0.2rem;
+        margin: 0 0 0.2rem 0.2rem;
         text-align: center;
         line-height: 0.48rem;
         font-size: 0.24rem;

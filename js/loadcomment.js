@@ -74,28 +74,32 @@
                 $('.ft-comment').empty().append($(rendered0));
 
                 /*留言*/
-                // $('.leavewords').on('click', function (e) {
-                //     ft.isLogin(function (result) {
-                //         var errorcode = result.errorCode.toString();
-                //         //alert(errorcode);
-                //         if (errorcode == "1") {
-                //             userid = result.data.userId.toString();
-                //             $('#leave-words').show();
-                //             test1(userid);
-                //         } else if (errorCode == "0") {
-                //             $api.toast('登陆取消', 2000);
-                //         } else if (errorCode == "-1") {
-                //             $api.toast('登陆失败', 2000);
-                //         } else if (errorCode == "-2") {
-                //             $api.toast('登陆不支持', 2000);
-                //         }
-                //     });
-                // });
                 $('.leavewords').on('click', function (e) {
-                    userid = 1;
-                    $('#leave-words').show();
-                    test1(userid);
+                    if (device == null) {
+                    window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                    }else if (device == "ios" || device == "android") {
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            //alert(errorcode);
+                            if (errorcode == "1") {
+                                userid = result.data.userId.toString();
+                                $('#leave-words').show();
+                                test1(userid);
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+                    }
                 });
+                // $('.leavewords').on('click', function (e) {
+                //     userid = 1;
+                //     $('#leave-words').show();
+                //     test1(userid);
+                // });
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
@@ -288,28 +292,32 @@
 
 
                 /*留言*/
-                // $('.leavewords').on('click', function (e) {
-                //     ft.isLogin(function (result) {
-                //         var errorcode = result.errorCode.toString();
-                //         //alert(errorcode);
-                //         if (errorcode == "1") {
-                //             userid = result.data.userId.toString();
-                //             $('#leave-words').show();
-                //             test2(userid);
-                //         } else if (errorCode == "0") {
-                //             $api.toast('登陆取消', 2000);
-                //         } else if (errorCode == "-1") {
-                //             $api.toast('登陆失败', 2000);
-                //         } else if (errorCode == "-2") {
-                //             $api.toast('登陆不支持', 2000);
-                //         }
-                //     });
-                // });
                 $('.leavewords').on('click', function (e) {
-                    userid = 1;
-                    $('#leave-words').show();
-                    test2(userid);
+                    if (device == null) {
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                    }else if (device == "ios" || device == "android") {
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            //alert(errorcode);
+                            if (errorcode == "1") {
+                                userid = result.data.userId.toString();
+                                $('#leave-words').show();
+                                test2(userid);
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+                    }
                 });
+                // $('.leavewords').on('click', function (e) {
+                //     userid = 1;
+                //     $('#leave-words').show();
+                //     test2(userid);
+                // });
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
@@ -386,25 +394,29 @@
                 }
 
                 $('.reply').on('click', function (e) {
-                    $(e.target).attr("id");     // e.target表示被点击的目标
-                    var $come = $(e.target).siblings(".key");//数据来自于
-                    //var $putin = $(e.target).closest("li");  //数据存放处
-                    parentid = $come.find('.Id').text();
-                    ft.isLogin(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        //alert(errorcode);
-                        if (errorcode == "1") {
-                            userid = result.data.userId.toString();
-                            $('#leave-words2').show();
-                            test(parentid, userid);
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
+                    if (device == null) {
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                    }else if (device == "ios" || device == "android") {
+                        $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        //var $putin = $(e.target).closest("li");  //数据存放处
+                        parentid = $come.find('.Id').text();
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            //alert(errorcode);
+                            if (errorcode == "1") {
+                                userid = result.data.userId.toString();
+                                $('#leave-words2').show();
+                                test(parentid, userid);
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+                    }
                 });
                 function test(parentid, userid) {
                     $('#commit2').on('click', function (e) {

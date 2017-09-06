@@ -127,6 +127,7 @@
 <script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
+<script src="../js/alertdiy.js"></script>
 <script type="text/javascript">
     //记录是否阻止滚动
     var disableScroll = false;
@@ -145,9 +146,7 @@
         }
 
         var id = GetQueryString("id");
-        if (id == null) {
-            id = 1;
-        }
+
         $api.post(urlport + 'store/detail', {
             id: id
         }, function (res) {

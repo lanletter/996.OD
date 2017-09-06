@@ -78,7 +78,7 @@
         <div class="btn" tapmode="onon">购买</div>
     </div>
 </div>
-<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/jquery-2.1.1.min.js"></script>
 <script src="../js/swiper.min.js"></script>
 <script src="../js/doT.min.js"></script>
@@ -89,6 +89,7 @@
 <script type="text/javascript" src='../js/ft.js'></script>
 <script src="../js/url.js"></script>
 <script src="../js/judge.js"></script>
+<script src="../js/alertdiy.js"></script>
 <script>
 
     function GetQueryString(name) {
@@ -99,9 +100,7 @@
     }
 
     var id = GetQueryString("id");
-    if (id == null) {
-        id = 505;
-    }
+
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
@@ -161,11 +160,11 @@
             $main.find('.logistics').html(data.logisticsDesc);
             $main.find('.sales').html(data.salesSupport);
 
-            if(device == "ios"){
-                $(".fixd").css({
-                    "top": window.innerHeight - $(".fixd").outerHeight()
-                });
-            }
+		    if(device == "ios"){
+		        $(".fixd").css({
+		            "top": window.innerHeight - $(".fixd").outerHeight()
+		        });
+		    }
             data.merchandiseParams.forEach(function (item, index) {
                 if (index < data.merchandiseParams.length - 1) {
                     var el = $('<tr>\
@@ -241,11 +240,11 @@
             console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
             $.ajax({
                 type: 'GET',
-                url: 'http://life.fotile.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                 success: function (data) {
                     console.info(data.appId);
                     wx.config({
-                        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                         appId: data.appId, // 必填，公众号的唯一标识
                         timestamp: data.timestamp, // 必填，生成签名的时间戳
                         nonceStr: data.nonceStr, // 必填，生成签名的随机串
@@ -294,7 +293,7 @@
             })
         }
 
-        $.loadComment({"pageNum": 1, "pageSize": 5, "type": 20, "refId": parseInt(id), "userId": parseInt(userid)}, 1);
+        $.loadComment({"pageNum": 1, "pageSize": 5, "type": 10, "refId": parseInt(id), "userId": parseInt(userid)}, 1);
     }
 
 </script>
