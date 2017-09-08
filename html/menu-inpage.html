@@ -188,7 +188,7 @@
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/judge.js'></script>
-<script src="../js/alertdiy.js"></script>
+<!--<script src="../js/alertdiy.js"></script>-->
 <script src="../js/url.js"></script>
 
 <script>
@@ -201,8 +201,10 @@
             var vheight = $("#videobox video").height();
             $('#vd').css({"position": "absolute", "left": "0"});
             $('#videobox').css({"position": "fixed"});
-            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
-            $(".jf-buy").animate({top: vheight - 1,}, 1000);
+//            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
+//            $(".jf-buy").animate({top: vheight - 1,}, 1000);
+            $("#videobox").css({height: vheight - 1 + "px"});
+            $(".jf-buy").css({top: vheight - 1});
             $(".smartLabel").hide();
             video.play();
             video.controls = true;
@@ -213,8 +215,10 @@
             video.controls = false;
             $('#vd').css({"position": "absolute", "left": "-10rem"});
             $('#videobox').css({"position": "absolute"});
-            $("#videobox").animate({"height": "10rem"}, 1000);
-            $(".jf-buy").animate({"top": "10rem"}, 1000);
+//            $("#videobox").animate({"height": "10rem"}, 1000);
+//            $(".jf-buy").animate({"top": "10rem"}, 1000);
+            $("#videobox").css({"height": "10rem"});
+            $(".jf-buy").css({"top": "10rem"});
             $(".smartLabel").show();
         }, false);
         video.addEventListener('pause', function () {

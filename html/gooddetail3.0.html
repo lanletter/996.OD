@@ -71,6 +71,7 @@
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
     <br/><br/>
+    <br/><br/>
     <div class="fixd">
         <div class="jf" tapmode="onon">
             <p class="buy" style="background:none;text-indent:0;">购买</p>
@@ -89,7 +90,7 @@
 <script type="text/javascript" src='../js/ft.js'></script>
 <script src="../js/url.js"></script>
 <script src="../js/judge.js"></script>
-<script src="../js/alertdiy.js"></script>
+<!--<script src="../js/alertdiy.js"></script>-->
 <script>
 
     function GetQueryString(name) {
@@ -226,6 +227,7 @@
             /*微信分享链接专用*/
             var sharetitle = data.title;
             var sharedesc;
+            var subtitle=$(".info p").text();
             var contents = $("#main .txt").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
             var count = contents.length;
             if (count > 40) {
@@ -273,7 +275,7 @@
                         //分享给朋友
                         wx.onMenuShareAppMessage({
                             title: sharetitle, // 分享标题
-                            desc: sharedesc, // 分享描述
+                            desc: subtitle, // 分享描述
                             link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: shareimg, // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
