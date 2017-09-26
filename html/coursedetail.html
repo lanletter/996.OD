@@ -9,6 +9,21 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <link rel="stylesheet" type="text/css" href="../css/sitedetail.css">
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', '80624a28abff7348']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
 </head>
 
 <body>
@@ -460,7 +475,8 @@
                         });
                     } else if ((device == null)) {
                         $('.buynow').on('click', function () {
-                            window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                            var loginurl="https://h5.fotilestyle.com/fotilestyle-test/html/login.html?id="+id;
+                            window.location.href = loginurl;
                         });
                         $("#addToCart").on("click", function () {
                             window.location.href = "http://download.fotilestyle.com/?utm-source=share";

@@ -1,13 +1,7 @@
 +function () {
     var isEmpty = false;
     var homeurl = window.location.href;
-    var disableScroll = false;
-    //如果弹出对话框时，底层的视图就不让滚动了
-    document.addEventListener('touchmove', function (e) {
-        if (disableScroll) {
-            e.preventDefault();
-        }
-    }, false);
+ 
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
         obj.pageNum = pageNum;
@@ -75,9 +69,7 @@
 
                 /*留言*/
                 $('.leavewords').on('click', function (e) {
-                    if (device == null) {
-                    window.location.href="http://download.fotilestyle.com/?utm-source=share";
-                    }else if (device == "ios" || device == "android") {
+                    if (device == "ios" || device == "android") {
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
                             //alert(errorcode);
@@ -93,6 +85,8 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
+                    } else if ((device == null)) {
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
                     }
                 });
                 // $('.leavewords').on('click', function (e) {
@@ -293,9 +287,7 @@
 
                 /*留言*/
                 $('.leavewords').on('click', function (e) {
-                    if (device == null) {
-                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
-                    }else if (device == "ios" || device == "android") {
+                    if (device == "ios" || device == "android") {
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
                             //alert(errorcode);
@@ -311,6 +303,8 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
+                    } else if ((device == null)) {
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
                     }
                 });
                 // $('.leavewords').on('click', function (e) {
@@ -394,9 +388,7 @@
                 }
 
                 $('.reply').on('click', function (e) {
-                    if (device == null) {
-                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
-                    }else if (device == "ios" || device == "android") {
+                    if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
                         //var $putin = $(e.target).closest("li");  //数据存放处
@@ -416,6 +408,8 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
+                    } else if ((device == null)) {
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
                     }
                 });
                 function test(parentid, userid) {
@@ -485,12 +479,15 @@
                 });
 
                 /*判断点赞 */
-                //console.log($(".isLike :contains(1)").text());
-                var $like = $(".isLike :contains(1)");
-                var $unlike = $(".isLike :contains(0)");
-                $like.parent().parent().siblings(".praise").addClass("praisebg2");
-                $unlike.parent().parent().siblings(".praise").addClass("praisebg");
-
+                if(userid!==1){
+                    //console.log($(".isLike :contains(1)").text());
+                    var $like = $(".isLike :contains(1)");
+                    var $unlike = $(".isLike :contains(0)");
+                    $like.parent().parent().siblings(".praise").addClass("praisebg2");
+                    $unlike.parent().parent().siblings(".praise").addClass("praisebg");
+                }else {
+                    $(".praise").addClass("praisebg");
+                }
 
                 /*点赞*/
                 $('.praise').bind('click', function (e) {

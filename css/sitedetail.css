@@ -10,6 +10,7 @@
 .header__main h3{
 	width: 5rem;
 	max-height: 1rem;
+	overflow: hidden;
 	text-align: center;
 	color: #4d5051;
 	margin: 0.54rem auto 0.16rem auto;

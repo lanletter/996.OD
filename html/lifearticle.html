@@ -16,6 +16,21 @@
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css">
     <link rel="stylesheet" type="text/css" href="../css/video-js.min.css">
     <link rel="stylesheet" type="text/css" href="../css/lifearticle.css">
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', '80624a28abff7348']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
 </head>
 
 <body>
@@ -306,7 +321,7 @@
                 }
                 data.recommendWantFeelList.forEach(function (item, index) {
                     var el = $('<li class="recommend__info">\
-            <a href="' + item.url + '">\
+            <a href="' + item.url + "&device=" + device + '">\
             <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
             <div class="txtbox">\
               <h5>' + item.title + '</h5>\

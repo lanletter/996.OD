@@ -18,6 +18,21 @@
             position: static;
         }
     </style>
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '80624a28abff7348']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
 </head>
 
 <body>
@@ -60,8 +75,6 @@
 <!--<script src="../js/alertdiy.js"></script>-->
 <script src="../js/url.js"></script>
 <script type="text/javascript">
-
-    //alert(window.location.href);
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
