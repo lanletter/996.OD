@@ -158,21 +158,17 @@
                 return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
             }
 
-            $header.find('time').text(format(starttime) + '-' + format(endtime));
+            if(data.isshow==1 || data.isshow==null){
+                $header.find('time').text(format(starttime) + '-' + format(endtime));
+            }else {
+                $header.find('time').text();
+            }
 
             $content.append(data.content);
 
             /*微信分享链接专用*/
             var sharetitle = data.title;
-            var sharedesc;
-            var contents = $content.text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-            var count = contents.length;
-            if (count > 40) {
-                var nr = contents.substring(0, 40) + "...";
-                sharedesc = nr;
-            } else {
-                sharedesc = contents;
-            }
+            var sharedesc=data.desc;
             var shareimg = data.picture.path;
             var sharestr = data.url;
             var sharelink = sharestr.replace(/api/, "h5");

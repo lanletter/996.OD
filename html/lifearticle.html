@@ -51,7 +51,7 @@
         </div>
         <div class="header__opt">
             <span class="view-count"><strong></strong></span>
-            <span class="comment-count"><strong></strong></span>
+            <!--<span class="comment-count"><strong></strong></span>-->
             <span class="" id="star"><strong></strong></span>
         </div>
     </header>
@@ -62,6 +62,7 @@
     </div>
 
     <article class="content"></article>
+    <div class="editing">编辑：作者</div>
 
     <div class="bottomdiv"></div>
 
@@ -289,6 +290,7 @@
                 $header.find('#star strong').text(data.favoriteCount);
                 $(".video").css("background-image", 'url("' + data.picture.path + '")');
                 $content.append(data.content);
+                $(".editing").html(data.author);
 
                 /*title取值*/
                 var txt = data.title;

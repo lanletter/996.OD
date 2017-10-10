@@ -64,7 +64,7 @@
 	color: rgb(47,47,47);
 	font-size: 0.36rem;
 	display: inline-block;
-	max-width: 4rem;
+	max-width: 4.7rem;
 }
 .info li p strong{
 	display: block;
@@ -379,7 +379,7 @@ rgb(130,130,130);
 }
 
 .teacher .say {
-	max-width: 2.6rem;
+	max-width: 4.7rem;
 }
 
 .teacher .red-btn:before {

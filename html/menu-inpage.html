@@ -45,7 +45,7 @@
         <source type="video/mp4">
     </video>
     <button class="play"></button>
-    <div class="smartLabel">智能菜谱</div>
+    <div class="smartLabel" style="display: none;">智能菜谱</div>
 </div>
 <div class="jf-buy menupage" v-cloak>
     <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
@@ -162,17 +162,17 @@
         </ul>
     </div>
 
-    <div class="bottomdiv"></div>
-    <div class="menutype" id="classification" style="display: block;">
-        <h3>菜谱分类
-            <!--<a class="fr" href="">全部分类</a>-->
-        </h3>
-        <div class="typebox">
-            <a v-for="item in data.classification">
-            		<span v-html="item.sub.name"></span>
-            </a>
-        </div>
-    </div>
+    <!--<div class="bottomdiv"></div>-->
+    <!--<div class="menutype" id="classification" style="display: block;">-->
+        <!--<h3>菜谱分类-->
+            <!--&lt;!&ndash;<a class="fr" href="">全部分类</a>&ndash;&gt;-->
+        <!--</h3>-->
+        <!--<div class="typebox">-->
+            <!--<a v-for="item in data.classification">-->
+            		<!--<span v-html="item.sub.name"></span>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
 
     <!--<div class="menutype" style="border:none;" id="kitchenwares">-->
     <!--<h3>厨具列表-->
@@ -206,42 +206,6 @@
 <!--<script src="../js/alertdiy.js"></script>-->
 <script src="../js/url.js"></script>
 
-<script>
-    /*播放器*/
-    (function () {
-        var video = $('#videobox video')[0],
-                playBtn = $('#videobox .play');
-        playBtn.on('click', function () {
-            $(this).hide();
-            var vheight = $("#videobox video").height();
-            $('#vd').css({"position": "absolute", "left": "0"});
-            $('#videobox').css({"position": "fixed"});
-//            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
-//            $(".jf-buy").animate({top: vheight - 1,}, 1000);
-            $("#videobox").css({height: vheight - 1 + "px",});
-            $(".jf-buy").css({top: vheight - 1,});
-            $(".smartLabel").hide();
-            video.play();
-            video.controls = true;
-        });
-
-        video.addEventListener('ended', function () {
-            playBtn.show();
-            video.controls = false;
-            $('#vd').css({"position": "absolute", "left": "-10rem"});
-            $('#videobox').css({"position": "absolute"});
-//            $("#videobox").animate({"height": "10rem"}, 1000);
-//            $(".jf-buy").animate({"top": "10rem"}, 1000);
-            $("#videobox").css({"height": "10rem"});
-            $(".jf-buy").css({"top": "10rem"});
-            $(".smartLabel").show();
-        }, false);
-        video.addEventListener('pause', function () {
-            playBtn.hide();
-            video.controls = true;
-        }, false);
-    })();
-</script>
 <script>
     /*获取url*/
     function GetQueryString(name) {
@@ -311,7 +275,44 @@
                     }
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
-                    //判断是否收藏
+
+
+                    /*播放器*/
+                    (function () {
+                        var video = $('#videobox video')[0],
+                                playBtn = $('#videobox .play');
+                        playBtn.on('click', function () {
+                            $(this).hide();
+                            var vheight = $("#videobox video").height();
+                            $('#vd').css({"position": "absolute", "left": "0"});
+                            $('#videobox').css({"position": "fixed"});
+//            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
+//            $(".jf-buy").animate({top: vheight - 1,}, 1000);
+                            $("#videobox").css({height: vheight - 1 + "px",});
+                            $(".jf-buy").css({top: vheight - 1,});
+                            $(".smartLabel").hide();
+                            video.play();
+                            video.controls = true;
+                        });
+
+                        video.addEventListener('ended', function () {
+                            playBtn.show();
+                            video.controls = false;
+                            $('#vd').css({"position": "absolute", "left": "-10rem"});
+                            $('#videobox').css({"position": "absolute"});
+//            $("#videobox").animate({"height": "10rem"}, 1000);
+//            $(".jf-buy").animate({"top": "10rem"}, 1000);
+                            $("#videobox").css({"height": "10rem"});
+                            $(".jf-buy").css({"top": "10rem"});
+                            if (data.data.type == 2) {$(".smartLabel").show();}
+                        }, false);
+                        video.addEventListener('pause', function () {
+                            playBtn.hide();
+                            video.controls = true;
+                        }, false);
+                    })();
+
+                    /*判断是否收藏*/
                     if (userid == 1 || userid == "1") {
                         $("#star").addClass("icon-msg");
                         $("#star").remove("icon-msg2");

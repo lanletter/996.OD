@@ -158,6 +158,18 @@
 .content h2 {font-weight: bold!important;font-size: 18px!important;}
 .content h3 {font-weight: bold!important;font-size: 16px!important;}
 .content h4 {font-weight: normal!important;font-size: 10px!important;}
+.editing{
+    text-align: justify;
+    width:6.54rem;
+    background: #fff;
+    padding: 0rem 0.48rem 0.48rem 0.48rem;
+    font-size: 10px;
+    line-height: 0.4rem;
+    font-weight: lighter;
+    letter-spacing: 0.03rem;
+    color: rgb(76,80,81);
+    font-family: "PingFangSC-Light"!important;
+}
 
 .recommend {
     background-color: #fff;

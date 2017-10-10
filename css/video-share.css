@@ -34,16 +34,23 @@ html, body {
       line-height: 1;
       margin-bottom: 2.4rem; }
     .vide-share .anchor .tit {
+      min-height: 3.6rem;
+      position: relative;
       display: -webkit-box;
       display: flex;
       -webkit-box-align: center;
               align-items: center; }
       .vide-share .anchor .tit img {
-        display: inline-block;
+        position: absolute;
+        left:0;
+        top: 0;
         width: 3.6rem;
         height: 3.6rem;
         border-radius: 100%;
         margin-right: 0.8rem; }
+      .vide-share .anchor .tit p {
+        margin-left: 4.4rem;
+        max-width:25rem; }
       .vide-share .anchor .tit em {
         font-size: 1rem;
         color: #828282; }
