@@ -85,7 +85,7 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                    } else if ((device == null)) {
+                    } else {
                         window.location.href="http://download.fotilestyle.com/?utm-source=share";
                     }
                 });
@@ -156,6 +156,10 @@
                             }
                         });
                         function callback(res) {
+                            // if(res.status == 501){
+                            //     alert("此用户已被禁言");
+                            //     return;
+                            // }
                             if (res.status !== 200) {
                                 alert(res.errorMessage);
                                 return;
@@ -303,7 +307,7 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                    } else if ((device == null)) {
+                    } else {
                         window.location.href="http://download.fotilestyle.com/?utm-source=share";
                     }
                 });
@@ -408,7 +412,7 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                    } else if ((device == null)) {
+                    } else  {
                         window.location.href="http://download.fotilestyle.com/?utm-source=share";
                     }
                 });
