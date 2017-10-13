@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="../css/common/reset.css" rel="stylesheet">
+    <link href="../css/jf-info.css" rel="stylesheet">    
+    <title>优惠券规则</title>
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '80624a28abff7348']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+  </head>
+  <body>
+    <div class="jf-info">
+        <h4>优惠券规则</h4>
+        <ul>
+                    <li v-html="instruction"></li>
+        </ul>
+    </div>
+
+    <script>
+        function setFontSize(){
+            document.documentElement.style.fontSize = document.documentElement.clientWidth/375*10+"px";
+        }
+        setFontSize();
+        window.onresize = function(){
+            setFontSize();
+                
+        };
+    </script>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/vue-resource1.3.4.js"></script>
+    <script src="../js/url.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '.jf-info',
+            data:{
+                instruction:'',
+            },
+            created:function(){
+                var $this = this;
+                this.$http.post(urlport+'instruction/detail',{"code":"voucher"}).then(function(data){
+                    console.info(data.data);
+                    var data = data.data;
+                    if(data.status == 200){
+                        $this.instruction = data.data.instruction;
+                    }
+
+                },function(){
+                    console.info('error');
+                });
+
+            }
+        });
+
+    </script>
+  </body>
+</html>

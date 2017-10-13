@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <!--<link href="../css/common/reset.css" rel="stylesheet">-->
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+    <title>我的体质</title>
+</head>
+<body>
+<div class="topic foods">
+    <div class="mybody">
+        <h5>{{type}}</h5>
+        <p class="info">您的倾向体质</p>
+        <ul class="one">
+            <li v-for="(item,index) in tz">
+                <div class="line" :style="{'height':''+score[index]/50+'rem'}"></div>
+                <p>{{item}}</p>
+            </li>
+
+        </ul>
+    </div>
+
+    <span class="m-line"></span>
+
+    <div class="mybody bodytwo">
+        <h5>总体特征</h5>
+        <p class="info">您身体状况的详细描述</p>
+        <div class="box" v-html="descript"></div>
+        <ul class="two">
+            <li v-for="item in descTags">
+                <span>{{item}}</span>
+            </li>
+        </ul>
+    </div>
+
+    <span class="m-line-6"></span>
+    <h3><i class="icon-2"></i> {{recFoodTitle}}</h3>
+
+
+    <p class="info">{{recFoodDesc}}</p>
+    <ul class="box-li">
+        <li class="item" v-show="item.picture.length!==0" v-for="(item, index) in meal" v-if="index<3">
+            <div class="box-li">
+                <a :href="item.url">
+                    <img src="../img/Overlay Copy 2.png" class="overlayimg">
+                    <!--<img :src="item.picture.path" alt="">-->
+                    <div class="imgbg" :style="{backgroundImage: 'url(' + item.picture.path +')'}"></div>
+                </a>
+                <div class="pictext">
+                    <h4>{{item.name}}</h4>
+                    <p>{{item.labelInfo}}</p>
+                    <div class="header__opt">
+                        <span class="view-count">{{item.pageviews}}</span>
+                        <span class="favorite-count">{{item.collect_count}}</span>
+                    </div>
+                </div>
+            </div>
+            <p class="info-li" v-html="item.remark"></p>
+        </li>
+
+    </ul>
+    <p class="more"><a id="morefood">更多推荐健康餐</a>
+    </p>
+    <span class="m-line-6"></span>
+    <h3><i class="icon-1"></i>{{recMaterialTitle}}</h3>
+
+
+    <p class="info">{{recMaterialDesc}}</p>
+    <ul class="box-li">
+        <li class="item" v-show="item.images.length!==0" v-for="(item, index) in ingredients" v-if="index<6">
+            <div class="box-li">
+                <a :href="item.url">
+                    <img src="../img/Overlay Copy 2.png" class="overlayimg">
+                    <!--<img :src="item.images" alt="">-->
+                    <div class="imgbg" :style="{backgroundImage: 'url(' + item.images +')'}"></div>
+                </a>
+                <div class="pictext">
+                    <h3>{{item.name}}</h3>
+                </div>
+            </div>
+            <p class="info-li">{{item.instructions}}</p>
+        </li>
+
+    </ul>
+    <p class="more"><a id="morehealth">更多推荐食材...</a></p>
+    <div class="bottomdiv"></div>
+</div>
+
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="../js/lib2.js"></script>
+<script src="../js/url.js"></script>
+<script>
+
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    var userid = GetQueryString("userId");
+
+    var vm = new Vue({
+        el: '.topic',
+        data: {
+            mybody: [],
+            //食材
+            ingredients: [],
+            //健康餐
+            meal: [],
+            descTags: [],
+            descript: '',
+            tz: ['平和质', '气虚质', '阳虚质', '阴虚质', '痰湿质', '湿热质', '血瘀质', '气郁质', '特禀质'],
+            score: [],
+            type: '',
+
+            recMaterialTitle: '',
+            recMaterialDesc: '',
+            recFoodTitle: '',
+            recFoodDesc: ''
+
+
+        },
+        created: function () {
+            var $this = this;
+            this.$http.post(urlport + 'health/userDetail', {"userId": userid}).then(function (data) {
+                var data = data.data;
+                if (data.status == 200) {
+                    console.log(data);
+                    this.type = data.data.type;
+                    this.mybody = data.data.health;
+                    this.ingredients = data.data.materialList;
+                    this.meal = data.data.menuList;
+                    this.descTags = this.mybody.userHealthType.descTags.split('|');
+                    this.descript = this.mybody.userHealthType.descript;
+                    this.score = [this.mybody.ascore, this.mybody.bscore, this.mybody.cscore, this.mybody.dscore, this.mybody.escore, this.mybody.fscore, this.mybody.gscore, this.mybody.hscore, this.mybody.iscore];
+                    console.info(this.score);
+                    this.recMaterialTitle = this.mybody.userHealthType.recMaterialTitle;
+                    this.recMaterialDesc = this.mybody.userHealthType.recMaterialDesc;
+                    this.recFoodTitle = this.mybody.userHealthType.recFoodTitle;
+                    this.recFoodDesc = this.mybody.userHealthType.recFoodDesc;
+
+                    $(function () {
+                        $("#morehealth").on("click", function () {
+                            var urlstr = "recomend-health.html?userid=" + userid + "&type=" + data.data.type;
+                            window.location.href = encodeURI(urlstr);
+                            return false;
+                        });
+                        $("#morefood").on("click", function () {
+                            var urlstr = "recomend-food.html?userid=" + userid + "&type=" + data.data.type;
+                            window.location.href = encodeURI(urlstr);
+                            return false;
+                        });
+                        $(".one li:contains(" + data.data.type + ")").addClass("cur");
+                    });
+
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+        }
+    });
+
+</script>
+
+</body>
+</html>

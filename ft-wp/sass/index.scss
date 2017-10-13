@@ -1,0 +1,184 @@
+@import "common/_functions.scss";
+@import "common/_variables.scss";
+html,body{
+    height: 100%;
+    position: relative;
+}
+
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .pageone{
+        background: url(../img/cloud@2x.png) no-repeat right top;
+        background-size: rem(156) rem(50);
+        color: rgb(47, 47, 47);
+        font-size: rem(14);
+        h4{
+            font-size: rem(18);
+            margin: rem(33) 0 rem(10);
+        }
+        img.pic{
+            display: inline-block;
+            width: 100%;
+        }
+        p{
+            padding: rem(20) 0;
+            text-align: center;
+            font-size: rem(14);
+            font-weight: bold;
+            line-height: rem(22);
+        }
+        div.text{
+            width: rem(280);
+            margin: 0 auto;
+            text-indent:rem(28)!important;
+        }
+
+    }
+    .pagetwo{
+        background: url(../img/cloud@2x.png) no-repeat right rem(15);
+        background-size: rem(156) rem(50);
+        color: rgb(47, 47, 47);
+        font-size: rem(14);
+        .pic{
+            margin-top: rem(94);
+        }
+        div.text{
+            padding:rem(32) rem(10) 0;
+            font-size: rem(14);
+            line-height: rem(20);
+        }
+
+    }
+    .box{
+            height: 100%;
+        }
+    .pagethree{
+
+        background: url(../img/cloud@2x.png) no-repeat right rem(-25);
+        background-size: rem(156) rem(50);
+        h3{
+            padding: rem(37) 0;
+            text-align: center;
+            font-size: rem(18);
+        }
+        p{
+            font-size: rem(15);
+            font-weight: normal;
+            text-align: left;
+            padding: 0 rem(10);
+        }
+        .txt-c{
+            text-align: center;
+        }
+        .info{
+            padding-top: rem(64);
+        }
+    }
+    .details{
+        padding: rem(37) rem(12);  
+        span.tit{
+            width: rem(70);
+            font-weight: bold;
+        }      
+        li{
+            display: -webkit-flex; /* Safari */
+            display: flex;
+            padding-bottom: rem(15);
+        }
+    }
+    .swiper-slide {
+        padding: rem(10);
+        .logo{
+            width: rem(118);
+            height: rem(49);
+            background: url(../img/logo@2x.png) no-repeat 0 0;
+            background-size:rem(118) rem(32);
+
+            padding-top: rem(37);
+            margin-top:rem(10);
+            img{
+                width: rem(72);
+                height: rem(12);
+                margin: 0 auto;
+                display:block;
+            }
+
+        }
+
+
+
+        /* Center slide text vertically */
+        // display: -webkit-box;
+        // display: -ms-flexbox;
+        // display: -webkit-flex;
+        // display: flex;
+        // -webkit-box-pack: center;
+        // -ms-flex-pack: center;
+        // -webkit-justify-content: center;
+        // justify-content: center;
+        // -webkit-box-align: center;
+        // -ms-flex-align: center;
+        // -webkit-align-items: center;
+        // align-items: center;
+    }
+
+
+.go{
+
+    position: absolute;
+    width:rem(10);
+    height:rem(10);
+    border: 1px solid #666;
+    border-width: 0 1px 1px 0;
+    left: 50%;
+    bottom:rem(100); 
+    -webkit-transform: rotate(45deg) translate(-50%, 0);
+    transform: rotate(45deg) translate(-50%, 0);
+    -webkit-animation: arrowGo 2s infinite steps(10, end);
+    animation: arrowGo 2s infinite steps(10, end);
+    z-index: 999;
+}
+@-webkit-keyframes arrowGo {
+    0%{
+        opacity: 0.5; 
+        -webkit-transform-origin: center center; 
+        -webkit-transform: rotate(45deg) translate(-50%, 0)
+    }
+    100%{
+        opacity: 1;
+        -webkit-transform-origin:center center;
+        -webkit-transform: rotate(45deg) translate(-50%, 0) scale(2);
+        bottom:rem(20);
+    }
+}
+@keyframes arrowGo {
+    0% {
+        opacity: 0.5;
+        transform-origin: center center;
+        transform: rotate(45deg) translate(-50%, 0)
+    }
+    100% {
+        opacity: 1;
+        transform-origin: center center;
+        transform: rotate(45deg) translate(-50%, 0) scale(2);
+        bottom:rem(20);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+html, body {
+  height: 100%; }
+
+.vide-share {
+  height: 100%;
+  background-color: #fff; }
+  .vide-share #video {
+    background-color: #999;
+    height: 21rem; }
+  .vide-share .videobox {
+    position: relative; }
+    .vide-share .videobox .num {
+      position: absolute;
+      display: inline-block;
+      width: 6.3rem;
+      height: 3rem;
+      line-height: 3rem;
+      text-align: center;
+      bottom: 3rem;
+      color: #fff;
+      font-size: 1rem;
+      background-color: #2f2f2f;
+      border-radius: 3rem;
+      left: 0.8rem;
+      bottom: 5rem; }
+  .vide-share .anchor {
+    font-size: 1.4rem;
+    padding: 1.2rem 0.8rem; }
+    .vide-share .anchor h4 {
+      border-left: 2px solid #000;
+      padding-left: 0.7rem;
+      line-height: 1;
+      margin-bottom: 2.4rem; }
+    .vide-share .anchor .tit {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+              align-items: center; }
+      .vide-share .anchor .tit img {
+        display: inline-block;
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 100%;
+        margin-right: 0.8rem; }
+      .vide-share .anchor .tit em {
+        font-size: 1rem;
+        color: #828282; }
+    .vide-share .anchor .introduct {
+      padding: 1.6rem 3.4rem 0 4.4rem;
+      font-size: 1.2rem;
+      color: #828282;
+      letter-spacing: 0.15rem;
+      line-height: 1.5; }

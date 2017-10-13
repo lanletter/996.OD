@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="stylesheet" type="text/css" href="../css/common.css">
+    <link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+<body>
+<!--<a href="#" class="backto">返回</a>-->
+<ul class="ulstyle2">
+    <li class="edit">
+        <img src="../img/loginphone.png">
+        <input placeholder="手机号" id="phonenum" maxlength="11"/>
+        <img src="../img/loginx.png" id="delete1" style="display: none;">
+    </li>
+    <li class="edit2">
+        <img src="../img/loginmsg.png">
+        <input placeholder="短信验证码" id="message" maxlength="6" style="width: 2.5rem;"/>
+        <img src="../img/loginx.png" id="delete2" style="display: none;">
+    </li>
+    <li class="codebtn">
+        <button class="yellowbg" id="verifycode">获取验证码</button>
+    </li>
+    <li class="explain">
+        <p>请输入新密码</p>
+        <p>密码长度 6~20 字符，建议使用数字、字母组合</p>
+    </li>
+    <li class="edit">
+        <input type="password" placeholder="新密码" id="newpwd" maxlength="20"/>
+        <img src="../img/loginx.png" id="delete3" style="display: none;">
+    </li>
+    <li class="edit">
+        <img src="../img/loginpwd.png">
+        <input type="password" placeholder="密码" id="password" maxlength="20"/>
+        <img src="../img/loginx.png" id="delete4" style="display: none;">
+    </li>
+    <li>
+        <a class="loginbtn">登录</a>
+    </li>
+    <li class="txt">
+        <span>成功注册即表示您已同意《</span>
+        <a href="servicetext.html">方太生活家APP用户服务协议</a>
+        <span>》</span>
+    </li>
+</ul>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/alertdiy.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script>
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    var id = GetQueryString("id");
+    /*输入框选中效果*/
+    $(document).ready(function () {
+        $("#phonenum").focus(function () {
+            $("#delete1").css("display", "block");
+            $("#delete1").click(function () {
+                $("#phonenum").val("");
+                $("#delete1").css("display", "none");
+            });
+            $("#phonenum").keyup(function () {
+                var tmptxt = $(this).val();
+                $(this).val(tmptxt.replace(/\D|^0/g, ''));
+            }).bind("paste", function () {
+                var tmptxt = $(this).val();
+                $(this).val(tmptxt.replace(/\D|^0/g, ''));
+            }).css("ime-mode", "disabled");
+        });
+        $("#phonenum").blur(function () {
+            if ($("#phonenum").val() == "") {
+                $("#delete1").css("display", "none");
+            }
+        });
+        $("#message").focus(function () {
+            $("#delete2").css("display", "block");
+            $("#delete2").click(function () {
+                $("#message").val("");
+                $("#delete2").css("display", "none");
+            });
+        });
+        $("#message").blur(function () {
+            if ($("#message").val() == "") {
+                $("#delete2").css("display", "none");
+            }
+        });
+        $("#newpwd").focus(function () {
+            $("#delete3").css("display", "block");
+            $("#delete3").click(function () {
+                $("#newpwd").val("");
+                $("#delete3").css("display", "none");
+            });
+        });
+        $("#newpwd").blur(function () {
+            if ($("#newpwd").val() == "") {
+                $("#delete3").css("display", "none");
+            }
+        });
+        $("#password").focus(function () {
+            $("#delete4").css("display", "block");
+            $("#delete4").click(function () {
+                $("#password").val("");
+                $("#delete4").css("display", "none");
+            });
+        });
+        $("#password").blur(function () {
+            if ($("#password").val() == "") {
+                $("#delete4").css("display", "none");
+            }
+        });
+    });
+
+    $("#verifycode").click(function () {
+        /*倒计时60s*/
+        function invokeSettime(obj) {
+            var countdown = 60;
+            settime(obj);
+            function settime(obj) {
+                if (countdown == 0) {
+                    $(obj).attr("disabled", false);
+                    $(obj).text("获取验证码");
+                    $(obj).addClass("yellowbg");
+                    $(obj).removeClass("greybg");
+                    countdown = 60;
+                    return;
+                } else {
+                    $(obj).attr("disabled", true);
+                    $(obj).text("(" + countdown + ") s 重新发送");
+                    $(obj).addClass("greybg");
+                    $(obj).removeClass("yellowbg");
+                    countdown--;
+                }
+                setTimeout(function () {
+                    settime(obj)
+                }, 1000)
+            }
+        }
+        new invokeSettime("#verifycode");
+
+        $.ajax({
+            type: 'POST',
+            url: 'https://h5.fotilestyle.com/AccountProxy/v2/verifycode',
+            datatype: "json",
+            data: JSON.stringify({
+                phone: $("#phonenum").val(),
+                corp_id: "1007d4b036464a00"
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+//              alert(ret);
+                /*string转json*/
+                var obj = eval('(' + ret + ')');
+                if(obj.resultCode=="2004"){
+                    alert("请求次数太多");
+                }
+            }
+        });
+    });
+
+    $(".loginbtn").click(function () {
+        if (!loginInputValid()) return;
+        loginServer();
+    });
+    function loginInputValid() {
+        var phone = document.getElementById('phonenum').value;
+        var message = document.getElementById('message').value;
+        var newpwd = document.getElementById('newpwd').value;
+        var password = document.getElementById('password').value;
+        if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+            alert('手机号码输入有误，请重新输入');
+            document.getElementById("phonenum").value = "";
+            $("#delete1").css("display", "none");
+            return false;
+        }
+        if (!(/^\d{6}$/.test(message))) {
+            alert('验证码格式有误，请重新输入');
+            document.getElementById("message").value = "";
+            $("#delete2").css("display", "none");
+            return false;
+        }
+//        if (!(/^[\x21-\x7E]{6,20}$/.test(newpwd))) {
+        if (!(/^[A-Za-z0-9]{6,20}$/.test(newpwd))) {
+            alert('新密码输入有误，请重新输入');
+            document.getElementById("newpwd").value = "";
+            $("#delete3").css("display", "none");
+            return false;
+        }
+        if (newpwd !== password) {
+            alert('两次密码输入不一致');
+            document.getElementById("password").value = "";
+            $("#delete4").css("display", "none");
+        }
+        return true;
+    }
+    function loginServer() {
+//        alert(JSON.stringify({
+//            phone: $("#phonenum").val(),
+//            password: $("#password").val(),
+//            resource: "web",
+//            corp_id: "1007d4b036464a00"
+//        }));
+        $.ajax({
+            type: 'POST',
+            url: 'https://h5.fotilestyle.com/AccountProxy/v2/user_register',
+            datatype: "json",
+            data: JSON.stringify({
+                phone: $("#phonenum").val(),
+                password: $("#password").val(),
+                verifycode: $("#message").val(),
+                corp_id: "1007d4b036464a00"
+            }),
+            headers: {
+                'deviceType': 'ios',
+                'Access-Token': '',
+                'userId': ''
+            },
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+                console.log(ret);
+//              alert(ret);
+                var obj = eval('(' + ret + ')');
+//              alert(obj.status);
+                if (obj.status == 200) {
+                    $api.toast('注册成功', 2000);
+                    var phonenum = obj.data.accountName;
+                    var userid = obj.data.userInfomation.userId;
+                    $.cookie('phonenum', $("#phonenum").val());
+                    $.cookie('userid', obj.data.userInfomation.userId);
+                    var buyurl = "courseform.html?id=" + id;
+                    window.location.href = buyurl;
+                } else if (obj.status == 500) {
+                    $api.toast('用户手机号已注册!', 2000);
+                } else {
+                    $api.toast('注册失败，请稍后再试!', 2000);
+                }
+            }
+        });
+    }
+</script>
+</html>

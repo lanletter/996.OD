@@ -1,0 +1,432 @@
+[v-cloak] {
+  display: none; }
+
+html, body {
+  height: 100%;
+  background-color: #ededed; }
+
+.textalign {
+  text-align: right; }
+
+.icon-broswer {
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url(../img/broswer@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle;
+  color: #828282; }
+
+.icon-msg {
+  display: inline-block;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url(../img/msg@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle;
+  color: #828282; }
+
+.icon-reduce {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url(../img/reduce@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle;
+  margin-right: 2.3rem; }
+
+.icon-add {
+  display: inline-block;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url(../img/add@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle;
+  margin-left: 2.3rem; }
+
+.icon-qq {
+  display: inline-block;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: url(../img/qq@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle; }
+
+.icon-tel {
+  display: inline-block;
+  width: 3.6rem;
+  height: 3.6rem;
+  background: url(../img/tel@2x.png) no-repeat center center;
+  background-size: cover; }
+
+.mt25 {
+  margin-top: 2.5rem; }
+
+.mr10 {
+  margin-right: 1rem; }
+
+.jf-buy {
+  background-color: #fff; }
+  .jf-buy .focus img {
+    width: 100%;
+    height: 37.5rem; }
+  .jf-buy .focus {
+    height: 37.5rem;
+    margin-bottom: 1rem; }
+  .jf-buy .title {
+    margin-bottom: 3.6rem; }
+    .jf-buy .title h4 {
+      width: 24.6rem;
+      margin: 0 auto 1.8rem;
+      text-align: center;
+      font-size: 2.2rem; }
+    .jf-buy .title p {
+      text-align: center; }
+  .jf-buy .icon-broswer {
+    margin-left: 1.5rem; }
+  .jf-buy .sku {
+    margin: 0 1.2rem; }
+    .jf-buy .sku .tit {
+      margin-right: 0.2rem;
+      line-height: 2.4rem;
+      font-size: 1.6rem; }
+    .jf-buy .sku ul {
+      border: 1px solid #ededed;
+      border-width: 1px 0 1px 0;
+      padding: 1rem 0; }
+    .jf-buy .sku li {
+      flex-wrap: wrap; }
+    .jf-buy .sku em {
+      line-height: 2.4rem;
+      font-size: 1.6rem;
+      color: #ccc; }
+    .jf-buy .sku p {
+      width: 23rem; }
+      .jf-buy .sku p span.sku-sel {
+        display: inline-block;
+        width: 5.4rem;
+        height: 2.4rem;
+        background: whitesmoke;
+        margin: 0 0 1rem 1rem;
+        text-align: center;
+        line-height: 2.4rem;
+        border-radius: 0.4rem; }
+      .jf-buy .sku p span.sku-sel.cur {
+        background: #ff6565;
+        color: #fff; }
+      .jf-buy .sku p .inputText {
+        width: 4.6rem;
+        height: 2.4rem;
+        background: whitesmoke;
+        border-radius: 0.4rem;
+        border: 1px solid #ccc;
+        text-align: center;
+        font-size: 1.2rem; }
+  .jf-buy .details {
+    margin: 0 1.2rem; }
+    .jf-buy .details img {
+      width: 100%; }
+    .jf-buy .details h3 {
+      font-size: 1.6rem;
+      font-weight: normal;
+      margin: 3.6rem 0 1rem; }
+    .jf-buy .details .msg {
+      font-size: 1.4rem; }
+
+.btnbox {
+  padding-bottom: 6rem; }
+  .btnbox ul {
+    height: 4.8rem;
+    background-color: #2f2f2f;
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .btnbox li:first-child {
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 4.8rem;
+    width: 72%;
+    padding-left: 2.5rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box; }
+  .btnbox li:first-child em {
+    font-size: 1.4rem; }
+  .btnbox li.buy {
+    width: 28%;
+    background-color: #ff6565;
+    line-height: 4.8rem;
+    text-align: center;
+    font-size: 1.4rem; }
+
+.icon-easy {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: url(../img/easy@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle; }
+
+.icon-time {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: url(../img/time@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle; }
+
+.icon-num {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: url(../img/num@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle; }
+
+.icon-1 {
+  display: inline-block;
+  width: 2rem;
+  height: 2.3rem;
+  background: url(../img/layer1@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle; }
+
+.icon-tips {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: url(../img/tips@2x.png) no-repeat center center;
+  background-size: cover;
+  vertical-align: middle; }
+
+.menupage .focus img {
+  height: 30rem; }
+
+.menupage .focus span.price {
+  position: absolute;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #ff6565;
+  display: inline-block;
+  width: 12.8rem;
+  height: 3.2rem;
+  line-height: 3.2rem;
+  text-align: center;
+  border-radius: 10rem;
+  right: 1.2rem;
+  bottom: -1.6rem; }
+
+.menupage .text {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ededed; }
+  .menupage .text h5 {
+    font-size: 1.2rem; }
+    .menupage .text h5 span {
+      border-bottom: 2px solid #2f2f2f;
+      color: #2f2f2f;
+      padding: 0 1rem 0.5rem 0; }
+  .menupage .text ul.from {
+    margin-top: 2rem;
+    font-size: 1rem; }
+    .menupage .text ul.from img {
+      display: inline-block;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 100%;
+      margin-right: 1rem; }
+    .menupage .text ul.from .attention {
+      display: inline-block;
+      background: #ff6565;
+      width: 6.4rem;
+      height: 2.2rem;
+      line-height: 2.2rem;
+      border-radius: 1rem;
+      color: #fff;
+      text-align: center; }
+    .menupage .text ul.from .gray {
+      background: whitesmoke; }
+  .menupage .text p {
+    padding: 1.6rem 2.4rem 2.6rem;
+    font-size: 1.4rem;
+    text-align: left;
+    color: #4c5051; }
+  .menupage .text .special {
+    padding: 0rem 2.4rem;
+    -webkit-box-pack: justify;
+            justify-content: space-between; }
+    .menupage .text .special span {
+      font-size: 1rem;
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 1;
+      margin-left: 0.5rem; }
+      .menupage .text .special span em {
+        font-size: 0.5rem; }
+
+.menupage .title {
+  margin-bottom: 0 !important;
+  margin-top: 2.7rem; }
+
+.menupage .qingdan {
+  padding: 1.3rem 2.2rem;
+  font-size: 1.4rem;
+  margin-bottom: 1.7rem; }
+  .menupage .qingdan dl {
+    border-top: 1px solid #ff6565;
+    -webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
+    box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
+    border-bottom: 1px solid #ededed; }
+    .menupage .qingdan dl .box {
+      padding-bottom: 7rem; }
+    .menupage .qingdan dl .tobuy {
+      background: #f7f7f7;
+      line-height: 7rem;
+      height: 7rem; }
+      .menupage .qingdan dl .tobuy .menubtn {
+        display: inline-block;
+        background: #ff6565;
+        padding: 0.6rem 3.5rem 0.9rem;
+        border-radius: 10rem;
+        line-height: normal;
+        color: #fff;
+        float: right;
+        margin: 1.9rem 1.6rem; }
+  .menupage .qingdan .tit {
+    padding: 3.7rem 2rem 2.7rem;
+    border-bottom: 1px solid #ededed; }
+    .menupage .qingdan .tit .txt {
+      font-size: 1.8rem;
+      padding-left: 1.2rem; }
+      .menupage .qingdan .tit .txt i {
+        margin-right: 1.2rem; }
+    .menupage .qingdan .tit .addin {
+      color: #ff6565;
+      font-size: 1rem; }
+  .menupage .qingdan dd {
+    height: 4rem;
+    line-height: 4rem;
+    padding: 0rem 5rem 0 1.6rem;
+    font-size: 1.4rem;
+    color: #828282; }
+    .menupage .qingdan dd span {
+      float: right; }
+  .menupage .qingdan dd:nth-child(odd) {
+    background-color: rgba(247, 247, 247, 0.5); }
+  .menupage .qingdan dd:nth-child(even) {
+    background-color: #fff; }
+
+.menupage .step {
+  font-size: 1.4rem;
+  color: #828282; }
+  .menupage .step .stepbox {
+    border-top: 1px solid #ededed; }
+  .menupage .step h4 {
+    font-size: 1.4rem;
+    line-height: 3.3rem;
+    height: 3.3rem;
+    padding: 0rem 1.2rem; }
+    .menupage .step h4 em {
+      font-weight: normal; }
+  .menupage .step .stepbox {
+    margin-bottom: 3rem;
+    -webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
+    box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
+    border-bottom: 1px solid #ededed; }
+    .menupage .step .stepbox img {
+      width: 100%;
+      height: 26rem;
+      display: inline-block; }
+    .menupage .step .stepbox p {
+      padding: 2.8rem 2.6rem; }
+    .menupage .step .stepbox .introduc {
+      padding: 1rem 1.2rem;
+      border-top: 1px solid #ededed; }
+    .menupage .step .stepbox .icon-tips {
+      margin-right: 1rem; }
+
+.menupage .equipment {
+  padding: 0.8rem 2.2rem;
+  border-top: 1px solid #ededed;
+  margin-bottom: 3rem;
+  -webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
+  box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2); }
+  .menupage .equipment h5 {
+    font-size: 1.4rem;
+    text-align: center; }
+    .menupage .equipment h5 em {
+      font-weight: normal;
+      color: #c9cbd5;
+      font-size: 1rem; }
+  .menupage .equipment ul {
+    -webkit-box-pack: start;
+            justify-content: flex-start;
+    padding: 0.5rem 0; }
+    .menupage .equipment ul li {
+      padding: 0 0.2rem;
+      width: 4rem;
+      text-align: center; }
+      .menupage .equipment ul li a {
+        display: inline-block; }
+        .menupage .equipment ul li a img {
+          display: inline-block;
+          width: 3.6rem;
+          height: 3.6rem; }
+    .menupage .equipment ul img {
+      width: 100%; }
+    .menupage .equipment ul p {
+      text-align: center;
+      font-size: 1.2rem;
+      padding: 0.5rem 0; }
+
+.menupage .menutype {
+  padding: 0.8rem 1rem;
+  border-top: 1px solid #ededed;
+  font-size: 1.4rem; }
+  .menupage .menutype h3 {
+    margin-bottom: 1.2rem; }
+    .menupage .menutype h3 a {
+      font-size: 1.2rem;
+      color: #2f2f2f; }
+  .menupage .menutype .typebox span {
+    display: inline-block;
+    padding: 0 1.2rem;
+    background: #ededed;
+    border-radius: 2rem;
+    line-height: 2rem;
+    height: 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-right: 0.8rem;
+    margin-bottom: 0.8rem; }
+  .menupage .menutype .list li {
+    padding: 0.1rem; }
+  .menupage .menutype .list img {
+    display: inline-block;
+    width: 100%; }
+
+.menupage .menutype:last-of-type {
+  padding: 0.8rem 0rem; }
+  .menupage .menutype:last-of-type h3 {
+    padding: 0 1rem; }
+  .menupage .menutype:last-of-type .list {
+    padding: 0 0.4rem 0.8rem; }
+
+.menupage #video {
+  width: 100%;
+  background: #000; }
+
+.menupage .playbox {
+  position: fixed; }
+  .menupage .playbox .play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 5.6rem;
+    height: 5.6rem;
+    background: url(../img/invalidName@2x.png) no-repeat center center;
+    background-size: cover;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%); }

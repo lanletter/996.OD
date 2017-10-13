@@ -1,0 +1,221 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>积分换购</title>
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <!--<link rel="stylesheet" href="../css/common.css">-->
+    <link rel="stylesheet" href="../css/gooddetail.css">
+    <link rel="stylesheet" href="../css/app.css" id="appcss" disabled>
+    <style>
+        .swiper-slide i {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+            z-index: 3;
+        }
+    </style>
+</head>
+<body>
+
+<div id="main">
+
+    <div class="slideBox">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="wrapper">
+
+            </div>
+            <img src="../img/shadebg.png" class="bgimg">
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <div class="info">
+        <h2>主标题</h2>
+        <p>短标题</p>
+        <!--<div class="header__opt">-->
+            <!--<span class="view-count"><i></i><strong></strong></span>-->
+            <!--<span class="favorite-count"><i></i><strong></strong></span>-->
+        <!--</div>-->
+        <div class="txt">描述</div>
+        <a tapmode="onon" href="#" class="more">查看产品详情</a>
+    </div>
+
+    <div class="main">
+        <h3 class="icon1">产品参数</h3>
+        <div class="tb">
+            <table width="95%" border="0" cellspacing="0" cellpadding="0">
+
+            </table>
+            <div class="txt">
+                <span class="argname"></span>:
+                <span class="argvalue"></span>
+            </div>
+        </div>
+        <h3 class="icon2">物流说明</h3>
+        <div class="txt2 logistics"></div>
+        <h3 class="icon3">售后保障</h3>
+        <div class="txt2 sales"></div>
+    </div>
+
+    <br/><br/><br/>
+
+    <div class="fixd">
+        <div class="jf" tapmode="onon" onclick="addShopcart()">
+            <p class="buy" style="background:none;text-indent:0;">购买</p>
+            <p id="scorenum">积分</p>
+        </div>
+        <div class="btn" tapmode="onon" onclick="addShopcart()">购买</div>
+    </div>
+</div>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/doT.min.js"></script>
+<script src="../js/s.js"></script>
+    <script src="../js/url.js"></script>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+
+    var id = GetQueryString("id");
+    var id = 522;
+    $.ajax({
+        url: urlport+'merchandise/detail',
+        type: 'POST', //GET
+        data: JSON.stringify({id: id}),
+        timeout: 5000, //超时时间
+        contentType: "application/json;charset=utf-8",
+        dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+        success: function (data, textStatus, jqXHR) {
+            callback(data);
+        },
+        error: function (xhr, textStatus) {
+            console.log('错误');
+            console.log(JSON.stringify(xhr));
+            console.log(JSON.stringify(textStatus))
+        }
+    });
+
+    function callback(res) {
+        if (res.status !== 200) {
+            alert(res.errorMessage);
+            return;
+        }
+        var data = res.data;
+        console.log(data);
+        var $info = $('.info');
+        var $main = $('.main');
+        $info.find('h2').text(data.title);
+        $info.find('p').text(data.model);
+        $info.find('.txt').text(data.desc);
+        $info.find('.view-count').text(data.viewCount);
+        $info.find('.favorite-count').text(data.likeCount);
+        $main.find('.logistics').text(data.logisticsDesc);
+        $main.find('.sales').text(data.salesSupport);
+        data.merchandiseParams.forEach(function (item, index) {
+            if (index < data.merchandiseParams.length - 1) {
+                var el = $('<tr>\
+                <td width="40%">' + item.argName + '</td>\
+                <td width="60%" class="col">' + item.argValue + '}</td>\
+          </tr>');
+                $('table').append(el);
+            }
+        });
+        $main.find('.argname').text(data.merchandiseParams[data.merchandiseParams.length - 1].argName);
+        $main.find('.argvalue').text(data.merchandiseParams[data.merchandiseParams.length - 1].argValue);
+
+        /*轮播图start*/
+        data.merchandisePictures.forEach(function (item, index) {
+            var el = $('<div class="swiper-slide">\
+                <img src="' + item.picture.path + '" width="100%" height="100%"/>\
+          </div>');
+            $('#wrapper').append(el);
+        });
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            autoplay : 5000,
+            loop : true
+        });
+        /*轮播图end*/
+
+        switch (data.type) {
+            case 1: // 可售
+                $('.fixd .jf .buy').show();
+                $('.fixd .jf #scorenum').hide();
+                $('.fixd .btn').hide();
+                break;
+            case 2: // 积分购
+                $('.fixd .jf #scorenum').text(data.integral + "积分换购");
+                $('.fixd .jf .buy').hide();
+                $('.fixd .btn').hide();
+                break;
+            case 3: // 已失效
+                $('.fixd .jf').hide();
+                $('.fixd .btn').show();
+                $('.fixd .btn').text("暂无换购");
+                break;
+            default:
+                console.log('no');
+
+        }
+
+    }
+
+
+    function fetchUserHome() {
+        $.JR.jajax('/user/home.json', {
+                    id : $.JR.userid()
+                },
+                function(ret, iscache){
+                    var data = ret.data;
+                    console.log('fetchUserHome', data);
+                    integralTotal = data.integralTotal;
+                },function(error){
+                    console.log(error);
+                }
+        );
+    }
+    var o2otoken;
+    function getO2OToken() {
+        if ($.JR.userid() <= 0) {
+            $.JR.openTarget(0, detail.link, detail.title);
+            return;
+        }
+        if (o2otoken) {
+            $.JR.openTarget(0, o2ourl(detail.link,o2otoken), detail.title);
+        }
+        $.JR.jajax('/user/getO2OToken.json', {id : $.JR.userid()},
+                function(ret, iscache){
+                    o2otoken = ret.data;
+                    $.JR.openTarget(0, o2ourl(detail.link,o2otoken), detail.title);
+                }
+        );
+    }
+    function o2ourl(url, token) {
+        var num=url.indexOf("?");
+        if (num > 0) {
+            return url + '&token='+token;
+        } else {
+            return url + '?token='+token;
+        }
+    }
+</script>
+</body>
+</html>
