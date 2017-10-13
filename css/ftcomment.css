@@ -102,6 +102,10 @@
 .ft-comment__content .center {
   width: 6.54rem;
  }
+.ft-comment__content .center img {
+  width: 1.6rem;
+}
+
 
 .ft-comment__content .center img:first-child {
   margin-top: 0.32rem;

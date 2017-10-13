@@ -1,7 +1,7 @@
 +function () {
     var isEmpty = false;
     var homeurl = window.location.href;
- 
+
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
         obj.pageNum = pageNum;
@@ -86,14 +86,14 @@
                             }
                         });
                     } else {
-                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                        // window.location.href="http://download.fotilestyle.com/?utm-source=share";
+
+                        userid = 204138;
+                        $('#leave-words').show();
+                        test1(userid);
                     }
                 });
-                // $('.leavewords').on('click', function (e) {
-                //     userid = 1;
-                //     $('#leave-words').show();
-                //     test1(userid);
-                // });
+
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
@@ -127,7 +127,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -232,6 +232,7 @@
                       {{#commentPictureList}}\
                        <img src="{{picture.path}}">\
                       {{/commentPictureList}}\
+                      <span class=onlyone style="display:none;">{{commentPictureList.length}}</span>\
                     </p>\
                     <p class="bottom">\
                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
@@ -272,11 +273,30 @@
                     </p>\
                   </li>\
                   {{/data}}\
-                </ul>';
+                </ul>\
+                <script>\
+                console.log($(".onlyone").text());\
+                if($(".onlyone").text()=="1"){\
+                $(".onlyone").parent().css("background", "red");\
+                $(".onlyone").prev().css("width", "100%");\
+                }\
+                </script>\
+                ';
 
                 res.data.forEach(function (item, index) {
                     item.createat = new Date(item.createat).app();
+                    console.log(item.commentPictureList);
+                    if (item.commentPictureList.length == 1) {
+                        var onlyone = item.id;
+                        console.log(onlyone);
+                    }
                 });
+
+                console.log($('.onlyone').text());
+                if ($(".onlyone").text() == "1") {
+                    $(".onlyone").parent().css("background", "red");
+                    $(".onlyone").prev().css("width", "100%");
+                }
 
                 res.data.forEach(function (item, index) {
                     item.sonCommentList.forEach(function (item, index) {
@@ -284,10 +304,10 @@
                     });
                 });
 
+
                 Mustache.parse(template);
                 var rendered = Mustache.render(template, res);
                 $('.ft-comment').empty().append($(rendered));
-
 
                 /*留言*/
                 $('.leavewords').on('click', function (e) {
@@ -308,14 +328,14 @@
                             }
                         });
                     } else {
-                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                        // window.location.href="http://download.fotilestyle.com/?utm-source=share";
+
+                        userid = 204138;
+                        $('#leave-words').show();
+                        test2(userid);
                     }
                 });
-                // $('.leavewords').on('click', function (e) {
-                //     userid = 1;
-                //     $('#leave-words').show();
-                //     test2(userid);
-                // });
+
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
@@ -350,7 +370,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -412,8 +432,16 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                    } else  {
-                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                    } else {
+                        // window.location.href="http://download.fotilestyle.com/?utm-source=share";
+
+                        $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        //var $putin = $(e.target).closest("li");  //数据存放处
+                        parentid = $come.find('.Id').text();
+                        userid = 204138;
+                        $('#leave-words2').show();
+                        test(parentid, userid);
                     }
                 });
                 function test(parentid, userid) {
@@ -426,14 +454,14 @@
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
+                        // alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + parentid;
-                        //alert(url+contenturl+refIdurl+typeurl+userId+parentidurl);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
                         $.ajax({
                             type: "get",
                             url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
@@ -483,13 +511,13 @@
                 });
 
                 /*判断点赞 */
-                if(userid!==1){
+                if (userid !== 1) {
                     //console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
                     var $unlike = $(".isLike :contains(0)");
                     $like.parent().parent().siblings(".praise").addClass("praisebg2");
                     $unlike.parent().parent().siblings(".praise").addClass("praisebg");
-                }else {
+                } else {
                     $(".praise").addClass("praisebg");
                 }
 
@@ -518,7 +546,7 @@
             }
             function refresh(homeurl) {
                 console.log(homeurl);
-                //alert(homeurl);
+                // alert(homeurl);
                 window.location.href = homeurl;
                 window.event.returnValue = false;
             }

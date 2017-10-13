@@ -94,6 +94,9 @@
         return null;
     }
     var id = GetQueryString("id");
+    if(id==null){
+        id=439;
+    }
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
@@ -289,8 +292,17 @@
                 $header.find('.comment-count strong').text(data.commentCount);
                 $header.find('#star strong').text(data.favoriteCount);
                 $(".video").css("background-image", 'url("' + data.picture.path + '")');
-                $content.append(data.content);
                 $(".editing").html(data.author);
+                $content.append(data.content);
+                /*文章内链接加device*/
+                var qs = 'device='+device;
+                $content.find('a').each(function(){
+                    var href = $(this).attr('href');
+                    if(href) {
+                        href += (href.match(/\?/) ? '&' : '?') + qs;
+                        $(this).attr('href', href);
+                    }
+                });
 
                 /*title取值*/
                 var txt = data.title;
