@@ -100,16 +100,20 @@
   overflow: hidden;
 }
 .ft-comment__content .center {
-  width: 6.54rem;
+  width: 5.34rem;
  }
-.ft-comment__content .center img {
+.ft-comment__content .center .img {
   width: 1.6rem;
+  height: 1.6rem;
+  object-fit: cover;
+}
+.ft-comment__content .center .imgone {
+  margin-top:0.32rem;
+  width: 5.94rem;
+  height: 3.62rem;
+  object-fit: cover;
 }
 
-
-.ft-comment__content .center img:first-child {
-  margin-top: 0.32rem;
-}
 .ft-comment__content .bottom {
   width: 6.54rem;
   height:0.42rem;

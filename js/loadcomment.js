@@ -230,7 +230,7 @@
                     </p>\
                     <p class="center">\
                       {{#commentPictureList}}\
-                       <img src="{{picture.path}}">\
+                       <a herf="{{picture.path}}"><img class="img" src="{{picture.path}}"></a>\
                       {{/commentPictureList}}\
                       <span class=onlyone style="display:none;">{{commentPictureList.length}}</span>\
                     </p>\
@@ -276,10 +276,9 @@
                 </ul>\
                 <script>\
                 console.log($(".onlyone").text());\
-                if($(".onlyone").text()=="1"){\
-                $(".onlyone").parent().css("background", "red");\
-                $(".onlyone").prev().css("width", "100%");\
-                }\
+                var $onlyone = $(".onlyone:contains(1)").parent();\
+                $onlyone.find("img").removeClass("img");\
+                $onlyone.find("img").addClass("imgone");\
                 </script>\
                 ';
 
@@ -292,11 +291,6 @@
                     }
                 });
 
-                console.log($('.onlyone').text());
-                if ($(".onlyone").text() == "1") {
-                    $(".onlyone").parent().css("background", "red");
-                    $(".onlyone").prev().css("width", "100%");
-                }
 
                 res.data.forEach(function (item, index) {
                     item.sonCommentList.forEach(function (item, index) {
