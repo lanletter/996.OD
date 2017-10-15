@@ -88,7 +88,7 @@
                     } else {
                         // window.location.href="http://download.fotilestyle.com/?utm-source=share";
 
-                        userid = 204138;
+                        userid = 120520;
                         $('#leave-words').show();
                         test1(userid);
                     }
@@ -324,7 +324,7 @@
                     } else {
                         // window.location.href="http://download.fotilestyle.com/?utm-source=share";
 
-                        userid = 204138;
+                        userid = 120520;
                         $('#leave-words').show();
                         test2(userid);
                     }
@@ -433,7 +433,7 @@
                         var $come = $(e.target).siblings(".key");//数据来自于
                         //var $putin = $(e.target).closest("li");  //数据存放处
                         parentid = $come.find('.Id').text();
-                        userid = 204138;
+                        userid = 120520;
                         $('#leave-words2').show();
                         test(parentid, userid);
                     }
