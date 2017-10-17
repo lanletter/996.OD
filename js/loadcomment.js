@@ -239,17 +239,15 @@
                     <p class="bottom">\
                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
                       <button class="praise">{{likeCount}}</button>\
-                      <button class="review">{{sonCommentList.length}}</button>\
                       <button class="reply" id="reply{{id}}">回复TA</button>\
                       <span class="time"> <time>{{createat}}</time></span>\
-                      <form id="picForm2"><div id="leave-words2" class="leave-words">\
+                      <form id="picForm2"><div id="leave-words2">\
                           <p class="bgfff"></p>\
                           <textarea placeholder="请输入最新评论..."></textarea>\
                           <button id="commit2" class="commit">提交</button>\
-                          <button class="backto">取消</button>\
                       </div></form>\
                     </p>\
-                    <p class="words">\
+                    <div class="words">\
                       {{#sonCommentList}}\
                         <div class="son-comments" style="display: none;">\
                           <img src="{{userInfomation.titlePicture}}" class="header-pic left">\
@@ -272,13 +270,23 @@
                           </p>\
                         </div>\
                       {{/sonCommentList}}\
-                    </p>\
+                      <div class="review">共{{sonCommentList.length}}条回复</div>\
+                    </div>\
                   </li>\
                   {{/data}}\
                 </ul>\
                 <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
                 <script src="../js/BigPictureOpen.js"></script>\
                 <script>\
+                /*默认显示2条二级评论*/\
+                $(".words").each(function(){\
+                    $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
+                    $(this).children(".son-comments").eq(0).css("display","block");\
+                    $(this).children(".son-comments").eq(1).css("display","block");\
+                    $(this).children(".son-comments").eq(0).addClass("Noslide");\
+                    $(this).children(".son-comments").eq(1).addClass("Noslide");\
+                });\
+                /*图片点击放大*/\
                 $(function(){\
                     $(".pimg").click(function(){\
                         var _this = $(this);\
@@ -541,10 +549,17 @@
                 }
 
                 /*查看回复*/
-                $('.review').on('click', function (e) {
+                $(".review").on("click", function (e) {
                     classname = $(e.target).attr("class");
                     if (classname = "review") {
-                        $(e.target).parent().parent().find('.son-comments').slideToggle();
+                        var $soncomments=$(e.target).parent().find(".son-comments");//选中当前二级评论
+                        if($(e.target).text()!=="收起"){
+                            $soncomments.not(".Noslide").css("display","block");
+                            $(e.target).text("收起");
+                        }else if($(e.target).text()=="收起"){
+                            $soncomments.not(".Noslide").css("display","none");
+                            $(e.target).text("共"+$soncomments.length+"条回复")
+                        }
                     }
                 });
 

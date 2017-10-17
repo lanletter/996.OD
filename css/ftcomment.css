@@ -186,16 +186,6 @@
   color: rgb(201,203,213);
 }
 
-.ft-comment__content .review:before {
-  content: ' ';
-  display: inline-block;
-  height: 0.32rem;
-  width: 0.32rem;
-  background: url(../img/comment.png);
-  background-size: 0.32rem 0.32rem;
-  vertical-align:middle;
-  margin-right: 0.08rem;
-}
 .ft-comment__content .reply {
   font-size: 0.16rem;
   color: rgb(201,203,213);
@@ -207,6 +197,7 @@
   text-align: center;
   width: 6.22rem;
 }
+
 .son-comments{
   background: rgb(247,247,247);
   padding: 0.16rem;
@@ -220,12 +211,11 @@
 .son-comments .right {
   width: 5.34rem;
   overflow: hidden;
-  padding-bottom: 0.24rem;
-  border-bottom: 1px solid #ededed;
+  margin-top: -0.24rem;
+  padding-top: 0.24rem;
+  border-top: 1px solid #ededed;
 }
-.son-comments:first-child {
-  background: red!important;
-}
+
 .son-comments .center {
   width: 6.54rem;
 }
@@ -255,6 +245,7 @@
   color:rgb(250,101,101);
 }
 
+/*发表评论*/
 .leave-words{
   display: none;
   position: fixed;
@@ -345,6 +336,96 @@
   background: rgb(255,101,101);
   z-index: 999999;
 }
+
+/*回复评论*/
+#leave-words2{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.92rem;
+  background: rgb(247,247,247);
+  text-align: center;
+  z-index: 999999;
+}
+#leave-words2 .bgfff{
+  display: block;
+  background:rgb(237,237,237);
+  width: 100%;
+  height: 0.12rem;
+  border-top:1px solid #dddddd ;
+}
+#leave-words2 textarea{
+  position: absolute;
+  top: 0.12rem;
+  left: 0;
+  margin: 0.14rem;
+  padding-left: 0.1rem;
+  font-size: 0.2rem;
+  color: #333;
+  width: 6.3rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  text-align: left;
+  background: #ffffff;
+  resize:none;
+  border:1px solid rgb(151,151,151);
+  border-radius: 2px;
+  z-index: 999999;
+}
+#leave-words2::-webkit-input-placeholder {
+  color: rgb(201,203,213);
+  font-size: 0.28rem;
+  font-weight: lighter;
+}
+#leave-words2:-moz-placeholder {
+  /* Firefox 18- */
+  color: rgb(201,203,213);
+  font-size: 0.28rem;
+  font-weight: lighter;
+}
+#leave-words2::-moz-placeholder {
+  /* Firefox 19+ */
+  color: rgb(201,203,213);
+  font-size: 0.28rem;
+  font-weight: lighter;
+}
+#leave-words2:-ms-input-placeholder {
+  color: rgb(201,203,213);
+  font-size: 0.28rem;
+  font-weight: lighter;
+}
+/*#leave-words2 button{*/
+  /*position: fixed;*/
+  /*bottom: 0;*/
+  /*width: 50%!important;*/
+  /*height: 48px;*/
+  /*line-height: 48px;*/
+  /*display: inline-block;*/
+  /*font-size: 0.28rem;*/
+  /*letter-spacing: 4px;*/
+  /*font-weight: 300;*/
+  /*color: rgb(247,247,247);*/
+/*}*/
+#leave-words2 .backto{
+  left: 0;
+  width: 50%;
+  background: rgb(201,203,213);
+  z-index: 999999;
+}
+#leave-words2 .commit{
+  margin: 0.14rem;
+  position: absolute;
+  top: 0.12rem;
+  right: 0;
+  width: 0.6rem;
+  height: 0.48rem;
+  background: rgb(255,101,101);
+  border: 1px solid #cccccc;
+  z-index: 999999;
+}
+
 
 /*上传图片插件的样式*/
 .img-box{
