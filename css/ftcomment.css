@@ -109,9 +109,21 @@
 }
 .ft-comment__content .center .imgone {
   margin-top:0.32rem;
-  width: 5.94rem;
-  height: 3.62rem;
-  object-fit: cover;
+}
+.ft-comment__content .center .imgbig {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+}
+#greybg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.1) ;
+  z-index: 0;
 }
 
 .ft-comment__content .bottom {
@@ -128,9 +140,7 @@
   display: block;
   padding-right: 0.2rem;
 }
-.ft-comment__content img {
-  width: 6.54rem;
-}
+
 .ft-comment__content .text {
   display: block;
   rgb(47,47,47);

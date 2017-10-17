@@ -16,7 +16,8 @@
             console.log(data);
             isEmpty = data.length == 0;
             if (data.length == 0 && obj.pageNum == 1) {
-                var noComment = '<div class="ft-comment__header clearfix left-right">\
+                var noComment = '\
+                <div class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
                   <button href="#" class="leavewords right comment"></button>\
                   <br/>\
@@ -172,7 +173,8 @@
                 }
             }
             if (obj.pageNum >= 1 && data.length > 0) {
-                var template = '<div class="ft-comment__header clearfix left-right">\
+                var template = '\
+                <div class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论</span>\
                   <button href="#" class="leavewords right comment"></button>\
                 </div>\
@@ -228,9 +230,9 @@
                         {{content}}\
                       </span>\
                     </p>\
-                    <p class="center">\
+                    <p id="imglist" class="center">\
                       {{#commentPictureList}}\
-                       <a herf="{{picture.path}}"><img class="img" src="{{picture.path}}"></a>\
+                        <img class="pimg img" alt="" src="{{picture.path}}">\
                       {{/commentPictureList}}\
                       <span class=onlyone style="display:none;">{{commentPictureList.length}}</span>\
                     </p>\
@@ -274,11 +276,53 @@
                   </li>\
                   {{/data}}\
                 </ul>\
+                <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
+                <script src="../js/BigPictureOpen.js"></script>\
                 <script>\
-                console.log($(".onlyone").text());\
+                $(function(){\
+                    $(".pimg").click(function(){\
+                        var _this = $(this);\
+                        imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
+                    });\
+                });\
+                /*选中单张图片*/\
                 var $onlyone = $(".onlyone:contains(1)").parent();\
                 $onlyone.find("img").removeClass("img");\
                 $onlyone.find("img").addClass("imgone");\
+                /*单张图片大小等比例自适应*/\
+                objImg=$onlyone.find("img");\
+                console.log(objImg);\
+                for(var i=0;i<objImg.length;i++){\
+                    console.log(objImg[i]);\
+                    maxWidth=267;\
+                    maxHeight=181;\
+                    var img = new Image();\
+                    img.src = objImg[i].src;\
+                    var hRatio;\
+                    var wRatio;\
+                    var Ratio = 1;\
+                    var w = img.width;\
+                    var h = img.height;\
+                    console.log(w+"|"+h);\
+                    wRatio = maxWidth / w;\
+                    hRatio = maxHeight / h;\
+                    if (maxWidth ==0 && maxHeight==0){\
+                        Ratio = 1;\
+                    }else if (maxWidth==0){\
+                        if (hRatio<1) Ratio = hRatio;\
+                    }else if (maxHeight==0){\
+                        if (wRatio<1) Ratio = wRatio;\
+                    }else if (wRatio<1 || hRatio<1){\
+                        Ratio = (wRatio<=hRatio?wRatio:hRatio);\
+                    }\
+                    if (Ratio<1){\
+                        w = w * Ratio;\
+                        h = h * Ratio;\
+                    }\
+                    objImg[i].height = h;\
+                    objImg[i].width = w;\
+                    console.log(w+"|"+h);\
+                }\
                 </script>\
                 ';
 
