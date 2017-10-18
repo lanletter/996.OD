@@ -60,8 +60,8 @@
                         })\
                     </script>\
                   </div>\
-                  <button id="commit" class="commit">提交</button>\
-                  <button class="backto">取消</button>\
+                  <div id="commit" class="buttons commit">提交</div>\
+                  <div class="buttons backto">取消</div>\
                 </div></form>';
 
                 Mustache.parse(noComment);
@@ -98,7 +98,7 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
-                    refresh(homeurl);
+                    // refresh(homeurl);
                 });
 
                 function test1(userid) {
@@ -215,8 +215,8 @@
                         })\
                     </script>\
                   </div>\
-                  <button id="commit" class="commit">提交</button>\
-                  <button class="backto">取消</button>\
+                  <div id="commit" class="buttons commit">提交</div>\
+                  <div class="buttons backto">取消</div>\
                 </div></form>\
                 <ul id="ft-comment-ul">\
                   {{#data}}\
@@ -238,19 +238,22 @@
                     </p>\
                     <p class="bottom">\
                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
+                      <span class="time"> <time>{{createat}}</time></span>\
                       <button class="praise">{{likeCount}}</button>\
                       <button class="reply" id="reply{{id}}">回复TA</button>\
-                      <span class="time"> <time>{{createat}}</time></span>\
                       <form id="picForm2"><div id="leave-words2">\
-                          <p class="bgfff"></p>\
-                          <textarea placeholder="请输入最新评论..."></textarea>\
-                          <button id="commit2" class="commit">提交</button>\
+                          <div id="bgfff"></div>\
+                          <div class="topborder">\
+                              <div class="boxhf">\
+                                  <textarea placeholder="请输入最新评论..."></textarea>\
+                                  <button id="commit2" class="commit">提交</button>\
+                              </div>\
+                          </div>\
                       </div></form>\
                     </p>\
                     <div class="words">\
                       {{#sonCommentList}}\
                         <div class="son-comments" style="display: none;">\
-                          <img src="{{userInfomation.titlePicture}}" class="header-pic left">\
                           <p class="right">\
                             <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
                             <span class="title-box clearfix left-right">\
@@ -270,7 +273,9 @@
                           </p>\
                         </div>\
                       {{/sonCommentList}}\
-                      <div class="review">共{{sonCommentList.length}}条回复</div>\
+                        <div class="review">\
+                          <span>共{{sonCommentList.length}}条回复 ></span>\
+                        </div>\
                     </div>\
                   </li>\
                   {{/data}}\
@@ -285,6 +290,9 @@
                     $(this).children(".son-comments").eq(1).css("display","block");\
                     $(this).children(".son-comments").eq(0).addClass("Noslide");\
                     $(this).children(".son-comments").eq(1).addClass("Noslide");\
+                    if($(this).children(".son-comments").length<2){\
+                     $(this).children(".review").css("display","none");\
+                    }\
                 });\
                 /*图片点击放大*/\
                 $(function(){\
@@ -385,8 +393,10 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
+                    // refresh(homeurl);
+                });
+                $('#bgfff').on('click', function () {
                     $('#leave-words2').hide();
-                    refresh(homeurl);
                 });
 
                 function test2(userid) {
@@ -491,6 +501,7 @@
                     }
                 });
                 function test(parentid, userid) {
+                    $("#leave-words2 textarea").focus();//默认选中
                     $('#commit2').on('click', function (e) {
                         var words = $('#leave-words2');
                         var content = words.find('textarea').val().trim();
