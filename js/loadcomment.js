@@ -1,5 +1,5 @@
 +function () {
-    var isEmpty = false;
+    // var isEmpty = false;
     var homeurl = window.location.href;
 
     function loadComment(obj, pageNum, type, id, userId) {
@@ -14,7 +14,7 @@
         function callback(res) {
             var data = res.data;
             console.log(data);
-            isEmpty = data.length == 0;
+            // isEmpty = data.length;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '\
                 <div class="ft-comment__header clearfix left-right">\
@@ -221,66 +221,68 @@
                 <ul id="ft-comment-ul">\
                   {{#data}}\
                   <li class="ft-comment__content left-right clearfix">\
-                    <img src="{{userInfomation.titlePicture}}" class="header-pic left">\
-                    <p class="right">\
-                      <span class="title-box clearfix left-right">\
-                        <span class="left name">{{userInfomation.nickName}}</span>\
-                      </span>\
-                      <span class="text">\
-                        {{content}}\
-                      </span>\
-                    </p>\
-                    <p id="imglist" class="center">\
-                      {{#commentPictureList}}\
-                        <img class="pimg img" alt="" src="{{picture.path}}">\
-                      {{/commentPictureList}}\
-                      <span class=onlyone style="display:none;">{{commentPictureList.length}}</span>\
-                    </p>\
-                    <p class="bottom">\
-                      <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
-                      <span class="time"> <time>{{createat}}</time></span>\
-                      <button class="praise">{{likeCount}}</button>\
-                      <button class="reply" id="reply{{id}}">回复TA</button>\
-                      <form id="picForm2"><div id="leave-words2">\
-                          <div id="bgfff"></div>\
-                          <div class="topborder">\
-                              <div class="boxhf">\
-                                  <textarea placeholder="请输入最新评论..."></textarea>\
-                                  <button id="commit2" class="commit">提交</button>\
-                              </div>\
-                          </div>\
-                      </div></form>\
-                    </p>\
-                    <div class="words">\
-                      {{#sonCommentList}}\
-                        <div class="son-comments" style="display: none;">\
-                          <p class="right">\
-                            <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
-                            <span class="title-box clearfix left-right">\
-                            <span class="left name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
-                            </span>\
-                            <span class="text">\
-                                {{content}}\
-                            </span>\
-                            <button class="praise">{{likeCount}}</button>\
-                            <button class="reply" id="replyy{{id}}">回复TA</button>\
-                            <span class="time"> <time>{{createat}}</time></span>\
-                          </p>\
-                          <p class="center">\
-                            {{#commentPictureList}}\
-                            <img src="{{picture.path}}">\
-                            {{/commentPictureList}}\
-                          </p>\
+                    <img src="{{userInfomation.titlePicture}}" class="header-pic">\
+                    <div class="boxright"><div clsss="boxright2">\
+                        <p class="right">\
+                          <span class="title-box clearfix left-right">\
+                            <span class="left name">{{userInfomation.nickName}}</span>\
+                          </span>\
+                          <span class="text">\
+                            {{content}}\
+                          </span>\
+                        </p>\
+                        <p class="imglist center">\
+                          {{#commentPictureList}}\
+                            <img class="pimg img" alt="" src="{{picture.path}}">\
+                          {{/commentPictureList}}\
+                          <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
+                        </p>\
+                        <p class="bottom">\
+                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
+                          <span class="time"> <time>{{createat}}</time></span>\
+                          <button class="praise">{{likeCount}}</button>\
+                          <button class="reply" id="reply{{id}}">回复TA</button>\
+                        </p>\
+                        <div class="words">\
+                          {{#sonCommentList}}\
+                            <div class="son-comments" style="display: none;">\
+                              <p class="right">\
+                                <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
+                                <span class="title-box clearfix left-right">\
+                                <span class="left name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
+                                </span>\
+                                <span class="text">\
+                                    {{content}}\
+                                </span>\
+                                <button class="praise">{{likeCount}}</button>\
+                                <button class="reply" id="replyy{{id}}">回复TA</button>\
+                                <span class="time"> <time>{{createat}}</time></span>\
+                              </p>\
+                              <p class="center">\
+                                {{#commentPictureList}}\
+                                <img src="{{picture.path}}">\
+                                {{/commentPictureList}}\
+                              </p>\
+                            </div>\
+                          {{/sonCommentList}}\
+                            <div class="review">\
+                              共{{sonCommentList.length}}条回复 >\
+                            </div>\
                         </div>\
-                      {{/sonCommentList}}\
-                        <div class="review">\
-                          <span>共{{sonCommentList.length}}条回复 ></span>\
-                        </div>\
-                    </div>\
+                    </div></div>\
                   </li>\
                   {{/data}}\
                 </ul>\
-                <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:2;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
+                          <form id="picForm2"><div id="leave-words2" style="z-index:999999;">\
+                              <div id="bgfff"></div>\
+                              <div class="topborder">\
+                                  <div class="boxhf">\
+                                      <textarea placeholder="请输入最新评论..."></textarea>\
+                                      <button id="commit2" class="commit">提交</button>\
+                                  </div>\
+                              </div>\
+                          </div></form>\
+                <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
                 <script src="../js/BigPictureOpen.js"></script>\
                 <script>\
                 /*默认显示2条二级评论*/\
@@ -290,8 +292,14 @@
                     $(this).children(".son-comments").eq(1).css("display","block");\
                     $(this).children(".son-comments").eq(0).addClass("Noslide");\
                     $(this).children(".son-comments").eq(1).addClass("Noslide");\
-                    if($(this).children(".son-comments").length<2){\
+                    if($(this).children(".son-comments").length<3){\
                      $(this).children(".review").css("display","none");\
+                    }\
+                });\
+                /*判断是否有图片*/\
+                $(".imglist").each(function(){\
+                    if($(this).children(".img").length>0){\
+                     $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
                     }\
                 });\
                 /*图片点击放大*/\
@@ -304,12 +312,9 @@
                 /*选中单张图片*/\
                 var $onlyone = $(".onlyone:contains(1)").parent();\
                 $onlyone.find("img").removeClass("img");\
-                $onlyone.find("img").addClass("imgone");\
                 /*单张图片大小等比例自适应*/\
                 objImg=$onlyone.find("img");\
-                console.log(objImg);\
                 for(var i=0;i<objImg.length;i++){\
-                    console.log(objImg[i]);\
                     maxWidth=267;\
                     maxHeight=181;\
                     var img = new Image();\
@@ -319,7 +324,6 @@
                     var Ratio = 1;\
                     var w = img.width;\
                     var h = img.height;\
-                    console.log(w+"|"+h);\
                     wRatio = maxWidth / w;\
                     hRatio = maxHeight / h;\
                     if (maxWidth ==0 && maxHeight==0){\
@@ -337,17 +341,16 @@
                     }\
                     objImg[i].height = h;\
                     objImg[i].width = w;\
-                    console.log(w+"|"+h);\
                 }\
                 </script>\
                 ';
 
                 res.data.forEach(function (item, index) {
                     item.createat = new Date(item.createat).app();
-                    console.log(item.commentPictureList);
+                    // console.log(item.commentPictureList);
                     if (item.commentPictureList.length == 1) {
                         var onlyone = item.id;
-                        console.log(onlyone);
+                        // console.log(onlyone);
                     }
                 });
 
@@ -411,9 +414,9 @@
                             //picarr[i] = picid.eq(i).attr("id");
                             commentPictureIdLists += '&commentPictureIdList=' + picid.eq(i).attr("id");
                         }
-                        console.log(picid);
-                        console.log(picarr);
-                        console.log(content);
+                        // console.log(picid);
+                        // console.log(picarr);
+                        // console.log(content);
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
@@ -563,13 +566,13 @@
                 $(".review").on("click", function (e) {
                     classname = $(e.target).attr("class");
                     if (classname = "review") {
-                        var $soncomments=$(e.target).parent().find(".son-comments");//选中当前二级评论
-                        if($(e.target).text()!=="收起"){
-                            $soncomments.not(".Noslide").css("display","block");
+                        var $soncomments = $(e.target).parent().find(".son-comments");//选中当前二级评论
+                        if ($(e.target).text() !== "收起") {
+                            $soncomments.not(".Noslide").css("display", "block");
                             $(e.target).text("收起");
-                        }else if($(e.target).text()=="收起"){
-                            $soncomments.not(".Noslide").css("display","none");
-                            $(e.target).text("共"+$soncomments.length+"条回复")
+                        } else if ($(e.target).text() == "收起") {
+                            $soncomments.not(".Noslide").css("display", "none");
+                            $(e.target).text("共" + $soncomments.length + "条回复")
                         }
                     }
                 });
@@ -616,17 +619,19 @@
             }
         }
 
-        $(window).off('scroll').on('scroll', $api.throttle(function () {
+        var isEmpty=false;
+        $(window).unbind('scroll').bind('scroll', $api.throttle(function (e) {
+            if (isEmpty) return false;
+            // isEmpty = true;
             var scrollTop = $(this).scrollTop();
-            var scrollHeight = $(document).height();
             var windowHeight = $(this).height();
+            var scrollHeight = $(document).height();
             if (scrollTop + windowHeight == scrollHeight) {
-                if (isEmpty) return;
+                if (isEmpty) return false;
                 pageNum = pageNum + 1;
                 loadComment(obj, pageNum);
             }
-        }, 500, 200000))
-
+        }, 500, 500));
 
     }
 

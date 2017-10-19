@@ -61,6 +61,8 @@
 
 .ft-comment__content{
   overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
 .ft-comment__content .name {
   rgb(47,47,47);
@@ -81,9 +83,14 @@
 }
 
 .ft-comment__content .header-pic {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0.16rem 0.24rem;
   width: 0.96rem;
   height: 0.96rem;
   border-radius: 0.92rem;
+  border: none;
 }
 .ft-comment__content p {
   overflow: hidden;
@@ -95,20 +102,28 @@
   margin: 0;
   height: 0;
 }
+.ft-comment__content .boxright {
+  width:100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.ft-comment__content .boxright>div {
+  margin-left: 1.2rem;
+}
 .ft-comment__content .right {
-  width: 5.34rem;
+  width:100%;
   overflow: hidden;
 }
 .ft-comment__content .center {
   width: 5.34rem;
  }
+.ft-comment__content .center img{
+  margin-bottom: 0.08rem;
+}
 .ft-comment__content .center .img {
   width: 1.6rem;
   height: 1.6rem;
   object-fit: cover;
-}
-.ft-comment__content .center .imgone {
-  margin-top:0.32rem;
 }
 .ft-comment__content .center .imgbig {
   position: fixed;
@@ -127,11 +142,11 @@
 }
 
 .ft-comment__content .bottom {
-  float: right;
-  width: 5.94rem;
+  width: 100%;
   height:0.42rem;
   line-height: 0.42rem;
   margin: 0.22rem 0;
+  z-index: 0;
   }
 .ft-comment__content button{
   margin-right: 0.16rem;
@@ -144,10 +159,9 @@
 
 .ft-comment__content .text {
   display: block;
-  rgb(47,47,47);
+  color: rgb(47,47,47);
   font-family: "PingFangSC-Light";
-  font-weight: lighter;
-  font-size: 0.24rem;
+  font-size: 16px;
   font-weight: 100;
   letter-spacing: 3px;
   margin-top: 0.04rem;
@@ -182,18 +196,16 @@
   margin-right: 0.08rem;
 }
 
-.ft-comment__content .review {
-  width: 100%;
+.ft-comment__content .review{
   height: 1.04rem;
   font-size: 14px;
   font-weight: bold;
   color: rgb(130,130,130);
-  background: rgb(247,247,247);
-}
-.ft-comment__content .review span{
+  margin-left: 0.36rem;
+  padding-top: 0.16rem;
   display: block;
-  width: 100%;
-  border-top: 1px solid red;
+  width: 5.42rem;
+  border-top: 1px solid rgb(237,237,237);
 }
 
 .ft-comment__content .reply {
@@ -201,8 +213,10 @@
   color: rgb(201,203,213);
 }
 .ft-comment__content .words{
-  width: 5.94rem;
-  float: right;
+  width: 100%;
+  margin-top: 0.26rem;
+  background: rgb(247,247,247);
+  z-index: 0;
 }
 
 .more{
@@ -214,8 +228,8 @@
 
 .son-comments{
   background: rgb(247,247,247);
-  padding: 0.16rem;
-  width: 5.62rem;
+  padding-left:0.36rem;
+  width: 5.2rem;
 
 }
 .son-comments p {
@@ -223,10 +237,11 @@
   position: relative;
 }
 .son-comments .right {
-  width: 5.34rem;
+  width: 100%;
   overflow: hidden;
   margin-top: -0.24rem;
-  padding-top: 0.24rem;
+  padding-top: 0.64rem;
+  padding-bottom: 0.48rem;
   border-top: 1px solid #ededed;
 }
 
@@ -245,18 +260,29 @@
   border-radius: 50%;
 }
 .son-comments .name {
-  font-size: 0.22rem!important;
+  font-size: 16px;
   font-weight: bold;
 }
 .son-comments .name b{
+  font-size: 12px;
   color:rgb(130,130,130);
   margin: 0 3px;
   font-weight: lighter;
 }
 .son-comments .name a{
+  font-size: 12px;
   font-family: "PingFangSC-Light";
   font-weight: lighter;
   color:rgb(250,101,101);
+}
+.son-comments .text {
+  display: block;
+  color: rgb(47,47,47);
+  font-family: "PingFangSC-Light";
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  margin: 0.2rem 0;
 }
 
 /*发表评论*/
@@ -368,7 +394,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0);
-  z-index: 0;
+  z-index: 999999;
 }
 #leave-words2 .topborder{
   position: absolute;
