@@ -11,13 +11,25 @@
   margin-bottom: 0.2rem;
   border-bottom: 1px solid #ededed;
 }
+.ft-comment li:first-child {
+  border-top: 1px solid #ededed;
+  padding-top: 0.36rem;
+}
 .ft-comment li:last-child{border-bottom:none}
+.loadbox:first-child .ft-comment-ul:nth-child(3) li{
+  border-top:none;!important;
+  padding: 0.16rem 0.24rem;
+}
+
+.loadbox .ft-comment-ul{z-index: -1;}
+
 
 .ft-comment__header {
   padding: 0 0.24rem;
   margin-bottom: 0.16rem;
   line-height: 0.6rem;
 }
+.loadbox:first-child .ft-comment__header{display: block;}
 .ft-comment__header .left {
   font-size: 0.36rem;
   color: rgb(47,47,47);
@@ -85,7 +97,7 @@
 .ft-comment__content .header-pic {
   position: absolute;
   left: 0;
-  top: 0;
+  float: left;
   margin: 0.16rem 0.24rem;
   width: 0.96rem;
   height: 0.96rem;
@@ -216,7 +228,7 @@
   width: 100%;
   margin-top: 0.26rem;
   background: rgb(247,247,247);
-  z-index: 0;
+  z-index: -1;
 }
 
 .more{
@@ -608,3 +620,10 @@
 .check-p .del-com{
   border-right: 1px solid #D1D1D1;
 }
+
+/*#picForm {display: none;}*/
+/*#picForm:first-child {display: block;}*/
+/*#picForm2 {display: none;}*/
+/*#picForm2:first-child {display: block;}*/
+/*#outdiv {display: none;}*/
+/*#outdiv:first-child {display: block;}*/

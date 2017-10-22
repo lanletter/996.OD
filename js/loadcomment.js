@@ -1,11 +1,12 @@
 +function () {
-    // var isEmpty = false;
     var homeurl = window.location.href;
+    // var isEmpty=true;
 
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
         obj.pageNum = pageNum;
         var userid = obj.userId;
+
         $api.post(urlport + 'comment/list', obj,
             function (res) {
                 callback(res);
@@ -14,7 +15,7 @@
         function callback(res) {
             var data = res.data;
             console.log(data);
-            // isEmpty = data.length;
+            isEmpty = data.length;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '\
                 <div class="ft-comment__header clearfix left-right">\
@@ -173,7 +174,14 @@
                 }
             }
             if (obj.pageNum >= 1 && data.length > 0) {
+                var template0='\
+                <div class="ft-comment__header clearfix left-right">\
+                  <span class="left">用户评论</span>\
+                  <button href="#" class="leavewords right comment"></button>\
+                </div>\
+                ';
                 var template = '\
+            <div class="loadbox">\
                 <div class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论</span>\
                   <button href="#" class="leavewords right comment"></button>\
@@ -218,7 +226,7 @@
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
                 </div></form>\
-                <ul id="ft-comment-ul">\
+                <ul class="ft-comment-ul">\
                   {{#data}}\
                   <li class="ft-comment__content left-right clearfix">\
                     <img src="{{userInfomation.titlePicture}}" class="header-pic">\
@@ -283,6 +291,7 @@
                               </div>\
                           </div></form>\
                 <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
+            \
                 <script src="../js/BigPictureOpen.js"></script>\
                 <script>\
                 /*默认显示2条二级评论*/\
@@ -343,6 +352,7 @@
                     objImg[i].width = w;\
                 }\
                 </script>\
+                </div>\
                 ';
 
                 res.data.forEach(function (item, index) {
@@ -361,10 +371,17 @@
                     });
                 });
 
-
                 Mustache.parse(template);
                 var rendered = Mustache.render(template, res);
-                $('.ft-comment').empty().append($(rendered));
+                $('.ft-comment').append($(rendered));
+                // $(".ft-comment").prepend($(".ft-comment__header"));
+                // $('.ft-comment__header').not('.ft-comment__header:first').remove();
+                var $notfirst=$('.loadbox').not('.loadbox:first');
+                $notfirst.find(".ft-comment__header").remove();
+                $notfirst.find("#picForm").remove();
+                $notfirst.find("#picForm2").remove();
+                $notfirst.find("#outerdiv").remove();
+                $notfirst.find("script").remove();
 
                 /*留言*/
                 $('.leavewords').on('click', function (e) {
@@ -619,22 +636,41 @@
             }
         }
 
-        var isEmpty=false;
-        $(window).unbind('scroll').bind('scroll', $api.throttle(function (e) {
-            if (isEmpty) return false;
-            // isEmpty = true;
+        // if (isEmpty) return true;
+        // $(window).unbind('scroll').bind('scroll', $api.throttle(function (e) {
+        //     var scrollTop = $(this).scrollTop();
+        //     var windowHeight = $(this).height();
+        //     var scrollHeight = $(document).height();
+        //     if (scrollTop + windowHeight == scrollHeight) {
+        //         pageNum++;
+        //         loadComment(obj, pageNum);
+        //     }
+        // }, 1000));
+
+
+        var isEmpty=true;
+
+        function haha(){
             var scrollTop = $(this).scrollTop();
             var windowHeight = $(this).height();
             var scrollHeight = $(document).height();
             if (scrollTop + windowHeight == scrollHeight) {
-                if (isEmpty) return false;
-                pageNum = pageNum + 1;
+                pageNum=pageNum+1;
                 loadComment(obj, pageNum);
             }
-        }, 500, 500));
+            isEmpty = true;
+        }
+
+        window.onscroll = function(){
+            if(isEmpty){
+                setTimeout(haha,1000);
+                isEmpty = false;
+            }
+        }
+
 
     }
 
-
     $.loadComment = loadComment;
+
 }();
