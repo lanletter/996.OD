@@ -21161,7 +21161,7 @@ function _logType(type, args) {
     /*如果错误信息=4自动刷新页面*/
     console.log(argsArray[4].code);
     if(argsArray[4].code==4){
-      location.reload();
+      // location.reload();
     }
   } else {
     // ie8 doesn't allow error.apply, but it will just join() the array anyway

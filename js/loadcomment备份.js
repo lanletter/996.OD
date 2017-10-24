@@ -5,6 +5,7 @@
         console.log(obj);
         obj.pageNum = pageNum;
         var userid = obj.userId;
+
         $api.post(urlport + 'comment/list', obj,
             function (res) {
                 callback(res);
@@ -13,10 +14,10 @@
         function callback(res) {
             var data = res.data;
             console.log(data);
-            // isEmpty = data.length;
+            isEmpty = data.length;
             if (data.length == 0 && obj.pageNum == 1) {
                 var noComment = '\
-                <div class="ft-comment__header clearfix left-right">\
+                <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
                   <button href="#" class="leavewords right comment"></button>\
                   <br/>\
@@ -171,9 +172,11 @@
                     });
                 }
             }
+
             if (obj.pageNum >= 1 && data.length > 0) {
                 var template = '\
-                <div class="ft-comment__header clearfix left-right">\
+            <div class="loadbox">\
+                <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论</span>\
                   <button href="#" class="leavewords right comment"></button>\
                 </div>\
@@ -197,27 +200,11 @@
                         <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>\
                       </div>\
                     </aside>\
-                    <script src="../js/jquery.min.js"></script>\
-                    <script src="../js/imgUp.js"></script>\
-                    <script>\
-                        $(function(){\
-                            $("#file").takungaeImgup({\
-                                formData: { "path": "Content/Images/", "name": "uploadpic" },\
-                                url: urlport+"picture/uploadPictureBase64", \
-                                success: function (data) {\
-                                console.log(data);\
-                                },\
-                                error: function (err) {\
-                                    alert(err);\
-                                }\
-                            });\
-                        })\
-                    </script>\
                   </div>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
                 </div></form>\
-                <ul id="ft-comment-ul">\
+                <ul class="ft-comment-ul">\
                   {{#data}}\
                   <li class="ft-comment__content left-right clearfix">\
                     <img src="{{userInfomation.titlePicture}}" class="header-pic">\
@@ -239,8 +226,9 @@
                         <p class="bottom">\
                           <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
                           <span class="time"> <time>{{createat}}</time></span>\
+                          <button class="reply" id="reply{{id}}">回复</button>\
+                          <span class="dot">•</span>\
                           <button class="praise">{{likeCount}}</button>\
-                          <button class="reply" id="reply{{id}}">回复TA</button>\
                         </p>\
                         <div class="words">\
                           {{#sonCommentList}}\
@@ -254,7 +242,8 @@
                                     {{content}}\
                                 </span>\
                                 <button class="praise">{{likeCount}}</button>\
-                                <button class="reply" id="replyy{{id}}">回复TA</button>\
+                                <span class="dot">•</span>\
+                                <button class="reply" id="replyy{{id}}">回复</button>\
                                 <span class="time"> <time>{{createat}}</time></span>\
                               </p>\
                               <p class="center">\
@@ -272,76 +261,95 @@
                   </li>\
                   {{/data}}\
                 </ul>\
-                          <form id="picForm2"><div id="leave-words2" style="z-index:999999;">\
-                              <div id="bgfff"></div>\
-                              <div class="topborder">\
-                                  <div class="boxhf">\
-                                      <textarea placeholder="请输入最新评论..."></textarea>\
-                                      <button id="commit2" class="commit">提交</button>\
-                                  </div>\
-                              </div>\
-                          </div></form>\
+                <form id="picForm2"><div id="leave-words2" style="z-index:999999;">\
+                  <div id="bgfff"></div>\
+                  <div class="topborder">\
+                      <div class="boxhf">\
+                          <textarea placeholder="请输入最新评论..."></textarea>\
+                          <button id="commit2" class="commit">提交</button>\
+                      </div>\
+                  </div>\
+                </div></form>\
                 <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
-                <script src="../js/BigPictureOpen.js"></script>\
-                <script>\
-                /*默认显示2条二级评论*/\
-                $(".words").each(function(){\
-                    $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
-                    $(this).children(".son-comments").eq(0).css("display","block");\
-                    $(this).children(".son-comments").eq(1).css("display","block");\
-                    $(this).children(".son-comments").eq(0).addClass("Noslide");\
-                    $(this).children(".son-comments").eq(1).addClass("Noslide");\
-                    if($(this).children(".son-comments").length<3){\
-                     $(this).children(".review").css("display","none");\
-                    }\
-                });\
-                /*判断是否有图片*/\
-                $(".imglist").each(function(){\
-                    if($(this).children(".img").length>0){\
-                     $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
-                    }\
-                });\
-                /*图片点击放大*/\
-                $(function(){\
-                    $(".pimg").click(function(){\
-                        var _this = $(this);\
-                        imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
+                <div id="scripts">\
+                    <script src="../js/imgUp.js"></script>\
+                    <script>\
+                    /*上传图片*/\
+                    $(function(){\
+                        $("#file").takungaeImgup({\
+                            formData: { "path": "Content/Images/", "name": "uploadpic" },\
+                            url: urlport+"picture/uploadPictureBase64", \
+                            success: function (data) {\
+                            console.log(data);\
+                            },\
+                            error: function (err) {\
+                                alert(err);\
+                            }\
                     });\
-                });\
-                /*选中单张图片*/\
-                var $onlyone = $(".onlyone:contains(1)").parent();\
-                $onlyone.find("img").removeClass("img");\
-                /*单张图片大小等比例自适应*/\
-                objImg=$onlyone.find("img");\
-                for(var i=0;i<objImg.length;i++){\
-                    maxWidth=267;\
-                    maxHeight=181;\
-                    var img = new Image();\
-                    img.src = objImg[i].src;\
-                    var hRatio;\
-                    var wRatio;\
-                    var Ratio = 1;\
-                    var w = img.width;\
-                    var h = img.height;\
-                    wRatio = maxWidth / w;\
-                    hRatio = maxHeight / h;\
-                    if (maxWidth ==0 && maxHeight==0){\
-                        Ratio = 1;\
-                    }else if (maxWidth==0){\
-                        if (hRatio<1) Ratio = hRatio;\
-                    }else if (maxHeight==0){\
-                        if (wRatio<1) Ratio = wRatio;\
-                    }else if (wRatio<1 || hRatio<1){\
-                        Ratio = (wRatio<=hRatio?wRatio:hRatio);\
+                    })\
+                    </script>\
+                    <script src="../js/BigPictureOpen.js"></script>\
+                    <script>\
+                    /*默认显示2条二级评论*/\
+                    $(".words").each(function(){\
+                        $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
+                        $(this).children(".son-comments").eq(0).css("display","block");\
+                        $(this).children(".son-comments").eq(1).css("display","block");\
+                        $(this).children(".son-comments").eq(0).addClass("Noslide");\
+                        $(this).children(".son-comments").eq(1).addClass("Noslide");\
+                        if($(this).children(".son-comments").length<3){\
+                         $(this).children(".review").css("display","none");\
+                        }\
+                    });\
+                    /*判断是否有图片*/\
+                    $(".imglist").each(function(){\
+                        if($(this).children(".img").length>0){\
+                         $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
+                        }\
+                    });\
+                    /*图片点击放大*/\
+                    $(function(){\
+                        $(".pimg").click(function(){\
+                            var _this = $(this);\
+                            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
+                        });\
+                    });\
+                    /*选中单张图片*/\
+                    var $onlyone = $(".onlyone:contains(1)").parent();\
+                    $onlyone.find("img").removeClass("img");\
+                    /*单张图片大小等比例自适应*/\
+                    objImg=$onlyone.find("img");\
+                    for(var i=0;i<objImg.length;i++){\
+                        maxWidth=267;\
+                        maxHeight=181;\
+                        var img = new Image();\
+                        img.src = objImg[i].src;\
+                        var hRatio;\
+                        var wRatio;\
+                        var Ratio = 1;\
+                        var w = img.width;\
+                        var h = img.height;\
+                        wRatio = maxWidth / w;\
+                        hRatio = maxHeight / h;\
+                        if (maxWidth ==0 && maxHeight==0){\
+                            Ratio = 1;\
+                        }else if (maxWidth==0){\
+                            if (hRatio<1) Ratio = hRatio;\
+                        }else if (maxHeight==0){\
+                            if (wRatio<1) Ratio = wRatio;\
+                        }else if (wRatio<1 || hRatio<1){\
+                            Ratio = (wRatio<=hRatio?wRatio:hRatio);\
+                        }\
+                        if (Ratio<1){\
+                            w = w * Ratio;\
+                            h = h * Ratio;\
+                        }\
+                        objImg[i].height = h;\
+                        objImg[i].width = w;\
                     }\
-                    if (Ratio<1){\
-                        w = w * Ratio;\
-                        h = h * Ratio;\
-                    }\
-                    objImg[i].height = h;\
-                    objImg[i].width = w;\
-                }\
-                </script>\
+                    </script>\
+                </div>\
+                </div>\
                 ';
 
                 res.data.forEach(function (item, index) {
@@ -353,17 +361,26 @@
                     }
                 });
 
-
                 res.data.forEach(function (item, index) {
                     item.sonCommentList.forEach(function (item, index) {
                         item.createat = new Date(item.createat).app();
                     });
                 });
 
-
                 Mustache.parse(template);
                 var rendered = Mustache.render(template, res);
-                $('.ft-comment').empty().append($(rendered));
+                // $('.ft-comment').empty().append($(rendered));
+                $('.ft-comment').append($(rendered));
+                $(".ft-comment").prepend($("#ft-header"));
+                $(".ft-comment").append($("#picForm"));
+                $(".ft-comment").append($("#picForm2"));
+                $(".ft-comment").append($("#outerdiv"));
+                $(".ft-comment").append($("#script"));
+                $(".loadbox #ft-header").remove();
+                $(".loadbox #picForm").remove();
+                $(".loadbox #picForm2").remove();
+                $(".loadbox #outerdiv").remove();
+                $(".loadbox #scripts").remove();
 
                 /*留言*/
                 $('.leavewords').on('click', function (e) {
@@ -469,7 +486,7 @@
                     });
                 }
 
-                $('.reply').on('click', function (e) {
+                $('.reply').unbind().click(function(e){
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
@@ -562,17 +579,14 @@
                 }
 
                 /*查看回复*/
-                $(".review").on("click", function (e) {
-                    classname = $(e.target).attr("class");
-                    if (classname = "review") {
-                        var $soncomments = $(e.target).parent().find(".son-comments");//选中当前二级评论
-                        if ($(e.target).text() !== "收起") {
-                            $soncomments.not(".Noslide").css("display", "block");
-                            $(e.target).text("收起");
-                        } else if ($(e.target).text() == "收起") {
-                            $soncomments.not(".Noslide").css("display", "none");
-                            $(e.target).text("共" + $soncomments.length + "条回复")
-                        }
+                $('.review').unbind().click(function(e){
+                    var $soncomments = $(e.target).parent().find(".son-comments");//选中当前二级评论
+                    if ($(e.target).text() !== "收起") {
+                        $soncomments.not(".Noslide").css("display", "block");
+                        $(e.target).text("收起");
+                    } else if ($(e.target).text() == "收起") {
+                        $soncomments.not(".Noslide").css("display", "none");
+                        $(e.target).text("共" + $soncomments.length + "条回复")
                     }
                 });
 
@@ -610,6 +624,11 @@
                     $(this).unbind("click");
                 });
             }
+
+            if (data.length == 0) {
+                $(".loading").remove();
+            }
+
             function refresh(homeurl) {
                 console.log(homeurl);
                 // alert(homeurl);
@@ -618,23 +637,28 @@
             }
         }
 
-
-        var isEmpty=false;
-        $(window).unbind('scroll').bind('scroll', $api.throttle(function (e) {
-            if (isEmpty) return false;
-            // isEmpty = true;
+        /*下拉加载*/
+        var isEmpty = true;
+        function haha() {
             var scrollTop = $(this).scrollTop();
             var windowHeight = $(this).height();
             var scrollHeight = $(document).height();
             if (scrollTop + windowHeight == scrollHeight) {
-                if (isEmpty) return false;
                 pageNum = pageNum + 1;
                 loadComment(obj, pageNum);
             }
-        }, 500, 500));
+            isEmpty = true;
+        }
+        window.onscroll = function () {
+            if (isEmpty) {
+                setTimeout(haha, 1000);
+                isEmpty = false;
+            }
+        }
+
 
     }
 
-
     $.loadComment = loadComment;
+
 }();
