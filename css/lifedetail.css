@@ -47,7 +47,7 @@
 }
 .title .txt{
 	width: 6.1rem;
-	height: 0.4rem;
+	max-height: 0.4rem;
 	text-align: center;
 	font-size: 0.28rem;
 	font-weight: bold;

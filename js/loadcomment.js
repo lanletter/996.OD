@@ -87,7 +87,10 @@
                             }
                         });
                     } else {
-                           window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                        // userid = 120520;
+                        // $('#leave-words').show();
+                        // test1(userid);
                     }
                 });
 
@@ -397,8 +400,10 @@
                             }
                         });
                     } else {
-                           window.location.href="http://download.fotilestyle.com/?utm-source=share";
-
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                        // userid = 120520;
+                        // $('#leave-words').show();
+                        // test2(userid);
                     }
                 });
 
@@ -501,8 +506,13 @@
                             }
                         });
                     } else {
-                           window.location.href="http://download.fotilestyle.com/?utm-source=share";
-
+                        window.location.href="http://download.fotilestyle.com/?utm-source=share";
+                        // $(e.target).attr("id");     // e.target表示被点击的目标
+                        // var $come = $(e.target).siblings(".key");//数据来自于
+                        // parentid = $come.find('.Id').text();
+                        // userid = 120520;
+                        // $('#leave-words2').show();
+                        // test(parentid, userid);
                     }
                 });
                 function test(parentid, userid) {
@@ -611,7 +621,7 @@
                 });
             }
 
-            if (data.length == 0) {
+            if (data.length == 0 || obj.pageNum == 1) {
                 $(".loading").remove();
             }
 

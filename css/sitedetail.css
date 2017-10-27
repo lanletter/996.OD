@@ -671,3 +671,13 @@ rgb(130,130,130);
 	color: #fff;
 	font-size:0.28rem ;
 }
+
+.confine{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	font-size: 12px;
+	color: rgb(47,47,47);
+	margin-right: 0.46rem;
+	margin-bottom: 0.08rem;
+}
