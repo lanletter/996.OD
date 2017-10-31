@@ -83,14 +83,18 @@
 }
 
 .ft-comment__content .bottom .time {
-  display: inline-block;
   font-size: 0.16rem;
   color: rgb(201,203,213);
-  position: absolute;
-  left: 0;
-  float: left;
-  text-align: right;
+  margin-right: 0.24rem;
 }
+.ft-comment__content .bottom .delete{
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgb(95,101,137);
+  line-height: 0.42rem;
+  display: none;
+}
+
 .son-comments .time {
   display: inline-block;
   width: 1.36rem;
@@ -257,6 +261,14 @@
   font-size: 0.16rem;
   color: rgb(201,203,213);
   line-height: 0.42rem;
+}
+.son-comments .delete {
+  margin-left: 0.24rem;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgb(95,101,137);
+  line-height: 0.42rem;
+  display: none;
 }
 
 .ft-comment__content .words{

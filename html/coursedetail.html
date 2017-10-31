@@ -164,8 +164,7 @@
                 <li class="boedert">
                     <span class="span14">优惠券：</span>
                     <a href="#" class="coupon" id="selectCoupon">选择优惠券</a>
-                    <p style="display: none;border: 1px solid red"><span class="coupontype"></span><span
-                            class="couponumber"></span></p>
+                    <p style="display: none;border: 1px solid red"><span class="coupontype"></span><span class="couponumber"></span></p>
                 </li>
                 <li class="boedert" style="padding-bottom: 0rem;">
                     <span class="span14">备注：</span>
@@ -292,6 +291,11 @@
                         });
                     }
 
+                    /*是否有人数说明*/
+                    if(data.countDesc==null){
+                        $('.confine').css('display','none');
+                    }
+
                     /*title取值*/
                     var txt = data.title;
                     if (txt == undefined) {
@@ -338,7 +342,6 @@
                         }
                         ;
                         return add0(month) + '月' + add0(date) + '日 周' + week;
-
                     }
 
                     function datatime2(starttime) {

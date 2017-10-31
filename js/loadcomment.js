@@ -5,6 +5,7 @@
         console.log(obj);
         obj.pageNum = pageNum;
         var userid = obj.userId;
+        // alert(userid);
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
@@ -223,8 +224,9 @@
                           <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
                         </p>\
                         <p class="bottom">\
-                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
+                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                           <span class="time"> <time>{{createat}}</time></span>\
+                          <button class="delete" id="delete{{id}}">删除</button>\
                           <button class="reply" id="reply{{id}}">回复</button>\
                           <span class="dot">•</span>\
                           <button class="praise">{{likeCount}}</button>\
@@ -233,7 +235,7 @@
                           {{#sonCommentList}}\
                             <div class="son-comments" style="display: none;">\
                               <p class="right">\
-                                <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span></span>\
+                                <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                 <span class="title-box clearfix left-right">\
                                 <span class="left name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
                                 </span>\
@@ -243,6 +245,7 @@
                                 <button class="praise">{{likeCount}}</button>\
                                 <span class="dot">•</span>\
                                 <button class="reply" id="replyy{{id}}">回复</button>\
+                                <button class="delete" id="delete{{id}}">删除</button>\
                                 <span class="time"> <time>{{createat}}</time></span>\
                               </p>\
                               <p class="center">\
@@ -265,7 +268,7 @@
                   <div class="topborder">\
                       <div class="boxhf">\
                           <textarea placeholder="请输入最新评论..."></textarea>\
-                          <button id="commit2" class="commit">提交</button>\
+                          <div id="commit2" class="commit">提交</div>\
                       </div>\
                   </div>\
                 </div></form>\
@@ -353,11 +356,6 @@
 
                 res.data.forEach(function (item, index) {
                     item.createat = new Date(item.createat).app();
-                    // console.log(item.commentPictureList);
-                    if (item.commentPictureList.length == 1) {
-                        var onlyone = item.id;
-                        // console.log(onlyone);
-                    }
                 });
 
                 res.data.forEach(function (item, index) {
@@ -586,9 +584,48 @@
                     }
                 });
 
+                /*判断评论来源 */
+                if (userid !== 1) {
+                    console.log($(".userId :contains("+userid+")").text());
+                    var $delete = $(".userId :contains("+userid+")");
+                    var $nodelete1=$(".otstatus :contains(2)");
+                    var $nodelete2=$(".status :contains(EBL)");
+                    $delete.parent().parent().siblings(".delete").css("display","inline-block");
+                    $nodelete1.parent().parent().siblings(".delete").css("display","none");
+                    // $(".otstatus :contains(2)").parentsUntil(".boxright2").find(".text").text("此评论已被用户删除");
+                    // $nodelete2.parent().parent().siblings(".delete").css("display","none");
+                } else {
+                    $(".delete").css("display","none");
+                }
+
+                /*删除 */
+                $('.delete').unbind().click(function(e){
+                    if(confirm("确定要删除品评论吗？")) {
+                        $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        var deleteid = $come.find('.Id').text();
+                        alert("userId:" + userid + "deleteid:" + deleteid);
+                        $.ajax({
+                            type: 'POST',
+                            url: urlport+"comment/del",
+                            datatype: "json",
+                            data: JSON.stringify({
+                                userId: userid,
+                                id: deleteid
+                            }),
+                            contentType: 'application/json;charset=UTF-8',
+                            success: function (ret) {
+                                // console.log(ret);
+                                alert(JSON.stringify(ret));
+                                refresh(homeurl);
+                            }
+                        });
+                    } else {return;}
+                });
+
                 /*判断点赞 */
                 if (userid !== 1) {
-                    //console.log($(".isLike :contains(1)").text());
+                    console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
                     var $unlike = $(".isLike :contains(0)");
                     $like.parent().parent().siblings(".praise").addClass("praisebg2");
@@ -651,7 +688,6 @@
                 isEmpty = false;
             }
         }
-
 
     }
 
