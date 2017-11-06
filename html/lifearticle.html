@@ -75,9 +75,7 @@
 
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
-    <div class="loading">
-        <p>努力加载中…</p>
-    </div>
+    <div id="loading"></div>
 </div>
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/lib.js'></script>
@@ -98,7 +96,7 @@
     }
     var id = GetQueryString("id");
     if(id==null){
-        id=439;
+        id=692;
     }
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
@@ -181,6 +179,7 @@
             function callback(res) {
                 if (res.status !== 200) {
                     alert(res.errorMessage);
+                    window.location.href = "lose.html";
                     return;
                 }
                 var data = res.data;

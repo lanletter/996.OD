@@ -5,7 +5,7 @@
         console.log(obj);
         obj.pageNum = pageNum;
         var userid = obj.userId;
-        // alert(userid);
+        // var userid = 120520;
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
@@ -17,7 +17,13 @@
             var data = res.data;
             console.log(data);
             isEmpty = data.length;
+
+            if (data.length == 0) {
+                $("#loading").remove();
+            }
+
             if (data.length == 0 && obj.pageNum == 1) {
+                $("#loading").remove();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
@@ -229,7 +235,7 @@
                           <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                           <span class="time"> <time>{{createat}}</time></span>\
                           <button class="delete" id="delete{{id}}">删除</button>\
-                          <button class="reply" id="reply{{id}}">回复</button>\
+                          <button class="reply rpbutton" id="reply{{id}}">回复</button>\
                           <span class="dot">•</span>\
                           <button class="praise">{{likeCount}}</button>\
                         </p>\
@@ -238,15 +244,13 @@
                             <div class="son-comments" style="display: none;">\
                               <p class="right">\
                                 <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                                <span class="title-box clearfix left-right">\
-                                <span class="left name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
-                                </span>\
-                                <span class="text">\
-                                    {{content}}\
+                                <span class="title-box rpbutton" id="reply{{id}}">\
+                                    <span class="name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
+                                    <span class="text">\
+                                        {{content}}\
+                                    </span>\
                                 </span>\
                                 <button class="praise">{{likeCount}}</button>\
-                                <span class="dot">•</span>\
-                                <button class="reply" id="replyy{{id}}">回复</button>\
                                 <button class="delete" id="delete{{id}}">删除</button>\
                                 <span class="time"> <time>{{createat}}</time></span>\
                               </p>\
@@ -483,11 +487,10 @@
                             console.log(data);
                             $api.toast('评论创建成功！', 3000);
                         }
-
                     });
                 }
 
-                $('.reply').unbind().click(function (e) {
+                $('.rpbutton').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
@@ -510,7 +513,8 @@
                         });
                     } else {
                         // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        $(e.target).attr("id");     // e.target表示被点击的目标
+                        var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
+                        alert(targetid);
                         var $come = $(e.target).siblings(".key");//数据来自于
                         parentid = $come.find('.Id').text();
                         userid = 120520;
@@ -555,7 +559,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + parentid;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
+                        alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
                         $.ajax({
                             type: "get",
                             url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
@@ -625,7 +629,7 @@
 
                 /*删除 */
                 $('.delete').unbind().click(function (e) {
-                    if (confirm("确定要删除品评论吗？")) {
+                    if (confirm("确定要删除评论吗？")) {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
                         var deleteid = $come.find('.Id').text();
@@ -683,10 +687,6 @@
                     }
                     $(this).unbind("click");
                 });
-            }
-
-            if (data.length == 0 || obj.pageNum == 1) {
-                $(".loading").remove();
             }
 
             function refresh(homeurl) {

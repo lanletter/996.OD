@@ -179,7 +179,6 @@
 }
 .ft-comment__content .title-box{
   display: block;
-  padding-right: 0.2rem;
 }
 
 .ft-comment__content .text {
@@ -262,8 +261,11 @@
   color: rgb(201,203,213);
   line-height: 0.42rem;
 }
+.son-comments .rpbutton span {
+  pointer-events: none;
+}
 .son-comments .delete {
-  margin-left: 0.24rem;
+  margin-left: 0.04rem;
   font-size: 12px;
   letter-spacing: 2px;
   color: rgb(95,101,137);
@@ -318,6 +320,10 @@
   width: 0.72rem;
   height: 0.72rem;
   border-radius: 50%;
+}
+
+.son-comments .sondiv{
+
 }
 .son-comments .name {
   font-size: 16px;
@@ -691,19 +697,19 @@
   border-right: 1px solid #D1D1D1;
 }
 
-.loading{
+#loading{
   width: 100%;
   height: 1.36rem;
   line-height: 1.36rem;
   text-align: center;
-  background:#D1D1D1 url(../img/loading.gif) 2rem center no-repeat;
+  background:#ffffff url(../img/loading.gif) center no-repeat;
 }
-.loading p{
-  color: #ffffff;
-}
-.loading p:first-child{
-  font-size: 12px;
-}
-.loading p:first-child{
-  font-size: 8px;
-}
+/*#loading p{*/
+  /*color: #ffffff;*/
+/*}*/
+/*#loading p:first-child{*/
+  /*font-size: 12px;*/
+/*}*/
+/*#loading p:first-child{*/
+  /*font-size: 8px;*/
+/*}*/
