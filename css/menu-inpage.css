@@ -579,4 +579,40 @@ html, body {
   letter-spacing: 0.024rem;
   display: none;
 }
-
+.jiange{
+  width: 7.5rem;
+  height: 0.12rem;
+  background-color: rgb(237,237,237);
+}
+#photograph{
+  width:7.5rem;
+  height: 2.72rem;
+  border-top:1px solid #ededed;
+}
+#photograph .camera img{
+  padding-top: 0.48rem;
+  padding-bottom: 0.28rem;
+  display: block;
+  width: 0.92rem;
+  height:0.76rem;
+  margin: 0 auto;
+}
+#photograph .txt{
+  margin: 0 auto;
+}
+#photograph .txt h5{
+  text-align: center;
+  line-height:0.4rem;
+  font-size:14px;
+  color: rgb(47,47,47);
+  padding-bottom: 4px;
+}
+#photograph .txt .txt2{
+  text-align: center;
+  line-height: 14px;
+  font-size:10px;
+  color: rgb(195,195,195);
+  -webkit-text-size-adjust: none;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+}
