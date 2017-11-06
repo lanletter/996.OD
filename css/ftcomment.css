@@ -21,9 +21,10 @@
   padding: 0.16rem 0.24rem;
 }
 
-.loadbox .ft-comment-ul{z-index: -1;}
-
-
+.loadbox .ft-comment-ul{
+  z-index: -1;
+  padding-left: 0.16rem;
+}
 .ft-comment__header {
   padding: 0 0.24rem;
   margin-bottom: 0.16rem;
