@@ -87,7 +87,7 @@
                                 <strong>总名额</strong>
                             </p>
                         </div>
-                        <span class="confine">每个名额限<b>两人</b>参加</span>
+                        <span class="countdesc">每个名额限<b>两人</b>参加</span>
                     </li>
                     <li class="food-type">
                         <div>
@@ -291,7 +291,9 @@
 
                     /*是否有人数说明*/
                     if(data.countDesc==null){
-                        $('.confine').css('display','none');
+                        $('.countdesc').css('display','none');
+                    }else{
+                        $('.countdesc').text(data.countDesc);
                     }
 
                     /*title取值*/
@@ -537,7 +539,6 @@
                         shop(aLi[i]);
                     }
                     function shop(obj, num, price) {
-                        console.log(data);
                         var aInp = obj.getElementsByTagName('input');
                         var aSpan = obj.getElementsByTagName('span');
                         var num = parseInt(aSpan[0].innerHTML);
