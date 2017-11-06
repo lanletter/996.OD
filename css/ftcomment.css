@@ -89,11 +89,16 @@
   margin-right: 0.24rem;
 }
 .ft-comment__content .bottom .delete{
-  font-size: 12px;
+  font-size: 11px;
+  position: relative;
   letter-spacing: 2px;
   color: rgb(95,101,137);
   line-height: 0.42rem;
   display: none;
+  -webkit-text-size-adjust: none;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+
 }
 
 .son-comments .time {
