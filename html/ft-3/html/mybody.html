@@ -111,6 +111,7 @@
         return null;
     }
     var userid = GetQueryString("userId");
+    alert(userid);
 
     var vm = new Vue({
         el: '.topic',
@@ -139,6 +140,7 @@
                 var data = data.data;
                 if (data.status == 200) {
                     console.log(data);
+//                  alert(JSON.stringify(data));
                     this.type = data.data.type;
                     this.mybody = data.data.health;
                     this.ingredients = data.data.materialList;
