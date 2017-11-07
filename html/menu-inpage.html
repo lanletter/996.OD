@@ -149,7 +149,6 @@
             </div>
         </div>
     </div>
-
     <div class="equipment" id="devices">
         <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
         <ul class="h_box">
@@ -171,7 +170,6 @@
             <h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>
             <p class="txt2">您可以在下方的评论模块发表您的心得体会</p>
         </div>
-
     </div>
 
     <!--<div class="bottomdiv"></div>-->
@@ -343,6 +341,7 @@
                     }
                     if (data.data.devices.length == 0) {
                         $("#devices").css("display", "none");
+                        $(".jiange:eq(0)").remove();
                     }
                     if (data.data.classification.length == 0) {
                         $("#classification").css("display", "none");
