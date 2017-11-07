@@ -69,8 +69,9 @@
                         $span.appendTo($section);
                         var $img0 = $("<img class='close-upimg'>").on("click", function (event) {
                             event.preventDefault();
-                            $(".works-mask").show();
+                            // $(".works-mask").show();
                             delParent = $(this).parent();
+                            $(".wsdel-ok").click();
                         });
                         $img0.attr("src", "../img/a7.png").appendTo($section);
                         var $img = $("<img class='up-img up-opcity'>");
@@ -97,8 +98,9 @@
 
             $(".z_photo").delegate(".close-upimg", "click", function (event) {
                 event.preventDefault();
-                $(".works-mask").show();
+                // $(".works-mask").show();
                 delParent = $(this).parent();
+                $(".wsdel-ok").click();
                 console.log(delParent.html() + "delegzat=======");
             });
 

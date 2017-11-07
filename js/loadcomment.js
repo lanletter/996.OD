@@ -111,7 +111,7 @@
                 function test1(userid) {
                     $('#commit').on('click', function (e) {
                         var words = $('#leave-words'),
-                            content = words.find('textarea').val().trim();
+                            content = words.find('textarea').val();
                         var picid = $('#ssr .picid');
                         var picarr = [];
 
@@ -128,7 +128,7 @@
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -235,7 +235,7 @@
                           <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                           <span class="time"> <time>{{createat}}</time></span>\
                           <button class="delete" id="delete{{id}}">删除</button>\
-                          <button class="reply rpbutton" id="reply{{id}}">回复</button>\
+                          <span class="reply rpbutton" id="reply{{id}}">回复</span>\
                           <span class="dot">•</span>\
                           <button class="praise">{{likeCount}}</button>\
                         </p>\
@@ -273,9 +273,7 @@
                   <div id="bgfff"></div>\
                   <div class="topborder">\
                       <div class="boxhf">\
-                      	  <form action="" onsubmit="return false;"> \
                           	<input class="textarea" placeholder="请输入最新评论..."/>\
-                          </form>\
                           <div style="display:none;" id="commit2" class="commit" onkeydown="keyCode(event);">提交</div>\
                       </div>\
                   </div>\
@@ -395,6 +393,7 @@
                             //alert(errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                alert(userid);
                                 $('#leave-words').show();
                                 test2(userid);
                             } else if (errorCode == "0") {
@@ -425,7 +424,7 @@
                 function test2(userid) {
                     $('#commit').on('click', function (e) {
                         var words = $('#leave-words'),
-                            content = words.find('textarea').val().trim();
+                            content = words.find('textarea').val();
                         var picid = $('#ssr .picid');
                         var picarr = [];
 
@@ -442,7 +441,7 @@
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -494,13 +493,13 @@
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
-                        //var $putin = $(e.target).closest("li");  //数据存放处
                         parentid = $come.find('.Id').text();
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
                             //alert(errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                alert(userid);
                                 $('#leave-words2').show();
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
@@ -514,9 +513,9 @@
                     } else {
                         // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
                         var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
-                        alert(targetid);
                         var $come = $(e.target).siblings(".key");//数据来自于
                         parentid = $come.find('.Id').text();
+                        alert(parentid);
                         userid = 120520;
                         $('#leave-words2').show();
                         test(parentid, userid);
@@ -544,7 +543,6 @@
                     };
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
-                        // var content = words.find('textarea').val();
                         var content = words.find('.textarea').val();
                         console.log(content);
                         if (!content) {
@@ -690,7 +688,6 @@
             }
 
             function refresh(homeurl) {
-                console.log(homeurl);
                 // alert(homeurl);
                 window.location.href = homeurl;
                 window.event.returnValue = false;

@@ -64,8 +64,8 @@ Date.prototype.app=function() {
     var now = new Date().getTime();
     var dif = now - time;
     if (dif < 0) return '刚刚';
-    if (dif < 10*60*1000) {
-        return '刚刚';
+    if (dif < 60*1000) {
+        return Math.floor(dif/(1000))+'秒前';
     } else if (dif < 60*60*1000) {
         return Math.floor(dif/(1000*60))+'分钟前';
     } else if (dif < 24*60*60*1000) {
@@ -74,9 +74,9 @@ Date.prototype.app=function() {
         return Math.floor(dif/(1000*60*60*24))+'天前';
     } else {
         if (this.getYear() == new Date().getYear()) {
-            return (this.getMonth()+1)+'.'+this.getDate();
+            return this.getFullYear()+'-'+(this.getMonth()+1)+'-'+this.getDate()+' '+this.getHours()+':'+this.getMinutes()+':'+this.getSeconds();
         } else {
-            return this.getFullYear()+'.'+(this.getMonth()+1)+'.'+this.getDate();
+            return this.getFullYear()+'-'+(this.getMonth()+1)+'-'+this.getDate()+' '+this.getHours()+':'+this.getMinutes()+':'+this.getSeconds();
         }
     }
 }
