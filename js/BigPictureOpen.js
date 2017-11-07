@@ -16,10 +16,7 @@ function imgShow(outerdiv, innerdiv, bigimg, _this){
             imgWidth = imgHeight/realHeight*realWidth;//等比例缩放宽度
             if(imgWidth>windowW*scale) {//如宽度扔大于窗口宽度
                 imgWidth = windowW*scale;//再对宽度进行缩放
-            }
-            if(imgWidth>windowW*scale && imgHeight>windowH*scale){
-                imgWidth = windowW*scale;//再对宽度进行缩放
-                imgHeight = windowH*scale;//再对高度进行缩放
+                imgHeight = imgWidth/realWidth*realHeight;//等比例缩放高度
             }
         } else if(realWidth>windowW*scale) {//如图片高度合适，判断图片宽度
             imgWidth = windowW*scale;//如大于窗口宽度，图片宽度进行缩放
