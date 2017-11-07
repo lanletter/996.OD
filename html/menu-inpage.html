@@ -341,7 +341,7 @@
                     }
                     if (data.data.devices.length == 0) {
                         $("#devices").css("display", "none");
-                        $("div.jiange").eq[0].css("height", "0");
+                        $(".jiange:eq(0)").remove();
                     }
                     if (data.data.classification.length == 0) {
                         $("#classification").css("display", "none");
