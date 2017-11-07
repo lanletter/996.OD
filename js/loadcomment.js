@@ -19,11 +19,11 @@
             isEmpty = data.length;
 
             if (data.length == 0) {
-                $("#loading").remove();
+                $("#loading").css("display","none");
             }
 
             if (data.length == 0 && obj.pageNum == 1) {
-                $("#loading").remove();
+                $("#loading").css("display","none");
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
@@ -77,14 +77,16 @@
                 $('.ft-comment').empty().append($(rendered0));
 
                 /*留言*/
-                $('.leavewords').on('click', function (e) {
+                $('.leavewords').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
-                            //alert(errorcode);
+                            // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                // alert("第一次"+userid);
                                 $('#leave-words').show();
+                                // alert("第二次"+userid);
                                 test1(userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -95,10 +97,10 @@
                             }
                         });
                     } else {
-                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        userid = 120520;
-                        $('#leave-words').show();
-                        test1(userid);
+                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        // userid = 120520;
+                        // $('#leave-words').show();
+                        // test1(userid);
                     }
                 });
 
@@ -386,15 +388,16 @@
                 $(".loadbox #scripts").remove();
 
                 /*留言*/
-                $('.leavewords').on('click', function (e) {
+                $('.leavewords').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
-                            //alert(errorcode);
+                            // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-                                alert(userid);
+                                // alert("第一次"+userid);
                                 $('#leave-words').show();
+                                // alert("第二次"+userid);
                                 test2(userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -405,10 +408,10 @@
                             }
                         });
                     } else {
-                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        userid = 120520;
-                        $('#leave-words').show();
-                        test2(userid);
+                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        // userid = 120520;
+                        // $('#leave-words').show();
+                        // test2(userid);
                     }
                 });
 
@@ -496,11 +499,12 @@
                         parentid = $come.find('.Id').text();
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
-                            //alert(errorcode);
+                            // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-                                alert(userid);
+                                // alert("第一次"+userid);
                                 $('#leave-words2').show();
+                                // alert("第二次"+userid);
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -511,14 +515,14 @@
                             }
                         });
                     } else {
-                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
-                        var $come = $(e.target).siblings(".key");//数据来自于
-                        parentid = $come.find('.Id').text();
-                        alert(parentid);
-                        userid = 120520;
-                        $('#leave-words2').show();
-                        test(parentid, userid);
+                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        // var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
+                        // var $come = $(e.target).siblings(".key");//数据来自于
+                        // parentid = $come.find('.Id').text();
+                        // alert(parentid);
+                        // userid = 120520;
+                        // $('#leave-words2').show();
+                        // test(parentid, userid);
                     }
                 });
 
