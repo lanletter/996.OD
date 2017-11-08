@@ -92,7 +92,7 @@
             $("#delete1").css("display", "none");
             return false;
         }
-        if (!(/^[A-Za-z0-9]{6,20}$/.test(password))) {
+        if (!(/^.{6,20}$/.test(password))) {
             alert('密码输入有误，请重新输入');
             document.getElementById("password").value = "";
             $("#delete2").css("display", "none");
