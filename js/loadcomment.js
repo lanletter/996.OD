@@ -19,11 +19,11 @@
             isEmpty = data.length;
 
             if (data.length == 0) {
-                $("#loading").css("display","none");
+                $("#loading").css("display", "none");
             }
 
             if (data.length == 0 && obj.pageNum == 1) {
-                $("#loading").css("display","none");
+                $("#loading").css("display", "none");
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
@@ -84,9 +84,7 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-                                // alert("第一次"+userid);
                                 $('#leave-words').show();
-                                // alert("第二次"+userid);
                                 test1(userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -107,11 +105,11 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
-                    // refresh(homeurl);
+                    isdelete();
                 });
 
                 function test1(userid) {
-                    $('#commit').on('click', function (e) {
+                    $('#commit').unbind().click(function (e) {
                         var words = $('#leave-words'),
                             content = words.find('textarea').val();
                         var picid = $('#ssr .picid');
@@ -395,9 +393,7 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-                                // alert("第一次"+userid);
                                 $('#leave-words').show();
-                                // alert("第二次"+userid);
                                 test2(userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -418,14 +414,15 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
-                    // refresh(homeurl);
+                    isdelete();
                 });
                 $('#bgfff').on('click', function () {
                     $('#leave-words2').hide();
+                    isdelete();
                 });
 
                 function test2(userid) {
-                    $('#commit').on('click', function (e) {
+                    $('#commit').unbind().click(function (e) {
                         var words = $('#leave-words'),
                             content = words.find('textarea').val();
                         var picid = $('#ssr .picid');
@@ -502,9 +499,7 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-                                // alert("第一次"+userid);
                                 $('#leave-words2').show();
-                                // alert("第二次"+userid);
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -534,12 +529,12 @@
                         var keyCode = e.keyCode || e.which;
                         switch (keyCode) {
                             case 13:
-                                if (confirm("确定提交评论吗？"))
-                                {
+                                if (confirm("确定提交评论吗？")) {
                                     $("#commit2").click();
                                 }
-                                else
-                                {return;}
+                                else {
+                                    return;
+                                }
                                 break;
                             default:
                                 break;
@@ -615,7 +610,7 @@
                     }
                 });
 
-                /*判断评论来源 */
+                /*是否出现删除按钮 */
                 if (userid !== 1) {
                     console.log($(".userId :contains(" + userid + ")").text());
                     var $delete = $(".userId :contains(" + userid + ")");
@@ -627,6 +622,14 @@
                     // $nodelete2.parent().parent().siblings(".delete").css("display","none");
                 } else {
                     $(".delete").css("display", "none");
+                }
+
+                /*公共：是否出现删除按钮*/
+                function isdelete() {
+                    var $delete = $(".userId :contains(" + userid + ")");
+                    var $nodelete1 = $(".otstatus :contains(2)");
+                    $delete.parent().parent().siblings(".delete").css("display", "inline-block");
+                    $nodelete1.parent().parent().siblings(".delete").css("display", "none");
                 }
 
                 /*删除 */
