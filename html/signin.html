@@ -64,10 +64,9 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
+        if (r != null)return unescape(r[2]);
         return null;
     }
-
     var id = GetQueryString("id");
     /*输入框选中效果*/
     $(document).ready(function () {
@@ -137,12 +136,10 @@
             $("#delete1").css("display", "none");
             return false;
         }
-
         /*倒计时60s*/
         function invokeSettime(obj) {
             var countdown = 60;
             settime(obj);
-
             function settime(obj) {
                 if (countdown == 0) {
                     $(obj).attr("disabled", false);
@@ -163,9 +160,7 @@
                 }, 1000)
             }
         }
-
         new invokeSettime("#verifycode");
-
         $.ajax({
             type: 'POST',
             url: 'https://h5.fotilestyle.com/AccountProxy/v2/verifycode',
@@ -179,7 +174,7 @@
 //              alert(ret);
                 /*string转json*/
                 var obj = eval('(' + ret + ')');
-                if (obj.resultCode == "2004") {
+                if(obj.resultCode=="2004"){
                     alert("请求次数太多");
                 }
             }
@@ -190,13 +185,15 @@
         if (!loginInputValid()) return;
         loginServer();
     });
-
     function loginInputValid() {
         var phone = document.getElementById('phonenum').value;
         var message = document.getElementById('message').value;
         var newpwd = document.getElementById('newpwd').value;
         var password = document.getElementById('password').value;
-        if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+        if(!phone){
+            alert('请输入手机号码');
+            return false;
+        }else if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
             alert('手机号码输入有误，请重新输入');
             document.getElementById("phonenum").value = "";
             $("#delete1").css("display", "none");
@@ -208,24 +205,19 @@
             $("#delete2").css("display", "none");
             return false;
         }
-
-//        if (!(/^[A-Za-z0-9]{6,20}$/.test(newpwd))) {
         if (!(/^.{6,20}$/.test(newpwd))) {
             alert('新密码输入有误，请重新输入');
             document.getElementById("newpwd").value = "";
             $("#delete3").css("display", "none");
             return false;
         }
+        if (newpwd !== password) {
+            alert('两次密码输入不一致');
+            document.getElementById("password").value = "";
+            $("#delete4").css("display", "none");
+        }
+        return true;
     }
-
-    if (newpwd !== password) {
-        alert('两次密码输入不一致');
-        document.getElementById("password").value = "";
-        $("#delete4").css("display", "none");
-    }
-    return true;
-    }
-
     function loginServer() {
 //        alert(JSON.stringify({
 //            phone: $("#phonenum").val(),
