@@ -95,7 +95,7 @@
         return null;
     }
     var id = GetQueryString("id");
-
+    is=692;
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
@@ -125,7 +125,7 @@
         $(function () {
             (function () {
                 var video = $('#videobox video')[0],
-                        playBtn = $('#videobox .play');
+                    playBtn = $('#videobox .play');
                 playBtn.on('click', function () {
                     $(this).hide();
                     var vheight = $("#videobox video").height();
@@ -348,7 +348,7 @@
                 $('.add-care').data('id', data.id).data('follow', false);
                 $('.authorbox').on('click', '.add-care', function (e) {
                     var id = $(e.target).data('id'),
-                            follow = $(e.target).data('follow');
+                        follow = $(e.target).data('follow');
                     if (follow) {
                         $api.post(urlport + 'follow/cookCancel', {
                             "refId": id,
