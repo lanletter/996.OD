@@ -210,7 +210,7 @@
     //记录是否阻止滚动
     var disableScroll = false;
     //如果弹出对话框时，底层的视图就不让滚动了
-    document.addEventListener('touchmove', function (e) {
+    document.addEventListener("touchmove", function (e) {
         if (disableScroll) {
             e.preventDefault();
         }
