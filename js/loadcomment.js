@@ -4,6 +4,9 @@
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
         obj.pageNum = pageNum;
+        var typecook = $.cookie('typecook');
+        var idcook = $.cookie('idcook');
+        var cookstring=typecook+idcook;
         var userid = obj.userId;
         // var userid = 120520;
 
@@ -33,7 +36,7 @@
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
-                  <textarea placeholder="请输入最新评论..."></textarea>\
+                  <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div class="imgup">\
                     <div class="img-box full">\
                       <section class="img-section">\
@@ -190,7 +193,7 @@
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
-                  <textarea placeholder="请输入最新评论..."></textarea>\
+                  <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div class="imgup">\
                     <div class="img-box full">\
                       <section class="img-section">\
@@ -245,7 +248,7 @@
                               <p class="right">\
                                 <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                 <span class="title-box rpbutton" id="reply{{id}}">\
-                                    <span class="name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a></span>\
+                                    <span class="name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a><b>：</b></span>\
                                     <span class="text">\
                                         {{content}}\
                                     </span>\
@@ -273,13 +276,14 @@
                   <div id="bgfff"></div>\
                   <div class="topborder">\
                       <div class="boxhf">\
-                          	<input class="textarea" placeholder="请输入最新评论..."/>\
+                          	<input class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
                           <div style="display:none;" id="commit2" class="commit" onkeydown="keyCode(event);">提交</div>\
                       </div>\
                   </div>\
                 </div></form>\
                 <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
             <div id="scripts">\
+            <script src="../js/alertdiy.js"></script>\
             <script src="../js/imgUp.js"></script>\
             <script>\
                 /*上传图片*/\
@@ -514,7 +518,7 @@
                         // var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
-                        // alert(parentid);
+                        // // alert(parentid);
                         // userid = 120520;
                         // $('#leave-words2').show();
                         // test(parentid, userid);
@@ -660,7 +664,7 @@
                 });
 
                 /*判断点赞 */
-                if (userid !== 1) {
+                if (userid !== 1 || cookstring!==null) {
                     console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
                     var $unlike = $(".isLike :contains(0)");
@@ -686,6 +690,8 @@
                         }, function (data) {
                             console.log(data);
                             console.log("111");
+                            $.cookie('typecook', typecook);
+                            $.cookie('idcook', idcook);
                         });
                     } else if (ispraise == "praisebg2") {
                         return;

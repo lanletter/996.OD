@@ -1,4 +1,9 @@
+var mo=function(e){e.preventDefault();};
+
 function imgShow(outerdiv, innerdiv, bigimg, _this){
+    document.body.style.overflow='hidden';
+    document.addEventListener("touchmove",mo,false);//禁止页面滑动
+
     var src = _this.attr("src");//获取当前点击的pimg元素中的src属性  
     $(bigimg).attr("src", src);//设置#bigimg元素的src属性  
 
@@ -36,5 +41,7 @@ function imgShow(outerdiv, innerdiv, bigimg, _this){
 
     $(outerdiv).click(function(){//再次点击淡出消失弹出层  
         $(this).fadeOut("fast");
+        document.body.style.overflow='';//出现滚动条
+        document.removeEventListener("touchmove",mo,false);
     });
 }
