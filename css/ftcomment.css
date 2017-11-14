@@ -247,10 +247,10 @@
   float: right;
 }
 .ft-comment__content .bottom .reply {
-  font-size: 0.16rem;
+  font-size: 0.23rem;
   color: rgb(201,203,213);
   float: right;
-  line-height: 0.42rem;
+  line-height: 0.45rem;
 }
 .son-comments .dot {
   font-size: 0.12rem;
@@ -267,7 +267,7 @@
 }
 .son-comments .delete {
   position: relative;
-  top:0.02rem;
+  top:0.04rem;
   margin-left: 0.04rem;
   font-size: 12px;
   letter-spacing: 2px;
