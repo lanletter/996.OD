@@ -21,12 +21,12 @@
             console.log(data);
             isEmpty = data.length;
 
-            if (data.length == 0) {
-                $("#loading").css("display", "none");
-            }
+            // if (data.length == 0) {
+            //     $("#loading").remove();
+            // }
 
             if (data.length == 0 && obj.pageNum == 1) {
-                $("#loading").css("display", "none");
+                // $("#loading").remove();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
@@ -276,8 +276,8 @@
                   <div id="bgfff"></div>\
                   <div class="topborder">\
                       <div class="boxhf">\
-                          	<input class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
-                          <div style="display:none;" id="commit2" class="commit" onkeydown="keyCode(event);">提交</div>\
+                          <input class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
+                          <div id="commit2" class="commit">回复</div>\
                       </div>\
                   </div>\
                 </div></form>\
@@ -382,11 +382,13 @@
                 $(".ft-comment").append($("#picForm"));
                 $(".ft-comment").append($("#picForm2"));
                 $(".ft-comment").append($("#outerdiv"));
+                // $(".ft-comment").append($("#loading"));
                 $(".ft-comment").append($("#script"));
                 $(".loadbox #ft-header").remove();
                 $(".loadbox #picForm").remove();
                 $(".loadbox #picForm2").remove();
                 $(".loadbox #outerdiv").remove();
+                // $(".loadbox #loading").remove();
                 $(".loadbox #scripts").remove();
 
                 /*留言*/
@@ -524,9 +526,10 @@
                         // test(parentid, userid);
                     }
                 });
+                $("#leave-words2 .textarea").focus();//默认选中
 
                 function test(parentid, userid) {
-                    $("#leave-words2 .textarea").focus();//默认选中
+                    // $("#leave-words2 .textarea").focus();//默认选中
                     /*键盘控制*/
                     document.onkeyup = function (event) {
                         var e = event || window.event;

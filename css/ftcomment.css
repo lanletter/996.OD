@@ -258,7 +258,7 @@
   margin-right: 0.2rem;
 }
 .son-comments .reply {
-  font-size: 0.16rem;
+  font-size: 12px;
   color: rgb(201,203,213);
   line-height: 0.42rem;
 }
@@ -518,7 +518,7 @@
   padding-left: 0.1rem;
   font-size: 0.2rem;
   color: #333;
-  width: 7rem;
+  width: 6.2rem;
   height: 0.48rem;
   line-height: 0.48rem;
   text-align: left;
@@ -526,6 +526,7 @@
   resize:none;
   border:1px solid rgb(151,151,151);
   border-radius: 2px;
+  -webkit-appearance: none;
   z-index: 999999!important;
 }
 #leave-words2 .commit{
@@ -533,11 +534,9 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 0.6rem;
-  height: 0.48rem;
-  background: rgb(255,101,101);
-  border: 1px solid #cccccc;
+  color: rgb(130,130,130);
   z-index: 999999!important;
+  font-size: 16px;
 }
 #leave-words2::-webkit-input-placeholder {
   color: rgb(201,203,213);
