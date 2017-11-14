@@ -326,10 +326,23 @@
                                     alert("请先选择商品!");
                                     return;
                                 }
-                                var flag = confirm("确认兑换该商品吗？");
-                                if (!flag)return;
-                                $this.userId = userid;
-                                $this.getAddress(this.userId);
+                                body.innerHTML=
+                                    '<div id="mask" class="mask works-mask">' +
+                                    '<div class="mask-content">' +
+                                    '<p class="del-p">您确定要删除图片吗？</p>' +
+                                    '<p class="check-p">' +
+                                    '<span class="del-com wsdel-ok">确定</span>' +
+                                    '<span class="wsdel-no">取消</span>' +
+                                    '</p></div></div>';
+                                $("#mask").style.display = 'block';
+                                $(".wsdel-ok").onclick=function () {
+                                    $("#mask").style.display = 'none';
+                                    $this.userId = userid;
+                                    $this.getAddress(this.userId);
+                                };
+                                $(".wsdel-no").onclick=function () {
+                                    return;
+                                };
 
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
