@@ -528,7 +528,7 @@
                     }
                 });
 
-                /*是否出现删除按钮 */
+                /*是否出现删除按钮&#x2028;*/
                 if (userid !== 1) {
                     console.log($(".userId :contains(" + userid + ")").text());
                     var $delete = $(".userId :contains(" + userid + ")");
@@ -550,7 +550,7 @@
                     $nodelete1.parent().parent().siblings(".delete").css("display", "none");
                 }
 
-                /*删除 */
+                /*删除&#x2028;*/
                 $('.delete').unbind().click(function (e) {
                     if (confirm("确定要删除评论吗？")) {
                         $(e.target).attr("id");     // e.target表示被点击的目标
@@ -577,7 +577,7 @@
                     }
                 });
 
-                /*判断点赞 */
+                /*判断点赞&#x2028;*/
                 if (userid !== 1 || cookstring!==null) {
                     console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
