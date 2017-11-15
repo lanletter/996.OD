@@ -194,24 +194,6 @@
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
-                  <div class="imgup">\
-                    <div class="img-box full">\
-                      <section class="img-section">\
-                        <div id="ssr" class="z_photo upimg-div clear">\
-                          <section class="z_file fl">\
-                            <img src="../img/add.png" class="add-img">\
-                            <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />\
-                          </section>\
-                        </div>\
-                      </section>\
-                    </div>\
-                    <aside class="mask works-mask">\
-                      <div class="mask-content">\
-                        <p class="del-p">您确定要删除图片吗？</p>\
-                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>\
-                      </div>\
-                    </aside>\
-                  </div>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
                 </div></form>\
@@ -227,12 +209,6 @@
                           <span class="text">\
                             {{content}}\
                           </span>\
-                        </p>\
-                        <p class="imglist center">\
-                          {{#commentPictureList}}\
-                            <img class="pimg img" alt="" src="{{picture.path}}">\
-                          {{/commentPictureList}}\
-                          <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
                         </p>\
                         <p class="bottom">\
                           <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
@@ -281,86 +257,22 @@
                       </div>\
                   </div>\
                 </div></form>\
-                <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
-            <div id="scripts">\
-            <script src="../js/alertdiy.js"></script>\
-            <script src="../js/imgUp.js"></script>\
-            <script>\
-                /*上传图片*/\
-                    $(function(){\
-                        $("#file").takungaeImgup({\
-                            formData: { "path": "Content/Images/", "name": "uploadpic" },\
-                            url: urlport+"picture/uploadPictureBase64", \
-                            success: function (data) {\
-                            console.log(data);\
-                            },\
-                            error: function (err) {\
-                                alert(err);\
-                            }\
-                    });\
-                    })\
-            </script>\
-            <script src="../js/BigPictureOpen.js"></script>\
-            <script>\
-                /*默认显示2条二级评论*/\
-                    $(".words").each(function(){\
-                        $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
-                        $(this).children(".son-comments").eq(0).css("display","block");\
-                        $(this).children(".son-comments").eq(1).css("display","block");\
-                        $(this).children(".son-comments").eq(0).addClass("Noslide");\
-                        $(this).children(".son-comments").eq(1).addClass("Noslide");\
-                        if($(this).children(".son-comments").length<3){\
-                         $(this).children(".review").css("display","none");\
-                        }\
-                    });\
-                /*判断是否有图片*/\
-                    $(".imglist").each(function(){\
-                        if($(this).children(".img").length>0){\
-                         $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
-                        }\
-                    });\
-                /*图片点击放大*/\
-                    $(function(){\
-                        $(".pimg").click(function(){\
-                            var _this = $(this);\
-                            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
-                        });\
-                    });\
-                /*选中单张图片*/\
-                    var $onlyone = $(".onlyone:contains(1)").parent();\
-                    $onlyone.find("img").removeClass("img");\
-                /*单张图片大小等比例自适应*/\
-                    objImg=$onlyone.find("img");\
-                    for(var i=0;i<objImg.length;i++){\
-                        maxWidth=267;\
-                        maxHeight=181;\
-                        var img = new Image();\
-                        img.src = objImg[i].src;\
-                        var hRatio;\
-                        var wRatio;\
-                        var Ratio = 1;\
-                        var w = img.width;\
-                        var h = img.height;\
-                        wRatio = maxWidth / w;\
-                        hRatio = maxHeight / h;\
-                        if (maxWidth ==0 && maxHeight==0){\
-                            Ratio = 1;\
-                        }else if (maxWidth==0){\
-                            if (hRatio<1) Ratio = hRatio;\
-                        }else if (maxHeight==0){\
-                            if (wRatio<1) Ratio = wRatio;\
-                        }else if (wRatio<1 || hRatio<1){\
-                            Ratio = (wRatio<=hRatio?wRatio:hRatio);\
-                        }\
-                        if (Ratio<1){\
-                            w = w * Ratio;\
-                            h = h * Ratio;\
-                        }\
-                        objImg[i].height = h;\
-                        objImg[i].width = w;\
-                    }\
-            </script>\
-            </div>\
+                <div id="scripts">\
+                    <script src="../js/alertdiy.js"></script>\
+                    <script>\
+                        /*默认显示2条二级评论*/\
+                            $(".words").each(function(){\
+                                $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
+                                $(this).children(".son-comments").eq(0).css("display","block");\
+                                $(this).children(".son-comments").eq(1).css("display","block");\
+                                $(this).children(".son-comments").eq(0).addClass("Noslide");\
+                                $(this).children(".son-comments").eq(1).addClass("Noslide");\
+                                if($(this).children(".son-comments").length<3){\
+                                 $(this).children(".review").css("display","none");\
+                                }\
+                            });\
+                    </script>\
+                </div>\
             </div>\
                 ';
 
@@ -383,7 +295,7 @@
                 $(".ft-comment").append($("#picForm2"));
                 $(".ft-comment").append($("#outerdiv"));
                 // $(".ft-comment").append($("#loading"));
-                $(".ft-comment").append($("#script"));
+                $(".ft-comment").append($("#scripts"));
                 $(".loadbox #ft-header").remove();
                 $(".loadbox #picForm").remove();
                 $(".loadbox #picForm2").remove();
@@ -526,27 +438,26 @@
                         // test(parentid, userid);
                     }
                 });
-                $("#leave-words2 .textarea").focus();//默认选中
 
                 function test(parentid, userid) {
-                    // $("#leave-words2 .textarea").focus();//默认选中
+                    $("#leave-words2 .textarea").focus();//默认选中
                     /*键盘控制*/
-                    document.onkeyup = function (event) {
-                        var e = event || window.event;
-                        var keyCode = e.keyCode || e.which;
-                        switch (keyCode) {
-                            case 13:
-                                if (confirm("确定提交评论吗？")) {
-                                    $("#commit2").click();
-                                }
-                                else {
-                                    return;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                    };
+                    // document.onkeyup = function (event) {
+                    //     var e = event || window.event;
+                    //     var keyCode = e.keyCode || e.which;
+                    //     switch (keyCode) {
+                    //         case 13:
+                    //             if (confirm("确定提交评论吗？")) {
+                    //                 $("#commit2").click();
+                    //             }
+                    //             else {
+                    //                 return;
+                    //             }
+                    //             break;
+                    //         default:
+                    //             break;
+                    //     }
+                    // };
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
                         var content = words.find('.textarea').val();
