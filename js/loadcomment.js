@@ -294,6 +294,8 @@
                 });
                 $('#bgfff').on('click', function () {
                     $('#leave-words2').hide();
+                    document.body.style.overflow='';//出现滚动条
+                    document.removeEventListener("touchmove",mo,false);//出现滚动条
                     isdelete();
                 });
 
@@ -362,6 +364,7 @@
                     });
                 }
 
+                var mo=function(e){e.preventDefault();};//禁止页面滑动
                 $('.rpbutton').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
@@ -396,6 +399,8 @@
 
                 function test(parentid, userid) {
                     $("#leave-words2 .textarea").focus();//默认选中
+                    document.body.style.overflow='hidden';//禁止页面滑动
+                    document.addEventListener("touchmove",mo,false);//禁止页面滑动
 
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
