@@ -34,7 +34,7 @@
         <p class="warn warn1" style="display: none;">密码前后输入不一致，请重新输入</p>
         <p class="warn warn2" style="display: none;">密码为空</p>
         <p class="warn warn3" style="display: none;">密码格式输入有误，请重新输入</p>
-        <span class="nextbtn">下一步</span>
+        <span class="nextbtn">完成</span>
     </li>
 </ul>
 </body>
@@ -48,9 +48,10 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
+
     var id = GetQueryString("id");
     var phonenum = $.cookie('phonenum');
     var codenum = $.cookie('codenum');
@@ -66,10 +67,10 @@
             });
             $("#newpwd").keyup(function () {
                 var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/[^\w\.\/]/ig,''));
+                $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
             }).bind("paste", function () {
                 var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/[^\w\.\/]/ig,''));
+                $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
             }).css("ime-mode", "disabled");
         });
         $("#newpwd").blur(function () {
@@ -113,7 +114,7 @@
                 var obj = eval('(' + ret + ')');
 //              alert(obj.status);
                 if (obj.status == "200") {
-                		$api.toast('密码修改成功', 2000);
+                    $api.toast('密码修改成功', 2000);
                     var buyurl = "login.html?id=" + id;
 //                  alert(buyurl);
                     window.location.href = buyurl;
@@ -121,6 +122,7 @@
             }
         });
     });
+
     function loginInputValid() {
         var newpwd = document.getElementById('newpwd').value;
         var newpwd2 = document.getElementById('newpwd2').value;

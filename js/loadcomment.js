@@ -1,4 +1,5 @@
 +function () {
+    var isEmpty = false;
     var homeurl = window.location.href;
 
     function loadComment(obj, pageNum, type, id, userId) {
@@ -8,25 +9,18 @@
         var idcook = $.cookie('idcook');
         var cookstring=typecook+idcook;
         var userid = obj.userId;
-        // var userid = 120520;
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
                 callback(res);
             }
         );
-
         function callback(res) {
             var data = res.data;
             console.log(data);
-            isEmpty = data.length;
-
-            // if (data.length == 0) {
-            //     $("#loading").remove();
-            // }
+            isEmpty = data.length == 0;
 
             if (data.length == 0 && obj.pageNum == 1) {
-                // $("#loading").remove();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
@@ -37,47 +31,13 @@
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
-                  <div class="imgup">\
-                    <div class="img-box full">\
-                      <section class="img-section">\
-                        <div id="ssr" class="z_photo upimg-div clear">\
-                          <section class="z_file fl">\
-                            <img src="../img/add.png" class="add-img">\
-                            <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />\
-                          </section>\
-                        </div>\
-                      </section>\
-                    </div>\
-                    <aside class="mask works-mask">\
-                      <div class="mask-content">\
-                        <p class="del-p">您确定要删除图片吗？</p>\
-                        <p class="check-p"><span class="del-com wsdel-no">取消</span><span class="wsdel-ok">确定</span></p>\
-                      </div>\
-                    </aside>\
-                    <script src="../js/jquery.min.js"></script>\
-                    <script src="../js/imgUp.js"></script>\
-                    <script>\
-                        $(function(){\
-                            $("#file").takungaeImgup({\
-                                formData: { "path": "Content/Images/", "name": "uploadpic" },\
-                                url: urlport+"picture/uploadPictureBase64", \
-                                success: function (data) {\
-                                console.log(data);\
-                                },\
-                                error: function (err) {\
-                                    alert(err);\
-                                }\
-                            });\
-                        })\
-                    </script>\
-                  </div>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
                 </div></form>';
 
                 Mustache.parse(noComment);
                 var rendered0 = Mustache.render(noComment, res);
-                $('.ft-comment').empty().append($(rendered0));
+                $('.ft-comment').append($(rendered0));
 
                 /*留言*/
                 $('.leavewords').unbind().click(function (e) {
@@ -98,10 +58,10 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 120520;
-                        // $('#leave-words').show();
-                        // test1(userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        userid = 120520;
+                        $('#leave-words').show();
+                        test1(userid);
                     }
                 });
 
@@ -114,7 +74,7 @@
                 function test1(userid) {
                     $('#commit').unbind().click(function (e) {
                         var words = $('#leave-words'),
-                            content = words.find('textarea').val();
+                            content = words.find('textarea').val().trim();
                         var picid = $('#ssr .picid');
                         var picarr = [];
 
@@ -131,14 +91,14 @@
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -166,7 +126,6 @@
                                 refresh(homeurl);
                             }
                         });
-
                         function callback(res) {
                             // if(res.status == 501){
                             //     alert("此用户已被禁言");
@@ -288,7 +247,6 @@
 
                 Mustache.parse(template);
                 var rendered = Mustache.render(template, res);
-                // $('.ft-comment').empty().append($(rendered));
                 $('.ft-comment').append($(rendered));
                 $(".ft-comment").prepend($("#ft-header"));
                 $(".ft-comment").append($("#picForm"));
@@ -303,12 +261,13 @@
                 // $(".loadbox #loading").remove();
                 $(".loadbox #scripts").remove();
 
+
                 /*留言*/
                 $('.leavewords').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
-                            // alert("errorcode："+errorcode);
+                            //alert(errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
                                 $('#leave-words').show();
@@ -322,11 +281,10 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 120520;
-                        // $('#leave-words').show();
-                        // test2(userid);
-                    }
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        userid = 120520;
+                        $('#leave-words').show();
+                        test2(userid);                    }
                 });
 
                 /*取消留言*/
@@ -342,7 +300,7 @@
                 function test2(userid) {
                     $('#commit').unbind().click(function (e) {
                         var words = $('#leave-words'),
-                            content = words.find('textarea').val();
+                            content = words.find('textarea').val().trim();
                         var picid = $('#ssr .picid');
                         var picarr = [];
 
@@ -351,22 +309,19 @@
                             //picarr[i] = picid.eq(i).attr("id");
                             commentPictureIdLists += '&commentPictureIdList=' + picid.eq(i).attr("id");
                         }
-                        // console.log(picid);
-                        // console.log(picarr);
-                        // console.log(content);
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
                             return;
                         }
-                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -394,7 +349,6 @@
                                 refresh(homeurl);
                             }
                         });
-
                         function callback(res) {
                             if (res.status !== 200) {
                                 alert(res.errorMessage);
@@ -404,6 +358,7 @@
                             console.log(data);
                             $api.toast('评论创建成功！', 3000);
                         }
+
                     });
                 }
 
@@ -428,53 +383,37 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
-                        // var $come = $(e.target).siblings(".key");//数据来自于
-                        // parentid = $come.find('.Id').text();
-                        // // alert(parentid);
-                        // userid = 120520;
-                        // $('#leave-words2').show();
-                        // test(parentid, userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        parentid = $come.find('.Id').text();
+                        // alert(parentid);
+                        userid = 120520;
+                        $('#leave-words2').show();
+                        test(parentid, userid);
                     }
                 });
 
                 function test(parentid, userid) {
                     $("#leave-words2 .textarea").focus();//默认选中
-                    /*键盘控制*/
-                    // document.onkeyup = function (event) {
-                    //     var e = event || window.event;
-                    //     var keyCode = e.keyCode || e.which;
-                    //     switch (keyCode) {
-                    //         case 13:
-                    //             if (confirm("确定提交评论吗？")) {
-                    //                 $("#commit2").click();
-                    //             }
-                    //             else {
-                    //                 return;
-                    //             }
-                    //             break;
-                    //         default:
-                    //             break;
-                    //     }
-                    // };
+
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
-                        var content = words.find('.textarea').val();
+                        var content = words.find('textarea').val().trim();
                         console.log(content);
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
                             return;
                         }
-                        // alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
+                        //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + parentid;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
+                        //alert(url+contenturl+refIdurl+typeurl+userId+parentidurl);
                         $.ajax({
                             type: "get",
                             url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
@@ -501,7 +440,6 @@
                                 refresh(homeurl);
                             }
                         });
-
                         function callback(res) {
                             if (res.status !== 200) {
                                 alert(res.errorMessage);
@@ -528,7 +466,7 @@
                     }
                 });
 
-                /*是否出现删除按钮&#x2028;*/
+                /*是否出现删除按钮*/
                 if (userid !== 1) {
                     console.log($(".userId :contains(" + userid + ")").text());
                     var $delete = $(".userId :contains(" + userid + ")");
@@ -541,7 +479,6 @@
                 } else {
                     $(".delete").css("display", "none");
                 }
-
                 /*公共：是否出现删除按钮*/
                 function isdelete() {
                     var $delete = $(".userId :contains(" + userid + ")");
@@ -549,8 +486,7 @@
                     $delete.parent().parent().siblings(".delete").css("display", "inline-block");
                     $nodelete1.parent().parent().siblings(".delete").css("display", "none");
                 }
-
-                /*删除&#x2028;*/
+                /*删除*/
                 $('.delete').unbind().click(function (e) {
                     if (confirm("确定要删除评论吗？")) {
                         $(e.target).attr("id");     // e.target表示被点击的目标
@@ -577,7 +513,7 @@
                     }
                 });
 
-                /*判断点赞&#x2028;*/
+                /*判断点赞 */
                 if (userid !== 1 || cookstring!==null) {
                     console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
@@ -615,35 +551,26 @@
             }
 
             function refresh(homeurl) {
-                // alert(homeurl);
+                //alert(homeurl);
                 window.location.href = homeurl;
                 window.event.returnValue = false;
             }
         }
 
-        /*下拉加载*/
-        var isEmpty = true;
-
-        function haha() {
+        $(window).off('scroll').on('scroll', $api.throttle(function () {
             var scrollTop = $(this).scrollTop();
-            var windowHeight = $(this).height();
             var scrollHeight = $(document).height();
+            var windowHeight = $(this).height();
             if (scrollTop + windowHeight == scrollHeight) {
+                if (isEmpty) return;
                 pageNum = pageNum + 1;
                 loadComment(obj, pageNum);
             }
-            isEmpty = true;
-        }
+        }, 500))
 
-        window.onscroll = function () {
-            if (isEmpty) {
-                setTimeout(haha, 1000);
-                isEmpty = false;
-            }
-        }
 
     }
 
-    $.loadComment = loadComment;
 
+    $.loadComment = loadComment;
 }();
