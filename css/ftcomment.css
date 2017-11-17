@@ -726,12 +726,12 @@
   text-align: center;
   background:#ffffff url(../img/loading.gif) center no-repeat;
 }
-/*#loading p{*/
-  /*color: #ffffff;*/
-/*}*/
-/*#loading p:first-child{*/
-  /*font-size: 12px;*/
-/*}*/
-/*#loading p:first-child{*/
-  /*font-size: 8px;*/
-/*}*/
+#loading p{
+  color: #ffffff;
+}
+#loading p:first-child{
+  font-size: 12px;
+}
+#loading p:first-child{
+  font-size: 8px;
+}

@@ -267,7 +267,9 @@
                         //console.info(data);
                         $this.data = data.data;
                         id = $this.data.id;
+                        console.log(id);
                     }
+                    $.loadComment({"pageNum": 1, "pageSize": 10, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
                     $(".icon-easy").next("span").find("b").text(data.data.properties.difficulty);
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
                     $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
@@ -548,11 +550,6 @@
 
             }
         });
-
-        if(id.length>5){
-            $(".ft-comment").css("display", "none");
-        }
-        $.loadComment({"pageNum": 1, "pageSize": 10, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
 
     }
 

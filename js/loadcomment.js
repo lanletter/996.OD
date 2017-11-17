@@ -1,6 +1,7 @@
 +function () {
     var isEmpty = false;
     var homeurl = window.location.href;
+    var mo=function(e){e.preventDefault();};//禁止页面滑动
 
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
@@ -9,19 +10,25 @@
         var idcook = $.cookie('idcook');
         var cookstring=typecook+idcook;
         var userid = obj.userId;
+        // var userid = 121547;
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
                 callback(res);
             }
         );
+
         function callback(res) {
             var data = res.data;
             console.log(data);
             isEmpty = data.length == 0;
-            // alert(data.length);
+
+            // if (data.length == 0) {
+            //     $("#loading").remove();
+            // }
 
             if (data.length == 0 && obj.pageNum == 1) {
+                // $("#loading").remove();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <span class="left">用户评论<i></i></span>\
@@ -38,7 +45,7 @@
 
                 Mustache.parse(noComment);
                 var rendered0 = Mustache.render(noComment, res);
-                $('.ft-comment').append($(rendered0));
+                $('.ft-comment').empty().append($(rendered0));
 
                 /*留言*/
                 $('.leavewords').unbind().click(function (e) {
@@ -60,7 +67,7 @@
                         });
                     } else {
                         window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 120520;
+                        // userid = 121547;
                         // $('#leave-words').show();
                         // test1(userid);
                     }
@@ -69,13 +76,17 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
+                    document.body.style.overflow='';//出现滚动条
+                    document.removeEventListener("touchmove",mo,false);//出现滚动条
                     isdelete();
                 });
 
                 function test1(userid) {
+                    document.body.style.overflow='hidden';//禁止页面滑动
+                    document.addEventListener("touchmove",mo,false);//禁止页面滑动
                     $('#commit').unbind().click(function (e) {
                         var words = $('#leave-words'),
-                            content = words.find('textarea').val().trim();
+                            content = words.find('textarea').val();
                         var picid = $('#ssr .picid');
                         var picarr = [];
 
@@ -92,14 +103,14 @@
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -127,6 +138,7 @@
                                 refresh(homeurl);
                             }
                         });
+
                         function callback(res) {
                             // if(res.status == 501){
                             //     alert("此用户已被禁言");
@@ -218,7 +230,6 @@
                   </div>\
                 </div></form>\
                 <div id="scripts">\
-                    <script src="../js/alertdiy.js"></script>\
                     <script>\
                         /*默认显示2条二级评论*/\
                             $(".words").each(function(){\
@@ -248,6 +259,7 @@
 
                 Mustache.parse(template);
                 var rendered = Mustache.render(template, res);
+                // $('.ft-comment').empty().append($(rendered));
                 $('.ft-comment').append($(rendered));
                 $(".ft-comment").prepend($("#ft-header"));
                 $(".ft-comment").append($("#picForm"));
@@ -262,13 +274,12 @@
                 // $(".loadbox #loading").remove();
                 $(".loadbox #scripts").remove();
 
-
                 /*留言*/
                 $('.leavewords').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
-                            //alert(errorcode);
+                            // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
                                 $('#leave-words').show();
@@ -283,7 +294,7 @@
                         });
                     } else {
                         window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 120520;
+                        // userid = 121547;
                         // $('#leave-words').show();
                         // test2(userid);
                     }
@@ -292,6 +303,8 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
+                    document.body.style.overflow='';//出现滚动条
+                    document.removeEventListener("touchmove",mo,false);//出现滚动条
                     isdelete();
                 });
                 $('#bgfff').on('click', function () {
@@ -302,9 +315,11 @@
                 });
 
                 function test2(userid) {
+                    document.body.style.overflow='hidden';//禁止页面滑动
+                    document.addEventListener("touchmove",mo,false);//禁止页面滑动
                     $('#commit').unbind().click(function (e) {
                         var words = $('#leave-words'),
-                            content = words.find('textarea').val().trim();
+                            content = words.find('textarea').val();
                         var picid = $('#ssr .picid');
                         var picarr = [];
 
@@ -313,19 +328,22 @@
                             //picarr[i] = picid.eq(i).attr("id");
                             commentPictureIdLists += '&commentPictureIdList=' + picid.eq(i).attr("id");
                         }
+                        // console.log(picid);
+                        // console.log(picarr);
+                        // console.log(content);
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0);
+                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        //alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -353,6 +371,7 @@
                                 refresh(homeurl);
                             }
                         });
+
                         function callback(res) {
                             if (res.status !== 200) {
                                 alert(res.errorMessage);
@@ -362,11 +381,9 @@
                             console.log(data);
                             $api.toast('评论创建成功！', 3000);
                         }
-
                     });
                 }
 
-                var mo=function(e){e.preventDefault();};//禁止页面滑动
                 $('.rpbutton').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
@@ -393,7 +410,7 @@
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
                         // // alert(parentid);
-                        // userid = 120520;
+                        // userid = 121547;
                         // $('#leave-words2').show();
                         // test(parentid, userid);
                     }
@@ -403,24 +420,40 @@
                     $("#leave-words2 .textarea").focus();//默认选中
                     document.body.style.overflow='hidden';//禁止页面滑动
                     document.addEventListener("touchmove",mo,false);//禁止页面滑动
-
+                    /*键盘控制*/
+                    // document.onkeyup = function (event) {
+                    //     var e = event || window.event;
+                    //     var keyCode = e.keyCode || e.which;
+                    //     switch (keyCode) {
+                    //         case 13:
+                    //             if (confirm("确定提交评论吗？")) {
+                    //                 $("#commit2").click();
+                    //             }
+                    //             else {
+                    //                 return;
+                    //             }
+                    //             break;
+                    //         default:
+                    //             break;
+                    //     }
+                    // };
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
-                        var content = words.find('textarea').val().trim();
+                        var content = words.find('.textarea').val();
                         console.log(content);
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
+                        // alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + parentid;
-                        //alert(url+contenturl+refIdurl+typeurl+userId+parentidurl);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
                         $.ajax({
                             type: "get",
                             url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
@@ -447,6 +480,7 @@
                                 refresh(homeurl);
                             }
                         });
+
                         function callback(res) {
                             if (res.status !== 200) {
                                 alert(res.errorMessage);
@@ -486,6 +520,7 @@
                 } else {
                     $(".delete").css("display", "none");
                 }
+
                 /*公共：是否出现删除按钮*/
                 function isdelete() {
                     var $delete = $(".userId :contains(" + userid + ")");
@@ -493,6 +528,7 @@
                     $delete.parent().parent().siblings(".delete").css("display", "inline-block");
                     $nodelete1.parent().parent().siblings(".delete").css("display", "none");
                 }
+
                 /*删除*/
                 $('.delete').unbind().click(function (e) {
                     if (confirm("确定要删除评论吗？")) {
@@ -520,7 +556,7 @@
                     }
                 });
 
-                /*判断点赞 */
+                /*判断点赞*/
                 if (userid !== 1 || cookstring!==null) {
                     console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
@@ -558,29 +594,42 @@
             }
 
             function refresh(homeurl) {
-                //alert(homeurl);
+                // alert(homeurl);
                 window.location.href = homeurl;
                 window.event.returnValue = false;
             }
         }
 
-        $(window).off('scroll').on('scroll', $api.throttle(function () {
-            var scrollTop = $(this).scrollTop();
-            var scrollHeight = $(document).height();
-            var windowHeight = $(this).height();
-            // alert(scrollTop+","+scrollHeight+","+windowHeight);
-            // alert(window.screen.height);
-            if (scrollTop + windowHeight == scrollHeight) {
-                if (isEmpty) return;
-                pageNum = pageNum + 1;
-                // alert(pageNum);
-                loadComment(obj, pageNum);
-            }
-        }, 500))
 
+        /*下拉加载*/
+        var windowHeight = $(window).height();
+        var windowHeightReal=window.screen.height;
+        // alert(windowHeight);
+        // alert(window.screen.height);
+        if ( device=="ios" && windowHeight!==windowHeightReal) {
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                if (scrollTop + windowHeightReal == scrollHeight) {
+                    if (isEmpty) return;
+                    pageNum = pageNum + 1;
+                    loadComment(obj, pageNum);
+                }
+            }, 500))
+        } else {
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                if (scrollTop + windowHeight == scrollHeight) {
+                    if (isEmpty) return;
+                    pageNum = pageNum + 1;
+                    loadComment(obj, pageNum);
+                }
+            }, 500))
+        }
 
     }
 
-
     $.loadComment = loadComment;
+
 }();
