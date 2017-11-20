@@ -66,10 +66,10 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 121547;
-                        // $('#leave-words').show();
-                        // test1(userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        userid = 121547;
+                        $('#leave-words').show();
+                        test1(userid);
                     }
                 });
 
@@ -293,10 +293,10 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 121547;
-                        // $('#leave-words').show();
-                        // test2(userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        userid = 121547;
+                        $('#leave-words').show();
+                        test2(userid);
                     }
                 });
 
@@ -405,14 +405,14 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
-                        // var $come = $(e.target).siblings(".key");//数据来自于
-                        // parentid = $come.find('.Id').text();
-                        // // alert(parentid);
-                        // userid = 121547;
-                        // $('#leave-words2').show();
-                        // test(parentid, userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        parentid = $come.find('.Id').text();
+                        // alert(parentid);
+                        userid = 121547;
+                        $('#leave-words2').show();
+                        test(parentid, userid);
                     }
                 });
 

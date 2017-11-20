@@ -381,7 +381,7 @@
 /*}*/
 .leave-words .bgfff{
   display: block;
-  background:#ffffff;
+  background:#eeeeee;
   width: 100%;
   height: 1.28rem;
 }
@@ -469,8 +469,8 @@
   float: left;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0);
-  z-index: 999999!important;
+  background: rgba(0,0,0,0.2);
+  z-index: 999998;
 }
 #leave-words2 .topborder{
   position: absolute;
@@ -480,8 +480,15 @@
   background:rgb(237,237,237);
   width: 100%;
   height: 0.92rem;
-  border-top:1px solid #dddddd ;
-  z-index: 999999;
+  border-top:1px solid #dddddd;
+  z-index: 999999!important;
+}
+#leave-words2 .topborder:after{
+  content:".";
+  display:block;
+  height:0;
+  visibility:hidden;
+  clear:both;
 }
 #leave-words2 .boxhf{
   position: relative;
