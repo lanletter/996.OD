@@ -38,7 +38,7 @@
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
-                  <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
+                  <textarea placeholder="请输入评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
                 </div></form>';
@@ -55,6 +55,7 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                if(userid==null){return;}
                                 $('#leave-words').show();
                                 test1(userid);
                             } else if (errorCode == "0") {
@@ -165,7 +166,7 @@
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
-                  <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
+                  <textarea placeholder="请输入评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
                 </div></form>\
@@ -224,7 +225,7 @@
                   <div id="bgfff"></div>\
                   <div class="topborder">\
                       <div class="boxhf">\
-                          <input onkeydown="if(event.keyCode==13){return false;}" class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
+                          <input onkeydown="if(event.keyCode==13){return false;}" class="textarea" placeholder="请输入评论..." maxlength="200"/>\
                           <div id="commit2" class="commit">回复</div>\
                       </div>\
                   </div>\
@@ -282,6 +283,7 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                if(userid==null){return;}
                                 $('#leave-words').show();
                                 test2(userid);
                             } else if (errorCode == "0") {
@@ -394,6 +396,7 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                if(userid==null){return;}
                                 $('#leave-words2').show();
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
@@ -604,9 +607,10 @@
         /*下拉加载*/
         var windowHeight = $(window).height();
         var windowHeightReal=window.screen.height;
-        // alert(windowHeight);
-        // alert(window.screen.height);
-        if ( device=="ios" && windowHeight!==windowHeightReal) {
+//      alert(windowHeight);
+//      alert(windowHeightReal);
+        if ( device=="ios" && windowHeight!==windowHeightReal && windowHeightReal!==812) {
+//          alert("ios");
             $(window).off('scroll').on('scroll', $api.throttle(function () {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
@@ -616,7 +620,20 @@
                     loadComment(obj, pageNum);
                 }
             }, 500))
-        } else {
+        } else if( device=="ios" && windowHeight!==windowHeightReal && windowHeightReal==812){
+//          alert("X");
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+//              alert(scrollTop + windowHeightReal - 34);
+//				alert(scrollHeight);
+                if (scrollTop + windowHeightReal - 34== scrollHeight) {
+                    if (isEmpty) return;
+                    pageNum = pageNum + 1;
+                    loadComment(obj, pageNum);
+                }
+            }, 500))
+        }else {
             $(window).off('scroll').on('scroll', $api.throttle(function () {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();

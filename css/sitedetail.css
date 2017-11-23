@@ -163,8 +163,8 @@
 	height: 5.5rem;
 	border-radius: 0.12rem;
 	background-repeat:no-repeat;
-	background-size:7.34rem auto!important;
-	-webkit-background-size:7.34rem auto!important;
+	background-size: auto 5.5rem!important;
+	-webkit-background-size: auto 5.5rem!important;
 	background-position:center;
 }
 
