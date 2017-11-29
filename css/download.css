@@ -115,31 +115,31 @@ html, body {
       height:0.48rem;  }
   .jf-buy .icon-msg {
     margin-left:0.32rem; }
-  .jf-buy .sku {
+  .jf-buy .skus {
     z-index: 999999;
     overflow: hidden;
     margin: 0 0.24rem; }
     .jf-buy .h_box{overflow: hidden;position: relative;}
-    .jf-buy .sku .tit {
+    .jf-buy .skus .tit {
       float: left;
       margin-right: 0.04rem;
       line-height: 0.48rem;
       font-size: 0.32rem; }
-    .jf-buy .sku ul {
+    .jf-buy .skus ul {
       border: 1px solid #ededed;
       border-width: 1px 0 1px 0;
       padding: 0.32rem 0; }
-    .jf-buy .sku li {
+    .jf-buy .skus li {
       flex-wrap: wrap; }
-    .jf-buy .sku em {
+    .jf-buy .skus em {
       float: left;
       line-height: 0.48rem;
       font-size: 0.32rem;
       color: #ccc; }
-    .jf-buy .sku p {
+    .jf-buy .skus p {
       float: left;
       width: 5.48rem; }
-      .jf-buy .sku p span.sku-sel {
+      .jf-buy .skus p span.sku-sel {
         display: inline-block;
         width: 1.08rem;
         height: 0.48rem;
@@ -149,10 +149,10 @@ html, body {
         line-height: 0.48rem;
         font-size: 0.24rem;
         border-radius: 0.08rem; }
-      .jf-buy .sku p span.sku-sel.cur {
+      .jf-buy .skus p span.sku-sel.cur {
         background: #ff6565;
         color: #fff; }
-      .jf-buy .sku p .inputText {
+      .jf-buy .skus p .inputText {
         width: 0.92rem;
         height: 0.48rem;
         background: whitesmoke;

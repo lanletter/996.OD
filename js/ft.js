@@ -241,6 +241,16 @@
             name : "moreKitchen",
             callbackId : generateID(),
             callback : noop
+        },
+        locationAddress:{
+            name : "locationAddress",
+            callbackId : generateID(),
+            callback : noop
+        },
+        chooseAddress:{
+            name : "chooseAddress",
+            callbackId : generateID(),
+            callback : noop
         }
 
     };
@@ -400,6 +410,22 @@
         var moreKitchenConfig = ft.mix( true,{},config.moreKitchen );
         moreKitchenConfig.callback =  fn;
         callByJS(moreKitchenConfig);
+    }
+    /*********************************************************************
+     *                           获取用户默认地址                             *
+     **********************************************************************/
+    ft.locationAddress = function (fn) {
+        var locationAddressConfig = ft.mix( true,{},config.locationAddress );
+        locationAddressConfig.callback =  fn;
+        callByJS(locationAddressConfig);
+    }
+    /*********************************************************************
+     *                           唤起用户选择地址                             *
+     **********************************************************************/
+    ft.chooseAddress = function (fn) {
+        var chooseAddressConfig = ft.mix( true,{},config.chooseAddress );
+        chooseAddressConfig.callback =  fn;
+        callByJS(chooseAddressConfig);
     }
 
 }()
