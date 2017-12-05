@@ -67,7 +67,7 @@
             <div class="focus">
                 <mt-swipe :auto="4000">
                     <mt-swipe-item v-for="item in url">
-                        <img :src="item.picture.path" alt="">
+                        <img :src="item.imgUrl" alt="">
                     </mt-swipe-item>
                 </mt-swipe>
             </div>
@@ -139,27 +139,28 @@
             </div>
         </div>
 
-        <!--<div class="skus">-->
-            <!--<ul>-->
-                <!--<li class="h_box">-->
-                    <!--<span class="tit">商品分类</span>-->
-                    <!--<p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"-->
-                             <!--:class="merchandiseClasses == item.id?'cur':''"-->
-                             <!--@click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"-->
-                             <!--v-html="item.argName"></span>-->
-                    <!--</p>-->
-                <!--</li>-->
-                <!--<li class="h_box mt15" style="height: 0.54rem;">-->
-                    <!--<span class="tit">选择数量</span>-->
-                    <!--<em>(剩余<span v-html="stock"></span>)</em>-->
-                    <!--<p class="textalign">-->
-                        <!--<span class="icon-reduce" @click="changeNum(0)"></span>-->
-                        <!--<input v-model="count" value="" class="inputText" readonly type="text">-->
-                        <!--<span class="icon-add" @click="changeNum(1)"></span>-->
-                    <!--</p>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
+        <div class="skus">
+            <ul>
+                <li class="h_box">
+                    <span class="tit">商品分类</span>
+                    <p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
+                             :class="merchandiseClasses == item.id?'cur':''"
+                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
+                             v-html="item.argName"></span>
+                    </p>
+                </li>
+                <li class="h_box mt15" style="height: 0.54rem;">
+                    <span class="tit">选择数量</span>
+                    <em>(剩余<span v-html="stock"></span>)</em>
+                    <p class="textalign">
+                        <span class="icon-reduce" @click="changeNum(0)"></span>
+                        <input v-model="count" value="" class="inputText" readonly type="text">
+                        <span class="icon-add" @click="changeNum(1)"></span>
+                    </p>
+                </li>
+            </ul>
+
+        </div>
 
         <div class="details">
             <h3>商品详情</h3>
@@ -227,7 +228,8 @@
         if (r != null) return unescape(r[2]);
         return null;
     }
-    var id = GetQueryString("id");
+
+    var id = GetQueryString("uuid").toString();
 
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
@@ -278,8 +280,7 @@
             component: {},
             created: function () {
                 var $this = this;
-//                this.$http.post(urlport + 'product/detail/v410', {"uuid": id}).then(function (data) {
-                this.$http.post(urlport + 'merchandise/detail', {"id": id}).then(function (data) {
+                this.$http.post(urlport + 'product/detail/v410', {"uuid": id}).then(function (data) {
                     var data = data.data;
                     console.log(data);
 //                    alert(JSON.stringify(data));
@@ -287,16 +288,13 @@
                         $this.logistics = data.data.logisticsDesc;
                         $this.salesSupport = data.data.salesSupport;
                         $this.content = data.data.content;
-                        $this.title = data.data.title;
+                        $this.title = data.data.name;
                         $this.viewCount = data.data.viewCount;
                         $this.commentCount = data.data.commentCount;
                         $this.dataAll = data.data;
                         $this.merchandiseClasses = data.data.selectMerchandiseClass;
-                        $this.url = data.data.merchandisePictures;
-                        $this.imgtitle = data.data.picture.path;
-                        $this.urllink = data.data.url;
-                        var item = $this.dataAll.merchandiseClasses[0];
-                        $this.selectType(item.id, item.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
+                        $this.url = data.data.productImgList;
+                        $this.imgtitle = data.data.productImgList[0].imgUrl;
 
                         /* ----------------sku选择开始---------------- */
                         var startTime = new Date().getTime();
@@ -488,7 +486,7 @@
                                     });
                                 } else {
                                     //设置默认价格
-                                    $('#price').text('0');
+                                    $('#price').text('--');
                                     $('#counts').text('0');
                                     $this.stock = $("#counts").text();
                                     //设置属性状态
@@ -499,6 +497,11 @@
                             });
                         });
                         /* ----------------sku选择结束---------------- */
+
+
+//                        var item = $this.dataAll.merchandiseClasses[0];
+                        $this.selectType($this.count, $this.totalntegral);
+
 
                         /*APP交互获取定位*/
                         if (userid == 1 || userid == null) {
@@ -607,19 +610,26 @@
                             $('.dark-bg').hide();
                         });
                         $("#addtocart1").click(function () {
-//                            alert("addtocart");
                             ft.addCartGood({
                                 skuId: 1,
                                 count: $(".inputText").val()
                             }, function (result) {
-
+                                var errorcode = result.errorCode.toString();
+                                if (errorcode == "1") {
+                                    $api.toast('加入购物车成功', 2000);
+                                } else if (errorcode == "0") {
+                                    $api.toast('加入购物车取消', 2000);
+                                } else if (errorcode == "-1") {
+                                    $api.toast('加入购物车失败', 2000);
+                                } else if (errorcode == "-2") {
+                                    $api.toast('加入购物车不支持', 2000);
+                                }
                             })
                         });
                         $("#ensureCart").click(function () {
                             $("#addtocart1").trigger('click');
                         });
                         $("#justbuy1").click(function () {
-//                            alert("justbuy");
                             console.log({
                                 price: $("#price").text(),
                                 count: $(".inputText").val(),
@@ -638,8 +648,17 @@
                                 title2: $this.title,
                                 address: $(".locationaddress").text()
                             }, function (result) {
-
-                            });
+                                var errorcode = result.errorCode.toString();
+                                if (errorcode == "1") {
+                                    $api.toast('立即购买成功', 2000);
+                                } else if (errorcode == "0") {
+                                    $api.toast('立即购买取消', 2000);
+                                } else if (errorcode == "-1") {
+                                    $api.toast('立即购买失败', 2000);
+                                } else if (errorcode == "-2") {
+                                    $api.toast('立即购买不支持', 2000);
+                                }
+                            })
                         });
                         $("#ensureBuy").click(function () {
                             $("#justbuy1").trigger('click');
@@ -651,7 +670,7 @@
                             });
                         }
                         /*微信分享链接专用*/
-                        var sharetitle = $this.title;
+                        var sharetitle = data.neme;
                         var sharedesc;
                         var contents = $(".msg").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
                         var count = contents.length;
@@ -662,8 +681,8 @@
                             sharedesc = contents;
                         }
                         var shareimg = $this.imgtitle;
-                        var sharestr = $this.urllink;
-                        var sharelink = sharestr;
+                        var sharestr = window.location.href;
+                        var sharelink = sharestr.replace(/api/, "h5");
                         console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                         $.ajax({
                             type: 'GET',

@@ -72,152 +72,151 @@ html, body {
 .jf-buy {
   overflow: hidden;
   background-color: #fff; }
-  .jf-buy .swiper{
-    z-index: 0;
-    height: 7.5rem!important;
-    overflow: hidden;
-    margin-bottom: 0.48rem;
-  }
-  .jf-buy .swiper mt-swipe{
-    z-index: -1;
-    overflow: hidden;
-  }
-  .jf-buy .swiper mt-swipe-item{
-    z-index: -1;
-    overflow: hidden;
-  }
-  .focus img, .focus {
-      overflow: hidden;
-      width: 100%;
-      height: 7.5rem; }
-  .jf-buy .title {
-    margin-bottom: 0.84rem; }
-    .jf-buy .title h4 {
-      width: 4.92rem;
-      margin: 0 auto;
-      text-align: center;
-      font-weight: lighter;
-      font-family: "PingFangSC-Medium";
-      font-size: 0.44rem; }
-    .jf-buy .title p {
-      margin-top: 0.24rem;
-      height: 0.48rem;
-      font-size: 12px;
-      color: rgb(201,203,213);
-      text-align: center; }
-    .jf-buy .title p span{display: inline-block;line-height: 0.48rem;}
-    .jf-buy .title p i{
-      display: inline-block;
-      margin-right: 0.04rem;}
-    .jf-buy .title p b{
-      float: right;
-      line-height: 0.52rem;
-      height:0.48rem;  }
-  .jf-buy .icon-msg {
-    margin-left:0.32rem; }
-  .jf-buy .skus {
-    z-index: 999999;
-    overflow: hidden;
-    margin: 0 0.24rem; }
-    .jf-buy .h_box{overflow: hidden;position: relative;}
-    .jf-buy .skus .tit {
-      float: left;
-      margin-right: 0.04rem;
-      line-height: 0.48rem;
-      font-size: 0.32rem; }
-    .jf-buy .skus ul {
-      border: 1px solid #ededed;
-      border-width: 1px 0 1px 0;
-      padding: 0.32rem 0; }
-    .jf-buy .skus li {
-      flex-wrap: wrap; }
-    .jf-buy .skus em {
-      float: left;
-      line-height: 0.48rem;
-      font-size: 0.32rem;
-      color: #ccc; }
-    .jf-buy .skus p {
-      float: left;
-      width: 5.48rem; }
-      .jf-buy .skus p span.sku-sel {
-        display: inline-block;
-        width: 1.08rem;
-        height: 0.48rem;
-        background: whitesmoke;
-        margin: 0 0 0.2rem 0.2rem;
-        text-align: center;
-        line-height: 0.48rem;
-        font-size: 0.24rem;
-        border-radius: 0.08rem; }
-      .jf-buy .skus p span.sku-sel.cur {
-        background: #ff6565;
-        color: #fff; }
-      .jf-buy .skus p .inputText {
-        width: 0.92rem;
-        height: 0.48rem;
-        background: whitesmoke;
-        border-radius: 0.08rem;
-        border: 1px solid #ccc;
-        text-align: center;
-        font-size: 0.24rem; }
-  .jf-buy .details {
-    margin: 0 0.24rem; }
-    .jf-buy .details img {
-      width: 100%; }
-    .jf-buy .details h3 {
-      font-size: 0.32rem;
-      font-weight: normal;
-      margin: 0.72rem 0 0.2rem; }
-    .jf-buy .details .msg {
-      font-size: 0.28rem; }
-    .jf-buy .details:last-child{
-      padding-bottom:1.28rem;
-    }
+.jf-buy .swiper{
+  z-index: 0;
+  height: 7.5rem!important;
+  overflow: hidden;
+  margin-bottom: 0.48rem;
+}
+.jf-buy .swiper mt-swipe{
+  z-index: -1;
+  overflow: hidden;
+}
+.jf-buy .swiper mt-swipe-item{
+  z-index: -1;
+  overflow: hidden;
+}
+.focus img, .focus {
+  overflow: hidden;
+  width: 100%;
+  height: 7.5rem; }
+.jf-buy .title {
+  margin-bottom: 0.84rem; }
+.jf-buy .title h4 {
+  width: 4.92rem;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: lighter;
+  font-family: "PingFangSC-Medium";
+  font-size: 0.44rem; }
+.jf-buy .title p {
+  margin-top: 0.24rem;
+  height: 0.48rem;
+  font-size: 12px;
+  color: rgb(201,203,213);
+  text-align: center; }
+.jf-buy .title p span{display: inline-block;line-height: 0.48rem;}
+.jf-buy .title p i{
+  display: inline-block;
+  margin-right: 0.04rem;}
+.jf-buy .title p b{
+  float: right;
+  line-height: 0.52rem;
+  height:0.48rem;  }
+.jf-buy .icon-msg {
+  margin-left:0.32rem; }
+.jf-buy .sku {
+  z-index: 999999;
+  overflow: hidden;
+  margin: 0 0.24rem; }
+.jf-buy .h_box{overflow: hidden;position: relative;}
+.jf-buy .sku .tit {
+  float: left;
+  margin-right: 0.04rem;
+  line-height: 0.48rem;
+  font-size: 0.32rem; }
+.jf-buy .sku ul {
+  border: 1px solid #ededed;
+  border-width: 1px 0 1px 0;
+  padding: 0.32rem 0; }
+.jf-buy .sku li {
+  flex-wrap: wrap; }
+.jf-buy .sku em {
+  float: left;
+  line-height: 0.48rem;
+  font-size: 0.32rem;
+  color: #ccc; }
+.jf-buy .sku p {
+  float: left;
+  width: 5.48rem; }
+.jf-buy .sku p span.sku-sel {
+  display: inline-block;
+  width: 1.08rem;
+  height: 0.48rem;
+  background: whitesmoke;
+  margin: 0 0 0.2rem 0.2rem;
+  text-align: center;
+  line-height: 0.48rem;
+  font-size: 0.24rem;
+  border-radius: 0.08rem; }
+.jf-buy .sku p span.sku-sel.cur {
+  background: #ff6565;
+  color: #fff; }
+.jf-buy .sku p .inputText {
+  width: 0.92rem;
+  height: 0.48rem;
+  background: whitesmoke;
+  border-radius: 0.08rem;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 0.24rem; }
+.jf-buy .details {
+  margin: 0 0.24rem; }
+.jf-buy .details img {
+  width: 100%; }
+.jf-buy .details h3 {
+  font-size: 0.32rem;
+  font-weight: normal;
+  margin: 0.72rem 0 0.2rem; }
+.jf-buy .details .msg {
+  font-size: 0.28rem; }
+.jf-buy .details:last-child{
+  padding-bottom:1.28rem;
+}
 
 .btnbox {
   position: fixed;
   bottom: 0;
   height: 0.96rem;
   width: 100%;
+  overflow: hidden;}
+.btnbox ul {
   overflow: hidden;
-  z-index: 999999!important;}
-  .btnbox ul {
-    overflow: hidden;
-    width: 100%;
-	height: 0.96rem;
-	line-height: 0.96rem;
-    background-color: #2f2f2f;
-    color: #fff;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-  .btnbox li:first-child {
-    float: left;
-    color: #fff;
-    font-size: 0.48rem;
-    height: 0.96rem;
-    line-height: 0.96rem;
-    width: 5.42rem;
-    padding-left: 0.5rem;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-    .btnbox li:first-child span {
-      font-size: 0.24rem;
-      color: #ccc;
-      text-decoration: line-through; }
-  .btnbox li:first-child em {
-    font-size: 0.28rem; }
-  .btnbox li.buy {
-    position: absolute;
-    right: 0;
-    top: 0;
-    overflow: hidden;
-    width: 2.08rem;
-    background-color: #ff6565;
-    height: 0.96rem;
-    line-height: 0.96rem;
-    border: none;
-    text-align: center;
-    font-size: 0.28rem; }
+  width: 100%;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  background-color: #2f2f2f;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+.btnbox li:first-child {
+  float: left;
+  color: #fff;
+  font-size: 0.48rem;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  width: 5.42rem;
+  padding-left: 0.5rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+.btnbox li:first-child span {
+  font-size: 0.24rem;
+  color: #ccc;
+  text-decoration: line-through; }
+.btnbox li:first-child em {
+  font-size: 0.28rem; }
+.btnbox li.buy {
+  position: absolute;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  width: 2.08rem;
+  background-color: #ff6565;
+  height: 0.96rem;
+  line-height: 0.96rem;
+  border: none;
+  text-align: center;
+  font-size: 0.28rem; }
 
 .inpage .focus img {
   height: 6rem; }
@@ -250,82 +249,82 @@ html, body {
   margin-top: 0.12rem;
   background-color: #fff;
   padding: 0.16rem 0; }
-  .course h4 {
-    font-size: 0.28rem;
-    margin: 0 0.16rem;
-    border-left: 2px solid #000;
-    line-height: 0.2rem;
-    padding-left: 0.28rem;
-    font-weight: normal;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box; }
-  .course .box {
-    margin: 0.16rem 0.42rem;
-    background-color: #f7f7f7;
-    padding: 0 0.2rem; }
-    .course .box .head-ico img {
-      width: 0.96rem;
-      height: 0.96rem;
-      border-radius: 100%; }
-    .course .box .h_box {
-      -webkit-box-pack: justify;
-              justify-content: space-between;
-      -webkit-box-align: center;
-              align-items: center;
-      /* Safari */
-      display: -webkit-box;
-      display: flex; }
-    .course .box li {
-      height: 1.9rem;
-      border-bottom: 1px dashed #ccc; }
-      .course .box li h5 {
-        font-size: 0.24rem; }
-      .course .box li p {
-        font-size: 1rem;
-        color: #828282; }
-      .course .box li div {
-        margin: 0 0.2rem; }
-      .course .box li span.focusBtn {
-        width: 1.28rem;
-        height: 0.44rem;
-        line-height: 0.44rem;
-        background-color: #ff6565;
-        color: #fff;
-        border-radius: 0.4rem;
-        text-align: center; }
-  .course .boxone li:last-child {
-    border-bottom: none; }
-  .course .boxone em {
-    font-size: 0.36rem; }
-  .course .boxone p {
-    font-size: 0.24rem;
-    color: #828282; }
-  .course .boxtwo {
-    border-radius: 0 0 0.12rem 0.12rem;
-    background-color: #ededed; }
-    .course .boxtwo .btn-buy {
-      display: inline-block;
-      width: 5.42rem;
-      height: 1.9rem;
-      background-color: #ff6565;
-      margin-left: -0.4rem;
-      font-size: 0.48rem;
-      line-height: 1.9rem;
-      text-align: center;
-      color: #fff;
-      margin-top: -0.2rem;
-      border-radius: 0 0 0.03rem 0.03rem; }
+.course h4 {
+  font-size: 0.28rem;
+  margin: 0 0.16rem;
+  border-left: 2px solid #000;
+  line-height: 0.2rem;
+  padding-left: 0.28rem;
+  font-weight: normal;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+.course .box {
+  margin: 0.16rem 0.42rem;
+  background-color: #f7f7f7;
+  padding: 0 0.2rem; }
+.course .box .head-ico img {
+  width: 0.96rem;
+  height: 0.96rem;
+  border-radius: 100%; }
+.course .box .h_box {
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  /* Safari */
+  display: -webkit-box;
+  display: flex; }
+.course .box li {
+  height: 1.9rem;
+  border-bottom: 1px dashed #ccc; }
+.course .box li h5 {
+  font-size: 0.24rem; }
+.course .box li p {
+  font-size: 1rem;
+  color: #828282; }
+.course .box li div {
+  margin: 0 0.2rem; }
+.course .box li span.focusBtn {
+  width: 1.28rem;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  background-color: #ff6565;
+  color: #fff;
+  border-radius: 0.4rem;
+  text-align: center; }
+.course .boxone li:last-child {
+  border-bottom: none; }
+.course .boxone em {
+  font-size: 0.36rem; }
+.course .boxone p {
+  font-size: 0.24rem;
+  color: #828282; }
+.course .boxtwo {
+  border-radius: 0 0 0.12rem 0.12rem;
+  background-color: #ededed; }
+.course .boxtwo .btn-buy {
+  display: inline-block;
+  width: 5.42rem;
+  height: 1.9rem;
+  background-color: #ff6565;
+  margin-left: -0.4rem;
+  font-size: 0.48rem;
+  line-height: 1.9rem;
+  text-align: center;
+  color: #fff;
+  margin-top: -0.2rem;
+  border-radius: 0 0 0.03rem 0.03rem; }
 
 .coursepic .picbox dd a {
   display: inline-block;
   position: relative; }
-  .coursepic .picbox dd a p {
-    position: absolute;
-    width: 100%;
-    bottom: 0.84rem;
-    text-align: center;
-    color: #fff;
-    font-size: 0.28rem; }
+.coursepic .picbox dd a p {
+  position: absolute;
+  width: 100%;
+  bottom: 0.84rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.28rem; }
 
 .coursepic .picbox dd img.pic {
   display: block;

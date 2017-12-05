@@ -1,4 +1,4 @@
-!function(){
+!function () {
 
     /*********************************************************************
      *                           全局变量和方法                                 *
@@ -15,7 +15,8 @@
     var ANDROID = /android/i.test(ua);//是否为安卓（不区分大小写）返回布尔类型
     var IOS = /iphone|ipad/i.test(ua);//是否为iphone或ipad（不区分大小写）
     var WP = /windows phone/i.test(ua);//是否为window phone（不区分大小写）
-    var noop = function () {};//
+    var noop = function () {
+    };//
 
 //ANDROID = 0; IOS = 1;
 
@@ -28,9 +29,9 @@
     }
 
 //生成UUID http://stackoverflow.com/questions/105034/how-to-create-a-guid-uuid-in-javascript
-    var generateID = window.performance && performance.now? function() {
+    var generateID = window.performance && performance.now ? function () {
         return ("ft" + performance.now() + performance.now()).replace(/\./g, "")//去掉小数点，变成整数
-    } : function() {
+    } : function () {
         return ("ft" + Math.random() + Math.random()).replace(/0\./g, "")//去掉0.变成整数
     }
 
@@ -38,7 +39,7 @@
     /*********************************************************************
      *                           ft初始化                                 *
      **********************************************************************/
-    ft = function(el) {
+    ft = function (el) {
         return new ft.init(el)
     };
 
@@ -55,7 +56,7 @@
         }
 
         return typeof obj === "object" || typeof obj === "function" ?
-        class2type[serialize.call(obj)] || "object" :
+            class2type[serialize.call(obj)] || "object" :
             typeof obj
     };
 
@@ -119,18 +120,18 @@
         return target
     }
 //是否是一个函数对象
-    var isFunction = typeof alert === "object" ? function(fn) {
+    var isFunction = typeof alert === "object" ? function (fn) {
         try {
             return /^\s*\bfunction\b/.test(fn + "")
         } catch (e) {
             return false
         }
-    } : function(fn) {
+    } : function (fn) {
         return serialize.call(fn) == "[object Function]"
     }
     ft.isFunction = isFunction
 //是否是一个window对象
-    ft.isWindow = function(obj) {
+    ft.isWindow = function (obj) {
         if (!obj)
             return false
         return obj == obj.document && obj.document != obj
@@ -139,6 +140,7 @@
     function isWindow(obj) {
         return rwindow.test(serialize.call(obj))
     }
+
     if (isWindow(window)) {
         ft.isWindow = isWindow
     }
@@ -151,7 +153,7 @@
     var enumerateBUG = enu !== "0";
 
 //是否为一个原始对象（普通对象）
-    ft.isPlainObject = function(obj, key) {
+    ft.isPlainObject = function (obj, key) {
         if (!obj || ft.type(obj) !== "object" || obj.nodeType || ft.isWindow(obj)) {
             return false;
         }
@@ -173,84 +175,115 @@
     };
 
 
-
     /*********************************************************************
      *                           配置系统                                 *
      **********************************************************************/
 
 
     var config = {
-        addToCart :{
-            name : "addToCart",
-            param:{
+        addToCart: {
+            name: "addToCart",
+            param: {
                 refId: "",
-                type:"",
-                count:""
+                type: "",
+                count: ""
             },
-            callbackId : generateID(),
-            callback : noop
+            callbackId: generateID(),
+            callback: noop
         },
-        selectCoupon:{
-            name : "selectCoupon",
-            callbackId : generateID(),
-            callback : noop
+        addCartMenu: {
+            name: "addCartMenu",
+            param: {
+                id: "",//菜谱食材
+                address:""
+            },
+            callbackId: generateID(),
+            callback: noop
         },
-        purchase:{
-            name : "purchase",
-            param:{
-                id:"",//  ID
-                price : "",//单价
-                num:"",// 数量
-                type:"",// 类型
-                coupontype:"",//优惠券类型
-                voucher:"", //优惠券
-                remark:"",// 备注
-                picturepath:"",// 图片路径
-                name:"", //名称、标题
-                oldprice:"", //原价
-                newprice:"" ,//新价格
-                starttime:"",//开课时间
-                address1:"",//开课地址1
-                address2:""//开课地址2
+        addCartGood: {
+            name: "addCartGood",
+            param: {
+                skuId: "",//商品SKU
+                count: ""//商品数量
+            },
+            callbackId: generateID(),
+            callback: noop
+        },
+        selectCoupon: {
+            name: "selectCoupon",
+            callbackId: generateID(),
+            callback: noop
+        },
+        purchase: {
+            name: "purchase",
+            param: {
+                id: "",//  ID
+                price: "",//单价
+                num: "",// 数量
+                type: "",// 类型
+                coupontype: "",//优惠券类型
+                voucher: "", //优惠券
+                remark: "",// 备注
+                picturepath: "",// 图片路径
+                name: "", //名称、标题
+                oldprice: "", //原价
+                newprice: "",//新价格
+                starttime: "",//开课时间
+                address1: "",//开课地址1
+                address2: ""//开课地址2
 
             },
-            callbackId : generateID(),
-            callback : noop
+            callbackId: generateID(),
+            callback: noop
         },
-        isLogin:{
-            name : "isLogin",
-            callbackId : generateID(),
-            callback : noop
+        purchaseGood: {
+            name: "purchaseGood",
+            param: {
+                price: "",//单价
+                count: "",// 数量
+                type: "",// 类型
+                picturepath: "",// 图片路径
+                title1: "", //标题
+                title2: "", //副标题
+                address: ""//地址
+            },
+            callbackId: generateID(),
+            callback: noop
         },
-        isLogin2:{
-            name : "isLogin2",
-            callbackId : generateID(),
-            callback : noop
+        isLogin: {
+            name: "isLogin",
+            callbackId: generateID(),
+            callback: noop
         },
-        callKitchenware:{
-            name : "callKitchenware",
-            callbackId : generateID(),
-            callback : noop
+        isLogin2: {
+            name: "isLogin2",
+            callbackId: generateID(),
+            callback: noop
         },
-        classMenu:{
-            name : "classMenu",
-            callbackId : generateID(),
-            callback : noop
+        callKitchenware: {
+            name: "callKitchenware",
+            callbackId: generateID(),
+            callback: noop
         },
-        moreKitchen:{
-            name : "moreKitchen",
-            callbackId : generateID(),
-            callback : noop
+        classMenu: {
+            name: "classMenu",
+            callbackId: generateID(),
+            callback: noop
         },
-        locationAddress:{
-            name : "locationAddress",
-            callbackId : generateID(),
-            callback : noop
+        moreKitchen: {
+            name: "moreKitchen",
+            callbackId: generateID(),
+            callback: noop
         },
-        chooseAddress:{
-            name : "chooseAddress",
-            callbackId : generateID(),
-            callback : noop
+        locationAddress: {
+            name: "locationAddress",
+            callbackId: generateID(),
+            callback: noop
+        },
+        chooseAddress: {
+            name: "chooseAddress",
+            callbackId: generateID(),
+            callback: noop
         }
 
     };
@@ -259,35 +292,36 @@
     /*********************************************************************
      *                           js bridge                                 *
      **********************************************************************/
-    function encode( opts ){
+    function encode(opts) {
         //判断传入参数是否为object
-        if( typeof opts === "object" ){
-            for(var p in opts){
+        if (typeof opts === "object") {
+            for (var p in opts) {
                 //判断opts里层对象是否为objecte
-                if( typeof opts[p] === "object" ){
-                    opts[p] = encode( opts[p] )
-                }else if (Array.isArray(opts[p])){//判断里层对象是否为数组
-                    for( var i=0 ; i < opts[p].length ; i++ ){
-                        if( typeof opts[p][i] === "object" ){
-                            opts[p][i] = encode( opts[p][i] )
-                        }else{
-                            opts[p][i] = encodeURIComponent( opts[p][i] )
+                if (typeof opts[p] === "object") {
+                    opts[p] = encode(opts[p])
+                } else if (Array.isArray(opts[p])) {//判断里层对象是否为数组
+                    for (var i = 0; i < opts[p].length; i++) {
+                        if (typeof opts[p][i] === "object") {
+                            opts[p][i] = encode(opts[p][i])
+                        } else {
+                            opts[p][i] = encodeURIComponent(opts[p][i])
                         }
                     }
-                }else{
+                } else {
                     opts[p] = encodeURIComponent(opts[p])
                 }
             }
-        }else{
+        } else {
             ft.log("不是有效的对象")
         }
         return opts;
     }
+
     function invoke(cmd) {
         log('invoke:', cmd);
         window.location.href = 'ft://' + encodeURIComponent(cmd);
-        log( 'ft://' + encodeURIComponent(cmd));
-        //alert('ft://' + encodeURIComponent(cmd));
+        log('ft://' + encodeURIComponent(cmd));
+        alert('ft://' + encodeURIComponent(cmd));
     }
 
     function callByJS(opt) {
@@ -298,7 +332,8 @@
         callbacks[input.callbackId] = opt.callback;
         invoke(JSON.stringify(encode(input)));
     }
-    function callByNative (opt) {
+
+    function callByNative(opt) {
         var callback = callbacks[opt.callbackId];
         var result = opt.result || {};
         var script = opt.script || '';
@@ -326,106 +361,144 @@
             }
         }
     }
+
     ft.callByJS = callByJS;
     ft.callByNative = callByNative;
     ft.log = log;
 
+
     /*********************************************************************
-     *                           加入购物车                                 *
-     **********************************************************************/
-    ft.addToCart = function (option,fn) {
-        var addToCartConfig = ft.mix( true,{},config.addToCart );
-        addToCartConfig.param.refId = option.refId ||"" ;
-        addToCartConfig.param.type = option.type ||"" ;
-        addToCartConfig.param.count = option.count ||"" ;
-        addToCartConfig.callback =  fn;
-        callByJS( addToCartConfig);
-    }
-    /*********************************************************************
-     *                           选择优惠券                                 *
-     **********************************************************************/
-    ft.selectCoupon = function (fn) {
-        var selectCouponConfig = ft.mix( true,{},config.selectCoupon );
-        selectCouponConfig.callback =  fn;
-        callByJS(selectCouponConfig);
-    }
-    /*********************************************************************
-     *                           立即购买                                 *
-     **********************************************************************/
-    ft.purchase = function (option,fn) {
-        var purchaseConfig = ft.mix( true,{},config.purchase );
-        purchaseConfig.param.id = option.id ||"" ;
-        purchaseConfig.param.price = option.price ||"";
-        purchaseConfig.param.num = option.num ||"" ;
-        purchaseConfig.param.type = option.type ||"" ;
-        purchaseConfig.param.coupontype = option.coupontype ||"";
-        purchaseConfig.param.voucher = option.voucher ||"" ;
-        purchaseConfig.param.remark = option.remark ||"";
-        purchaseConfig.param.picturepath = option.picturepath ||"";
-        purchaseConfig.param.name = option.name ||"" ;
-        purchaseConfig.param.oldprice = option.oldprice ||"" ;
-        purchaseConfig.param.newprice = option.newprice ||"" ;
-        purchaseConfig.param.starttime = option.starttime ||"" ;
-        purchaseConfig.param.address1 = option.address1 ||"" ;
-        purchaseConfig.param.address2 = option.address2 ||"" ;
-        purchaseConfig.callback =  fn;
-        callByJS(purchaseConfig);
-    }
-    /*********************************************************************
-     *                           登录判断                                 *
+     *                           登录判断-强制登录                                 *
      **********************************************************************/
     ft.isLogin = function (fn) {
-        var isLoginConfig = ft.mix( true,{},config.isLogin );
-        isLoginConfig.callback =  fn;
+        var isLoginConfig = ft.mix(true, {}, config.isLogin);
+        isLoginConfig.callback = fn;
         callByJS(isLoginConfig);
     }
     /*********************************************************************
-     *                           登录判断2                                 *
+     *                           登录判断2-不强制登录                                 *
      **********************************************************************/
     ft.isLogin2 = function (fn) {
-        var isLoginConfig2 = ft.mix( true,{},config.isLogin2 );
-        isLoginConfig2.callback =  fn;
+        var isLoginConfig2 = ft.mix(true, {}, config.isLogin2);
+        isLoginConfig2.callback = fn;
         callByJS(isLoginConfig2);
     }
     /*********************************************************************
      *                           唤起智能设备                             *
      **********************************************************************/
     ft.callKitchenware = function (fn) {
-        var callKitchenwareConfig = ft.mix( true,{},config.callKitchenware );
-        callKitchenwareConfig.callback =  fn;
+        var callKitchenwareConfig = ft.mix(true, {}, config.callKitchenware);
+        callKitchenwareConfig.callback = fn;
         callByJS(callKitchenwareConfig);
     }
     /*********************************************************************
      *                           进入菜谱列表                             *
      **********************************************************************/
     ft.classMenu = function (fn) {
-        var classMenuConfig = ft.mix( true,{},config.classMenu );
-        classMenuConfig.callback =  fn;
+        var classMenuConfig = ft.mix(true, {}, config.classMenu);
+        classMenuConfig.callback = fn;
         callByJS(classMenuConfig);
     }
     /*********************************************************************
      *                           进入商城厨具列表                             *
      **********************************************************************/
     ft.moreKitchen = function (fn) {
-        var moreKitchenConfig = ft.mix( true,{},config.moreKitchen );
-        moreKitchenConfig.callback =  fn;
+        var moreKitchenConfig = ft.mix(true, {}, config.moreKitchen);
+        moreKitchenConfig.callback = fn;
         callByJS(moreKitchenConfig);
     }
     /*********************************************************************
-     *                           获取用户默认地址                             *
+     *                           获取定位地址                          *
      **********************************************************************/
     ft.locationAddress = function (fn) {
-        var locationAddressConfig = ft.mix( true,{},config.locationAddress );
-        locationAddressConfig.callback =  fn;
+        var locationAddressConfig = ft.mix(true, {}, config.locationAddress);
+        locationAddressConfig.callback = fn;
         callByJS(locationAddressConfig);
     }
     /*********************************************************************
      *                           唤起用户选择地址                             *
      **********************************************************************/
     ft.chooseAddress = function (fn) {
-        var chooseAddressConfig = ft.mix( true,{},config.chooseAddress );
-        chooseAddressConfig.callback =  fn;
+        var chooseAddressConfig = ft.mix(true, {}, config.chooseAddress);
+        chooseAddressConfig.callback = fn;
         callByJS(chooseAddressConfig);
     }
-
+    /*********************************************************************
+     *                           选择优惠券-课程                                *
+     **********************************************************************/
+    ft.selectCoupon = function (fn) {
+        var selectCouponConfig = ft.mix(true, {}, config.selectCoupon);
+        selectCouponConfig.callback = fn;
+        callByJS(selectCouponConfig);
+    }
+    /*********************************************************************
+     *                           立即购买-课程                                 *
+     **********************************************************************/
+    ft.purchase = function (option, fn) {
+        var purchaseConfig = ft.mix(true, {}, config.purchase);
+        purchaseConfig.param.id = option.id || "";
+        purchaseConfig.param.price = option.price || "";
+        purchaseConfig.param.num = option.num || "";
+        purchaseConfig.param.type = option.type || "";
+        purchaseConfig.param.coupontype = option.coupontype || "";
+        purchaseConfig.param.voucher = option.voucher || "";
+        purchaseConfig.param.remark = option.remark || "";
+        purchaseConfig.param.picturepath = option.picturepath || "";
+        purchaseConfig.param.name = option.name || "";
+        purchaseConfig.param.oldprice = option.oldprice || "";
+        purchaseConfig.param.newprice = option.newprice || "";
+        purchaseConfig.param.starttime = option.starttime || "";
+        purchaseConfig.param.address1 = option.address1 || "";
+        purchaseConfig.param.address2 = option.address2 || "";
+        purchaseConfig.callback = fn;
+        callByJS(purchaseConfig);
+    }
+    /*********************************************************************
+     *                           加入购物车-课程                                 *
+     **********************************************************************/
+    ft.addToCart = function (option, fn) {
+        var addToCartConfig = ft.mix(true, {}, config.addToCart);
+        addToCartConfig.param.refId = option.refId || "";
+        addToCartConfig.param.type = option.type || "";
+        addToCartConfig.param.count = option.count || "";
+        addToCartConfig.callback = fn;
+        callByJS(addToCartConfig);
+    }
+    /*********************************************************************
+     *                           加入购物车-菜谱                                 *
+     **********************************************************************/
+    ft.addCartMenu = function (option, fn) {
+        var addCartMenuConfig = ft.mix(true, {}, config.addCartMenu);
+        addCartMenuConfig.param.id = option.id || "";
+        addCartMenuConfig.param.address = option.address || "";
+        addCartMenuConfig.callback = fn;
+        callByJS(addCartMenuConfig);
+    }
+    /*********************************************************************
+     *                           加入购物车-商品                                 *
+     **********************************************************************/
+    ft.addCartGood = function (option, fn) {
+        alert("addCartGood!!!");
+        var addCartGoodConfig = ft.mix(true, {}, config.addCartGood);
+        addCartGoodConfig.param.skuId = option.skuId || "";
+        addCartGoodConfig.param.count = option.count || "";
+        addCartGoodConfig.callback = fn;
+        callByJS(addCartGoodConfig);
+    }
+    /*********************************************************************
+     *                           立即购买-商品                                 *
+     **********************************************************************/
+    ft.purchaseGood= function (option, fn) {
+        alert("purchaseGood!!!");
+        var purchaseGoodConfig = ft.mix(true, {}, config.purchaseGood);
+        purchaseGoodConfig.param.price = option.price || "";
+        purchaseGoodConfig.param.count = option.count || "";
+        purchaseGoodConfig.param.type = option.type || "";
+        purchaseGoodConfig.param.picturepath = option.picturepath || "";
+        purchaseGoodConfig.param.title1 = option.title1 || "";
+        purchaseGoodConfig.param.title2 = option.title2 || "";
+        purchaseGoodConfig.param.address = option.address || "";
+        purchaseGoodConfig.callback = fn;
+        callByJS(purchaseGoodConfig);
+    }
 }()

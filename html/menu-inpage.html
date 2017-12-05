@@ -110,7 +110,8 @@
                     <span>{{item.unit}}</span>
                 </dd>
                 <!--<div class="box"></div>-->
-                <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
+                 <div class="tobuy"><span class="menubtn">一键购买</span></div>
+                <div class="tobuy"><span class="menubtn">加购物车</span></div>
             </dl>
         </div>
     </div>
@@ -269,6 +270,7 @@
                         id = $this.data.id;
                         console.log(id);
                     }
+                    alert(JSON.stringify(data.major_ingredients));
                     $.loadComment({"pageNum": 1, "pageSize": 10, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
                     $(".icon-easy").next("span").find("b").text(data.data.properties.difficulty);
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
@@ -362,6 +364,24 @@
                     if(data.data.end_steps[0].descriptionText=="" && data.data.end_steps[0].images[0]==""){
                         $("#end_steps").css("display", "none");
                     }
+
+                    $(".menubtn").click(function () {
+                        ft.addCartMenu({
+                            id: id,
+                            address: ""
+                        }, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                $api.toast('加入购物车成功', 2000);
+                            } else if (errorcode == "0") {
+                                $api.toast('加入购物车取消', 2000);
+                            } else if (errorcode == "-1") {
+                                $api.toast('加入购物车失败', 2000);
+                            } else if (errorcode == "-2") {
+                                $api.toast('加入购物车不支持', 2000);
+                            }
+                        })
+                    });
 
                     $(".instructions").html(data.data.instructions);
                     /*微信分享链接专用*/
