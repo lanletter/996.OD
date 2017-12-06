@@ -427,6 +427,7 @@ html, body {
     color:#2F2F2F;
     font-size: 12px;
     border: 0;
+    margin-right: 0.24rem;
 }
 .bh-sku-selected {color: #ffffff!important;background: #FB4C4C!important;}
 .bh-sku-disabled{color: #ffffff!important;background: #F5F5F5!important;}
@@ -439,10 +440,12 @@ html, body {
     line-height: 1rem;
     width: 100%;
 }
-.goodbtn input{
+.goodbtn span{
+    display: block;
     color: #F7F7F7;
     font-size: 14px;
     font-weight: bold;
+    text-align: center;
     height: 100%;
     float: left;
     border: 0;
@@ -452,4 +455,4 @@ html, body {
 }
 .goodbtn .addtocart{background: #FF6565;width: 50%;}
 .goodbtn .justbuy{background: #FB4C4C;width: 50%;}
-.ensure{background: #FB4C4C;width: 100%;}
+.goodbtn .ensure{background: #FB4C4C;width: 100%;}

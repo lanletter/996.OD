@@ -132,10 +132,10 @@
                 </div>
             </div>
             <div class="goodbtn">
-                <input id="addtocart1" class="addtocart" type="button" value="加入购物车"/>
-                <input id="justbuy1" class="justbuy" type="button" value="立即购买"/>
-                <input id="ensureCart" class="ensure" type="button" value="确定"/>
-                <input id="ensureBuy" class="ensure" type="button" value="确定"/>
+                <span id="addtocart1" class="addtocart">加入购物车</span>
+                <span id="justbuy1" class="justbuy">立即购买</span>
+                <span id="ensureCart" class="ensure">确定</span>
+                <span id="ensureBuy" class="ensure">确定</span>
             </div>
         </div>
 
@@ -188,8 +188,8 @@
     <br/><br/>
 
     <div class="goodbtn">
-        <input id="addtocart2" class="addtocart" type="button" value="加入购物车"/>
-        <input id="justbuy2" class="justbuy" type="button" value="立即购买"/>
+        <span id="addtocart2" class="addtocart">加入购物车</span>
+        <span id="justbuy2" class="justbuy">立即购买</span>
     </div>
     <!--<div class="btnbox">-->
     <!--<ul class="h_box">-->
@@ -227,6 +227,7 @@
         if (r != null) return unescape(r[2]);
         return null;
     }
+
     var id = GetQueryString("id");
 
     var device = GetQueryString("device");
@@ -295,13 +296,14 @@
                         $this.url = data.data.merchandisePictures;
                         $this.imgtitle = data.data.picture.path;
                         $this.urllink = data.data.url;
+                        $this.stock = 0;//初始库存
                         var item = $this.dataAll.merchandiseClasses[0];
-                        $this.selectType(item.id, item.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
+//                        $this.selectType(item.id, $this.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
 
                         /* ----------------sku选择开始---------------- */
                         var startTime = new Date().getTime();
-                        var keys = [['24', '25'], ['12', '13'], ['31', '32']];
-                        var data = {"24;12;31": {price: 366.00, count: 46}, "25;12;32": {price: 406, count: 66}}
+//                        var keys = [['24', '25'], ['12', '13'], ['31', '32']];
+                        var data = {"24;12;31": {price: 366.00, count: 46}, "25;12;32": {price: 406, count: 66}};
                         //保存最后的组合结果信息
                         var SKUResult = {};
 
@@ -461,6 +463,9 @@
                                     $('#price').text(maxPrice > minPrice ? minPrice + "-" + maxPrice : maxPrice);
                                     $('#counts').text(counts);
                                     $this.stock = $("#counts").text();
+                                    if($this.count > $this.stock){//防止选择数量大于库存
+                                        $this.count=$this.stock
+                                    }
 
                                     //用已选中的节点验证待测试节点 underTestObjs
                                     $(".sku").not(selectedObjs).not(self).each(function () {
@@ -491,6 +496,9 @@
                                     $('#price').text('0');
                                     $('#counts').text('0');
                                     $this.stock = $("#counts").text();
+                                    if($this.count > $this.stock){//防止选择数量大于库存
+                                        $this.count=$this.stock
+                                    }
                                     //设置属性状态
                                     $('.sku').each(function () {
                                         SKUResult[$(this).attr('attr_id')] ? $(this).removeAttr('disabled') : $(this).attr('disabled', 'disabled').removeClass('bh-sku-selected');
@@ -577,7 +585,7 @@
                                 }
                             });
                         });
-
+                        /*APP交互加购物车&立即购买*/
                         $("#locationaddress").click(function () {
                             $('.dark-bg').show();
                             $("#popupbox").show();
@@ -609,7 +617,7 @@
                         $("#addtocart1").click(function () {
 //                            alert("addtocart");
                             ft.addCartGood({
-                                skuId: 1,
+                                skuUuid: 2,
                                 count: $(".inputText").val()
                             }, function (result) {
 
@@ -623,20 +631,22 @@
                             console.log({
                                 price: $("#price").text(),
                                 count: $(".inputText").val(),
-                                type: 10,
+                                computeType: 10,
                                 picturepath: $this.imgtitle,
-                                title1: $this.title,
-                                title2: $this.title,
-                                address: $(".locationaddress").text()
+                                productName: $this.title,
+                                skuName: $this.skuName,
+                                address: $(".locationaddress").text(),
+                                shopname: ""
                             });
                             ft.purchaseGood({
                                 price: $("#price").text(),
                                 count: $(".inputText").val(),
-                                type: 10,
+                                computeType: 10,
                                 picturepath: $this.imgtitle,
-                                title1: $this.title,
-                                title2: $this.title,
-                                address: $(".locationaddress").text()
+                                productName: $this.title,
+                                skuName: $this.skuName,
+                                address: $(".locationaddress").text(),
+                                shopname: ""
                             }, function (result) {
 
                             });
@@ -645,11 +655,7 @@
                             $("#justbuy1").trigger('click');
                         });
 
-                        if (device == "ios") {
-                            $(".btnbox ul").css({
-                                "top": window.innerHeight - $(".btnbox ul").outerHeight(true)
-                            });
-                        }
+
                         /*微信分享链接专用*/
                         var sharetitle = $this.title;
                         var sharedesc;
@@ -829,26 +835,25 @@
                     paidintegral = $this.payintegral;
                     $this.integral = integral;
                     $this.count = 1;
-                    if (stock > 0) {
+                    if (stock > 0) {//库存不为0时数量初始值为1
                         $this.count = 1;
                         $this.totalntegral = paidIntegral;
-                    } else {
+                    } else {//库存为0时数量初始值为0
                         $this.count = 0;
                         $this.totalntegral = 0;
                     }
-
                 },
                 changeNum: function (type, totalntegral) {
-                    if (this.count == 0) {
+                    if (this.stock == 0) {
                         alert("库存不足!");
                         return;
                     }
                     if (type == 0) {
                         this.count = this.count - 1 > 1 ? this.count - 1 : 1;
-                        this.totalntegral = paidintegral * this.count;
+//                        this.totalntegral = paidintegral * this.count;
                     } else {
                         this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
-                        this.totalntegral = paidintegral * this.count;
+//                        this.totalntegral = paidintegral * this.count;
                     }
                 }
 

@@ -203,7 +203,7 @@
         addCartGood: {
             name: "addCartGood",
             param: {
-                skuId: "",//商品SKU
+                skuUuid: "",//商品SKU
                 count: ""//商品数量
             },
             callbackId: generateID(),
@@ -241,11 +241,12 @@
             param: {
                 price: "",//单价
                 count: "",// 数量
-                type: "",// 类型
+                computeType: "",// 类型
                 picturepath: "",// 图片路径
-                title1: "", //标题
-                title2: "", //副标题
-                address: ""//地址
+                productName: "", //标题
+                skuName: "", //副标题
+                address: "",//地址
+                shopname:"" //店铺名称
             },
             callbackId: generateID(),
             callback: noop
@@ -319,9 +320,10 @@
 
     function invoke(cmd) {
         log('invoke:', cmd);
+        // alert('invoke:'+ cmd);
         window.location.href = 'ft://' + encodeURIComponent(cmd);
         log('ft://' + encodeURIComponent(cmd));
-        alert('ft://' + encodeURIComponent(cmd));
+        // alert('ft://' + encodeURIComponent(cmd));
     }
 
     function callByJS(opt) {
@@ -478,9 +480,8 @@
      *                           加入购物车-商品                                 *
      **********************************************************************/
     ft.addCartGood = function (option, fn) {
-        alert("addCartGood!!!");
         var addCartGoodConfig = ft.mix(true, {}, config.addCartGood);
-        addCartGoodConfig.param.skuId = option.skuId || "";
+        addCartGoodConfig.param.skuUuid = option.skuUuid || "";
         addCartGoodConfig.param.count = option.count || "";
         addCartGoodConfig.callback = fn;
         callByJS(addCartGoodConfig);
@@ -489,15 +490,15 @@
      *                           立即购买-商品                                 *
      **********************************************************************/
     ft.purchaseGood= function (option, fn) {
-        alert("purchaseGood!!!");
         var purchaseGoodConfig = ft.mix(true, {}, config.purchaseGood);
         purchaseGoodConfig.param.price = option.price || "";
         purchaseGoodConfig.param.count = option.count || "";
-        purchaseGoodConfig.param.type = option.type || "";
+        purchaseGoodConfig.param.computeType = option.computeType || "";
         purchaseGoodConfig.param.picturepath = option.picturepath || "";
-        purchaseGoodConfig.param.title1 = option.title1 || "";
-        purchaseGoodConfig.param.title2 = option.title2 || "";
+        purchaseGoodConfig.param.productName = option.productName || "";
+        purchaseGoodConfig.param.skuName = option.skuName || "";
         purchaseGoodConfig.param.address = option.address || "";
+        purchaseGoodConfig.param.shopname = option.shopname || "";
         purchaseGoodConfig.callback = fn;
         callByJS(purchaseGoodConfig);
     }

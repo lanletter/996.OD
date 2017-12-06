@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../css/mint-ui.css?ver=403">
     <link type="text/css" rel="stylesheet" href="../css/shCore.css"/>
     <link type="text/css" rel="stylesheet" href="../css/shCoreDefault.css"/>
-    <title>商品内页</title>
+    <title>商品内页4.1</title>
     <style>
         .icon-truck {
             display: inline-block;
@@ -106,20 +106,9 @@
                 </div>
 
                 <div class="selectsku">
-                    <div>
-                        <p class="adtitle">颜色分类：</p>
-                        <input type="button" class="sku" attr_id="24" value="24"/>
-                        <input type="button" class="sku" attr_id="25" value="25"/>
-                    </div>
-                    <div>
-                        <p class="adtitle">尺寸大小：</p>
-                        <input type="button" class="sku" attr_id="12" value="12"/>
-                        <input type="button" class="sku" attr_id="13" value="13"/>
-                    </div>
-                    <div>
-                        <p class="adtitle">选择样式：</p>
-                        <input type="button" class="sku" attr_id="31" value="31"/>
-                        <input type="button" class="sku" attr_id="32" value="32"/>
+                    <div v-for="(item,index) in keyValueMap">
+                        <p class="adtitle" v-html="index">颜色分类：</p>
+                        <input v-for="ite in keyValueMap[index]" type="button" class="sku" v-bind:attr_id="ite" v-bind:value="ite"/>
                     </div>
                     <div class="brtop">
                         <p class="adtitle">选择数量</p>
@@ -132,36 +121,59 @@
                 </div>
             </div>
             <div class="goodbtn">
-                <input id="addtocart1" class="addtocart" type="button" value="加入购物车"/>
-                <input id="justbuy1" class="justbuy" type="button" value="立即购买"/>
-                <input id="ensureCart" class="ensure" type="button" value="确定"/>
-                <input id="ensureBuy" class="ensure" type="button" value="确定"/>
+                <span id="addtocart1" class="addtocart">加入购物车</span>
+                <span id="justbuy1" class="justbuy">立即购买</span>
+                <span id="ensureCart" class="ensure">确定</span>
+                <span id="ensureBuy" class="ensure">确定</span>
             </div>
         </div>
 
-        <div class="skus">
-            <ul>
-                <li class="h_box">
-                    <span class="tit">商品分类</span>
-                    <p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
-                             :class="merchandiseClasses == item.id?'cur':''"
-                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
-                             v-html="item.argName"></span>
-                    </p>
-                </li>
-                <li class="h_box mt15" style="height: 0.54rem;">
-                    <span class="tit">选择数量</span>
-                    <em>(剩余<span v-html="stock"></span>)</em>
-                    <p class="textalign">
-                        <span class="icon-reduce" @click="changeNum(0)"></span>
-                        <input v-model="count" value="" class="inputText" readonly type="text">
-                        <span class="icon-add" @click="changeNum(1)"></span>
-                    </p>
-                </li>
-            </ul>
-
+        <!--<div class="skus">-->
+            <!--<ul>-->
+                <!--<li class="h_box">-->
+                    <!--<span class="tit">商品分类</span>-->
+                    <!--<p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"-->
+                             <!--:class="merchandiseClasses == item.id?'cur':''"-->
+                             <!--@click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"-->
+                             <!--v-html="item.argName"></span>-->
+                    <!--</p>-->
+                <!--</li>-->
+                <!--<li class="h_box mt15" style="height: 0.54rem;">-->
+                    <!--<span class="tit">选择数量</span>-->
+                    <!--<em>(剩余<span v-html="stock"></span>)</em>-->
+                    <!--<p class="textalign">-->
+                        <!--<span class="icon-reduce" @click="changeNum(0)"></span>-->
+                        <!--<input v-model="count" value="" class="inputText" readonly type="text">-->
+                        <!--<span class="icon-add" @click="changeNum(1)"></span>-->
+                    <!--</p>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+        <div class="selectsku">
+            <div>
+                <p class="adtitle">颜色分类：</p>
+                <input type="button" class="sku" attr_id="24" value="24"/>
+                <input type="button" class="sku" attr_id="25" value="25"/>
+            </div>
+            <div>
+                <p class="adtitle">尺寸大小：</p>
+                <input type="button" class="sku" attr_id="12" value="12"/>
+                <input type="button" class="sku" attr_id="13" value="13"/>
+            </div>
+            <div>
+                <p class="adtitle">选择样式：</p>
+                <input type="button" class="sku" attr_id="31" value="31"/>
+                <input type="button" class="sku" attr_id="32" value="32"/>
+            </div>
+            <div class="brtop">
+                <p class="adtitle">选择数量</p>
+                <div class="textalign">
+                    <span class="icon-reduce" @click="changeNum(0)"></span>
+                    <input v-model="count" value="" class="inputText" readonly type="text">
+                    <span class="icon-add" @click="changeNum(1)"></span>
+                </div>
+            </div>
         </div>
-
         <div class="details">
             <h3>商品详情</h3>
             <div class="msg" v-html="content"></div>
@@ -189,8 +201,8 @@
     <br/><br/>
 
     <div class="goodbtn">
-        <input id="addtocart2" class="addtocart" type="button" value="加入购物车"/>
-        <input id="justbuy2" class="justbuy" type="button" value="立即购买"/>
+        <span id="addtocart2" class="addtocart">加入购物车</span>
+        <span id="justbuy2" class="justbuy">立即购买</span>
     </div>
     <!--<div class="btnbox">-->
     <!--<ul class="h_box">-->
@@ -274,7 +286,9 @@
                 merchandiseClasses: '',
                 url: [],
                 totalntegral: '',
-                imgtitle: ''
+                imgtitle: '',
+                skuInfoList:'',
+                keyValueMap:''
 
             },
             component: {},
@@ -294,12 +308,19 @@
                         $this.dataAll = data.data;
                         $this.merchandiseClasses = data.data.selectMerchandiseClass;
                         $this.url = data.data.productImgList;
+                        $this.stock = 0;//初始库存
                         $this.imgtitle = data.data.productImgList[0].imgUrl;
+                        $this.skuInfoList = data.data.skuInfoList;
+                        $this.keyValueMap = data.data.keyValueMap;
+                        console.log($this.keyValueMap);
 
                         /* ----------------sku选择开始---------------- */
                         var startTime = new Date().getTime();
-                        var keys = [['24', '25'], ['12', '13'], ['31', '32']];
-                        var data = {"24;12;31": {price: 366.00, count: 46}, "25;12;32": {price: 406, count: 66}}
+//                        var keys = [['24', '25'], ['12', '13'], ['31', '32']];
+                        var valuedata = {"24;12;31": {price: 366.00, inventory: 46}, "25;12;32": {price: 406, inventory: 66}};
+                        var data={"蓝色;2Kg": {price: 366.00, inventory: 46}, "红色;1Kg": {price: 406, inventory: 66}};
+                        console.log(data);
+                        console.log(valuedata);
                         //保存最后的组合结果信息
                         var SKUResult = {};
 
@@ -317,11 +338,11 @@
                         function add2SKUResult(combArrItem, sku) {
                             var key = combArrItem.join(";");
                             if (SKUResult[key]) {//SKU信息key属性·
-                                SKUResult[key].count += sku.count;
+                                SKUResult[key].inventory += sku.inventory;
                                 SKUResult[key].prices.push(sku.price);
                             } else {
                                 SKUResult[key] = {
-                                    count: sku.count,
+                                    inventory: sku.inventory,
                                     prices: [sku.price]
                                 };
                             }
@@ -329,10 +350,10 @@
 
                         //初始化得到结果集
                         function initSKU() {
-                            var i, j, skuKeys = getObjKeys(data);
+                            var i, j, skuKeys = getObjKeys(valuedata);
                             for (i = 0; i < skuKeys.length; i++) {
                                 var skuKey = skuKeys[i];//一条SKU信息key
-                                var sku = data[skuKey];	//一条SKU信息value
+                                var sku = valuedata[skuKey];	//一条SKU信息value
                                 var skuKeyAttrs = skuKey.split(";"); //SKU信息key属性值数组
                                 skuKeyAttrs.sort(function (value1, value2) {
                                     return parseInt(value1) - parseInt(value2);
@@ -346,7 +367,7 @@
 
                                 //结果集接放入SKUResult
                                 SKUResult[skuKeyAttrs.join(";")] = {
-                                    count: sku.count,
+                                    inventory: sku.inventory,
                                     prices: [sku.price]
                                 }
                             }
@@ -453,12 +474,15 @@
                                     });
                                     var len = selectedIds.length;
                                     var prices = SKUResult[selectedIds.join(';')].prices;
-                                    var counts = SKUResult[selectedIds.join(';')].count;
+                                    var counts = SKUResult[selectedIds.join(';')].inventory;
                                     var maxPrice = Math.max.apply(Math, prices);
                                     var minPrice = Math.min.apply(Math, prices);
                                     $('#price').text(maxPrice > minPrice ? minPrice + "-" + maxPrice : maxPrice);
                                     $('#counts').text(counts);
                                     $this.stock = $("#counts").text();
+                                    if($this.count > $this.stock){//防止选择数量大于库存
+                                        $this.count=$this.stock
+                                    }
 
                                     //用已选中的节点验证待测试节点 underTestObjs
                                     $(".sku").not(selectedObjs).not(self).each(function () {
@@ -486,9 +510,12 @@
                                     });
                                 } else {
                                     //设置默认价格
-                                    $('#price').text('--');
+                                    $('#price').text('0');
                                     $('#counts').text('0');
                                     $this.stock = $("#counts").text();
+                                    if($this.count > $this.stock){//防止选择数量大于库存
+                                        $this.count=$this.stock
+                                    }
                                     //设置属性状态
                                     $('.sku').each(function () {
                                         SKUResult[$(this).attr('attr_id')] ? $(this).removeAttr('disabled') : $(this).attr('disabled', 'disabled').removeClass('bh-sku-selected');
@@ -497,11 +524,6 @@
                             });
                         });
                         /* ----------------sku选择结束---------------- */
-
-
-//                        var item = $this.dataAll.merchandiseClasses[0];
-                        $this.selectType($this.count, $this.totalntegral);
-
 
                         /*APP交互获取定位*/
                         if (userid == 1 || userid == null) {
@@ -580,7 +602,7 @@
                                 }
                             });
                         });
-
+                        /*APP交互加购物车&立即购买*/
                         $("#locationaddress").click(function () {
                             $('.dark-bg').show();
                             $("#popupbox").show();
@@ -610,65 +632,46 @@
                             $('.dark-bg').hide();
                         });
                         $("#addtocart1").click(function () {
+//                            alert("addtocart");
                             ft.addCartGood({
-                                skuId: 1,
+                                skuUuid: 2,
                                 count: $(".inputText").val()
                             }, function (result) {
-                                var errorcode = result.errorCode.toString();
-                                if (errorcode == "1") {
-                                    $api.toast('加入购物车成功', 2000);
-                                } else if (errorcode == "0") {
-                                    $api.toast('加入购物车取消', 2000);
-                                } else if (errorcode == "-1") {
-                                    $api.toast('加入购物车失败', 2000);
-                                } else if (errorcode == "-2") {
-                                    $api.toast('加入购物车不支持', 2000);
-                                }
+
                             })
                         });
                         $("#ensureCart").click(function () {
                             $("#addtocart1").trigger('click');
                         });
                         $("#justbuy1").click(function () {
+//                            alert("justbuy");
                             console.log({
                                 price: $("#price").text(),
                                 count: $(".inputText").val(),
-                                type: 10,
+                                computeType: 10,
                                 picturepath: $this.imgtitle,
-                                title1: $this.title,
-                                title2: $this.title,
-                                address: $(".locationaddress").text()
+                                productName: $this.title,
+                                skuName: $this.skuName,
+                                address: $(".locationaddress").text(),
+                                shopname: ""
                             });
                             ft.purchaseGood({
                                 price: $("#price").text(),
                                 count: $(".inputText").val(),
-                                type: 10,
+                                computeType: 10,
                                 picturepath: $this.imgtitle,
-                                title1: $this.title,
-                                title2: $this.title,
-                                address: $(".locationaddress").text()
+                                productName: $this.title,
+                                skuName: $this.skuName,
+                                address: $(".locationaddress").text(),
+                                shopname: ""
                             }, function (result) {
-                                var errorcode = result.errorCode.toString();
-                                if (errorcode == "1") {
-                                    $api.toast('立即购买成功', 2000);
-                                } else if (errorcode == "0") {
-                                    $api.toast('立即购买取消', 2000);
-                                } else if (errorcode == "-1") {
-                                    $api.toast('立即购买失败', 2000);
-                                } else if (errorcode == "-2") {
-                                    $api.toast('立即购买不支持', 2000);
-                                }
-                            })
+
+                            });
                         });
                         $("#ensureBuy").click(function () {
                             $("#justbuy1").trigger('click');
                         });
 
-                        if (device == "ios") {
-                            $(".btnbox ul").css({
-                                "top": window.innerHeight - $(".btnbox ul").outerHeight(true)
-                            });
-                        }
                         /*微信分享链接专用*/
                         var sharetitle = data.neme;
                         var sharedesc;
@@ -848,26 +851,26 @@
                     paidintegral = $this.payintegral;
                     $this.integral = integral;
                     $this.count = 1;
-                    if (stock > 0) {
+                    if (stock > 0) {//库存不为0时数量初始值为1
                         $this.count = 1;
                         $this.totalntegral = paidIntegral;
-                    } else {
+                    } else {//库存为0时数量初始值为0
                         $this.count = 0;
                         $this.totalntegral = 0;
                     }
 
                 },
                 changeNum: function (type, totalntegral) {
-                    if (this.count == 0) {
+                    if (this.stock == 0) {
                         alert("库存不足!");
                         return;
                     }
                     if (type == 0) {
                         this.count = this.count - 1 > 1 ? this.count - 1 : 1;
-                        this.totalntegral = paidintegral * this.count;
+//                        this.totalntegral = paidintegral * this.count;
                     } else {
                         this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
-                        this.totalntegral = paidintegral * this.count;
+//                        this.totalntegral = paidintegral * this.count;
                     }
                 }
 

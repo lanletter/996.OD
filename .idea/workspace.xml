@@ -24,11 +24,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ft.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ft.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="320" column="28" lean-forward="true" selection-start-line="320" selection-start-column="28" selection-end-line="320" selection-end-column="28" />
+            <state relative-caret-position="206">
+              <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="121" column="58" lean-forward="false" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -37,20 +47,40 @@
       <file leaf-file-name="gooddetail3.0.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="575" column="42" lean-forward="true" selection-start-line="575" selection-start-column="42" selection-end-line="575" selection-end-column="42" />
+            <state relative-caret-position="2343">
+              <caret line="305" column="32" lean-forward="true" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gooddetail4.1.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/gooddetail4.1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1056">
+              <caret line="315" column="0" lean-forward="true" selection-start-line="315" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
               <folding>
-                <marker date="1512456984174" expanded="false" signature="8368:8384" ph="..." />
+                <marker date="1512559763426" expanded="false" signature="6165:6181" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gooddetail.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
+      <file leaf-file-name="video-hls.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/video-hls.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="450" column="17" lean-forward="false" selection-start-line="450" selection-start-column="17" selection-end-line="450" selection-end-column="17" />
+            <state relative-caret-position="206">
+              <caret line="4311" column="50" lean-forward="false" selection-start-line="4311" selection-start-column="50" selection-end-line="4311" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/video.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="21158" column="28" lean-forward="true" selection-start-line="21158" selection-start-column="28" selection-end-line="21158" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -59,26 +89,39 @@
       <file leaf-file-name="url.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/url.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+            <state relative-caret-position="75">
+              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+      <file leaf-file-name="gooddetail.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="615" column="24" lean-forward="true" selection-start-line="615" selection-start-column="24" selection-end-line="631" selection-end-column="26" />
-              <folding>
-                <marker date="1512456894665" expanded="true" signature="29033:29597" ph="..." />
-                <marker date="1512456894665" expanded="true" signature="29073:29571" ph="..." />
-                <marker date="1512456894665" expanded="true" signature="29117:29375" ph="..." />
-                <marker date="1512456894665" expanded="true" signature="29204:29371" ph="..." />
-                <marker date="1512456894665" expanded="true" signature="29796:30050" ph="..." />
-                <marker date="1512456894665" expanded="false" signature="29912:29960" ph="..." />
-              </folding>
+            <state relative-caret-position="326">
+              <caret line="429" column="16" lean-forward="false" selection-start-line="429" selection-start-column="16" selection-end-line="429" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video-share.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/video-share.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="download.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/download.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="223">
+              <caret line="117" column="9" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,36 +139,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>toString</find>
-      <find>idString</find>
-      <find>title</find>
-      <find>textalign</find>
-      <find>url</find>
-      <find>counts</find>
-      <find>startTime</find>
-      <find>picture</find>
-      <find>data</find>
-      <find>库存不足</find>
-      <find>changeNum</find>
-      <find>type</find>
-      <find>count</find>
-      <find>foodList</find>
-      <find>addtocart1</find>
-      <find>ensureBuy</find>
-      <find>imgUrl</find>
-      <find>item</find>
-      <find>imgtitle</find>
-      <find>msg</find>
       <find>data.url</find>
-      <find>stock</find>
       <find>price</find>
       <find>purchase</find>
       <find>locationaddress</find>
       <find>chooseAddress</find>
-      <find>purchaseGood</find>
       <find>num</find>
-      <find>addCartGood</find>
       <find>ft</find>
+      <find>addCartGood</find>
+      <find>val</find>
+      <find>inputText</find>
+      <find>ensure</find>
+      <find>sku</find>
+      <find>alert</find>
+      <find>the media</find>
+      <find>the media could not be</find>
+      <find>defaultMessages</find>
+      <find>argsArray</find>
+      <find>MediaError.defaultMessages</find>
+      <find>skuId</find>
+      <find>purchaseGood</find>
+      <find>selectType</find>
+      <find>type</find>
+      <find>dataAll</find>
+      <find>stock</find>
+      <find>index</find>
+      <find>v-for</find>
+      <find>valueList</find>
+      <find>goodbtn</find>
+      <find>keyList</find>
+      <find>count</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,7 +199,6 @@
         <option value="$PROJECT_DIR$/js/lib2.js" />
         <option value="$PROJECT_DIR$/html/不用了-videotab.html" />
         <option value="$PROJECT_DIR$/css/video.css" />
-        <option value="$PROJECT_DIR$/js/video.js" />
         <option value="$PROJECT_DIR$/css/video-share2.css" />
         <option value="$PROJECT_DIR$/js/loadcomment备份.js" />
         <option value="$PROJECT_DIR$/css/lifedetail.css" />
@@ -188,11 +230,12 @@
         <option value="$PROJECT_DIR$/css/download.css" />
         <option value="$PROJECT_DIR$/html/jf-buy.html" />
         <option value="$PROJECT_DIR$/html/menu-inpage.html" />
-        <option value="$PROJECT_DIR$/html/gooddetail4.1.html" />
-        <option value="$PROJECT_DIR$/css/gooddetail.css" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
-        <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
+        <option value="$PROJECT_DIR$/js/video.js" />
         <option value="$PROJECT_DIR$/js/ft.js" />
+        <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
+        <option value="$PROJECT_DIR$/css/gooddetail.css" />
+        <option value="$PROJECT_DIR$/html/gooddetail4.1.html" />
       </list>
     </option>
   </component>
@@ -203,9 +246,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="376" />
+    <option name="x" value="667" />
     <option name="y" value="23" />
-    <option name="width" value="1064" />
+    <option name="width" value="773" />
     <option name="height" value="815" />
   </component>
   <component name="ProjectView">
@@ -235,6 +278,11 @@
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -412,7 +460,7 @@
       <workItem from="1512379912613" duration="15000" />
       <workItem from="1512379947901" duration="72000" />
       <workItem from="1512380064167" duration="150000" />
-      <workItem from="1512380232857" duration="15388000" />
+      <workItem from="1512380232857" duration="34603000" />
     </task>
     <task id="LOCAL-00015" summary="8月1日">
       <created>1501552504467</created>
@@ -761,12 +809,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1731707000" />
+    <option name="totallyTimeSpent" value="1750922000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="376" y="23" width="1064" height="815" extended-state="0" />
+    <frame x="667" y="23" width="773" height="815" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1831256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25398937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -839,8 +887,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/emoticons/images/5.gif" />
-    <entry file="file://$PROJECT_DIR$/img/emoticons/images/6.gif" />
     <entry file="file://$PROJECT_DIR$/img/emoticons/images/7.gif" />
     <entry file="file://$PROJECT_DIR$/img/emoticons/images/8.gif" />
     <entry file="file://$PROJECT_DIR$/img/emoticons/images/9.gif" />
@@ -984,13 +1030,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-share.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" column="21" lean-forward="true" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/video-tab.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2550">
@@ -1105,34 +1144,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/url.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/gooddetail-old.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="104" column="1" lean-forward="false" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/download.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/gooddetail4.1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="296" column="36" lean-forward="true" selection-start-line="296" selection-start-column="0" selection-end-line="297" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1156,22 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-496">
-          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="450" column="17" lean-forward="false" selection-start-line="450" selection-start-column="17" selection-end-line="450" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
@@ -1187,21 +1186,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
+    <entry file="file://$PROJECT_DIR$/css/download.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="575" column="42" lean-forward="true" selection-start-line="575" selection-start-column="42" selection-end-line="575" selection-end-column="42" />
-          <folding>
-            <marker date="1512456984174" expanded="false" signature="8368:8384" ph="..." />
-          </folding>
+        <state relative-caret-position="223">
+          <caret line="117" column="9" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/video-hls.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="4311" column="50" lean-forward="false" selection-start-line="4311" selection-start-column="50" selection-end-line="4311" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-share.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/video.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="21158" column="28" lean-forward="true" selection-start-line="21158" selection-start-column="28" selection-end-line="21158" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ft.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="320" column="28" lean-forward="true" selection-start-line="320" selection-start-column="28" selection-end-line="320" selection-end-column="28" />
+        <state relative-caret-position="206">
+          <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2343">
+          <caret line="305" column="32" lean-forward="true" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="121" column="58" lean-forward="false" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="429" column="16" lean-forward="false" selection-start-line="429" selection-start-column="16" selection-end-line="429" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/url.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/gooddetail4.1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="315" column="0" lean-forward="true" selection-start-line="315" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
+          <folding>
+            <marker date="1512559763426" expanded="false" signature="6165:6181" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
