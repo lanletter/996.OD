@@ -110,8 +110,12 @@
                     <span>{{item.unit}}</span>
                 </dd>
                 <!--<div class="box"></div>-->
-                 <div class="tobuy"><span class="menubtn">一键购买</span></div>
+                 <!--<div class="tobuy"><span class="menubtn">一键购买</span></div>-->
                 <div class="tobuy"><span class="menubtn">加购物车</span></div>
+                <div id="chooseaddress1" class="addressbox">
+                    <span class="adtitle">配送至：</span>
+                    <span class="locationaddress">上海市徐汇区</span>
+                </div>
             </dl>
         </div>
     </div>
@@ -270,7 +274,7 @@
                         id = $this.data.id;
                         console.log(id);
                     }
-                    alert(JSON.stringify(data.major_ingredients));
+                    // alert(JSON.stringify(data.major_ingredients));
                     $.loadComment({"pageNum": 1, "pageSize": 10, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
                     $(".icon-easy").next("span").find("b").text(data.data.properties.difficulty);
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
@@ -381,6 +385,84 @@
                                 $api.toast('加入购物车不支持', 2000);
                             }
                         })
+                    });
+
+                    /*APP交互获取定位*/
+                    if (userid == 1 || userid == null) {
+                        ft.locationAddress(function (result) {
+//                                alert(JSON.stringify(result));
+                            var errorcode = result.errorCode.toString();
+                            console.log(errorcode);
+                            if (errorcode == "1") {
+                                var province = result.data.province;
+                                var city = result.data.city;
+                                var district = result.data.district;
+                                $(".locationaddress").text(province + city + district);
+                            } else if (errorCode == "0") {
+                            } else if (errorCode == "-1") {
+                            } else {
+                                return
+                            }
+                        });
+                    } else {
+                        $.ajax({
+                            url: urlport + 'receiptAddress/default',
+                            type: 'POST',
+                            data: JSON.stringify({"id": id, "userId": userid}),
+                            timeout: 5000, //超时时间
+                            contentType: "application/json;charset=utf-8",
+                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                            success: function (data, textStatus) {
+//                                    alert(JSON.stringify(data));
+                                if (data.data !== null) {
+                                    var province = data.data.provinceName;
+                                    var city = data.data.cityName;
+                                    var district = data.data.areaName;
+                                    $(".locationaddress").text(province + city + district);
+                                } else {
+                                    ft.locationAddress(function (result) {
+//                                            alert(JSON.stringify(result));
+                                        var errorcode = result.errorCode.toString();
+                                        console.log(errorcode);
+                                        if (errorcode == "1") {
+                                            var province = result.data.province;
+                                            var city = result.data.city;
+                                            var district = result.data.district;
+                                            $(".locationaddress").text(province + city + district);
+                                        } else if (errorCode == "0") {
+                                        } else if (errorCode == "-1") {
+                                        } else {
+                                            return
+                                        }
+                                    });
+                                }
+                            },
+                            error: function (xhr, textStatus) {
+                                console.log('错误');
+                                console.log(JSON.stringify(xhr));
+                                console.log(JSON.stringify(textStatus))
+                            }
+                        });
+                    }
+                    /*APP交互修改地址*/
+                    $("#chooseaddress1").click(function () {
+                        ft.chooseAddress(function (result) {
+//                                alert(JSON.stringify(result));
+                            var errorcode = result.errorCode.toString();
+                            console.log(errorcode);
+                            if (errorcode == "1") {
+                                var province = result.data.provinceName;
+                                var city = result.data.cityName;
+                                var district = result.data.areaName;
+                                $(".locationaddress").text(province + city + district);
+                            } else if (errorCode == "0") {
+                                return
+                            } else if (errorCode == "-1") {
+                                return
+                            } else {
+                                return
+                            }
+                        });
                     });
 
                     $(".instructions").html(data.data.instructions);

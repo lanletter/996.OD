@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="11月15日，链接失效弹框美化">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/ftcomment.css" afterPath="$PROJECT_DIR$/css/ftcomment.css" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/html/gooddetail4.1.html" afterPath="$PROJECT_DIR$/html/gooddetail4.1.html" />
+      <change beforePath="$PROJECT_DIR$/html/menu-inpage.html" afterPath="$PROJECT_DIR$/html/menu-inpage.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,61 +29,32 @@
       <file leaf-file-name="ft.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="3570">
               <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="121" column="58" lean-forward="false" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="58" />
+            <state relative-caret-position="206">
+              <caret line="276" column="29" lean-forward="true" selection-start-line="276" selection-start-column="29" selection-end-line="276" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gooddetail3.0.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2343">
-              <caret line="305" column="32" lean-forward="true" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gooddetail4.1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gooddetail4.1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/gooddetail4.1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1056">
-              <caret line="315" column="0" lean-forward="true" selection-start-line="315" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="582" column="24" lean-forward="false" selection-start-line="582" selection-start-column="24" selection-end-line="638" selection-end-column="25" />
               <folding>
-                <marker date="1512559763426" expanded="false" signature="6165:6181" ph="..." />
+                <marker date="1512915882723" expanded="false" signature="6255:6271" ph="..." />
+                <marker date="1512915882723" expanded="true" signature="13660:13764" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video-hls.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/video-hls.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="4311" column="50" lean-forward="false" selection-start-line="4311" selection-start-column="50" selection-end-line="4311" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/video.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="21158" column="28" lean-forward="true" selection-start-line="21158" selection-start-column="28" selection-end-line="21158" selection-end-column="28" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -89,8 +62,8 @@
       <file leaf-file-name="url.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/url.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="45">
+              <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="57" />
               <folding />
             </state>
           </provider>
@@ -99,8 +72,8 @@
       <file leaf-file-name="gooddetail.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="429" column="16" lean-forward="false" selection-start-line="429" selection-start-column="16" selection-end-line="429" selection-end-column="16" />
+            <state relative-caret-position="6165">
+              <caret line="411" column="25" lean-forward="false" selection-start-line="411" selection-start-column="25" selection-end-line="411" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -109,18 +82,8 @@
       <file leaf-file-name="video-share.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/video-share.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="download.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/download.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="117" column="9" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+            <state relative-caret-position="825">
+              <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -139,36 +102,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>data.url</find>
-      <find>price</find>
-      <find>purchase</find>
-      <find>locationaddress</find>
-      <find>chooseAddress</find>
-      <find>num</find>
-      <find>ft</find>
-      <find>addCartGood</find>
-      <find>val</find>
-      <find>inputText</find>
-      <find>ensure</find>
-      <find>sku</find>
-      <find>alert</find>
-      <find>the media</find>
-      <find>the media could not be</find>
-      <find>defaultMessages</find>
-      <find>argsArray</find>
-      <find>MediaError.defaultMessages</find>
-      <find>skuId</find>
-      <find>purchaseGood</find>
-      <find>selectType</find>
-      <find>type</find>
-      <find>dataAll</find>
-      <find>stock</find>
-      <find>index</find>
-      <find>v-for</find>
-      <find>valueList</find>
-      <find>goodbtn</find>
       <find>keyList</find>
       <find>count</find>
+      <find>@click</find>
+      <find>selectSku</find>
+      <find>selectType</find>
+      <find>classid</find>
+      <find>skuInfoMap</find>
+      <find>skuinput</find>
+      <find>key</find>
+      <find>selectsku-test</find>
+      <find>valuedata</find>
+      <find>goodbtn</find>
+      <find>MediaError.defaultMessages</find>
+      <find>selectsku</find>
+      <find>prices</find>
+      <find>price</find>
+      <find>inventory</find>
+      <find>uuid</find>
+      <find>removeAttr</find>
+      <find>forEach</find>
+      <find>purchaseGood</find>
+      <find>v-for</find>
+      <find>counts</find>
+      <find>stock</find>
+      <find>skuName</find>
+      <find>shopname</find>
+      <find>menubtn</find>
+      <find>chooseaddress1</find>
+      <find>locationaddress</find>
+      <find>alert</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -229,13 +192,13 @@
         <option value="$PROJECT_DIR$/html/gooddetail-old.html" />
         <option value="$PROJECT_DIR$/css/download.css" />
         <option value="$PROJECT_DIR$/html/jf-buy.html" />
-        <option value="$PROJECT_DIR$/html/menu-inpage.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/js/video.js" />
         <option value="$PROJECT_DIR$/js/ft.js" />
-        <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
         <option value="$PROJECT_DIR$/css/gooddetail.css" />
+        <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
         <option value="$PROJECT_DIR$/html/gooddetail4.1.html" />
+        <option value="$PROJECT_DIR$/html/menu-inpage.html" />
       </list>
     </option>
   </component>
@@ -246,9 +209,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="667" />
+    <option name="x" value="568" />
     <option name="y" value="23" />
-    <option name="width" value="773" />
+    <option name="width" value="872" />
     <option name="height" value="815" />
   </component>
   <component name="ProjectView">
@@ -266,7 +229,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -288,6 +250,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -331,14 +294,8 @@
     </option>
   </component>
   <component name="RunManager" selected="Node.js.loadcomment.js">
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-    </configuration>
+    <configuration name="lifedetail.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="lifedetail.js" working-dir="$PROJECT_DIR$/js" />
+    <configuration name="loadcomment.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="$PROJECT_DIR$/js/loadcomment.js" working-dir="$PROJECT_DIR$/js" />
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -383,8 +340,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <configuration name="lifedetail.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="lifedetail.js" working-dir="$PROJECT_DIR$/js" />
-    <configuration name="loadcomment.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" path-to-js-file="$PROJECT_DIR$/js/loadcomment.js" working-dir="$PROJECT_DIR$/js" />
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Node.js.loadcomment.js" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.lifedetail.js" />
@@ -460,7 +423,8 @@
       <workItem from="1512379912613" duration="15000" />
       <workItem from="1512379947901" duration="72000" />
       <workItem from="1512380064167" duration="150000" />
-      <workItem from="1512380232857" duration="34603000" />
+      <workItem from="1512380232857" duration="60569000" />
+      <workItem from="1512915298589" duration="1242000" />
     </task>
     <task id="LOCAL-00015" summary="8月1日">
       <created>1501552504467</created>
@@ -809,20 +773,21 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1750922000" />
+    <option name="totallyTimeSpent" value="1778130000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="667" y="23" width="773" height="815" extended-state="0" />
+    <frame x="568" y="23" width="872" height="815" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25398937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22444183" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09418283" sideWeight="0.49566296" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30191258" sideWeight="0.49722221" order="10" side_tool="false" content_ui="tabs" />
@@ -887,7 +852,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/img/emoticons/images/7.gif" />
     <entry file="file://$PROJECT_DIR$/img/emoticons/images/8.gif" />
     <entry file="file://$PROJECT_DIR$/img/emoticons/images/9.gif" />
     <entry file="file://$PROJECT_DIR$/css/lifedetail.css">
@@ -1065,18 +1029,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="49" column="22" lean-forward="true" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-          <folding>
-            <marker date="1511426055546" expanded="true" signature="1031:1254" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="1291:1762" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="1333:1755" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/alertdiy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1148,7 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1560">
           <caret line="104" column="1" lean-forward="false" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,25 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1252">
           <caret line="147" column="28" lean-forward="true" selection-start-line="147" selection-start-column="28" selection-end-line="147" selection-end-column="46" />
-          <folding>
-            <marker date="1512380078926" expanded="true" signature="6598:6746" ph="..." />
-            <marker date="1512380078926" expanded="true" signature="7195:7296" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="615" column="24" lean-forward="true" selection-start-line="615" selection-start-column="24" selection-end-line="631" selection-end-column="26" />
-          <folding>
-            <marker date="1512456894665" expanded="true" signature="29033:29597" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29073:29571" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29117:29375" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29204:29371" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29796:30050" ph="..." />
-            <marker date="1512456894665" expanded="false" signature="29912:29960" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1190,7 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="117" column="9" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,15 +1129,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="4311" column="50" lean-forward="false" selection-start-line="4311" selection-start-column="50" selection-end-line="4311" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/video-share.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="55" column="28" lean-forward="true" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
+        <state relative-caret-position="825">
+          <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3570">
+          <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="304" column="32" lean-forward="true" selection-start-line="304" selection-start-column="32" selection-end-line="304" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6165">
+          <caret line="411" column="25" lean-forward="false" selection-start-line="411" selection-start-column="25" selection-end-line="411" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="637" column="31" lean-forward="false" selection-start-line="637" selection-start-column="31" selection-end-line="637" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1218,53 +1179,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/ft.js">
+    <entry file="file://$PROJECT_DIR$/js/mint-ui.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="8" selection-end-line="238" selection-end-column="20" />
+        <state relative-caret-position="223">
+          <caret line="1" column="15964" lean-forward="false" selection-start-line="1" selection-start-column="15964" selection-end-line="1" selection-end-column="15964" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
+    <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2343">
-          <caret line="305" column="32" lean-forward="true" selection-start-line="305" selection-start-column="32" selection-end-line="305" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="121" column="58" lean-forward="false" selection-start-line="121" selection-start-column="55" selection-end-line="121" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="429" column="16" lean-forward="false" selection-start-line="429" selection-start-column="16" selection-end-line="429" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="4658">
+          <caret line="506" column="60" lean-forward="true" selection-start-line="506" selection-start-column="60" selection-end-line="506" selection-end-column="60" />
+          <folding>
+            <marker date="1511426055546" expanded="true" signature="1031:1254" ph="..." />
+            <marker date="1511426055546" expanded="true" signature="1291:1762" ph="..." />
+            <marker date="1511426055546" expanded="true" signature="1333:1755" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/url.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/gooddetail4.1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="315" column="0" lean-forward="true" selection-start-line="315" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="582" column="24" lean-forward="false" selection-start-line="582" selection-start-column="24" selection-end-line="638" selection-end-column="25" />
           <folding>
-            <marker date="1512559763426" expanded="false" signature="6165:6181" ph="..." />
+            <marker date="1512915882723" expanded="false" signature="6255:6271" ph="..." />
+            <marker date="1512915882723" expanded="true" signature="13660:13764" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="276" column="29" lean-forward="true" selection-start-line="276" selection-start-column="29" selection-end-line="276" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
