@@ -115,6 +115,9 @@
                 <div id="chooseaddress1" class="addressbox">
                     <span class="adtitle">配送至：</span>
                     <span class="locationaddress">上海市徐汇区</span>
+                    <span id="provinceName" style="display: none;"></span>
+                    <span id="cityName" style="display: none;"></span>
+                    <span id="areaName" style="display: none;"></span>
                 </div>
             </dl>
         </div>
@@ -369,24 +372,6 @@
                         $("#end_steps").css("display", "none");
                     }
 
-                    $(".menubtn").click(function () {
-                        ft.addCartMenu({
-                            id: id,
-                            address: ""
-                        }, function (result) {
-                            var errorcode = result.errorCode.toString();
-                            if (errorcode == "1") {
-                                $api.toast('加入购物车成功', 2000);
-                            } else if (errorcode == "0") {
-                                $api.toast('加入购物车取消', 2000);
-                            } else if (errorcode == "-1") {
-                                $api.toast('加入购物车失败', 2000);
-                            } else if (errorcode == "-2") {
-                                $api.toast('加入购物车不支持', 2000);
-                            }
-                        })
-                    });
-
                     /*APP交互获取定位*/
                     if (userid == 1 || userid == null) {
                         ft.locationAddress(function (result) {
@@ -398,6 +383,9 @@
                                 var city = result.data.city;
                                 var district = result.data.district;
                                 $(".locationaddress").text(province + city + district);
+                                $("#provinceName").text(province);
+                                $("#cityName").text(city);
+                                $("#areaName").text(district);
                             } else if (errorCode == "0") {
                             } else if (errorCode == "-1") {
                             } else {
@@ -419,6 +407,9 @@
                                     var city = data.data.cityName;
                                     var district = data.data.areaName;
                                     $(".locationaddress").text(province + city + district);
+                                    $("#provinceName").text(province);
+                                    $("#cityName").text(city);
+                                    $("#areaName").text(district);
                                 } else {
                                     ft.locationAddress(function (result) {
 //                                            alert(JSON.stringify(result));
@@ -429,6 +420,9 @@
                                             var city = result.data.city;
                                             var district = result.data.district;
                                             $(".locationaddress").text(province + city + district);
+                                            $("#provinceName").text(province);
+                                            $("#cityName").text(city);
+                                            $("#areaName").text(district);
                                         } else if (errorCode == "0") {
                                         } else if (errorCode == "-1") {
                                         } else {
@@ -455,6 +449,9 @@
                                 var city = result.data.cityName;
                                 var district = result.data.areaName;
                                 $(".locationaddress").text(province + city + district);
+                                $("#provinceName").text(province);
+                                $("#cityName").text(city);
+                                $("#areaName").text(district);
                             } else if (errorCode == "0") {
                                 return
                             } else if (errorCode == "-1") {
@@ -463,6 +460,26 @@
                                 return
                             }
                         });
+                    });
+
+                    $(".menubtn").click(function () {
+                        ft.addCartMenu({
+                            id: id,
+                            provinceName: $("#provinceName").text(),
+                            cityName: $("#cityName").text(),
+                            areaName: $("#areaName").text()
+                        }, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                $api.toast('加入购物车成功', 2000);
+                            } else if (errorcode == "0") {
+                                $api.toast('加入购物车取消', 2000);
+                            } else if (errorcode == "-1") {
+                                $api.toast('加入购物车失败', 2000);
+                            } else if (errorcode == "-2") {
+                                $api.toast('加入购物车不支持', 2000);
+                            }
+                        })
                     });
 
                     $(".instructions").html(data.data.instructions);

@@ -195,7 +195,9 @@
             name: "addCartMenu",
             param: {
                 id: "",//菜谱食材
-                address:""
+                provinceName: "",//省
+                cityName: "",//市
+                areaName:""//区
             },
             callbackId: generateID(),
             callback: noop
@@ -239,14 +241,19 @@
         purchaseGood: {
             name: "purchaseGood",
             param: {
-                price: "",//单价
-                count: "",// 数量
-                computeType: "",// 类型
-                picturepath: "",// 图片路径
-                productName: "", //标题
-                skuName: "", //副标题
-                address: "",//地址
-                shopname:"" //店铺名称
+                shopUuid: "",//店铺id
+                shopName: "",// 店铺名称
+                productUuid: "",// 商品id
+                skuUuid: "",// skuid
+                productCountNum: "", //商品选择数量
+                productimage: "", //商品图片
+                productName: "",//商品名称
+                productPrice:"" ,//价格
+                productInventory: "",//商品库存
+                skuName: "",// sku名称
+                provinceName: "",// 省
+                cityName: "",// 市
+                areaName: "" //区
             },
             callbackId: generateID(),
             callback: noop
@@ -472,7 +479,9 @@
     ft.addCartMenu = function (option, fn) {
         var addCartMenuConfig = ft.mix(true, {}, config.addCartMenu);
         addCartMenuConfig.param.id = option.id || "";
-        addCartMenuConfig.param.address = option.address || "";
+        addCartMenuConfig.param.provinceName = option.provinceName || "";
+        addCartMenuConfig.param.cityName = option.cityName || "";
+        addCartMenuConfig.param.areaName = option.areaName || "";
         addCartMenuConfig.callback = fn;
         callByJS(addCartMenuConfig);
     }
@@ -491,14 +500,19 @@
      **********************************************************************/
     ft.purchaseGood= function (option, fn) {
         var purchaseGoodConfig = ft.mix(true, {}, config.purchaseGood);
-        purchaseGoodConfig.param.price = option.price || "";
-        purchaseGoodConfig.param.count = option.count || "";
-        purchaseGoodConfig.param.computeType = option.computeType || "";
-        purchaseGoodConfig.param.picturepath = option.picturepath || "";
+        purchaseGoodConfig.param.shopUuid = option.shopUuid || "";
+        purchaseGoodConfig.param.shopName = option.shopName || "";
+        purchaseGoodConfig.param.productUuid = option.productUuid || "";
+        purchaseGoodConfig.param.skuUuid = option.skuUuid || "";
+        purchaseGoodConfig.param.productCountNum = option.productCountNum || "";
+        purchaseGoodConfig.param.productimage = option.productimage || "";
         purchaseGoodConfig.param.productName = option.productName || "";
+        purchaseGoodConfig.param.productPrice = option.productPrice || "";
+        purchaseGoodConfig.param.productInventory = option.productInventory || "";
         purchaseGoodConfig.param.skuName = option.skuName || "";
-        purchaseGoodConfig.param.address = option.address || "";
-        purchaseGoodConfig.param.shopname = option.shopname || "";
+        purchaseGoodConfig.param.provinceName = option.provinceName || "";
+        purchaseGoodConfig.param.cityName = option.cityName || "";
+        purchaseGoodConfig.param.areaName = option.areaName || "";
         purchaseGoodConfig.callback = fn;
         callByJS(purchaseGoodConfig);
     }

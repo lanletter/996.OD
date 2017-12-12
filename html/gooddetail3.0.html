@@ -1,57 +1,38 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js">
 <head>
     <meta charset="utf-8">
-    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <!-- 全屏显示-->
-    <meta name="apple-touch-fullscreen" content="yes">
-    <!-- 不要让设备识别电话号码和邮箱地址-->
-    <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
-          name="viewport">
-    <!-- DNS预解析-->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <!--<link href="../css/common/reset.css?ver=403" rel="stylesheet">-->
-    <link href="../css/common.css?ver=403" rel="stylesheet">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="../css/common.css?ver=403">
+    <link rel="stylesheet" href="../css/swiper.min.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
-    <link href="../css/animate.css?ver=403" rel="stylesheet">
-    <link href="../css/jf-info.css?ver=403" rel="stylesheet">
-    <link href="../css/gooddetail.css?ver=403" rel="stylesheet">
-    <link rel="stylesheet" href="../css/mint-ui.css?ver=403">
-    <link type="text/css" rel="stylesheet" href="../css/shCore.css"/>
-    <link type="text/css" rel="stylesheet" href="../css/shCoreDefault.css"/>
-    <title>商品内页</title>
+    <link rel="stylesheet" href="../css/gooddetail-old.css?ver=403">
+    <link rel="stylesheet" href="../css/app.css?ver=403" id="appcss" disabled>
     <style>
-        .icon-truck {
-            display: inline-block;
-            width: 0.56rem;
-            height: 0.56rem;
-            background: url(../img/truck2x.png) no-repeat center center;
-            background-size: cover;
-            vertical-align: middle;
-            margin-right: 0.2rem;
-        }
-
-        .icon-fix {
-            display: inline-block;
-            width: 0.56rem;
-            height: 0.56rem;
-            background: url(../img/fix2x.png) no-repeat center center;
-            background-size: cover;
-            vertical-align: middle;
-            margin-right: 0.2rem;
+        .swiper-slide i {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+            z-index: 3;
         }
     </style>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function () {
+        (function(){
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function () {
+            (function() {
                 var vds = document.createElement('script');
-                vds.type = 'text/javascript';
+                vds.type='text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -61,170 +42,78 @@
     </script>
 </head>
 <body>
-<div id="buybox">
-    <div class="jf-buy">
-        <div class="swiper">
-            <div class="focus">
-                <mt-swipe :auto="4000">
-                    <mt-swipe-item v-for="item in url">
-                        <img :src="item.picture.path" alt="">
-                    </mt-swipe-item>
-                </mt-swipe>
+
+<div id="main">
+
+    <div class="slideBox">
+        <div class="swiper-container" >
+            <div class="swiper-wrapper" id="wrapper">
+
             </div>
+            <img src="../img/shadebg.png" class="bgimg">
+            <div class="swiper-pagination"></div>
         </div>
-        <div class="title">
-            <h4 v-html="title"></h4>
-            <p>
-                <span><i class="icon-broswer"></i><b v-html="viewCount"></b></span>
-                <span><i class="icon-msg"></i><b v-html="commentCount"></b></span>
-            </p>
-        </div>
+    </div>
 
-        <div id="locationaddress" class="addressbox">
-            <img src="../img/right.png" class="arwright"/>
-            <p class="adtitle">配送至：</p>
-            <span class="locationaddress">上海市徐汇区</span>
-            <span>，请选择规格</span>
-        </div>
-        <div class="bottomdiv"></div>
-
-        <div class="dark-bg"></div>
-        <div id="popupbox">
-            <div class="m-lr">
-                <img src="../img/class.png" id="close-div"/>
-                <div class="popup-close"></div>
-                <div class="imgtitle" v-bind:style="{backgroundImage: 'url(' +imgtitle+ ')'}"></div>
-                <div class="pricebox">
-                    <p class="textitle" v-html="title"></p>
-                    <p class="price"><span>￥</span><span id="price">0</span></p>
-                    <em class="counts">(库存<span id="counts">0</span>件)</em>
-                </div>
-                <div id="chooseaddress1" class="addressbox">
-                    <img src="../img/right.png" class="arwright"/>
-                    <p class="adtitle">配送至：</p>
-                    <span class="locationaddress">上海市徐汇区</span>
-                </div>
-
-                <div class="selectsku">
-                    <div>
-                        <p class="adtitle">颜色分类：</p>
-                        <input type="button" class="sku" attr_id="24" value="24"/>
-                        <input type="button" class="sku" attr_id="25" value="25"/>
-                    </div>
-                    <div>
-                        <p class="adtitle">尺寸大小：</p>
-                        <input type="button" class="sku" attr_id="12" value="12"/>
-                        <input type="button" class="sku" attr_id="13" value="13"/>
-                    </div>
-                    <div>
-                        <p class="adtitle">选择样式：</p>
-                        <input type="button" class="sku" attr_id="31" value="31"/>
-                        <input type="button" class="sku" attr_id="32" value="32"/>
-                    </div>
-                    <div class="brtop">
-                        <p class="adtitle">选择数量</p>
-                        <div class="textalign">
-                            <span class="icon-reduce" @click="changeNum(0)"></span>
-                            <input v-model="count" value="" class="inputText" readonly type="text">
-                            <span class="icon-add" @click="changeNum(1)"></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="goodbtn">
-                <span id="addtocart1" class="addtocart">加入购物车</span>
-                <span id="justbuy1" class="justbuy">立即购买</span>
-                <span id="ensureCart" class="ensure">确定</span>
-                <span id="ensureBuy" class="ensure">确定</span>
-            </div>
-        </div>
-
-        <!--<div class="skus">-->
-            <!--<ul>-->
-                <!--<li class="h_box">-->
-                    <!--<span class="tit">商品分类</span>-->
-                    <!--<p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"-->
-                             <!--:class="merchandiseClasses == item.id?'cur':''"-->
-                             <!--@click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"-->
-                             <!--v-html="item.argName"></span>-->
-                    <!--</p>-->
-                <!--</li>-->
-                <!--<li class="h_box mt15" style="height: 0.54rem;">-->
-                    <!--<span class="tit">选择数量</span>-->
-                    <!--<em>(剩余<span v-html="stock"></span>)</em>-->
-                    <!--<p class="textalign">-->
-                        <!--<span class="icon-reduce" @click="changeNum(0)"></span>-->
-                        <!--<input v-model="count" value="" class="inputText" readonly type="text">-->
-                        <!--<span class="icon-add" @click="changeNum(1)"></span>-->
-                    <!--</p>-->
-                <!--</li>-->
-            <!--</ul>-->
+    <div class="info">
+        <h2>主标题</h2>
+        <p>短标题</p>
+        <!--<div class="header__opt">-->
+        <!--<span class="view-count"><i></i><strong></strong></span>-->
+        <!--<span class="favorite-count"><i></i><strong></strong></span>-->
         <!--</div>-->
+        <div class="txt">描述</div>
+        <!--<a tapmode="onon" href="#" class="more">查看产品详情</a>-->
+    </div>
 
-        <div class="details">
-            <h3>商品详情</h3>
-            <div class="msg" v-html="content"></div>
+    <div class="main">
+        <h3 class="icon1">产品参数</h3>
+        <div class="tb">
+            <table width="95%" border="0" cellspacing="0" cellpadding="0">
+
+            </table>
+            <div class="txt">
+                <span class="argname"></span>:
+                <span class="argvalue"></span>
+            </div>
         </div>
-
-        <div class="details">
-            <h3><i class="icon-truck"></i>物流说明</h3>
-            <div class="msg" v-html="logistics"></div>
-        </div>
-
-        <div class="details">
-            <h3><i class="icon-fix"></i>售后保障</h3>
-            <div class="msg" v-html="salesSupport"></div>
-        </div>
-
-        <!--<div class="details">-->
-        <!--<h3>联系客服</h3>-->
-        <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
-        <!--</div>-->
+        <h3 class="icon2">物流说明</h3>
+        <div class="txt2 logistics"></div>
+        <h3 class="icon3">售后保障</h3>
+        <div class="txt2 sales"></div>
     </div>
 
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
     <!--<div id="loading"></div>-->
     <br/><br/>
-
-    <div class="goodbtn">
-        <span id="addtocart2" class="addtocart">加入购物车</span>
-        <span id="justbuy2" class="justbuy">立即购买</span>
+    <br/><br/>
+    <div class="fixd">
+        <div class="jf" tapmode="onon">
+            <p class="buy" style="background:none;text-indent:0;">购买</p>
+        </div>
+        <div class="btn" tapmode="onon">购买</div>
     </div>
-    <!--<div class="btnbox">-->
-    <!--<ul class="h_box">-->
-    <!--<li>-->
-    <!--<div style="display: inline;" v-html="totalntegral"></div>-->
-    <!--<em>积分</em>-->
-    <!--&lt;!&ndash;<span class="price" >{{payintegral}}积分</span>&ndash;&gt;-->
-    <!--<span v-if="integral > payintegral" v-html="integral">积分</span>-->
-    <!--</li>-->
-    <!--<li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">兑换</li>-->
-    <!--</ul>-->
-    <!--</div>-->
 </div>
-
-<script>
-</script>
-<script src="../js/vue.min.js"></script>
-<script src="../js/vue-resource1.3.4.js"></script>
-<script src="../js/mint-ui.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/swiper.min.js"></script>
+<script src="../js/doT.min.js"></script>
+<script src="../js/s.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
-<script src="../js/url.js"></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
-<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/ft.js'></script>
-<script type="text/javascript" src="../js/json2.js"></script>
-<script type="text/javascript" src="../js/shCore.js"></script>
-<script type="text/javascript" src="../js/shBrushJScript.js"></script>
+<script src="../js/url.js"></script>
+<script src="../js/judge.js"></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<!--<script src="../js/alertdiy.js"></script>-->
 <script>
 
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
+        if (r != null)return unescape(r[2]);
         return null;
     }
 
@@ -241,7 +130,9 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+
                     choose();
+
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
                 } else if (errorCode == "-2") {
@@ -252,619 +143,178 @@
         var userid = 1;
         choose();
     }
-
     function choose() {
-        var vm = new Vue({
-            el: '#buybox',
-            data: {
-                title: '',
-                salesSupport: '',
-                logistics: '',
-                content: '商品详情',
-                viewCount: '',
-                commentCount: '',
-                dataAll: [],
-                payintegral: '',
-                integral: '',
-                count: 0,
-                receiptAddress: '',
-                userId: '',
-                stock: '',
-                merchandiseClasses: '',
-                url: [],
-                totalntegral: '',
-                imgtitle: ''
-
+        $.ajax({
+            url: urlport + 'merchandise/detail',
+            type: 'POST', //GET
+            data: JSON.stringify({id: id}),
+            timeout: 5000, //超时时间
+            contentType: "application/json;charset=utf-8",
+            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+            success: function (data, textStatus, jqXHR) {
+                callback(data);
             },
-            component: {},
-            created: function () {
-                var $this = this;
-//                this.$http.post(urlport + 'product/detail/v410', {"uuid": id}).then(function (data) {
-                this.$http.post(urlport + 'merchandise/detail', {"id": id}).then(function (data) {
-                    var data = data.data;
-                    console.log(data);
-//                    alert(JSON.stringify(data));
-                    if (data.status == 200) {
-                        $this.logistics = data.data.logisticsDesc;
-                        $this.salesSupport = data.data.salesSupport;
-                        $this.content = data.data.content;
-                        $this.title = data.data.title;
-                        $this.viewCount = data.data.viewCount;
-                        $this.commentCount = data.data.commentCount;
-                        $this.dataAll = data.data;
-                        $this.merchandiseClasses = data.data.selectMerchandiseClass;
-                        $this.url = data.data.merchandisePictures;
-                        $this.imgtitle = data.data.picture.path;
-                        $this.urllink = data.data.url;
-                        $this.stock = 0;//初始库存
-                        var item = $this.dataAll.merchandiseClasses[0];
-//                        $this.selectType(item.id, $this.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
-
-                        /* ----------------sku选择开始---------------- */
-                        var startTime = new Date().getTime();
-//                        var keys = [['24', '25'], ['12', '13'], ['31', '32']];
-                        var data = {"24;12;31": {price: 366.00, count: 46}, "25;12;32": {price: 406, count: 66}};
-                        //保存最后的组合结果信息
-                        var SKUResult = {};
-
-                        //获得对象的key
-                        function getObjKeys(obj) {
-                            if (obj !== Object(obj)) throw new TypeError('Invalid object');
-                            var keys = [];
-                            for (var key in obj)
-                                if (Object.prototype.hasOwnProperty.call(obj, key))
-                                    keys[keys.length] = key;
-                            return keys;
-                        }
-
-                        //把组合的key放入结果集SKUResult
-                        function add2SKUResult(combArrItem, sku) {
-                            var key = combArrItem.join(";");
-                            if (SKUResult[key]) {//SKU信息key属性·
-                                SKUResult[key].count += sku.count;
-                                SKUResult[key].prices.push(sku.price);
-                            } else {
-                                SKUResult[key] = {
-                                    count: sku.count,
-                                    prices: [sku.price]
-                                };
-                            }
-                        }
-
-                        //初始化得到结果集
-                        function initSKU() {
-                            var i, j, skuKeys = getObjKeys(data);
-                            for (i = 0; i < skuKeys.length; i++) {
-                                var skuKey = skuKeys[i];//一条SKU信息key
-                                var sku = data[skuKey];	//一条SKU信息value
-                                var skuKeyAttrs = skuKey.split(";"); //SKU信息key属性值数组
-                                skuKeyAttrs.sort(function (value1, value2) {
-                                    return parseInt(value1) - parseInt(value2);
-                                });
-
-                                //对每个SKU信息key属性值进行拆分组合
-                                var combArr = combInArray(skuKeyAttrs);
-                                for (j = 0; j < combArr.length; j++) {
-                                    add2SKUResult(combArr[j], sku);
-                                }
-
-                                //结果集接放入SKUResult
-                                SKUResult[skuKeyAttrs.join(";")] = {
-                                    count: sku.count,
-                                    prices: [sku.price]
-                                }
-                            }
-                        }
-
-                        /**
-                         * 从数组中生成指定长度的组合
-                         * 方法: 先生成[0,1...]形式的数组, 然后根据0,1从原数组取元素，得到组合数组
-                         */
-                        function combInArray(aData) {
-                            if (!aData || !aData.length) {
-                                return [];
-                            }
-
-                            var len = aData.length;
-                            var aResult = [];
-
-                            for (var n = 1; n < len; n++) {
-                                var aaFlags = getCombFlags(len, n);
-                                while (aaFlags.length) {
-                                    var aFlag = aaFlags.shift();
-                                    var aComb = [];
-                                    for (var i = 0; i < len; i++) {
-                                        aFlag[i] && aComb.push(aData[i]);
-                                    }
-                                    aResult.push(aComb);
-                                }
-                            }
-
-                            return aResult;
-                        }
-
-                        /**
-                         * 得到从 m 元素中取 n 元素的所有组合
-                         * 结果为[0,1...]形式的数组, 1表示选中，0表示不选
-                         */
-                        function getCombFlags(m, n) {
-                            if (!n || n < 1) {
-                                return [];
-                            }
-
-                            var aResult = [];
-                            var aFlag = [];
-                            var bNext = true;
-                            var i, j, iCnt1;
-
-                            for (i = 0; i < m; i++) {
-                                aFlag[i] = i < n ? 1 : 0;
-                            }
-
-                            aResult.push(aFlag.concat());
-
-                            while (bNext) {
-                                iCnt1 = 0;
-                                for (i = 0; i < m - 1; i++) {
-                                    if (aFlag[i] == 1 && aFlag[i + 1] == 0) {
-                                        for (j = 0; j < i; j++) {
-                                            aFlag[j] = j < iCnt1 ? 1 : 0;
-                                        }
-                                        aFlag[i] = 0;
-                                        aFlag[i + 1] = 1;
-                                        var aTmp = aFlag.concat();
-                                        aResult.push(aTmp);
-                                        if (aTmp.slice(-n).join("").indexOf('0') == -1) {
-                                            bNext = false;
-                                        }
-                                        break;
-                                    }
-                                    aFlag[i] == 1 && iCnt1++;
-                                }
-                            }
-                            return aResult;
-                        }
-
-                        //初始化用户选择事件
-                        $(function () {
-                            initSKU();
-                            var endTime = new Date().getTime();
-                            $('#init_time').text('init sku time: ' + (endTime - startTime) + " ms");
-                            $('.sku').each(function () {
-                                var self = $(this);
-                                var attr_id = self.attr('attr_id');
-                                if (!SKUResult[attr_id]) {
-                                    self.attr('disabled', 'disabled');
-                                    $("[disabled=disabled]").addClass("bh-sku-disabled");
-                                }
-                            }).click(function () {
-                                var self = $(this);
-
-                                //选中自己，兄弟节点取消选中
-                                self.toggleClass('bh-sku-selected').siblings().removeClass('bh-sku-selected');
-
-                                //已经选择的节点
-                                var selectedObjs = $('.bh-sku-selected');
-
-                                if (selectedObjs.length) {
-                                    //获得组合key价格
-                                    var selectedIds = [];
-                                    selectedObjs.each(function () {
-                                        selectedIds.push($(this).attr('attr_id'));
-                                    });
-                                    selectedIds.sort(function (value1, value2) {
-                                        return parseInt(value1) - parseInt(value2);
-                                    });
-                                    var len = selectedIds.length;
-                                    var prices = SKUResult[selectedIds.join(';')].prices;
-                                    var counts = SKUResult[selectedIds.join(';')].count;
-                                    var maxPrice = Math.max.apply(Math, prices);
-                                    var minPrice = Math.min.apply(Math, prices);
-                                    $('#price').text(maxPrice > minPrice ? minPrice + "-" + maxPrice : maxPrice);
-                                    $('#counts').text(counts);
-                                    $this.stock = $("#counts").text();
-                                    if($this.count > $this.stock){//防止选择数量大于库存
-                                        $this.count=$this.stock
-                                    }
-
-                                    //用已选中的节点验证待测试节点 underTestObjs
-                                    $(".sku").not(selectedObjs).not(self).each(function () {
-                                        var siblingsSelectedObj = $(this).siblings('.bh-sku-selected');
-                                        var testAttrIds = [];//从选中节点中去掉选中的兄弟节点
-                                        if (siblingsSelectedObj.length) {
-                                            var siblingsSelectedObjId = siblingsSelectedObj.attr('attr_id');
-                                            for (var i = 0; i < len; i++) {
-                                                (selectedIds[i] != siblingsSelectedObjId) && testAttrIds.push(selectedIds[i]);
-                                            }
-                                        } else {
-                                            testAttrIds = selectedIds.concat();
-                                        }
-                                        testAttrIds = testAttrIds.concat($(this).attr('attr_id'));
-                                        testAttrIds.sort(function (value1, value2) {
-                                            return parseInt(value1) - parseInt(value2);
-                                        });
-                                        if (!SKUResult[testAttrIds.join(';')]) {
-                                            $(this).attr('disabled', 'disabled').removeClass('bh-sku-selected');
-                                            $("[disabled=disabled]").addClass("bh-sku-disabled");
-                                        } else {
-                                            $(this).removeAttr('disabled');
-                                            $(this).removeClass('bh-sku-disabled');
-                                        }
-                                    });
-                                } else {
-                                    //设置默认价格
-                                    $('#price').text('0');
-                                    $('#counts').text('0');
-                                    $this.stock = $("#counts").text();
-                                    if($this.count > $this.stock){//防止选择数量大于库存
-                                        $this.count=$this.stock
-                                    }
-                                    //设置属性状态
-                                    $('.sku').each(function () {
-                                        SKUResult[$(this).attr('attr_id')] ? $(this).removeAttr('disabled') : $(this).attr('disabled', 'disabled').removeClass('bh-sku-selected');
-                                    })
-                                }
-                            });
-                        });
-                        /* ----------------sku选择结束---------------- */
-
-                        /*APP交互获取定位*/
-                        if (userid == 1 || userid == null) {
-                            ft.locationAddress(function (result) {
-//                                alert(JSON.stringify(result));
-                                var errorcode = result.errorCode.toString();
-                                console.log(errorcode);
-                                if (errorcode == "1") {
-                                    var province = result.data.province;
-                                    var city = result.data.city;
-                                    var district = result.data.district;
-                                    $(".locationaddress").text(province + city + district);
-                                } else if (errorCode == "0") {
-                                } else if (errorCode == "-1") {
-                                } else {
-                                    return
-                                }
-                            });
-                        } else {
-                            $.ajax({
-                                url: urlport + 'receiptAddress/default',
-                                type: 'POST',
-                                data: JSON.stringify({"id": id, "userId": userid}),
-                                timeout: 5000, //超时时间
-                                contentType: "application/json;charset=utf-8",
-                                dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                success: function (data, textStatus) {
-//                                    alert(JSON.stringify(data));
-                                    if (data.data !== null) {
-                                        var province = data.data.provinceName;
-                                        var city = data.data.cityName;
-                                        var district = data.data.areaName;
-                                        $(".locationaddress").text(province + city + district);
-                                    } else {
-                                        ft.locationAddress(function (result) {
-//                                            alert(JSON.stringify(result));
-                                            var errorcode = result.errorCode.toString();
-                                            console.log(errorcode);
-                                            if (errorcode == "1") {
-                                                var province = result.data.province;
-                                                var city = result.data.city;
-                                                var district = result.data.district;
-                                                $(".locationaddress").text(province + city + district);
-                                            } else if (errorCode == "0") {
-                                            } else if (errorCode == "-1") {
-                                            } else {
-                                                return
-                                            }
-                                        });
-                                    }
-                                },
-                                error: function (xhr, textStatus) {
-                                    console.log('错误');
-                                    console.log(JSON.stringify(xhr));
-                                    console.log(JSON.stringify(textStatus))
-                                }
-                            });
-                        }
-                        /*APP交互修改地址*/
-                        $("#chooseaddress1").click(function () {
-                            ft.chooseAddress(function (result) {
-//                                alert(JSON.stringify(result));
-                                var errorcode = result.errorCode.toString();
-                                console.log(errorcode);
-                                if (errorcode == "1") {
-                                    var province = result.data.provinceName;
-                                    var city = result.data.cityName;
-                                    var district = result.data.areaName;
-                                    $(".locationaddress").text(province + city + district);
-                                } else if (errorCode == "0") {
-                                    return
-                                } else if (errorCode == "-1") {
-                                    return
-                                } else {
-                                    return
-                                }
-                            });
-                        });
-                        /*APP交互加购物车&立即购买*/
-                        $("#locationaddress").click(function () {
-                            $('.dark-bg').show();
-                            $("#popupbox").show();
-                            $("#popupbox #addtocart1").show();
-                            $("#popupbox #justbuy1").show();
-                            $("#popupbox #ensureCart").hide();
-                            $("#popupbox #ensureBuy").hide();
-                        });
-                        $("#addtocart2").click(function () {
-                            $('.dark-bg').show();
-                            $("#popupbox").show();
-                            $("#popupbox #addtocart1").hide();
-                            $("#popupbox #justbuy1").hide();
-                            $("#popupbox #ensureCart").show();
-                            $("#popupbox #ensureBuy").hide();
-                        });
-                        $("#justbuy2").click(function () {
-                            $('.dark-bg').show();
-                            $("#popupbox").show();
-                            $("#popupbox #addtocart1").hide();
-                            $("#popupbox #justbuy1").hide();
-                            $("#popupbox #ensureCart").hide();
-                            $("#popupbox #ensureBuy").show();
-                        });
-                        $("#close-div").click(function () {
-                            $("#popupbox").hide();
-                            $('.dark-bg').hide();
-                        });
-                        $("#addtocart1").click(function () {
-//                            alert("addtocart");
-                            ft.addCartGood({
-                                skuUuid: 2,
-                                count: $(".inputText").val()
-                            }, function (result) {
-
-                            })
-                        });
-                        $("#ensureCart").click(function () {
-                            $("#addtocart1").trigger('click');
-                        });
-                        $("#justbuy1").click(function () {
-//                            alert("justbuy");
-                            console.log({
-                                price: $("#price").text(),
-                                count: $(".inputText").val(),
-                                computeType: 10,
-                                picturepath: $this.imgtitle,
-                                productName: $this.title,
-                                skuName: $this.skuName,
-                                address: $(".locationaddress").text(),
-                                shopname: ""
-                            });
-                            ft.purchaseGood({
-                                price: $("#price").text(),
-                                count: $(".inputText").val(),
-                                computeType: 10,
-                                picturepath: $this.imgtitle,
-                                productName: $this.title,
-                                skuName: $this.skuName,
-                                address: $(".locationaddress").text(),
-                                shopname: ""
-                            }, function (result) {
-
-                            });
-                        });
-                        $("#ensureBuy").click(function () {
-                            $("#justbuy1").trigger('click');
-                        });
-
-
-                        /*微信分享链接专用*/
-                        var sharetitle = $this.title;
-                        var sharedesc;
-                        var contents = $(".msg").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-                        var count = contents.length;
-                        if (count > 40) {
-                            var nr = contents.substring(0, 40) + "...";
-                            sharedesc = nr;
-                        } else {
-                            sharedesc = contents;
-                        }
-                        var shareimg = $this.imgtitle;
-                        var sharestr = $this.urllink;
-                        var sharelink = sharestr;
-                        console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
-                        $.ajax({
-                            type: 'GET',
-                            url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                            success: function (data) {
-                                console.info(data.appId);
-                                wx.config({
-                                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                                    appId: data.appId, // 必填，公众号的唯一标识
-                                    timestamp: data.timestamp, // 必填，生成签名的时间戳
-                                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                                    signature: data.signature,
-                                    jsApiList: [
-                                        "onMenuShareTimeline",
-                                        "onMenuShareAppMessage",
-                                        "onMenuShareQQ",
-                                        "onMenuShareWeibo",
-                                        "onMenuShareQZone"
-                                    ]
-                                });
-                                wx.ready(function () {
-                                    //分享给朋友圈
-                                    wx.onMenuShareTimeline({
-                                        title: sharetitle, // 分享标题
-                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                        imgUrl: shareimg, // 分享图标
-                                        success: function () {
-                                            // 用户确认分享后执行的回调函数
-                                        },
-                                        cancel: function () {
-                                            // 用户取消分享后执行的回调函数
-                                        }
-                                    });
-                                    //分享给朋友
-                                    wx.onMenuShareAppMessage({
-                                        title: sharetitle, // 分享标题
-                                        desc: sharedesc, // 分享描述
-                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                        imgUrl: shareimg, // 分享图标
-                                        type: '', // 分享类型,music、video或link，不填默认为link
-                                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                        success: function () {
-                                            // 用户确认分享后执行的回调函数
-                                        },
-                                        cancel: function () {
-                                            // 用户取消分享后执行的回调函数
-                                        }
-                                    });
-                                });
-                            },
-                            error: function (xhr, type) {
-                                //alert(111);
-                            }
-                        })
-                    }
-
-                }, function () {
-                    console.info('error');
-                });
-
-            },
-            methods: {
-
-                submit: function (id, b) {
-                    if (device == "ios" || device == "android") {
-                        var $this = this;
-                        //app交互——获取登录状态
-                        ft.isLogin(function (result) {
-                            var errorcode = result.errorCode.toString();
-                            if (errorcode == "1") {
-                                //$api.toast('登陆成功', 2000);
-                                userid = result.data.userId.toString();
-                                window.userid = userid;
-                                //alert("userid"+userid);
-                                //积分兑换
-                                if ($this.count == 0) {
-                                    alert("请先选择商品!");
-                                    return;
-                                }
-                                $("body").append(
-                                    '<div id="mask" class="mask works-mask">' +
-                                    '<div class="mask-content">' +
-                                    '<p class="del-p">您确定要删除图片吗？</p>' +
-                                    '<p class="check-p">' +
-                                    '<span class="del-com wsdel-ok">确定</span>' +
-                                    '<span class="wsdel-no">取消</span>' +
-                                    '</p></div></div>');
-                                $("#mask").css("display", "block");
-                                $(".wsdel-ok").click(function () {
-                                    $("#mask").css("display", "none");
-                                    $this.userId = userid;
-                                    $this.getAddress(this.userId);
-                                });
-                                $(".wsdel-no").click(function () {
-                                    $("#mask").css("display", "none");
-                                })
-
-                            } else if (errorCode == "0") {
-                                $api.toast('登陆取消', 2000);
-                            } else if (errorCode == "-1") {
-                                $api.toast('登陆失败', 2000);
-                            } else if (errorCode == "-2") {
-                                $api.toast('登陆不支持', 2000);
-                            }
-                        });
-                        //积分兑换
-//                  if ($this.count == 0) {
-//                      alert("请先选择商品!");
-//                      return;
-//                  }
-//                  userid = 120374;
-//                  var flag = confirm("确认兑换该商品吗？");
-//                  if (!flag)return;
-//                  var $this = this;
-//                  this.userId = userid;
-//                  this.getAddress(this.userId);
-                    } else if ((device == null)) {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                    }
-                },
-                getAddress: function (userId, back) {
-                    var $this = this;
-                    this.$http.post(urlport + 'receiptAddress/default', {"userId": this.userId}).then(function (data) {
-                        console.log(data.data.data);
-                        if (data.data.data == null) {
-                            alert("请先编辑收货地址！");
-                            return;
-                        }
-                        $this.receiptAddress = data.data.data.id;
-                        console.info($this.receiptAddress);
-                        $this.submitFn($this.receiptAddress);
-                    }, function (err) {
-
-                    });
-                },
-                submitFn: function (address) {
-                    var $this = this;
-                    this.$http.post(urlport + 'order/createByIntegral', {
-                        'userId': $this.userId,
-                        'receiptAddressId': address,
-                        'productId': $this.dataAll.id,
-                        'count': $this.count,
-                        'classId': $this.merchandiseClasses
-
-                    }).then(function (data) {
-                        //alert(JSON.stringify(data.body.status));
-                        console.log(JSON.stringify(data.body.status));
-                        if (data.body.status == 408) {
-                            alert('余额不足！');
-                            return;
-                        } else {
-                            alert('兑换成功！');
-                        }
-                    }, function (err) {
-                    });
-                },
-                selectType: function (classid, stock, paidIntegral, integral, item, count, totalntegral) {
-                    var $this = this;
-                    //console.info(item);
-                    $this.merchandiseClasses = classid;
-                    $this.stock = stock;
-                    $this.payintegral = paidIntegral;
-                    paidintegral = $this.payintegral;
-                    $this.integral = integral;
-                    $this.count = 1;
-                    if (stock > 0) {//库存不为0时数量初始值为1
-                        $this.count = 1;
-                        $this.totalntegral = paidIntegral;
-                    } else {//库存为0时数量初始值为0
-                        $this.count = 0;
-                        $this.totalntegral = 0;
-                    }
-                },
-                changeNum: function (type, totalntegral) {
-                    if (this.stock == 0) {
-                        alert("库存不足!");
-                        return;
-                    }
-                    if (type == 0) {
-                        this.count = this.count - 1 > 1 ? this.count - 1 : 1;
-//                        this.totalntegral = paidintegral * this.count;
-                    } else {
-                        this.count = this.count + 1 > this.stock ? this.stock : this.count + 1;
-//                        this.totalntegral = paidintegral * this.count;
-                    }
-                }
-
+            error: function (xhr, textStatus) {
+                console.log('错误');
+                console.log(JSON.stringify(xhr));
+                console.log(JSON.stringify(textStatus))
             }
         });
+
+        function callback(res) {
+            if (res.status !== 200) {
+                alert(res.errorMessage);
+                return;
+            }
+            var data = res.data;
+            console.log(data);
+            var $info = $('.info');
+            var $main = $('.main');
+            $info.find('h2').text(data.title);
+            $info.find('p').text(data.model);
+            $info.find('.txt').html(data.desc);
+            $info.find('.view-count').text(data.viewCount);
+            $info.find('.favorite-count').text(data.likeCount);
+            $main.find('.logistics').html(data.logisticsDesc);
+            $main.find('.sales').html(data.salesSupport);
+
+            if(device == "ios"){
+                $(".fixd").css({
+                    "top": window.innerHeight - $(".fixd").outerHeight()
+                });
+            }
+            data.merchandiseParams.forEach(function (item, index) {
+                if (index < data.merchandiseParams.length - 1) {
+                    var el = $('<tr>\
+                <td width="40%">' + item.argName + '</td>\
+                <td width="60%" class="col">' + item.argValue + '</td>\
+          </tr>');
+                    $('table').append(el);
+                }
+            });
+            $main.find('.argname').text(data.merchandiseParams[data.merchandiseParams.length - 1].argName);
+            $main.find('.argvalue').text(data.merchandiseParams[data.merchandiseParams.length - 1].argValue);
+
+            /*轮播图start*/
+            data.merchandisePictures.forEach(function (item, index) {
+                var el = $('<div class="swiper-slide">\
+                <img src="' + item.picture.path + '" width="100%" height="100%"/>\
+          </div>');
+                $('#wrapper').append(el);
+            });
+            var swiper = new Swiper('.swiper-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                autoplay: 5000,
+                loop: true
+            });
+            /*轮播图end*/
+
+            //switch (data.type) {
+            switch (1) {
+                case 1: // 外链商品
+                    $('.fixd .jf .buy').show();
+                    $('.fixd .jf #scorenum').hide();
+                    $('.fixd .btn').hide();
+                    $('.fixd').on("click", function () {
+                        var link = data.link;
+                        //alert(link);
+                        window.location.href = (link);
+                        //window.location.replace(link);
+                    });
+                    break;
+                case 2: // 积分购
+                    $('.fixd .jf #scorenum').text(data.integral + "积分");
+                    $('.fixd .jf .buy').hide();
+                    $('.fixd .btn').hide();
+                    break;
+                case 3: // 现金商品
+//                $('.fixd .jf').hide();
+//                $('.fixd .btn').show();
+//                $('.fixd .btn').text("已失效");
+                    $('.fixd .jf .buy').show();
+                    $('.fixd .jf #scorenum').hide();
+                    $('.fixd .btn').hide();
+                    break;
+                default:
+                    console.log('no');
+
+            }
+
+            /*微信分享链接专用*/
+            var sharetitle = data.title;
+            var sharedesc;
+            var subtitle=$(".info p").text();
+            var contents = $("#main .txt").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+            var count = contents.length;
+            if (count > 40) {
+                var nr = contents.substring(0, 40) + "...";
+                sharedesc = nr;
+            } else {
+                sharedesc = contents;
+            }
+            var shareimg = data.picture.path;
+            var sharestr = data.url;
+            var sharelink = sharestr.replace(/api/, "h5");
+            console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+            $.ajax({
+                type: 'GET',
+                url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                success: function (data) {
+                    console.info(data.appId);
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: data.appId, // 必填，公众号的唯一标识
+                        timestamp: data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.signature,
+                        jsApiList: [
+                            "onMenuShareTimeline",
+                            "onMenuShareAppMessage",
+                            "onMenuShareQQ",
+                            "onMenuShareWeibo",
+                            "onMenuShareQZone"
+                        ]
+                    });
+                    wx.ready(function () {
+                        //分享给朋友圈
+                        wx.onMenuShareTimeline({
+                            title: sharetitle, // 分享标题
+                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: shareimg, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                        //分享给朋友
+                        wx.onMenuShareAppMessage({
+                            title: sharetitle, // 分享标题
+                            desc: subtitle, // 分享描述
+                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: shareimg, // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                            }
+                        });
+                    });
+                },
+                error: function (xhr, type) {
+                    //alert(111);
+                }
+            })
+        }
 
         $.loadComment({"pageNum": 1, "pageSize": 10, "type": 10, "refId": parseInt(id), "userId": parseInt(userid)}, 1);
     }
 
 </script>
-
-
 </body>
 </html>
