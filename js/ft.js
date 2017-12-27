@@ -283,6 +283,11 @@
             callbackId: generateID(),
             callback: noop
         },
+        thisMenu: {
+            name: "thisMenu",
+            callbackId: generateID(),
+            callback: noop
+        },
         locationAddress: {
             name: "locationAddress",
             callbackId: generateID(),
@@ -415,6 +420,14 @@
         var moreKitchenConfig = ft.mix(true, {}, config.moreKitchen);
         moreKitchenConfig.callback = fn;
         callByJS(moreKitchenConfig);
+    }
+    /*********************************************************************
+     *                           进入菜谱页的标志                             *
+     **********************************************************************/
+    ft.thisMenu = function (fn) {
+        var thisMenuConfig = ft.mix(true, {}, config.thisMenu);
+        thisMenuConfig.callback = fn;
+        callByJS(thisMenuConfig);
     }
     /*********************************************************************
      *                           获取定位地址                          *

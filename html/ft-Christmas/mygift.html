@@ -70,17 +70,21 @@
         success: function (data) {
             console.log(data);
             var giftlist = data.data;
-            $.each(giftlist, function (item, index) {
-                var lilist = "";
-                lilist += "<li>" +
-                    "<img src=" + index.imgurl + ">" +
-                    "<div>" +
-                    "<span>" + index.prizename + "</span>" +
-                    "<span>" + index.unit + "</span>" +
-                    "</div>" +
-                    "</li>";
-                $(".giftbg ul").append(lilist);
-            });
+            if(giftlist.length==0 || typeof(giftlist)==null){
+                $(".giftbg ul").append("<p style='text-align: center;'>您还没有抢到任何礼物！</p>");
+            }else {
+                $.each(giftlist, function (item, index) {
+                    var lilist = "";
+                    lilist += "<li>" +
+                        "<img src=" + index.imgurl + ">" +
+                        "<div>" +
+                        "<span>" + index.prizename + "</span>" +
+                        "<span>" + index.unit + "</span>" +
+                        "</div>" +
+                        "</li>";
+                    $(".giftbg ul").append(lilist);
+                });
+            }
         },
         error: function (xhr) {
             console.log(xhr);
@@ -143,6 +147,7 @@
 
     /*返回*/
     $(".close").on("click", function () {
+        alert("back");
         var christmasurl = "christmas.html?userid="+userid;
         console.log(christmasurl);
         window.location.href = christmasurl;

@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    var imageNum = 9;
+    var imageNum = 1;//可上传图片的最大数量
     if ($("#maxImageNum").val() != null) {  //添加id为maxImageNum元素，并使value为其他，可以设置一次图片上限
         imageNum = $("#maxImageNum").val();
     }

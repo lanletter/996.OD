@@ -597,22 +597,22 @@
 
                     //app交互——直接购买
                     $("#purchase").on("click", function () {
-//                        alert(
-//                                "id:" + data.id + '|' +
-//                                "num:" + $('.numbox .num').text() + '|' +
-//                                "type:" + 1 + '|' +
-//                                "coupontype:"+coupontype+ '|' +
-//                                "price:" + data.price + '|' +
-//                                "voucher:" + couponumber.toString() + '|' +
-//                                "remark:" + $('#remarks').val() + '|' +
-//                                "picturepath:" + data.picture.path + '|' +
-//                                "name:" + data.curriculumName + '|' +
-//                                "oldPrice:" + $('#oldprice').text() + '|' +
-//                                "newPrice:" + $('#allprice').text() + '|' +
-//                                "starttime:" + data.startDate + '|' +
-//                                "address1:" + data.store.storeName + '|' +
-//                                "address2:" + data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
-//                        );
+                       console.log(
+                               "id:" + data.id + '|' +
+                               "num:" + $('.numbox .num').text() + '|' +
+                               "type:" + 1 + '|' +
+                               "coupontype:"+coupontype+ '|' +
+                               "price:" + data.price + '|' +
+                               "voucher:" + couponumber.toString() + '|' +
+                               "remark:" + $('#remarks').val() + '|' +
+                               "picturepath:" + data.picture.path + '|' +
+                               "name:" + data.curriculumName + '|' +
+                               "oldPrice:" + $('#oldprice').text() + '|' +
+                               "newPrice:" + $('#allprice').text() + '|' +
+                               "starttime:" + data.startDate + '|' +
+                               "address1:" + data.store.storeName + '|' +
+                               "address2:" + data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
+                       );
                         ft.purchase({
                             id: data.id,
                             num: $('.numbox .num').text(),

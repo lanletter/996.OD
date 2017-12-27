@@ -14,6 +14,21 @@
             background: #ffffff;
         }
     </style>
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function(){
+            _vds.push(['setAccountId', '您的项目ID']);
+            (function() {
+                var vds = document.createElement('script');
+                vds.type='text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
 </head>
 
 <body>
@@ -31,12 +46,12 @@
     <p class="font15">
         活动规则：每人每日仅可领取成功一次<br/>
         活动时间：2017年12月22日-2018年1月13日<br/>
-        <span class="darkred">领取tips：特殊日期有特别定制礼物</span>
+        <span class="darkred">领取tips：以下特殊日期有特别定制礼物</span>
     </p>
     <div class="redborder">
         <ul>
-            <li>12月25日&nbsp;&nbsp;圣诞节&nbsp;&nbsp;&nbsp;&nbsp;12月25日&nbsp;&nbsp;元旦</li>
-            <li>01月09日&nbsp;&nbsp;方太生活家上海体验馆&nbsp;&nbsp;6周岁</li>
+            <li>12月25日&nbsp;&nbsp;圣诞节&nbsp;&nbsp;&nbsp;&nbsp;01月01日&nbsp;&nbsp;元旦</li>
+            <li>01月09日&nbsp;&nbsp;方太生活家上海体验馆&nbsp;6周岁</li>
             <li>01月13日&nbsp;&nbsp;方太生活家北京体验馆&nbsp;2周岁</li>
         </ul>
     </div>
@@ -140,7 +155,7 @@
     <img class="ornament11" src="img/11.png">
     <p class="redtitle">圣诞美食菜谱:</p>
     <p class="redtext">12月25日</p>
-    <a class="a_btn grey_btn">点击参与</a>
+    <a href="https://h5.fotilestyle.com/html/lifearticle.html?id=813" class="a_btn red_btn">点击参与</a>
     <p class="redtitle">元旦美食菜谱:</p>
     <p class="redtext">01月01日</p>
     <a class="a_btn grey_btn">点击参与</a>
@@ -157,6 +172,7 @@
 <script type="text/javascript" src='../../js/jquery.cookie.js'></script>
 <script type="text/javascript" src='../../js/swiper.jquery.min.js'></script>
 <script type="text/javascript" src='../../js/url.js'></script>
+<script type="text/javascript" src='../../js/ft.js'></script>
 
 <script type="text/javascript">
     function GetQueryString(name) {
@@ -186,7 +202,7 @@
                     userid = result.data.userId.toString();
                     $.cookie('userid', userid);
 
-                    christmasActive();
+                    christmasActive(userid);
 
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
@@ -195,13 +211,13 @@
             });
         };
     } else {
-        christmasActive();
+        christmasActive(userid);
         $(".ornament12").on("click", function () {
-            window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+            window.location.href = "https://t.growingio.com/app/at2/xRxa2xP5_o";
         })
     }
 
-    function christmasActive() {
+    function christmasActive(userid) {
         console.log({"userId": userid});
         /*日历显示抽奖状态*/
         $.ajax({
@@ -239,12 +255,15 @@
                     }
                 });
                 console.log(datelist);
-                datelist.forEach(function (item) {
-                    var datelist = $(' ' +
-                        '<div Id="' + item.giftId + '" class="cells ' + item.giftclass + '">' + item.date + '</div>\
-                    ');
-                    $('#calendar').append(datelist);
-                });
+                var datelistHtml = new Array();
+                for(item=0;item<datelist.length;item++){
+                    datelistHtml = $('<div id="' + datelist[item].giftId + '" class="cells ' + datelist[item].giftclass + '">' + datelist[item].date + '</div>');
+                    $('#calendar').append(datelistHtml);
+                }
+                // datelist.forEach(function (item) {
+                //     var datelist = $('<div id="' + item.giftId + '" class="cells ' + item.giftclass + '">' + item.date + '</div>');
+                //     $('#calendar').append(datelist);
+                // });
 
                 /*未开始点击报错*/
                 $(".gift6").on("click", function () {
@@ -282,7 +301,6 @@
                             window.location.href = loginurl;
                         }
                     });
-
                 }
             },
             error: function (xhr) {
@@ -331,7 +349,9 @@
                         if (userid == null) {
                             return;
                         }
+                        // alert("errorcode："+errorcode);
                         var mygifturl = "mygift.html?userid=" + userid;
+                        console.log(mygifturl);
                         window.location.href = mygifturl;
                     } else if (errorCode == "0") {
                         $api.toast('登陆取消', 2000);
@@ -401,18 +421,31 @@
             success: function (data) {
                 console.log(data);
                 var swiperlist = data.data;
-                $.each(swiperlist, function (item, index) {
-                    var list = "";
-                    list += "" +
+                var swiperlistHtml = new Array();
+                for(item=0;item<swiperlist.length;item++){
+                    swiperlistHtml = "" +
                         "<div class='swiper-slide cards'>" +
-                        "<img class='cityName' src=" + index.picture.path + ">" +
-                        "<span class='bigtitle'>" + index.name + "</span>" +
-                        "<div class='timetitle'>" + index.content + "</div>" +
-                        "<a class='urltitle' href=" + index.url + ">点击查看活动详情</a>" +
+                        "<img class='cityName' src=" + swiperlist[item].picture.path + ">" +
+                        "<span class='bigtitle'>" + swiperlist[item].name + "</span>" +
+                        "<div class='timetitle'>" + swiperlist[item].content + "</div>" +
+                        "<a class='urltitle' href=" + swiperlist[item].url + ">点击查看活动详情</a>" +
                         "</div>" +
                         "";
-                    $("#swipers .swiper-wrapper").append(list);
-                });
+                    $('#swipers .swiper-wrapper').append(swiperlistHtml);
+                }
+
+                // $.each(swiperlist, function (item, index) {
+                //     var list = "";
+                //     list += "" +
+                //         "<div class='swiper-slide cards'>" +
+                //         "<img class='cityName' src=" + index.picture.path + ">" +
+                //         "<span class='bigtitle'>" + index.name + "</span>" +
+                //         "<div class='timetitle'>" + index.content + "</div>" +
+                //         "<a class='urltitle' href=" + index.url + ">点击查看活动详情</a>" +
+                //         "</div>" +
+                //         "";
+                //     $("#swipers .swiper-wrapper").append(list);
+                // });
                 $.each($('.urltitle'),function(){
                     if($(this).attr('href')==''){
                         $(this).hide();

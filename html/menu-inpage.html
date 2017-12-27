@@ -233,7 +233,7 @@
         if (r != null)return unescape(r[2]);
         return null;
     }
-    var id = GetQueryString("id")
+    var id = GetQueryString("id");
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
@@ -246,6 +246,16 @@
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
                     choose();
+                } else if (errorCode == "0") {
+                } else if (errorCode == "-1") {
+                } else if (errorCode == "-2") {
+                }
+            });
+            ft.thisMenu(function (result) {
+                var errorcode = result.errorCode.toString();
+                //alert(errorcode);
+                console.log(errorcode);
+                if (errorcode == "1") {
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
                 } else if (errorCode == "-2") {

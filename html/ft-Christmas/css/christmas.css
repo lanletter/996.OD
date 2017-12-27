@@ -361,6 +361,7 @@ p {
 }
 
 #congratulate .close {
+    display: block;
     width: 0.56rem;
     height: 0.56rem;
     position: absolute;
@@ -368,6 +369,7 @@ p {
     top: 0.14rem;
     background: url("../img/close.png");
     background-size: 0.56rem;
+    cursor :pointer;
 }
 
 #congratulate .title {
@@ -423,6 +425,7 @@ p {
 }
 
 #mygift .close {
+    display: block;
     width: 0.56rem;
     height: 0.56rem;
     position: absolute;
@@ -430,6 +433,7 @@ p {
     top: 0.14rem;
     background: url("../img/close.png");
     background-size: 0.56rem;
+    cursor :pointer;
 }
 
 #mygift .light {
