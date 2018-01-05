@@ -254,6 +254,21 @@
                     var phonenum = obj.data.accountName;
                     var userid = obj.data.userInfomation.userId;
                     $.cookie('userid', obj.data.userInfomation.userId);
+                    /*注册来源上传后台*/
+                    // alert(userid);
+                    $.ajax({
+                        type: 'POST',
+                        url: urlport + 'user/updateLonginType',
+                        datatype: "json",
+                        data: JSON.stringify({
+                            id: userid,
+                            source: "web"
+                        }),
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (ret) {
+                            // alert(JSON.stringify(ret));
+                        }
+                    });
                     var buyurl = "../../ft-Christmas/christmas.html?userid="+userid;
                     window.location.href = buyurl;
                 } else if (obj.status == 500) {

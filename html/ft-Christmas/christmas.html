@@ -158,7 +158,7 @@
     <a href="https://h5.fotilestyle.com/html/lifearticle.html?id=813" class="a_btn red_btn">点击参与</a>
     <p class="redtitle">元旦美食菜谱:</p>
     <p class="redtext">01月01日</p>
-    <a class="a_btn grey_btn">点击参与</a>
+    <a href="https://h5.fotilestyle.com/html/lifearticle.html?id=830" class="a_btn red_btn">点击参与</a>
     <p class="redtitle">app有奖话题:</p>
     <p class="redtext">
         南北大讨论-你的家乡元旦吃什么？<br/>
@@ -323,7 +323,7 @@
                         var giftObj = data.data;
                         var giftImg = giftObj.imgUrl;
                         var giftName = giftObj.prizename;
-                        var congratulateurl = "congratulate.html?userid=" + userid + "&giftImg=" + giftImg + "&giftName=" + giftName;
+                        var congratulateurl = "congratulate.html?userid=" + userid + "&giftImg=" + giftImg + "&giftName=" + giftName + "&device=" + device;
                         console.log(congratulateurl);
                         window.location.href = congratulateurl;
                     } else {
@@ -350,7 +350,7 @@
                             return;
                         }
                         // alert("errorcode："+errorcode);
-                        var mygifturl = "mygift.html?userid=" + userid;
+                        var mygifturl = "mygift.html?userid=" + userid + "&device=" + device;
                         console.log(mygifturl);
                         window.location.href = mygifturl;
                     } else if (errorCode == "0") {
@@ -370,7 +370,7 @@
                     window.location.href = loginurl;
                 } else {
                     console.log(userid);
-                    var mygifturl = "mygift.html?userid=" + userid;
+                    var mygifturl = "mygift.html?userid=" + userid + "&device=" + device;
                     console.log(mygifturl);
                     window.location.href = mygifturl;
                 }

@@ -109,9 +109,9 @@
                     <div class="order-type">
                         <span class="key">预约类型</span>
                         <div>
-                            <button class="type-btn">场地参观</button>
-                            <button class="type-btn">场地租赁</button>
-                            <button class="type-btn">定制课程</button>
+                            <button value="1" class="type-btn">场地参观<a style="display: none">1</a></button>
+                            <button value="2" class="type-btn">场地租赁<a style="display: none">2</a></button>
+                            <button value="3" class="type-btn">定制课程<a style="display: none">3</a></button>
                         </div>
                     </div>
                 </li>
@@ -263,8 +263,7 @@
 
             +function () {
                 $('.order-type').on('click', 'button', function (e) {
-                    $('.order-type button').removeClass('check');
-                    $(e.target).addClass('check');
+                    $(e.target).toggleClass('check');
                 })
             }();
 
@@ -294,28 +293,36 @@
                     alert('请选择预约类型');
                     return;
                 }
-                var typestring=orderInfo.find('.order-type .check').text();
-                if(typestring=="场地参观"){
-                    type=1;
-                }else if(typestring=="场地租赁"){
-                    type=2;
-                }else if(typestring=="定制课程"){
-                    type=3;
-                }
+                var typestring=orderInfo.find('.order-type .check a').text();
+                // if(typestring=="场地参观"){
+                //     type=1;
+                // }else if(typestring=="场地租赁"){
+                //     type=2;
+                // }else if(typestring=="定制课程"){
+                //     type=3;
+                // }
                 if (!time) {
                     alert('请选择预约时间');
                     return;
                 }
 
-                //alert(name+"|"+tel+"|"+type+"|"+time2+"|"+des+"|"+data.id);
+                console.log({
+                    name: name,
+                    tel: tel,
+                    serviceId: typestring,
+                    time: time2,
+                    remark: des,
+                    storeId:data.id
+                });
                 $api.post(urlport + 'user/appoint', {
                     name: name,
                     tel: tel,
-                    serviceId: type,
+                    serviceId: typestring,
                     time: time2,
                     remark: des,
                     storeId:data.id
                 }, function (data) {
+                    console.log(data);
                     $('.order-pop').hide();
                     disableScroll = false;//允许滚动
                     $("html,body").css({overflow: "auto"}); //启用滚动条

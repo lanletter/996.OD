@@ -283,8 +283,8 @@
             callbackId: generateID(),
             callback: noop
         },
-        thisMenu: {
-            name: "thisMenu",
+        MenuLinght: {
+            name: "MenuLinght",
             callbackId: generateID(),
             callback: noop
         },
@@ -424,10 +424,10 @@
     /*********************************************************************
      *                           进入菜谱页的标志                             *
      **********************************************************************/
-    ft.thisMenu = function (fn) {
-        var thisMenuConfig = ft.mix(true, {}, config.thisMenu);
-        thisMenuConfig.callback = fn;
-        callByJS(thisMenuConfig);
+    ft.MenuLinght = function (fn) {
+        var MenuLinghtConfig = ft.mix(true, {}, config.MenuLinght);
+        MenuLinghtConfig.callback = fn;
+        callByJS(MenuLinghtConfig);
     }
     /*********************************************************************
      *                           获取定位地址                          *

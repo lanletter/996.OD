@@ -146,12 +146,17 @@
     });
 
     /*返回*/
-    $(".close").on("click", function () {
-        alert("back");
-        var christmasurl = "christmas.html?userid="+userid;
-        console.log(christmasurl);
-        window.location.href = christmasurl;
-    });
+
+    if (device == "ios" || device == "android") {
+        $(".close").hide();
+    }else {
+        $(".close").on("click", function () {
+            alert("back");
+            var christmasurl = "christmas.html?userid="+userid;
+            console.log(christmasurl);
+            window.location.href = christmasurl;
+        });
+    }
 </script>
 </body>
 </html>

@@ -318,10 +318,10 @@
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();
                             if (errorcode == "1") {
-                                //$api.toast('登陆成功', 2000);
+                                // $api.toast('登陆成功', 2000);
                                 userid = result.data.userId.toString();
                                 window.userid = userid;
-                                //alert("userid"+userid);
+                                // alert("userid："+userid);
                                 //积分兑换
                                 if ($this.count == 0) {
                                     alert("请先选择商品!");
@@ -330,7 +330,7 @@
                                 $("body").append(
                                     '<div id="mask" class="mask works-mask">' +
                                     '<div class="mask-content">' +
-                                    '<p class="del-p">您确定要删除图片吗？</p>' +
+                                    '<p class="del-p">您确定要兑换吗？</p>' +
                                     '<p class="check-p">' +
                                     '<span class="del-com wsdel-ok">确定</span>' +
                                     '<span class="wsdel-no">取消</span>' +

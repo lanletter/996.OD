@@ -161,7 +161,8 @@
             }
 
             if(data.isshow==1 || data.isshow==null){
-                $header.find('time').text(format(starttime) + '-' + format(endtime));
+                // $header.find('time').text(format(starttime) + '-' + format(endtime));//显示时间戳
+                $header.find('time').text(data.time2);//显示字符串
             }else {
                 $header.find('time').text();
             }

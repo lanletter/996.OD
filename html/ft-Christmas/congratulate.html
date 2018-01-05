@@ -39,6 +39,7 @@
     var userid = GetQueryString("userid");
     var giftImg = GetQueryString("giftImg");
     var giftName = GetQueryString("giftName");
+    var device = GetQueryString("device");
     $.ajax({
         url: urlport + 'activity/campaign/201712/prize',
         type: 'POST',
@@ -65,11 +66,15 @@
     });
 
     /*返回*/
-    $(".close").on("click", function () {
-        var christmasurl = "christmas.html?userid="+userid;
-        console.log(christmasurl);
-        window.location.href = christmasurl;
-    });
+    if (device == "ios" || device == "android") {
+        $(".close").hide();
+    }else {
+        $(".close").on("click", function () {
+            var christmasurl = "christmas.html?userid="+userid;
+            console.log(christmasurl);
+            window.location.href = christmasurl;
+        });
+    }
 </script>
 </body>
 </html>

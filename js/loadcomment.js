@@ -8,7 +8,7 @@
         var idcook = $.cookie('idcook');
         var cookstring=typecook+idcook;
         var userid = obj.userId;
-        // var userid = 120520;
+        // var userid = 121547;
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
@@ -29,8 +29,11 @@
                 // $("#loading").remove();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
+                  <div class="leavewords comment">\
+                  <p>点击发表评论</p>\
+                  <p>快来分享你的作品、感想</p>\
+                  </div>\
                   <span class="left">用户评论<i></i></span>\
-                  <button href="#" class="leavewords right comment"></button>\
                   <br/>\
                   <p>暂无评论，快去抢沙发吧</p>\
                 </div>\
@@ -99,7 +102,7 @@
                         });
                     } else {
                         window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 120520;
+                        // userid = 121547;
                         // $('#leave-words').show();
                         // test1(userid);
                     }
@@ -188,8 +191,11 @@
                 var template = '\
             <div class="loadbox">\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                  <span class="left">用户评论</span>\
-                  <button href="#" class="leavewords right comment"></button>\
+                   <div class="leavewords comment">\
+                    <p>点击发表评论</p>\          \
+                    <p>快来分享你的作品、感想</p>\
+                   </div>\
+                   <span class="left">用户评论</span>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words">\
                   <p class="bgfff"></p>\
@@ -230,17 +236,18 @@
                         </p>\
                         <p class="imglist center">\
                           {{#commentPictureList}}\
-                            <img class="pimg img" alt="" src="{{picture.path}}">\
+                            <img class="pimg img" alt="" src="{{picture.path2}}">\
+                            <img class="pimg img" style="display: none;" alt="" src="{{picture.path}}">\
                           {{/commentPictureList}}\
                           <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
                         </p>\
                         <p class="bottom">\
                           <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                           <span class="time"> <time>{{createat}}</time></span>\
-                          <button class="delete" id="delete{{id}}">删除</button>\
+                          <a class="delete" id="delete{{id}}">删除</a>\
                           <span class="reply rpbutton" id="reply{{id}}">回复</span>\
                           <span class="dot">•</span>\
-                          <button class="praise">{{likeCount}}</button>\
+                          <a class="praise">{{likeCount}}</a>\
                         </p>\
                         <div class="words">\
                           {{#sonCommentList}}\
@@ -253,8 +260,8 @@
                                         {{content}}\
                                     </span>\
                                 </span>\
-                                <button class="praise">{{likeCount}}</button>\
-                                <button class="delete" id="delete{{id}}">删除</button>\
+                                <a class="praise">{{likeCount}}</a>\
+                                <a class="delete" id="delete{{id}}">删除</a>\
                                 <span class="time"> <time>{{createat}}</time></span>\
                               </p>\
                               <p class="center">\
@@ -283,7 +290,6 @@
                 </div></form>\
                 <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
             <div id="scripts">\
-            <script src="../js/alertdiy.js"></script>\
             <script src="../js/imgUp.js"></script>\
             <script>\
                 /*上传图片*/\
@@ -322,43 +328,13 @@
                 /*图片点击放大*/\
                     $(function(){\
                         $(".pimg").click(function(){\
-                            var _this = $(this);\
+                            var _this = $(this).next();\
                             imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
                         });\
                     });\
                 /*选中单张图片*/\
                     var $onlyone = $(".onlyone:contains(1)").parent();\
                     $onlyone.find("img").removeClass("img");\
-                /*单张图片大小等比例自适应*/\
-                    objImg=$onlyone.find("img");\
-                    for(var i=0;i<objImg.length;i++){\
-                        maxWidth=267;\
-                        maxHeight=181;\
-                        var img = new Image();\
-                        img.src = objImg[i].src;\
-                        var hRatio;\
-                        var wRatio;\
-                        var Ratio = 1;\
-                        var w = img.width;\
-                        var h = img.height;\
-                        wRatio = maxWidth / w;\
-                        hRatio = maxHeight / h;\
-                        if (maxWidth ==0 && maxHeight==0){\
-                            Ratio = 1;\
-                        }else if (maxWidth==0){\
-                            if (hRatio<1) Ratio = hRatio;\
-                        }else if (maxHeight==0){\
-                            if (wRatio<1) Ratio = wRatio;\
-                        }else if (wRatio<1 || hRatio<1){\
-                            Ratio = (wRatio<=hRatio?wRatio:hRatio);\
-                        }\
-                        if (Ratio<1){\
-                            w = w * Ratio;\
-                            h = h * Ratio;\
-                        }\
-                        objImg[i].height = h;\
-                        objImg[i].width = w;\
-                    }\
             </script>\
             </div>\
             </div>\
@@ -372,6 +348,31 @@
                     item.sonCommentList.forEach(function (item, index) {
                         item.createat = new Date(item.createat).app();
                     });
+                });
+
+                /*图片尺寸压缩*/
+                res.data.forEach(function (item, index) {
+                    if(item.commentPictureList!==null){
+                        item.commentPictureList.forEach(function (item, index) {
+                            // console.log(item.picture.path);
+                            var imgUrl=item.picture.path;
+                            var ifurl = imgUrl.indexOf("https://oss.fotilestyle.com");
+                            if(ifurl == 0){
+                                //表示imgUrl是以https:oss.fotilestyle.com开头
+                                var pos = imgUrl.indexOf('?');
+                                if(pos>0){//如果？存在
+                                    var result = imgUrl.substring(0,pos);
+                                }else {//？不存在
+                                    var result = imgUrl;
+                                }
+                                console.log(result);
+                                var imgUrl2=result+"?x-oss-process=image/format,jpg/interlace,1/resize,m_lfit,h_181,w_267/auto-orient,0";
+                                console.log(imgUrl2);
+                                item.picture.path2 = imgUrl2;
+                            }else if(ifurl == -1){
+                                item.picture.path2 = imgUrl;                        }
+                        });
+                    }
                 });
 
                 Mustache.parse(template);
@@ -411,7 +412,7 @@
                         });
                     } else {
                         window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 120520;
+                        // userid = 121547;
                         // $('#leave-words').show();
                         // test2(userid);
                     }
@@ -521,7 +522,7 @@
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
                         // // alert(parentid);
-                        // userid = 120520;
+                        // userid = 121547;
                         // $('#leave-words2').show();
                         // test(parentid, userid);
                     }
@@ -529,23 +530,26 @@
                 $("#leave-words2 .textarea").focus();//默认选中
 
                 function test(parentid, userid) {
-                    // $("#leave-words2 .textarea").focus();//默认选中
+                    $("#leave-words2 .textarea").focus();//默认选中
                     /*键盘控制*/
                     document.onkeyup = function (event) {
                         var e = event || window.event;
                         var keyCode = e.keyCode || e.which;
-                        switch (keyCode) {
-                            case 13:
-                                if (confirm("确定提交评论吗？")) {
-                                    $("#commit2").click();
-                                }
-                                else {
-                                    return;
-                                }
-                                break;
-                            default:
-                                break;
+                        if(keyCode==13){
+                            return false;
                         }
+                        // switch (keyCode) {
+                        //     case 13:
+                        //         if (confirm("确定提交评论吗？")) {
+                        //             $("#commit2").click();
+                        //         }
+                        //         else {
+                        //             return;
+                        //         }
+                        //         break;
+                        //     default:
+                        //         break;
+                        // }
                     };
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
@@ -641,6 +645,7 @@
 
                 /*删除 */
                 $('.delete').unbind().click(function (e) {
+                    // alert("触发按钮");
                     if (confirm("确定要删除评论吗？")) {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
