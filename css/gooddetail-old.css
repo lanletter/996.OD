@@ -12,6 +12,7 @@ body{ background:#f7f7f7;}
 .info h2{ font-size:24px; font-weight:normal; line-height:28px; text-align:center;}
 .info p{ text-align:center; font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#828282; padding:15px 0;}
 .info .txt{ font-size:15px; line-height:26px; color:#828282;}
+.info .txt img{ max-width:6.3rem; }
 .info a{ font-size:14px; color:#ff4e53; margin-top:20px; display:block;}
 .main{padding:30px;}
 .main h3.icon1{ background:url(../img/store/icon_01.png) no-repeat left center; background-size:30px; text-indent:40px; height:40px; line-height:40px; margin:20px 0;}
