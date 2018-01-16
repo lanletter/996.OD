@@ -14,11 +14,16 @@ html, body {
 .video video {
     width: 7.5rem;
     height: 4.22rem;
-    position: absolute;
-    left: -8rem;
-
+    /*position: absolute;*/
+    /*left: -8rem;*/
 }
-
+.video #live-video {
+    width: 100%;
+    height: 4.22rem;
+    position: absolute;
+    left: -10rem;
+}
+.video .vjs-big-play-button{display: none;}
 .video .play {
     position: absolute;
     top: 50%;

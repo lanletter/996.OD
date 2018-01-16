@@ -13,9 +13,9 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="../css/common.css?ver=403" rel="stylesheet">
-    <link href="../css/video-share2.css?ver=403" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/video-js.min.css?ver=403">
+    <link href="../../../css/common.css?ver=403" rel="stylesheet">
+    <link href="../css/video-share.css?ver=403" rel="stylesheet">
+    <link href="../css/video-js.css?ver=403" rel="stylesheet">
     <title>直播分享</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
@@ -34,19 +34,35 @@
     </script>
 </head>
 <body>
+
 <!--<div id="videobox" class="video">-->
-    <!--<video id="vd" class="video-js vjs-default-skin" controls="controls" webkit-playsinline="" playsinline="" glue-id="video"-->
-           <!--glue-component="common.component.universalPlayer.video" glue-behavior="common.behavior.player.dispatcher"-->
-           <!--src="">-->
-        <!--<source type="application/x-mpegURL">-->
+<!--<video id="vd" class="video-js vjs-default-skin" controls="controls">-->
+<!--<source type="application/x-mpegURL">-->
+<!--</video>-->
+<!--&lt;!&ndash;<button class="play"></button>&ndash;&gt;-->
+<!--</div>-->
+
+<div id="videobox" class="video">
+    <video id="live-video" class="video-js vjs-default-skin" controls>
+        <source
+                src="http://lifevideo.fotile.com/fotilestyle/shanghai.m3u8"
+                type="application/x-mpegURL">
+    </video>
+    <button class="play"></button>
+    <!--<video id="vd" class="video-js vjs-default-skin" controls="controls">-->
+    <!--<source type="application/x-mpegURL">-->
     <!--</video>-->
     <!--<button class="play"></button>-->
-<!--</div>-->
-<div id="videobox" class="video">
-    <video id="vd" class="video-js vjs-default-skin" controls="controls" preload="auto" data-setup='{}'>
-        <source type="application/x-mpegURL">
-    </video>
 </div>
+
+<!--<div id="videobox" class="video">-->
+<!--<video id="vd" class="video-js vjs-default-skin" controls="controls" webkit-playsinline="" playsinline="" glue-id="video"-->
+<!--glue-component="common.component.universalPlayer.video" glue-behavior="common.behavior.player.dispatcher"-->
+<!--src="">-->
+<!--<source type="application/x-mpegURL">-->
+<!--</video>-->
+<!--<button class="play"></button>-->
+<!--</div>-->
 <div class="vide-share">
     <div class="tit">
         <img :src="kk.cookPicture" alt="">
@@ -67,57 +83,38 @@
     </p>
     <a onclick="javascript:window.location.href='http://download.fotilestyle.com/?utm-source=share'">下载App</a>
 </div>
-<script src="../js/lib.js"></script>
-<script src="../js/vue.min.js"></script>
-<script src="../js/vue-resource1.3.4.js"></script>
-<script src="../js/url.js"></script>
+
+<script src="../../../js/lib.js"></script>
+<script src="../../../js/vue.min.js"></script>
+<script src="../../../js/vue-resource1.3.4.js"></script>
+<script src="../../../js/url.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <script>
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-    }
 
-    var id = GetQueryString("id");
-
-    /*选项卡*/
-    function changeTab(tabCon_num) {
-        for (i = 0; i <= 1; i++) {
-            document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏
-            document.getElementById("tab_" + i).classList.remove("selected");
-        }
-        document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层
-        document.getElementById("tab_" + tabCon_num).classList.add("selected");
-    }
-
-
-    (function () {
-        var video = $('#videobox video')[0],
-            playBtn = $('#videobox .play');
-        playBtn.on('click', function () {
-            $(this).hide();
-            var vheight = $("#videobox video").height();
-            $('#vd').css({"position": "absolute", "left": "0"});
-            $("#videobox").css({height: vheight - 1 + "px"});
-            video.play();
-            video.controls = true;
-        });
-
-        video.addEventListener('ended', function () {
-            playBtn.show();
-            video.controls = false;
-            $('#vd').css({"position": "absolute", "left": "-10rem"});
-            $("#videobox").css({"height": "4.2rem"});
-        }, false);
-        video.addEventListener('pause', function () {
-            playBtn.hide();
-            video.controls = true;
-        }, false);
-    })();
-
+    // (function () {
+    //     var video = $('#videobox video')[0],
+    //         playBtn = $('#videobox .play');
+    //     playBtn.on('click', function () {
+    //         $(this).hide();
+    //         var vheight = $("#videobox video").height();
+    //         $('#vd').css({"position": "absolute", "left": "0"});
+    //         $("#videobox").css({height: vheight - 1 + "px"});
+    //         video.play();
+    //         video.controls = true;
+    //     });
+    //
+    //     video.addEventListener('ended', function () {
+    //         playBtn.show();
+    //         video.controls = false;
+    //         $('#vd').css({"position": "absolute", "left": "-10rem"});
+    //         $("#videobox").css({"height": "4.2rem"});
+    //     }, false);
+    //     video.addEventListener('pause', function () {
+    //         playBtn.hide();
+    //         video.controls = true;
+    //     }, false);
+    // })();
     var vm = new Vue({
         el: '.vide-share',
         data: {
@@ -128,11 +125,12 @@
             this.$http.post(urlport + 'video/detail', {"id": "1111"}).then(function (data) {
                 var data = data.data;
                 if (data.status == 200) {
+
                     $this.kk = data.data;
                     console.info($this.kk);
 
                     /*视频链接*/
-                    $('#vd').find('source').attr('src', $this.kk.url);
+                    $('#live-video').find('source').attr('src', $this.kk.url);
 
                     /*微信分享链接专用*/
                     var sharetitle = data.data.topic;
@@ -225,7 +223,43 @@
     });
 
 </script>
-<script type="text/javascript" src='../js/video.min.js'></script>
-<script src="../js/videojs-live.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+<link href="../css/video-js.css" rel="stylesheet">
+
+<script src="../js/video.js"></script>
+<script src="../js/videojs-flash.js"></script>
+<script src="../js/videojs-contrib-hls.js"></script>
+<script>
+    (function (window, videojs) {
+        var player = window.player = videojs('live-video');
+        var playBtn = $('#videobox .play');
+        var video = $('#videobox video');
+        playBtn.on('click', function () {
+            playBtn.hide();
+            var vheight = $("#videobox video").height();
+            $('#vd').css({"position": "absolute", "left": "0"});
+            $("#videobox").css({height: vheight - 1 + "px"});
+            player.play();
+            player.controls = true;
+        });
+        if (player.pause()) {
+            console.log("1");
+            playBtn.show();
+            player.controls = true;
+        }
+        // video.addEventListener('ended', function () {
+        //     playBtn.show();
+        //     player.controls = false;
+        //     $('#vd').css({"position": "absolute", "left": "-10rem"});
+        //     $("#videobox").css({"height": "4.2rem"});
+        // }, false);
+        // video.addEventListener('pause', function () {
+        //     playBtn.hide();
+        //     player.controls = true;
+        // }, false);
+    }(window, window.videojs));
+</script>
 </body>
 </html>

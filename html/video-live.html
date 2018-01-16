@@ -14,8 +14,8 @@
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <link href="../css/common.css?ver=403" rel="stylesheet">
-    <link href="../css/video-share2.css?ver=403" rel="stylesheet">
-    <link href="../css/video-js.css?ver=403" rel="stylesheet">
+    <link href="../css/hls/video-share.css?ver=403" rel="stylesheet">
+    <link href="../css/hls/video-js.css?ver=403" rel="stylesheet">
     <title>直播分享</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
@@ -34,23 +34,13 @@
     </script>
 </head>
 <body>
-
-<div id="videobox" class="video">
-    <video id="vd" class="video-js vjs-default-skin" controls="controls">
-        <source type="application/x-mpegURL">
-    </video>
-    <!--<button class="play"></button>-->
-</div>
-
-<!--<div id="videobox" class="video">-->
-<!--<video id="vd" class="video-js vjs-default-skin" controls="controls" webkit-playsinline="" playsinline="" glue-id="video"-->
-<!--glue-component="common.component.universalPlayer.video" glue-behavior="common.behavior.player.dispatcher"-->
-<!--src="">-->
-<!--<source type="application/x-mpegURL">-->
-<!--</video>-->
-<!--<button class="play"></button>-->
-<!--</div>-->
 <div class="vide-share">
+    <div id="videobox" class="video">
+        <video id="live-video" class="video-js vjs-default-skin" controls >
+            <source type="application/x-mpegURL">
+        </video>
+        <button class="play"></button>
+    </div>
     <div class="tit">
         <img :src="kk.cookPicture" alt="">
         <p class="name">{{kk.name}}</p>
@@ -77,31 +67,11 @@
 <script src="../js/url.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
+<link href="../css/hls/video-js.css" rel="stylesheet">
+<script src="../js/hls/video.js"></script>
+<script src="../js/hls/videojs-flash.js"></script>
+<script src="../js/hls/videojs-contrib-hls.js"></script>
 <script>
-
-    // (function () {
-    //     var video = $('#videobox video')[0],
-    //         playBtn = $('#videobox .play');
-    //     playBtn.on('click', function () {
-    //         $(this).hide();
-    //         var vheight = $("#videobox video").height();
-    //         $('#vd').css({"position": "absolute", "left": "0"});
-    //         $("#videobox").css({height: vheight - 1 + "px"});
-    //         video.play();
-    //         video.controls = true;
-    //     });
-    //
-    //     video.addEventListener('ended', function () {
-    //         playBtn.show();
-    //         video.controls = false;
-    //         $('#vd').css({"position": "absolute", "left": "-10rem"});
-    //         $("#videobox").css({"height": "4.2rem"});
-    //     }, false);
-    //     video.addEventListener('pause', function () {
-    //         playBtn.hide();
-    //         video.controls = true;
-    //     }, false);
-    // })();
     var vm = new Vue({
         el: '.vide-share',
         data: {
@@ -115,9 +85,35 @@
 
                     $this.kk = data.data;
                     console.info($this.kk);
+                    console.info($this.kk.url);
 
-                    /*视频链接*/
-                    $('#vd').find('source').attr('src', $this.kk.url);
+                    /*视频播放*/
+                    (function (window, videojs) {
+                        $('#live-video source').attr('src', $this.kk.url);
+                        var player = window.player = videojs('live-video');
+                        var playBtn = $('#videobox .play');
+                        playBtn.on('click', function () {
+                            var vheight = $("#videobox video").height();
+                            $('#live-video').css({"position": "absolute", "left": "0"});
+                            var vheight = $("#live-video").height();
+                            $("#videobox").css({height: vheight - 1 + "px"});
+                            player.play();
+                            playBtn.hide();
+                            $("#live-video .vjs-control-bar").css({"display": "block"});
+                        });
+                        player.on("pause", function(){
+                            playBtn.show();
+                            $("#live-video .vjs-control-bar").css({"display": "none"});
+                        });
+                        player.on("ended", function(){
+                            $('#live-video').css({"position": "absolute", "left": "-10rem"});
+                            playBtn.show();
+                            $("#live-video .vjs-control-bar").css({"display": "none"});
+                        });
+                        player.on("play", function(){
+                            playBtn.trigger("click");
+                        });
+                    }(window, window.videojs));
 
                     /*微信分享链接专用*/
                     var sharetitle = data.data.topic;
@@ -188,33 +184,9 @@
         },
         updated: function () {
             console.info(11);
-        },
-        mounted: function () {
-            //var myPlayer = neplayer("my-video");
-            // var $this = this;
-            // console.info();
-            // function InitPlayer(){
-            //     console.info($this.kk.url);
-            //     var player = new prismplayer({
-            //         id: "J_prismPlayer",    // 容器id
-            //         source: 'http://lifevideo.fotile.com/fotilestyle/shanghai.m3u8',  // 视频url 支持互联网可直接访问的视频地址
-            //         autoplay: true,       // 自动播放
-            //         width: "100%",        // 播放器宽度
-            //         height: "400px"      // 播放器高度
-            //     });
-            // }
-            // InitPlayer();
-        }, methods: function () {
-
         }
     });
 
-</script>
-<script src='../js/video2.js'></script>
-<script src="../js/videojs-contrib-hls.min.js"></script>
-<script>
-    var player = videojs('vd');
-    player.play();
 </script>
 </body>
 </html>
