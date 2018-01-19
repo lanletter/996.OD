@@ -75,7 +75,11 @@
 
     <div class="bottomdiv"></div>
     <div class="ft-comment"></div>
-    <!--<div id="loading"></div>-->
+    <div id="loading">
+        <div class="btnload">下拉加载更多</div>
+        <div class="imgift" style="display: none"></div>
+        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+    </div>
 </div>
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/lib.js'></script>
@@ -95,6 +99,7 @@
         return null;
     }
     var id = GetQueryString("id");
+    id=500;
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;

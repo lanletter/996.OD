@@ -1,4 +1,5 @@
 +function () {
+    var isEmpty = false;
     var homeurl = window.location.href;
 
     function loadComment(obj, pageNum, type, id, userId) {
@@ -6,9 +7,10 @@
         obj.pageNum = pageNum;
         var typecook = $.cookie('typecook');
         var idcook = $.cookie('idcook');
-        var cookstring=typecook+idcook;
+        var cookstring = typecook + idcook;
         var userid = obj.userId;
-        // var userid = 121547;
+        var userid = 121547;
+        console.log(cookstring);
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
@@ -19,25 +21,39 @@
         function callback(res) {
             var data = res.data;
             console.log(data);
-            isEmpty = data.length;
+            isEmpty = data.length==0;
 
-            // if (data.length == 0) {
-            //     $("#loading").remove();
-            // }
+            /*判断是否能加载*/
+            obj.pageNum = pageNum+1;
+            $api.post(urlport + 'comment/list', obj,
+                function (res) {
+                    console.log(res);
+                    if (res.data.length == 0) {
+                        $("#loading .nomore").show();
+                        $("#loading .btnload").hide();
+                        $("#loading .imgift").hide();
+                    }
+                }
+            );
 
             if (data.length == 0 && obj.pageNum == 1) {
-                // $("#loading").remove();
+                $("#loading").hide();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
+                  <p class="title1">用户评论</p>\
+                  <p class="title2">共有0条评论</p>\
                   <div class="leavewords comment">\
-                  <p>点击发表评论</p>\
-                  <p>快来分享你的作品、感想</p>\
+                      <img src="">\
+                      <div>快来分享你的作品、感想</div>\
                   </div>\
-                  <span class="left">用户评论<i></i></span>\
+                  <div class="leavewords nocomment">\
+                    <span>登录</span>\
+                    <div>请登录后发表评论</div>\
+                  </div>\
                   <br/>\
-                  <p>暂无评论，快去抢沙发吧</p>\
+                  <p class="welcome">暂无评论，快来成为第一个评论的用户吧！</p>\
                 </div>\
-                <form id="picForm"><div id="leave-words" class="leave-words">\
+                <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
                   <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div class="imgup">\
@@ -76,11 +92,14 @@
                   </div>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
-                </div></form>';
+                </div></div></form>';
 
                 Mustache.parse(noComment);
                 var rendered0 = Mustache.render(noComment, res);
                 $('.ft-comment').empty().append($(rendered0));
+
+                /*判断是否登录*/
+                islogin();
 
                 /*留言*/
                 $('.leavewords').unbind().click(function (e) {
@@ -101,10 +120,10 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 121547;
-                        // $('#leave-words').show();
-                        // test1(userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        userid = 121547;
+                        $('#leave-words').show();
+                        test1(userid);
                     }
                 });
 
@@ -191,13 +210,18 @@
                 var template = '\
             <div class="loadbox">\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                   <div class="leavewords comment">\
-                    <p>点击发表评论</p>\          \
-                    <p>快来分享你的作品、感想</p>\
-                   </div>\
-                   <span class="left">用户评论</span>\
+                  <p class="title1">用户评论</p>\
+                  <p class="title2">共有<i>?</i>条评论</p>\
+                  <div class="leavewords comment">\
+                      <img src="">\
+                      <div>快来分享你的作品、感想</div>\
+                  </div>\
+                  <div class="leavewords nocomment">\
+                    <span>登录</span>\
+                    <div>请登录后发表评论</div>\
+                  </div>\
                 </div>\
-                <form id="picForm"><div id="leave-words" class="leave-words">\
+                <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
                   <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div class="imgup">\
@@ -220,49 +244,61 @@
                   </div>\
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">取消</div>\
-                </div></form>\
+                </div></div></form>\
                 <ul class="ft-comment-ul">\
                   {{#data}}\
                   <li class="ft-comment__content left-right clearfix">\
-                    <img src="{{userInfomation.titlePicture}}" class="header-pic">\
-                    <div class="boxright"><div clsss="boxright2">\
-                        <p class="right">\
-                          <span class="title-box clearfix left-right">\
-                            <span class="left name">{{userInfomation.nickName}}</span>\
-                          </span>\
-                          <span class="text">\
-                            {{content}}\
-                          </span>\
-                        </p>\
-                        <p class="imglist center">\
-                          {{#commentPictureList}}\
-                            <img class="pimg img" alt="" src="{{picture.path2}}">\
-                            <img class="pimg img" style="display: none;" alt="" src="{{picture.path}}">\
-                          {{/commentPictureList}}\
-                          <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
-                        </p>\
-                        <p class="bottom">\
-                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                          <span class="time"> <time>{{createat}}</time></span>\
-                          <a class="delete" id="delete{{id}}">删除</a>\
-                          <span class="reply rpbutton" id="reply{{id}}">回复</span>\
-                          <span class="dot">•</span>\
-                          <a class="praise">{{likeCount}}</a>\
-                        </p>\
-                        <div class="words">\
+                    <div class="boxright"> \
+	                    <div class="parentdiv">\
+	                    	<div class="parentkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
+	                    	<img src="{{userInfomation.titlePicture}}" class="header-pic">\
+	                        <p class="titles">\
+	                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
+	                          <span class="title-box clearfix left-right">\
+	                            <span class="left name">{{userInfomation.nickName}}</span>\
+	                          </span>\
+	                          <span class="time">\
+	                            {{createat}}\
+	                          </span>\
+	                          <a class="delete" id="delete{{id}}">删除</a>\
+	                        </p>\
+	                        <p class="texts">\
+	                            {{content}}\
+	                        </p>\
+	                        <p class="imglist center">\
+	                          {{#commentPictureList}}\
+	                            <img class="pimg img" alt="" src="{{picture.path2}}">\
+	                            <img class="pimg img" style="display: none;" alt="" src="{{picture.path}}">\
+	                          {{/commentPictureList}}\
+	                          <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
+	                        </p>\
+	                        <p class="bottom">\
+	                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
+	                          <span class="reply rpbutton" id="reply{{id}}">回复</span>\
+	                          <span class="dot">•</span>\
+	                          <a class="praise">{{likeCount}}</a>\
+	                        </p>\
+	                    </div>\
+                        <div class="words sondiv">\
                           {{#sonCommentList}}\
                             <div class="son-comments" style="display: none;">\
+                              <div class="sonkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
                               <p class="right">\
                                 <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                                <span class="title-box rpbutton" id="reply{{id}}">\
-                                    <span class="name">{{userInfomation.nickName}}<b>回复</b><a>@{{parentUserInfomation.nickName}}</a><b>：</b></span>\
+                                <span class="title-box">\
+                                    <span class="name"><b>{{userInfomation.nickName}}回复</b>@{{parentUserInfomation.nickName}}</span>\
                                     <span class="text">\
                                         {{content}}\
                                     </span>\
                                 </span>\
-                                <a class="praise">{{likeCount}}</a>\
-                                <a class="delete" id="delete{{id}}">删除</a>\
-                                <span class="time"> <time>{{createat}}</time></span>\
+                              </p>\
+                              <p class="bottom">\
+                                  <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
+                                  <a class="praise">{{likeCount}}</a>\
+                                  <span class="dot">•</span>\
+                                  <span class="reply rpbutton" id="reply{{id}}">回复</span>\
+                                  <span class="delete" id="delete{{id}}">删除</span>\
+                                  <span class="time"> <time>{{createat}}</time></span>\
                               </p>\
                               <p class="center">\
                                 {{#commentPictureList}}\
@@ -275,7 +311,7 @@
                               共{{sonCommentList.length}}条回复 >\
                             </div>\
                         </div>\
-                    </div></div>\
+                    </div>\
                   </li>\
                   {{/data}}\
                 </ul>\
@@ -352,25 +388,26 @@
 
                 /*图片尺寸压缩*/
                 res.data.forEach(function (item, index) {
-                    if(item.commentPictureList!==null){
+                    if (item.commentPictureList !== null) {
                         item.commentPictureList.forEach(function (item, index) {
                             // console.log(item.picture.path);
-                            var imgUrl=item.picture.path;
+                            var imgUrl = item.picture.path;
                             var ifurl = imgUrl.indexOf("https://oss.fotilestyle.com");
-                            if(ifurl == 0){
+                            if (ifurl == 0) {
                                 //表示imgUrl是以https:oss.fotilestyle.com开头
                                 var pos = imgUrl.indexOf('?');
-                                if(pos>0){//如果？存在
-                                    var result = imgUrl.substring(0,pos);
-                                }else {//？不存在
+                                if (pos > 0) {//如果？存在
+                                    var result = imgUrl.substring(0, pos);
+                                } else {//？不存在
                                     var result = imgUrl;
                                 }
                                 console.log(result);
-                                var imgUrl2=result+"?x-oss-process=image/format,jpg/interlace,1/resize,m_lfit,h_181,w_267/auto-orient,0";
+                                var imgUrl2 = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_lfit,h_181,w_267/auto-orient,0";
                                 console.log(imgUrl2);
                                 item.picture.path2 = imgUrl2;
-                            }else if(ifurl == -1){
-                                item.picture.path2 = imgUrl;                        }
+                            } else if (ifurl == -1) {
+                                item.picture.path2 = imgUrl;
+                            }
                         });
                     }
                 });
@@ -392,6 +429,9 @@
                 // $(".loadbox #loading").remove();
                 $(".loadbox #scripts").remove();
 
+                /*判断是否登录*/
+                islogin();
+
                 /*留言*/
                 $('.leavewords').unbind().click(function (e) {
                     if (device == "ios" || device == "android") {
@@ -411,10 +451,10 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // userid = 121547;
-                        // $('#leave-words').show();
-                        // test2(userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        userid = 121547;
+                        $('#leave-words').show();
+                        test2(userid);
                     }
                 });
 
@@ -517,14 +557,14 @@
                             }
                         });
                     } else {
-                        window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        // var targetid=$(e.target).attr("id");     // e.target表示被点击的目标
-                        // var $come = $(e.target).siblings(".key");//数据来自于
-                        // parentid = $come.find('.Id').text();
-                        // // alert(parentid);
-                        // userid = 121547;
-                        // $('#leave-words2').show();
-                        // test(parentid, userid);
+                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
+                        var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        parentid = $come.find('.Id').text();
+                        // alert(parentid);
+                        userid = 121547;
+                        $('#leave-words2').show();
+                        test(parentid, userid);
                     }
                 });
                 $("#leave-words2 .textarea").focus();//默认选中
@@ -535,7 +575,7 @@
                     document.onkeyup = function (event) {
                         var e = event || window.event;
                         var keyCode = e.keyCode || e.which;
-                        if(keyCode==13){
+                        if (keyCode == 13) {
                             return false;
                         }
                         // switch (keyCode) {
@@ -623,7 +663,7 @@
 
                 /*是否出现删除按钮 */
                 if (userid !== 1) {
-                    console.log($(".userId :contains(" + userid + ")").text());
+                    // console.log($(".userId :contains(" + userid + ")").text());
                     var $delete = $(".userId :contains(" + userid + ")");
                     var $nodelete1 = $(".otstatus :contains(2)");
                     var $nodelete2 = $(".status :contains(EBL)");
@@ -672,7 +712,7 @@
                 });
 
                 /*判断点赞 */
-                if (userid !== 1 || cookstring!==null) {
+                if (userid !== 1 || cookstring !== null) {
                     console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
                     var $unlike = $(".isLike :contains(0)");
@@ -697,9 +737,8 @@
                             "userId": userid
                         }, function (data) {
                             console.log(data);
-                            console.log("111");
-                            $.cookie('typecook', typecook);
-                            $.cookie('idcook', idcook);
+                            $.cookie('typecook', $come.find('.type').text());
+                            $.cookie('idcook', $come.find('.userId b').text());
                         });
                     } else if (ispraise == "praisebg2") {
                         return;
@@ -708,6 +747,31 @@
                 });
             }
 
+            /*判断是否登录*/
+            function islogin() {
+                if(userid==1 ){
+                    $(".nocomment").show();
+                    $(".comment").hide();
+                }else {
+                    $(".comment").show();
+                    $(".nocomment").hide();
+                    $.ajax({
+                        type: 'POST',
+                        url: urlport3 + "user/getTitlePictureByUserId",
+                        datatype: "json",
+                        data: JSON.stringify({
+                            "userId":userid
+                        }),
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (info) {
+                            console.log(info);
+                            $(".comment img").attr("src",info.data);
+                        }
+                    });
+                }
+            }
+
+            /*跳转链接*/
             function refresh(homeurl) {
                 // alert(homeurl);
                 window.location.href = homeurl;
@@ -716,25 +780,70 @@
         }
 
         /*下拉加载*/
+        // var isEmpty = true;
+        // function haha() {
+        //     var scrollTop = $(this).scrollTop();
+        //     var windowHeight = $(this).height();
+        //     var scrollHeight = $(document).height();
+        //     if (scrollTop + windowHeight == scrollHeight) {
+        //         pageNum = pageNum + 1;
+        //         loadComment(obj, pageNum);
+        //     }
+        //     isEmpty = true;
+        // }
+        // window.onscroll = function () {
+        //     if (isEmpty) {
+        //         setTimeout(haha, 1000);
+        //         isEmpty = false;
+        //     }
+        // };
         var isEmpty = true;
-
-        function haha() {
-            var scrollTop = $(this).scrollTop();
-            var windowHeight = $(this).height();
-            var scrollHeight = $(document).height();
-            if (scrollTop + windowHeight == scrollHeight) {
-                pageNum = pageNum + 1;
-                loadComment(obj, pageNum);
-            }
-            isEmpty = true;
+        var windowHeight = $(window).height();
+        var windowHeightReal=window.screen.height;
+//      alert(windowHeight);
+//      alert(windowHeightReal);
+        if ( device=="ios" && windowHeight!==windowHeightReal && windowHeightReal!==812) {
+//          alert("ios");
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                if (scrollTop + windowHeightReal == scrollHeight) {
+                    if (isEmpty) return;
+                    pageNum = pageNum + 1;
+                    loadComment(obj, pageNum);
+                }
+            }, 500))
+        } else if( device=="ios" && windowHeight!==windowHeightReal && windowHeightReal==812){
+//          alert("X");
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+//              alert(scrollTop + windowHeightReal - 34);
+//				alert(scrollHeight);
+                if (scrollTop + windowHeightReal - 34== scrollHeight) {
+                    if (isEmpty) return;
+                    pageNum = pageNum + 1;
+                    loadComment(obj, pageNum);
+                }
+            }, 500))
+        }else {
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                if (scrollTop + windowHeight == scrollHeight) {
+                    if (isEmpty) return;
+                    pageNum = pageNum + 1;
+                    loadComment(obj, pageNum);
+                }
+            }, 500))
         }
 
-        window.onscroll = function () {
-            if (isEmpty) {
-                setTimeout(haha, 1000);
-                isEmpty = false;
-            }
-        }
+
+        /*点击按钮加载*/
+        // $("#loading .btnload").bind('click', function (e) {
+        //     pageNum = pageNum + 1;
+        //     loadComment(obj, pageNum);
+        // })
 
     }
 

@@ -56,8 +56,8 @@
                 var numUp = imgContainer.find(".up-section").length;
                 var totalNum = numUp + fileList.length; // 总的数量
                 if (fileList.length > imageNum || totalNum > imageNum) {
-                    alert("上传图片数目不可以超过9个，请重新选择"); // 一次选择上传超过9个
-                    // 或者是已经上传和这次上传的到的总数也不可以超过9个
+                    alert("上传图片数目不可以超过1个，请重新选择"); // 一次选择上传超过1个
+                    // 或者是已经上传和这次上传的到的总数也不可以超过1个
                 } else if (numUp < imageNum) {
                     fileList = validateUp(fileList, defaults);
                     for (var i = 0; i < fileList.length; i++) {

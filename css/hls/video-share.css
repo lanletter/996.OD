@@ -3,7 +3,9 @@ html, body {
     background-color: #fff;
 }
 .vide-share {
+    position: relative;
     background-color: #fff;
+    padding-bottom: 1.92rem;
 }
 
 .video {
@@ -51,7 +53,7 @@ html, body {
     left: 50%;
     width: 1.2rem;
     height: 1.2rem;
-    background: url('../img/play.png');
+    background: url('../../img/play.png');
     background-size: 1.2rem 1.2rem;
     margin-left: -0.6rem;
     margin-top: -0.6rem;
@@ -67,7 +69,6 @@ html, body {
     position: relative;
     width: 6.3rem;
     margin: 0 0.6rem;
-    margin-bottom: 1.92rem;
 }
 
 .vide-share .tit img {
