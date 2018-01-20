@@ -123,8 +123,16 @@
     </div>
 
     <div class="bottomdiv"></div>
+    <div class="ft-titles">
+        <p class="title1">用户评论</p>
+        <p class="title2">共有<span v-html="data.comment_count">?</span>条评论</p>
+    </div>
     <div class="ft-comment"></div>
-    <!--<div id="loading"></div>-->
+    <div id="loading">
+        <div class="btnload">下拉加载更多</div>
+        <div class="imgift" style="display: none"></div>
+        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+    </div>
     <br/><br/>
     <div class="btnbox">
         <ul class="h_box">

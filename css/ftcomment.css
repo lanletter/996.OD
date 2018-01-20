@@ -1,6 +1,5 @@
 .ft-comment {
     overflow: hidden;
-    padding-top: 0.34rem;
     background: #fff;
     z-index: 0;
 }
@@ -28,9 +27,27 @@
     padding-left: 0rem;
 }
 
+.ft-titles {
+    padding: 0 0.4rem;
+    padding-top: 0.8rem;
+    background: #fff;
+}
+
+.ft-titles .title1 {
+    height: 0.66rem;
+    font-size: 0.48rem;
+    color: rgb(31, 31, 31);
+}
+
+.ft-titles .title2 {
+    height: 0.64rem;
+    font-size: 0.32rem;
+    color: rgb(154, 154, 154);
+}
+
 .ft-comment__header {
     padding: 0 0.4rem;
-    margin-bottom: 0.16rem;
+    padding-bottom: 0.16rem;
 }
 
 .loadbox:first-child .ft-comment__header {
@@ -39,18 +56,6 @@
 
 .ft-comment__header .left {
     text-align: left
-}
-
-.ft-comment__header .title1 {
-    height: 0.66rem;
-    font-size: 0.48rem;
-    color: rgb(31, 31, 31);
-}
-
-.ft-comment__header .title2 {
-    height: 0.64rem;
-    font-size: 0.32rem;
-    color: rgb(154, 154, 154);
 }
 
 .ft-comment__header .welcome {
@@ -356,7 +361,7 @@
 
 .son-comments .praise {
     font-size: 12px;
-    color: rgb(200,175,112);
+    color: rgb(200, 175, 112);
     height: 0.4rem;
     line-height: 0.4rem;
 }
@@ -863,22 +868,26 @@
     background: #fff;
     overflow: hidden;
 }
-#loading .btnload{
+
+#loading .btnload {
     margin: 0.2rem auto;
     width: 6.7rem;
     height: 0.96rem;
+    border-radius: 0.1rem;
     line-height: 0.96rem;
     font-size: 14px;
     text-align: center;
-    color: rgb(102,102,102);
-    background: rgb(244,244,244);
+    color: rgb(102, 102, 102);
+    background: rgb(244, 244, 244);
 }
-#loading .imgift{
+
+#loading .imgift {
     width: 100%;
     height: 100%;
     background: #ffffff url(../img/loading.gif) center no-repeat;
 }
-#loading .nomore{
+
+#loading .nomore {
     display: block;
     margin: 0.2rem auto;
     width: 6.7rem;
@@ -886,13 +895,22 @@
     line-height: 0.96rem;
     text-align: center;
     font-size: 12px;
-    color: rgb(214,214,214);
+    color: rgb(214, 214, 214);
 }
-#loading .nomore div{
+
+#loading .nomore div {
     height: 0;
     width: 1.4rem;
     margin: 0.48rem 0;
-    border-top: 1px solid rgb(237,237,237);
+    border-top: 1px solid rgb(237, 237, 237);
 }
-#loading .nomore div:first-child{float: left;margin-left: 1rem;}
-#loading .nomore div:last-child{float: right;margin-right: 1rem;}
+
+#loading .nomore div:first-child {
+    float: left;
+    margin-left: 1rem;
+}
+
+#loading .nomore div:last-child {
+    float: right;
+    margin-right: 1rem;
+}

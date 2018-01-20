@@ -93,19 +93,22 @@ html, body {
   background: url("../img/food.jpg") no-repeat;
 }
 .jf-buy .title {
-  margin-bottom: 0.72rem; }
+  margin-bottom: 0.8rem; }
 .jf-buy .title h4 {
+  color: rgb(31,31,31);
   width: 4.92rem;
   margin: 0 auto;
   text-align: center;
-  font-size: 0.44rem; }
+  letter-spacing: 2px;
+  font-size: 0.48rem; }
 .jf-buy .title p {
   font-size: 0.24rem;
   color: rgb(201,203,213);
   text-align: center; }
 .jf-buy .title .icons{
+  height: 0.48rem;
   line-height: 0.48rem;
-  margin: 0.48rem 0 1.2rem 0;
+  margin: 0.38rem 0 0.8rem 0;
 }
 .jf-buy .sku {
   margin: 0 0.24rem; }
@@ -215,13 +218,6 @@ html, body {
   background-size: cover;
   vertical-align: middle; }
 
-.icon-tips {
-  display: inline-block;
-  width: 0.36rem;
-  height: 0.36rem;
-  background: url(../img/tips@2x.png) no-repeat center center;
-  background-size: cover;
-  vertical-align: middle; }
 
 .menupage .focus img {
   height: 6rem; }
@@ -314,13 +310,13 @@ html, body {
 .menupage .text .special {
   display: flex;
   flex-direction: row;
-  padding: 0rem 0.28rem;
+  padding: 0rem 0.68rem;
   -webkit-box-pack: justify;
   justify-content: space-between; }
 .menupage .text .special span {
   font-size: 0.2rem;
   display: inline-block;
-  text-align: center;
+  text-align: left;
   vertical-align: middle;
   line-height: 1;
   color: rgb(130,130,130);
@@ -328,21 +324,24 @@ html, body {
 .menupage .text .special span b {
   font-size: 0.28rem; }
 .menupage .text .special span em {
-  font-size: 0.16rem; }
+  display: block;
+  font-size: 12px;
+  transform: scale(0.66);
+  -webkit-transform: scale(0.66);
+  margin-left: -0.16rem}
 
 .menupage .title {
   margin-bottom: 0 !important;
   margin-top: 0.48rem; }
 
 .menupage .qingdan {
-  padding: 0.26rem 0.44rem;
-  font-size: 0.28rem;
+  padding: 0.38rem 0.4rem 0 0.4rem;
   margin-bottom: 0.34rem; }
 .menupage .qingdan dl {
-  border-top: 1px solid #ff6565;
-  -webkit-box-shadow: 0 15px 25px rgba(130, 130, 130, 0.2);
-  box-shadow: 0 15px 25px rgba(130, 130, 130, 0.2);
-  border-bottom: 1px solid #ededed; }
+  padding: 0.46rem 0.4rem;
+  border-radius: 0.16rem;
+  -webkit-box-shadow: 2px 5px 16px rgba(0,0,0, 0.14);
+  box-shadow: 2px 5px 16px rgba(0,0,0, 0.14);}
 .menupage .qingdan dl .box {
   padding-bottom: 1.4rem; }
 .menupage .qingdan dl .tobuy {
@@ -369,10 +368,11 @@ html, body {
   margin-right: 0.5rem;
 }
 .menupage .qingdan .tit {
-  padding: 0.74rem 0.4rem 0.54rem;
-  border-bottom: 1px solid #ededed; }
+  margin-bottom: 0.02rem; }
 .menupage .qingdan .tit .txt {
-  font-size: 0.36rem;
+  font-size: 0.48rem;
+  font-weight: bold;
+  color:rgb(31,31,31) ;
   padding-left: 0.24rem; }
 .menupage .qingdan .tit .txt i {
   margin-right:0.24rem; }
@@ -382,78 +382,124 @@ html, body {
   line-height: 0.5rem;
   color: #ff6565;
   font-size: 0.2rem; }
+.menupage .qingdan .title_ingredients{
+  display: block;
+  width: 100%;
+  height: 0.88rem;
+  line-height: 0.88rem;
+  background: rgb(244,244,244);
+  font-size: 0.36rem;
+  font-weight: bold;
+  color: rgb(31,31,31);
+  letter-spacing: 1px;
+  text-align: left;
+  margin-bottom: 0.2rem;
+  margin-top: 0.34rem;
+}
+.menupage .qingdan .title_ingredients span{margin-left: 0.2rem;}
 .menupage .qingdan dd {
-  height: 0.8rem;
-  line-height: 0.8rem;
-  padding: 0rem 1rem 0 0.32rem;
-  font-size: 0.28rem;
-  color: #828282; }
+  height: 0.92rem;
+  line-height: 0.92rem;
+  padding: 0rem 0.2rem;
+  font-size: 16px;
+  color:rgb(102,102,102) }
 .menupage .qingdan dd span {
   float: right; }
-.menupage .qingdan dd:nth-child(odd) {
-  background-color: rgba(247, 247, 247, 0.5); }
-.menupage .qingdan dd:nth-child(even) {
-  background-color: #fff; }
 
+.menupage .stepTitle{
+  color: rgb(31,31,31);
+  width: 4.92rem;
+  margin: 0.8rem 0.4rem 0.28rem 0.4rem;
+  text-align: left;
+  letter-spacing: 2px;
+  font-size: 0.48rem;
+}
+.menupage .dateime{
+  margin: 0.2rem 0.4rem 0 0.4rem;
+  text-align: left;
+  height: 0.34rem;
+  font-size: 12px;
+  color: rgb(214,214,214);
+}
 .menupage .step {
-  font-size:0.28rem;
-  color: rgb(47,47,47); }
+  margin: 0 0.4rem;
+}
+
+.menupage .stepbox:last-child {margin-bottom:0;}
 .menupage .step .stepbox {
-  border-top: 1px solid #ededed; }
+  padding-bottom: 0.46rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgb(237,237,237);}
 .menupage .step h4 {
-  font-size: 0.28rem;
-  line-height: 0.66rem;
-  height: 0.66rem;
-  padding: 0rem 0.24rem; }
+  font-size: 0.36rem;
+  line-height: 0.5rem;
+  height: 0.5rem;
+  margin-bottom: 0.28rem;}
 .menupage .step h4 em {
   font-weight: normal; }
 .menupage .step .stepbox {
-  margin-bottom: 0.48rem;
-  -webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
-  box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);
-  border-bottom: 1px solid #ededed; }
+  margin-bottom: 0.46rem;}
 .menupage .step .stepbox img {
   width: 100%;
+  border-radius: 0.16rem;
   display: inline-block; }
 .menupage .step .stepbox .txt {
   font-size: 16px;
-  color: rgb(130,130,130);
-  padding: 0.56rem 0.52rem; }
+  color: rgb(31,31,31);
+  padding: 0.28rem 0.24rem 0 0.24rem; }
 .menupage .step .stepbox .introduc {
   font-size: 12px;
+  line-height: 0.34rem;
   font-weight: lighter;
-  color:rgb(130,130,130);
-  padding: 0.2rem 0.24rem;
-  border-top: 1px solid #ededed; }
+  color:rgb(102,102,102);
+  padding: 0.18rem 0.28rem 0.18rem 0.52rem;
+  margin: 0.22rem 0 0.14rem 0;
+  background: rgb(254,242,188);
+  border-radius: 0.08rem;
+}
 .menupage .step .stepbox .introduc span{display:block;margin-top: 0.2rem}
 .menupage .step .stepbox p{
   font-family: "PingFangSC-Light";
   font-weight: lighter;
   color:rgb(130,130,130);}
 .menupage .step .stepbox .icon-tips {
-  margin-right: 0.2rem; }
+  display: inline-block;
+  width: 0.12rem;
+  height: 0.12rem;
+  border-radius: 50%;
+  background:rgb(245,212,35);
+  vertical-align: middle;
+  margin-left: -0.28rem; }
 
 .menupage .equipment {
-  padding: 0.16rem 0rem;
-  border-top: 1px solid #ededed;
-  /*margin-bottom: 0.6rem;*/
-  /*-webkit-box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);*/
-  /*box-shadow: 0 3px 8px rgba(130, 130, 130, 0.2);*/
+  margin: 0.8rem 0.4rem 0.8rem 0.4rem;
+  padding: 0.4rem;
+  border-radius: 0.16rem;
+  -webkit-box-shadow: 2px 5px 16px rgba(0,0,0, 0.14);
+  box-shadow: 2px 5px 16px rgba(0,0,0, 0.14);
 }
 .menupage .equipment h5 {
-  font-size: 0.28rem;
+  height: 0.66rem;
+  line-height: 0.66rem;
+  letter-spacing: 1px;
+  font-size: 0.48rem;
+  font-weight: bold;
   text-align: center; }
-.menupage .equipment h5 em {
+.menupage .equipment .emtitle {
+  width: 100%;
+  text-align: center;
+  height: 0.52rem;
+  line-height: 0.52rem;
   font-weight: normal;
-  color: #c9cbd5;
-  font-size: 0.2rem; }
+  color: rgb(154,154,154);
+  font-size: 0.28rem;
+  margin-bottom: 0.6rem}
 .menupage .equipment ul {
   -webkit-box-pack: start;
   display: flex;
   justify-content:center;
   flex-wrap:wrap;
-  overflow: hidden;
-  padding: 0.16rem 0; }
+  overflow: hidden; }
 .menupage .equipment ul li {
   padding: 0 0.04rem;
   width: 1.4rem;
@@ -462,19 +508,25 @@ html, body {
   display: inline-block; }
 .menupage .equipment ul li a img {
   display: inline-block;
-  width: 0.72rem;
-  height: 0.72rem; }
+  border-radius: 50%;
+  width: 1.28rem;
+  height: 1.28rem; }
 .menupage .equipment ul img {
-  width: 100%; }
+  width: 100%;}
 .menupage .equipment ul p {
+  height: 0.4rem;
+  line-height: 0.4rem;
   text-align: center;
-  font-size: 0.16rem;
-  padding: 0.1rem 0; }
+  font-size: 0.14rem;
+  color: rgb(31,31,31);
+  margin-top: 0.2rem}
 
 .menupage .menutype {
+  margin: 0 0.4rem;
   overflow: hidden;
-  padding: 0.16rem 0.2rem;
-  border-top: 1px solid #ededed;
+  padding: 0.48rem 0 0.22rem 0;
+  border-top: 1px solid rgb(237,237,237);
+  border-bottom: 1px solid rgb(237,237,237);
   font-size: 0.28rem; }
 .menupage .menutype h3:before {
   display: inline-block;
@@ -505,17 +557,18 @@ html, body {
   background-size: 0.32rem 0.32rem;}
 .menupage .menutype .typebox span {
   display: inline-block;
-  background: rgb(201,200,213);
-  border-radius: 0.4rem;
-  line-height: 0.4rem;
-  width: 1.2rem;
-  height: 0.4rem;
+  background: #fff;
+  border: 1px solid rgb(214,214,214);
+  border-radius: 0.5rem;
+  line-height: 0.48rem;
+  height: 0.48rem;
   overflow: hidden;
-  font-size: 0.24rem;
+  font-size: 12px;
   text-align: center;
-  color: #fff;
-  margin-right: 0.16rem;
-  margin-bottom: 0.16rem; }
+  color: rgb(154,154,154);
+  padding: 0 0.26rem;
+  margin-right: 0.22rem;
+  margin-bottom: 0.26rem; }
 .menupage .menutype .list li {
   float: left;
   margin-bottom: 0rem;
@@ -565,18 +618,16 @@ html, body {
 
 .smartLabel {
   position: absolute;
-  left: 5.14rem;
-  top: 8.96rem;
-  width: 2.36rem;
-  height: 0.58rem;
-  background-color: rgb(251, 76, 76);
-  border-top-left-radius: 1.32rem;
-  border-bottom-left-radius: 1.32rem;
+  left: 0.4rem;
+  top: 9.06rem;
+  width: 2rem;
+  height: 0.52rem;
+  line-height: 0.52rem;
+  background-color: rgb(118,170,71);
+  border-radius: 2rem;
   color: #fff;
-  line-height: 0.58rem;
-  font-size: 0.28rem;
+  font-size: 12px;
   text-align: center;
-  letter-spacing: 0.024rem;
   display: none;
 }
 .jiange{

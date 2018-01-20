@@ -9,7 +9,7 @@
         var idcook = $.cookie('idcook');
         var cookstring = typecook + idcook;
         var userid = obj.userId;
-        var userid = 121547;
+        // var userid = 121547;
         console.log(cookstring);
 
         $api.post(urlport + 'comment/list', obj,
@@ -23,25 +23,10 @@
             console.log(data);
             isEmpty = data.length==0;
 
-            /*判断是否能加载*/
-            obj.pageNum = pageNum+1;
-            $api.post(urlport + 'comment/list', obj,
-                function (res) {
-                    console.log(res);
-                    if (res.data.length == 0) {
-                        $("#loading .nomore").show();
-                        $("#loading .btnload").hide();
-                        $("#loading .imgift").hide();
-                    }
-                }
-            );
-
             if (data.length == 0 && obj.pageNum == 1) {
                 $("#loading").hide();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                  <p class="title1">用户评论</p>\
-                  <p class="title2">共有0条评论</p>\
                   <div class="leavewords comment">\
                       <img src="">\
                       <div>快来分享你的作品、感想</div>\
@@ -207,173 +192,184 @@
             }
 
             if (obj.pageNum >= 1 && data.length > 0) {
+                /*判断是否加载完全*/
+                obj.pageNum = pageNum+1;
+                $api.post(urlport + 'comment/list', obj,
+                    function (res) {
+                        console.log(res);
+                        if (res.data.length == 0) {
+                            $("#loading .nomore").show();
+                            $("#loading .btnload").hide();
+                            $("#loading .imgift").hide();
+                        }
+                    }
+                );
+
                 var template = '\
-            <div class="loadbox">\
-                <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                  <p class="title1">用户评论</p>\
-                  <p class="title2">共有<i>?</i>条评论</p>\
-                  <div class="leavewords comment">\
-                      <img src="">\
-                      <div>快来分享你的作品、感想</div>\
-                  </div>\
-                  <div class="leavewords nocomment">\
-                    <span>登录</span>\
-                    <div>请登录后发表评论</div>\
-                  </div>\
-                </div>\
-                <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
-                  <p class="bgfff"></p>\
-                  <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
-                  <div class="imgup">\
-                    <div class="img-box full">\
-                      <section class="img-section">\
-                        <div id="ssr" class="z_photo upimg-div clear">\
-                          <section class="z_file fl">\
-                            <img src="../img/add.png" class="add-img">\
-                            <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />\
+                <div class="loadbox">\
+                    <div id="ft-header" class="ft-comment__header clearfix left-right">\
+                      <div class="leavewords comment">\
+                          <img src="">\
+                          <div>快来分享你的作品、感想</div>\
+                      </div>\
+                      <div class="leavewords nocomment">\
+                        <span>登录</span>\
+                        <div>请登录后发表评论</div>\
+                      </div>\
+                    </div>\
+                    <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
+                      <p class="bgfff"></p>\
+                      <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
+                      <div class="imgup">\
+                        <div class="img-box full">\
+                          <section class="img-section">\
+                            <div id="ssr" class="z_photo upimg-div clear">\
+                              <section class="z_file fl">\
+                                <img src="../img/add.png" class="add-img">\
+                                <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />\
+                              </section>\
+                            </div>\
                           </section>\
                         </div>\
-                      </section>\
-                    </div>\
-                    <aside class="mask works-mask">\
-                      <div class="mask-content">\
-                        <p class="del-p">您确定要删除图片吗？</p>\
-                        <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>\
+                        <aside class="mask works-mask">\
+                          <div class="mask-content">\
+                            <p class="del-p">您确定要删除图片吗？</p>\
+                            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>\
+                          </div>\
+                        </aside>\
                       </div>\
-                    </aside>\
-                  </div>\
-                  <div id="commit" class="buttons commit">提交</div>\
-                  <div class="buttons backto">取消</div>\
-                </div></div></form>\
-                <ul class="ft-comment-ul">\
-                  {{#data}}\
-                  <li class="ft-comment__content left-right clearfix">\
-                    <div class="boxright"> \
-	                    <div class="parentdiv">\
-	                    	<div class="parentkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
-	                    	<img src="{{userInfomation.titlePicture}}" class="header-pic">\
-	                        <p class="titles">\
-	                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-	                          <span class="title-box clearfix left-right">\
-	                            <span class="left name">{{userInfomation.nickName}}</span>\
-	                          </span>\
-	                          <span class="time">\
-	                            {{createat}}\
-	                          </span>\
-	                          <a class="delete" id="delete{{id}}">删除</a>\
-	                        </p>\
-	                        <p class="texts">\
-	                            {{content}}\
-	                        </p>\
-	                        <p class="imglist center">\
-	                          {{#commentPictureList}}\
-	                            <img class="pimg img" alt="" src="{{picture.path2}}">\
-	                            <img class="pimg img" style="display: none;" alt="" src="{{picture.path}}">\
-	                          {{/commentPictureList}}\
-	                          <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
-	                        </p>\
-	                        <p class="bottom">\
-	                          <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-	                          <span class="reply rpbutton" id="reply{{id}}">回复</span>\
-	                          <span class="dot">•</span>\
-	                          <a class="praise">{{likeCount}}</a>\
-	                        </p>\
-	                    </div>\
-                        <div class="words sondiv">\
-                          {{#sonCommentList}}\
-                            <div class="son-comments" style="display: none;">\
-                              <div class="sonkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
-                              <p class="right">\
-                                <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                                <span class="title-box">\
-                                    <span class="name"><b>{{userInfomation.nickName}}回复</b>@{{parentUserInfomation.nickName}}</span>\
-                                    <span class="text">\
-                                        {{content}}\
-                                    </span>\
-                                </span>\
-                              </p>\
-                              <p class="bottom">\
+                      <div id="commit" class="buttons commit">提交</div>\
+                      <div class="buttons backto">取消</div>\
+                    </div></div></form>\
+                    <ul class="ft-comment-ul">\
+                      {{#data}}\
+                      <li class="ft-comment__content left-right clearfix">\
+                        <div class="boxright"> \
+                            <div class="parentdiv">\
+                                <div class="parentkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
+                                <img src="{{userInfomation.titlePicture}}" class="header-pic">\
+                                <p class="titles">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                                  <a class="praise">{{likeCount}}</a>\
-                                  <span class="dot">•</span>\
+                                  <span class="title-box clearfix left-right">\
+                                    <span class="left name">{{userInfomation.nickName}}</span>\
+                                  </span>\
+                                  <span class="time">\
+                                    {{createat}}\
+                                  </span>\
+                                  <a class="delete" id="delete{{id}}">删除</a>\
+                                </p>\
+                                <p class="texts">\
+                                    {{content}}\
+                                </p>\
+                                <p class="imglist center">\
+                                  {{#commentPictureList}}\
+                                    <img class="pimg img" alt="" src="{{picture.path2}}">\
+                                    <img class="pimg img" style="display: none;" alt="" src="{{picture.path}}">\
+                                  {{/commentPictureList}}\
+                                  <span class="onlyone" style="display:none;">{{commentPictureList.length}}</span>\
+                                </p>\
+                                <p class="bottom">\
+                                  <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                   <span class="reply rpbutton" id="reply{{id}}">回复</span>\
-                                  <span class="delete" id="delete{{id}}">删除</span>\
-                                  <span class="time"> <time>{{createat}}</time></span>\
-                              </p>\
-                              <p class="center">\
-                                {{#commentPictureList}}\
-                                <img src="{{picture.path}}">\
-                                {{/commentPictureList}}\
-                              </p>\
+                                  <span class="dot">•</span>\
+                                  <a class="praise">{{likeCount}}</a>\
+                                </p>\
                             </div>\
-                          {{/sonCommentList}}\
-                            <div class="review">\
-                              共{{sonCommentList.length}}条回复 >\
+                            <div class="words sondiv">\
+                              {{#sonCommentList}}\
+                                <div class="son-comments" style="display: none;">\
+                                  <div class="sonkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
+                                  <p class="right">\
+                                    <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
+                                    <span class="title-box">\
+                                        <span class="name"><b>{{userInfomation.nickName}}回复</b>@{{parentUserInfomation.nickName}}</span>\
+                                        <span class="text">\
+                                            {{content}}\
+                                        </span>\
+                                    </span>\
+                                  </p>\
+                                  <p class="bottom">\
+                                      <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
+                                      <a class="praise">{{likeCount}}</a>\
+                                      <span class="dot">•</span>\
+                                      <span class="reply rpbutton" id="reply{{id}}">回复</span>\
+                                      <span class="delete" id="delete{{id}}">删除</span>\
+                                      <span class="time"> <time>{{createat}}</time></span>\
+                                  </p>\
+                                  <p class="center">\
+                                    {{#commentPictureList}}\
+                                    <img src="{{picture.path}}">\
+                                    {{/commentPictureList}}\
+                                  </p>\
+                                </div>\
+                              {{/sonCommentList}}\
+                                <div class="review">\
+                                  共{{sonCommentList.length}}条回复 >\
+                                </div>\
                             </div>\
                         </div>\
-                    </div>\
-                  </li>\
-                  {{/data}}\
-                </ul>\
-                <form id="picForm2"><div id="leave-words2" style="z-index:999999;">\
-                  <div id="bgfff"></div>\
-                  <div class="topborder">\
-                      <div class="boxhf">\
-                          <input class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
-                          <div id="commit2" class="commit">回复</div>\
+                      </li>\
+                      {{/data}}\
+                    </ul>\
+                    <form id="picForm2"><div id="leave-words2" style="z-index:999999;">\
+                      <div id="bgfff"></div>\
+                      <div class="topborder">\
+                          <div class="boxhf">\
+                              <input class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
+                              <div id="commit2" class="commit">回复</div>\
+                          </div>\
                       </div>\
-                  </div>\
-                </div></form>\
-                <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
-            <div id="scripts">\
-            <script src="../js/imgUp.js"></script>\
-            <script>\
-                /*上传图片*/\
-                    $(function(){\
-                        $("#file").takungaeImgup({\
-                            formData: { "path": "Content/Images/", "name": "uploadpic" },\
-                            url: urlport+"picture/uploadPictureBase64", \
-                            success: function (data) {\
-                            console.log(data);\
-                            },\
-                            error: function (err) {\
-                                alert(err);\
-                            }\
-                    });\
-                    })\
-            </script>\
-            <script src="../js/BigPictureOpen.js"></script>\
-            <script>\
-                /*默认显示2条二级评论*/\
-                    $(".words").each(function(){\
-                        $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
-                        $(this).children(".son-comments").eq(0).css("display","block");\
-                        $(this).children(".son-comments").eq(1).css("display","block");\
-                        $(this).children(".son-comments").eq(0).addClass("Noslide");\
-                        $(this).children(".son-comments").eq(1).addClass("Noslide");\
-                        if($(this).children(".son-comments").length<3){\
-                         $(this).children(".review").css("display","none");\
-                        }\
-                    });\
-                /*判断是否有图片*/\
-                    $(".imglist").each(function(){\
-                        if($(this).children(".img").length>0){\
-                         $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
-                        }\
-                    });\
-                /*图片点击放大*/\
-                    $(function(){\
-                        $(".pimg").click(function(){\
-                            var _this = $(this).next();\
-                            imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
+                    </div></form>\
+                    <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
+                <div id="scripts">\
+                <script src="../js/imgUp.js"></script>\
+                <script>\
+                    /*上传图片*/\
+                        $(function(){\
+                            $("#file").takungaeImgup({\
+                                formData: { "path": "Content/Images/", "name": "uploadpic" },\
+                                url: urlport+"picture/uploadPictureBase64", \
+                                success: function (data) {\
+                                console.log(data);\
+                                },\
+                                error: function (err) {\
+                                    alert(err);\
+                                }\
                         });\
-                    });\
-                /*选中单张图片*/\
-                    var $onlyone = $(".onlyone:contains(1)").parent();\
-                    $onlyone.find("img").removeClass("img");\
-            </script>\
-            </div>\
-            </div>\
+                        })\
+                </script>\
+                <script src="../js/BigPictureOpen.js"></script>\
+                <script>\
+                    /*默认显示2条二级评论*/\
+                        $(".words").each(function(){\
+                            $(this).children(".son-comments").eq(0).children(".right").css("border","none");\
+                            $(this).children(".son-comments").eq(0).css("display","block");\
+                            $(this).children(".son-comments").eq(1).css("display","block");\
+                            $(this).children(".son-comments").eq(0).addClass("Noslide");\
+                            $(this).children(".son-comments").eq(1).addClass("Noslide");\
+                            if($(this).children(".son-comments").length<3){\
+                             $(this).children(".review").css("display","none");\
+                            }\
+                        });\
+                    /*判断是否有图片*/\
+                        $(".imglist").each(function(){\
+                            if($(this).children(".img").length>0){\
+                             $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
+                            }\
+                        });\
+                    /*图片点击放大*/\
+                        $(function(){\
+                            $(".pimg").click(function(){\
+                                var _this = $(this).next();\
+                                imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);\
+                            });\
+                        });\
+                    /*选中单张图片*/\
+                        var $onlyone = $(".onlyone:contains(1)").parent();\
+                        $onlyone.find("img").removeClass("img");\
+                </script>\
+                </div>\
+                </div>\
                 ';
 
                 res.data.forEach(function (item, index) {
@@ -712,7 +708,7 @@
                 });
 
                 /*判断点赞 */
-                if (userid !== 1 || cookstring !== null) {
+                if (userid !== 1 || cookstring !== NaN) {
                     console.log($(".isLike :contains(1)").text());
                     var $like = $(".isLike :contains(1)");
                     var $unlike = $(".isLike :contains(0)");

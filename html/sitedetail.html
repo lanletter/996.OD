@@ -7,18 +7,18 @@
     <meta name='viewport'
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0,telephone=yes'>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
-    <!--<link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">-->
+    <link rel="stylesheet" type="text/css" href="../css/swiper.min.css">
     <link rel="stylesheet" type="text/css" href="../css/sitedetail.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/mobiscroll.core-2.6.2.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/mobiscroll.animation-2.6.2.css?ver=403">
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function(){
+        (function () {
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function() {
+            (function () {
                 var vds = document.createElement('script');
-                vds.type='text/javascript';
+                vds.type = 'text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<div>
+<div class="site">
     <header class="header">
         <div class="header__main">
             <div class="site-img img"></div>
@@ -41,54 +41,59 @@
         <!--</div>-->
         <div class="site-info info">
             <p class="des"></p>
-            <ul>
+            <ul class="ulinfo">
+                <p class="title">场馆信息</p>
                 <li class="address">
                     <div>
                         <p>
-                            <span></span>
                             <strong>场馆地址</strong>
+                            <span></span>
                         </p>
                         <a href="" id="foo" class="to-map"></a>
-                        <!--<form  name="frm"  method="get"  onsubmit = "return foo()" >-->
-                        <!--<input  class="to-map" type="submit" value=""/>-->
-                        <!--</form>-->
                     </div>
                 </li>
                 <li class="tel">
                     <div>
                         <p>
-                            <span></span>
                             <strong>场馆电话</strong>
+                            <span></span>
                         </p>
-                        <a href="#"><i class="to-call"></i></a>
+                        <a href="#" class="to-call"><i></i></a>
                     </div>
                 </li>
                 <li class="service-time">
                     <div>
                         <p>
-                            <span>全年 <time></time></span>
                             <strong>服务时间</strong>
+                            <span>全年 <time></time></span>
                         </p>
                     </div>
                 </li>
             </ul>
         </div>
-    </header>
-    <div class="bottomdiv"></div>
-    <div class="content">
+
+        <div class="site-pic">
+            <h3 class="section-title">场馆图集</h3>
+            <div id="swipers">
+                <div class="swiper-container2">
+                    <div class="swiper-wrapper">
+
+                    </div>
+                </div>
+                <ul class="pagination"></ul>
+            </div>
+        </div>
+
+
         <div class="site-service clearfix">
             <h3 class='section-title'>场馆服务</h3>
             <ul>
             </ul>
-            <button class="red-btn mark">立即预约</button>
         </div>
-        <div class="bottomdiv"></div>
-        <div class="site-pic">
-            <h3 class="section-title">场馆图集</h3>
-        </div>
-    </div>
-    <div class="bottomdiv"></div>
 
+    </header>
+
+    <div class="order-byn mark"><a>立即预约</a></div>
     <div class="order-pop">
         <div class="pop">
             <span class="close"></span>
@@ -128,7 +133,7 @@
                     </label>
                 </li>
                 <li>
-                    <button class="red-btn do-order">提交</button>
+                    <button class="green-btn do-order">提交</button>
                 </li>
             </ul>
         </div>
@@ -139,6 +144,7 @@
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/mobiscroll.core-2.6.2.js'></script>
+<script type="text/javascript" src='../js/swiper.jquery.min.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
 <script src="../js/alertdiy.js"></script>
@@ -155,7 +161,7 @@
         function GetQueryString(name) {
             var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
             var r = window.location.search.substr(1).match(reg);
-            if (r != null)return unescape(r[2]);
+            if (r != null) return unescape(r[2]);
             return null;
         }
 
@@ -187,13 +193,13 @@
             $header.find('.des').html(data.storeDesc);
             $header.find('.address span').text(data.detailAddress);
             $header.find('.tel span').text(data.tel);
-            $header.find('.tel a').attr('href', 'tel:' + data.tel);
+            $header.find('.to-call').attr('href', 'tel:' + data.tel);
             $header.find('.service-time time').text(data.serviceTime);
             $('.site-service ul').html(data.remark);
             /* 判断是否能预约场馆 */
-            if(data.type==1){
+            if (data.type == 1) {
                 $(".mark").show();
-            }else{
+            } else {
                 $(".mark").hide();
             }
             /*title取值*/
@@ -209,28 +215,69 @@
 //        $('.site-service ul').append(item);
 //      });
 
-            if(data.storePictures.length==0){
-                $(".site-pic").css({display:"none"});
+            if (data.storePictures.length == 0) {
+                $(".site-pic").css({display: "none"});
             }
             /*菜谱图集*/
             data.storePictures.forEach(function (item, index) {
-
                 if (item.remark != null) {
-                    var img = $('<figure>\
-                <img class="overlayimg" src="../img/Overlay Copy 2.png">\
+                    var img = $('<div class="swiper-slide">\
+                    <figure>\
                 <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
                 <figcaption>' + item.remark + '</figcaption>\
-                </figure>');
+                </figure>\
+                </div>');
                 } else {
-                    var img = $('<figure>\
+                    var img = $('<div class="swiper-slide">\
+                    <figure>\
               <img class="overlayimg" src="../img/Overlay Copy 2.png">\
               <img src="' + item.picture.path + '">\
-              </figure>');
+              </figure>\
+              </div>');
                 }
-                $('.site-pic').append(img);
+                $('.swiper-wrapper').append(img);
 
             });
 
+            // $.each(data.storePictures, function (item, index) {
+            //     var imglist = "";
+            //     imglist += "" +
+            //         "<div class='swiper-slide'>" +
+            //         "<figure>"+
+            //         "<img class='overlayimg' src='../img/Overlay Copy 2.png'>"+
+            //         "<img src='" + item.picture.path + "'>"+
+            //         "</figure>"+
+            //         "</div>" +
+            //         "";
+            //     $(".site-pic .swiper-wrapper").append(imglist);
+            // });
+
+            /*轮播图效果*/
+            var swiper2 = new Swiper('.swiper-container2', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 20,
+                observer: true,//修改swiper自己或子元素时，自动初始化swiper
+                observeParents: false,//修改swiper的父元素时，自动初始化swiper
+                onSlideChangeEnd: function (swiper) {
+                    swiper.update();
+                    swiper2.startAutoplay();
+                },
+                pagination: '.pagination',
+                paginationType: 'custom',
+                paginationCustomRender: function (swiper, current, total) {
+                    var _html = '';
+                    for (var i = 1; i <= total; i++) {
+                        if (current == i) {
+                            _html += '<li class="swiper-pagination-custom active"></li>';
+                        } else {
+                            _html += '<li class="swiper-pagination-custom"></li>';
+                        }
+                    }
+                    return _html;//返回所有的页码html
+                }
+            });
 
 
             $('.mark').on('click', function () {
@@ -242,6 +289,7 @@
                 $('.des').val("");
                 disableScroll = true;//禁止滚动
                 $("html,body").css({overflow: "hidden"}); //禁用滚动条
+                $(".mark").hide();
             });
 
 
@@ -269,15 +317,15 @@
 
             $('.do-order').on('click', function () {
                 var orderInfo = $('.pop'),
-                        name = orderInfo.find('.name').val().trim(),
-                        tel = orderInfo.find('.tel').val().trim(),
-                        type = orderInfo.find('.order-type .check').text(),
-                        time = orderInfo.find('.order-time').val().trim(),
-                        des = orderInfo.find('.des').val();
+                    name = orderInfo.find('.name').val().trim(),
+                    tel = orderInfo.find('.tel').val().trim(),
+                    type = orderInfo.find('.order-type .check').text(),
+                    time = orderInfo.find('.order-time').val().trim(),
+                    des = orderInfo.find('.des').val();
 
                 /*时间戳转时间*/
                 var str = time.toString();
-                str = str.replace(/-/g,'/');
+                str = str.replace(/-/g, '/');
                 var date = new Date(str);
                 var time2 = date.getTime(str);
 
@@ -285,7 +333,7 @@
                     alert('请输入姓名');
                     return;
                 }
-                if (!tel || !/^\d{7,}$/.test(tel) ) {
+                if (!tel || !/^\d{7,}$/.test(tel)) {
                     alert('请正确输入联系方式');
                     return;
                 }
@@ -293,7 +341,7 @@
                     alert('请选择预约类型');
                     return;
                 }
-                var typestring=orderInfo.find('.order-type .check a').text();
+                var typestring = orderInfo.find('.order-type .check a').text();
                 // if(typestring=="场地参观"){
                 //     type=1;
                 // }else if(typestring=="场地租赁"){
@@ -312,7 +360,7 @@
                     serviceId: typestring,
                     time: time2,
                     remark: des,
-                    storeId:data.id
+                    storeId: data.id
                 });
                 $api.post(urlport + 'user/appoint', {
                     name: name,
@@ -320,7 +368,7 @@
                     serviceId: typestring,
                     time: time2,
                     remark: des,
-                    storeId:data.id
+                    storeId: data.id
                 }, function (data) {
                     console.log(data);
                     $('.order-pop').hide();
@@ -331,6 +379,7 @@
             });
             $('.close').on('click', function () {
                 $('.order-pop').hide();
+                $(".mark").show();
                 disableScroll = false;//允许滚动
                 $("html,body").css({overflow: "auto"}); //启用滚动条
             });
@@ -338,12 +387,12 @@
             /*微信分享链接专用*/
             var sharetitle = data.storeName;
             var sharedesc;
-            var contents=$(".site-info .des").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g,"").replace(/\s/g,"");
+            var contents = $(".site-info .des").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
             var count = contents.length;
             if (count > 40) {
-                var nr = contents.substring(0, 40)+"...";
+                var nr = contents.substring(0, 40) + "...";
                 sharedesc = nr;
-            }else {
+            } else {
                 sharedesc = contents;
             }
             var shareimg = data.titlePicture.path;
@@ -352,7 +401,7 @@
             console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
             $.ajax({
                 type: 'GET',
-                url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                 success: function (data) {
                     console.info(data.appId);
                     wx.config({

@@ -73,6 +73,18 @@
             <span><i class="icon-broswer"></i> <b v-html="data.pageviews"></b></span>
             <span><i class="" id="star" @click="star"></i> <b v-html="data.collect_count || 0"></b></span>
         </p>
+
+        <div class="menutype" id="classification" style="display: block;">
+            <!--<h3>菜谱分类-->
+            <!--<a class="fr" href="">全部分类</a>-->
+            <!--</h3>-->
+            <div class="typebox">
+                <a v-for="item in data.classification">
+                    <span v-html="item.sub.name"></span>
+                </a>
+            </div>
+        </div>
+
         <div class="text">
             <h5><span>来源</span></h5>
             <div class="users" v-for="item in data.users">
@@ -92,7 +104,7 @@
                     <i class="icon-easy"></i><span><b></b><br/><em>难易程度</em></span>
                 </li>
                 <li><i class="icon-time"></i>
-                    <span><b class="timenum"></b><b class="timetype">分钟</b><br/><em>预计耗时</em></span>
+                    <span><b class="timenum"></b><b class="timetype">分钟</b><em>预计耗时</em></span>
                 </li>
                 <li><i class="icon-num"></i><span><b></b>人<br/><em>适宜人数</em></span></li>
             </ul>
@@ -101,20 +113,32 @@
         <div class="qingdan">
             <dl>
                 <dt class="tit">
-                    <span class="txt"><i class="icon-1"></i>材料清单</span>
+                    <span class="txt"></i>材料清单</span>
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
-                <dd v-for="item in data.major_ingredients">
-                    <!--<span class="type">{{item.type}}</span>-->
-                    {{item.name}}
-                    <span>{{item.unit}}</span>
-                </dd>
+                <div>
+                    <p class="title_ingredients"><span>主料</span></p>
+                    <dd v-for="item in data.A_ingredients">
+                        <!--<span class="type">{{item.type}}</span>-->
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div>
+                    <p class="title_ingredients"><span>辅料</span></p>
+                    <dd v-for="item in data.B_ingredients">
+                        <!--<span class="type">{{item.type}}</span>-->
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
                 <!--<div class="box"></div>-->
                 <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
             </dl>
         </div>
     </div>
 
+    <h4 class="stepTitle">菜谱详情</h4>
     <div class="step" id="ready_steps">
         <div class="stepbox" v-for="(item,index) in data.ready_steps" track-by="$index">
             <h4>准备步骤 <em><span v-html="index + 1"></span>/<span v-html="data.ready_steps.length"></span></em></h4>
@@ -122,7 +146,7 @@
             <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
             <!--<p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>-->
             <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+                <i class="icon-tips"></i><span v-html="item.reminder"></span>
             </div>
             <!--<div class="introduc" v-if="item.reminderText" v-show="item.reminderText">-->
             <!--<i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>-->
@@ -134,8 +158,8 @@
             <h4>制作步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
-            <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+            <div class="introduc">
+                <i class="icon-tips"></i><span >小贴士小贴士小贴士小贴士</span>
             </div>
         </div>
     </div>
@@ -145,12 +169,15 @@
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
             <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+                <i class="icon-tips"></i><span v-html="item.reminder"></span>
             </div>
         </div>
     </div>
+    <p class="dateime">菜谱创建于<span>2017-02-12</span></p>
+
     <div class="equipment" id="devices">
-        <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
+        <h5>智能设备</h5>
+        <p class="emtitle">绑定菜谱相关设备</p>
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
                 <a id="callKitchenware" @click="callKitchenware">
@@ -160,28 +187,16 @@
             </li>
         </ul>
     </div>
-    <div class="jiange">
-    </div>
-    <div id="photograph">
-        <div class="camera">
-            <img src="../img/photograph4.png">
-        </div>
-        <div class="txt">
-            <h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>
-            <p class="txt2">您可以在下方的评论模块发表您的心得体会</p>
-        </div>
-    </div>
-
-    <!--<div class="bottomdiv"></div>-->
-    <!--<div class="menutype" id="classification" style="display: block;">-->
-    <!--<h3>菜谱分类-->
-    <!--&lt;!&ndash;<a class="fr" href="">全部分类</a>&ndash;&gt;-->
-    <!--</h3>-->
-    <!--<div class="typebox">-->
-    <!--<a v-for="item in data.classification">-->
-    <!--<span v-html="item.sub.name"></span>-->
-    <!--</a>-->
+    <!--<div class="jiange">-->
     <!--</div>-->
+    <!--<div id="photograph">-->
+        <!--<div class="camera">-->
+            <!--<img src="../img/photograph4.png">-->
+        <!--</div>-->
+        <!--<div class="txt">-->
+            <!--<h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>-->
+            <!--<p class="txt2">您可以在下方的评论模块发表您的心得体会</p>-->
+        <!--</div>-->
     <!--</div>-->
 
     <!--<div class="menutype" style="border:none;" id="kitchenwares">-->
@@ -199,8 +214,16 @@
     <!--</div>-->
 
     <div class="bottomdiv"></div>
+    <div class="ft-titles">
+        <p class="title1">用户评论</p>
+        <p class="title2">共有<span v-html="data.comment_count">?</span>条评论</p>
+    </div>
     <div class="ft-comment"></div>
-    <!--<div id="loading"></div>-->
+    <div id="loading">
+        <div class="btnload">下拉加载更多</div>
+        <div class="imgift" style="display: none"></div>
+        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+    </div>
 </div>
 
 
@@ -486,37 +509,6 @@
                     //});
                 },
                 star: function (obj) {
-                    //alert("id:"+id+"type:"+1+"userid:"+userid);
-//                    var follow = $("#star").attr('class');
-//                    if (follow == "icon-msg") {
-//                        $api.post(urlport + 'favorite/create', {
-//                            "refId": id,
-//                            "type": 1,
-//                            "userId": userid
-//                        }, function (data) {
-//                            console.log(data);
-//                            console.log("111");
-//                            $("#star").addClass("icon-msg2");
-//                            $("#star").removeClass("icon-msg");
-//                            var oldnum = $("#star").next().text();
-//                            $("#star").next().text(parseInt(oldnum) + 1);
-//                            $api.toast('收藏成功！', 3000);
-//                        });
-//                    } else if (follow == "icon-msg2") {
-//                        $api.post(urlport + 'favorite/cancel', {
-//                            "refId": id,
-//                            "type": 1,
-//                            "userId": userid
-//                        }, function (data) {
-//                            console.log(data);
-//                            console.log("222");
-//                            $("#star").addClass("icon-msg");
-//                            $("#star").removeClass("icon-msg2");
-//                            var oldnum = $("#star").next().text();
-//                            $("#star").next().text(parseInt(oldnum) - 1);
-//                            $api.toast('取消收藏！', 3000);
-//                        });
-//                    }
                     //app交互——获取登录状态
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();

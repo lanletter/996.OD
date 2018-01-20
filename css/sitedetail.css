@@ -1,5 +1,6 @@
 .header{
 	background-color: #fff;
+	padding-bottom: 1.88rem;
 }
 .header .img{
 	width: 100%;
@@ -24,31 +25,43 @@
 	padding: 0.4rem;
 }
 .site-info .des{
+	padding: 0 0.2rem;
 	text-align: justify;
-	line-height: 0.52rem;
-	color: rgb(154,154,154);
+	line-height: 0.56rem;
+	color: rgb(31,31,31);
 	font-size: 14px;
 	font-weight: normal;
 	font-family: "PingFangSC-Light"!important;
 }
 .site-info .des img {
-	width: 7.18rem!important;
-	margin: 0.08rem -0.24rem!important;
+	width: 100%;
+	margin: 0.08rem 0;
 }
 .info ul{
 	border-radius: 10px;
-	margin-top: 0.5rem;
+	margin-top: 0.6rem;
 	overflow: hidden;
-	box-shadow: 2px 2px 1px #ededed;
-	background: rgb(247,247,247);
+	box-shadow: 2px 5px 16px rgba(0,0,0, 0.14);
+	background: #fff;
+	padding: 0 0.4rem;
+}
+.info ul .title{
+	height: 0.66rem;
+	line-height: 0.66rem;
+	padding: 0.4rem 0;
+	margin-bottom: 0.26rem;
+	font-size: 0.48rem;
+	font-weight: bold;
+	color: rgb(31,31,31);
+	border-bottom: 1px solid rgb(237,237,237);
 }
 .info ul li{
-	padding: 0 0.24rem;
+	width: 100%;
+	margin-bottom: 0.6rem;
+	position: relative;
 }
 .info ul li div{
-	width: 6rem;
-	padding: 0.45rem 0;
-	border-bottom: 1px dashed #d8dae1;
+	width: 100%;
 }
 .info ul li:last-child div{border: none;}
 .info li p{
@@ -62,15 +75,20 @@
 	height: 0.7rem;
 }
 .info li p span{
-	color: rgb(47,47,47);
-	font-size: 0.36rem;
+	color: rgb(31,31,31);
+	font-size: 18px;
+	font-weight: bold;
+	height: 0.5rem;
+	line-height: 0.5rem;
 	display: inline-block;
 	max-width: 4.7rem;
 }
 .info li p strong{
 	display: block;
-	font-size: 0.24rem;
-	color: rgb(130,130,130);
+	height: 0.52rem;
+	line-height: 0.52rem;
+	font-size: 14px;
+	color: rgb(154,154,154);
 }
 
 
@@ -85,49 +103,45 @@
 	display:inline-block;
 }
 .address .to-map{
-	display:inline-block;
-	position: absolute;
-	right: 0.44rem;
-	top:50%;
-	margin-top: -0.35rem;
-	width: 0.7rem;
-	height:0.7rem;
 	background:url(../img/car.png);
-	background-size: 0.7rem 0.7rem;
+	position: absolute;
+	right: 0;
+	bottom: -0.07rem;
+	width: 0.64rem;
+	height:0.64rem;
+	background-size: 0.64rem 0.64rem;
 	border: none;
 }
 
-.site-info .tel i{
+.tel .to-call{
 	background:url(../img/phone.png);
-	background-size: 0.7rem 0.7rem;
-}
-.site-info .address{
-	background-color:rgb(237,237,237);
-}
-.site-info .tel,
-.site-info .service-time{
-	background-color: rgb(237,237,237);
+	position: absolute;
+	right: 0;
+	bottom: -0.07rem;
+	width: 0.64rem;
+	height:0.64rem;
+	background-size: 0.64rem 0.64rem;
+	border: none;
 }
 
 .site-service{
+	margin-top: 0.8rem;
+	padding:0 0.4rem;
 	background: #fff;
 }
 .site-service ul{
-	padding:0.4rem;
-	line-height: 0.6rem;
-	letter-spacing: 2px;
+	line-height: 0.48rem;
 	text-align: justify;
-	color: rgb(76,80,81);
-	font-size: 16px;
-	font-weight: lighter;
-	font-family: "PingFangSC-Light"!important;
+	color: rgb(31,31,31);
+	font-size: 12px;
 }
-.content .site-service ul img {
-	width: 7.18rem!important;
-	margin: 0.08rem -0.24rem!important;
+.site-service ul img {
+	width: 100%;
+	margin: 0.08rem 0;
 }
-.content .site-pic{
-	padding: 0.08rem;
+.site-pic{
+	position: relative;
+	padding: 0.4rem 0.4rem 0.46rem 0.4rem;
 	background-color: #fff;
 }
 .site-service .red-btn{
@@ -141,18 +155,19 @@
 	text-align: center;
 	box-shadow: 0 2px 4px rgba(231,129,129, 0.6);
 }
-.content .site-pic figure{
-	width: 7.34rem;
+.site-pic figure{
+	width: 100%;
 	position: relative;
-	margin-bottom: 0.08rem;
 }
 .site-pic figcaption{
-	position: absolute;
-	bottom: 0;
 	width: 100%;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	margin-top: 0.16rem;
+	font-size: 18px;
+	letter-spacing: 1px;
 	text-align: center;
-	color: #fff;
-	padding-bottom: 0.76rem;
+	color: #000;
 }
 .site-pic img{
 	width: 100%;
@@ -160,15 +175,57 @@
 	border-radius: 0.12rem;
 }
 .site-pic .imgbox{
-	width: 7.34rem;
-	height: 5.5rem;
+	width: 100%;
+	height: 4.74rem;
 	border-radius: 0.12rem;
 	background-repeat:no-repeat;
-	background-size: auto 5.5rem!important;
-	-webkit-background-size: auto 5.5rem!important;
+	background-size:100% 100%!important;
+	-webkit-background-size:100% 100%!important;
 	background-position:center;
 }
 
+.pagination {
+	position: absolute;
+	bottom: 0;
+	display: -webkit-flex; /* Safari */
+	-webkit-justify-content: space-around; /* Safari 6.1+ */
+	display: flex;
+	justify-content: center;
+}
+
+.pagination li {
+	width: 0.12rem;
+	height: 0.12rem;
+	border-radius: 50%;
+	background: rgb(237, 237, 237);
+	margin: 0 0.11rem;
+}
+
+.pagination .active {
+	width: 0.12rem;
+	height: 0.12rem;
+	border-radius: 0.12rem;
+	background: rgb(226, 183, 126);
+}
+
+.order-byn{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 0.96rem;
+}
+.order-byn a{
+	display: block;
+	width: 6.7rem;
+	margin: 0 auto;
+	height: 100%;
+	line-height: 0.96rem;
+	text-align: center;
+	background: rgb(118,170,71);
+	border-radius: 0.08rem;
+	font-size: 14px;
+	color: #fff;
+}
 .order-pop{
 	display: none;
 	position: fixed;
@@ -235,12 +292,14 @@
 	background-color: #fd6669;
 }
 
-.pop li:last-child .red-btn{
+.pop li:last-child .green-btn{
 	width: 4.26rem;
 	height: 0.64rem;
 	line-height: 2;
 	letter-spacing: 0.2rem;
 	border-radius: 0.36rem;
+	background: rgb(118,170,71);
+	color: #fff;
 }
 .pop li:last-child{
 	text-align: center;

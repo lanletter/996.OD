@@ -116,7 +116,7 @@
                                 <span></span>
                                 <strong>场馆电话</strong>
                             </p>
-                            <a href="#"><i class="to-call"></i></a>
+                            <a href="#" class="to-call" ></a>
                         </div>
                     </li>
                     <li class="service-time">
@@ -195,8 +195,16 @@
         </div>
     </section>
     <div class="bottomdiv"></div>
+    <div class="ft-titles">
+        <p class="title1">用户评论</p>
+        <p class="title2">共有<span class="comment_count">?</span>条评论</p>
+    </div>
     <div class="ft-comment"></div>
-    <!--<div id="loading"></div>-->
+    <div id="loading">
+        <div class="btnload">下拉加载更多</div>
+        <div class="imgift" style="display: none"></div>
+        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+    </div>
 </div>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
@@ -279,7 +287,7 @@
 
                     $('.address span').text(data.store.detailAddress);
                     $('.tel span').text(data.store.tel);
-                    $('.tel a').attr('href', 'tel:' + data.store.tel);
+                    $('.to-call').attr('href', 'tel:' + data.store.tel);
                     $('.service-time time').text(data.store.serviceTime);
                     $('.overplus').text(remaining);
                     $('.total').text(data.totalCount);
