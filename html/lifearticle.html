@@ -55,7 +55,6 @@
     </header>
 
     <div class="author">
-        <div class="author__title"><span>作者</span></div>
         <div class="authorbox"></div>
     </div>
 
@@ -106,7 +105,7 @@
     }
 
     var id = GetQueryString("id");
-    id = 500;
+    // id = 500;
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
@@ -330,13 +329,14 @@
                     $(".author").css("display", "none");
                 } else {
                     data.cookList.forEach(function (item, index) {
-                        var el = $('<div class="clearfix">\
-                  <p class="author__info">\
-                    <img src="' + item.picture.path + '">\
-                    <span>' + item.cookName + '</span>\
-                    </p>\
-                  <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
-                </div>');
+                        var el = $('\
+                            <div class="author__info">\
+                                <img src="' + item.picture.path + '">\
+                                <span class="by">By</span>\
+                                <span>' + item.cookName + '</span>\
+                            </div>\
+                          <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
+                        ');
                         $('.authorbox').append(el);
                     });
                 }

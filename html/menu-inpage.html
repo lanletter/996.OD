@@ -48,24 +48,7 @@
     <div class="smartLabel" style="display: none;">智能菜谱</div>
 </div>
 <div class="jf-buy menupage" v-cloak>
-    <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
-    <!--<div class="playbox">-->
-    <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
-    <!--<source :src="data.video" type="video/mp4"/>-->
-    <!--Your browser does not support HTML5 video.-->
-    <!--</video>-->
-    <!--<div id="play" class="play" @click="play"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="focus" v-else>-->
-    <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
-    <!--<mt-swipe :auto="4000">-->
-    <!--<mt-swipe-item v-for="item in data.images">-->
-    <!--<img :src="item" alt="">-->
-    <!--</mt-swipe-item>-->
 
-    <!--</mt-swipe>-->
-    <!--</div>-->
     <div class="title">
         <h4 v-html="data.name"></h4>
         <div style="display: none" id="userid"></div>
@@ -75,9 +58,6 @@
         </p>
 
         <div class="menutype" id="classification" style="display: block;">
-            <!--<h3>菜谱分类-->
-            <!--<a class="fr" href="">全部分类</a>-->
-            <!--</h3>-->
             <div class="typebox">
                 <a v-for="item in data.classification">
                     <span v-html="item.sub.name"></span>
@@ -86,18 +66,18 @@
         </div>
 
         <div class="text">
-            <h5><span>来源</span></h5>
-            <div class="users" v-for="item in data.users">
-                <ul class="from h_box">
-                    <li class="flex_1">
-                        <img :src="item.picturePath" alt=""> <span v-html="item.name"></span>
-                    </li>
-                    <!--                     <li class="flex_1 t-r">
-                                            <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
-                                        </li> -->
-                </ul>
-                <p class="desc" v-html="item.desc"></p>
-            </div>
+            <!--<h5><span>来源</span></h5>-->
+            <!--<div class="users" v-for="item in data.users">-->
+                <!--<ul class="from h_box">-->
+                    <!--<li class="flex_1">-->
+                        <!--<img :src="item.picturePath" alt=""> <span v-html="item.name"></span>-->
+                    <!--</li>-->
+                    <!--&lt;!&ndash;                     <li class="flex_1 t-r">-->
+                                            <!--<span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>-->
+                                        <!--</li> &ndash;&gt;-->
+                <!--</ul>-->
+                <!--<p class="desc" v-html="item.desc"></p>-->
+            <!--</div>-->
             <p class="instructions" v-show="data.instructions !== null" v-html="data.instructions "></p>
             <ul class="h_box special">
                 <li>
@@ -116,18 +96,44 @@
                     <span class="txt"></i>材料清单</span>
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
-                <div>
+                <div v-if="data.major_ingredients.length !== 0" v-show="data.major_ingredients">
                     <p class="title_ingredients"><span>主料</span></p>
-                    <dd v-for="item in data.A_ingredients">
-                        <!--<span class="type">{{item.type}}</span>-->
+                    <dd v-for="item in data.major_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div>
+                <div v-if="data.minor_ingredients.length !== 0" v-show="data.minor_ingredients">
                     <p class="title_ingredients"><span>辅料</span></p>
+                    <dd v-for="item in data.minor_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.A_ingredients.length !== 0" v-show="data.A_ingredients">
+                    <p class="title_ingredients"><span>A</span></p>
+                    <dd v-for="item in data.A_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.B_ingredients.length !== 0" v-show="data.B_ingredients">
+                    <p class="title_ingredients"><span>B</span></p>
                     <dd v-for="item in data.B_ingredients">
-                        <!--<span class="type">{{item.type}}</span>-->
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.C_ingredients.length !== 0" v-show="data.C_ingredients">
+                    <p class="title_ingredients"><span>C</span></p>
+                    <dd v-for="item in data.C_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.D_ingredients.length !== 0" v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>D</span></p>
+                    <dd v-for="item in data.D_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>

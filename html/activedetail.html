@@ -9,15 +9,6 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/lifedetail.css?ver=403">
-    <style type="text/css">
-        .header__main .title {
-            background: transparent;
-        }
-
-        .header__main .title time {
-            position: static;
-        }
-    </style>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
@@ -36,16 +27,12 @@
 </head>
 
 <body>
-<div>
+<div class="pbfoot">
     <header class="header">
+        <div class="header_img"></div>
         <div class="header__main">
-            <div class="img"></div>
-            <div class="">
-            </div>
             <div class="title">
-                <p class="txt">
-
-                </p>
+                <h3 class="txt"></h3>
                 <time></time>
             </div>
         </div>
@@ -57,7 +44,7 @@
     <article class="content">
     </article>
     <div class="active-rule">
-        <h3 class="section-title">活动规则</h3>
+        <p>活动规则</p>
         <ul>
 
         </ul>
@@ -74,6 +61,14 @@
         <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
     </div>
 
+</div>
+<div class="footer">
+    <img src="../img/logoblack.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <a onclick="javascript:window.location.href='http://download.fotilestyle.com/?utm-source=share'">下载App</a>
 </div>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
@@ -97,6 +92,7 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        $(".footer").hide();
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
@@ -126,12 +122,14 @@
             console.log(res);
             var $header = $('.header');
             var $content = $('.content');
+            $(".header_img").css("background-image", 'url("' + data.picture.path + '")');
             $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
             $header.find('.header__main .txt').text(data.title);
             $header.find('.view-count strong').text(data.viewCount);
             $header.find('.favorite-count strong').text(data.likeCount);
             $header.find('.comment-count strong').text(data.commentCount);
             $('.active-rule ul').html(data.rule);
+            $(".ft-titles .comment_count").text(data.commentCount);
 
             /*title取值*/
             var txt = data.title;

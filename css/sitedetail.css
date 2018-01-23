@@ -213,6 +213,7 @@
 	bottom: 0;
 	width: 100%;
 	height: 0.96rem;
+	z-index: 999999;
 }
 .order-byn a{
 	display: block;
@@ -233,34 +234,38 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.2);
+	background-color:#fff;
+	z-index: 999999;
 }
-.pop .close{
+.order-pop .close{
 	background: url(../img/close.png);
-	background-size: 16px 16px;
+	background-size: 0.24rem 0.24rem;
 	position: absolute;
-	right: 0.5rem;
-	width: 16px;
-	height: 16px;
-	display: inline-block;
+	top: 0.4rem;
+	right: 0.4rem;
+	width: 0.24rem;
+	height: 0.24rem;
 }
 .order-pop .pop{
-	position: absolute;
-	top:50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 5.6rem;
-	height: 8.5rem;
-	background-color: #fff;
-	border-radius: 0.15rem;
-	padding: 0.4rem;
+	margin:0 0.48rem;
+}
+.pop .title{
+	margin: 0.8rem 0;
+	text-align: center;
+	height: 0.66rem;
+	line-height: 0.66rem;
+	font-size: 0.48rem;
+	font-weight: bold;
+	color: rgb(31,31,31);
+	letter-spacing: 1px;
 }
 .pop .key{
-	font-weight: bold;
-	color:rgb(47,47,47);
-	font-size: 0.28rem;
+	color:rgb(31,31,31);
+	font-size: 14px;
 	display: block;
-	margin: 0.4rem 0 0.2rem 0;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	overflow: hidden;
 }
 .pop .key.first{
 	margin-top: 0;
@@ -269,38 +274,60 @@
 .pop input{
 	width: 100%;
 	border: none;
-	border-bottom: 1px solid #ededed;
+	border-bottom: 1px solid rgb(232,212,199);
 	outline: none;
-	height:0.5rem ;
-	line-height: 0.5rem;
+	height:1rem ;
+	line-height: 1rem;
 	border-radius: 0;
+	font-size: 24px;
+	color: rgb(31,31,31);
+	margin-bottom: 0.6rem;
 }
-.pop input::-webkit-input-placeholder { color:rgb(237,237,237); }
+.pop input::-webkit-input-placeholder {
+	color:rgb(154,154,154);
+	font-size: 12px;
+	line-height: 0.5rem;
+}
 
+
+.pop .order-type{
+	margin-bottom:0.6rem;
+	overflow: hidden;
+}
 .order-type .type-btn{
-	height: 0.52rem;
-	width: 1.22rem;
-	background: #ededed;
-	color: #fff;
-	border-radius: 0.3rem;
-	line-height: 0.52rem;
+	float: left;
+	height: 0.72rem;
+	width: 2.02rem;
+	background: #fff;
+	border: 1px solid rgb(214,214,214);
+	border-radius: 0.08rem;
+	line-height: 0.72rem;
 	text-align: center;
+	margin-top: 0.2rem;
 	margin-right: 0.2rem;
-	font-size: 0.2rem;
+	font-size: 12px;
+	color: rgb(102,102,102);
 }
+.order-type .type-btn:last-child{margin-right: 0}
 .order-type .check{
-	background-color: #fd6669;
+	background-color: rgb(31,31,31);
+	color: rgb(200,175,112);
 }
 
-.pop li:last-child .green-btn{
-	width: 4.26rem;
-	height: 0.64rem;
-	line-height: 2;
-	letter-spacing: 0.2rem;
-	border-radius: 0.36rem;
-	background: rgb(118,170,71);
+.pop .green-btn{
+	display: block;
+	position: fixed;
+	bottom: 0;
+	width: 6.7rem;
+	height: 0.96rem;
+	line-height: 0.96rem;
 	color: #fff;
+	text-align: center;
+	background: rgb(118,170,71);
+	border-radius: 0.08rem;
+	font-size: 14px;
 }
+
 .pop li:last-child{
 	text-align: center;
 	line-height: 1.6rem;
