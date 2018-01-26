@@ -1,8 +1,15 @@
 .header{
 	background-color: #fff;
-	padding-bottom: 1.88rem;
 }
-.header .img{
+
+.header .site-info {
+	padding: 0.4rem;
+	padding-bottom: 0.8rem;
+}
+
+.pb188{padding-bottom: 1.88rem;}
+
+.header__main .img{
 	width: 100%;
 	height: 10rem!important;
 	background-size:auto 10rem!important;
@@ -21,9 +28,6 @@
 	display: block;
 }
 
-.header .site-info {
-	padding: 0.4rem;
-}
 .site-info .des{
 	padding: 0 0.2rem;
 	text-align: justify;
@@ -141,7 +145,7 @@
 }
 .site-pic{
 	position: relative;
-	padding: 0.4rem 0.4rem 0.46rem 0.4rem;
+	padding: 0 0.4rem 0.46rem 0.4rem;
 	background-color: #fff;
 }
 .site-service .red-btn{
@@ -375,45 +379,47 @@
 	background: #fff;
 }
 .author__info {
-	margin-top: 0rem;
+	display: block;
+	margin:0.34rem 0;
 	float: left;
 }
 .author__info img {
-	width: 0.96rem;
-	height: 0.96rem;
+	float: left;
+	width: 1.28rem;
+	height: 1.28rem;
 	border-radius: 50%;
 	vertical-align: top;
 }
 
 .author__info span {
+	float: left;
+	width: 4.42rem;
 	color: #4d5051;
 	margin-left: 0.2rem;
 }
 .author__info span b{
-	font-size: 0.24rem;
+	font-size: 18px;
 	font-weight: bold;
-	rgb(47,47,47);
+	rgb(31,31,31);
 }
 .author__info span strong{
-	font-size: 0.16rem;
+	width: 4.42rem;
+	display: block;
+	font-size: 14px;
 	font-weight: 100;
-	rgb(130,130,130);
+	rgb(154,154,154);
+	height: 0.88rem!important;
+	line-height: 0.44rem!important;
+	overflow: hidden;
 
 }
 .course-info-box {
-	padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+	padding: 0.2rem 0.4rem 0.8rem 0.4rem;
 }
 
-.course-info ul {
+.course-info .ulinfo {
 	margin-top: 0;
-	box-shadow:0px 2px 4px rgba(0,0,0,0.16) ;
-}
-
-.course-info .teacher-box,
-.course-time,
-.people-num,
-.food-type {
-	background: #f7f7f7;
+	box-shadow:2px 5px 16px rgba(0,0,0,0.14) ;
 }
 
 .title-box2 h3 {
@@ -447,12 +453,7 @@
 }
 
 .course-info li:last-child {
-	margin-top: -1px;
-	height: 1rem;
-	font-size: 0.4rem;
-	color: #fff;
-	line-height: 1rem;
-	text-align: center;
+	padding-bottom: 0.5rem;
 }
 
 .teacher .red-btn {
@@ -484,8 +485,8 @@
 
 .people-num svg {
 	position: absolute;
-	left: 1.55rem;
-	top:0.6rem;
+	left: 1.35rem;
+	top:0.2rem;
 }
 .course-time p{
 	display: inline-block;
@@ -494,16 +495,41 @@
 	margin-left: 1rem;
 }
 .buy-box {
-	height: 1.6rem!important;
-	line-height: 1.6rem!important;
-	background: rgb(255,101,101);
-	box-shadow:0px 2px 4px rgba(0,0,0,0.16) ;
+	margin: 0.8rem 0.4rem 0.4rem 0.4rem;
+	height: 0.96rem!important;
+	line-height: 0.96rem!important;
+}
+.buy-box>span{
+	display: block;
+	text-align: center;
+	border-radius: 0.08rem;
+	height: 100%;
+}
+.buy-box span:first-child{
+	float: left;
+	width: 4.4rem;
+}
+.buy-box span:last-child{
+	float: right;
+	width: 2.02rem;
+	font-size: 0.24rem;
+	background: rgb(31,31,31);
+	color: rgb(200,175,112);
 }
 .buy-box a{
 	display: block;
 	color: #ffffff;
-	height: 1.6rem!important;
-	line-height: 1.6rem!important;
+	background: rgb(250,73,54);
+	border-radius: 0.08rem;
+	font-size: 0.24rem;
+}
+.buy-box a b{font-size: 0.48rem;}
+.buy-box .dis{
+	display: block;
+	background: rgb(31,31,31);
+	color: rgb(200,175,112);
+	border-radius: 0.08rem;
+	font-size: 0.24rem;
 }
 .dark-bg{
 	width: 100%;
@@ -518,20 +544,28 @@
 .buynow-div{
 	z-index: 2;
 	width: 100%;
-	height:11rem;
+	height: 100%;
 	background: #fff;
 	display: none;
 	position: fixed;
-	bottom:0;
+	top:0;
 	left: 0;
+	overflow: auto;
 }
 .buynow-div .editlist{
-	margin:0 0.22rem 0 0.22rem;
+	margin:0.72rem 0.4rem 0 0.4rem;
+}
+.buynow-div .editlist .localname{
+	height: 0.52rem;
+	line-height: 0.52rem;
+	color: rgb(154,154,154);
 }
 .buynow-div .editlist>li{
-	padding:0.2rem 0;
 	position: relative;
 	overflow: hidden;
+}
+.buynow-div .editlist .titles{
+	padding:0.2rem 0;
 }
 .buynow-div .boedert{
 	border-top: 1px solid rgb(237,237,237);
@@ -539,36 +573,46 @@
 	min-height:0.52rem ;
 	overflow: hidden;
 }
-/*.buynow-div .boedert1{
+.buynow-div .border-t{
 	border-top: 1px solid rgb(237,237,237);
-	padding-bottom: 0.05rem;
-	margin-top: 0.05rem;
-}*/
+}
+.buynow-div .border-b{
+	border-bottom: 1px solid rgb(237,237,237);
+}
 .buynow-div .editlist>li span{
 	color: rgb(47,47,47);
 	font-size: 0.32rem;
 	vertical-align: top;
 }
 .buynow-div .editlist>li .spantext{
-	color: rgb(130,130,130);
-	font-size: 0.28rem;
-	/*vertical-align: top;*/
+	color: rgb(31,31,31);
+	font-size: 0.36rem;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	font-weight: bold;
+}
+.buynow-div .editlist>li .span24{
+	color: rgb(31,31,31);
+	font-size: 0.48rem;
+	line-height: 0.5rem;
+	letter-spacing: 1px;
+	vertical-align: top;
+	font-weight: bold;
 }
 .buynow-div .editlist>li .span14{
-	color: rgb(47,47,47);
+	color: rgb(154,154,154);
 	font-size: 0.28rem;
-	line-height: 0.5rem;
-	vertical-align: top;
+	height: 0.52rem;
+	line-height: 0.52rem;
 }
 .buynow-div .editlist>li p{
 	color: rgb(47,47,47);
 	font-size: 0.28rem;
 }
 .buynow-div .editlist>li .lightgrey{
-	display: inline-block;
-	color: rgb(155,155,155);
-	font-size: 0.28rem;
-	line-height: 0.5rem;
+	color: rgb(154,154,154);
+	font-size: 0.24rem;
+	line-height: 0.34rem;
 	max-width: 3rem;
 }
 /*.buynow-div .editlist>li textarea{
@@ -583,39 +627,43 @@
 	resize:none
 }*/
 .buynow-div .editlist>li #remarks{
-	display: inline-block;
-	color: rgb(130,130,130);
-	font-size: 0.28rem;
-	margin-top: 1px;
-	line-height: 0.4rem;
-	width: 5.04rem;
-	height: 0.8rem;
-	border: none;
+	color: rgb(154,154,154);
+	background: rgba(200,175,112, 0.17);
+	border: 1px solid rgb(200,175,112);
+	box-sizing: border-box;
+	border-radius: 0.12rem;
+	font-size: 0.32rem;
+	padding: 0.24rem 0.38rem;
+	margin-top:0.16rem;
+	line-height: 0.64rem;
+	width: 100%;
+	height: 1.12rem;
 	oulilne:none;
 	resize:none;
 	margin-bottom: 0;
 }
+
+#remarks::-webkit-input-placeholder {
+	color: rgb(154,154,154);
+	font-size: 0.32rem;
+	line-height: 0.64rem;
+}
 .buynow-div .editlist>li #desc{
-	display: inline-block;
-	color: rgb(130,130,130);
-	font-size: 0.28rem;
-	margin-top: 2px;
-	width: 5.94rem;
-	height: 1.35rem;
-	line-height: 0.45rem;
-	border: none;
-	oulilne:none;
-	resize:none
+	color: rgb(154,154,154);
+	font-size: 0.24rem;
+	font-weight: normal;
+	width: 100%;
+	line-height: 0.34rem;
 }
 .buynow-div .editlist>li textarea:focus{
 	oulilne:none;
 }
 #close-div{
-	width:0.52rem ;
-	height: 0.52rem;
+	width:0.4rem ;
+	height: 0.4rem;
 	position: absolute;
-	right:0.18rem ;
-	top: 0.18rem;
+	right:0.24rem ;
+	top: 0.26rem;
 }
 .buynow-div .editpic{
 	width: 0.34rem;
@@ -627,7 +675,7 @@
 }
 .buynow-div .coupon{
 	float: right;
-	color: rgb(255,101,101);
+	color: rgb(31,31,31);
 	font-size: 0.28rem;
 	font-weight: lighter;
 	line-height: 0.5rem;
@@ -643,82 +691,111 @@
 	vertical-align: -0.09rem;
 }
 .buynow-div .numbox{
+	position: absolute;
+	right: 0;
+	top: 0.4rem;
 	float: right;
-	margin-top: -1px;
+	width: 3.08rem;
+	height: 0.8rem;
+	border: 1px solid rgb(214,214,214);
+	border-radius: 0.08rem;
 }
 .buynow-div .numbox input{
-	display: inline-block;
-	height: 0.48rem;
-	width: 0.48rem;
+	float: left;
+	height: 0.8rem;
+	width: 0.8rem;
 	background-size: 0.4rem 0.4rem!important;
 	-webkit-background-size:0.4rem 0.4rem!important;
 	border: none;
 }
 .buynow-div .numbox input:first-child{
-	background: url("../img/path2Copy.png") 0.04rem 0.04rem no-repeat ;
+	background: url("../img/path2Copy.png") center no-repeat ;
 }
 .buynow-div .numbox input:last-child{
-	background: url("../img/group3.png") 0.04rem 0.04rem no-repeat;
+	background: url("../img/group3.png") center no-repeat;
 }
 .buynow-div .numbox .num{
-	background: rgb(245,245,245);
-	border: 1px solid rgb(203,203,203);
-	border-radius: 0.08rem;
-	width: 0.92rem;
-	height: 0.48rem;
-	line-height: 0.48rem;
+	box-sizing: border-box;
+	border-left: 1px solid rgb(214,214,214);
+	border-right: 1px solid rgb(214,214,214);
+	width: 1.48rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
 	text-align: center;
-	display: inline-block;
-	margin: 0 0.3rem;
+	float: left;
 }
 .buynow-div .titlepic{
-	width:3.2rem!important;
-	height: 1.8rem!important;
-	border-radius: 0.08rem!important;
-	display: inline-block;
+	width:2.64rem!important;
+	height: 1.72rem!important;
+	border-radius: 0.16rem!important;
+	float: left;
 	border: none!important;
 }
 .buynow-div .titletxt{
-	display: inline-block;
-	width: 2.88rem;
-	height: 1.76rem;
+	float: left;
+	width: 3.56rem;
+	height: 1.92rem;
 	overflow: hidden;
-	color: rgb(47,47,47);
-	font-size: 0.32rem;
+	margin-left: 0.26rem;
+}
+.buynow-div .titletxt p{
+	font-size: 0.36rem!important;
+	font-weight: bold;
+	max-height: 0.88rem;
 	line-height: 0.44rem;
-	vertical-align: top;
-	margin: 0.04rem 0.14rem 0 0.14rem;
+	color: rgb(47,47,47);
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
 }
+.buynow-div .titletxt span{
+	font-size: 0.56rem!important;
+	color: rgb(200,175,112)!important;
+	height: 0.8rem;
+	line-height: 0.8rem;
+}
+.buynow-div .titletxt span b{padding-left: 0.1rem;}
+
 .buynow-div .ttprice{
-	position: absolute;
-	bottom: 0;
-	right:0;
-	margin:0;
+	/*position: absolute;*/
+	/*bottom: 0;*/
+	margin-top: 0.28rem;
 	width: 100%;
-	height: 0.9rem;
-	line-height: 0.9rem;
-	border-top:1px solid rgb(237,237,237);
-}
-.buynow-div .ttprice span{
-	font-size: 0.32rem;
-	color: rgb(211,174,77);
-	margin-left: 0.24rem;
-}
-.buynow-div .ttprice s{
-	font-size: 0.28rem;
-	color: rgb(203,203,203);
-	margin-left: 0.14rem;
-	text-decoration: line-through;
+	height: 0.96rem;
+	z-index: 999999;
 }
 .buynow-div .editbtn{
-	float: right;
-	height: 0.9rem;
-	line-height: 0.9rem;
-	width: 1.8rem;
-	background: rgb(255,101,101);
-	font-size: 0.28rem;
+	display: block;
+	width: 6.7rem;
+	margin: 0 auto;
+	height: 100%;
+	line-height: 0.96rem;
+	text-align: center;
+	background: rgb(118,170,71);
+	border-radius: 0.08rem;
+	font-size: 14px;
 	color: #fff;
-	letter-spacing: 2px;
+}
+.buynow-div .editbtn span{
+	font-size: 0.48rem;
+}
+.buynow-div .editbtn a{
+	margin:0 0.1rem;
+	color: #fff;
+	/*text-decoration: line-through;*/
+}
+.buynow-div .editlist .list2 , .list6 {
+	padding-top: 0.4rem;
+}
+.buynow-div .editlist .list3 , .list4 , .list5{
+	padding-top: 0.8rem;
+}
+.buynow-div .editlist .list6{
+	padding-bottom: 0.4rem;
+}
+.buynow-div .editlist .list7{
+	padding-top: 0.36rem;
 }
 .editarea{
 	position: fixed;
@@ -753,11 +830,15 @@
 }
 
 .countdesc{
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	font-size: 12px;
-	color: rgb(47,47,47);
-	margin-right: 0.46rem;
-	margin-bottom: 0.08rem;
+	background: rgb(244,244,244);
+	border-radius: 0.08rem;
+	width: 100%;
+	margin-top: 0.2rem;
+}
+.countdesc p{
+	font-size: 14px;
+	display: block;
+	color: rgb(102,102,102);
+	padding: 0.2rem 0.3rem;
+	line-height: 0.52rem;
 }

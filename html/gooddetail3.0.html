@@ -64,6 +64,12 @@
         <!--</div>-->
         <div class="txt">描述</div>
         <!--<a tapmode="onon" href="#" class="more">查看产品详情</a>-->
+        <div class="borderb"></div>
+    </div>
+
+    <div class="content">
+        <h3>商品详情</h3>
+        <p></p>
     </div>
 
     <div class="main">
@@ -94,14 +100,12 @@
         <div class="imgift" style="display: none"></div>
         <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
     </div>
-    <br/><br/>
-    <br/><br/>
-    <div class="fixd">
-        <div class="jf" tapmode="onon">
-            <p class="buy" style="background:none;text-indent:0;">购买</p>
-        </div>
-        <div class="btn" tapmode="onon">购买</div>
+</div>
+<div class="fixd">
+    <div class="jf" tapmode="onon">
+        <p class="buy" style="background:none;text-indent:0;">立即购买</p>
     </div>
+    <div class="btn" tapmode="onon">立即购买</div>
 </div>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/jquery-2.1.1.min.js"></script>
@@ -185,6 +189,8 @@
             $info.find('.favorite-count').text(data.likeCount);
             $main.find('.logistics').html(data.logisticsDesc);
             $main.find('.sales').html(data.salesSupport);
+            $(".content p").html(data.content);
+            $(".ft-titles .comment_count").text(data.commentCount);
 
             if(device == "ios"){
                 $(".fixd").css({

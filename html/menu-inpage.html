@@ -39,9 +39,7 @@
 </head>
 <body>
 <div id="videobox" class="video">
-    <video id="vd" controls="controls" preload="auto"
-           webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5"
-           x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" src="">
+    <video id="vd" controls="controls" src="">
         <source type="video/mp4">
     </video>
     <button class="play"></button>
@@ -54,7 +52,10 @@
         <div style="display: none" id="userid"></div>
         <p class="icons">
             <span><i class="icon-broswer"></i> <b v-html="data.pageviews"></b></span>
-            <span><i class="" id="star" @click="star"></i> <b v-html="data.collect_count || 0"></b></span>
+            <span class="favorite">
+                <i class="" id="star" @click="star"></i>
+                <b v-html="data.collect_count || 0"></b>
+            </span>
         </p>
 
         <div class="menutype" id="classification" style="display: block;">
@@ -111,28 +112,28 @@
                     </dd>
                 </div>
                 <div v-if="data.A_ingredients.length !== 0" v-show="data.A_ingredients">
-                    <p class="title_ingredients"><span>A</span></p>
+                    <p class="title_ingredients"><span>A料</span></p>
                     <dd v-for="item in data.A_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
                 <div v-if="data.B_ingredients.length !== 0" v-show="data.B_ingredients">
-                    <p class="title_ingredients"><span>B</span></p>
+                    <p class="title_ingredients"><span>B料</span></p>
                     <dd v-for="item in data.B_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
                 <div v-if="data.C_ingredients.length !== 0" v-show="data.C_ingredients">
-                    <p class="title_ingredients"><span>C</span></p>
+                    <p class="title_ingredients"><span>C料</span></p>
                     <dd v-for="item in data.C_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
                 <div v-if="data.D_ingredients.length !== 0" v-show="data.D_ingredients">
-                    <p class="title_ingredients"><span>D</span></p>
+                    <p class="title_ingredients"><span>D料</span></p>
                     <dd v-for="item in data.D_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
@@ -233,7 +234,6 @@
 </div>
 
 
-<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
@@ -241,9 +241,8 @@
 <script src="../js/vue-resource1.3.4.js"></script>
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
-<script type="text/javascript" src='../js/judge.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
-<!--<script src="../js/alertdiy.js"></script>-->
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
 
 <script>
@@ -321,22 +320,15 @@
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
                     $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
                     $(".icon-num").next("span").find("b").text(data.data.fit_number);
+
+                    /*头图*/
+                    $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     /*判断是否有播放器*/
                     if (data.data.video == null || data.data.video == "") {
                         $(".play").css("display", "none");
                     } else {
                         $('#videobox').find('#vd').attr('src', data.data.video);
                     }
-                    /*判断是否有智能标签*/
-                    if (data.data.type == 2) {
-                        $(".smartLabel").css("display", "block");
-                    } else {
-                        $(".smartLabel").css("display", "none");
-                    }
-                    /*头图*/
-                    $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
-
-
                     /*播放器*/
                     (function () {
                         var video = $('#videobox video')[0],
@@ -375,16 +367,24 @@
                     /*判断是否收藏*/
                     if (userid == 1 || userid == "1") {
                         $("#star").addClass("icon-msg");
-                        $("#star").remove("icon-msg2");
+                        $("#star").removeClass("icon-msg2");
                     } else {
                         if (data.data.isFavorite == 1) {
                             $("#star").addClass("icon-msg2");
-                            $("#star").remove("icon-msg");
+                            $("#star").removeClass("icon-msg");
                         } else {
                             $("#star").addClass("icon-msg");
-                            $("#star").remove("icon-msg2");
+                            $("#star").removeClass("icon-msg2");
                         }
                     }
+
+                    /*判断是否有智能标签*/
+                    if (data.data.type == 2) {
+                        $(".smartLabel").css("display", "block");
+                    } else {
+                        $(".smartLabel").css("display", "none");
+                    }
+
                     /*判断是否有来源*/
                     if (data.data.users.length == 0) {
                         $(".text h5").css("display", "none");
