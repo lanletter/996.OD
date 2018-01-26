@@ -46,11 +46,11 @@
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function(){
+        (function () {
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function() {
+            (function () {
                 var vds = document.createElement('script');
-                vds.type='text/javascript';
+                vds.type = 'text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -81,16 +81,16 @@
         <div class="sku">
             <ul>
                 <li class="h_box">
-                    <span class="tit">商品分类</span>
-                    <p><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
-                             :class="merchandiseClasses == item.id?'cur':''"
-                             @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
-                             v-html="item.argName"></span>
+                    <span class="tit1">商品分类</span>
+                    <p class="btns"><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
+                                          :class="merchandiseClasses == item.id?'cur':''"
+                                          @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
+                                          v-html="item.argName"></span>
                     </p>
                 </li>
-                <li class="h_box mt15" style="height: 0.54rem;">
-                    <span class="tit">选择数量</span>
-                    <em>(剩余<span v-html="stock"></span>)</em>
+                <li class="h_box" style="height: 1.32rem;">
+                    <span class="tit">数量：</span>
+                    <em>(库存<span v-html="stock"></span>)</em>
                     <p class="textalign">
                         <span class="icon-reduce" @click="changeNum(0)"></span>
                         <input v-model="count" value="" class="inputText" readonly type="text">
@@ -102,7 +102,7 @@
         </div>
 
         <div class="details">
-            <h3>商品详情</h3>
+            <h2>商品详情</h2>
             <div class="msg" v-html="content"></div>
         </div>
 
@@ -131,18 +131,26 @@
     <div id="loading">
         <div class="btnload">下拉加载更多</div>
         <div class="imgift" style="display: none"></div>
-        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+        <div class="nomore" style="display: none">
+            <div></div>
+            已经到底了
+            <div></div>
+        </div>
     </div>
     <br/><br/>
     <div class="btnbox">
         <ul class="h_box">
-            <li>
+            <!--<li>-->
+            <!--<div style="display: inline;" v-html="totalntegral"></div>-->
+            <!--<em>积分</em>-->
+            <!--<span class="price" >{{payintegral}}积分</span>-->
+            <!--<span v-if="integral > payintegral" v-html="integral">积分</span>-->
+            <!--</li>-->
+            <li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">
+                立即兑换
                 <div style="display: inline;" v-html="totalntegral"></div>
                 <em>积分</em>
-                <!--<span class="price" >{{payintegral}}积分</span>-->
-                <span v-if="integral > payintegral" v-html="integral">积分</span>
             </li>
-            <li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">兑换</li>
         </ul>
     </div>
 </div>
@@ -165,7 +173,7 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
 
@@ -195,6 +203,7 @@
         var userid = 1;
         choose();
     }
+
     function choose() {
         var vm = new Vue({
             el: '#buybox',
@@ -320,6 +329,20 @@
             methods: {
 
                 submit: function (id, b) {
+
+                    //积分兑换
+                    // var $this = this;
+                    // if ($this.count == 0) {
+                    //     alert("请先选择商品!");
+                    //     return;
+                    // }
+                    // userid = 120374;
+                    // var flag = confirm("确认兑换该商品吗？");
+                    // if (!flag) return;
+                    // var $this = this;
+                    // this.userId = userid;
+                    // this.getAddress(this.userId);
+
                     if (device == "ios" || device == "android") {
                         var $this = this;
                         //app交互——获取登录状态
@@ -361,17 +384,6 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                        //积分兑换
-//                  if ($this.count == 0) {
-//                      alert("请先选择商品!");
-//                      return;
-//                  }
-//                  userid = 120374;
-//                  var flag = confirm("确认兑换该商品吗？");
-//                  if (!flag)return;
-//                  var $this = this;
-//                  this.userId = userid;
-//                  this.getAddress(this.userId);
                     } else if ((device == null)) {
                         window.location.href = "http://download.fotilestyle.com/?utm-source=share";
                     }

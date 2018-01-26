@@ -1,221 +1,391 @@
 body {
-  background: #ededed; }
+    background: #ffffff;
+    font-family: "PingFangSC";
+}
 
 i.icon-1 {
-  background: url(../img/foods@2x.png) no-repeat center center;
-  background-size: cover;
-  display: inline-block;
-  width: 0.48rem;
-  height: 0.5rem;
-  vertical-align: middle; }
+    background: url(../img/foods@2x.png) no-repeat center center;
+    background-size: cover;
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.5rem;
+    vertical-align: middle;
+}
 
 i.icon-2 {
-  background: url(../img/foods-1@2x.png) no-repeat center center;
-  background-size: cover;
-  display: inline-block;
-  width: 0.48rem;
-  height: 0.5rem;
-  vertical-align: middle; }
+    background: url(../img/foods-1@2x.png) no-repeat center center;
+    background-size: cover;
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.5rem;
+    vertical-align: middle;
+}
 
 html, body {
-  height: 100%; }
+    height: 100%;
+}
 
 .topic {
-  background: #fff;
-  min-height: 100%; }
+    padding-bottom: 3.34rem;
+}
 
 .topic .box {
-  position: relative; }
-  .topic .box img {
+    position: relative;
+}
+
+.topic .box img {
     display: inline-block;
     width: 100%;
-    height: 4.2rem; }
-  .topic .box .pictext {
+    height: 4.2rem;
+}
+
+.topic .box .pictext {
     width: 100%;
     position: absolute;
     text-align: center;
-    bottom: 0.64rem; }
-    .topic .box .pictext h4 {
-      color: #fff;
-      font-size: 14px; }
-    .topic .box .pictext p {
-      font-size: 20px;
-      color: #999; }
+    bottom: 0.64rem;
+}
+
+.topic .box .pictext h4 {
+    color: #fff;
+    font-size: 14px;
+}
+
+.topic .box .pictext p {
+    font-size: 20px;
+    color: #999;
+}
 
 .topic .box-li {
-  padding: 0;
-  position: relative; }
-  .topic .box-li img {
+    padding: 0;
+    position: relative;
+}
+
+.topic .box-li img {
     display: inline-block;
     width: 100%;
     height: 4.1rem;
-    border-radius: 0.08rem; }
-.topic .box-li .imgbg {
-  display: inline-block;
-  width: 100%;
-  height: 4.1rem;
-  border-radius: 0.08rem;
-  background-repeat:no-repeat;
-  background-size:7.34rem auto !important;
-  -webkit-background-size:7.34rem auto!important;
-  background-position:center;
+    border-radius: 0.08rem;
 }
-  .topic .box-li .pictext {
+
+.topic .box-li .imgbg {
+    display: inline-block;
+    width: 100%;
+    height: 4.1rem;
+    border-radius: 0.08rem;
+    background-repeat: no-repeat;
+    background-size: 7.34rem auto !important;
+    -webkit-background-size: 7.34rem auto !important;
+    background-position: center;
+}
+
+.topic .box-li .pictext {
     width: 100%;
     position: absolute;
     text-align: center;
-    bottom: 0rem; }
-    .topic .box-li .pictext h4 {
-        font-weight: bold;
-      color:#fff;
-      font-size: 18px; }
-    .topic .box-li .pictext h3 {
-      color: #fff;
-        font-family: PingFangSC-Light;
-        font-weight: lighter;
-        margin-bottom: 0.48rem;
-      font-size: 20px; }
-    .topic .box-li .pictext p {
-      color: rgba(250,250,250,0.8);
-        font-weight: lighter;
-      font-size: 12px; }
+    bottom: 0rem;
+}
+
+.topic .box-li .pictext h4 {
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+}
+
+.topic .box-li .pictext h3 {
+    color: #fff;
+    font-family: PingFangSC-Light;
+    font-weight: lighter;
+    margin-bottom: 0.48rem;
+    font-size: 20px;
+}
+
+.topic .box-li .pictext p {
+    color: rgba(250, 250, 250, 0.8);
+    font-weight: lighter;
+    font-size: 12px;
+}
 
 .topic .info {
-  padding: 0.48rem;
-  font-family: "PingFangSC-Light";
+    padding: 0.48rem;
+    font-family: "PingFangSC-Light";
     font-size: 14px;
-    color: rgb(130,130,130);
-  line-height: 0.44rem; }
+    color: rgb(130, 130, 130);
+    line-height: 0.44rem;
+}
 
 .topic .info-li {
-  font-family: "PingFangSC-Light";
-  font-weight: lighter;
-  color: rgb(76,80,81);
-  font-size: 16px;
-  padding: 0.48rem 0.4rem;
-  line-height: 1.5; }
+    font-family: "PingFangSC-Light";
+    font-weight: lighter;
+    color: rgb(76, 80, 81);
+    font-size: 16px;
+    padding: 0.48rem 0.4rem;
+    line-height: 1.5;
+}
 
 .foods {
-  padding-top: 0.48rem; }
-  .foods h3 {
+    padding-top: 0.48rem;
+}
+
+.foods h3 {
     font-family: "PingFangSC-Light";
-    color:rgb(47,47,47);
+    color: rgb(47, 47, 47);
     line-height: 0.48rem;
     font-size: 14px;
-    text-align: center; }
-    .foods h3 i {
-      margin-right: 0.16rem;
-      margin-top: -0.06rem; }
-  .foods li.item {
+    text-align: center;
+}
+
+.foods h3 i {
+    margin-right: 0.16rem;
+    margin-top: -0.06rem;
+}
+
+.foods li.item {
     border-top: 1px solid #ededed;
     padding: 0 0.08rem;
-      padding-top: 0.24rem;
-    margin-bottom: 0.24rem; }
+    padding-top: 0.24rem;
+    margin-bottom: 0.24rem;
+}
 
-.mybody {
-  height: 5rem;
-  margin: 0 0.48rem;
-  -webkit-box-shadow: 0 0 10px #ededed;
-  box-shadow: 0 0 10px #ededed;
-  position: relative; }
-  .mybody h5 {
-    padding: 0.32rem 0 0 0.48rem;
-    color: rgb(255,101,101);
-    font-size: 16px; }
-  .mybody p.info {
-    font-family: "PingFangSC-Light";
-    padding: 0 0 0 0.48rem;
-    color: rgb(201,203,213);
-    font-size: 12px; }
-  .mybody .box {
+.greenbg {
+    height: 6.84rem;
+    border-radius: 0.16rem;
+    margin: 0 0.48rem;
+    -webkit-box-shadow: 0 0 10px #ededed;
+    box-shadow: 0 0 10px #ededed;
+    position: relative;
+    background: -moz-linear-gradient(top, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(118,170,72)), color-stop(100%, rgb(169,216,113)));
+    background: -webkit-linear-gradient(top, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
+    background: -o-linear-gradient(top, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
+    background: -ms-linear-gradient(top, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
+    background: linear-gradient(to bottom, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
+}
+.greenbg h5 {
+    padding: 0.4rem 0 0 0.42rem;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+
+.greenbg p.username {
+    height: 0.4rem;
+    line-height: 0.4rem;
+    padding: 0.88rem 0 0 0.42rem;
+    color: #ffffff;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.greenbg p.info {
+    padding: 0 0 0 0.42rem;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.greenbg .box {
     padding: 0.48rem 0.24rem;
     font-family: "PingFangSC-Light";
     font-size: 12px;
     line-height: 0.48rem;
-    color: rgb(130,130,130); }
-  .mybody ul.one {
+    color: rgb(130, 130, 130);
+}
+
+.greenbg ul.one {
     /* Safari */
     display: -webkit-box;
     display: flex;
     justify-content: space-around;
     -webkit-box-align: end;
-            align-items: flex-end;
+    align-items: flex-end;
     position: absolute;
     bottom: 0.6rem;
     padding: 0 0.22rem;
-    width: 6rem; }
-    .mybody ul.one div.line {
-      width: 0.26rem;
-      background: #ededed;
-      border-radius: 0.2rem 0.2rem 0 0; }
-    .mybody ul.one li.cur div.line {
-      background: #ff6565; }
-    .mybody ul.one li.cur p {
-      color: #2f2f2f; }
-    .mybody ul.one li p {
-      width: 0.26rem;
-      overflow: hidden;
-      font-family: "PingFangSC-Light";
-      font-size: 10px;
-      line-height: 0.26rem;
-      letter-spacing: 2px;
-      margin-top: 0.2rem;
-      color: rgb(201,203,213);
-      -webkit-writing-mode: tb-rl;
-          -ms-writing-mode: tb-rl;
-              writing-mode: tb-rl; }
-  .mybody ul {
+    width: 6rem;
+}
+
+.greenbg ul.one div.line {
+    width: 0.26rem;
+    background: rgba(255,255,255,0.5);
+    border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.greenbg ul.one li.cur div.line {
+    background: #ffffff;
+}
+
+.greenbg ul.one li.cur p {
+    color: #ffffff;
+}
+
+.greenbg ul.one li p {
+    width: 0.26rem;
+    overflow: hidden;
+    font-family: "PingFangSC-Light";
+    font-size: 10px;
+    line-height: 0.26rem;
+    letter-spacing: 2px;
+    margin-top: 0.2rem;
+    background: none;
+    color: rgba(255,255,255,0.6);
+    -webkit-writing-mode: tb-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: tb-rl;
+}
+
+.greenbg ul {
     /* Safari */
     display: -webkit-box;
     display: flex;
     flex-wrap: wrap;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-            flex-direction: row; }
-    .mybody ul li span {
-      display: inline-block;
-      border: 1px solid #ededed;
-      padding: 0 0.12rem;
-      height: 0.48rem;
-      line-height: 0.48rem;
-      border-radius: 0.4rem;
-      font-family: "PingFangSC-Light";
-      font-size: 10px;
-      color: rgb(130,130,130);
-      margin: 0.1rem; }
+    flex-direction: row;
+}
+
+.greenbg ul li span {
+    display: inline-block;
+    border: 1px solid #ededed;
+    padding: 0 0.12rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    border-radius: 0.4rem;
+    font-family: "PingFangSC-Light";
+    font-size: 10px;
+    color: rgb(130, 130, 130);
+    margin: 0.1rem;
+}
+
+.mybody {
+    height: 5rem;
+    margin: 0.6rem 0.48rem;
+    position: relative;
+}
+
+.mybody h5 {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    margin-bottom: 0.32rem;
+    color: rgb(31, 31, 31);
+    font-size: 18px;
+}
+
+.mybody p.info {
+    font-family: "PingFangSC-Light";
+    padding: 0 0 0 0.48rem;
+    color: rgb(201, 203, 213);
+    font-size: 12px;
+}
+
+.mybody .box {
+    padding-bottom: 0.6rem;
+    font-family: "PingFangSC-Light";
+    font-size: 12px;
+    line-height: 0.48rem;
+    color: rgb(130, 130, 130);
+}
+
+.mybody ul.one {
+    /* Safari */
+    display: -webkit-box;
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-align: end;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0.6rem;
+    padding: 0 0.22rem;
+    width: 6rem;
+}
+
+.mybody ul.one div.line {
+    width: 0.26rem;
+    background: #ededed;
+    border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.mybody ul.one li.cur div.line {
+    background: #ff6565;
+}
+
+.mybody ul.one li.cur p {
+    color: #2f2f2f;
+}
+
+.mybody ul.one li p {
+    width: 0.26rem;
+    overflow: hidden;
+    font-family: "PingFangSC-Light";
+    font-size: 10px;
+    line-height: 0.26rem;
+    letter-spacing: 2px;
+    margin-top: 0.2rem;
+    color: rgb(201, 203, 213);
+    -webkit-writing-mode: tb-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: tb-rl;
+}
+
+.mybody ul {
+    /* Safari */
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+.mybody ul{width:7.1rem;margin-right: -0.22rem;}
+.mybody ul li span {
+    display: inline-block;
+    border: 1px solid rgb(237, 237, 237);
+    padding: 0 0.26rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    border-radius: 2rem;
+    font-size: 10px;
+    color: rgb(130, 130, 130);
+    margin: 0 0.22rem 0.2rem 0;
+}
 
 .bodytwo {
-  height: auto;
-  padding-bottom: 0.6rem; }
+    height: auto;
+    padding-bottom: 0.6rem;
+}
 
 .foods .m-line {
-  display: inline-block;
-  width: 100%;
-  border-top: 1px solid #ededed;
-  margin: 0.48rem 0; }
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #ededed;
+    margin: 0.48rem 0;
+}
 
 .foods .m-line-6 {
-  display: inline-block;
-  width: 100%;
+    display: inline-block;
+    width: 100%;
     height: 5px;
     background: #ededed;
     border-top: 1px solid #cfcfcf;
-  margin: 0.24rem 0 0.48rem; }
+    margin: 0.24rem 0 0.48rem;
+}
 
 .more {
-  text-align: center;
-  padding-bottom: 12px; }
-  .more a {
+    text-align: center;
+    padding-bottom: 12px;
+}
+
+.more a {
     font-family: "PingFangSC-Light";
     font-size: 12px;
-      color: rgb(130,130,130);
-    text-decoration: underline!important; }
+    color: rgb(130, 130, 130);
+    text-decoration: underline !important;
+}
 
-  /*图片蒙版*/
-.overlayimg{
-  position: absolute;
-  top: 0;
-  left: 0;
+/*图片蒙版*/
+.overlayimg {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /*间隔*/
