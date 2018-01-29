@@ -9,7 +9,7 @@
         var idcook = $.cookie('idcook');
         var cookstring = typecook + idcook;
         var userid = obj.userId;
-        // var userid = 121547;
+        var userid = 121547;
         console.log(cookstring);
 
         $api.post(urlport + 'comment/list', obj,

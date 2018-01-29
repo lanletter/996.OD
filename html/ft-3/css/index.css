@@ -1,6 +1,7 @@
 body {
     background: #ffffff;
-    font-family: "PingFangSC";
+    font-family: "PingFang SC";
+    overflow: auto;
 }
 
 i.icon-1 {
@@ -21,12 +22,9 @@ i.icon-2 {
     vertical-align: middle;
 }
 
-html, body {
-    height: 100%;
-}
-
 .topic {
     padding-bottom: 3.34rem;
+    overflow: hidden;
 }
 
 .topic .box {
@@ -106,14 +104,6 @@ html, body {
     font-size: 12px;
 }
 
-.topic .info {
-    padding: 0.48rem;
-    font-family: "PingFangSC-Light";
-    font-size: 14px;
-    color: rgb(130, 130, 130);
-    line-height: 0.44rem;
-}
-
 .topic .info-li {
     font-family: "PingFangSC-Light";
     font-weight: lighter;
@@ -161,7 +151,7 @@ html, body {
     background: -ms-linear-gradient(top, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
     background: linear-gradient(to bottom, rgb(118,170,72) 0%, rgb(169,216,113) 100%);
 }
-.greenbg h5 {
+.greenbg h2 {
     padding: 0.4rem 0 0 0.42rem;
     color: #ffffff;
     font-size: 24px;
@@ -173,14 +163,16 @@ html, body {
     line-height: 0.4rem;
     padding: 0.88rem 0 0 0.42rem;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .greenbg p.info {
     padding: 0 0 0 0.42rem;
     color: #ffffff;
     font-size: 12px;
+    line-height: 0.34rem;
 }
 
 .greenbg .box {
@@ -343,7 +335,7 @@ html, body {
     height: 0.6rem;
     line-height: 0.6rem;
     border-radius: 2rem;
-    font-size: 10px;
+    font-size: 12px;
     color: rgb(130, 130, 130);
     margin: 0 0.22rem 0.2rem 0;
 }

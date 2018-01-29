@@ -133,7 +133,7 @@
                     </dd>
                 </div>
                 <div v-if="data.D_ingredients.length !== 0" v-show="data.D_ingredients">
-                    <p class="title_ingredients"><span>D料</span></p>
+                    <p class="title_ingredients"><span>D</span></p>
                     <dd v-for="item in data.D_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
@@ -188,8 +188,8 @@
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
                 <a id="callKitchenware" @click="callKitchenware">
-                    <img :src="item.picturePath" alt="">
-                    <p v-html="item.name"></p>
+                    <img :src="item.products[0].picturePath" alt="">
+                    <p v-html="item.products[0].name"></p>
                 </a>
             </li>
         </ul>
