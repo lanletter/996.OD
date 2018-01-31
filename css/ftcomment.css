@@ -2,6 +2,7 @@
     overflow: hidden;
     background: #fff;
     z-index: 0;
+    margin-top: 0.66rem;
 }
 
 .ft-comment li {
@@ -37,12 +38,15 @@
     height: 0.66rem;
     font-size: 0.48rem;
     color: rgb(31, 31, 31);
+    letter-spacing: 1px;
+    font-weight: bold;
 }
 
 .ft-titles .title2 {
-    height: 0.64rem;
-    font-size: 0.32rem;
-    color: rgb(154, 154, 154);
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.28rem;
+    color: rgb(102, 102, 102);
 }
 
 .ft-comment__header {
@@ -70,7 +74,6 @@
 }
 
 .ft-comment__header .nocomment {
-    margin-top: 0.54rem;
     font-family: "PingFang SC";
     width: 100%;
     height: 1.12rem;
@@ -103,12 +106,11 @@
 }
 
 .ft-comment__header .comment {
-    margin-top: 0.54rem;
     font-family: "PingFang SC";
     width: 100%;
     height: 1.12rem;
-    background: rgba(200, 175, 112, 0.17);
-    border: 1px solid rgb(200, 175, 112);
+    background: rgba(200, 175, 112, 0.05);
+    border: 1px solid rgba(200, 175, 112, 0.3);
     box-sizing: border-box;
     border-radius: 0.12rem;
     margin-bottom: 0.26rem;
@@ -201,15 +203,43 @@
 
 .parentdiv .bottom .praise {
     font-size: 14px;
-    color: rgb(200, 175, 112);
+    color: rgb(200,175,112);
     float: right;
     line-height: 0.4rem;
 }
 
+.praisebg:before {
+    content: ' ';
+    display: inline-block;
+    height: 0.48rem;
+    width: 0.48rem;
+    background: url(../img/GoodLine.png) left top no-repeat;
+    background-size: 0.48rem 0.48rem;
+    vertical-align: middle;
+    margin:-0.04rem 0.08rem -0.04rem 0;
+}
+
+.praisebg2:before {
+    content: ' ';
+    display: inline-block;
+    height: 0.48rem;
+    width: 0.48rem;
+    background: url(../img/GoodFill.png) left top no-repeat;
+    background-size: 0.48rem 0.48rem;
+    vertical-align: middle;
+    margin:-0.04rem 0.08rem -0.04rem 0;
+}
+
 .parentdiv .bottom .dot {
-    font-size: 0.12rem;
-    color: rgb(102, 102, 102);
-    margin: 0 0.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0.4rem;
+    width: 0.06rem;
+    height: 0.06rem;
+    background: rgb(102, 102, 102) center no-repeat;
+    background-size: 0.06rem 0.06rem;
+    border-radius: 50%;
+    margin: 0.17rem 0.2rem;
     float: right;
 }
 
@@ -265,7 +295,7 @@
 
 .ft-comment__content .parentdiv .texts {
     display: block;
-    margin: 0.82rem 0.2rem 0 0.2rem;
+    margin: 0.82rem 0.2rem 0.24rem 0.2rem;
     color: rgb(31, 31, 31);
     font-family: "PingFangSC-Light";
     text-align: justify;
@@ -274,21 +304,20 @@
     line-height: 0.48rem;
 }
 
-.ft-comment__content .center {
-    width: 5.34rem;
+.ft-comment__content .imglist {
+    width: 6.3rem;
+    margin: 0 0.2rem;
 }
 
-.ft-comment__content .center img {
-    margin-bottom: 0.08rem;
-}
-
-.ft-comment__content .center .img {
-    width: 1.6rem;
-    height: 1.6rem;
+.ft-comment__content .imglist .img {
+    width: 2.08rem;
+    height: 2.08rem;
     object-fit: cover;
+    float: left;
+    margin:0 1px 1px 0;
 }
 
-.ft-comment__content .center .imgbig {
+.ft-comment__content .imglist .imgbig {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -316,31 +345,6 @@
     overflow: hidden;
 }
 
-.praisebg:before {
-    content: ' ';
-    display: inline-block;
-    height: 0.32rem;
-    width: 0.32rem;
-    background: url(../img/praise.png) left top no-repeat;
-    background-size: 0.32rem 0.32rem;
-    vertical-align: middle;
-    margin-right: 0.08rem;
-}
-
-.praisebg2 {
-    color: rgb(255, 101, 101) !important;
-}
-
-.praisebg2:before {
-    content: ' ';
-    display: inline-block;
-    height: 0.32rem;
-    width: 0.32rem;
-    background: url(../img/praise-red.png) left top no-repeat;
-    background-size: 0.32rem 0.32rem;
-    vertical-align: middle;
-    margin-right: 0.08rem;
-}
 
 .ft-comment__content .sondiv {
     width: 100%;
@@ -350,15 +354,15 @@
 }
 
 .ft-comment__content .sondiv .review {
-    height: 1.04rem;
     font-size: 14px;
-    font-weight: bold;
+    text-align: center;
     color: rgb(130, 130, 130);
-    margin-left: 0.56rem;
-    padding-top: 0.16rem;
     display: block;
     width: 100%;
-    border-top: 1px solid rgb(237, 237, 237);
+    height: 0.96rem;
+    line-height: 0.96rem;
+    border-radius: 0.1rem;
+    background: rgb(244,244,244);
 }
 
 .son-comments .praise {
@@ -378,10 +382,18 @@
 }
 
 .son-comments .dot {
-    font-size: 0.12rem;
-    color: rgb(102, 102, 102);
-    margin: 0 0.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0.4rem;
+    width: 0.06rem;
+    height: 0.06rem;
+    background: rgb(102, 102, 102) center no-repeat;
+    background-size: 0.06rem 0.06rem;
+    border-radius: 50%;
+    margin: 0.17rem 0.2rem;
 }
+
+.son-comments .praise , .dot , .reply , .delete{float: left;}
 
 .son-comments .reply {
     font-size: 14px;
@@ -451,7 +463,7 @@
     font-size: 14px;
     font-weight: 100;
     letter-spacing: 3px;
-    margin: 0.2rem 0;
+    margin: 0.16rem 0 0.24rem 0;
 }
 
 .more {
@@ -496,7 +508,7 @@
     height: 4.38rem;
     text-align: left;
     color: rgb(154, 154, 154);
-    background: rgba(200, 175, 112, 0.17);
+    background: rgba(200, 175, 112, 0.05);
     border: 1px solid rgba(200, 175, 112, 0.3);
     border-radius: 0.12rem;
     box-sizing: border-box;
@@ -505,9 +517,8 @@
 }
 
 ::-webkit-input-placeholder {
-    color: rgb(201, 203, 213);
-    font-size: 0.28rem;
-    font-weight: lighter;
+    color: rgb(154, 154, 154);
+    font-size: 16px;
 }
 
 :-moz-placeholder {
@@ -530,30 +541,40 @@
     font-weight: lighter;
 }
 
-.leave-words .buttons {
-    position: fixed;
-    bottom: 0;
-    width: 50% !important;
-    height: 48px;
-    line-height: 48px;
-    display: inline-block;
-    font-size: 0.28rem;
-    letter-spacing: 4px;
-    font-weight: 300;
-    color: rgb(247, 247, 247);
-}
+/*.leave-words .buttons {*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*width: 50% !important;*/
+    /*height: 48px;*/
+    /*line-height: 48px;*/
+    /*display: inline-block;*/
+    /*font-size: 0.28rem;*/
+    /*letter-spacing: 4px;*/
+    /*font-weight: 300;*/
+    /*color: rgb(247, 247, 247);*/
+/*}*/
 
 .leave-words .backto {
-    left: 0;
-    width: 50%;
-    background: rgb(201, 203, 213);
+    margin: 0.4rem auto;
+    width: 1.12rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    text-align: center;
+    text-decoration: underline;
+    color: rgb(200,175,112);
+    font-size: 0.28rem;
     z-index: 999999 !important;
 }
 
 .leave-words .commit {
-    left: 50%;
-    width: 50%;
-    background: rgb(255, 101, 101);
+    margin-top: 0.48rem;
+    width: 100%;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    background: rgb(31, 31, 31);
+    color: rgb(200,175,112);
+    font-size: 0.28rem;
+    border-radius: 0.08rem;
     z-index: 999999 !important;
 }
 
@@ -777,7 +798,7 @@
     display: inline-block;
     width: 0.96rem;
     height: 0.96rem;
-    border-radius: 0.08rem;
+    border-radius: 0.12rem;
 }
 
 .up-opcity {
@@ -804,6 +825,9 @@
     float: left;
     width: 0.96rem;
     height: 0.96rem;
+    border-radius: 0.12rem;
+    background:rgb(237,237,237) url("../img/add.png") center no-repeat;
+    background-size: 0.64rem;
 }
 
 /*遮罩层样式*/

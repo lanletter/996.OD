@@ -18,7 +18,6 @@
     <link href="../css/animate.css?ver=403" rel="stylesheet">
     <link href="../css/jf-info.css?ver=403" rel="stylesheet">
     <link href="../css/menu-inpage.css?ver=403" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/video-js.min.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
     <title>菜谱内页</title>
     <script type='text/javascript'>
@@ -69,17 +68,17 @@
         <div class="text">
             <!--<h5><span>来源</span></h5>-->
             <!--<div class="users" v-for="item in data.users">-->
-                <!--<ul class="from h_box">-->
-                    <!--<li class="flex_1">-->
-                        <!--<img :src="item.picturePath" alt=""> <span v-html="item.name"></span>-->
-                    <!--</li>-->
-                    <!--&lt;!&ndash;                     <li class="flex_1 t-r">-->
-                                            <!--<span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>-->
-                                        <!--</li> &ndash;&gt;-->
-                <!--</ul>-->
-                <!--<p class="desc" v-html="item.desc"></p>-->
+            <!--<ul class="from h_box">-->
+            <!--<li class="flex_1">-->
+            <!--<img :src="item.picturePath" alt=""> <span v-html="item.name"></span>-->
+            <!--</li>-->
+            <!--&lt;!&ndash;                     <li class="flex_1 t-r">-->
+            <!--<span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>-->
+            <!--</li> &ndash;&gt;-->
+            <!--</ul>-->
+            <!--<p class="desc" v-html="item.desc"></p>-->
             <!--</div>-->
-            <p class="instructions" v-show="data.instructions !== null" v-html="data.instructions "></p>
+            <p class="instructions richtext" v-show="data.instructions !== null" v-html="data.instructions "></p>
             <ul class="h_box special">
                 <li>
                     <i class="icon-easy"></i><span><b></b><br/><em>难易程度</em></span>
@@ -97,42 +96,42 @@
                     <span class="txt"></i>材料清单</span>
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
-                <div v-if="data.major_ingredients.length !== 0" v-show="data.major_ingredients">
+                <div v-if="data.major_ingredients!==undefined && data.major_ingredients.length" v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>主料</span></p>
                     <dd v-for="item in data.major_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.minor_ingredients.length !== 0" v-show="data.minor_ingredients">
+                <div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length" v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>辅料</span></p>
                     <dd v-for="item in data.minor_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.A_ingredients.length !== 0" v-show="data.A_ingredients">
+                <div v-if="data.A_ingredients!==undefined && data.A_ingredients.length" v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>A料</span></p>
                     <dd v-for="item in data.A_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.B_ingredients.length !== 0" v-show="data.B_ingredients">
+                <div v-if="data.B_ingredients!==undefined && data.B_ingredients.length" v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>B料</span></p>
                     <dd v-for="item in data.B_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.C_ingredients.length !== 0" v-show="data.C_ingredients">
+                <div v-if="data.C_ingredients!==undefined && data.C_ingredients.length" v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>C料</span></p>
                     <dd v-for="item in data.C_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.D_ingredients.length !== 0" v-show="data.D_ingredients">
+                <div v-if="data.D_ingredients!==undefined && data.D_ingredients.length" v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>D</span></p>
                     <dd v-for="item in data.D_ingredients">
                         {{item.name}}
@@ -187,7 +186,7 @@
         <p class="emtitle">绑定菜谱相关设备</p>
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
-                <a id="callKitchenware" @click="callKitchenware">
+                <a v-if="item.products!==undefined && item.products.length" id="callKitchenware" @click="callKitchenware">
                     <img :src="item.products[0].picturePath" alt="">
                     <p v-html="item.products[0].name"></p>
                 </a>
@@ -197,13 +196,13 @@
     <!--<div class="jiange">-->
     <!--</div>-->
     <!--<div id="photograph">-->
-        <!--<div class="camera">-->
-            <!--<img src="../img/photograph4.png">-->
-        <!--</div>-->
-        <!--<div class="txt">-->
-            <!--<h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>-->
-            <!--<p class="txt2">您可以在下方的评论模块发表您的心得体会</p>-->
-        <!--</div>-->
+    <!--<div class="camera">-->
+    <!--<img src="../img/photograph4.png">-->
+    <!--</div>-->
+    <!--<div class="txt">-->
+    <!--<h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>-->
+    <!--<p class="txt2">您可以在下方的评论模块发表您的心得体会</p>-->
+    <!--</div>-->
     <!--</div>-->
 
     <!--<div class="menutype" style="border:none;" id="kitchenwares">-->
@@ -233,18 +232,18 @@
     </div>
 </div>
 
-
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
-<script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
 
+<link href="../css/hls/video-js.css" rel="stylesheet">
+<script src="../js/hls/video.js"></script>
 <script>
     /*获取url*/
     function GetQueryString(name) {
@@ -389,7 +388,9 @@
                     if (data.data.users.length == 0) {
                         $(".text h5").css("display", "none");
                     }
-                    if (data.data.devices.length == 0) {
+
+                    /*判断是否有智能设备*/
+                    if(data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0){
                         $("#devices").css("display", "none");
                         $(".jiange:eq(0)").remove();
                     }

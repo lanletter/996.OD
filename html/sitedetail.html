@@ -30,7 +30,7 @@
 
 <body>
 <div class="site">
-    <header class="header pb188">
+    <header class="header pb216">
         <div class="header__main">
             <div class="site-img img"></div>
             <h3></h3>
@@ -96,8 +96,7 @@
     <div class="order-byn mark"><a>立即预约</a></div>
     <div class="order-pop">
         <div class="pop">
-            <span class="close"></span>
-            <p class="title">立即预约</p>
+            <!--<p class="title">立即预约</p>-->
             <ul>
                 <li>
                     <label>
@@ -134,7 +133,8 @@
                     </label>
                 </li>
             </ul>
-            <a class="green-btn do-order">提交</a>
+            <a class="dark-btn do-order">提交</a>
+            <span class="close">返回详情</span>
         </div>
     </div>
 </div>
@@ -146,7 +146,7 @@
 <script type="text/javascript" src='../js/swiper.jquery.min.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
-<!--<script src="../js/alertdiy.js"></script>-->
+<script src="../js/alertdiy.js"></script>
 <script type="text/javascript">
     //记录是否阻止滚动
     var disableScroll = false;
@@ -217,7 +217,7 @@
             if (data.storePictures.length == 0) {
                 $(".site-pic").css({display: "none"});
             }
-            /*场馆图集*/
+            /*图集*/
             data.storePictures.forEach(function (item, index) {
                 if (item.remark != null) {
                     var img = $('<div class="swiper-slide">\

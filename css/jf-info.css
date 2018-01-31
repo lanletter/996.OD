@@ -37,12 +37,12 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  background: url('../img/play.png');
-  background-size: 1.2rem 1.2rem;
-  margin-left: -0.6rem;
-  margin-top: -0.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url('../img/playIcon.png');
+  background-size: 1.6rem 1.6rem;
+  margin-left: -0.8rem;
+  margin-top: -0.8rem;
   border: none;
 }
 
@@ -54,12 +54,12 @@ html, body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  background: url('../img/play.png');
-  background-size: 1.2rem 1.2rem;
-  margin-left: -0.6rem;
-  margin-top: -0.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url('../img/playIcon.png');
+  background-size: 1.6rem 1.6rem;
+  margin-left: -0.8rem;
+  margin-top: -0.8rem;
   border: none;
 }
 

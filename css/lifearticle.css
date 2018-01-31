@@ -149,7 +149,7 @@
     text-align: justify;
     line-height: 0.56rem;
     background: #fff;
-    padding: 0.8rem 0.6rem 0.48rem 0.6rem;
+    padding: 0.6rem 0.6rem 0.48rem 0.6rem;
     font-size: 14px;
     font-weight: lighter;
     color: rgb(31,31,31);
@@ -170,7 +170,7 @@
 .editing{
     background: #fff;
     padding: 0 0.4rem;
-    padding-bottom: 0.92rem;
+    padding-bottom: 0.8rem;
 }
 .editing p{
     display: block;

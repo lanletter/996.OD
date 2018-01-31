@@ -13,17 +13,21 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="../css/common.css?ver=403" rel="stylesheet">
-    <link href="../css/video-share2.css?ver=403" rel="stylesheet">
+    <link href="../css/common/reset.css?ver=403" rel="stylesheet">
+    <link href="../css/common/common.css?ver=403" rel="stylesheet">
+    <link href="../css/animate.css?ver=403" rel="stylesheet">
+    <link href="../css/jf-info.css?ver=403" rel="stylesheet">
+    <link href="../css/video-share.css?ver=403" rel="stylesheet">
+    <link href="../css/video.css?ver=403" rel="stylesheet">
     <title>直播分享</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function () {
+        (function(){
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function () {
+            (function() {
                 var vds = document.createElement('script');
-                vds.type = 'text/javascript';
+                vds.type='text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -33,86 +37,59 @@
     </script>
 </head>
 <body>
-<div id="videobox" class="video">
-    <video id="vd" controls="controls" webkit-playsinline="" playsinline="" glue-id="video"
-           glue-component="common.component.universalPlayer.video" glue-behavior="common.behavior.player.dispatcher"
-           src="">
-        <source type="video/mp4">
+<!--     <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+        <source src="../src/z.m3u8" type="application/x-mpegURL">
+    </video> -->
+<div class="vide-share videobox">
+    <video id="my_video_1" class="video-js vjs-default-skin" controls="controls" preload="auto" data-setup='{}'>
+            <source :src="kk.url" type="application/x-mpegURL">
     </video>
-    <button class="play"></button>
-</div>
-<div class="vide-share">
-    <div class="tit">
-        <img :src="kk.top[0].cookPicture" alt="">
-        <p class="name">{{kk.top[0].cookName}}</p>
-        <p class="cookdesc">{{kk.top[0].cookDesc}}</p>
-        <p class="header__opt">
-            <span class="view-count">{{kk.top[0].viewCount}}</span>
-        </p>
-        <h3>简介</h3>
-        <p class="introduct">{{kk.top[0].description}}</p>
+    <div class="videobox">
+        <div id="J_prismPlayer" class="prism-player"></div>
+        <span class="num">{{kk.count}}</span>
+    </div>
+
+
+    <div class="anchor">
+        <h4>主播介绍</h4>
+        <ul>
+            <li class="tit">
+                <img :src="kk.cookPicture" alt="">
+                <p>
+                    <strong>{{kk.name}}</strong><br/>
+                    <em>{{kk.topic}}</em>
+                </p>
+            </li>
+            <li class="introduct">{{kk.desc}}</li>
+        </ul>
     </div>
 </div>
 <div class="footer">
-    <img src="../img/logoblack.png">
+    <img src="../img/logored.png">
     <p>
         <span>方太生活家</span>
-        <span>分享生活味道</span>
+        <span>进入APP厨房剧场发表评论</span>
     </p>
-    <a onclick="javascript:window.location.href='http://download.fotilestyle.com/?utm-source=share'">下载App</a>
+    <a onclick="javascript:window.location.href='http://download.fotilestyle.com/?utm-source=share'">进入</a>
 </div>
-<script src="../js/lib.js"></script>
+
+<script>
+    function setFontSize() {
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 10 + "px";
+    }
+    setFontSize();
+    window.onresize = function () {
+        setFontSize();
+    };
+</script>
+<script src="../js/jquery.min.js"></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
-<link href="../css/hls/video-js.css" rel="stylesheet">
-<script src="../js/hls/video.js"></script>
 <script>
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-    }
 
-    var id = GetQueryString("id");
-
-    /*选项卡*/
-    function changeTab(tabCon_num) {
-        for (i = 0; i <= 1; i++) {
-            document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏
-            document.getElementById("tab_" + i).classList.remove("selected");
-        }
-        document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层
-        document.getElementById("tab_" + tabCon_num).classList.add("selected");
-    }
-
-
-    (function () {
-        var video = $('#videobox video')[0],
-            playBtn = $('#videobox .play');
-        playBtn.on('click', function () {
-            $(this).hide();
-            var vheight = $("#videobox video").height();
-            $('#vd').css({"position": "absolute", "left": "0"});
-            $("#videobox").css({height: vheight - 1 + "px"});
-            video.play();
-            video.controls = true;
-        });
-
-        video.addEventListener('ended', function () {
-            playBtn.show();
-            video.controls = false;
-            $('#vd').css({"position": "absolute", "left": "-10rem"});
-            $("#videobox").css({"height": "4.2rem"});
-        }, false);
-        video.addEventListener('pause', function () {
-            playBtn.hide();
-            video.controls = true;
-        }, false);
-    })();
 
     var vm = new Vue({
         el: '.vide-share',
@@ -121,25 +98,23 @@
         },
         created: function () {
             var $this = this;
-            this.$http.post(urlport + '/video/videoBackDetail', {"id": id}).then(function (data) {
+            this.$http.post(urlport + 'video/detail', {"id": "1111"}).then(function (data) {
                 var data = data.data;
                 if (data.status == 200) {
+
                     $this.kk = data.data;
                     console.info($this.kk);
 
-                    /*视频链接*/
-                    $('#videobox').find('#vd').attr('src', $this.kk.top[0].url);
-
                     /*微信分享链接专用*/
-                    var sharetitle = $this.kk.top[0].name;
-                    var sharedesc = $this.kk.top[0].description;
-                    var shareimg = $this.kk.top[0].picturePath;
+                    var sharetitle = data.data.topic;
+                    var sharedesc=data.data.desc;
+                    var shareimg = data.data.picture;
                     var sharestr = window.location.href;
                     var sharelink = sharestr.replace(/api/, "h5");
                     console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                     $.ajax({
                         type: 'GET',
-                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                         success: function (data) {
                             console.info(data.appId);
                             wx.config({
@@ -198,10 +173,12 @@
 
         },
         updated: function () {
-            console.info("error");
+            console.info(11);
         }
     });
 
 </script>
+<script src="../js/video.js"></script>
+<script src="../js/videojs-live.js"></script>
 </body>
 </html>

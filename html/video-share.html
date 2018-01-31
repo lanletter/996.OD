@@ -13,21 +13,17 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <link href="../css/common/reset.css?ver=403" rel="stylesheet">
-    <link href="../css/common/common.css?ver=403" rel="stylesheet">
-    <link href="../css/animate.css?ver=403" rel="stylesheet">
-    <link href="../css/jf-info.css?ver=403" rel="stylesheet">
-    <link href="../css/video-share.css?ver=403" rel="stylesheet">
-    <link href="../css/video.css?ver=403" rel="stylesheet">
+    <link href="../css/common.css?ver=403" rel="stylesheet">
+    <link href="../css/hls/video-share.css?ver=403" rel="stylesheet">
     <title>直播分享</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function(){
+        (function () {
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function() {
+            (function () {
                 var vds = document.createElement('script');
-                vds.type='text/javascript';
+                vds.type = 'text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -37,60 +33,44 @@
     </script>
 </head>
 <body>
-<!--     <video id="my_video_1" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
-        <source src="../src/z.m3u8" type="application/x-mpegURL">
-    </video> -->
-<div class="vide-share videobox">
-    <video id="my_video_1" class="video-js vjs-default-skin" controls="controls" preload="auto" data-setup='{}'>
-            <source :src="kk.url" type="application/x-mpegURL">
-    </video>
-    <div class="videobox">
-        <div id="J_prismPlayer" class="prism-player"></div>
-        <span class="num">{{kk.count}}</span>
+<div class="vide-share">
+    <div id="videobox" class="video">
+        <video id="live-video" class="video-js vjs-default-skin" controls >
+            <source type="application/x-mpegURL">
+        </video>
+        <button class="play"></button>
     </div>
-
-
-    <div class="anchor">
-        <h4>主播介绍</h4>
-        <ul>
-            <li class="tit">
-                <img :src="kk.cookPicture" alt="">
-                <p>
-                    <strong>{{kk.name}}</strong><br/>
-                    <em>{{kk.topic}}</em>
-                </p>
-            </li>
-            <li class="introduct">{{kk.desc}}</li>
-        </ul>
+    <div class="tit">
+        <img :src="kk.cookPicture" alt="">
+        <p class="name">{{kk.name}}</p>
+        <p class="cookdesc">{{kk.topic}}</p>
+        <p class="header__opt">
+            <span class="view-count">{{kk.count}}</span>
+        </p>
+        <h3>简介</h3>
+        <p class="introduct">{{kk.desc}}</p>
     </div>
 </div>
 <div class="footer">
-    <img src="../img/logored.png">
+    <img src="../img/logoblack.png">
     <p>
         <span>方太生活家</span>
-        <span>进入APP厨房剧场发表评论</span>
+        <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='http://download.fotilestyle.com/?utm-source=share'">进入</a>
+    <a onclick="javascript:window.location.href='http://download.fotilestyle.com/?utm-source=share'">下载App</a>
 </div>
 
-<script>
-    function setFontSize() {
-        document.documentElement.style.fontSize = document.documentElement.clientWidth / 375 * 10 + "px";
-    }
-    setFontSize();
-    window.onresize = function () {
-        setFontSize();
-    };
-</script>
-<script src="../js/jquery.min.js"></script>
+<script src="../js/lib.js"></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
+<link href="../css/hls/video-js.css" rel="stylesheet">
+<script src="../js/hls/video.js"></script>
+<script src="../js/hls/videojs-flash.js"></script>
+<script src="../js/hls/videojs-contrib-hls.js"></script>
 <script>
-
-
     var vm = new Vue({
         el: '.vide-share',
         data: {
@@ -104,17 +84,46 @@
 
                     $this.kk = data.data;
                     console.info($this.kk);
+                    console.info($this.kk.url);
+
+                    /*视频直播*/
+                    (function (window, videojs) {
+                        $('#live-video source').attr('src', $this.kk.url);
+                        var player = window.player = videojs('live-video');
+                        var playBtn = $('#videobox .play');
+                        playBtn.on('click', function () {
+                            var vheight = $("#videobox video").height();
+                            $('#live-video').css({"position": "absolute", "left": "0"});
+                            var vheight = $("#live-video").height();
+                            $("#videobox").css({height: vheight - 1 + "px"});
+                            player.play();
+                            playBtn.hide();
+                            $("#live-video .vjs-control-bar").css({"display": "block"});
+                        });
+                        player.on("pause", function(){
+                            playBtn.show();
+                            $("#live-video .vjs-control-bar").css({"display": "none"});
+                        });
+                        player.on("ended", function(){
+                            $('#live-video').css({"position": "absolute", "left": "-10rem"});
+                            playBtn.show();
+                            $("#live-video .vjs-control-bar").css({"display": "none"});
+                        });
+                        player.on("play", function(){
+                            playBtn.trigger("click");
+                        });
+                    }(window, window.videojs));
 
                     /*微信分享链接专用*/
                     var sharetitle = data.data.topic;
-                    var sharedesc=data.data.desc;
+                    var sharedesc = data.data.desc;
                     var shareimg = data.data.picture;
                     var sharestr = window.location.href;
                     var sharelink = sharestr.replace(/api/, "h5");
                     console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
                     $.ajax({
                         type: 'GET',
-                        url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                         success: function (data) {
                             console.info(data.appId);
                             wx.config({
@@ -178,7 +187,5 @@
     });
 
 </script>
-<script src="../js/video.js"></script>
-<script src="../js/videojs-live.js"></script>
 </body>
 </html>

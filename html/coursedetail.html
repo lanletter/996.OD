@@ -30,7 +30,7 @@
 </head>
 
 <body>
-<div>
+<div class="pb216">
     <header class="header">
         <div class="header__main">
             <div class="img" style="height: 10rem;"></div>
@@ -38,10 +38,10 @@
             <!--<span href='#' class="red-btn buy able buynow">购买 &yen;<b></b></span>-->
             <!--<span class="red-btn buy dis"></span>-->
         </div>
-        <div class="header__opt">
-            <span class="view-count"><i></i><strong></strong></span>
-            <span class="comment-count"><i></i><strong></strong></span>
-        </div>
+        <!--<div class="header__opt">-->
+            <!--<span class="view-count"><i></i><strong></strong></span>-->
+            <!--<span class="comment-count"><i></i><strong></strong></span>-->
+        <!--</div>-->
         <article class="course">
             <p class="course-des">
 
@@ -49,7 +49,7 @@
         </article>
     </header>
 
-    <section class="content">
+    <section class="contenter">
         <div class="course-info site-info info">
             <!--<div class="clearfix title-box2">-->
             <!--<h3 class="section-title">课程信息</h3>-->
@@ -60,6 +60,11 @@
                     <p class="title">课程信息</p>
                     <li class="teacher-box">
 
+                    </li>
+                    <li class="bgGroup">
+                        <div class="left"></div>
+                        <p></p>
+                        <div class="right"></div>
                     </li>
                     <li class="address">
                         <div>
@@ -128,69 +133,6 @@
                 </ul>
             </div>
         </div>
-        <div class="dark-bg"></div>
-        <div class="buynow-div">
-            <ul class="editlist">
-                <p class="name localname"><span>上海田林体验馆</span></p>
-                <li class="titles">
-                    <div class="titlepic"></div>
-                    <div class="titletxt">
-                        <p>新年家宴本帮菜新年家宴本帮菜新年家宴本帮菜</p>
-                        <span>¥<b class="price"></b></span>
-                    </div>
-                </li>
-                <li class="list2 border-t">
-                    <div>
-                        <div class="span24">数量</div>
-                        <div class="lightgrey">库存：<b>113</b></div>
-                    </div>
-                    <ul class="numbox">
-                        <li>
-                            <input type="button"/>
-                            <span class="num">1</span>
-                            <input type="button"/>
-                        </li>
-                    </ul>
-                </li>
-                <li class="list3">
-                    <span class="span24">优惠券</span>
-                    <a href="#" class="coupon" id="selectCoupon">选择优惠券</a>
-                    <p style="display: none;border: 1px solid red"><span class="coupontype"></span><span
-                            class="couponumber"></span></p>
-                </li>
-                <li class="list4">
-                    <span class="span24">备注</span>
-                    <textarea id="remarks" placeholder="填写备注信息"></textarea>
-                    <!--<div class="lightgrey" id="remarks"></div>-->
-                    <!--<img src="../img/invalidPen.png" class="editpic">-->
-                </li>
-                <li class="list5">
-                    <span class="span14">开课时间</span>
-                    <p class="time spantext">2017年2月12日 周日 14:00-16:00</p>
-                </li>
-                <li class="list6">
-                    <span class="span14">开课地点</span>
-                    <p class="place spantext">上海徐汇区桃江路8号</p>
-                </li>
-                <li class="list7 border-t">
-                    <p id="desc">开课前7天可申请退课，若不足7天将无法退课；开课前5天可联系客服申请换课，若不足5天将无法换课</p>
-                </li>
-            </ul>
-            <div class="ttprice">
-                <!--<span id="max">0</span>-->
-                <!--<span>¥<b id="allprice">0</b></span>-->
-                <s style="display: none">¥<b id="oldprice">0</b></s>
-                <button class="editbtn" id="purchase">
-                    确认购买
-                    <span><a>¥</a><b id="allprice">0</b></span>
-                </button>
-            </div>
-            <!--<div class="editarea">-->
-            <!--<textarea></textarea>-->
-            <!--<button>确定</button>-->
-            <!--</div>-->
-            <img src="../img/class.png" id="close-div"/>
-        </div>
 
         <div class="site-pic">
             <h3 class="section-title">菜式图集</h3>
@@ -207,10 +149,79 @@
 
     <div class="buy-box">
         <span class="first">
-            <a href="#" class="buy able buynow">立即购买 &yen;<b></b></a>
-            <a class="dis"></a>
+            <a href="#" class="buy able buynow">
+                <em>立即购买</em>
+                <strong>¥</strong>
+                <b></b>
+            </a>
         </span>
+        <span class="dis"></span>
         <span class="last" id="addToCart">加入购物车 </span>
+    </div>
+
+    <div class="dark-bg"></div>
+    <div class="buynow-div">
+        <ul class="editlist">
+            <!--<p class="name localname"><span>上海田林体验馆</span></p>-->
+            <li class="titles">
+                <div class="titlepic"></div>
+                <div class="titletxt">
+                    <p>新年家宴本帮菜新年家宴本帮菜新年家宴本帮菜</p>
+                    <span>¥<b class="price"></b></span>
+                </div>
+            </li>
+            <li class="list2 border-t">
+                <div>
+                    <div class="span18">数量：</div>
+                    <div class="lightgrey">（库存：<b>113</b>）</div>
+                </div>
+                <ul class="numbox">
+                    <li>
+                        <input type="button"/>
+                        <span class="num">1</span>
+                        <input type="button"/>
+                    </li>
+                </ul>
+            </li>
+            <li class="list3 border-t">
+                <span class="span18">优惠券：</span>
+                <a href="#" class="coupon" id="selectCoupon">选择优惠券</a>
+                <p style="display: none;border: 1px solid red"><span class="coupontype"></span><span
+                        class="couponumber"></span></p>
+            </li>
+            <li class="list4 border-t">
+                <span class="span18">备注：</span>
+                <textarea id="remarks" placeholder="填写备注信息"></textarea>
+                <!--<div class="lightgrey" id="remarks"></div>-->
+                <!--<img src="../img/invalidPen.png" class="editpic">-->
+            </li>
+            <li class="list5 border-t">
+                <div class="infos">
+                    <span class="span14">开课时间</span>
+                    <p class="time spantext">2017年2月12日 周日 14:00-16:00</p>
+                    <span class="span14">开课地点</span>
+                    <p class="place spantext">上海徐汇区桃江路8号</p>
+                </div>
+            </li>
+            <li class="list7">
+                <p id="desc">开课前7天可申请退课，若不足7天将无法退课；开课前5天可联系客服申请换课，若不足5天将无法换课</p>
+            </li>
+        </ul>
+        <div class="ttprice">
+            <!--<span id="max">0</span>-->
+            <!--<span>¥<b id="allprice">0</b></span>-->
+            <s style="display: none">¥<b id="oldprice">0</b></s>
+            <button class="editbtn" id="purchase">
+                <em>确认购买</em>
+                <strong>¥</strong>
+                <b id="allprice">0</b>
+            </button>
+        </div>
+        <!--<div class="editarea">-->
+        <!--<textarea></textarea>-->
+        <!--<button>确定</button>-->
+        <!--</div>-->
+        <div id="close-div">返回详情</div>
     </div>
 
     <div class="bottomdiv"></div>
@@ -449,22 +460,22 @@
                         $('.dis').hide();
                         break;
                     case 'EXD': // 已开课
-                        $('.able').hide();
+                        $('.first').hide();
+                        $('.last').hide();
+                        $('.dis').show();
                         $('.dis').text('已开课');
-                        $('.buy-box .first').css('background', '#676a6c');
-                        $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
                         break;
                     case 'DON': //已售罄
-                        $('.able').hide();
+                        $('.first').hide();
+                        $('.last').hide();
+                        $('.dis').show();
                         $('.dis').text('已售罄');
-                        $('.buy-box .first').css('background', '#676a6c');
-                        $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
                         break;
                     case 'DBL': // 已失效
-                        $('.able').hide();
+                        $('.first').hide();
+                        $('.last').hide();
+                        $('.dis').show();
                         $('.dis').text('已失效');
-                        $('.buy-box .first').css('background', '#676a6c');
-                        $('.buy').css('box-shadow', '0px 2px 4px rgba(130,130,130,0.5)');
                         break;
                     default:
                         console.log('no');
@@ -702,8 +713,7 @@
                     } else {
                         var img = $('<div class="swiper-slide">\
                             <figure>\
-                            <img class="overlayimg" src="../img/Overlay Copy 2.png">\
-                            <img src="' + item.picture.path + '">\
+                            <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
                             </figure>\
                             </div>');
                     }

@@ -35,7 +35,7 @@ html, body {
     left: 50%;
     width: 1.28rem;
     height: 1.28rem;
-    background: url('../../img/play.png');
+    background: url('../../img/playIcon.png');
     background-size: 1.28rem 1.28rem;
     margin-left: -0.64rem;
     margin-top: -0.64rem;
@@ -51,12 +51,12 @@ html, body {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 1.2rem;
-    height: 1.2rem;
-    background: url('../../img/play.png');
-    background-size: 1.2rem 1.2rem;
-    margin-left: -0.6rem;
-    margin-top: -0.6rem;
+    width: 1.28rem;
+    height: 1.28rem;
+    background: url('../../img/playIcon.png');
+    background-size: 1.28rem 1.28rem;
+    margin-left: -0.64rem;
+    margin-top: -0.64rem;
     border: none;
 }
 
@@ -82,6 +82,8 @@ html, body {
 }
 
 .vide-share .tit .name {
+    font-size: 0.28rem;
+    color: #1f1f1f;
     margin: 0 auto;
     margin-bottom: 0.2rem;
     text-align: center;

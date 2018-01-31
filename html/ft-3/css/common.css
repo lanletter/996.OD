@@ -192,18 +192,19 @@ button {
 /* 富文本统一样式 */
 .richtext {
   text-align: justify;
-  width:6.54rem;
+  /*width:6.54rem;*/
   background: #fff;
-  padding: 0.48rem;
-  font-size: 16px;
   font-weight: lighter;
   letter-spacing: 0.03rem;
-  color: rgb(76,80,81);
+  color: rgb(31,31,31);
+  padding: 0.8rem 0.6rem;
+  font-size: 14px!important;
+  font-weight: lighter;
   font-family: "PingFangSC-Light"!important;
 }
 .richtext img {
-  width: 7.18rem;
-  margin: 0.08rem -0.32rem;
+  width: 6.7rem;
+  margin: 0.08rem -0.2rem;
 }
 .richtext iframe {
   width: 7.18rem!important;

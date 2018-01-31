@@ -9,7 +9,7 @@
         var idcook = $.cookie('idcook');
         var cookstring = typecook + idcook;
         var userid = obj.userId;
-        var userid = 121547;
+        // var userid = 121547;
         console.log(cookstring);
 
         $api.post(urlport + 'comment/list', obj,
@@ -225,7 +225,7 @@
                           <section class="img-section">\
                             <div id="ssr" class="z_photo upimg-div clear">\
                               <section class="z_file fl">\
-                                <img src="../img/add.png" class="add-img">\
+                                <div class="add-img"></div>\
                                 <input type="file" name="file" id="file" class="file" value="" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple />\
                               </section>\
                             </div>\
@@ -239,7 +239,7 @@
                         </aside>\
                       </div>\
                       <div id="commit" class="buttons commit">提交</div>\
-                      <div class="buttons backto">取消</div>\
+                      <div class="buttons backto">返回详情</div>\
                     </div></div></form>\
                     <ul class="ft-comment-ul">\
                       {{#data}}\
@@ -271,7 +271,7 @@
                                 <p class="bottom">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                   <span class="reply rpbutton" id="reply{{id}}">回复</span>\
-                                  <span class="dot">•</span>\
+                                  <span class="dot"></span>\
                                   <a class="praise">{{likeCount}}</a>\
                                 </p>\
                             </div>\
@@ -291,7 +291,7 @@
                                   <p class="bottom">\
                                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                       <a class="praise">{{likeCount}}</a>\
-                                      <span class="dot">•</span>\
+                                      <span class="dot"></span>\
                                       <span class="reply rpbutton" id="reply{{id}}">回复</span>\
                                       <span class="delete" id="delete{{id}}">删除</span>\
                                       <span class="time"> <time>{{createat}}</time></span>\
@@ -304,7 +304,7 @@
                                 </div>\
                               {{/sonCommentList}}\
                                 <div class="review">\
-                                  共{{sonCommentList.length}}条回复 >\
+                                  查看全部评论\
                                 </div>\
                             </div>\
                         </div>\
@@ -354,7 +354,7 @@
                     /*判断是否有图片*/\
                         $(".imglist").each(function(){\
                             if($(this).children(".img").length>0){\
-                             $(this).css({"padding-top":"0.32rem","margin-bottom":"-0.08rem"});\
+                             $(this).css({"padding-top":"-0.04rem","margin-bottom":"0.6rem"});\
                             }\
                         });\
                     /*图片点击放大*/\
@@ -648,12 +648,12 @@
                 /*查看回复*/
                 $('.review').unbind().click(function (e) {
                     var $soncomments = $(e.target).parent().find(".son-comments");//选中当前二级评论
-                    if ($(e.target).text() !== "收起") {
+                    if ($(e.target).text() !== "收起评论") {
                         $soncomments.not(".Noslide").css("display", "block");
-                        $(e.target).text("收起");
-                    } else if ($(e.target).text() == "收起") {
+                        $(e.target).text("收起评论");
+                    } else if ($(e.target).text() == "收起评论") {
                         $soncomments.not(".Noslide").css("display", "none");
-                        $(e.target).text("共" + $soncomments.length + "条回复")
+                        $(e.target).text("查看全部评论")
                     }
                 });
 

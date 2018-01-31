@@ -121,12 +121,12 @@ button {
 
 .header__opt {
   text-align: center;
-  height: 0.34rem;
+  height: 0.48rem;
 }
 
 .header__opt span {
   display: inline-block;
-  line-height: 0.34rem;
+  line-height: 0.48rem;
   margin-right: 0.32rem;
   color: rgb(154,154,154);
   font-weight: 400;
@@ -137,44 +137,44 @@ button {
 .header__opt span:before {
   display: inline-block;
   content: '';
-  width: 0.34rem;
-  height: 0.34rem;
+  width: 0.48rem;
+  height: 0.48rem;
   margin-right: 0.06rem;
   vertical-align: top;
 }
 
 .header__opt .view-count:before {
-  background: url('../img/rectangle2.png') no-repeat;
-  background-size: 0.34rem 0.34rem;
+  background: url('../img/ViewBig.png') no-repeat;
+  background-size: 0.48rem 0.48rem;
 }
 
 .header__opt .comment-count:before {
-  background: url('../img/rectangle775.png') no-repeat;
-  background-size: 0.34rem 0.34rem;
+  background: url('../img/TalkBig.png') no-repeat;
+  background-size: 0.48rem 0.48rem;
 }
 
 .header__opt .favorite-count:before {
-  background: url('../img/invalidName.png') no-repeat;
-  background-size: 0.34rem 0.34rem;
+  background: url('../img/heartLine.png') no-repeat;
+  background-size: 0.48rem 0.48rem;
 }
 .header__opt .favorite-count2:before {
-   background: url('../img/invalidName-red.png') no-repeat;
-   background-size: 0.34rem 0.34rem;
+   background: url('../img/heartRed.png') no-repeat;
+   background-size: 0.48rem 0.48rem;
  }
 
 /*文章推荐部分信息*/
 .header__opt2 {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: 0.06rem;
   text-align: left;
-  height: 0.34rem;
+  height: 0.32rem;
 }
 
 .header__opt2 span {
   display: inline-block;
-  line-height: 0.34rem;
-  margin-right: 0.32rem;
+  line-height: 0.32rem;
+  margin-right: 0.28rem;
   color: rgb(154,154,154);
   font-weight: 400;
   font-size: 0.24rem;
@@ -184,23 +184,23 @@ button {
 .header__opt2 span:before {
   display: inline-block;
   content: '';
-  width: 0.34rem;
-  height: 0.34rem;
+  width: 0.32rem;
+  height: 0.32rem;
   margin-right: 0.06rem;
   vertical-align: top;
 }
 
 .header__opt2 .view-count:before {
-  background: url('../img/rectangle2.png') no-repeat;
-  background-size: 0.34rem 0.34rem;
+  background: url('../img/View.png') no-repeat;
+  background-size: 0.32rem 0.32rem;
 }
 .header__opt2 .favorite-count:before {
-  background: url('../img/invalidName.png') no-repeat;
-  background-size: 0.34rem 0.34rem;
+  background: url('../img/heartFill.png') no-repeat;
+  background-size: 0.32rem 0.32rem;
 }
 .header__opt2 .favorite-count2:before {
-  background: url('../img/invalidName-red.png') no-repeat;
-  background-size: 0.34rem 0.34rem;
+  background: url('../img/heartRed.png') no-repeat;
+  background-size: 0.32rem 0.32rem;
 }
 
 /*文章超长显示三个点*/
@@ -275,16 +275,18 @@ button {
   text-align: justify;
   width:6.54rem;
   background: #fff;
-  padding: 0.48rem;
-  font-size: 16px;
   font-weight: lighter;
   letter-spacing: 0.03rem;
-  color: rgb(76,80,81);
+  color: rgb(31,31,31);
+  padding: 0 0.6rem;
+  font-size: 14px!important;
+  line-height: 0.56rem;
+  font-weight: lighter;
   font-family: "PingFangSC-Light"!important;
 }
 .richtext img {
-  width: 7.18rem;
-  margin: 0.08rem -0.32rem;
+  width: 7.5rem;
+  margin: 0.08rem -0.6rem;
 }
 .richtext iframe {
   width: 7.18rem!important;

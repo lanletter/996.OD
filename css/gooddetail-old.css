@@ -2,7 +2,7 @@ body {
     background: #fff;
 }
 #main{
-    padding-bottom: 84px;
+    padding-bottom: 109px;
 }
 .slideBox {
     position: relative;
@@ -27,7 +27,7 @@ body {
 }
 
 .swiper-pagination-bullet {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0,0,0, 0.2);
     opacity: 1;
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 .swiper-pagination-bullet-active {
-    background: rgba(255, 255, 255, 1);
+    background: rgb(200,175,112);
 }
 
 .info {
@@ -84,7 +84,8 @@ body {
 }
 
 .info .txt img {
-    max-width: 6.3rem;
+    max-width: 750px;
+    margin: 4px -30px;
 }
 
 .info a {
@@ -96,7 +97,7 @@ body {
 
 .content{
     background: #fff;
-    padding: 30px 10px 40px 10px;
+    padding: 40px 30px;
 }
 .content h3{
     color: rgb(31,31,31);
@@ -113,7 +114,7 @@ body {
     color: #1f1f1f;
     text-align: justify;
 }
-.content p img{width: 100%;}
+.content p img{width: 710px;margin: 4px -20px;}
 
 .main {
     padding:40px 20px;
@@ -193,6 +194,8 @@ body {
     font-size: 12px;
     color: #fff;
     text-align: center;
+    padding: 36px 0 24px 0;
+    background: #fff;
 }
 .fixd div{
     height: 48px;
