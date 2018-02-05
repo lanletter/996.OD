@@ -42,7 +42,7 @@
     </video>
     <button class="play"></button>
 </div>
-<div id="scroll">
+<div id="scroll" class="pbfoot">
     <header class="header">
         <div class="header__main">
             <h3></h3>
@@ -86,6 +86,18 @@
         </div>
     </div>
 </div>
+
+<div class="footer">
+    <img src="../img/logoblack.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+</div>
+
+<p style="display: none;" id="DeviceId"></p>
+
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
@@ -94,6 +106,7 @@
 <script type="text/javascript" src='../js/judge.js'></script>
 <script type="text/javascript" src='../js/url.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src="../js/UMAnalytics.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
 
@@ -109,6 +122,7 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        $(".footer").hide();
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
@@ -187,11 +201,28 @@
             function callback(res) {
                 if (res.status !== 200) {
 //                    alert(res.errorMessage);
-                    window.location.href = "lose.html";
+                    $("body div").remove();
+                    var lost = $('\
+                            <div id="lostdiv">\
+                                <img src="../img/forest.png" class="lostimg">\
+                                <p class="losttxt">该链接已失效~</p>\
+                            </div>\
+                        ');
+                    $('body').append(lost);
                     return;
                 }
                 var data = res.data;
                 console.log(data);
+
+                /*友盟埋点-页面访问*/
+                var isuserid;//登录判断
+                if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+                console.log(isuserid);
+                UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                    "页面类型":"故事详情页",
+                    "页面名称": data.title,
+                    "是否登录":isuserid
+                });
 
                 //判断是否收藏
                 if (userid == 1 || userid == "1") {
@@ -206,10 +237,14 @@
                         $("#star").remove("favorite-count2");
                     }
                 }
-                //app交互——获取登录状态
+                //点击收藏（点击之间有时间间隔3000毫秒）
+                var canClick = true;
                 $('#star').on('click', function (e) {
-                    //alert("id:"+id+"type:"+4+"userid:"+userid);
+                    if (!canClick) return;
+                    canClick = false;
+                    //app交互——获取登录状态
                     ft.isLogin(function (result) {
+                        // alert("id:" + id + "type:" + 4 + "userid:" + userid);
                         var errorcode = result.errorCode.toString();
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
@@ -254,42 +289,56 @@
                             $api.toast('登陆不支持', 2000);
                         }
                     });
+
+                    setTimeout(function () {
+                        canClick = true;
+                    }, 3000);
                 });
 
-//                    $('#star').on('click', function (e) {
-//                        var follow = $("#star").attr('class');
-//                        if (follow == "favorite-count") {
-//                            $api.post(urlport + 'favorite/create', {
-//                                "refId": id,
-//                                "type": 4,
-//                                "userId": userid
-//                            }, function (data) {
-//                                console.log(data);
-//                                console.log("111");
-//                                $("#star").addClass("favorite-count2");
-//                                $("#star").removeClass("favorite-count");
-//                                var oldnum = $("#star").next().text();
-//                                $("#star").next().text(parseInt(oldnum) + 1);
-//                                $api.toast('收藏成功！', 3000);
-//                                //alert('收藏成功！');
-//                            });
-//                        } else if (follow == "favorite-count2") {
-//                            $api.post(urlport + 'favorite/cancel', {
-//                                "refId": id,
-//                                "type": 4,
-//                                "userId": userid
-//                            }, function (data) {
-//                                console.log(data);
-//                                console.log("222");
-//                                $("#star").addClass("favorite-count");
-//                                $("#star").removeClass("favorite-count2");
-//                                var oldnum = $("#star").next().text();
-//                                $("#star").next().text(parseInt(oldnum) - 1);
-//                                $api.toast('取消收藏！', 3000);
-//                                //alert('取消收藏！');
-//                            });
-//                        }
-//                    });
+                // var canClick=true;
+                // $('#star').on('click', function (e) {
+                //     // alert("id:" + id + "type:" + 4 + "userid:" + userid);
+                //     if(!canClick)return;
+                //     canClick=false;
+                //
+                //     var follow = $("#star").attr('class');
+                //     if (follow == "favorite-count") {
+                //         $api.post(urlport + 'favorite/create', {
+                //             "refId": id,
+                //             "type": 4,
+                //             "userId": userid
+                //         }, function (data) {
+                //             console.log(data);
+                //             console.log("111");
+                //             $("#star").addClass("favorite-count2");
+                //             $("#star").removeClass("favorite-count");
+                //             var oldnum = $("#star").next().text();
+                //             $("#star").next().text(parseInt(oldnum) + 1);
+                //             $api.toast('收藏成功！', 3000);
+                //             //alert('收藏成功！');
+                //         });
+                //     } else if (follow == "favorite-count2") {
+                //         $api.post(urlport + 'favorite/cancel', {
+                //             "refId": id,
+                //             "type": 4,
+                //             "userId": userid
+                //         }, function (data) {
+                //             console.log(data);
+                //             console.log("222");
+                //             $("#star").addClass("favorite-count");
+                //             $("#star").removeClass("favorite-count2");
+                //             var oldnum = $("#star").next().text();
+                //             $("#star").next().text(parseInt(oldnum) - 1);
+                //             $api.toast('取消收藏！', 3000);
+                //             //alert('取消收藏！');
+                //         });
+                //     }
+                //
+                //     setTimeout(function(){
+                //         canClick=true;
+                //     },3000);
+                // });
+
                 /*判断是否有视频*/
                 if (data.video.path == null || data.video.path == "") {
                     $(".play").css("display", "none");
@@ -348,17 +397,17 @@
                 }
                 data.recommendWantFeelList.forEach(function (item, index) {
                     var el = $('<li class="recommend__info">\
-            <a href="' + item.url + "&device=" + device + '">\
-            <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
-            <div class="txtbox">\
-              <h5>' + item.title + '</h5>\
-              <p>' + item.content + '</p>\
-              <div class="header__opt2">\
-                   <span class="view-count"><strong>' + item.viewCount + '</strong></span>\
-                   <span class="favorite-count"><strong>' + item.favoriteCount + '</strong></span>\
-              </div>\
-            </div>\
-          </a></li>');
+                    <a href="' + item.url + "&device=" + device + '">\
+                        <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+                        <div class="txtbox">\
+                            <h5 class="titletxt">' + item.title + '</h5>\
+                            <p class="contenttxt">' + item.content + '</p>\
+                            <div class="header__opt2">\
+                               <span class="view-count"><strong>' + item.viewCount + '</strong></span>\
+                               <span class="favorite-count"><strong>' + item.favoriteCount + '</strong></span>\
+                            </div>\
+                        </div>\
+                    </a></li>');
                     $('.recommend ul').append(el);
                 });
 

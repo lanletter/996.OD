@@ -35,7 +35,7 @@
                     <span>登录</span>\
                     <div>请登录后发表评论</div>\
                   </div>\
-                  <br/>\
+                  <img src="../img/sofa.png" class="sofa">\
                   <p class="welcome">暂无评论，快来成为第一个评论的用户吧！</p>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
@@ -105,10 +105,10 @@
                             }
                         });
                     } else {
-                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        userid = 121547;
-                        $('#leave-words').show();
-                        test1(userid);
+                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        // userid = 121547;
+                        // $('#leave-words').show();
+                        // test1(userid);
                     }
                 });
 
@@ -246,7 +246,6 @@
                       <li class="ft-comment__content left-right clearfix">\
                         <div class="boxright"> \
                             <div class="parentdiv">\
-                                <div class="parentkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
                                 <img src="{{userInfomation.titlePicture}}" class="header-pic">\
                                 <p class="titles">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
@@ -278,7 +277,6 @@
                             <div class="words sondiv">\
                               {{#sonCommentList}}\
                                 <div class="son-comments" style="display: none;">\
-                                  <div class="sonkey" style="display: none"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></div>\
                                   <p class="right">\
                                     <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                     <span class="title-box">\
@@ -397,9 +395,9 @@
                                 } else {//？不存在
                                     var result = imgUrl;
                                 }
-                                console.log(result);
+                                // console.log(result);
                                 var imgUrl2 = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_lfit,h_181,w_267/auto-orient,0";
-                                console.log(imgUrl2);
+                                // console.log(imgUrl2);
                                 item.picture.path2 = imgUrl2;
                             } else if (ifurl == -1) {
                                 item.picture.path2 = imgUrl;
@@ -447,10 +445,10 @@
                             }
                         });
                     } else {
-                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        userid = 121547;
-                        $('#leave-words').show();
-                        test2(userid);
+                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        // userid = 121547;
+                        // $('#leave-words').show();
+                        // test2(userid);
                     }
                 });
 
@@ -553,14 +551,14 @@
                             }
                         });
                     } else {
-                        // window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                        var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
-                        var $come = $(e.target).siblings(".key");//数据来自于
-                        parentid = $come.find('.Id').text();
-                        // alert(parentid);
-                        userid = 121547;
-                        $('#leave-words2').show();
-                        test(parentid, userid);
+                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
+                        // var $come = $(e.target).siblings(".key");//数据来自于
+                        // parentid = $come.find('.Id').text();
+                        // // alert(parentid);
+                        // userid = 121547;
+                        // $('#leave-words2').show();
+                        // test(parentid, userid);
                     }
                 });
                 $("#leave-words2 .textarea").focus();//默认选中
@@ -659,14 +657,11 @@
 
                 /*是否出现删除按钮 */
                 if (userid !== 1) {
-                    // console.log($(".userId :contains(" + userid + ")").text());
+                    console.log($(".userId :contains(" + userid + ")").text());
                     var $delete = $(".userId :contains(" + userid + ")");
                     var $nodelete1 = $(".otstatus :contains(2)");
-                    var $nodelete2 = $(".status :contains(EBL)");
                     $delete.parent().parent().siblings(".delete").css("display", "inline-block");
                     $nodelete1.parent().parent().siblings(".delete").css("display", "none");
-                    // $(".otstatus :contains(2)").parentsUntil(".boxright2").find(".text").text("此评论已被用户删除");
-                    // $nodelete2.parent().parent().siblings(".delete").css("display","none");
                 } else {
                     $(".delete").css("display", "none");
                 }

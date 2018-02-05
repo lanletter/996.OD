@@ -18,17 +18,16 @@
     <link href="../css/animate.css?ver=403" rel="stylesheet">
     <link href="../css/jf-info.css?ver=403" rel="stylesheet">
     <link href="../css/menu-inpage.css?ver=403" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/video-js.min.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
     <title>菜谱内页</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function(){
+        (function () {
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function() {
+            (function () {
                 var vds = document.createElement('script');
-                vds.type='text/javascript';
+                vds.type = 'text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -39,60 +38,53 @@
 </head>
 <body>
 <div id="videobox" class="video">
-    <video id="vd" controls="controls" preload="auto"
-           webkit-playsinline="true" playsinline="true" x-webkit-airplay="true" x5-video-player-type="h5"
-           x5-video-player-fullscreen="true" x5-video-ignore-metadata="true" src="">
+    <video id="vd" controls="controls" src="">
         <source type="video/mp4">
     </video>
-    <button class="play"></button>
+    <button class="play" style="display: none;"></button>
     <div class="smartLabel" style="display: none;">智能菜谱</div>
 </div>
-<div class="jf-buy menupage" v-cloak>
-    <!--<div v-if="data.video" class="focus" style="height:18.75rem;z-index: 999999;">-->
-    <!--<div class="playbox">-->
-    <!--<video id="video" width="100%" controls="true" :poster="data.picture">-->
-    <!--<source :src="data.video" type="video/mp4"/>-->
-    <!--Your browser does not support HTML5 video.-->
-    <!--</video>-->
-    <!--<div id="play" class="play" @click="play"></div>-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<div class="focus" v-else>-->
-    <!--&lt;!&ndash;             <img :src="data.images[0]" alt=""> &ndash;&gt;-->
-    <!--<mt-swipe :auto="4000">-->
-    <!--<mt-swipe-item v-for="item in data.images">-->
-    <!--<img :src="item" alt="">-->
-    <!--</mt-swipe-item>-->
+<div class="jf-buy menupage pbfoot" v-cloak>
 
-    <!--</mt-swipe>-->
-    <!--</div>-->
     <div class="title">
         <h4 v-html="data.name"></h4>
         <div style="display: none" id="userid"></div>
         <p class="icons">
             <span><i class="icon-broswer"></i> <b v-html="data.pageviews"></b></span>
-            <span><i class="" id="star" @click="star"></i> <b v-html="data.collect_count || 0"></b></span>
+            <span class="favorite">
+                <i class="" id="star" @click="star"></i>
+                <b v-html="data.collect_count || 0"></b>
+            </span>
         </p>
-        <div class="text">
-            <h5><span>来源</span></h5>
-            <div class="users" v-for="item in data.users">
-                <ul class="from h_box">
-                    <li class="flex_1">
-                        <img :src="item.picturePath" alt=""> <span v-html="item.name"></span>
-                    </li>
-                    <!--                     <li class="flex_1 t-r">
-                                            <span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>
-                                        </li> -->
-                </ul>
-                <p class="desc" v-html="item.desc"></p>
+
+        <div class="menutype" id="classification" style="display: block;">
+            <div class="typebox">
+                <a v-for="item in data.classification">
+                    <span v-html="item.sub.name"></span>
+                </a>
             </div>
-            <p class="instructions" v-show="data.instructions !== null" v-html="data.instructions "></p>
+        </div>
+
+        <div class="text">
+            <!--<h5><span>来源</span></h5>-->
+            <!--<div class="users" v-for="item in data.users">-->
+            <!--<ul class="from h_box">-->
+            <!--<li class="flex_1">-->
+            <!--<img :src="item.picturePath" alt=""> <span v-html="item.name"></span>-->
+            <!--</li>-->
+            <!--&lt;!&ndash;                     <li class="flex_1 t-r">-->
+            <!--<span class="attention" @click="atten" :class="{ gray: isgray }">关注</span>-->
+            <!--</li> &ndash;&gt;-->
+            <!--</ul>-->
+            <!--<p class="desc" v-html="item.desc"></p>-->
+            <!--</div>-->
+            <p class="instructions richtext" v-show="data.instructions !== null" v-html="data.instructions "></p>
             <ul class="h_box special">
                 <li>
                     <i class="icon-easy"></i><span><b></b><br/><em>难易程度</em></span>
                 </li>
                 <li><i class="icon-time"></i>
-                    <span><b class="timenum"></b><b class="timetype">分钟</b><br/><em>预计耗时</em></span>
+                    <span><b class="timenum"></b><b class="timetype">分钟</b><em>预计耗时</em></span>
                 </li>
                 <li><i class="icon-num"></i><span><b></b>人<br/><em>适宜人数</em></span></li>
             </ul>
@@ -101,28 +93,69 @@
         <div class="qingdan">
             <dl>
                 <dt class="tit">
-                    <span class="txt"><i class="icon-1"></i>材料清单</span>
+                    <span class="txt"></i>材料清单</span>
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
-                <dd v-for="item in data.major_ingredients">
-                    <!--<span class="type">{{item.type}}</span>-->
-                    {{item.name}}
-                    <span>{{item.unit}}</span>
-                </dd>
+                <div v-if="data.major_ingredients!==undefined && data.major_ingredients.length"
+                     v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>主料</span></p>
+                    <dd v-for="item in data.major_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length"
+                     v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>辅料</span></p>
+                    <dd v-for="item in data.minor_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.A_ingredients!==undefined && data.A_ingredients.length" v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>A料</span></p>
+                    <dd v-for="item in data.A_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.B_ingredients!==undefined && data.B_ingredients.length" v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>B料</span></p>
+                    <dd v-for="item in data.B_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.C_ingredients!==undefined && data.C_ingredients.length" v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>C料</span></p>
+                    <dd v-for="item in data.C_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.D_ingredients!==undefined && data.D_ingredients.length" v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>D</span></p>
+                    <dd v-for="item in data.D_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
                 <!--<div class="box"></div>-->
                 <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
             </dl>
         </div>
     </div>
 
+    <h4 class="stepTitle">菜谱详情</h4>
     <div class="step" id="ready_steps">
         <div class="stepbox" v-for="(item,index) in data.ready_steps" track-by="$index">
             <h4>准备步骤 <em><span v-html="index + 1"></span>/<span v-html="data.ready_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
+               v-html="item.description"></p>
             <!--<p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>-->
             <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+                <i class="icon-tips"></i><span v-html="item.reminder"></span>
             </div>
             <!--<div class="introduc" v-if="item.reminderText" v-show="item.reminderText">-->
             <!--<i class="icon-tips"></i>小贴士：<span v-html="item.reminderText"></span>-->
@@ -133,9 +166,10 @@
         <div class="stepbox" v-for="(item,index) in data.cooking_steps" track-by="$index">
             <h4>制作步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
-            <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
+               v-html="item.description"></p>
+            <div class="introduc">
+                <i class="icon-tips"></i><span>小贴士小贴士小贴士小贴士</span>
             </div>
         </div>
     </div>
@@ -143,44 +177,37 @@
         <div class="stepbox" v-for="(item,index) in data.end_steps" track-by="$index">
             <h4>结束步骤 <em><span v-html="index + 1"></span>/<span v-html="data.end_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
+               v-html="item.description"></p>
             <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i>小贴士：<span v-html="item.reminder"></span>
+                <i class="icon-tips"></i><span v-html="item.reminder"></span>
             </div>
         </div>
     </div>
+    <p class="dateime">菜谱创建于<span>2017-02-12</span></p>
+
     <div class="equipment" id="devices">
-        <h5>智能设备<br/><em>(选择厨具并开始烹饪)</em></h5>
+        <h5>智能设备</h5>
+        <p class="emtitle">绑定菜谱相关设备</p>
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
-                <a id="callKitchenware" @click="callKitchenware">
-                    <img :src="item.picturePath" alt="">
-                    <p v-html="item.name"></p>
+                <a v-if="item.products!==undefined && item.products.length" id="callKitchenware"
+                   @click="callKitchenware">
+                    <img :src="item.products[0].picturePath" alt="">
+                    <p v-html="item.products[0].name"></p>
                 </a>
             </li>
         </ul>
     </div>
-    <div class="jiange">
-    </div>
-    <div id="photograph">
-        <div class="camera">
-            <img src="../img/photograph4.png">
-        </div>
-        <div class="txt">
-            <h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>
-            <p class="txt2">您可以在下方的评论模块发表您的心得体会</p>
-        </div>
-    </div>
-
-    <!--<div class="bottomdiv"></div>-->
-    <!--<div class="menutype" id="classification" style="display: block;">-->
-    <!--<h3>菜谱分类-->
-    <!--&lt;!&ndash;<a class="fr" href="">全部分类</a>&ndash;&gt;-->
-    <!--</h3>-->
-    <!--<div class="typebox">-->
-    <!--<a v-for="item in data.classification">-->
-    <!--<span v-html="item.sub.name"></span>-->
-    <!--</a>-->
+    <!--<div class="jiange">-->
+    <!--</div>-->
+    <!--<div id="photograph">-->
+    <!--<div class="camera">-->
+    <!--<img src="../img/photograph4.png">-->
+    <!--</div>-->
+    <!--<div class="txt">-->
+    <!--<h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>-->
+    <!--<p class="txt2">您可以在下方的评论模块发表您的心得体会</p>-->
     <!--</div>-->
     <!--</div>-->
 
@@ -207,34 +234,50 @@
     <div id="loading">
         <div class="btnload">下拉加载更多</div>
         <div class="imgift" style="display: none"></div>
-        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+        <div class="nomore" style="display: none">
+            <div></div>
+            已经到底了
+            <div></div>
+        </div>
     </div>
 </div>
 
+<div class="footer" style="display: none;">
+    <img src="../img/logoblack.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+</div>
 
-<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<p style="display: none;" id="DeviceId"></p>
+
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
-<script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
-<script type="text/javascript" src='../js/judge.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
-<!--<script src="../js/alertdiy.js"></script>-->
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
 
+<link href="../css/hls/video-js.css" rel="stylesheet">
+<script src="../js/hls/video.js"></script>
 <script>
     /*获取url*/
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
-    var id = GetQueryString("id")
+
+    var id = GetQueryString("id");
     var device = GetQueryString("device");
+    console.log(device);
+    if(device==null){$(".footer").show();}
     if (device == "ios") {
         var userid;
         //app交互—获取userid
@@ -249,7 +292,7 @@
             } else if (errorCode == "-2") {
             }
         });
-    } else if(device == "android"){
+    } else if (device == "android") {
         var userid;
         //app交互—获取userid
         ft.isLogin2(function (result) {
@@ -258,7 +301,7 @@
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
                 /*Android端判断是否菜谱页*/
-                if ( device == "android") {
+                if (device == "android") {
                     ft.MenuLinght(function (result) {
                         var errorcode = result.errorCode.toString();
                         // alert(errorcode);
@@ -274,6 +317,8 @@
         var userid = 1;
         choose();
     }
+
+    var canClick = true;
 
     function choose() {
 
@@ -295,27 +340,37 @@
                         id = $this.data.id;
                         console.log(id);
                     }
-                    $.loadComment({"pageNum": 1, "pageSize": 10, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
+
+                    /*友盟埋点-页面访问*/
+                    var isuserid;//登录判断
+                    if(userid !==1){ isuserid = "是"; }else { isuserid = "否"; }
+                    DplusAgent.track("页面访问",{
+                        "页面类型":"菜谱详情页",
+                        "页面名称": data.title,
+                        "是否登录":isuserid
+                    });
+
+                    $.loadComment({
+                        "pageNum": 1,
+                        "pageSize": 10,
+                        "refId": parseInt(id),
+                        "type": 1,
+                        "userId": parseInt(userid)
+                    }, 1);
                     $(".icon-easy").next("span").find("b").text(data.data.properties.difficulty);
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
                     $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
                     $(".icon-num").next("span").find("b").text(data.data.fit_number);
-                    /*判断是否有播放器*/
-                    if (data.data.video == null || data.data.video == "") {
-                        $(".play").css("display", "none");
-                    } else {
-                        $('#videobox').find('#vd').attr('src', data.data.video);
-                    }
-                    /*判断是否有智能标签*/
-                    if (data.data.type == 2) {
-                        $(".smartLabel").css("display", "block");
-                    } else {
-                        $(".smartLabel").css("display", "none");
-                    }
+
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
-
-
+                    /*判断是否有播放器*/
+                    if (data.data.video == null || data.data.video == "") {
+                        $(".play").hide();
+                    } else {
+                        $(".play").show();
+                        $('#videobox').find('#vd').attr('src', data.data.video);
+                    }
                     /*播放器*/
                     (function () {
                         var video = $('#videobox video')[0],
@@ -343,7 +398,9 @@
 //            $(".jf-buy").animate({"top": "10rem"}, 1000);
                             $("#videobox").css({"height": "10rem"});
                             $(".jf-buy").css({"top": "10rem"});
-                            if (data.data.type == 2) {$(".smartLabel").show();}
+                            if (data.data.type == 2) {
+                                $(".smartLabel").show();
+                            }
                         }, false);
                         video.addEventListener('pause', function () {
                             playBtn.hide();
@@ -354,21 +411,31 @@
                     /*判断是否收藏*/
                     if (userid == 1 || userid == "1") {
                         $("#star").addClass("icon-msg");
-                        $("#star").remove("icon-msg2");
+                        $("#star").removeClass("icon-msg2");
                     } else {
                         if (data.data.isFavorite == 1) {
                             $("#star").addClass("icon-msg2");
-                            $("#star").remove("icon-msg");
+                            $("#star").removeClass("icon-msg");
                         } else {
                             $("#star").addClass("icon-msg");
-                            $("#star").remove("icon-msg2");
+                            $("#star").removeClass("icon-msg2");
                         }
                     }
+
+                    /*判断是否有智能标签*/
+                    if (data.data.type == 2) {
+                        $(".smartLabel").css("display", "block");
+                    } else {
+                        $(".smartLabel").css("display", "none");
+                    }
+
                     /*判断是否有来源*/
                     if (data.data.users.length == 0) {
                         $(".text h5").css("display", "none");
                     }
-                    if (data.data.devices.length == 0) {
+
+                    /*判断是否有智能设备*/
+                    if (data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
                         $("#devices").css("display", "none");
                         $(".jiange:eq(0)").remove();
                     }
@@ -379,13 +446,13 @@
 //                if(ata.data.kitchenwares.length==0){
 //                    $("#kitchenwares").css("display", "none");
 //                }
-                    if(data.data.ready_steps[0].descriptionText=="" && data.data.ready_steps[0].images[0]==""){
+                    if (data.data.ready_steps[0].descriptionText == "" && data.data.ready_steps[0].images[0] == "") {
                         $("#ready_steps").css("display", "none");
                     }
-                    if(data.data.cooking_steps[0].descriptionText=="" && data.data.cooking_steps[0].images[0]==""){
+                    if (data.data.cooking_steps[0].descriptionText == "" && data.data.cooking_steps[0].images[0] == "") {
                         $("#cooking_steps").css("display", "none");
                     }
-                    if(data.data.end_steps[0].descriptionText=="" && data.data.end_steps[0].images[0]==""){
+                    if (data.data.end_steps[0].descriptionText == "" && data.data.end_steps[0].images[0] == "") {
                         $("#end_steps").css("display", "none");
                     }
 
@@ -465,7 +532,7 @@
             },
             methods: {
                 atten: function () {
-                    if (this.isgray)return;
+                    if (this.isgray) return;
                     this.isgray = true;
                     console.info(11);
                 },
@@ -494,7 +561,11 @@
                     //});
                 },
                 star: function (obj) {
-                    //app交互——获取登录状态
+                    console.log(canClick);
+                    if (!canClick) return;
+                    canClick = false;
+
+                    // app交互——获取登录状态
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();
                         if (errorcode == "1") {
@@ -540,6 +611,43 @@
                             $api.toast('登陆不支持', 2000);
                         }
                     });
+
+                    setTimeout(function () {
+                        canClick = true;
+                    }, 3000);
+
+                    // function favoritecreate() {
+                    //     $api.post(urlport + 'favorite/create', {
+                    //         "refId": id,
+                    //         "type": 1,
+                    //         "userId": 121547
+                    //     }, function (data) {
+                    //         console.log(data);
+                    //         console.log("111");
+                    //         $("#star").addClass("icon-msg2");
+                    //         $("#star").removeClass("icon-msg");
+                    //         var oldnum = $("#star").next().text();
+                    //         $("#star").next().text(parseInt(oldnum) + 1);
+                    //         $api.toast('收藏成功！', 3000);
+                    //     });
+                    // }
+                    //
+                    // function favoritecancel() {
+                    //     $api.post(urlport + 'favorite/cancel', {
+                    //         "refId": id,
+                    //         "type": 1,
+                    //         "userId": 121547
+                    //     }, function (data) {
+                    //         console.log(data);
+                    //         console.log("222");
+                    //         $("#star").addClass("icon-msg");
+                    //         $("#star").removeClass("icon-msg2");
+                    //         var oldnum = $("#star").next().text();
+                    //         $("#star").next().text(parseInt(oldnum) - 1);
+                    //         $api.toast('取消收藏！', 3000);
+                    //     });
+                    // }
+
 
                 }
 

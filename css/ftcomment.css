@@ -61,6 +61,12 @@
 .ft-comment__header .left {
     text-align: left
 }
+.ft-comment__header .sofa{
+    display: block;
+    width: 4.8rem;
+    height: 3.8rem;
+    margin: 0 auto;
+}
 
 .ft-comment__header .welcome {
     display: block;
@@ -71,6 +77,7 @@
     height: 1.24rem;
     line-height: 0.64rem;
     color: rgb(102, 102, 102);
+    margin-bottom: 0.8rem;
 }
 
 .ft-comment__header .nocomment {
@@ -184,7 +191,7 @@
     color: rgb(200, 175, 112);
     border: 1px solid rgb(200, 175, 112);
     border-radius: 0.24rem;
-    display: block;
+    display: none;
 }
 
 .parentdiv .bottom {
@@ -410,6 +417,7 @@
     line-height: 0.4rem;
     color: rgb(154, 154, 154);
     margin-left: 0.8rem;
+    display: none;
 }
 
 .son-comments {

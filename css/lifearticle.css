@@ -19,7 +19,7 @@
     left: 50%;
     width: 1.2rem;
     height: 1.2rem;
-    background: url('../img/play.png');
+    background: url('../img/playIcon.png');
     background-size: 1.2rem 1.2rem;
     margin-left: -0.6rem;
     margin-top: -0.6rem;
@@ -160,9 +160,9 @@
     margin: 0.08rem -0.6rem;
 }
 .content iframe {
-    width: 7.18rem!important;
+    width: 7.5rem!important;
     height: 4rem!important;
-    margin: 0.48rem -0.32rem;
+    margin: 0.48rem -0.6rem;
 }
 .content h2 {font-weight: bold!important;font-size: 18px!important;}
 .content h3 {font-weight: bold!important;font-size: 16px!important;}
@@ -191,15 +191,14 @@
     margin-bottom: 0.4rem;
 }
 .recommend__info a{
-    display: block;
-}
-.recommend__info a img {
-    width: 2.4rem;
+    width: 100%;
     height: 2.4rem;
-    border-radius: 0.16rem;
+    display: block;
+    overflow: hidden;
 }
-.recommend__info a .imgbox {
-    display: inline-block;
+.recommend__info .imgbox {
+    display: block;
+    float: left;
     width: 2.4rem;
     height: 2.4rem;
     background-repeat:no-repeat;
@@ -207,17 +206,20 @@
     -webkit-background-size:auto 2.4rem!important;
     background-position:center;
     border-radius: 0.16rem;
+    overflow: hidden;
 }
 
-.recommend__info a .txtbox {
-    display: inline-block;
-    width: 3.96rem;
-    height: 2.4rem;
+.recommend__info .txtbox {
+    display: block;
+    float: left;
+    width: 3.96rem!important;
+    height: 2.4rem!important;
     text-align: left;
-    position: absolute;
     margin-left: 0.32rem;
+    overflow: hidden;
+    position: relative;
 }
-.recommend__info a .txtbox h5{
+.recommend__info .txtbox .titletxt{
     width: 100%;
     font-size: 0.36rem;
     font-weight: bold;
@@ -227,9 +229,9 @@
     line-height: 0.5rem;
     overflow:hidden;
 }
-.recommend__info a .txtbox p{
-    width: 100%;
-    height: 0.7rem;
+.recommend__info .txtbox .contenttxt{
+    width: 3.96rem!important;
+    height: 0.7rem!important;
     margin-top: 0.18rem;
     line-height: 0.35rem;
     font-size: 0.24rem;

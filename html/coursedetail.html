@@ -482,7 +482,7 @@
 
                 }
 
-                // if (device == "ios" || device == "android") {
+                   if (device == "ios" || device == "android") {
                     $('.buynow').on('click', function () {
                         $('.numbox .num').text("1");
                         $('#allprice').text(data.price);
@@ -522,15 +522,15 @@
                             return;
                         }
                     });
-                // } else {
-                //     $('.buynow').on('click', function () {
-                //         var loginurl = "login.html?id=" + id;
-                //         window.location.href = loginurl;
-                //     });
-                //     $("#addToCart").on("click", function () {
-                //         window.location.href = "http://download.fotilestyle.com/?utm-source=share";
-                //     });
-                // }
+                   } else {
+                       $('.buynow').on('click', function () {
+                           var loginurl = "login.html?id=" + id;
+                           window.location.href = loginurl;
+                       });
+                       $("#addToCart").on("click", function () {
+                           window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                       });
+                   }
                 //app交互——获取优惠券
                 $("#selectCoupon").on("click", function () {
                     // coupontype = 1;

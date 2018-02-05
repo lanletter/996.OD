@@ -92,6 +92,7 @@ button {
   background: transparent;
 }
 
+input,textarea{-webkit-appearance: none;}
 
 /*每部分的标题*/
 .section-title-4 {
@@ -306,7 +307,7 @@ html{
 /*防止footer部分遮挡*/
 .pbfoot{
   background: #fff;
-  padding-bottom: 1.44rem;
+  padding-bottom: 1.44rem!important;
 }
 /*分享出去页面footer部分*/
 .footer{
@@ -362,3 +363,7 @@ html{
   color: rgb(200,175,112);
   margin: 0.34rem 0.4rem 0 0;
 }
+
+/*失效提示*/
+.lostimg{width:3.84rem;height:3.84rem;display:block;margin: 0 auto;margin-top: 2.48rem;}
+.losttxt{width: 100%;margin-top: 0.32rem;text-align: center;color:rgb(201,200,213);font-size: 0.36rem;font-weight: bold;}

@@ -99,18 +99,14 @@
             <!--<p class="title">立即预约</p>-->
             <ul>
                 <li>
-                    <label>
-                        <span class="key first">您的姓名</span>
-                        <input class="name" type="text" placeholder="姓名">
-                    </label>
+                    <span class="key first">您的姓名</span>
+                    <input class="name" type="text" placeholder="姓名" readonlyunselectable="on">
                 </li>
                 <li>
-                    <label>
-                        <span class="key">联系方式</span>
-                        <input type="tel" class="tel" placeholder="手机号码">
-                    </label>
+                    <span class="key">联系方式</span>
+                    <input type="tel" class="tel" placeholder="手机号码" readonlyunselectable="on">
                 </li>
-                <li>
+                <li style="border: none;">
                     <div class="order-type">
                         <span class="key">预约类型</span>
                         <div>
@@ -121,16 +117,12 @@
                     </div>
                 </li>
                 <li>
-                    <label>
-                        <span class="key">预约时间</span>
-                        <input type="text" class="order-time" placeholder="（日期时间选择框，精确到小时）">
-                    </label>
+                    <span class="key">预约时间</span>
+                    <input type="text" class="order-time" placeholder="（日期时间选择框，精确到小时）" readonlyunselectable="on">
                 </li>
                 <li>
-                    <label>
-                        <span class="key">备注</span>
-                        <input type='text' class="des" placeholder="输入备注信息">
-                    </label>
+                    <span class="key">备注</span>
+                    <input type='text' class="des" placeholder="输入备注信息" style="margin-bottom: 0;" readonlyunselectable="on">
                 </li>
             </ul>
             <a class="dark-btn do-order">提交</a>

@@ -22,7 +22,7 @@ html, body {
   display: inline-block;
   width: 0.48rem;
   height: 0.48rem;
-  background: url(../img/heartFill.png) no-repeat center center;
+  background: url(../img/heartLine.png) no-repeat center center;
   background-size: cover;
   vertical-align: middle;
   color: #828282; }
@@ -236,7 +236,8 @@ html, body {
   right: 0.24rem;
   bottom: -0.32rem; }
 
-.menupage .text {
+.menupage .text .instructions{
+  margin-bottom: 0.8rem;
 }
 .menupage .text .users{
   margin-bottom: 0.48rem;

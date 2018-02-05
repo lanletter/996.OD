@@ -275,7 +275,7 @@
     height: 100%;
     width: 100%;
     background-color: #fff;
-    z-index: 999999;
+    z-index: 2;
 }
 
 .order-pop .close {
@@ -292,9 +292,15 @@
 }
 
 .order-pop .pop {
-    margin: 0.9rem 0.48rem 0 0.48rem;
+    overflow: hidden;
+    margin: 1.8rem 0.48rem 0 0.48rem;
 }
 
+.pop li{
+    border-bottom: 1px solid rgb(232, 212, 199);
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+}
 .pop .title {
     margin: 0.8rem 0;
     text-align: center;
@@ -320,26 +326,24 @@
 }
 
 .pop input {
+    display: block;
     width: 100%;
     border: none;
-    border-bottom: 1px solid rgb(232, 212, 199);
-    outline: none;
-    height: 1rem;
-    line-height: 1rem;
-    border-radius: 0;
-    font-size: 24px;
+    height: 0.88rem;
+    line-height: 0.48rem;
+    font-size: 0.48rem;
     color: rgb(31, 31, 31);
-    margin-bottom: 0.6rem;
+    border-radius: 0;
+    overflow:hidden
 }
 
 .pop input::-webkit-input-placeholder {
     color: rgb(154, 154, 154);
     font-size: 12px;
-    line-height: 0.5rem;
+    line-height: 0.88rem;
 }
 
 .pop .order-type {
-    margin-bottom: 0.6rem;
     overflow: hidden;
 }
 
@@ -567,16 +571,14 @@
 .bgGroup div {
     width: 0.2rem !important;
     height: 0.4rem !important;
-    -moz-box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.14) inset; /* For Firefox3.6+ */
-    -webkit-box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.14) inset; /* For Chrome5+, Safari5+ */
-    box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.14) inset;
 }
 
 .bgGroup .left {
     position: absolute;
     top: 0.2rem;
     left: 0;
-    border-radius: 0 0.2rem 0.2rem 0;
+    background: url("../img/Groupleft.png") no-repeat;
+    background-size: 0.2rem 0.4rem;
 }
 
 .bgGroup .right {
@@ -584,6 +586,9 @@
     top: 0.2rem;
     right: 0;
     border-radius: 0.2rem 0 0 0.2rem;
+    -moz-box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.14) inset; /* For Firefox3.6+ */
+    -webkit-box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.14) inset; /* For Chrome5+, Safari5+ */
+    box-shadow: 2px 5px 16px rgba(0, 0, 0, 0.14) inset;
 }
 
 .people-num {
@@ -619,6 +624,7 @@
     text-align: center;
     border-radius: 0.08rem;
     height: 100%;
+    line-height: 0.96rem;
 }
 
 .buy-box span:first-child {

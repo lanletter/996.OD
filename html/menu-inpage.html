@@ -23,11 +23,11 @@
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function(){
+        (function () {
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function() {
+            (function () {
                 var vds = document.createElement('script');
-                vds.type='text/javascript';
+                vds.type = 'text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -41,10 +41,10 @@
     <video id="vd" controls="controls" src="">
         <source type="video/mp4">
     </video>
-    <button class="play"></button>
+    <button class="play" style="display: none;"></button>
     <div class="smartLabel" style="display: none;">智能菜谱</div>
 </div>
-<div class="jf-buy menupage" v-cloak>
+<div class="jf-buy menupage pbfoot" v-cloak>
 
     <div class="title">
         <h4 v-html="data.name"></h4>
@@ -96,14 +96,16 @@
                     <span class="txt"></i>材料清单</span>
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
-                <div v-if="data.major_ingredients!==undefined && data.major_ingredients.length" v-show="data.D_ingredients">
+                <div v-if="data.major_ingredients!==undefined && data.major_ingredients.length"
+                     v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>主料</span></p>
                     <dd v-for="item in data.major_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length" v-show="data.D_ingredients">
+                <div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length"
+                     v-show="data.D_ingredients">
                     <p class="title_ingredients"><span>辅料</span></p>
                     <dd v-for="item in data.minor_ingredients">
                         {{item.name}}
@@ -149,7 +151,8 @@
         <div class="stepbox" v-for="(item,index) in data.ready_steps" track-by="$index">
             <h4>准备步骤 <em><span v-html="index + 1"></span>/<span v-html="data.ready_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
+               v-html="item.description"></p>
             <!--<p class="txt" v-show="item.descriptionText" v-html="item.descriptionText"></p>-->
             <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
                 <i class="icon-tips"></i><span v-html="item.reminder"></span>
@@ -163,9 +166,10 @@
         <div class="stepbox" v-for="(item,index) in data.cooking_steps" track-by="$index">
             <h4>制作步骤 <em><span v-html="index + 1"></span>/<span v-html="data.cooking_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
+               v-html="item.description"></p>
             <div class="introduc">
-                <i class="icon-tips"></i><span >小贴士小贴士小贴士小贴士</span>
+                <i class="icon-tips"></i><span>小贴士小贴士小贴士小贴士</span>
             </div>
         </div>
     </div>
@@ -173,7 +177,8 @@
         <div class="stepbox" v-for="(item,index) in data.end_steps" track-by="$index">
             <h4>结束步骤 <em><span v-html="index + 1"></span>/<span v-html="data.end_steps.length"></span></em></h4>
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''" v-html="item.description"></p>
+            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
+               v-html="item.description"></p>
             <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
                 <i class="icon-tips"></i><span v-html="item.reminder"></span>
             </div>
@@ -186,7 +191,8 @@
         <p class="emtitle">绑定菜谱相关设备</p>
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
-                <a v-if="item.products!==undefined && item.products.length" id="callKitchenware" @click="callKitchenware">
+                <a v-if="item.products!==undefined && item.products.length" id="callKitchenware"
+                   @click="callKitchenware">
                     <img :src="item.products[0].picturePath" alt="">
                     <p v-html="item.products[0].name"></p>
                 </a>
@@ -228,9 +234,24 @@
     <div id="loading">
         <div class="btnload">下拉加载更多</div>
         <div class="imgift" style="display: none"></div>
-        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+        <div class="nomore" style="display: none">
+            <div></div>
+            已经到底了
+            <div></div>
+        </div>
     </div>
 </div>
+
+<div class="footer" style="display: none;">
+    <img src="../img/logoblack.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+</div>
+
+<p style="display: none;" id="DeviceId"></p>
 
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
@@ -249,11 +270,14 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
-    var id = GetQueryString("id")
+
+    var id = GetQueryString("id");
     var device = GetQueryString("device");
+    console.log(device);
+    if(device==null){$(".footer").show();}
     if (device == "ios") {
         var userid;
         //app交互—获取userid
@@ -268,7 +292,7 @@
             } else if (errorCode == "-2") {
             }
         });
-    } else if(device == "android"){
+    } else if (device == "android") {
         var userid;
         //app交互—获取userid
         ft.isLogin2(function (result) {
@@ -277,7 +301,7 @@
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
                 /*Android端判断是否菜谱页*/
-                if ( device == "android") {
+                if (device == "android") {
                     ft.MenuLinght(function (result) {
                         var errorcode = result.errorCode.toString();
                         // alert(errorcode);
@@ -293,6 +317,8 @@
         var userid = 1;
         choose();
     }
+
+    var canClick = true;
 
     function choose() {
 
@@ -314,7 +340,23 @@
                         id = $this.data.id;
                         console.log(id);
                     }
-                    $.loadComment({"pageNum": 1, "pageSize": 10, "refId": parseInt(id), "type": 1, "userId": parseInt(userid)}, 1);
+
+                    /*友盟埋点-页面访问*/
+                    var isuserid;//登录判断
+                    if(userid !==1){ isuserid = "是"; }else { isuserid = "否"; }
+                    DplusAgent.track("页面访问",{
+                        "页面类型":"菜谱详情页",
+                        "页面名称": data.title,
+                        "是否登录":isuserid
+                    });
+
+                    $.loadComment({
+                        "pageNum": 1,
+                        "pageSize": 10,
+                        "refId": parseInt(id),
+                        "type": 1,
+                        "userId": parseInt(userid)
+                    }, 1);
                     $(".icon-easy").next("span").find("b").text(data.data.properties.difficulty);
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
                     $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
@@ -324,8 +366,9 @@
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     /*判断是否有播放器*/
                     if (data.data.video == null || data.data.video == "") {
-                        $(".play").css("display", "none");
+                        $(".play").hide();
                     } else {
+                        $(".play").show();
                         $('#videobox').find('#vd').attr('src', data.data.video);
                     }
                     /*播放器*/
@@ -355,7 +398,9 @@
 //            $(".jf-buy").animate({"top": "10rem"}, 1000);
                             $("#videobox").css({"height": "10rem"});
                             $(".jf-buy").css({"top": "10rem"});
-                            if (data.data.type == 2) {$(".smartLabel").show();}
+                            if (data.data.type == 2) {
+                                $(".smartLabel").show();
+                            }
                         }, false);
                         video.addEventListener('pause', function () {
                             playBtn.hide();
@@ -390,7 +435,7 @@
                     }
 
                     /*判断是否有智能设备*/
-                    if(data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0){
+                    if (data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
                         $("#devices").css("display", "none");
                         $(".jiange:eq(0)").remove();
                     }
@@ -401,13 +446,13 @@
 //                if(ata.data.kitchenwares.length==0){
 //                    $("#kitchenwares").css("display", "none");
 //                }
-                    if(data.data.ready_steps[0].descriptionText=="" && data.data.ready_steps[0].images[0]==""){
+                    if (data.data.ready_steps[0].descriptionText == "" && data.data.ready_steps[0].images[0] == "") {
                         $("#ready_steps").css("display", "none");
                     }
-                    if(data.data.cooking_steps[0].descriptionText=="" && data.data.cooking_steps[0].images[0]==""){
+                    if (data.data.cooking_steps[0].descriptionText == "" && data.data.cooking_steps[0].images[0] == "") {
                         $("#cooking_steps").css("display", "none");
                     }
-                    if(data.data.end_steps[0].descriptionText=="" && data.data.end_steps[0].images[0]==""){
+                    if (data.data.end_steps[0].descriptionText == "" && data.data.end_steps[0].images[0] == "") {
                         $("#end_steps").css("display", "none");
                     }
 
@@ -487,7 +532,7 @@
             },
             methods: {
                 atten: function () {
-                    if (this.isgray)return;
+                    if (this.isgray) return;
                     this.isgray = true;
                     console.info(11);
                 },
@@ -516,7 +561,11 @@
                     //});
                 },
                 star: function (obj) {
-                    //app交互——获取登录状态
+                    console.log(canClick);
+                    if (!canClick) return;
+                    canClick = false;
+
+                    // app交互——获取登录状态
                     ft.isLogin(function (result) {
                         var errorcode = result.errorCode.toString();
                         if (errorcode == "1") {
@@ -562,6 +611,43 @@
                             $api.toast('登陆不支持', 2000);
                         }
                     });
+
+                    setTimeout(function () {
+                        canClick = true;
+                    }, 3000);
+
+                    // function favoritecreate() {
+                    //     $api.post(urlport + 'favorite/create', {
+                    //         "refId": id,
+                    //         "type": 1,
+                    //         "userId": 121547
+                    //     }, function (data) {
+                    //         console.log(data);
+                    //         console.log("111");
+                    //         $("#star").addClass("icon-msg2");
+                    //         $("#star").removeClass("icon-msg");
+                    //         var oldnum = $("#star").next().text();
+                    //         $("#star").next().text(parseInt(oldnum) + 1);
+                    //         $api.toast('收藏成功！', 3000);
+                    //     });
+                    // }
+                    //
+                    // function favoritecancel() {
+                    //     $api.post(urlport + 'favorite/cancel', {
+                    //         "refId": id,
+                    //         "type": 1,
+                    //         "userId": 121547
+                    //     }, function (data) {
+                    //         console.log(data);
+                    //         console.log("222");
+                    //         $("#star").addClass("icon-msg");
+                    //         $("#star").removeClass("icon-msg2");
+                    //         var oldnum = $("#star").next().text();
+                    //         $("#star").next().text(parseInt(oldnum) - 1);
+                    //         $api.toast('取消收藏！', 3000);
+                    //     });
+                    // }
+
 
                 }
 
