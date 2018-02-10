@@ -13,12 +13,12 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <!--<link href="../css/common/reset.css?ver=403" rel="stylesheet">-->
-    <link href="../css/common.css?ver=403" rel="stylesheet">
-    <link href="../css/animate.css?ver=403" rel="stylesheet">
-    <link href="../css/jf-info.css?ver=403" rel="stylesheet">
-    <link href="../css/menu-inpage.css?ver=403" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
+    <!--<link href="../css/common/reset.css?ver=420" rel="stylesheet">-->
+    <link href="../css/common.css?ver=420" rel="stylesheet">
+    <link href="../css/animate.css?ver=420" rel="stylesheet">
+    <link href="../css/jf-info.css?ver=420" rel="stylesheet">
+    <link href="../css/menu-inpage.css?ver=420" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
     <title>菜谱内页</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
@@ -97,7 +97,7 @@
                     <!--<span class="addin fr">加入购物车</span>-->
                 </dt>
                 <div v-if="data.major_ingredients!==undefined && data.major_ingredients.length"
-                     v-show="data.D_ingredients">
+                     v-show="data.major_ingredients">
                     <p class="title_ingredients"><span>主料</span></p>
                     <dd v-for="item in data.major_ingredients">
                         {{item.name}}
@@ -105,28 +105,28 @@
                     </dd>
                 </div>
                 <div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length"
-                     v-show="data.D_ingredients">
+                     v-show="data.minor_ingredients">
                     <p class="title_ingredients"><span>辅料</span></p>
                     <dd v-for="item in data.minor_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.A_ingredients!==undefined && data.A_ingredients.length" v-show="data.D_ingredients">
+                <div v-if="data.A_ingredients!==undefined && data.A_ingredients.length" v-show="data.A_ingredients">
                     <p class="title_ingredients"><span>A料</span></p>
                     <dd v-for="item in data.A_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.B_ingredients!==undefined && data.B_ingredients.length" v-show="data.D_ingredients">
+                <div v-if="data.B_ingredients!==undefined && data.B_ingredients.length" v-show="data.B_ingredients">
                     <p class="title_ingredients"><span>B料</span></p>
                     <dd v-for="item in data.B_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <div v-if="data.C_ingredients!==undefined && data.C_ingredients.length" v-show="data.D_ingredients">
+                <div v-if="data.C_ingredients!==undefined && data.C_ingredients.length" v-show="data.C_ingredients">
                     <p class="title_ingredients"><span>C料</span></p>
                     <dd v-for="item in data.C_ingredients">
                         {{item.name}}
@@ -168,8 +168,8 @@
             <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
             <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
                v-html="item.description"></p>
-            <div class="introduc">
-                <i class="icon-tips"></i><span>小贴士小贴士小贴士小贴士</span>
+            <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
+                <i class="icon-tips"></i><span v-html="item.reminder"></span>
             </div>
         </div>
     </div>
@@ -184,7 +184,7 @@
             </div>
         </div>
     </div>
-    <p class="dateime">菜谱创建于<span>2017-02-12</span></p>
+    <p class="dateime">菜谱创建于:<span v-html="data.create_time"></span></p>
 
     <div class="equipment" id="devices">
         <h5>智能设备</h5>
@@ -341,15 +341,6 @@
                         console.log(id);
                     }
 
-                    /*友盟埋点-页面访问*/
-                    var isuserid;//登录判断
-                    if(userid !==1){ isuserid = "是"; }else { isuserid = "否"; }
-                    DplusAgent.track("页面访问",{
-                        "页面类型":"菜谱详情页",
-                        "页面名称": data.title,
-                        "是否登录":isuserid
-                    });
-
                     $.loadComment({
                         "pageNum": 1,
                         "pageSize": 10,
@@ -435,7 +426,7 @@
                     }
 
                     /*判断是否有智能设备*/
-                    if (data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
+                    if (data.data.devices.length == 0 || data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
                         $("#devices").css("display", "none");
                         $(".jiange:eq(0)").remove();
                     }

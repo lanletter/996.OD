@@ -404,6 +404,7 @@ html, body {
   margin: 0.2rem 0.4rem 0.8rem 0.4rem;
   text-align: left;
   height: 0.34rem;
+  line-height: 0.34rem;
   font-size: 12px;
   color: rgb(214,214,214);
 }
