@@ -12,7 +12,8 @@
 
 <body>
 <ul class="banner">
-    <li v-for="item in data.products" @click="jump(item.activity.id)" class="listbanner" :style="{backgroundImage: 'url(' +item.activity.picture.path+ ')'}">
+    <li v-for="item in data.products" @click="jump(item.activity.id)" class="listbanner"
+        :style="{backgroundImage: 'url(' +item.activity.picture.path+ ')'}">
         <img class="overimg" src="../img/Overlay Copy 2.png">
         <div class="titlebox">
             <h3 v-text="item.activity.title">三明治特辑：浓情加州虎虾云朵三明治三明智明智</h3>
@@ -40,9 +41,10 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
+
     var id = GetQueryString("id");
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
@@ -56,7 +58,7 @@
         },
         created: function () {
             var $this = this;
-            this.$http.post(urlport + 'special/detail', {"id":id}).then(function (data) {
+            this.$http.post(urlport + 'special/detail', {"id": id}).then(function (data) {
                 var data = data.data;
                 console.log(data);
                 if (data.status == 200) {
@@ -64,18 +66,18 @@
                     $this.data = data.data;
                     id = $this.data.id;
                 }
-                document.setTitle = function(t) {
+                document.setTitle = function (t) {
                     document.title = t;
                     var i = document.createElement('iframe');
                     i.style.display = 'none';
-                    i.onload = function() {
-                        setTimeout(function(){
+                    i.onload = function () {
+                        setTimeout(function () {
                             i.remove();
                         })
                     }
                     document.body.appendChild(i);
                 }
-                setTimeout(function(){
+                setTimeout(function () {
                     document.setTitle($this.data.title);
                 })
 
@@ -149,7 +151,7 @@
             addnum: function (m) {
                 return m < 10 ? '0' + m : m
             },
-            format: function (starttime,endtime) {
+            format: function (starttime, endtime) {
                 var $this = this;
                 var time1 = new Date(starttime);
                 var month1 = time1.getMonth() + 1;
@@ -161,22 +163,21 @@
                 var date2 = time2.getDate();
                 var hour2 = time2.getHours();
                 var minute2 = time2.getMinutes();
-                if(month1==month2 && date1==date2){
+                if (month1 == month2 && date1 == date2) {
                     return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
-                            + '-' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
-                }else {
+                        + '-' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
+                } else {
                     return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
-                            + '-' +$this.addnum(month2) + '月' + $this.addnum(date2) + '日' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
+                        + '-' + $this.addnum(month2) + '月' + $this.addnum(date2) + '日' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
                 }
             },
-            jump:function(id){
-//                curriculumurl="https://h5.fotilestyle.com/html/activedetail.html?id="+id+"&device="+device;
-                curriculumurl="http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id="+id+"&device="+device;
+            jump: function (id) {
+                curriculumurl = "https://h5.fotilestyle.com/html/activedetail.html?id=" + id + "&device=" + device;
+                // curriculumurl="http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id="+id+"&device="+device;
                 window.location.href = curriculumurl;
             }
         }
     });
-
 
 
 </script>

@@ -138,6 +138,17 @@
             } else {
                 $('head title').text(data.title);
             }
+
+            /*文章内链接加device*/
+            var qs = 'device=' + device;
+            $content.find('a').each(function () {
+                var href = $(this).attr('href');
+                if (href) {
+                    href += (href.match(/\?/) ? '&' : '?') + qs;
+                    $(this).attr('href', href);
+                }
+            });
+
             /* 时间戳格式转换 */
             var starttime = data.startDate;
             var endtime = data.endDate;
