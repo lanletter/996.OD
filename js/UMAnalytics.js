@@ -22,7 +22,7 @@ function exec(funName, args) {
 };
 
 var UMAnalyticsAgent = {
-  
+
     /**
      * 自定义事件数量统计
      *
@@ -31,7 +31,7 @@ var UMAnalyticsAgent = {
      */
     onEvent : function(eventId) {
         exec("onEvent", [ eventId ]);
-        
+
     },
     /**
      * 自定义事件数量统计
@@ -43,7 +43,7 @@ var UMAnalyticsAgent = {
      */
     onEventWithLabel : function(eventId, eventLabel) {
         exec("onEventWithLabel", [ eventId, eventLabel ]);
-        
+
     },
     /**
      * 自定义事件数量统计
@@ -89,7 +89,7 @@ var UMAnalyticsAgent = {
         exec("onPageEnd", [ pageName ]);
     },
 
-    
+
     /**
      * 统计帐号登录接口 *
      *
@@ -172,7 +172,7 @@ var UMAnalyticsAgent = {
     exchange : function(currencyAmount, currencyType, virtualAmount, channel,
                         orderId) {
         exec("exchange", [ currencyAmount, currencyType, virtualAmount,
-                          channel, orderId ]);
+            channel, orderId ]);
     },
     /**
      * 游戏中真实消费（充值）的时候调用此方法 1.AppStore 2.支付宝 3.网银 4.财付通 5.移动 6.联通 7.电信 8.paypal
@@ -265,7 +265,7 @@ var UMAnalyticsAgent = {
     track : function(eventName) {
         exec("track", [ eventName ]);
     },
-    
+
     /** Dplus增加事件
      * @param eventName
      *              NSString类型.事件名
@@ -277,7 +277,7 @@ var UMAnalyticsAgent = {
         console.log("trackWithProperty方法调用！");
         exec("trackWithProperty", [ eventName, property]);
     },
-    
+
     /** * 设置属性 键值对 会覆盖同名的key
      * 将该函数指定的key-value写入dplus专用文件；APP启动时会自动读取该文件的所有key-value，并将key-value自动作为后续所有track事件的属性。
      * @param property
@@ -287,7 +287,7 @@ var UMAnalyticsAgent = {
     registerSuperProperty : function(property) {
         exec("registerSuperProperty", [property]);
     },
-    
+
     /** * 从dplus专用文件中删除指定key-value
      * @param propertyName
      *              NSString类型.自定义属性
@@ -296,7 +296,7 @@ var UMAnalyticsAgent = {
     unregisterSuperProperty : function(propertyName) {
         exec("unregisterSuperProperty", [propertyName]);
     },
-    
+
     /** 返回dplus专用文件中key对应的value；如果不存在，则返回空
      * @param propertyName
      *              NSString类型.自定义属性
@@ -305,21 +305,21 @@ var UMAnalyticsAgent = {
     getSuperProperty : function(propertyName) {
         exec("getSuperProperty", [propertyName]);
     },
-    
+
     /** 返回Dplus专用文件中的所有key-value；如果不存在，则返回空。
      *
      */
     getSuperProperties : function() {
         exec("getSuperProperties", []);
     },
-    
+
     /** * 清空Dplus专用文件中的所有key-value。
      *
      */
     clearSuperProperties : function() {
         exec("clearSuperProperties", []);
     },
-    
+
     /** * 设置关注事件是否首次触发,只关注eventList前五个合法eventID.只要已经保存五个,此接口无效
      * @param eventList
      *              NSArray类型.自定义属性
