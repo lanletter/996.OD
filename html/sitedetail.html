@@ -138,7 +138,8 @@
 <script type="text/javascript" src='../js/swiper.jquery.min.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
-<script src="../js/alertdiy.js"></script>
+<script src="../js/UMAnalytics.js"></script>
+<!--<script src="../js/alertdiy.js"></script>-->
 <script type="text/javascript">
     //记录是否阻止滚动
     var disableScroll = false;
@@ -187,12 +188,14 @@
             $header.find('.to-call').attr('href', 'tel:' + data.tel);
             $header.find('.service-time time').text(data.serviceTime);
             $('.site-service ul').html(data.remark);
+
             /* 判断是否能预约场馆 */
             if (data.type == 1) {
                 $(".mark").show();
             } else {
                 $(".mark").hide();
             }
+
             /*title取值*/
             var txt = data.title;
             if (txt == undefined) {
@@ -200,6 +203,16 @@
             } else {
                 $('head title').text(data.title);
             }
+
+            /*友盟埋点-页面访问*/
+            var isuserid;//登录判断
+            if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+            console.log(isuserid);
+            UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                "页面类型":"场馆详情页",
+                "页面名称": data.storeName,
+                "是否登录":isuserid
+            });
 
 //      data.storeServices.forEach(function(item, index) {
 //        var item = $('<li>' + item.serviceName + '</li>');

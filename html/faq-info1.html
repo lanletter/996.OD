@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="../css/common.css?ver=403" rel="stylesheet">
+    <!--<link href="../css/jf-info.css?ver=403" rel="stylesheet">-->
+    <title>积分说明</title>
+    <script type='text/javascript'>
+        var _vds = _vds || [];
+        window._vds = _vds;
+        (function () {
+            _vds.push(['setAccountId', '80624a28abff7348']);
+            (function () {
+                var vds = document.createElement('script');
+                vds.type = 'text/javascript';
+                vds.async = true;
+                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(vds, s);
+            })();
+        })();
+    </script>
+    <style>
+        .ullist{
+            width: 100%;
+            height: 0.8rem;
+            padding-left: 0.4rem;
+            border-bottom: 1px solid rgb(237,237,237);
+        }
+        .ullist li{
+            margin:0 0.78rem 0 0;
+            font-size: 0.24rem;
+            color: rgb(154,154,154);
+            height: 0.8rem;
+            line-height: 0.8rem;
+            float: left;
+        }
+        .ullist .cur{
+            color: rgb(31,31,31);
+            font-weight: bold;
+        }
+        .ullist .cur:after {
+            content: '';
+            display: block;
+            width: 50%;
+            border-radius: 0.35rem;
+            margin-top: -1px;
+            margin-left: 25%;
+            height: 4px;
+            background-color: rgb(200,175,112);
+        }
+        .content div{
+            width: 100%;
+        }
+        .content p{color: #1f1f1f;}
+        .content .title{
+            margin: 0.8rem 0.4rem 0 0.4rem;
+            padding-left:0.8rem;
+            font-size: 0.48rem;
+            font-weight: bold;
+            text-indent: -0.8rem;
+            letter-spacing: 1px;
+            line-height: 0.66rem;
+        }
+        .content .texts{
+            text-align: justify;
+            line-height: 0.48rem;
+            margin: 0.4rem 0.6rem 0 0.6rem;
+            font-size: 0.28rem;
+        }
+    </style>
+</head>
+<body>
+<div id="BigDIV" class="content">
+    <div id="JKDiv_0">
+        <p class="title">1、如何获取积分？</p>
+        <p class="texts">在APP内签到、分享内容、购买课程或商品、参与线上活动等可以获取积分。<br>备注：订单生成后如取消订单或退货，积分将自动扣除</p>
+
+        <p class="title">2、完成相关任务能获取多少积分？</p>
+        <p class="texts">
+            注册：首次注册可获3000积分。<br>
+            健康体质测试：首次完成体质测试可获500积分。<br>
+            签到：50积分/次，限每日1次。<br>
+            分享内容：20积分/次，限每日5次。<br>
+            购买：购买可获积分=价格*会员等级享有的积分获取倍率（会员等级倍率可在会员说明中查看）。<br>
+            活动：根据相关活动具体说明发放
+        </p>
+
+        <p class="title">3、积分的有效期是多久？</p>
+        <p class="texts">积分有效期为自获取之日起1年，到期后自动清楚，请及时使用。</p>
+
+        <p class="title">4、积分可以用来做什么？</p>
+        <p class="texts">可在积分商城中进行商品兑换，或在参加其他活动时使用。</p>
+    </div>
+</div>
+</body>
+<script src="../js/lib.js"></script>
+<script>
+    $("li").click(function(e) {
+        $("li").removeClass("cur");
+        $(this).addClass("cur");
+    });
+    function ChangeDiv(divId, divName, zDivCount) {
+        for (i = 0; i <= zDivCount; i++) {
+            document.getElementById(divName + i).style.display = "none";
+        }
+        document.getElementById(divName + divId).style.display = "block";
+    }
+</script>
+</html>

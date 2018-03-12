@@ -254,32 +254,60 @@
                             //收藏
                             var follow = $("#star").attr('class');
                             if (follow == "favorite-count") {
-                                $api.post(urlport + 'favorite/create', {
-                                    "refId": id,
-                                    "type": 4,
-                                    "userId": userid
-                                }, function (data) {
-                                    console.log(data);
-                                    console.log("111");
-                                    $("#star").addClass("favorite-count2");
-                                    $("#star").removeClass("favorite-count");
-                                    var oldnum = $("#star strong").text();
-                                    $("#star strong").text(parseInt(oldnum) + 1);
-                                    $api.toast('收藏成功！', 3000);
+                                $.ajax({
+                                    url: urlport + 'favorite/create',
+                                    type: 'POST',
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 4,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                    success: function (data) {
+                                        console.log(data);
+                                        console.log("111");
+                                        $("#star").addClass("favorite-count2");
+                                        $("#star").removeClass("favorite-count");
+                                        var oldnum = $("#star strong").text();
+                                        $("#star strong").text(parseInt(oldnum) + 1);
+                                        $api.toast('收藏成功！', 3000);
+                                        /*友盟打点：故事收藏*/
+                                        UMAnalyticsAgent.trackWithProperty("h5收藏故事",{
+                                            "故事名称":data.title
+                                        });
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
                                 });
                             } else if (follow == "favorite-count2") {
-                                $api.post(urlport + 'favorite/cancel', {
-                                    "refId": id,
-                                    "type": 4,
-                                    "userId": userid
-                                }, function (data) {
-                                    console.log(data);
-                                    console.log("222");
-                                    $("#star").removeClass("favorite-count2");
-                                    $("#star").addClass("favorite-count");
-                                    var oldnum = $("#star strong").text();
-                                    $("#star strong").text(parseInt(oldnum) - 1);
-                                    $api.toast('取消收藏！', 3000);
+                                $.ajax({
+                                    url: urlport + 'favorite/cancel',
+                                    type: 'POST',
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 4,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                    success: function (data) {
+                                        console.log(data);
+                                        console.log("222");
+                                        $("#star").removeClass("favorite-count2");
+                                        $("#star").addClass("favorite-count");
+                                        var oldnum = $("#star strong").text();
+                                        $("#star strong").text(parseInt(oldnum) - 1);
+                                        $api.toast('取消收藏！', 3000);
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
                                 });
                             }
                         } else if (errorCode == "0") {
@@ -412,28 +440,29 @@
                     $('.recommend ul').append(el);
                 });
 
-                $('.add-care').data('id', data.id).data('follow', false);
-                $('.authorbox').on('click', '.add-care', function (e) {
-                    var id = $(e.target).data('id'),
-                        follow = $(e.target).data('follow');
-                    if (follow) {
-                        $api.post(urlport + 'follow/cookCancel', {
-                            "refId": id,
-                            "type": 2,
-                            "userId": 85507
-                        }, function (data) {
-                            $(e.target).data('follow', false).text('加关注');
-                        });
-                    } else {
-                        $api.post(urlport + 'follow/cook', {
-                            "refId": id,
-                            "type": 2,
-                            "userId": 85507
-                        }, function (data) {
-                            $(e.target).data('follow', true).text('已关注');
-                        });
-                    }
-                });
+                /*导师关注*/
+                // $('.add-care').data('id', data.id).data('follow', false);
+                // $('.authorbox').on('click', '.add-care', function (e) {
+                //     var id = $(e.target).data('id'),
+                //         follow = $(e.target).data('follow');
+                //     if (follow) {
+                //         $api.post(urlport + 'follow/cookCancel', {
+                //             "refId": id,
+                //             "type": 2,
+                //             "userId": 85507
+                //         }, function (data) {
+                //             $(e.target).data('follow', false).text('加关注');
+                //         });
+                //     } else {
+                //         $api.post(urlport + 'follow/cook', {
+                //             "refId": id,
+                //             "type": 2,
+                //             "userId": 85507
+                //         }, function (data) {
+                //             $(e.target).data('follow', true).text('已关注');
+                //         });
+                //     }
+                // });
 
                 /*微信分享链接专用*/
                 var sharetitle = data.title;

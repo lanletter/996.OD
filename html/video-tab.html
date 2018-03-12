@@ -63,6 +63,7 @@
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
+<script src="../js/UMAnalytics.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
@@ -115,7 +116,12 @@
     var vm = new Vue({
         el: '.vide-share',
         data: {
-            kk: {}
+            kk: {},
+            // http: {
+            //     headers: {
+            //         token: 'Basic YXBpOnBhc3N3b3Jk'
+            //     }
+            // }
         },
         created: function () {
             var $this = this;
@@ -124,6 +130,12 @@
                 if (data.status == 200) {
                     $this.kk = data.data;
                     console.info($this.kk);
+
+                    /*友盟埋点-页面访问*/
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                        "页面类型":"微信直播回放",
+                        "页面名称": data.data.name
+                    });
 
                     /*视频链接*/
                     $('#videobox').find('#vd').attr('src', $this.kk.top[0].url);

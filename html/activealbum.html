@@ -58,13 +58,29 @@
         },
         created: function () {
             var $this = this;
-            this.$http.post(urlport + 'special/detail', {"id": id}).then(function (data) {
-                var data = data.data;
-                console.log(data);
+            $.ajax({
+                url: urlport + 'special/detail',
+                type: 'POST',
+                data: JSON.stringify({"id": id}),
+                timeout: 5000, //超时时间
+                contentType: "application/json;charset=utf-8",
+                dataType: 'json', //返回的数据格式
+                success: function (data) {
+                    console.log(data);
+                    callback(data);
+                },
+                error: function (errorMsg) {
+                    console.log('错误');
+                    console.log(errorMsg);
+                }
+            });
+            function callback(res) {
+                var data = res;
+                // console.log(data);
                 if (data.status == 200) {
-                    //console.info(data);
                     $this.data = data.data;
                     id = $this.data.id;
+                    console.log($this.data);
                 }
                 document.setTitle = function (t) {
                     document.title = t;
@@ -142,10 +158,7 @@
                     }
                 })
 
-            }, function () {
-                console.info('error');
-            });
-
+            }
         },
         methods: {
             addnum: function (m) {

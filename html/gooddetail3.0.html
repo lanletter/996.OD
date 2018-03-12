@@ -116,6 +116,7 @@
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script src="../js/url.js"></script>
+<script src="../js/UMAnalytics.js"></script>
 <script src="../js/judge.js"></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <!--<script src="../js/alertdiy.js"></script>-->
@@ -190,6 +191,16 @@
             $main.find('.sales').html(data.salesSupport);
             $(".content p").html(data.content);
             $(".ft-titles .comment_count").text(data.commentCount);
+
+            /*友盟埋点-页面访问*/
+            var isuserid;//登录判断
+            if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+            console.log(isuserid);
+            UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                "页面类型":"商品详情页",
+                "页面名称": data.title,
+                "是否登录":isuserid
+            });
 
             if(device == "ios"){
                 $(".fixd").css({

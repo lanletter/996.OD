@@ -620,20 +620,20 @@
 }
 
 .buy-box span {
-    display: block;
     text-align: center;
     border-radius: 0.08rem;
     height: 100%;
     line-height: 0.96rem;
+    display: none;
 }
 
-.buy-box span:first-child {
+.buy-box .first {
     float: left;
     width: 4.4rem;
     margin-left: 0.4rem;
 }
 
-.buy-box span:last-child {
+.buy-box .last {
     float: right;
     margin-right: 0.4rem;
     width: 2.02rem;
@@ -642,6 +642,15 @@
     color: rgb(200, 175, 112);
     line-height: 0.96rem !important;
     text-align: center;
+}
+
+.buy-box .dis {
+    display: block;
+    margin: 0 0.4rem;
+    background: rgb(214, 214, 214);
+    color: #ffffff;
+    border-radius: 0.08rem;
+    font-size: 0.28rem;
 }
 
 .buy-box a {
@@ -669,15 +678,6 @@
 .buy-box a b {
     font-size: 0.48rem;
     vertical-align: middle
-}
-
-.buy-box .dis {
-    display: block;
-    margin: 0 0.4rem;
-    background: rgb(214, 214, 214);
-    color: #ffffff;
-    border-radius: 0.08rem;
-    font-size: 0.28rem;
 }
 
 .dark-bg {

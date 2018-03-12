@@ -278,8 +278,8 @@
             callbackId: generateID(),
             callback: noop
         },
-        moreKitchen: {
-            name: "moreKitchen",
+        pushStore: {
+            name: "pushStore",
             callbackId: generateID(),
             callback: noop
         },
@@ -416,10 +416,10 @@
     /*********************************************************************
      *                           进入商城厨具列表                             *
      **********************************************************************/
-    ft.moreKitchen = function (fn) {
-        var moreKitchenConfig = ft.mix(true, {}, config.moreKitchen);
-        moreKitchenConfig.callback = fn;
-        callByJS(moreKitchenConfig);
+    ft.pushStore = function (fn) {
+        var pushStoreConfig = ft.mix(true, {}, config.pushStore);
+        pushStoreConfig.callback = fn;
+        callByJS(pushStoreConfig);
     }
     /*********************************************************************
      *                           进入菜谱页的标志                             *

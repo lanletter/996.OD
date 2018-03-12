@@ -444,14 +444,14 @@ html, body {
   background: rgb(254,242,188);
   border-radius: 0.08rem;
 }
-.menupage .step .stepbox .introduc span{display:block;margin-top: 0.2rem}
+.menupage .step .stepbox .introduc span{display:block;margin-top: 0rem}
 .menupage .step .stepbox .icon-tips {
-  display: inline-block;
+  float: left;
   width: 0.12rem;
   height: 0.12rem;
   border-radius: 50%;
   background:rgb(245,212,35);
-  vertical-align: middle;
+  margin-top: 0.1rem;
   margin-left: -0.28rem; }
 
 .menupage .equipment {

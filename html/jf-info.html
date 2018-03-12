@@ -46,7 +46,6 @@
         setFontSize();
         window.onresize = function(){
             setFontSize();
-
         };
     </script>
     <script src="../js/vue.min.js"></script>
@@ -66,11 +65,9 @@
                     if(data.status == 200){
                         $this.instruction = data.data.instruction;
                     }
-                    
                 },function(){
                     console.info('error');
                 });
-
             }
         });
 

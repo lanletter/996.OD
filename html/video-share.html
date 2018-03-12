@@ -64,6 +64,7 @@
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
+<script src="../js/UMAnalytics.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
@@ -85,6 +86,12 @@
                     $this.kk = data.data;
                     console.info($this.kk);
                     console.info($this.kk.url);
+
+                    /*友盟埋点-页面访问*/
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                        "页面类型":"微信直播",
+                        "页面名称": data.data.name,
+                    });
 
                     /*视频直播*/
                     (function (window, videojs) {

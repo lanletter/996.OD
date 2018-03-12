@@ -1,524 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="12月12日，修改了app交互方法参数">
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/christmas.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/congratulate.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/css/christmas.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/css/common.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/12.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/2-1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/2-2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/3-1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/3-3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/8.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/9.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/adresstitle.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/city1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/乐葵烤盘.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/几何杯垫.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/围裙.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/定制笔.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/定制笔记本.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/帆布袋.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/水果玩偶.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/积分.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/童话礼盒.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/那把勺.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift/酸甜苦辣调味罐.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/gift4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/light.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/img/welcome.jpeg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/js/remSize.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/ft-Christmas/mygift.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/albums.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/animate.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/app.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/common.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/common/common.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/common/reset.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/courseform.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/download.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/findpwd.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/ftcomment.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/global.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/gooddetail-old.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/gooddetail.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/healthdetail.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/index.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/jf-info.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/lifearticle.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/lifedetail.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/login.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/menu-inpage.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/mint-ui.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/mobiscroll.animation-2.6.2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/mobiscroll.core-2.6.2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/pay/app.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/pay/global.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/pay/payment.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/shCore.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/shCoreDefault.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/sitedetail.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/swiper.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/video-js.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/video-share.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/video-share2.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/css/video.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/html/findpwd1.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/html/findpwd2.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/html/findpwd3.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/html/login.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/html/signin.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/Group.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/Overlay Copy 2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-e.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-n.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-ne.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-nw.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-s.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-se.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-sw.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-w.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a/imgbox-spinner.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/a7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/account.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/fankui.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/fd.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/nen.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/pu.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/se.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/wu.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/xx_03.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add/you.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/add@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/backto.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/bg.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/broswer@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/button@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/car.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/care.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/careold.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_01_2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_08.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_09.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_17.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_21.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_21_b.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_21_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_22_b.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_22_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_24.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_26.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_27.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_37.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_38.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_39.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_40.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_41.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_42.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_43.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_45.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_46.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_47.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/icon_48.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/map.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_02.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_03.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_04.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_12.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_20.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_21.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_22.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_23.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/class/pre_24.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/clock.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/cmt_btn.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/color.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/color@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/comment.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/custom.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/easy@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/end.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/fill58.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/fill58@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/fill58@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/findx.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/fix2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/food.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/food.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/foods-1@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/foods@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/forest.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/back.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/back2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_08.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_09.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_12.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_13.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_14.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_15.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_16.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_17.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_18.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_19.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_20.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_21.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_21_2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_23.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/icon_24.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m1_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m2_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m3_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m4_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/menu/m5_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/moren.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/pre_01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/share/qq.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/share/sina.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/share/wechat.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/share/wechat2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/star.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/star_hui.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/top.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/tx.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/videoIcon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/global/zhineng.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/goldpng.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/gray.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/gray1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/gray2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/gray3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/gray@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/group2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/group2@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/group3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/group@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/head.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/health/banner.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/health/banner.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/health/icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/health/icon1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/health/lanmei.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/health/yong.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/banner.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/close.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_03_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_04_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/home/icon_05_on.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/horizontal_tip.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/icon_10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/icon_13.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/imgbox-spinner.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/invalidName-fff.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/invalidName-red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/invalidName.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/invalidName2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/invalidPen.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/jiasaw.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/layer1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/layer1@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/layer1@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/list/pre_01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/list/pre_02.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/list/pre_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/list/pre_04.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loading.gif" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/login/cover.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/login/covervideo.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/login/covervideo1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/login/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/login/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/login/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginback.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginbg.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginmsg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginphone.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginpic.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginpwd.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/loginx.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/logo180.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/logo@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/logo_black.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/logo_red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/logored.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/bg.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_08.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_09.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_12.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_13.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_14.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_15.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_16.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_17.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_18.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_19.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_20.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_21.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_23.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_24.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_25.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_26.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/me/icon_27.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/msg@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/nen.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/nen2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/bg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_01_hui.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_04_hui.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/icon_06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_02.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_03.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_04.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_05.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_06.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_07.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_08.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_09.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_10.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_11.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/new/pre_12.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/num@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/path2Copy.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/path2Copy@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/people.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/phone.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/photograph4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/photograph4@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/photograph4@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/pic-1@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/pic-2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/pic@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/play.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/praise-red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/praise.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/anzhuang.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/baoyang.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/caozuo.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/kv_01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/kv_02.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/kv_03.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/01/kv_04.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02/anzhuang.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02/baoyang.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02/caozuo.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02/kv_01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02/kv_02.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/02/kv_03.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/p_1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/p_2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/product/p_3.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/qq@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/recipes/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/recipes/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/recipes/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/rectangle-fff.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/rectangle.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/rectangle2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/rectangle2Copy6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/rectangle775.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/rectangle775@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/reduce@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_8.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_9.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame12.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame13.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame14.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame15.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame16.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame17.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame18.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame19.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame20.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame8.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame9.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/right.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/shadebg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/share.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/shoppingcart.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/shrimp.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/star-red.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/star.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/01.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/02.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/03.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/04.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/05.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/banner.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/hot.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/store/icon_08.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/tel@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/testheader.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/thin0851Cooking.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/thin0851Cooking@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/thin0869SaladBowl.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/thin0869SaladBowl@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/time@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/timewatch.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/tip.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/tips.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/tips@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/tips@3x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/title_box.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/truck2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/welcome/icon_01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/welcome/icon_02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/welcome/icon_03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/welcome/icon_04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/welcome/icon_05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/welcome/icon_06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/img/white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/BigPictureOpen.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/ajaxplus.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/alertdiy.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/api.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/clipboard.swf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/confirm.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/doT.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/fontend.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/ft.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/imgPlugin.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/imgUp.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/jquery-2.1.1.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/jquery.cookie.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/json2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/judge.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/lb.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/lib.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/lib2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/lib的副本.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/loadcomment.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/mint-ui.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/mobiscroll.core-2.6.2.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/pingpp.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/remjs.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/remset.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/s.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/shBrushJScript.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/shCore.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/swiper.jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/swiper.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/url.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/video-hls.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/video.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/video.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/videojs-live.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/vue-resource1.3.4.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/vue-resource@1.3.4.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/vue.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/vue.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/weixin.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/login/js/zepto.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/js/swiper.jquery.min.js" />
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="12月22日，新增圣诞元旦活动">
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/faq-info1.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/faq-info2.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/bannerSC.jpg" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/gooddetail4.1.html" afterPath="$PROJECT_DIR$/html/gooddetail4.1.html" />
+      <change beforePath="$PROJECT_DIR$/css/menu-inpage.css" afterPath="$PROJECT_DIR$/css/menu-inpage.css" />
+      <change beforePath="$PROJECT_DIR$/css/sitedetail.css" afterPath="$PROJECT_DIR$/css/sitedetail.css" />
+      <change beforePath="$PROJECT_DIR$/html/activealbum.html" afterPath="$PROJECT_DIR$/html/activealbum.html" />
+      <change beforePath="$PROJECT_DIR$/html/activedetail.html" afterPath="$PROJECT_DIR$/html/activedetail.html" />
+      <change beforePath="$PROJECT_DIR$/html/coursealbum.html" afterPath="$PROJECT_DIR$/html/coursealbum.html" />
+      <change beforePath="$PROJECT_DIR$/html/coursedetail.html" afterPath="$PROJECT_DIR$/html/coursedetail.html" />
+      <change beforePath="$PROJECT_DIR$/html/courseform.html" afterPath="$PROJECT_DIR$/html/courseform.html" />
+      <change beforePath="$PROJECT_DIR$/html/gooddetail3.0.html" afterPath="$PROJECT_DIR$/html/gooddetail3.0.html" />
+      <change beforePath="$PROJECT_DIR$/html/jf-buy.html" afterPath="$PROJECT_DIR$/html/jf-buy.html" />
+      <change beforePath="$PROJECT_DIR$/html/jf-info.html" afterPath="$PROJECT_DIR$/html/jf-info.html" />
+      <change beforePath="$PROJECT_DIR$/html/lifearticle.html" afterPath="$PROJECT_DIR$/html/lifearticle.html" />
+      <change beforePath="$PROJECT_DIR$/html/menu-inpage.html" afterPath="$PROJECT_DIR$/html/menu-inpage.html" />
+      <change beforePath="$PROJECT_DIR$/html/sitedetail.html" afterPath="$PROJECT_DIR$/html/sitedetail.html" />
+      <change beforePath="$PROJECT_DIR$/html/video-live.html" afterPath="$PROJECT_DIR$/html/video-live.html" />
+      <change beforePath="$PROJECT_DIR$/html/video-share.html" afterPath="$PROJECT_DIR$/html/video-share.html" />
+      <change beforePath="$PROJECT_DIR$/html/video-tab.html" afterPath="$PROJECT_DIR$/html/video-tab.html" />
+      <change beforePath="$PROJECT_DIR$/js/ft.js" afterPath="$PROJECT_DIR$/js/ft.js" />
+      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" afterPath="$PROJECT_DIR$/js/loadcomment.js" />
+      <change beforePath="$PROJECT_DIR$/js/url.js" afterPath="$PROJECT_DIR$/js/url.js" />
+      <change beforePath="$PROJECT_DIR$/z/demo.html" afterPath="$PROJECT_DIR$/z/demo-设备判断.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -540,70 +47,114 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="christmas.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/ft-Christmas/christmas.html">
+      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="250" column="36" lean-forward="true" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
+            <state relative-caret-position="60">
+              <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
               <folding>
-                <element signature="e#1084#1090#0" expanded="true" />
-                <element signature="e#1090#1096#0" expanded="true" />
-                <element signature="e#1099#1105#0" expanded="true" />
-                <element signature="e#1105#1111#0" expanded="true" />
-                <element signature="e#1111#1117#0" expanded="true" />
-                <element signature="e#1117#1123#0" expanded="true" />
-                <element signature="e#1129#1135#0" expanded="true" />
-                <element signature="e#1135#1141#0" expanded="true" />
-                <element signature="e#1171#1177#0" expanded="true" />
-                <element signature="e#1177#1183#0" expanded="true" />
-                <element signature="e#1193#1199#0" expanded="true" />
-                <element signature="e#1199#1205#0" expanded="true" />
-                <element signature="e#1236#1242#0" expanded="true" />
-                <element signature="e#1242#1248#0" expanded="true" />
-                <element signature="e#1258#1264#0" expanded="true" />
-                <marker date="1513928526552" expanded="true" signature="9795:9867" ph="..." />
-                <marker date="1513928526552" expanded="true" signature="9795:9891" ph="..." />
-                <marker date="1513928526552" expanded="true" signature="9795:9923" ph="..." />
+                <element signature="n#style#0;n#img#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1520823266827" expanded="false" signature="11767:11781" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="congratulate.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/ft-Christmas/congratulate.html">
+      <file leaf-file-name="courseform.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/courseform.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-30">
-              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state relative-caret-position="154">
+              <caret line="99" column="12" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mygift.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/ft-Christmas/mygift.html">
+      <file leaf-file-name="coupon-info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/coupon-info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="120" column="8" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+            <state relative-caret-position="220">
+              <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="christmas.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/ft-Christmas/css/christmas.css">
+      <file leaf-file-name="invoicetext.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/invoicetext.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+            <state relative-caret-position="-725">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/login.html">
+      <file leaf-file-name="member-info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/member-info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="86" column="8" lean-forward="true" selection-start-line="86" selection-start-column="8" selection-end-line="93" selection-end-column="9" />
+            <state relative-caret-position="-354">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jf-info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/jf-info.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="68" column="42" lean-forward="true" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1082">
+              <caret line="314" column="8" lean-forward="false" selection-start-line="314" selection-start-column="8" selection-end-line="315" selection-end-column="28" />
+              <folding>
+                <marker date="1520323671820" expanded="true" signature="28046:28566" ph="..." />
+                <marker date="1520323671820" expanded="true" signature="28090:28540" ph="..." />
+                <marker date="1520323671820" expanded="true" signature="28177:28344" ph="..." />
+                <marker date="1520323671820" expanded="true" signature="29404:29704" ph="..." />
+                <marker date="1520323671820" expanded="true" signature="29442:29668" ph="..." />
+                <marker date="1520323671820" expanded="false" signature="29500:29548" ph="..." />
+                <marker date="1520323671820" expanded="true" signature="29792:30018" ph="..." />
+                <marker date="1520323671820" expanded="true" signature="29830:29982" ph="..." />
+                <marker date="1520323671820" expanded="false" signature="29888:29936" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faq-info.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/faq-info.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="125" column="14" lean-forward="true" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faq-info1.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="84" column="33" lean-forward="true" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="faq-info2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -614,44 +165,44 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>swiper-container</find>
-      <find>phoneNum</find>
-      <find>swiper-container2</find>
-      <find>cards</find>
-      <find>swiper-slide</find>
-      <find>login.html</find>
-      <find>ft.isLogin</find>
-      <find>isLogin</find>
-      <find>locationAddress</find>
-      <find>christmas</find>
-      <find>id</find>
-      <find>Login</find>
-      <find>login</find>
-      <find>overdue</find>
-      <find>buyurl</find>
-      <find>cooki</find>
-      <find>courseform</find>
-      <find>mygift</find>
-      <find>userid !== 1</find>
-      <find>gift3</find>
+      <find>UMAnalyticsAgent</find>
+      <find>成功</find>
+      <find>请输入新评论</find>
+      <find>complete</find>
+      <find>homeurl</find>
+      <find>location</find>
+      <find>callKitchenware</find>
+      <find>moreKitchen</find>
+      <find>pushStore</find>
+      <find>authorbox</find>
+      <find>add-care</find>
+      <find>course-info</find>
       <find>userid</find>
-      <find>swiper</find>
-      <find>swiper-wrapper</find>
-      <find>click</find>
-      <find>notice</find>
-      <find>cookie</find>
-      <find>ticketAjax</find>
-      <find>gift5</find>
-      <find>tel</find>
-      <find>today</find>
+      <find>isLogin</find>
+      <find>ajax</find>
+      <find>able</find>
+      <find>footer</find>
+      <find>buynow</find>
+      <find>contenter</find>
+      <find>content</find>
+      <find>first</find>
+      <find>buy-box</find>
+      <find>alert</find>
+      <find>dis</find>
+      <find>post</find>
+      <find>this</find>
+      <find>icon-tips</find>
+      <find>0</find>
+      <find>this.userId</find>
+      <find>POST</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -668,57 +219,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/dropload.js" />
-        <option value="$PROJECT_DIR$/js/lib2.js" />
-        <option value="$PROJECT_DIR$/html/不用了-videotab.html" />
-        <option value="$PROJECT_DIR$/css/video.css" />
-        <option value="$PROJECT_DIR$/css/video-share2.css" />
-        <option value="$PROJECT_DIR$/js/loadcomment备份.js" />
-        <option value="$PROJECT_DIR$/css/lifedetail.css" />
+        <option value="$PROJECT_DIR$/html/faq-info.html" />
+        <option value="$PROJECT_DIR$/css/jf-info.css" />
+        <option value="$PROJECT_DIR$/html/ft-3/css/common.css" />
+        <option value="$PROJECT_DIR$/css/hls/video-share.css" />
         <option value="$PROJECT_DIR$/js/imgUp.js" />
-        <option value="$PROJECT_DIR$/js/lib.js" />
-        <option value="$PROJECT_DIR$/html/ft-3/html/mybody.html" />
-        <option value="$PROJECT_DIR$/html/lose.html" />
-        <option value="$PROJECT_DIR$/html/coursealbum.html" />
-        <option value="$PROJECT_DIR$/html/signin.html" />
-        <option value="$PROJECT_DIR$/js/BigPictureOpen.js" />
-        <option value="$PROJECT_DIR$/html/activedetail.html" />
-        <option value="$PROJECT_DIR$/css/video-share.css" />
-        <option value="$PROJECT_DIR$/js/ajaxplus.js" />
-        <option value="$PROJECT_DIR$/html/findpwd3.html" />
-        <option value="$PROJECT_DIR$/html/video-share.html" />
-        <option value="$PROJECT_DIR$/html/lifedetail.html" />
-        <option value="$PROJECT_DIR$/html/lifearticle.html" />
-        <option value="$PROJECT_DIR$/css/ftcomment.css" />
-        <option value="$PROJECT_DIR$/css/sitedetail.css" />
-        <option value="$PROJECT_DIR$/html/video-tab.html" />
-        <option value="$PROJECT_DIR$/js/url.js" />
-        <option value="$PROJECT_DIR$/js/loadcomment.js" />
-        <option value="$PROJECT_DIR$/html/gooddetail.html" />
-        <option value="$PROJECT_DIR$/js/alertdiy.js" />
-        <option value="$PROJECT_DIR$/css/lifearticle.css" />
         <option value="$PROJECT_DIR$/css/gooddetail-old.css" />
-        <option value="$PROJECT_DIR$/html/gooddetail-old.html" />
-        <option value="$PROJECT_DIR$/css/download.css" />
-        <option value="$PROJECT_DIR$/html/jf-buy.html" />
-        <option value="$PROJECT_DIR$/html/coursedetail.html" />
-        <option value="$PROJECT_DIR$/js/video.js" />
-        <option value="$PROJECT_DIR$/css/gooddetail.css" />
-        <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
+        <option value="$PROJECT_DIR$/css/video-share2.css" />
+        <option value="$PROJECT_DIR$/css/lifearticle.css" />
+        <option value="$PROJECT_DIR$/css/ftcomment.css" />
+        <option value="$PROJECT_DIR$/html/lose.html" />
+        <option value="$PROJECT_DIR$/html/ft-3/html/mybody.html" />
+        <option value="$PROJECT_DIR$/html/ft-3/css/index.css" />
+        <option value="$PROJECT_DIR$/js/Umeng.js" />
+        <option value="$PROJECT_DIR$/js/Umeng2.js" />
+        <option value="$PROJECT_DIR$/html/menu-inpage备份.html" />
+        <option value="$PROJECT_DIR$/z/demo-UM/index.html" />
+        <option value="$PROJECT_DIR$/html/lifedetail.html" />
+        <option value="$PROJECT_DIR$/css/lifedetail.css" />
+        <option value="$PROJECT_DIR$/html/login/js/url.js" />
+        <option value="$PROJECT_DIR$/html/ft-3/js/url.js" />
+        <option value="$PROJECT_DIR$/fotilepopularize/css/poppage.css" />
         <option value="$PROJECT_DIR$/css/common.css" />
+        <option value="$PROJECT_DIR$/css/download.css" />
+        <option value="$PROJECT_DIR$/z/demo.html" />
+        <option value="$PROJECT_DIR$/js/ajaxbefor.js" />
+        <option value="$PROJECT_DIR$/js/ajaxsetup.js" />
+        <option value="$PROJECT_DIR$/fotilepopularize/demo3" />
+        <option value="$PROJECT_DIR$/js/UMAnalytics.js" />
+        <option value="$PROJECT_DIR$/fotilepopularize/type_ios.html" />
+        <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
+        <option value="$PROJECT_DIR$/html/sitedetail.html" />
+        <option value="$PROJECT_DIR$/html/video-share.html" />
+        <option value="$PROJECT_DIR$/js/loadcomment.js" />
         <option value="$PROJECT_DIR$/js/ft.js" />
+        <option value="$PROJECT_DIR$/html/lifearticle.html" />
+        <option value="$PROJECT_DIR$/html/activedetail.html" />
+        <option value="$PROJECT_DIR$/html/activealbum.html" />
+        <option value="$PROJECT_DIR$/html/coursealbum.html" />
+        <option value="$PROJECT_DIR$/html/coursedetail.html" />
+        <option value="$PROJECT_DIR$/css/sitedetail.css" />
+        <option value="$PROJECT_DIR$/html/courseform.html" />
+        <option value="$PROJECT_DIR$/css/menu-inpage.css" />
+        <option value="$PROJECT_DIR$/html/signin.html" />
+        <option value="$PROJECT_DIR$/js/url.js" />
+        <option value="$PROJECT_DIR$/html/video-tab.html" />
+        <option value="$PROJECT_DIR$/html/video-live.html" />
+        <option value="$PROJECT_DIR$/html/jf-buy.html" />
+        <option value="$PROJECT_DIR$/html/faq-info1.html" />
+        <option value="$PROJECT_DIR$/html/faq-info2.html" />
+        <option value="$PROJECT_DIR$/html/jf-info.html" />
         <option value="$PROJECT_DIR$/html/menu-inpage.html" />
-        <option value="$PROJECT_DIR$/html/gooddetail4.1.html" />
-        <option value="$PROJECT_DIR$/ft-Christmas/js/remSize.js" />
-        <option value="$PROJECT_DIR$/ft-Christmas/Christmas.html" />
-        <option value="$PROJECT_DIR$/html/ft-Christmas/Christmas.html" />
-        <option value="$PROJECT_DIR$/html/login/login.html" />
-        <option value="$PROJECT_DIR$/html/login/html/login.html" />
-        <option value="$PROJECT_DIR$/html/login/html/signin.html" />
-        <option value="$PROJECT_DIR$/html/ft-Christmas/congratulate.html" />
-        <option value="$PROJECT_DIR$/html/ft-Christmas/mygift.html" />
-        <option value="$PROJECT_DIR$/html/ft-Christmas/css/christmas.css" />
-        <option value="$PROJECT_DIR$/html/ft-Christmas/christmas.html" />
       </list>
     </option>
   </component>
@@ -729,10 +280,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="749" />
+    <option name="x" value="372" />
     <option name="y" value="23" />
-    <option name="width" value="691" />
-    <option name="height" value="815" />
+    <option name="width" value="1068" />
+    <option name="height" value="832" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -752,8 +303,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -770,6 +319,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -786,18 +337,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html/login/html" />
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/img/emoticons" />
-      <recent name="$PROJECT_DIR$/css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html/login" />
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/js" />
-      <recent name="$PROJECT_DIR$/ft-Christmas/css" />
-      <recent name="$PROJECT_DIR$/ft-Christmas/js" />
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/fotilepopularize" />
+      <recent name="$PROJECT_DIR$/fotilepopularize/mp4" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/z/demo-deeplink" />
+      <recent name="$PROJECT_DIR$/fotilepopularize" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/z/demo-hls/html" />
+      <recent name="$PROJECT_DIR$/z" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -950,133 +502,28 @@
       <workItem from="1513063200106" duration="22000" />
       <workItem from="1513748732408" duration="1680000" />
       <workItem from="1513757778163" duration="12370000" />
-      <workItem from="1513828328970" duration="41122000" />
-    </task>
-    <task id="LOCAL-00018" summary="8月2日晚">
-      <created>1501755703883</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1501755703883</updated>
-    </task>
-    <task id="LOCAL-00019" summary="8月3日晚">
-      <created>1501770183201</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1501770183201</updated>
-    </task>
-    <task id="LOCAL-00020" summary="8月4日早">
-      <created>1501814582091</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1501814582091</updated>
-    </task>
-    <task id="LOCAL-00021" summary="8月4日晚">
-      <created>1501851656242</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1501851656242</updated>
-    </task>
-    <task id="LOCAL-00022" summary="8月14日">
-      <created>1502705320157</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1502705320157</updated>
-    </task>
-    <task id="LOCAL-00023" summary="8月25日">
-      <created>1503659285435</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1503659285436</updated>
-    </task>
-    <task id="LOCAL-00024" summary="8月29日">
-      <created>1503994013067</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1503994013067</updated>
-    </task>
-    <task id="LOCAL-00025" summary="9月6日">
-      <created>1504686056379</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1504686056379</updated>
-    </task>
-    <task id="LOCAL-00026" summary="9月8日">
-      <created>1504838357758</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1504838357758</updated>
-    </task>
-    <task id="LOCAL-00027" summary="9月26日">
-      <created>1506397223687</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1506397223687</updated>
-    </task>
-    <task id="LOCAL-00028" summary="9月27日">
-      <created>1506481838853</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1506481838854</updated>
-    </task>
-    <task id="LOCAL-00029" summary="10月10日">
-      <created>1507617350560</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1507617350560</updated>
-    </task>
-    <task id="LOCAL-00030" summary="10月11日">
-      <created>1507706006075</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1507706006077</updated>
-    </task>
-    <task id="LOCAL-00031" summary="10月13日">
-      <created>1507902906342</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1507902906342</updated>
-    </task>
-    <task id="LOCAL-00032" summary="10月13日-2">
-      <created>1507904281312</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1507904281312</updated>
-    </task>
-    <task id="LOCAL-00033" summary="10月14日">
-      <created>1507953360914</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1507953360914</updated>
-    </task>
-    <task id="LOCAL-00034" summary="10月15日">
-      <created>1508042766540</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1508042766540</updated>
-    </task>
-    <task id="LOCAL-00035" summary="10月17日">
-      <created>1508204511341</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1508204511341</updated>
+      <workItem from="1513828328970" duration="42426000" />
+      <workItem from="1513931428961" duration="1505000" />
+      <workItem from="1513934810642" duration="699000" />
+      <workItem from="1513952175366" duration="1909000" />
+      <workItem from="1514002963625" duration="637000" />
+      <workItem from="1514185277911" duration="2406000" />
+      <workItem from="1514188660132" duration="1577000" />
+      <workItem from="1514270641471" duration="373000" />
+      <workItem from="1514340123778" duration="39582000" />
+      <workItem from="1514691320253" duration="3075000" />
+      <workItem from="1515045991589" duration="933000" />
+      <workItem from="1515139285830" duration="1667000" />
+      <workItem from="1515141923441" duration="1325000" />
+      <workItem from="1515549895842" duration="2290000" />
+      <workItem from="1515636080953" duration="1614000" />
+      <workItem from="1515659600379" duration="22850000" />
+      <workItem from="1515984747316" duration="32114000" />
+      <workItem from="1516155962458" duration="245032000" />
+      <workItem from="1517791316627" duration="30774000" />
+      <workItem from="1518247678590" duration="6930000" />
+      <workItem from="1519882876620" duration="16292000" />
+      <workItem from="1520229816235" duration="23943000" />
     </task>
     <task id="LOCAL-00036" summary="10月17日晚">
       <created>1508234541887</created>
@@ -1295,16 +742,142 @@
       <option name="project" value="LOCAL" />
       <updated>1513059081921</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="12月22日，新增圣诞元旦活动">
+      <created>1513928923211</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1513928923215</updated>
+    </task>
+    <task id="LOCAL-00068" summary="12月27日，此版本评论上传图片功能放出（上一版本为重要节点）">
+      <created>1514352287261</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1514352287262</updated>
+    </task>
+    <task id="LOCAL-00069" summary="1月5日，4.1.0上线后">
+      <created>1515141689050</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1515141689051</updated>
+    </task>
+    <task id="LOCAL-00070" summary="2018年1月10日，线板上线前存档">
+      <created>1515579035331</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1515579035332</updated>
+    </task>
+    <task id="LOCAL-00071" summary="1月12，新增直播demo">
+      <created>1515751262770</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1515751262771</updated>
+    </task>
+    <task id="LOCAL-00072" summary="12月22日，新增圣诞元旦活动">
+      <created>1516098311429</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1516098311432</updated>
+    </task>
+    <task id="LOCAL-00073" summary="1月16日，视频播放+视频直播模块修改（上个提交版本名字写错啦！）">
+      <created>1516098621919</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1516098621919</updated>
+    </task>
+    <task id="LOCAL-00074" summary="1月19日，评论模块修改">
+      <created>1516340875041</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1516340875042</updated>
+    </task>
+    <task id="LOCAL-00075" summary="1.20 UI">
+      <created>1516442836688</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1516442836688</updated>
+    </task>
+    <task id="LOCAL-00076" summary="1月23日，生活志文章、场馆详情、活动详情、菜谱详情页UI修改">
+      <created>1516693635891</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1516693635891</updated>
+    </task>
+    <task id="LOCAL-00077" summary="1月26日，课程详情页、商品详情页UI修改">
+      <created>1516933007813</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1516933007813</updated>
+    </task>
+    <task id="LOCAL-00078" summary="1月26日，积分换购页、我的体质页、常见问题">
+      <created>1516960706413</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1516960706413</updated>
+    </task>
+    <task id="LOCAL-00079" summary="1月29日，记录">
+      <created>1517220289715</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1517220289715</updated>
+    </task>
+    <task id="LOCAL-00080" summary="1月31日，UI修改">
+      <created>1517391024826</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1517391024826</updated>
+    </task>
+    <task id="LOCAL-00081" summary="2月5日，4.2.0上线前记录">
+      <created>1517828660772</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1517828660773</updated>
+    </task>
+    <task id="LOCAL-00082" summary="2月10日，新增落地页，其他页面版本号修改">
+      <created>1518248013892</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1518248013892</updated>
+    </task>
+    <task id="LOCAL-00083" summary="2018年3月1日">
+      <created>1519871549067</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1519871549067</updated>
+    </task>
+    <task id="LOCAL-00084" summary="3月2日">
+      <created>1519960530673</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1519960530674</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1842356000" />
+    <option name="totallyTimeSpent" value="2281187000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="749" y="23" width="691" height="815" extended-state="0" />
+    <frame x="372" y="23" width="1068" height="832" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28507462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2320917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1322,9 +895,31 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3270073" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32587412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30191258" sideWeight="0.49722221" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09418283" sideWeight="0.49566296" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25338894" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32587412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1343,23 +938,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="10月27日" />
-    <MESSAGE value="10月31日" />
-    <MESSAGE value="11月2日" />
-    <MESSAGE value="11月6日" />
-    <MESSAGE value="11月6日，课程页面增加人数说明" />
-    <MESSAGE value="11月6日，去掉评论alert调试，增加健康管家alert调试" />
-    <MESSAGE value="11月6日，更新表情包样式，修改评论加载个数" />
-    <MESSAGE value="11月7日，修改评论时间显示规则" />
-    <MESSAGE value="11月7日，修改评论图片上传删除效果" />
-    <MESSAGE value="11月7日，修改评论图片单击后显示效果" />
-    <MESSAGE value="11月7日，修改微信注册页面" />
-    <MESSAGE value="11月8日，修改微信登录注册密码格式" />
-    <MESSAGE value="11月8日，去掉评论加载提示模块，其他修改" />
-    <MESSAGE value="11月8日，评论模块优化交互效果，直播分享修改厨师头像" />
-    <MESSAGE value="11月8日，微信注册页面体验优化" />
-    <MESSAGE value="11月9日，test" />
-    <MESSAGE value="11月13日，修复bug若干" />
     <MESSAGE value="11月14日，重要版本节点（图片评论功能保存）" />
     <MESSAGE value="11月15日，评论模块去掉图片上传查看功能（暂时）" />
     <MESSAGE value="11月16日，评论模块修改" />
@@ -1368,485 +946,563 @@
     <MESSAGE value="12月10日晚" />
     <MESSAGE value="12月10日晚，增加发票说明页" />
     <MESSAGE value="12月12日，修改了app交互方法参数" />
-    <option name="LAST_COMMIT_MESSAGE" value="12月12日，修改了app交互方法参数" />
+    <MESSAGE value="12月27日，此版本评论上传图片功能放出（上一版本为重要节点）" />
+    <MESSAGE value="1月5日，4.1.0上线后" />
+    <MESSAGE value="2018年1月10日，线板上线前存档" />
+    <MESSAGE value="1月12，新增直播demo" />
+    <MESSAGE value="12月22日，新增圣诞元旦活动" />
+    <MESSAGE value="1月16日，视频播放+视频直播模块修改（上个提交版本名字写错啦！）" />
+    <MESSAGE value="1月19日，评论模块修改" />
+    <MESSAGE value="1.20 UI" />
+    <MESSAGE value="1月23日，生活志文章、场馆详情、活动详情、菜谱详情页UI修改" />
+    <MESSAGE value="1月26日，课程详情页、商品详情页UI修改" />
+    <MESSAGE value="1月26日，积分换购页、我的体质页、常见问题" />
+    <MESSAGE value="1月29日，记录" />
+    <MESSAGE value="1月31日，UI修改" />
+    <MESSAGE value="2月5日，4.2.0上线前记录" />
+    <MESSAGE value="2月10日，新增落地页，其他页面版本号修改" />
+    <MESSAGE value="2018年3月1日" />
+    <MESSAGE value="3月2日" />
+    <option name="LAST_COMMIT_MESSAGE" value="3月2日" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/url.js</url>
+          <line>6</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/loadcomment.js</url>
+          <line>500</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/activealbum.html">
+    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/christmas.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="21" />
+        <state relative-caret-position="193">
+          <caret line="147" column="47" lean-forward="true" selection-start-line="147" selection-start-column="47" selection-end-line="147" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/shCore.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="17" column="23" lean-forward="true" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/shCoreDefault.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/alertdiy.js">
+    <entry file="file://$PROJECT_DIR$/html/lose.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="3" selection-end-line="45" selection-end-column="5" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <marker date="1511924832442" expanded="true" signature="3306:3319" ph="..." />
-          </folding>
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/json2.js">
+    <entry file="file://$PROJECT_DIR$/css/lifedetail.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4207">
-          <caret line="162" column="12" lean-forward="true" selection-start-line="162" selection-start-column="12" selection-end-line="162" selection-end-column="12" />
+        <state relative-caret-position="570">
+          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/lb.js">
+    <entry file="file://$PROJECT_DIR$/ft-wp/html/evaluate.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9760">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="229">
+          <caret line="66" column="62" lean-forward="false" selection-start-line="66" selection-start-column="62" selection-end-line="66" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/class.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/lifearticle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="194" column="19" lean-forward="true" selection-start-line="194" selection-start-column="19" selection-end-line="198" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/menu-inpage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="559" column="25" lean-forward="true" selection-start-line="559" selection-start-column="25" selection-end-line="559" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="337" column="30" lean-forward="false" selection-start-line="337" selection-start-column="24" selection-end-line="337" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/sitedetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="593" column="22" lean-forward="true" selection-start-line="593" selection-start-column="22" selection-end-line="602" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/gooddetail-old.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="104" column="1" lean-forward="false" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="217" column="45" lean-forward="true" selection-start-line="217" selection-start-column="45" selection-end-line="230" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/download.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="117" column="9" lean-forward="false" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/video-hls.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="4311" column="50" lean-forward="false" selection-start-line="4311" selection-start-column="50" selection-end-line="4311" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/gooddetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6165">
-          <caret line="411" column="25" lean-forward="false" selection-start-line="411" selection-start-column="25" selection-end-line="411" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/video.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="21158" column="28" lean-forward="true" selection-start-line="21158" selection-start-column="28" selection-end-line="21158" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/mint-ui.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="1" column="15964" lean-forward="false" selection-start-line="1" selection-start-column="15964" selection-end-line="1" selection-end-column="15964" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/gooddetail-test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1425">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="136" column="47" lean-forward="true" selection-start-line="136" selection-start-column="47" selection-end-line="136" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="120" column="22" lean-forward="false" selection-start-line="120" selection-start-column="22" selection-end-line="120" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-share.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="55" column="28" lean-forward="false" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/lib2.js">
+    <entry file="file://$PROJECT_DIR$/fotilepopularize/js/lib.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/activedetail.html">
+    <entry file="file://$PROJECT_DIR$/html/login/js/url.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="245" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/remjs.js">
+    <entry file="file://$PROJECT_DIR$/html/ft-3/js/url.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/swiper.jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="14" column="60" lean-forward="true" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/swiper.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="14" column="1394" lean-forward="false" selection-start-line="14" selection-start-column="1382" selection-end-line="14" selection-end-column="1394" />
-          <folding>
-            <element signature="e#2951#3209#2" expanded="false" />
-            <element signature="e#3350#3608#2" expanded="false" />
-            <element signature="e#3728#3986#2" expanded="false" />
-            <element signature="e#4066#4324#2" expanded="false" />
-            <element signature="e#4465#4723#2" expanded="false" />
-            <element signature="e#4843#5101#2" expanded="false" />
-            <element signature="e#14568#16015#2" expanded="false" />
-            <element signature="e#16170#17614#2" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/js/jquery.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/js/remSize.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/url.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="278" column="62" lean-forward="true" selection-start-line="278" selection-start-column="62" selection-end-line="301" selection-end-column="21" />
-          <folding>
-            <marker date="1511426055546" expanded="true" signature="1031:1254" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="1291:1762" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="1333:1755" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="7411:13104" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="7496:7649" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="7686:8157" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="7728:8150" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8201:11625" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8302:11573" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8430:11548" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8453:11542" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8496:8844" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8568:8691" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8738:8814" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="8888:9667" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="9712:11514" ph="..." />
-            <marker date="1511426055546" expanded="false" signature="9823:9837" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="9838:11286" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="9887:10988" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="10356:10701" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="10562:10660" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="11038:11250" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="11383:11482" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="11663:12135" ph="..." />
-            <marker date="1511426055546" expanded="false" signature="11694:11709" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="11710:12128" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="11795:12104" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="11838:12078" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="12171:13084" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="12201:13060" ph="..." />
-            <marker date="1511426055546" expanded="true" signature="12228:12242" ph="/*...*/" />
-            <marker date="1511426055546" expanded="true" signature="12299:13028" ph="{...}" />
-            <marker date="1511426055546" expanded="true" signature="12876:12997" ph="{...}" />
-          </folding>
+        <state relative-caret-position="15">
+          <caret line="1" column="27" lean-forward="false" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/lifedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="129" column="34" lean-forward="false" selection-start-line="129" selection-start-column="28" selection-end-line="129" selection-end-column="34" />
+        <state relative-caret-position="255">
+          <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="320" column="17" lean-forward="false" selection-start-line="320" selection-start-column="17" selection-end-line="320" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/download.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2850">
+          <caret line="190" column="27" lean-forward="false" selection-start-line="190" selection-start-column="27" selection-end-line="190" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ajaxplus.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-judge/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fotilepopularize/css/poppage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="271" column="0" lean-forward="false" selection-start-line="271" selection-start-column="0" selection-end-line="271" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-UM/UMAnalytics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fotilepopularize/img/5@3x.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-deeplink/open_app_demo1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="141" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-deeplink/open_app_demo2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="50" lean-forward="false" selection-start-line="31" selection-start-column="50" selection-end-line="31" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-deeplink/open_app_demo3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-设备判断.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="7" lean-forward="false" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/UMAnalytics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="332" column="0" lean-forward="true" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="206" column="11" lean-forward="false" selection-start-line="206" selection-start-column="11" selection-end-line="214" selection-end-column="15" />
+          <folding>
+            <marker date="1519975558519" expanded="true" signature="8771:9015" ph="..." />
+            <marker date="1519975558519" expanded="true" signature="8801:8991" ph="..." />
+            <marker date="1519975558519" expanded="false" signature="8847:8895" ph="..." />
+            <marker date="1519975558519" expanded="true" signature="9103:9305" ph="..." />
+            <marker date="1519975558519" expanded="true" signature="9133:9283" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-share.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-UM/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="15" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ft.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="285" column="23" lean-forward="false" selection-start-line="285" selection-start-column="8" selection-end-line="285" selection-end-column="23" />
+        <state relative-caret-position="257">
+          <caret line="421" column="34" lean-forward="true" selection-start-line="421" selection-start-column="34" selection-end-line="421" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activealbum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="76" column="36" lean-forward="true" selection-start-line="76" selection-start-column="36" selection-end-line="83" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="802">
+          <caret line="95" column="18" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="95" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/sitedetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="648" column="21" lean-forward="true" selection-start-line="648" selection-start-column="21" selection-end-line="648" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/gooddetail4.1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="680" column="43" lean-forward="false" selection-start-line="680" selection-start-column="28" selection-end-line="680" selection-end-column="43" />
+        <state relative-caret-position="212">
+          <caret line="898" column="35" lean-forward="false" selection-start-line="898" selection-start-column="31" selection-end-line="898" selection-end-column="35" />
           <folding>
-            <element signature="n#style#0;n#span#1;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#2;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#3;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#1;n#div#3;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#2;n#div#3;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#span#3;n#div#3;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <marker date="1513749116779" expanded="false" signature="6662:6678" ph="..." />
-            <marker date="1513749116779" expanded="true" signature="13920:14024" ph="..." />
+            <marker date="1517820881854" expanded="true" signature="13392:13496" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/html/findpwd2.html">
+    <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/css/pay/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/js/s.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="182">
+          <caret line="158" column="8" lean-forward="false" selection-start-line="158" selection-start-column="8" selection-end-line="175" selection-end-column="32" />
           <folding>
-            <marker date="1503371449000" expanded="true" signature="1735:1876" ph="..." />
-            <marker date="1503371449000" expanded="true" signature="1890:1912" ph="..." />
-            <marker date="1503371449000" expanded="true" signature="1987:2009" ph="..." />
-            <marker date="1503371449000" expanded="true" signature="9920:9952" ph="..." />
+            <marker date="1519975089212" expanded="true" signature="7447:7595" ph="..." />
+            <marker date="1519975089212" expanded="true" signature="8044:8145" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/findpwd1.html">
+    <entry file="file://$PROJECT_DIR$/css/menu-inpage.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="10" selection-end-line="71" selection-end-column="16" />
+        <state relative-caret-position="326">
+          <caret line="454" column="26" lean-forward="true" selection-start-line="454" selection-start-column="26" selection-end-line="454" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/html/findpwd1.html">
+    <entry file="file://$PROJECT_DIR$/html/signin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-709">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="151" column="41" lean-forward="true" selection-start-line="151" selection-start-column="41" selection-end-line="151" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/url.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="81" column="12" lean-forward="true" selection-start-line="81" selection-start-column="12" selection-end-line="100" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="107" column="53" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+          <folding>
+            <marker date="1520315714893" expanded="true" signature="7670:7748" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="7670:7849" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="17823:18320" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="17878:18001" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="17878:18110" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="17878:18113" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="18791:19538" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="18862:19533" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="18916:18964" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19017:19144" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19017:19507" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19202:19475" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19245" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19289" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19330" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19349" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19397" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19438" ph="..." />
+            <marker date="1520315714893" expanded="true" signature="19223:19475" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-tab.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="119" column="11" lean-forward="false" selection-start-line="119" selection-start-column="11" selection-end-line="123" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-live.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="65" column="36" lean-forward="true" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="208" column="26" lean-forward="true" selection-start-line="208" selection-start-column="26" selection-end-line="208" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="36" column="40" lean-forward="true" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
+          <folding>
+            <marker date="1519982073583" expanded="true" signature="993:996" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="993:1106" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="993:1207" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="993:1457" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="993:3788" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1045:1106" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1207:1231" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1207:1311" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1494:3788" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1870:3627" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1918:2456" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="1971:2428" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="2043:2394" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="2098:2362" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="2509:2797" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="2559:2767" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="2952:3601" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="2991:3570" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="3047:3541" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="3280:3368" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="3425:3510" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="3754:3781" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="3754:3788" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10226:20943" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10315:10693" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10371:10491" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10549:10665" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10734:12303" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10776:12296" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="10795:12290" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11122:12128" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11174:11733" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11231:11701" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11307:11663" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11366:11627" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11790:12098" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="11844:12064" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12351:17640" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12460:12499" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12460:12561" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12460:17580" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12508:12561" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12510:12561" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12562:14990" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="12710:13580" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="13177:13316" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="13371:13464" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="13631:13718" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="13778:14254" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="13996:14010" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="14166:14179" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="14306:14730" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="14306:14954" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="14990:17546" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="14990:17551" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15046:17519" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15165:15179" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15180:17296" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15233:16074" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15285:16074" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15684:16034" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="15883:15989" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="16128:16845" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="16128:16974" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="17028:17256" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="17401:17483" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="17682:18139" ph="..." />
+            <marker date="1519982073583" expanded="false" signature="17713:17728" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="17729:18132" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="17822:18104" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="17869:18074" ph="..." />
+            <marker date="1519982073583" expanded="false" signature="18188:18294" ph="..." />
+            <marker date="1519982073583" expanded="false" signature="18322:18340" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="18415:20919" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="18497:19168" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="18520:18528" ph="/*...*/" />
+            <marker date="1519982073583" expanded="true" signature="18566:19141" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="18622:19112" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="18855:18943" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="19000:19085" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="19259:20895" ph="..." />
+            <marker date="1519982073583" expanded="true" signature="19282:19296" ph="/*...*/" />
+            <marker date="1519982073583" expanded="true" signature="19349:20042" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="19902:20015" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="20066:20077" ph="/*...*/" />
+            <marker date="1519982073583" expanded="true" signature="20132:20355" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="20200:20328" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="20379:20389" ph="/*...*/" />
+            <marker date="1519982073583" expanded="true" signature="20427:20693" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="20485:20664" ph="{...}" />
+            <marker date="1519982073583" expanded="true" signature="20717:20727" ph="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="633" column="0" lean-forward="true" selection-start-line="633" selection-start-column="0" selection-end-line="633" selection-end-column="0" />
+        <state relative-caret-position="1082">
+          <caret line="314" column="8" lean-forward="false" selection-start-line="314" selection-start-column="8" selection-end-line="315" selection-end-column="28" />
           <folding>
-            <marker date="1512456894665" expanded="true" signature="29033:29597" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29073:29571" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29117:29375" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29204:29371" ph="..." />
-            <marker date="1512456894665" expanded="true" signature="29796:30050" ph="..." />
-            <marker date="1512456894665" expanded="false" signature="29912:29960" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="28046:28566" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="28090:28540" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="28177:28344" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="29404:29704" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="29442:29668" ph="..." />
+            <marker date="1520323671820" expanded="false" signature="29500:29548" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="29792:30018" ph="..." />
+            <marker date="1520323671820" expanded="true" signature="29830:29982" ph="..." />
+            <marker date="1520323671820" expanded="false" signature="29888:29936" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/html/findpwd3.html">
+    <entry file="file://$PROJECT_DIR$/html/faq-info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="101" column="16" lean-forward="true" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
+        <state relative-caret-position="487">
+          <caret line="125" column="14" lean-forward="true" selection-start-line="125" selection-start-column="14" selection-end-line="125" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/html/signin.html">
+    <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state relative-caret-position="250">
+          <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="84" column="33" lean-forward="true" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jf-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="68" column="42" lean-forward="true" selection-start-line="68" selection-start-column="42" selection-end-line="68" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/member-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-354">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/invoicetext.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-725">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coupon-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="35" column="22" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/courseform.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="75" column="34" lean-forward="true" selection-start-line="75" selection-start-column="34" selection-end-line="76" selection-end-column="36" />
+        <state relative-caret-position="154">
+          <caret line="99" column="12" lean-forward="false" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login/html/login.html">
+    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1381">
-          <caret line="135" column="45" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="86" column="8" lean-forward="true" selection-start-line="86" selection-start-column="8" selection-end-line="93" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/mygift.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="120" column="8" lean-forward="true" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/congratulate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/christmas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="250" column="36" lean-forward="true" selection-start-line="250" selection-start-column="36" selection-end-line="250" selection-end-column="36" />
+        <state relative-caret-position="60">
+          <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
           <folding>
-            <element signature="e#1084#1090#0" expanded="true" />
-            <element signature="e#1090#1096#0" expanded="true" />
-            <element signature="e#1099#1105#0" expanded="true" />
-            <element signature="e#1105#1111#0" expanded="true" />
-            <element signature="e#1111#1117#0" expanded="true" />
-            <element signature="e#1117#1123#0" expanded="true" />
-            <element signature="e#1129#1135#0" expanded="true" />
-            <element signature="e#1135#1141#0" expanded="true" />
-            <element signature="e#1171#1177#0" expanded="true" />
-            <element signature="e#1177#1183#0" expanded="true" />
-            <element signature="e#1193#1199#0" expanded="true" />
-            <element signature="e#1199#1205#0" expanded="true" />
-            <element signature="e#1236#1242#0" expanded="true" />
-            <element signature="e#1242#1248#0" expanded="true" />
-            <element signature="e#1258#1264#0" expanded="true" />
-            <marker date="1513928526552" expanded="true" signature="9795:9867" ph="..." />
-            <marker date="1513928526552" expanded="true" signature="9795:9891" ph="..." />
-            <marker date="1513928526552" expanded="true" signature="9795:9923" ph="..." />
+            <element signature="n#style#0;n#img#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1520823266827" expanded="false" signature="11767:11781" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/ft-Christmas/css/christmas.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="243" column="0" lean-forward="true" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

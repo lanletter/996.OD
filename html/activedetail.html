@@ -78,6 +78,7 @@
 <script type="text/javascript" src='../js/judge.js'></script>
 <script src="../js/alertdiy.js"></script>
 <script src="../js/url.js"></script>
+<script type="text/javascript" src="../js/UMAnalytics.js"></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script type="text/javascript">
     function GetQueryString(name) {
@@ -115,9 +116,23 @@
         choose();
     }
     function choose() {
-        $api.post(urlport + 'activity/detail', {
-            id: id
-        }, function (res) {
+        $.ajax({
+            url: urlport + 'activity/detail',
+            type: 'POST',
+            data: JSON.stringify({"id": id}),
+            timeout: 5000, //超时时间
+            contentType: "application/json;charset=utf-8",
+            dataType: 'json', //返回的数据格式
+            success: function (data) {
+                console.log(data);
+                callback(data);
+            },
+            error: function (errorMsg) {
+                console.log('错误');
+                console.log(errorMsg);
+            }
+        });
+        function callback(res) {
             data = res.data;
             console.log(res);
             var $header = $('.header');
@@ -138,6 +153,16 @@
             } else {
                 $('head title').text(data.title);
             }
+
+            /*友盟埋点-页面访问*/
+            var isuserid;//登录判断
+            if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+            console.log(isuserid);
+            UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                "页面类型":"活动详情页",
+                "页面名称": data.title,
+                "是否登录":isuserid
+            });
 
             /*文章内链接加device*/
             var qs = 'device=' + device;
@@ -246,7 +271,7 @@
                     //alert(111);
                 }
             })
-        });
+        }
 
         $.loadComment({
             "pageNum": 1,

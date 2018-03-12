@@ -167,6 +167,8 @@
 <script src="../js/alertdiy.js"></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="../js/UMAnalytics.js"></script>
+
 <script>
 
     function GetQueryString(name) {
@@ -225,6 +227,11 @@
                 totalntegral: ''
 
             },
+            // http: {
+            //     headers: {
+            //         token: 'Basic YXBpOnBhc3N3b3Jk'
+            //     }
+            // },
             component: {},
             created: function () {
                 var $this = this;
@@ -244,6 +251,16 @@
                         $this.url = data.data.merchandisePictures;
                         var item = $this.dataAll.merchandiseClasses[0];
                         $this.selectType(item.id, item.stock, item.paidIntegral, item.integral, item, $this.count, $this.totalntegral);
+
+                        /*友盟埋点-页面访问*/
+                        var isuserid;//登录判断
+                        if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+                        console.log(isuserid);
+                        UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                            "页面类型":"积分商品详情页",
+                            "页面名称": data.data.title,
+                            "是否登录":isuserid
+                        });
 
                         if (device == "ios") {
                             $(".btnbox ul").css({
@@ -419,6 +436,10 @@
                             return;
                         } else {
                             alert('兑换成功！');
+                            /*友盟打点：积分兑换*/
+                            UMAnalyticsAgent.trackWithProperty("h5积分兑换",{
+                                "商品名称":data.data.title
+                            });
                         }
                     }, function (err) {
                     });
