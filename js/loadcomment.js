@@ -59,7 +59,6 @@
                         <p class="check-p"><span class="del-com wsdel-no">取消</span><span class="wsdel-ok">确定</span></p>\
                       </div>\
                     </aside>\
-                    <script src="../js/jquery.min.js"></script>\
                     <script src="../js/imgUp.js"></script>\
                     <script>\
                         $(function(){\

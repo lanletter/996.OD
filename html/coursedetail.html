@@ -7,7 +7,7 @@
     <meta name='viewport'
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0,telephone=yes'>
 
-    <script src="../js/tingyun-rum.js"></script>
+    <!--<script src="../js/tingyun-rum.js"></script>-->
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/swiper.min.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
@@ -246,12 +246,11 @@
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/swiper.min.js'></script>
 <script src="../js/url.js"></script>
 <script src="../js/UMAnalytics.js"></script>
-<script type="text/javascript" src='../js/jquery.min.js'></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script type="text/javascript">
     //记录是否阻止滚动
     var disableScroll = false;
@@ -894,13 +893,13 @@
         //     });
         // });
 
-        // $.loadComment({
-        //     "pageNum": 1,
-        //     "pageSize": 10,
-        //     "type": 2,
-        //     "refId": parseInt(id),
-        //     "userId": parseInt(userid)
-        // }, 1);
+        $.loadComment({
+            "pageNum": 1,
+            "pageSize": 10,
+            "type": 2,
+            "refId": parseInt(id),
+            "userId": parseInt(userid)
+        }, 1);
 
     }
 
