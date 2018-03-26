@@ -115,7 +115,7 @@
     /*地址保存*/
     $(".save").on("click", function () {
         var phone = document.getElementById('phonenum').value;
-        if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+        if (!(/^1[0-9]{10}$/.test(phone))) {
             alert('手机号码输入有误，请重新输入');
             document.getElementById("phonenum").value = "";
             $("#delete1").css("display", "none");

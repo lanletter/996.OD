@@ -12,6 +12,8 @@
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/login.css?ver=403">
 </head>
@@ -61,14 +63,10 @@
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script>
     /*获取url*/
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-    }
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    alert(h5url);
 
-    var id = GetQueryString("id");
     /*输入框选中效果*/
     $(document).ready(function () {
         $("#phonenum").focus(function () {
@@ -134,7 +132,7 @@
         if (!phone) {
             alert('请输入手机号码');
             return false;
-        } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+        } else if (!(/^1[0-9]{10}$/.test(phone))) {
             alert('手机号码输入有误，请重新输入');
             document.getElementById("phonenum").value = "";
             $("#delete1").css("display", "none");
@@ -170,19 +168,18 @@
         new invokeSettime("#verifycode");
         $.ajax({
             type: 'POST',
-            url: urlport2+'/AccountProxy/v2/verifycode',
+            url: urlport+'user/getVerificationCode',
             datatype: "json",
             data: JSON.stringify({
                 phone: $("#phonenum").val(),
-                corp_id: "1007d4b036464a00"
+                type: 2
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-//              alert(ret);
                 /*string转json*/
-                var obj = eval('(' + ret + ')');
-                if (obj.resultCode == "2004") {
-                    alert("请求次数太多");
+                console.log(ret);
+                if (ret.status !== 200) {
+                    alert(ret.errorMessage);
                 }
             }
         });
@@ -201,18 +198,18 @@
         if (!phone) {
             alert('请输入手机号码');
             return false;
-        } else if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+        } else if (!(/^1[0-9]{10}$/.test(phone))) {
             alert('手机号码输入有误，请重新输入');
             document.getElementById("phonenum").value = "";
             $("#delete1").css("display", "none");
             return false;
         }
-        if (!(/^\d{6}$/.test(message))) {
-            alert('验证码格式有误，请重新输入');
-            document.getElementById("message").value = "";
-            $("#delete2").css("display", "none");
-            return false;
-        }
+        // if (!(/^\d{4}$/.test(message))) {
+        //     alert('验证码格式有误，请重新输入');
+        //     document.getElementById("message").value = "";
+        //     $("#delete2").css("display", "none");
+        //     return false;
+        // }
         if (!(/^.{6,20}$/.test(newpwd))) {
             alert('新密码输入有误，请重新输入');
             document.getElementById("newpwd").value = "";
@@ -236,27 +233,17 @@
 //        }));
         $.ajax({
             type: 'POST',
-            url:urlport2+'/AccountProxy/v2/user_register',
+            url:urlport+'user/register/v421',
             datatype: "json",
             data: JSON.stringify({
-                phone: $("#phonenum").val(),
+                accountName: $("#phonenum").val(),
                 password: $("#password").val(),
-                verifycode: $("#message").val(),
-                corp_id: "1007d4b036464a00",
+                verificationCode: $("#message").val(),
                 resource: "web"
             }),
-            headers: {
-                'deviceType': 'ios',
-                'Access-Token': '',
-                'userId': ''
-            },
             contentType: 'application/json;charset=UTF-8',
-            success: function (ret) {
-                console.log(ret);
-//              alert(ret);
-
-                var obj = eval('(' + ret + ')');
-                // alert(obj.status);
+            success: function (obj) {
+                console.log(obj);
                 if (obj.status == 200) {
                     $api.toast('注册成功', 2000);
                     var phonenum = obj.data.accountName;
@@ -278,12 +265,11 @@
                             // alert(JSON.stringify(ret));
                         }
                     });
-                    var buyurl = "courseform.html?id=" + id;
+                    var buyurl = h5url;
                     window.location.href = buyurl;
-                } else if (obj.status == 500) {
-                    $api.toast('用户手机号已注册!', 2000);
                 } else {
-                    $api.toast('注册失败，请稍后再试!', 2000);
+                    console.log(obj.errorMessage);
+                    alert(obj.errorMessage);
                 }
             }
         });

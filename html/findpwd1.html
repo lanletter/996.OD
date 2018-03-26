@@ -12,6 +12,8 @@
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
 </head>
@@ -35,13 +37,10 @@
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script>
     /*获取url*/
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
-        return null;
-    }
-    var id = GetQueryString("id");
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    alert(h5url);
+
     /*输入框选中效果*/
     $(document).ready(function () {
         $("#phonenum").focus(function () {
@@ -70,13 +69,13 @@
     $(".nextbtn").click(function () {
         if (!loginInputValid()) return;
         $.cookie('phonenum', $("#phonenum").val());
-        var buyurl = "findpwd2.html?id=" + id;
+        var buyurl = "findpwd2.html";
         console.log(buyurl);
         window.location.href = buyurl;
     });
     function loginInputValid() {
         var phone = document.getElementById('phonenum').value;
-        if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+        if (!(/^1[0-9]{10}$/.test(phone))) {
             document.getElementById("phonenum").value = "";
             $("#delete1").css("display", "none");
             $(".warn2").css("display", "block");

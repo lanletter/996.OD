@@ -12,6 +12,8 @@
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
 </head>
@@ -45,14 +47,10 @@
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script>
     /*获取url*/
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-    }
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    alert(h5url);
 
-    var id = GetQueryString("id");
     var phonenum = $.cookie('phonenum');
     var codenum = $.cookie('codenum');
     console.log(phonenum);
@@ -101,7 +99,7 @@
 //        }));
         $.ajax({
             type: 'POST',
-            url: 'https://h5.fotilestyle.com/AccountProxy/v2/forgetPassword',
+            url: urlport + 'user/forgetPassword/v421',
             datatype: "json",
             data: JSON.stringify({
                 accountName: phonenum,
@@ -111,11 +109,9 @@
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
 //              alert(ret);
-                var obj = eval('(' + ret + ')');
-//              alert(obj.status);
-                if (obj.status == "200") {
+                if (ret.status == "200") {
                     $api.toast('密码修改成功', 2000);
-                    var buyurl = "login.html?id=" + id;
+                    var buyurl = "login.html";
 //                  alert(buyurl);
                     window.location.href = buyurl;
                 }

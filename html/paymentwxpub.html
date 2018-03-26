@@ -54,18 +54,19 @@
         if (r != null)return unescape(r[2]);
         return null;
     }
-    var id = GetQueryString("id");
     var code = GetQueryString("code");
     var userId = GetQueryString('userid');
     var orderNumber = GetQueryString('orderNumber');
     var allprice = GetQueryString('allprice');
-//  alert(JSON.stringify({
-//          "channel": "wx_pub",
-//          "orderNo": orderNumber,
-//          "userId": userId,
-//          "code": code,
-//          "id":id
-//      }));
+    var id = $.cookie('id');
+
+     alert(JSON.stringify({
+         "channel": "wx_pub",
+         "orderNo": orderNumber,
+         "userId": userId,
+         "code": code,
+         "id":id
+     }));
 
     $("#orderNo").text(orderNumber);
     $("#money").text(allprice);
@@ -104,7 +105,6 @@
                     }
                 });
             })
-
         }
     });
 

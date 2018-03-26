@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name='viewport'
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0,telephone=yes'>
+
+    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/swiper.min.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
@@ -62,9 +64,9 @@
 
                     </li>
                     <li class="bgGroup">
-                        <div class="left"></div>
+                        <!--<div class="left"></div>-->
                         <p></p>
-                        <div class="right"></div>
+                        <!--<div class="right"></div>-->
                     </li>
                     <li class="address">
                         <div>
@@ -241,7 +243,6 @@
     </div>
 </div>
 <script type="text/javascript" src='../js/lib.js'></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
@@ -249,7 +250,8 @@
 <script type="text/javascript" src='../js/swiper.min.js'></script>
 <script src="../js/url.js"></script>
 <script src="../js/UMAnalytics.js"></script>
-<!--<script src="../js/alertdiy.js"></script>-->
+<script type="text/javascript" src='../js/jquery.min.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script type="text/javascript">
     //记录是否阻止滚动
     var disableScroll = false;
@@ -556,7 +558,11 @@
                 });
             } else {
                 $('.buynow').on('click', function () {
-                    var loginurl = "login.html?id=" + id;
+                    var h5url = "courseform.html?id=" + id;
+                    alert(h5url);
+                    $.cookie('id', id);
+                    $.cookie('h5url', h5url);
+                    var loginurl = "login.html";
                     window.location.href = loginurl;
                 });
                 $("#addToCart").on("click", function () {
@@ -720,6 +726,11 @@
               </section>');
                 $('.teacher-box').append(cooker);
             });
+            if(data.cooks.length == 0){
+                $(".teacher-box").hide();
+                $(".bgGroup").hide();
+                $(".title").css({"margin-bottom":"0.6rem"})
+            }
 
             //         data.menuList.forEach(function (item, index) {
             //             var img = $('<figure>\
@@ -883,13 +894,13 @@
         //     });
         // });
 
-        $.loadComment({
-            "pageNum": 1,
-            "pageSize": 10,
-            "type": 2,
-            "refId": parseInt(id),
-            "userId": parseInt(userid)
-        }, 1);
+        // $.loadComment({
+        //     "pageNum": 1,
+        //     "pageSize": 10,
+        //     "type": 2,
+        //     "refId": parseInt(id),
+        //     "userId": parseInt(userid)
+        // }, 1);
 
     }
 

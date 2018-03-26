@@ -139,7 +139,7 @@
                             e.preventDefault();
                             return;
                         }
-                        alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
+                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -175,7 +175,7 @@
                                 UMAnalyticsAgent.trackWithProperty("h5发表评论",{
                                     "类型":"发表评论"
                                 });
-                                alert("!!!");
+                                // alert("!!!");
                                 refresh(homeurl);
                             }
                         });
@@ -196,7 +196,7 @@
                             UMAnalyticsAgent.trackWithProperty("h5发表评论",{
                                 "类型":"发表评论"
                             });
-                            alert("!!!");
+                            // alert("!!!");
                         }
                     });
                 }
@@ -494,7 +494,7 @@
                             e.preventDefault();
                             return;
                         }
-                        alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
+                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -530,7 +530,7 @@
                                 UMAnalyticsAgent.trackWithProperty("h5发表评论",{
                                     "类型":"发表评论"
                                 });
-                                alert("!!!");
+                                // alert("!!!");
                                 refresh(homeurl);
                             }
                         });
@@ -547,7 +547,7 @@
                             UMAnalyticsAgent.trackWithProperty("h5发表评论",{
                                 "类型":"发表评论"
                             });
-                            alert("!!!");
+                            // alert("!!!");
                         }
                     });
                 }
@@ -616,7 +616,7 @@
                             e.preventDefault();
                             return;
                         }
-                        alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
+                        // alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -651,7 +651,7 @@
                                 UMAnalyticsAgent.trackWithProperty("h5发表评论",{
                                     "类型":"发表评论"
                                 });
-                                alert("!!!");
+                                // alert("!!!");
                                 refresh(homeurl);
                             }
                         });
@@ -668,7 +668,7 @@
                             UMAnalyticsAgent.trackWithProperty("h5发表评论",{
                                 "类型":"发表评论"
                             });
-                            alert("!!!");
+                            // alert("!!!");
                         }
 
 

@@ -177,3 +177,40 @@ body {
 }
 .ulstyle2 .explain p:first-child{font-size: 16px;}
 .ulstyle2 .explain p:last-child{font-size: 12px;}
+
+/*三方登录*/
+.otherlogins{
+    margin-top: 0.8rem;
+    text-align: center;
+}
+.otherlogins .title{
+    display: block;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    margin-bottom: 0.36rem;
+    text-align: center;
+}
+.otherlogins .title div:first-child{float: left;margin-left: 1.42rem;}
+.otherlogins .title div:last-child{float: right;margin-right: 1.42rem;}
+.otherlogins .title div{
+    width: 1.33rem;
+    height: 1px;
+    border-top: 2px solid #fff;
+    background: #000;
+    margin-top: 0.15rem;
+}
+.otherlogins .title span{
+    display: inline-block;
+    color: #fff!important;
+    font-size: 0.24rem!important;
+}
+.otherlogins li{
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+.otherlogins li img{
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+}

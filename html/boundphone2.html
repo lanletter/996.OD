@@ -21,8 +21,8 @@
 <div class="divbreak"></div>
 <ul class="ulstyle">
     <li class="explain">
-        <p>请输入新密码</p>
-        <p>密码长度 6~20 字符，建议使用数字、字母组合</p>
+        <p>绑定手机号</p>
+        <p>绑定手机号</p>
     </li>
     <li class="edit">
         <input type="password" placeholder="新密码" maxlength="20" id="newpwd"/>
@@ -36,7 +36,7 @@
         <p class="warn warn1" style="display: none;">密码前后输入不一致，请重新输入</p>
         <p class="warn warn2" style="display: none;">密码为空</p>
         <p class="warn warn3" style="display: none;">密码格式输入有误，请重新输入</p>
-        <span class="nextbtn">完成</span>
+        <span class="nextbtn">确认密码并完成绑定</span>
     </li>
 </ul>
 </body>
@@ -55,10 +55,12 @@
     }
 
     var id = GetQueryString("id");
+    var h5url = $.cookie('h5url');
     var phonenum = $.cookie('phonenum');
     var codenum = $.cookie('codenum');
-    console.log(phonenum);
-    console.log(codenum);
+    var unionid = $.cookie('unionid');
+    var nickname = $.cookie('nickname');
+    var headimgurl = $.cookie('headimgurl');
     /*输入框选中效果*/
     $(document).ready(function () {
         $("#newpwd").focus(function () {
@@ -96,28 +98,25 @@
 
     $(".nextbtn").click(function () {
         if (!loginInputValid()) return;
-//        alert(JSON.stringify({
-//            accountName: phonenum,
-//            password: $("#newpwd").val(),
-//            verificationCode: codenum
-//        }));
+        /*微信unionid和手机号注册*/
         $.ajax({
             type: 'POST',
-            url: urlport + 'user/forgetPassword/v421',
+            url: urlport + 'user/loginByUnionIDAndTel',
             datatype: "json",
             data: JSON.stringify({
-                accountName: phonenum,
-                password: $("#newpwd").val(),
-                verificationCode: codenum
+                unionId: unionid,
+                weChat: nickname,
+                picture: headimgurl,
+                verificationCode: codenum,
+                tel: $("#phonenum").val(),
+                password: $("#newpwd").val()
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-//              alert(ret);
+                alert(JSON.stringify(ret));
                 if (ret.status == "200") {
-                    $api.toast('密码修改成功', 2000);
-                    var buyurl = "login.html?id=" + id;
-//                  alert(buyurl);
-                    window.location.href = buyurl;
+                    $api.toast('微信绑定并注册成功', 2000);
+                    window.location.href = h5url;
                 }
             }
         });

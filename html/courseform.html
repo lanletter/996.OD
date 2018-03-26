@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name='viewport'
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+
+    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/courseform.css?ver=403">
 </head>
@@ -74,7 +76,7 @@
         return null;
     }
 
-    var id = GetQueryString("id");
+    var id = $.cookie('id');
     var userId = $.cookie('userid');
     var phonenum = $.cookie('phonenum');
     console.log(phonenum + userId);
@@ -186,7 +188,7 @@
                 return false;
             }
             var phone = document.getElementById('phonenum').value;
-            if ($("#phonenum").val() == "" || !(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+            if ($("#phonenum").val() == "" || !(/^1[0-9]{10}$/.test(phone))) {
                 alert("请填写正确的联系方式");
                 return false;
             }
@@ -235,8 +237,8 @@
 //                            $.cookie("allprice",allprice);
 
                             /*获取code*/
-                            var urllong = urlport + "pay/wxpub?orderNumber=" + orderNumber + "&userid=" + userId + "&allprice=" + allprice + "&id=" + id;
-                            // alert(urllong);
+                            var urllong = "https://api.fotilestyle.com/fotile-api-0.0.2/pay/wxpub?orderNumber=" + orderNumber + "&userid=" + userId + "&allprice=" + allprice + "&id=" + id;
+                            alert(urllong);
                             window.location.href = urllong;
 
                         } else {

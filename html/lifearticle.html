@@ -12,6 +12,8 @@
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/video-js.min.css?ver=420">
@@ -123,15 +125,18 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        var token;
         $(".footer").hide();
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
+                // alert(JSON.stringify(result));
                 var errorcode = result.errorCode.toString();
                 //alert(errorcode);
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    token = result.data.token.toString();
 
                     choose();
 
@@ -143,6 +148,7 @@
         };
     } else if ((device == null)) {
         var userid = 1;
+        var token;
         choose();
     }
 
@@ -245,11 +251,13 @@
                     canClick = false;
                     //app交互——获取登录状态
                     ft.isLogin(function (result) {
+                        // alert(JSON.stringify(result));
                         // alert("id:" + id + "type:" + 4 + "userid:" + userid);
                         var errorcode = result.errorCode.toString();
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+                            token = result.data.token.toString();
                             //alert(userid);
                             //收藏
                             var follow = $("#star").attr('class');

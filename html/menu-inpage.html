@@ -13,6 +13,8 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
     <!--<link href="../css/common/reset.css?ver=420" rel="stylesheet">-->
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/animate.css?ver=420" rel="stylesheet">
@@ -103,50 +105,50 @@
                 </dt>
                 <div v-if="data.major_ingredients!==undefined && data.major_ingredients.length"
                      v-show="data.major_ingredients">
-                    <!--<p class="title_ingredients"><span>主料</span></p>-->
+                    <p class="title_ingredients"><span>主料</span></p>
                     <dd v-for="item in data.major_ingredients">
                         {{item.name}}
                         <span>{{item.unit}}</span>
                     </dd>
                 </div>
-                <!--<div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length"-->
-                     <!--v-show="data.minor_ingredients">-->
-                    <!--<p class="title_ingredients"><span>辅料</span></p>-->
-                    <!--<dd v-for="item in data.minor_ingredients">-->
-                        <!--{{item.name}}-->
-                        <!--<span>{{item.unit}}</span>-->
-                    <!--</dd>-->
-                <!--</div>-->
-                <!--<div v-if="data.A_ingredients!==undefined && data.A_ingredients.length" v-show="data.A_ingredients">-->
-                    <!--<p class="title_ingredients"><span>A料</span></p>-->
-                    <!--<dd v-for="item in data.A_ingredients">-->
-                        <!--{{item.name}}-->
-                        <!--<span>{{item.unit}}</span>-->
-                    <!--</dd>-->
-                <!--</div>-->
-                <!--<div v-if="data.B_ingredients!==undefined && data.B_ingredients.length" v-show="data.B_ingredients">-->
-                    <!--<p class="title_ingredients"><span>B料</span></p>-->
-                    <!--<dd v-for="item in data.B_ingredients">-->
-                        <!--{{item.name}}-->
-                        <!--<span>{{item.unit}}</span>-->
-                    <!--</dd>-->
-                <!--</div>-->
-                <!--<div v-if="data.C_ingredients!==undefined && data.C_ingredients.length" v-show="data.C_ingredients">-->
-                    <!--<p class="title_ingredients"><span>C料</span></p>-->
-                    <!--<dd v-for="item in data.C_ingredients">-->
-                        <!--{{item.name}}-->
-                        <!--<span>{{item.unit}}</span>-->
-                    <!--</dd>-->
-                <!--</div>-->
-                <!--<div v-if="data.D_ingredients!==undefined && data.D_ingredients.length" v-show="data.D_ingredients">-->
-                    <!--<p class="title_ingredients"><span>D</span></p>-->
-                    <!--<dd v-for="item in data.D_ingredients">-->
-                        <!--{{item.name}}-->
-                        <!--<span>{{item.unit}}</span>-->
-                    <!--</dd>-->
-                <!--</div>-->
+                <div v-if="data.minor_ingredients!==undefined && data.minor_ingredients.length"
+                     v-show="data.minor_ingredients">
+                    <p class="title_ingredients"><span>辅料</span></p>
+                    <dd v-for="item in data.minor_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.A_ingredients!==undefined && data.A_ingredients.length" v-show="data.A_ingredients">
+                    <p class="title_ingredients"><span>A料</span></p>
+                    <dd v-for="item in data.A_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.B_ingredients!==undefined && data.B_ingredients.length" v-show="data.B_ingredients">
+                    <p class="title_ingredients"><span>B料</span></p>
+                    <dd v-for="item in data.B_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.C_ingredients!==undefined && data.C_ingredients.length" v-show="data.C_ingredients">
+                    <p class="title_ingredients"><span>C料</span></p>
+                    <dd v-for="item in data.C_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
+                <div v-if="data.D_ingredients!==undefined && data.D_ingredients.length" v-show="data.D_ingredients">
+                    <p class="title_ingredients"><span>D</span></p>
+                    <dd v-for="item in data.D_ingredients">
+                        {{item.name}}
+                        <span>{{item.unit}}</span>
+                    </dd>
+                </div>
                 <!--<div class="box"></div>-->
-                <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
+                 <!--<div class="tobuy"><span class="menubtn">一键购买</span></div>-->
             </dl>
         </div>
     </div>
