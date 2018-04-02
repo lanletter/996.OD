@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>密码找回</title>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
+</head>
+<body>
+<div class="divbreak"></div>
+<ul class="ulstyle">
+    <li class="explain">
+        <p>绑定手机号</p>
+        <p>绑定手机号</p>
+    </li>
+    <li class="edit">
+        <input type="password" placeholder="新密码" maxlength="20" id="newpwd"/>
+        <img src="../img/findx.png" id="delete1">
+    </li>
+    <li class="edit">
+        <input type="password" placeholder="新密码" maxlength="20" id="newpwd2"/>
+        <img src="../img/findx.png" id="delete2">
+    </li>
+    <li>
+        <p class="warn warn1" style="display: none;">密码前后输入不一致，请重新输入</p>
+        <p class="warn warn2" style="display: none;">密码为空</p>
+        <p class="warn warn3" style="display: none;">密码格式输入有误，请重新输入</p>
+        <span class="nextbtn">确认密码并完成绑定</span>
+    </li>
+</ul>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script>
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
+    var phonenum = $.cookie('phonenum');
+    var codenum = $.cookie('codenum');
+    var unionid = $.cookie('unionid');
+    var nickname = $.cookie('nickname');
+    var headimgurl = $.cookie('headimgurl');
+    /*输入框选中效果*/
+    $(document).ready(function () {
+        $("#newpwd").focus(function () {
+            $("#delete1").css("display", "block");
+            $("#delete1").click(function () {
+                $("#newpwd").val("");
+                $("#delete1").css("display", "none");
+            });
+            $("#newpwd").keyup(function () {
+                var tmptxt = $(this).val();
+                $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
+            }).bind("paste", function () {
+                var tmptxt = $(this).val();
+                $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
+            }).css("ime-mode", "disabled");
+        });
+        $("#newpwd").blur(function () {
+            if ($("#newpwd").val() == "") {
+                $("#delete1").css("display", "none");
+            }
+        });
+        $("#newpwd2").focus(function () {
+            $("#delete2").css("display", "block");
+            $("#delete2").click(function () {
+                $("#newpwd2").val("");
+                $("#delete2").css("display", "none");
+            });
+        });
+        $("#newpwd2").blur(function () {
+            if ($("#newpwd2").val() == "") {
+                $("#delete2").css("display", "none");
+            }
+        });
+    });
+
+    $(".nextbtn").click(function () {
+        if (!loginInputValid()) return;
+        /*微信unionid和手机号注册*/
+        $.ajax({
+            type: 'POST',
+            url: urlport + 'user/loginByUnionIDAndTel',
+            datatype: "json",
+            data: JSON.stringify({
+                unionId: unionid,
+                weChat: nickname,
+                picture: headimgurl,
+                verificationCode: codenum,
+                tel: $("#phonenum").val(),
+                password: $("#newpwd").val()
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+//              alert(JSON.stringify(ret));
+                if (ret.status == "200") {
+                    $api.toast('微信绑定并注册成功', 2000);
+                    window.location.href = h5url;
+                }
+            }
+        });
+    });
+
+    function loginInputValid() {
+        var newpwd = document.getElementById('newpwd').value;
+        var newpwd2 = document.getElementById('newpwd2').value;
+        if (newpwd !== newpwd2) {
+            document.getElementById("newpwd").value = "";
+            document.getElementById("newpwd2").value = "";
+            $("#delete1").css("display", "none");
+            $("#delete2").css("display", "none");
+            $(".warn1").css("display", "block");
+            $(".warn2").css("display", "none");
+            $(".warn3").css("display", "none");
+            $(".edit").addClass("bdred");
+            return false;
+        }
+        if (newpwd == "" || newpwd2 == "") {
+            document.getElementById("newpwd").value = "";
+            document.getElementById("newpwd2").value = "";
+            $("#delete1").css("display", "none");
+            $("#delete2").css("display", "none");
+            $(".warn1").css("display", "none");
+            $(".warn2").css("display", "block");
+            $(".warn3").css("display", "none");
+            $(".edit").addClass("bdred");
+            return false;
+        }
+        if (!(/^.{6,20}$/.test(newpwd)) || !(/^.{6,20}$/.test(newpwd2))) {
+            document.getElementById("newpwd").value = "";
+            document.getElementById("newpwd2").value = "";
+            $("#delete1").css("display", "none");
+            $("#delete2").css("display", "none");
+            $(".warn1").css("display", "none");
+            $(".warn2").css("display", "none");
+            $(".warn3").css("display", "block");
+            $(".edit").addClass("bdred");
+            return false;
+        }
+        return true;
+    }
+</script>
+</html>

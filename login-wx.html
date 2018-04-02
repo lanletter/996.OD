@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>用户登录</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/login.css?ver=403">
+</head>
+<body>
+<!--<ul class="otherlogins">
+    <li><img src="../img/login-wx.png" id="loginwx"></li>
+</ul>-->
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script>
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var code = GetQueryString("code");
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
+    // alert(code);
+
+    //三方登录接口
+    $.ajax({
+        type: 'POST',
+        url: urlport + "pay/wxtoken",
+        datatype: "json",
+        data: JSON.stringify({
+            code: code
+        }),
+        contentType: 'application/json;charset=UTF-8',
+        success: function (obj) {
+            console.log(obj);
+//          alert(JSON.stringify(obj));
+            if (obj.status == 200) {
+                var data = obj.data;
+                /*token信息*/
+                var access_token = data.wxtoken.access_token;
+                var refresh_token = data.wxtoken.refresh_token;
+                var expires_in = data.wxtoken.expires_in;
+                var openid = data.wxtoken.openid;
+                var scope = data.wxtoken.scope;
+                var unionid = data.wxtoken.unionid;
+                /*用户信息*/
+                var nickname = data.wxinfo.nickname;
+                var sex = data.wxinfo.sex;
+                var province = data.wxinfo.province;
+                var city = data.wxinfo.city;
+                var country = data.wxinfo.country;
+                var headimgurl = data.wxinfo.headimgurl;
+                var privilege = data.wxinfo.privilege;
+
+                $.ajax({
+                    type: 'POST',
+                    url: urlport + "user/loginByUnionID",
+                    datatype: "json",
+                    data: JSON.stringify({
+                        unionId: unionid
+                    }),
+                    contentType: 'application/json;charset=UTF-8',
+                    success: function (obj) {
+                        console.log(obj);
+//                      alert(JSON.stringify(obj));
+                        if (obj.status == 200) {
+                            $api.toast('登录成功', 2000);
+                            var phonenum = obj.data.accountName;
+                            var userid = obj.data.id;
+                            $.cookie('phonenum', obj.data.accountName);
+                            $.cookie('userid', obj.data.id);
+                            window.location.href = h5url;
+                        } else {
+                            $.cookie('nickname', nickname);
+                            $.cookie('headimgurl', headimgurl);
+                            $.cookie('unionid', unionid);
+                            var boundurl = "boundphone1.html";
+                            window.location.href = boundurl;
+                        }
+                    }
+                });
+
+            } else {
+//              alert(obj);
+            }
+
+        }
+    });
+
+//  $("#loginwx").click(function () {
+//      var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=http://h5.fotilestyle.com/fotilestyle-test2/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+//      window.location.href = loginwx;
+//  })
+
+</script>
+</html>

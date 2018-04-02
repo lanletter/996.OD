@@ -26,7 +26,6 @@
             if (data.length == 0 && obj.pageNum == 1) {
                 $("#loading").hide();
                 var noComment = '\
-                <script type="text/javascript" src="../js/UMAnalytics.js"></script>\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <div class="leavewords comment">\
                       <img src="">\
@@ -59,6 +58,7 @@
                         <p class="check-p"><span class="del-com wsdel-no">取消</span><span class="wsdel-ok">确定</span></p>\
                       </div>\
                     </aside>\
+                    <script src="../js/jquery.min.js"></script>\
                     <script src="../js/imgUp.js"></script>\
                     <script>\
                         $(function(){\
@@ -138,7 +138,7 @@
                             e.preventDefault();
                             return;
                         }
-                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
+                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -170,11 +170,6 @@
                             },
                             complete: function () {
                                 $('#leave-words').hide();
-                                /*友盟打点：评论统计*/
-                                UMAnalyticsAgent.trackWithProperty("h5发表评论",{
-                                    "类型":"发表评论"
-                                });
-                                // alert("!!!");
                                 refresh(homeurl);
                             }
                         });
@@ -191,11 +186,6 @@
                             var data = res.data;
                             console.log(data);
                             $api.toast('评论创建成功！', 3000);
-                            /*友盟打点：评论统计*/
-                            UMAnalyticsAgent.trackWithProperty("h5发表评论",{
-                                "类型":"发表评论"
-                            });
-                            // alert("!!!");
                         }
                     });
                 }
@@ -216,7 +206,6 @@
                 );
 
                 var template = '\
-                <script type="text/javascript" src="../js/UMAnalytics.js"></script>\
                 <div class="loadbox">\
                     <div id="ft-header" class="ft-comment__header clearfix left-right">\
                       <div class="leavewords comment">\
@@ -525,11 +514,6 @@
                             },
                             complete: function () {
                                 $('#leave-words').hide();
-                                /*友盟打点：评论统计*/
-                                UMAnalyticsAgent.trackWithProperty("h5发表评论",{
-                                    "类型":"发表评论"
-                                });
-                                // alert("!!!");
                                 refresh(homeurl);
                             }
                         });
@@ -542,11 +526,6 @@
                             var data = res.data;
                             console.log(data);
                             $api.toast('评论创建成功！', 3000);
-                            /*友盟打点：评论统计*/
-                            UMAnalyticsAgent.trackWithProperty("h5发表评论",{
-                                "类型":"发表评论"
-                            });
-                            // alert("!!!");
                         }
                     });
                 }
@@ -646,11 +625,6 @@
                             },
                             complete: function () {
                                 $('#leave-words2').hide();
-                                /*友盟打点：评论统计*/
-                                UMAnalyticsAgent.trackWithProperty("h5发表评论",{
-                                    "类型":"发表评论"
-                                });
-                                // alert("!!!");
                                 refresh(homeurl);
                             }
                         });
@@ -663,11 +637,6 @@
                             var data = res.data;
                             console.log(data);
                             $api.toast('评论创建成功！', 3000);
-                            /*友盟打点：评论统计*/
-                            UMAnalyticsAgent.trackWithProperty("h5发表评论",{
-                                "类型":"发表评论"
-                            });
-                            // alert("!!!");
                         }
 
 

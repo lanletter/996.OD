@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no">
+    <title>在线支付</title>
+    <link rel="stylesheet" href="../css/pay/global.css?ver=403">
+    <link rel="stylesheet" href="../css/pay/payment.css?ver=403">
+    <link rel="stylesheet" href="../css/pay/app.css?ver=403" id="appcss" disabled>
+    <style>.app {
+        display: none;
+    }</style>
+</head>
+<body>
+<header>
+    <div class="topbar bBor"><b class="back" tapmode="onon" onclick="$.JR.closeWin()"></b>
+        <h1>在线支付</h1>
+    </div>
+</header>
+<div id="main">
+    <div class="info">
+        <div class="lable bBor">
+            <em>订单流水号</em>
+            <span class="fr" id="orderNo">加载中...</span>
+        </div>
+        <div class="lable do bBor">
+            <em>合计金额</em>
+            <span class="fr em" id="money">加载中...</span>
+        </div>
+        <div class="lable box ">
+            <span>支付方式</span>
+        </div>
+        <div class="lable payment bBor on weixin" channel="wx_pub">
+            微信支付
+            <span class="xin"></span>
+            <i></i>
+        </div>
+    </div>
+    <div class="bottom" tapmode="onon" id="payAction"> 确定</div>
+</div>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script src="../js/pingpp.js"></script>
+<script src="../js/s.js"></script>
+<script src="../js/url.js"></script>
+<script>
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    var code = GetQueryString("code");
+    var userId = GetQueryString('userid');
+    var orderNumber = GetQueryString('orderNumber');
+    var allprice = GetQueryString('allprice');
+    var id = $.cookie('id');
+
+//   alert(JSON.stringify({
+//       "channel": "wx_pub",
+//       "orderNo": orderNumber,
+//       "userId": userId,
+//       "code": code,
+//       "id":id
+//   }));
+
+    $("#orderNo").text(orderNumber);
+    $("#money").text(allprice);
+    /*获取charge*/
+    $.ajax({
+        type: 'POST',
+        url: urlport + 'pay/createCharge',
+        datatype: "json",
+        data: JSON.stringify({
+            "channel": "wx_pub",
+            "orderNo": orderNumber,
+            "userId": userId,
+            "code": code
+        }),
+        contentType: 'application/json;charset=UTF-8',
+        success: function (data2) {
+//          alert(JSON.stringify(data2));
+//          alert(JSON.stringify(data2.data.charge));
+            /*调取服务端要给你返回的charger的API；也就是AJAX返回的charger*/
+            var charger =data2.data.charge;
+            $("#payAction").click(function () {
+                pingpp.createPayment(charger, function (result) {
+//                  alert(result);
+                    if (result == "success") {
+                        $api.toast('支付成功!', 2000);
+                        var urllong="https://h5.fotilestyle.com/html/coursedetail.html?id=" + id;
+                        window.location.href =urllong ;
+                    } else if (result == "cancel") {
+                        $api.toast('支付取消!', 2000);
+                        var buyurl = "https://h5.fotilestyle.com/html/courseform.html?id=" + id;
+                        window.location.href = buyurl;
+                    } else if(result == "fail"){
+                        $api.toast('支付失败,请重试或重新下单!', 2000);
+                        var buyurl = "https://h5.fotilestyle.com/html/courseform.html?id=" + id;
+                        window.location.href = buyurl;
+                    }
+                });
+            })
+        }
+    });
+
+</script>
+</body>
+</html>
