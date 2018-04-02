@@ -136,7 +136,9 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-                    token = result.data.token.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
 
                     choose();
 
@@ -257,7 +259,9 @@
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
-                            token = result.data.token.toString();
+		                    if(userid !== "1" && userid !== 1){
+		                        token = result.data.token.toString();
+		                    }
                             //alert(userid);
                             //收藏
                             var follow = $("#star").attr('class');

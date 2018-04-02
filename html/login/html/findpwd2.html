@@ -12,8 +12,6 @@
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-
-    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
 </head>
@@ -36,7 +34,7 @@
     </ul>
 </body>
 <script type="text/javascript" src='../js/lib.js'></script>
-<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/alertdiy.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script>
     /*获取url*/
@@ -103,19 +101,20 @@
 
         $.ajax({
             type: 'POST',
-            url: urlport+'user/getVerificationCode',
+            url: 'https://h5.fotilestyle.com/AccountProxy/v2/getpin',
             datatype:"json",
             data:JSON.stringify({
                 phone: phonenum,
-                type:3
+                corp_id: "1007d4b036464a00"
             }),
             contentType:'application/json;charset=UTF-8',
             success: function (ret) {
 //              alert(JSON.stringify(ret));
-                console.log(ret);
-               if(ret.status!==200){
-                   alert(ret.errorMessage);
-               }
+                var obj = eval('(' + ret + ')');
+//                if(obj.resultCode=="2004"){
+//                    alert("请求次数太多");
+//                }
+
             }
         });
     });
@@ -130,7 +129,7 @@
     });
     function loginInputValid() {
         var codenum = document.getElementById('codenum').value;
-        if (!(/^\d{4}$/.test(codenum))) {
+        if (!(/^\d{6}$/.test(codenum))) {
             document.getElementById("codenum").value = "";
             $("#delete1").css("display", "none");
             $(".warn2").css("display", "block");

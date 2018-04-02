@@ -43,7 +43,6 @@
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/url.js'></script>
-<script type="text/javascript" src='../js/alertdiy.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script>
     /*获取url*/
@@ -54,8 +53,10 @@
         return null;
     }
 
-    var id = GetQueryString("id");
     var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
     var phonenum = $.cookie('phonenum');
     var codenum = $.cookie('codenum');
     var unionid = $.cookie('unionid');
@@ -113,7 +114,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+//              alert(JSON.stringify(ret));
                 if (ret.status == "200") {
                     $api.toast('微信绑定并注册成功', 2000);
                     window.location.href = h5url;

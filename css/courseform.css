@@ -3,9 +3,7 @@ body{
 	font-family: "PingFang SC";
 }
 .buynow-div{
-	width: 100%;
-	height: 100%;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 .editlist{
@@ -139,6 +137,7 @@ body{
 	line-height: 0.9rem;
 	border-top:1px solid rgb(237,237,237);
 	background: #fff;
+	z-index:-1;
 }
 .ttprice span{
 	font-size: 0.32rem;

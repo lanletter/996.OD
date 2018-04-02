@@ -94,6 +94,7 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        var token;
         $(".footer").hide();
         //app交互—获取userid
         window.onload = function () {
@@ -103,6 +104,9 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
 
                     choose();
 
@@ -114,6 +118,7 @@
         };
     } else {
         var userid = 1;
+        var token;
         choose();
     }
     function choose() {

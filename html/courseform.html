@@ -54,11 +54,11 @@
         </li>
     </ul>
 
-    <div class="ttprice">
-        <span>¥<b id="allprice">0</b></span>
-        <button class="editbtn span14" id="purchase">确定</button>
-        <!--<button class="editbtn span14" id="purchase" onclick="wap_pay('wx_pub')">确定</button>-->
-    </div>
+</div>
+<div class="ttprice">
+    <span>¥<b id="allprice">0</b></span>
+    <button class="editbtn span14" id="purchase">确定</button>
+    <!--<button class="editbtn span14" id="purchase" onclick="wap_pay('wx_pub')">确定</button>-->
 </div>
 
 <script type="text/javascript" src="../js/pingpp.js"></script>
@@ -105,6 +105,16 @@
             txt.pv = v;
         }
     };
+
+    /*软键盘兼容*/
+    $("body").find(".editinput").each(function () {
+        //alert($(this).data('target'));
+        $(this).bind('focus', function () {
+            $('.ttprice').css('position', 'static');
+        }).bind('blur', function () {
+            $('.ttprice').css({ 'position': 'absolute', 'bottom': '0' });
+        });
+    });
 
     $.ajax({
         url: urlport + 'curriculumn/detail',
@@ -239,7 +249,7 @@
 
                             /*获取code*/
                             var urllong = "https://api.fotilestyle.com/fotile-api-0.0.2/pay/wxpub?orderNumber=" + orderNumber + "&userid=" + userId + "&allprice=" + allprice + "&id=" + id;
-                            alert(urllong);
+//                          alert(urllong);
                             window.location.href = urllong;
 
                         } else {

@@ -193,7 +193,7 @@
             </li>
             <li class="list4 border-t">
                 <span class="span18">备注：</span>
-                <textarea id="remarks" placeholder="填写备注信息"></textarea>
+                <input type="text" id="remarks" placeholder="填写备注信息" />
                 <!--<div class="lightgrey" id="remarks"></div>-->
                 <!--<img src="../img/invalidPen.png" class="editpic">-->
             </li>
@@ -273,6 +273,7 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        var token;
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
@@ -281,6 +282,9 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
 
                     choose();
 
@@ -292,6 +296,7 @@
         };
     } else {
         var userid = 1;
+        var token;
         choose();
     }
 
@@ -427,27 +432,26 @@
                 switch (time.getDay()) {
                     case 0:
                         week = "日";
-                        break
+                        break;
                     case 1:
                         week = "一";
-                        break
+                        break;
                     case 2:
                         week = "二";
-                        break
+                        break;
                     case 3:
                         week = "三";
-                        break
+                        break;
                     case 4:
                         week = "四";
-                        break
+                        break;
                     case 5:
                         week = "五";
-                        break
+                        break;
                     case 6:
                         week = "六";
                         break
                 }
-                ;
                 return add0(year) + '年' + add0(month) + '月' + add0(date) + '日 周' + week + ' ';
 
             }
@@ -558,7 +562,7 @@
             } else {
                 $('.buynow').on('click', function () {
                     var h5url = "courseform.html?id=" + id;
-                    alert(h5url);
+//                  alert(h5url);
                     $.cookie('id', id);
                     $.cookie('h5url', h5url);
                     var loginurl = "login.html";

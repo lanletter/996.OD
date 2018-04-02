@@ -54,8 +54,10 @@
         return null;
     }
 
-    var id = GetQueryString("id");
     var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
     var unionid = $.cookie('unionid');
     var nickname = $.cookie('nickname');
     var headimgurl = $.cookie('headimgurl');
@@ -159,13 +161,13 @@
     $(".nextbtn").click(function () {
         if (!loginInputValid()) return;
         /*微信unionid和手机号绑定or注册*/
-        alert(JSON.stringify({
-            unionId: unionid,
-            weChat: nickname,
-            picture: headimgurl,
-            tel: $("#phonenum").val(),
-            verificationCode: $("#codenum").val()
-        }));
+//      alert(JSON.stringify({
+//          unionId: unionid,
+//          weChat: nickname,
+//          picture: headimgurl,
+//          tel: $("#phonenum").val(),
+//          verificationCode: $("#codenum").val()
+//      }));
         $.ajax({
             type: 'POST',
             url: urlport + 'user/loginByUnionIDAndTel',
@@ -179,7 +181,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+//              alert(JSON.stringify(ret));
                 if (ret.status == "200") {
                     $api.toast('微信绑定成功', 2000);
                     window.location.href = h5url;

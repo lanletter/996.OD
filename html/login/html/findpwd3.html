@@ -12,8 +12,6 @@
           content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
-
-    <script src="../js/tingyun-rum.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
 </head>
@@ -103,7 +101,7 @@
 //        }));
         $.ajax({
             type: 'POST',
-            url: urlport + 'user/forgetPassword/v421',
+            url: 'https://h5.fotilestyle.com/AccountProxy/v2/forgetPassword',
             datatype: "json",
             data: JSON.stringify({
                 accountName: phonenum,
@@ -113,7 +111,9 @@
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
 //              alert(ret);
-                if (ret.status == "200") {
+                var obj = eval('(' + ret + ')');
+//              alert(obj.status);
+                if (obj.status == "200") {
                     $api.toast('密码修改成功', 2000);
                     var buyurl = "login.html?id=" + id;
 //                  alert(buyurl);

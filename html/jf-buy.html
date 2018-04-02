@@ -184,6 +184,7 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        var token;
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
@@ -192,6 +193,9 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
 
                     choose();
 
@@ -203,6 +207,7 @@
         };
     } else if ((device == null)) {
         var userid = 1;
+        var token;
         choose();
     }
 
@@ -368,6 +373,9 @@
                             if (errorcode == "1") {
                                 // $api.toast('登陆成功', 2000);
                                 userid = result.data.userId.toString();
+			                    if(userid !== "1" && userid !== 1){
+			                        token = result.data.token.toString();
+			                    }
                                 window.userid = userid;
                                 // alert("userid："+userid);
                                 //积分兑换
@@ -384,12 +392,12 @@
                                     '<span class="wsdel-no">取消</span>' +
                                     '</p></div></div>');
                                 $("#mask").css("display","block");
-                                $(".wsdel-ok").click(function () {
+                                $(".wsdel-ok").unbind().click(function (e) {
                                     $("#mask").css("display","none");
                                     $this.userId = userid;
                                     $this.getAddress(this.userId);
                                 });
-                                $(".wsdel-no").click(function () {
+                                $(".wsdel-no").unbind().click(function (e) {
                                     $("#mask").css("display","none");
                                 })
 

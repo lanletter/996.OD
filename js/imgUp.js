@@ -15,7 +15,6 @@
     //$(".commit").takungaeImgup();
     $.fn.extend({
         takungaeImgup: function (opt, serverCallBack) {
-            console.log("调用takungaeImgup");
             if (typeof opt != "object") {
                 alert('参数错误!');
                 return;
@@ -26,7 +25,7 @@
 
             var defaults = {
                 fileType: ["jpg", "png", "bmp", "jpeg", "JPG", "PNG", "JPEG", "BMP"], // 上传文件的类型
-                fileSize: 1024 * 1024 * 4, // 上传文件的大小 4M
+                fileSize: 1024 * 1024 * 10, // 上传文件的大小 10M
                 count: 0
                 // 计数器
             };
@@ -48,6 +47,7 @@
                 var reader = new FileReader(); // 新建一个FileReader();
                 var idFile = $(this).attr("id");
                 var file = document.getElementById(idFile);
+                console.log(file);
                 var imgContainer = $(this).parents(".z_photo"); // 存放图片的父亲元素
                 var fileList = file.files; // 获取的图片文件
                 var input = $(this).parent();// 文本框的父亲元素
@@ -84,6 +84,7 @@
                         var $input2 = $("<input id='tags' name='tags' value='' type='hidden'/>");
                         $input2.appendTo($section);
                         uploadImg(opt, fileList[i], $section);
+                        console.log(fileList[i]);
                     }
                 }
 
@@ -128,19 +129,20 @@
                     if (newStr.split(".")[0] != null) {
                         var type = newStr.split(".")[0].split("")
                             .reverse().join("");
-                        console.log(type + "===type===");
+                        console.log("type："+type);
+                        // alert("type:"+type);
                         if (jQuery.inArray(type, defaults.fileType) > -1) {
                             // 类型符合，可以上传
                             if (file.size >= defaults.fileSize) {
-                                alert('文件大小"' + file.name + '"超出4M限制！');
+                                alert("您上传的" + file.name + "文件大小超出10M限制！");
                             } else {
                                 arrFiles.push(file);
                             }
                         } else {
-                            alert('您上传的"' + file.name + '"不符合上传类型');
+                            alert("您上传的" + file.name + "不符合上传类型");
                         }
                     } else {
-                        alert('您上传的"' + file.name + '"无法识别类型');
+                        alert("您上传的" + file.name + "无法识别类型");
                     }
                 }
                 return arrFiles;
@@ -152,19 +154,23 @@
                 // 验证通过图片异步上传
                 var url = opt.url;
                 console.log(url);
+                // alert(url);
                 var reader = new FileReader(); // 新建一个FileReader();
-                console.log(reader);
                 reader.readAsDataURL(file); //读取图片文件的二进制数据
-
                 reader.onload = function (e) { // reader onload start
+                    console.log(e);
                     var formdata = new FormData();
                     var filestring = e.target.result;   //base64编码的图片数据
+                    console.log(filestring);
+                    // alert(filestring);
                     formdata.append("type", 2);
                     formdata.append("image", filestring);
                     var json = {};
                     json.type = 2;
                     json.image = filestring;
                     var picid = "";
+                    console.log(json);
+                    // alert(JSON.stringify(json));
                     $.ajax({
                         type: 'POST',
                         url: url,
@@ -174,6 +180,7 @@
                         dataType: 'json',
                         async: false,
                         success: function (data) {
+                            console.log(data);
                             $(".up-section").removeClass("loading");
                             $(".up-img").removeClass("up-opcity");
                             $("#imguploadFinish").val(true);
@@ -186,8 +193,10 @@
                             }
                         },
                         error: function (e) {
-                            obj.remove();
-                            var err = "上传失败，请联系管理员！";
+                            console.log(e);
+                            // alert(JSON.stringify(e));
+                            // obj.remove();
+                            var err = "上传失败！";
                             $("#imguploadFinish").val(false);
                             if (errorCallBack) {
                                 errorCallBack(err);

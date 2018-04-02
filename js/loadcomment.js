@@ -1,6 +1,7 @@
 +function () {
     var isEmpty = false;
     var homeurl = window.location.href;
+    var token;
 
     function loadComment(obj, pageNum, type, id, userId) {
         console.log(obj);
@@ -9,7 +10,9 @@
         var idcook = $.cookie('idcook');
         var cookstring = typecook + idcook;
         var userid = obj.userId;
-        // var userid = 121547;
+        // alert(userid);
+        // var userid = 121547;//测试环境
+        // var userid = 94138;//预发布环境
         console.log(cookstring);
 
         $api.post(urlport + 'comment/list', obj,
@@ -21,7 +24,7 @@
         function callback(res) {
             var data = res.data;
             console.log(data);
-            isEmpty = data.length==0;
+            isEmpty = data.length == 0;
 
             if (data.length == 0 && obj.pageNum == 1) {
                 $("#loading").hide();
@@ -58,7 +61,6 @@
                         <p class="check-p"><span class="del-com wsdel-no">取消</span><span class="wsdel-ok">确定</span></p>\
                       </div>\
                     </aside>\
-                    <script src="../js/jquery.min.js"></script>\
                     <script src="../js/imgUp.js"></script>\
                     <script>\
                         $(function(){\
@@ -76,7 +78,7 @@
                     </script>\
                   </div>\
                   <div id="commit" class="buttons commit">提交</div>\
-                  <div class="buttons backto">取消</div>\
+                  <div class="buttons backto">返回详情</div>\
                 </div></div></form>';
 
                 Mustache.parse(noComment);
@@ -94,6 +96,9 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+			                    if(userid !== "1" && userid !== 1){
+			                        token = result.data.token.toString();
+			                    }
                                 $('#leave-words').show();
                                 test1(userid);
                             } else if (errorCode == "0") {
@@ -106,7 +111,6 @@
                         });
                     } else {
                         window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // userid = 121547;
                         // $('#leave-words').show();
                         // test1(userid);
                     }
@@ -138,7 +142,7 @@
                             e.preventDefault();
                             return;
                         }
-                        //alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
+                        // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
                         var refIdurl = "&refId=" + obj.refId;
@@ -193,7 +197,7 @@
 
             if (obj.pageNum >= 1 && data.length > 0) {
                 /*判断是否加载完全*/
-                obj.pageNum = pageNum+1;
+                obj.pageNum = pageNum + 1;
                 $api.post(urlport + 'comment/list', obj,
                     function (res) {
                         console.log(res);
@@ -313,7 +317,7 @@
                       <div id="bgfff"></div>\
                       <div class="topborder">\
                           <div class="boxhf">\
-                              <input class="textarea" placeholder="请输入最新评论..." maxlength="200"/>\
+                              <input class="textarea" placeholder="请输入最新评论..." maxlength="200" />\
                               <div id="commit2" class="commit">回复</div>\
                           </div>\
                       </div>\
@@ -423,6 +427,14 @@
                 // $(".loadbox #loading").remove();
                 $(".loadbox #scripts").remove();
 
+
+                var windowHeightReal = window.screen.height;
+                if (device == "ios" && windowHeightReal == 812) {
+                    //iphoneX
+                    $("#leave-words2 .topborder").css({"position": "absolute", "bottom": "1rem"});
+                }
+
+
                 /*判断是否登录*/
                 islogin();
 
@@ -434,6 +446,9 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+			                    if(userid !== "1" && userid !== 1){
+			                        token = result.data.token.toString();
+			                    }
                                 $('#leave-words').show();
                                 test2(userid);
                             } else if (errorCode == "0") {
@@ -446,7 +461,6 @@
                         });
                     } else {
                         window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // userid = 121547;
                         // $('#leave-words').show();
                         // test2(userid);
                     }
@@ -489,7 +503,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        // alert(url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -540,6 +554,9 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+			                    if(userid !== "1" && userid !== 1){
+			                        token = result.data.token.toString();
+			                    }
                                 $('#leave-words2').show();
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
@@ -556,7 +573,6 @@
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
                         // // alert(parentid);
-                        // userid = 121547;
                         // $('#leave-words2').show();
                         // test(parentid, userid);
                     }
@@ -566,25 +582,22 @@
                 function test(parentid, userid) {
                     $("#leave-words2 .textarea").focus();//默认选中
                     /*键盘控制*/
-                    document.onkeyup = function (event) {
-                        var e = event || window.event;
-                        var keyCode = e.keyCode || e.which;
-                        if (keyCode == 13) {
+                    $("#leave-words2 .textarea").bind("keydown", function (e) {
+                        // 兼容FF和IE和Opera
+                        var theEvent = e || window.event;
+                        var code = theEvent.keyCode || theEvent.which || theEvent.charCode;
+                        if (code == 13) {
+                            //回车执行查询
                             return false;
+                            //             if (confirm("确定提交评论吗？")) {
+                            //                 $("#commit2").unbind().click();
+                            //             }
+                            //             else {
+                            //                 return;
+                            //             }
                         }
-                        // switch (keyCode) {
-                        //     case 13:
-                        //         if (confirm("确定提交评论吗？")) {
-                        //             $("#commit2").click();
-                        //         }
-                        //         else {
-                        //             return;
-                        //         }
-                        //         break;
-                        //     default:
-                        //         break;
-                        // }
-                    };
+                    });
+
                     $('#commit2').unbind().click(function (e) {
                         var words = $('#leave-words2');
                         var content = words.find('.textarea').val();
@@ -740,23 +753,23 @@
 
             /*判断是否登录*/
             function islogin() {
-                if(userid==1 ){
+                if (userid == 1) {
                     $(".nocomment").show();
                     $(".comment").hide();
-                }else {
+                } else {
                     $(".comment").show();
                     $(".nocomment").hide();
                     $.ajax({
                         type: 'POST',
-                        url: urlport3 + "user/getTitlePictureByUserId",
+                        url: urlport + "user/getTitlePictureByUserId",
                         datatype: "json",
                         data: JSON.stringify({
-                            "userId":userid
+                            "userId": userid
                         }),
                         contentType: 'application/json;charset=UTF-8',
                         success: function (info) {
                             console.log(info);
-                            $(".comment img").attr("src",info.data);
+                            $(".comment img").attr("src", info.data);
                         }
                     });
                 }
@@ -790,10 +803,10 @@
         // };
         var isEmpty = true;
         var windowHeight = $(window).height();
-        var windowHeightReal=window.screen.height;
+        var windowHeightReal = window.screen.height;
 //      alert(windowHeight);
 //      alert(windowHeightReal);
-        if ( device=="ios" && windowHeight!==windowHeightReal && windowHeightReal!==812) {
+        if (device == "ios" && windowHeight !== windowHeightReal && windowHeightReal !== 812) {
 //          alert("ios");
             $(window).off('scroll').on('scroll', $api.throttle(function () {
                 var scrollTop = $(this).scrollTop();
@@ -804,20 +817,20 @@
                     loadComment(obj, pageNum);
                 }
             }, 500))
-        } else if( device=="ios" && windowHeight!==windowHeightReal && windowHeightReal==812){
-//          alert("X");
+        } else if (device == "ios" && windowHeight !== windowHeightReal && windowHeightReal == 812) {
+            // alert("X");
             $(window).off('scroll').on('scroll', $api.throttle(function () {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();
 //              alert(scrollTop + windowHeightReal - 34);
 //				alert(scrollHeight);
-                if (scrollTop + windowHeightReal - 34== scrollHeight) {
+                if (scrollTop + windowHeightReal - 34 == scrollHeight) {
                     if (isEmpty) return;
                     pageNum = pageNum + 1;
                     loadComment(obj, pageNum);
                 }
             }, 500))
-        }else {
+        } else {
             $(window).off('scroll').on('scroll', $api.throttle(function () {
                 var scrollTop = $(this).scrollTop();
                 var scrollHeight = $(document).height();

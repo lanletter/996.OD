@@ -13,6 +13,8 @@
           name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
     <!--<link href="../css/common/reset.css?ver=420" rel="stylesheet">-->
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/animate.css?ver=420" rel="stylesheet">
@@ -34,6 +36,11 @@
                 s.parentNode.insertBefore(vds, s);
             })();
         })();
+        try {
+            webkit.messageHandlers.GrowingIO_WKWebView.postMessage('GrowingIO_OnPageLoaded');
+        } catch(err) {
+            console.log('The native context does not exist yet');
+        }
     </script>
 </head>
 <body>
@@ -141,7 +148,7 @@
                     </dd>
                 </div>
                 <!--<div class="box"></div>-->
-                <!-- <div class="tobuy"><span class="menubtn">一键购买</span></div> -->
+                 <!--<div class="tobuy"><span class="menubtn">一键购买</span></div>-->
             </dl>
         </div>
     </div>
@@ -199,16 +206,19 @@
             </li>
         </ul>
     </div>
+
+    <img id="pushStore" @click="pushStore" src="../img/bannerSC.jpg" style="width: 100%;height: 3.48rem;">
+
     <!--<div class="jiange">-->
     <!--</div>-->
     <!--<div id="photograph">-->
-    <!--<div class="camera">-->
-    <!--<img src="../img/photograph4.png">-->
-    <!--</div>-->
-    <!--<div class="txt">-->
-    <!--<h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>-->
-    <!--<p class="txt2">您可以在下方的评论模块发表您的心得体会</p>-->
-    <!--</div>-->
+        <!--<div class="camera">-->
+            <!--<img src="../img/photograph4.png">-->
+        <!--</div>-->
+        <!--<div class="txt">-->
+            <!--<h5 class="txt1">菜谱学会了吗？来拍照炫耀一下吧</h5>-->
+            <!--<p class="txt2">您可以在下方的评论模块发表您的心得体会</p>-->
+        <!--</div>-->
     <!--</div>-->
 
     <!--<div class="menutype" style="border:none;" id="kitchenwares">-->
@@ -225,7 +235,7 @@
     <!--</ul>-->
     <!--</div>-->
 
-    <div class="bottomdiv"></div>
+    <!--<div class="bottomdiv"></div>-->
     <div class="ft-titles">
         <p class="title1">用户评论</p>
         <p class="title2">共有<span v-html="data.comment_count">?</span>条评论</p>
@@ -262,6 +272,8 @@
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
+<script type="text/javascript" src="../js/UMAnalytics.js"></script>
+<!--<script type="text/javascript" src="../js/ajaxsetup.js"></script>-->
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
@@ -280,12 +292,16 @@
     if(device==null){$(".footer").show();}
     if (device == "ios") {
         var userid;
+        var token;
         //app交互—获取userid
         ft.isLogin2(function (result) {
             var errorcode = result.errorCode.toString();
             //alert(errorcode);
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
                 choose();
             } else if (errorCode == "0") {
             } else if (errorCode == "-1") {
@@ -294,12 +310,16 @@
         });
     } else if (device == "android") {
         var userid;
+        var token;
         //app交互—获取userid
         ft.isLogin2(function (result) {
             var errorcode = result.errorCode.toString();
             //alert(errorcode);
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
                 /*Android端判断是否菜谱页*/
                 if (device == "android") {
                     ft.MenuLinght(function (result) {
@@ -315,13 +335,13 @@
         });
     } else {
         var userid = 1;
+        var token;
         choose();
     }
 
     var canClick = true;
 
     function choose() {
-
         var vm = new Vue({
             el: '.menupage',
             data: {
@@ -331,8 +351,24 @@
             },
             created: function () {
                 var $this = this;
-                this.$http.post(urlport + 'menu/detail', {"id": id, "userId": userid}).then(function (data) {
-                    var data = data.data;
+                $.ajax({
+                    url: urlport + 'menu/detail',
+                    type: 'POST',
+                    data: JSON.stringify({"id": id, "userId": userid}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (data) {
+                        console.log(data);
+                        callback(data);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+                function callback(data) {
+                    var data = data;
                     console.log(data);
                     if (data.status == 200) {
                         //console.info(data);
@@ -353,6 +389,16 @@
                     $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
                     $(".icon-num").next("span").find("b").text(data.data.fit_number);
 
+                    /*友盟埋点-页面访问*/
+                    var isuserid;//登录判断
+                    if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+                    console.log(isuserid);
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                        "页面类型":"菜谱详情页",
+                        "页面名称": data.data.name,
+                        "是否登录":isuserid
+                    });
+
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     /*判断是否有播放器*/
@@ -362,6 +408,7 @@
                         $(".play").show();
                         $('#videobox').find('#vd').attr('src', data.data.video);
                     }
+
                     /*播放器*/
                     (function () {
                         var video = $('#videobox video')[0],
@@ -516,9 +563,7 @@
                             //alert(111);
                         }
                     })
-                }, function () {
-                    console.info('error');
-                });
+                }
 
             },
             methods: {
@@ -551,6 +596,15 @@
                     });
                     //});
                 },
+                pushStore: function (obj) {
+                    //app交互——唤起智能菜谱
+                    // $("#pushStore").on("click", function () {
+                    //alert("111");
+                    ft.pushStore(function (result) {
+
+                    });
+                    //});
+                },
                 star: function (obj) {
                     console.log(canClick);
                     if (!canClick) return;
@@ -562,36 +616,67 @@
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+		                    if(userid !== "1" && userid !== 1){
+		                        token = result.data.token.toString();
+		                    }
                             //alert(userid);
                             //收藏
                             var follow = $("#star").attr('class');
                             if (follow == "icon-msg") {
-                                $api.post(urlport + 'favorite/create', {
-                                    "refId": id,
-                                    "type": 1,
-                                    "userId": userid
-                                }, function (data) {
-                                    console.log(data);
-                                    console.log("111");
-                                    $("#star").addClass("icon-msg2");
-                                    $("#star").removeClass("icon-msg");
-                                    var oldnum = $("#star").next().text();
-                                    $("#star").next().text(parseInt(oldnum) + 1);
-                                    $api.toast('收藏成功！', 3000);
+                                $.ajax({
+                                    url: urlport + 'favorite/create',
+                                    type: 'POST',
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 1,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式
+                                    success: function (data) {
+                                        console.log(data);
+                                        console.log("111");
+                                        $("#star").addClass("icon-msg2");
+                                        $("#star").removeClass("icon-msg");
+                                        var oldnum = $("#star").next().text();
+                                        $("#star").next().text(parseInt(oldnum) + 1);
+                                        $api.toast('收藏成功！', 3000);
+                                        /*友盟打点：菜谱收藏*/
+                                        UMAnalyticsAgent.trackWithProperty("h5收藏菜谱",{
+                                            "菜谱名称":data.data.name
+                                        });
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
                                 });
                             } else if (follow == "icon-msg2") {
-                                $api.post(urlport + 'favorite/cancel', {
-                                    "refId": id,
-                                    "type": 1,
-                                    "userId": userid
-                                }, function (data) {
-                                    console.log(data);
-                                    console.log("222");
-                                    $("#star").addClass("icon-msg");
-                                    $("#star").removeClass("icon-msg2");
-                                    var oldnum = $("#star").next().text();
-                                    $("#star").next().text(parseInt(oldnum) - 1);
-                                    $api.toast('取消收藏！', 3000);
+                                $.ajax({
+                                    url: urlport + 'favorite/cancel',
+                                    type: 'POST',
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 1,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式
+                                    success: function (data) {
+                                        console.log(data);
+                                        console.log("222");
+                                        $("#star").addClass("icon-msg");
+                                        $("#star").removeClass("icon-msg2");
+                                        var oldnum = $("#star").next().text();
+                                        $("#star").next().text(parseInt(oldnum) - 1);
+                                        $api.toast('取消收藏！', 3000);
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
                                 });
                             }
                         } else if (errorCode == "0") {

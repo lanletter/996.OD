@@ -246,6 +246,7 @@
     var device = GetQueryString("device");
     if (device == "ios" || device == "android") {
         var userid;
+        var token;
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
@@ -254,6 +255,9 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    if(userid !== "1" && userid !== 1){
+                        token = result.data.token.toString();
+                    }
                     choose();
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
@@ -263,6 +267,7 @@
         };
     } else if ((device == null)) {
         var userid = 1;
+        var token;
         choose();
     }
 

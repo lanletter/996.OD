@@ -8,6 +8,7 @@
 }
 
 .pb216 {
+    position: relative;
     padding-bottom: 2.16rem;
 }
 
@@ -697,7 +698,7 @@
     height: 100%;
     background: #fff;
     display: none;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     overflow: auto;
@@ -808,7 +809,7 @@
 	oulilne:none;
 	resize:none
 }*/
-.buynow-div .editlist > li #remarks {
+#remarks {
     float: left;
     color: rgb(154, 154, 154);
     font-size: 0.32rem;
@@ -817,8 +818,8 @@
     line-height: 0.64rem;
     width: 4rem;
     overflow: hidden;
-    oulilne: none;
-    resize: none;
+    border: 0;
+    caret-color: transparent;
 }
 
 #remarks::-webkit-input-placeholder {
