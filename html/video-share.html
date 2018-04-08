@@ -14,7 +14,7 @@
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <script src="../js/tingyun-rum.js"></script>
+    <!--<script src="../js/tingyun-rum.js"></script>-->
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/hls/video-share.css?ver=420" rel="stylesheet">
     <title>直播分享</title>
@@ -97,7 +97,23 @@
 
                     /*视频直播*/
                     (function (window, videojs) {
-                        $('#live-video source').attr('src', $this.kk.url);
+                        var str = $this.kk.url;
+                        console.log(str);
+                        var protocolStr = document.location.protocol;
+                        if(protocolStr == "https")
+                        {
+                            var reg = "http";
+                            str = str.replace(reg,"https");
+                            console.log(str);
+                        }
+                        else
+                        {
+                            var reg = "https";
+                            str = str.replace(reg,"http");
+                            console.log(str);
+                        }
+
+                        $('#live-video source').attr('src', str);
                         var player = window.player = videojs('live-video');
                         var playBtn = $('#videobox .play');
                         playBtn.on('click', function () {
