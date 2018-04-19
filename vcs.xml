@@ -22,6 +22,10 @@
           <option name="url" value="https://gitee.com/lanletter/fotilestyle_pre_release.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://118.178.134.116:8888" />
+          <option name="userName" value="liuan" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="/Applications/XAMPP/xamppfiles/htdocs" />
