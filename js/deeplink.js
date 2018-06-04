@@ -80,7 +80,7 @@
                 if (isiOS == true) {
                     /*ios手机*/
                     var deeplinkurl = iostype + urlright;
-                    alert(deeplinkurl);
+                    // alert(deeplinkurl);
                     /*test*/
                     // window.location.href = deeplinkurl;/***打开app的协议，ios***/
                     /*test*/
