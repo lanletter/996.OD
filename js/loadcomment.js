@@ -140,8 +140,9 @@
                         if (!content) {
                             alert('请输入新评论');
                             e.preventDefault();
-                            return;
+                            return false;
                         }
+                        // alert(content);
                         // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
@@ -496,6 +497,7 @@
                             e.preventDefault();
                             return;
                         }
+                        // alert(content);
                         // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;
@@ -607,6 +609,7 @@
                             e.preventDefault();
                             return;
                         }
+                        // alert(content);
                         // alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
                         var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + content;

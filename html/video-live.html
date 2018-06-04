@@ -59,10 +59,11 @@
         <span>方太生活家</span>
         <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+    <span id="jump" class="deeplikopen">打开</span>
 </div>
 
 <script src="../js/lib.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
@@ -93,33 +94,51 @@
                     console.info($this.kk);
                     console.info($this.kk.url);
 
-                    /*视频直播*/
-                    (function (window, videojs) {
-                        $('#live-video source').attr('src', $this.kk.url);
-                        var player = window.player = videojs('live-video');
-                        var playBtn = $('#videobox .play');
-                        playBtn.on('click', function () {
-                            var vheight = $("#videobox video").height();
-                            $('#live-video').css({"position": "absolute", "left": "0"});
-                            var vheight = $("#live-video").height();
-                            $("#videobox").css({height: vheight - 1 + "px"});
-                            player.play();
-                            playBtn.hide();
-                            $("#live-video .vjs-control-bar").css({"display": "block"});
-                        });
-                        player.on("pause", function(){
-                            playBtn.show();
-                            $("#live-video .vjs-control-bar").css({"display": "none"});
-                        });
-                        player.on("ended", function(){
-                            $('#live-video').css({"position": "absolute", "left": "-10rem"});
-                            playBtn.show();
-                            $("#live-video .vjs-control-bar").css({"display": "none"});
-                        });
-                        player.on("play", function(){
-                            playBtn.trigger("click");
-                        });
-                    }(window, window.videojs));
+                    /*判断状态*/
+                    if($this.kk.status=="living"){
+                        /*视频直播中*/
+                        (function (window, videojs) {
+                            $('#live-video source').attr('src', $this.kk.url);
+                            var player = window.player = videojs('live-video');
+                            var playBtn = $('#videobox .play');
+                            playBtn.on('click', function () {
+                                var vheight = $("#videobox video").height();
+                                $('#live-video').css({"position": "absolute", "left": "0"});
+                                var vheight = $("#live-video").height();
+                                $("#videobox").css({height: vheight - 1 + "px"});
+                                player.play();
+                                playBtn.hide();
+                                $("#live-video .vjs-control-bar").css({"display": "block"});
+                            });
+                            player.on("pause", function(){
+                                playBtn.show();
+                                $("#live-video .vjs-control-bar").css({"display": "none"});
+                            });
+                            player.on("ended", function(){
+                                $('#live-video').css({"position": "absolute", "left": "-10rem"});
+                                playBtn.show();
+                                $("#live-video .vjs-control-bar").css({"display": "none"});
+                            });
+                            player.on("play", function(){
+                                playBtn.trigger("click");
+                            });
+                        }(window, window.videojs));
+                    }else {
+                        /*非直播中*/
+                        $(".video").css({"background":"url('../img/noliving.png') no-repeat","background-size": "100% 4.22rem"});
+                        $(".video .play").hide();
+                    }
+
+                    /*深链接模块*/
+                    $.deeplink({
+                        "id": "1111",
+                        "action": "livepage",
+                        "weburl": data.data.shareUrl,
+                        "imageURL": data.data.picture,
+                        "shareTitle": data.data.topic,
+                        "shareSubTitle": data.data.desc,
+                        "iostype": "https://api.fotilestyle.com/ft/path/web/"
+                    }, 1);
 
                     /*微信分享链接专用*/
                     var sharetitle = data.data.topic;

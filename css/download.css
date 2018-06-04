@@ -1,6 +1,9 @@
 html, body {
   height: 100%;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling : touch;
+}
 
 .textalign {
   width: 3.08rem!important;
@@ -70,8 +73,13 @@ html, body {
 .mr10 {
   margin-right: 0.2rem; }
 
+#buybox{
+  padding-bottom: 2.18rem;
+  overflow-y: auto;
+}
+
 .jf-buy {
-  overflow: hidden;
+  /*overflow: hidden;*/
   background-color: #fff; }
 .jf-buy .swiper{
   z-index: 0;

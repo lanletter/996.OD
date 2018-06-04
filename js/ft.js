@@ -270,6 +270,9 @@
         },
         callKitchenware: {
             name: "callKitchenware",
+            param: {
+                pid: ""//id
+            },
             callbackId: generateID(),
             callback: noop
         },
@@ -295,6 +298,11 @@
         },
         chooseAddress: {
             name: "chooseAddress",
+            callbackId: generateID(),
+            callback: noop
+        },
+        callMenuUp: {
+            name: "callMenuUp",
             callbackId: generateID(),
             callback: noop
         }
@@ -400,8 +408,9 @@
     /*********************************************************************
      *                           唤起智能设备                             *
      **********************************************************************/
-    ft.callKitchenware = function (fn) {
+    ft.callKitchenware = function (option, fn) {
         var callKitchenwareConfig = ft.mix(true, {}, config.callKitchenware);
+        callKitchenwareConfig.param.pid = option.pid || "";
         callKitchenwareConfig.callback = fn;
         callByJS(callKitchenwareConfig);
     }
@@ -528,5 +537,14 @@
         purchaseGoodConfig.param.areaName = option.areaName || "";
         purchaseGoodConfig.callback = fn;
         callByJS(purchaseGoodConfig);
+    }
+
+    /*********************************************************************
+     *                           唤起菜谱上传                             *
+     **********************************************************************/
+    ft.callMenuUp = function (option, fn) {
+        var callMenuUpConfig = ft.mix(true, {}, config.callMenuUp);
+        callMenuUpConfig.callback = fn;
+        callByJS(callMenuUpConfig);
     }
 }()

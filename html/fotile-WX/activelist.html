@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>线上活动</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css">
+    <link rel="stylesheet" type="text/css" href="activelist.css">
+</head>
+
+<body>
+<ul class="banner">
+    <li v-for="item in data" @click="jump(item.url)" class="listbanner">
+        <div class="imgbox" :style="{backgroundImage: 'url(' +item.picture.path+ ')'}">
+            <img class="overimg" src="../../img/Overlay Copy 2.png" style="border-radius: 0.16rem;">
+            <div class="timemark timemark1" v-if="item.status=='NEW'">
+                <p>进行中</p>
+                <p><span>{{remaining(item.endDate)}}</span>天后结束</p>
+            </div>
+            <div class="timemark timemark2" v-if="item.status=='PRE'">
+                <p>待开始</p>
+            </div>
+            <div class="timemark timemark2" v-if="item.status=='DON'">
+                <p>已结束</p>
+            </div>
+            <div class="timemark timemark2" v-if="item.status=='EXD'">
+                <p>已失效</p>
+            </div>
+            <div class="timemark timemark2" v-if="item.status=='DBL'">
+                <p>不可用</p>
+            </div>
+        </div>
+        <div class="titlebox">
+            <h3 v-text="item.title">三明治特辑：浓情加州虎虾云朵三明治三明智明智</h3>
+            <p>{{format(item.startDate,item.endDate).toLocaleString()}}</p>
+        </div>
+    </li>
+</ul>
+<!--<div class="footer">-->
+<!--<img src="../../img/logoblack.png">-->
+<!--<p>-->
+<!--<span>方太生活家</span>-->
+<!--<span>分享生活味道</span>-->
+<!--</p>-->
+<!--<a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>-->
+<!--</div>-->
+
+<script src="../../js/lib.js"></script>
+<script src="../../js/vue.min.js"></script>
+<script src="../../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../../js/url.js'></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+<script type="text/javascript">
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var id = GetQueryString("id");
+    var device = GetQueryString("device");
+    if (device == "ios" || device == "android") {
+        $(".footer").css("display", "none");
+    }
+
+    var vm = new Vue({
+        el: '.banner',
+        data: {
+            data: {}
+        },
+        created: function () {
+            var $this = this;
+            var pageSize = 5;
+            $.ajax({
+                url: urlport + 'activity/list\n',
+                type: 'POST',
+                data: JSON.stringify({"pageNum": 1, "pageSize": pageSize}),
+                timeout: 5000, //超时时间
+                contentType: "application/json;charset=utf-8",
+                dataType: 'json', //返回的数据格式
+                success: function (data) {
+                    console.log(data);
+                    callback(data);
+                },
+                error: function (errorMsg) {
+                    console.log('错误');
+                    console.log(errorMsg);
+                }
+            });
+
+            function callback(res) {
+                var data = res;
+                // console.log(data);
+                if (data.status == 200) {
+                    $this.data = data.data;
+                    id = $this.data.id;
+                    console.log($this.data);
+                }
+                // document.setTitle = function (t) {
+                //     document.title = t;
+                //     var i = document.createElement('iframe');
+                //     i.style.display = 'none';
+                //     i.onload = function () {
+                //         setTimeout(function () {
+                //             i.remove();
+                //         })
+                //     };
+                //     document.body.appendChild(i);
+                // };
+                // setTimeout(function () {
+                //     document.setTitle($this.data.title);
+                // });
+
+                /*微信分享链接专用*/
+                var sharetitle = $this.data.title;
+                var sharedesc = $this.data.desc;
+                var shareimg = $this.data[0].picture.path;
+                var sharestr = window.location.href;
+                var sharelink = sharestr.replace(/api/, "h5");
+                console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                $.ajax({
+                    type: 'GET',
+                    url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                    success: function (data) {
+                        console.info(data.appId);
+                        wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: data.appId, // 必填，公众号的唯一标识
+                            timestamp: data.timestamp, // 必填，生成签名的时间戳
+                            nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                            signature: data.signature,
+                            jsApiList: [
+                                "onMenuShareTimeline",
+                                "onMenuShareAppMessage",
+                                "onMenuShareQQ",
+                                "onMenuShareWeibo",
+                                "onMenuShareQZone"
+                            ]
+                        });
+                        wx.ready(function () {
+                            //分享给朋友圈
+                            wx.onMenuShareTimeline({
+                                title: sharetitle, // 分享标题
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                            //分享给朋友
+                            wx.onMenuShareAppMessage({
+                                title: sharetitle, // 分享标题
+                                desc: sharedesc, // 分享描述
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                type: '', // 分享类型,music、video或link，不填默认为link
+                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                        });
+                    },
+                    error: function (xhr, type) {
+                        //alert(111);
+                    }
+                })
+
+            }
+
+
+            /*下拉加载更多*/
+            var windowHeight = $(window).height();
+            $(window).off('scroll').on('scroll', function () {
+                var scrollTop = $(window).scrollTop();
+                var scrollHeight = $(document).height();
+                // console.log(scrollTop);
+                // console.log(windowHeight);
+                // console.log(scrollHeight);
+                if (scrollTop + windowHeight == scrollHeight) {
+                    pageSize = pageSize + 5;
+                    console.log(pageSize);
+                    $.ajax({
+                        url: urlport + 'activity/list\n',
+                        type: 'POST',
+                        data: JSON.stringify({"pageNum": 1, "pageSize": pageSize}),
+                        timeout: 5000, //超时时间
+                        contentType: "application/json;charset=utf-8",
+                        dataType: 'json', //返回的数据格式
+                        success: function (data) {
+                            console.log(data);
+                            callback(data);
+                        },
+                        error: function (errorMsg) {
+                            console.log('错误');
+                            console.log(errorMsg);
+                        }
+                    });
+                }
+            });
+            /*下拉加载结束*/
+        },
+        methods: {
+            addnum: function (m) {
+                return m < 10 ? '0' + m : m
+            },
+            format: function (starttime, endtime) {
+                var $this = this;
+                var time1 = new Date(starttime);
+                var year1 = time1.getYear() + 1900;
+                var month1 = time1.getMonth() + 1;
+                var date1 = time1.getDate();
+                var hour1 = time1.getHours();
+                var minute1 = time1.getMinutes();
+                var time2 = new Date(endtime);
+                var year2 = time2.getYear() + 1900;
+                var month2 = time2.getMonth() + 1;
+                var date2 = time2.getDate();
+                var hour2 = time2.getHours();
+                var minute2 = time2.getMinutes();
+
+                return $this.addnum(year1) + '年' + $this.addnum(month1) + '月' + $this.addnum(date1) + '日' +
+                    '-' + $this.addnum(year2) + '年' + $this.addnum(month2) + '月' + $this.addnum(date2) + '日';
+            },
+            remaining: function (lastdate) {
+                var $this = this;
+                var mydate = new Date();
+                var lastdate = new Date(lastdate);
+                var remainingdays = Math.floor((lastdate - mydate) / 86400000) + 1;
+                return remainingdays;
+            },
+            jump: function (url) {
+                window.location.href = url;
+            }
+        }
+    });
+
+
+</script>
+</body>
+
+</html>

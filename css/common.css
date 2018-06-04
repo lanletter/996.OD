@@ -316,8 +316,13 @@ html{
   width: 100%;
   height: 1.44rem;
   overflow: hidden;
-  background: #fff;
-  border-top: 1px solid rgb(237,237,237);
+  background: -moz-linear-gradient(top, rgb(60,60,60) 0%, rgb(18,18,18) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgb(60,60,60)), color-stop(100%, rgb(18,18,18)));
+  background: -webkit-linear-gradient(top, rgb(60,60,60) 0%, rgb(18,18,18) 100%);
+  background: -o-linear-gradient(top, rgb(60,60,60) 0%, rgb(18,18,18) 100%);
+  background: -ms-linear-gradient(top, rgb(60,60,60) 0%, rgb(18,18,18) 100%);
+  background: linear-gradient(to bottom, rgb(60,60,60) 0%, rgb(18,18,18) 100%);
+  border-top: 1px solid rgba(200, 175, 112, 0.2);
   z-index: 999999;
 }
 .footer img{
@@ -338,7 +343,7 @@ html{
 .footer p span:first-child{
   font-size: 18px;
   font-weight: normal;
-  color:rgb(31,31,31);
+  color:rgb(255,255,255);
   height: 0.72rem;
   line-height: 0.72rem;
 }
@@ -346,17 +351,18 @@ html{
   font-size: 14px;
   font-weight: normal;
   letter-spacing: 1px;
-  color: rgb(154,154,154);
+  color:rgba(255,255,255.0.37);
 }
-.footer a{
+.footer #jump{
+  display: block;
   position: absolute;
   top: 0;
   right: 0;
-  width: 2.4rem;
+  width: 1.8rem;
   height: 0.72rem;
   line-height: 0.72rem;
   border-radius: 0.34rem;
-  background: #fff;
+  background: none;
   border: 1px solid rgb(200,175,112);
   font-size: 12px;
   font-weight: normal;
@@ -368,3 +374,50 @@ html{
 /*失效提示*/
 .lostimg{width:3.84rem;height:3.84rem;display:block;margin: 0 auto;margin-top: 2.48rem;}
 .losttxt{width: 100%;margin-top: 0.32rem;text-align: center;color:rgb(201,200,213);font-size: 0.36rem;font-weight: bold;}
+
+/*深链接无法打开提示*/
+.blackbg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(31,31,31, 0.7);
+  display: block;
+  z-index: 9999999;
+  cursor: pointer;
+}
+.reminder{
+  margin: 0.3rem auto;
+  width: 94%;
+  height: 2.32rem;
+  border-radius: 0.18rem;
+  background: #ffffff;
+  position: relative;
+  z-index: 9999999;
+}
+.reminder img{
+  width: 1.5rem ;
+  height: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.reminder p{color: #000000;}
+.reminder .title{
+  padding: 0.42rem 0 0 0.46rem;
+  font-size: 0.32rem;
+  font-weight: bold;
+  line-height: 0.5rem;
+}
+.reminder p:last-child{
+  margin: 0.2rem 0.38rem 0.4rem 0.46rem;
+  font-size: 0.28rem;
+  line-height: 0.4rem;
+}
+
+.noscroll,
+.noscroll body {
+  overflow: hidden;
+}
+.noscroll body {
+  position: relative;
+}

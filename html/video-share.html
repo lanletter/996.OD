@@ -14,7 +14,7 @@
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
-    <!--<script src="../js/tingyun-rum.js"></script>-->
+    <script src="../js/tingyun-rum.js"></script>
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/hls/video-share.css?ver=420" rel="stylesheet">
     <title>直播分享</title>
@@ -59,14 +59,14 @@
         <span>方太生活家</span>
         <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+    <span id="jump" class="deeplikopen">打开</span>
 </div>
 
 <script src="../js/lib.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
-<script src="../js/UMAnalytics.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
@@ -77,7 +77,12 @@
     var vm = new Vue({
         el: '.vide-share',
         data: {
-            kk: {}
+            kk: {},
+            // http: {
+            //     headers: {
+            //         token: 'Basic YXBpOnBhc3N3b3Jk'
+            //     }
+            // }
         },
         created: function () {
             var $this = this;
@@ -88,59 +93,78 @@
                     $this.kk = data.data;
                     console.info($this.kk);
                     console.info($this.kk.url);
+                    console.info($this.kk.status);
 
-                    /*友盟埋点-页面访问*/
-                    UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                        "页面类型":"微信直播",
-                        "页面名称": data.data.name,
+                    /*title取值*/
+                    var txt = data.data.videoName;
+                    if (txt == undefined) {
+                        $('head title').text("菜谱详情");
+                    } else {
+                        $('head title').text(txt);
+                    }
+                    document.setTitle = function (t) {
+                        document.title = t;
+                        var i = document.createElement('iframe');
+                        i.style.display = 'none';
+                        i.onload = function () {
+                            setTimeout(function () {
+                                i.remove();
+                            })
+                        };
+                        document.body.appendChild(i);
+                    };
+                    setTimeout(function () {
+                        document.setTitle(data.data.videoName);
                     });
 
-                    /*视频直播*/
-                    (function (window, videojs) {
-                        var str = $this.kk.url;
-                        console.log(str);
-                        var protocolStr = document.location.protocol;
-                        if(protocolStr == "https")
-                        {
-                            var reg = "http";
-                            str = str.replace(reg,"https");
-                            console.log(str);
-                        }
-                        else
-                        {
-                            var reg = "https";
-                            str = str.replace(reg,"http");
-                            console.log(str);
-                        }
+                    /*判断状态*/
+                    if($this.kk.status=="living"){
+                        /*视频直播中*/
+                        (function (window, videojs) {
+                            $('#live-video source').attr('src', $this.kk.url);
+                            var player = window.player = videojs('live-video');
+                            var playBtn = $('#videobox .play');
+                            playBtn.on('click', function () {
+                                var vheight = $("#videobox video").height();
+                                $('#live-video').css({"position": "absolute", "left": "0"});
+                                var vheight = $("#live-video").height();
+                                $("#videobox").css({height: vheight - 1 + "px"});
+                                player.play();
+                                playBtn.hide();
+                                $("#live-video .vjs-control-bar").css({"display": "block"});
+                            });
+                            player.on("pause", function(){
+                                playBtn.show();
+                                $("#live-video .vjs-control-bar").css({"display": "none"});
+                            });
+                            player.on("ended", function(){
+                                $('#live-video').css({"position": "absolute", "left": "-10rem"});
+                                playBtn.show();
+                                $("#live-video .vjs-control-bar").css({"display": "none"});
+                            });
+                            player.on("play", function(){
+                                playBtn.trigger("click");
+                            });
+                        }(window, window.videojs));
+                    }else {
+                        /*非直播中*/
+                        $(".video").css({"background":"url('../img/noliving.png') no-repeat","background-size": "100% 4.22rem"});
+                        $(".video .play").hide();
+                    }
 
-                        $('#live-video source').attr('src', str);
-                        var player = window.player = videojs('live-video');
-                        var playBtn = $('#videobox .play');
-                        playBtn.on('click', function () {
-                            var vheight = $("#videobox video").height();
-                            $('#live-video').css({"position": "absolute", "left": "0"});
-                            var vheight = $("#live-video").height();
-                            $("#videobox").css({height: vheight - 1 + "px"});
-                            player.play();
-                            playBtn.hide();
-                            $("#live-video .vjs-control-bar").css({"display": "block"});
-                        });
-                        player.on("pause", function(){
-                            playBtn.show();
-                            $("#live-video .vjs-control-bar").css({"display": "none"});
-                        });
-                        player.on("ended", function(){
-                            $('#live-video').css({"position": "absolute", "left": "-10rem"});
-                            playBtn.show();
-                            $("#live-video .vjs-control-bar").css({"display": "none"});
-                        });
-                        player.on("play", function(){
-                            playBtn.trigger("click");
-                        });
-                    }(window, window.videojs));
+                    /*深链接模块*/
+                    $.deeplink({
+                        "id": "1111",
+                        "action": "livepage",
+                        "weburl": data.data.shareUrl,
+                        "imageURL": data.data.picture,
+                        "shareTitle": data.data.videoName,
+                        "shareSubTitle": data.data.desc,
+                        "iostype": "https://api.fotilestyle.com/ft/path/web/"
+                    }, 1);
 
                     /*微信分享链接专用*/
-                    var sharetitle = data.data.topic;
+                    var sharetitle = data.data.videoName;
                     var sharedesc = data.data.desc;
                     var shareimg = data.data.picture;
                     var sharestr = window.location.href;

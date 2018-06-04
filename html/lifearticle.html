@@ -32,6 +32,13 @@
                 s.parentNode.insertBefore(vds, s);
             })();
         })();
+
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
     </script>
 </head>
 
@@ -60,7 +67,7 @@
         <div class="authorbox"></div>
     </div>
 
-    <article class="content"></article>
+    <article class="content" id="instructions"></article>
     <div class="editing">
         <p>编辑：作者</p>
     </div>
@@ -95,7 +102,7 @@
         <span>方太生活家</span>
         <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+    <span id="jump" class="deeplikopen">打开</span>
 </div>
 
 <p style="display: none;" id="DeviceId"></p>
@@ -103,6 +110,7 @@
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/judge.js'></script>
@@ -148,7 +156,7 @@
                 }
             });
         };
-    } else if ((device == null)) {
+    } else  {
         var userid = 1;
         var token;
         choose();
@@ -414,6 +422,20 @@
                     $('head title').text(data.title);
                 }
 
+                /*深链接模块*/
+                //富文本取值
+                var text=$("#instructions").text();
+                var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
+                $.deeplink({
+                    "id": id,
+                    "action": "storypage",
+                    "weburl": data.url,
+                    "imageURL": data.picture.path,
+                    "shareTitle": data.title,
+                    "shareSubTitle": shareSubTitle,
+                    "iostype": "https://api.fotilestyle.com/ft/path/web/"
+                }, 1);
+
                 /*判断是否有作者*/
                 if (data.cookList.length == 0) {
                     $(".author").css("display", "none");
@@ -452,29 +474,27 @@
                     $('.recommend ul').append(el);
                 });
 
-                /*导师关注*/
-                // $('.add-care').data('id', data.id).data('follow', false);
-                // $('.authorbox').on('click', '.add-care', function (e) {
-                //     var id = $(e.target).data('id'),
-                //         follow = $(e.target).data('follow');
-                //     if (follow) {
-                //         $api.post(urlport + 'follow/cookCancel', {
-                //             "refId": id,
-                //             "type": 2,
-                //             "userId": 85507
-                //         }, function (data) {
-                //             $(e.target).data('follow', false).text('加关注');
-                //         });
-                //     } else {
-                //         $api.post(urlport + 'follow/cook', {
-                //             "refId": id,
-                //             "type": 2,
-                //             "userId": 85507
-                //         }, function (data) {
-                //             $(e.target).data('follow', true).text('已关注');
-                //         });
-                //     }
-                // });
+                /*GIO参数集合*/
+                //发布时间
+                var date = new Date(data.createat);
+                Y = date.getFullYear() + '-';
+                M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                D = date.getDate() + ' ';
+                h = date.getHours() + ':';
+                m = date.getMinutes() + ':';
+                s = date.getSeconds();
+                var creattime=Y+M+D+h+m+s;
+                console.log(creattime);
+
+                //custom page code begin here
+                gio("page.set", "story", "故事");//页面类型
+                gio("page.set", "title", data.title);//标题
+                gio("page.set", "creattime", creattime);//发布时间
+                gio("page.set", "type", data.type);//类型
+                //custom page code end here
+                gio('send');
+
+                /*GIO参数集合发送完毕*/
 
                 /*微信分享链接专用*/
                 var sharetitle = data.title;

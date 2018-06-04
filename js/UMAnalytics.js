@@ -274,7 +274,7 @@ var UMAnalyticsAgent = {
      *
      */
     trackWithProperty : function(eventName, property) {
-        console.log("trackWithProperty方法调用！");
+        // console.log("trackWithProperty方法调用！");
         exec("trackWithProperty", [ eventName, property]);
     },
 

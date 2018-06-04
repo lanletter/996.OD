@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/swiper.min.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
-    <link rel="stylesheet" type="text/css" href="../css/sitedetail.css?ver=420">
+    <link rel="stylesheet" type="text/css" href="../css/coursedetail.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/mobiscroll.core-2.6.2.css?ver=420">
     <link rel="stylesheet" type="text/css" href="../css/mobiscroll.animation-2.6.2.css?ver=420">
     <script type='text/javascript'>
@@ -28,6 +28,13 @@
                 s.parentNode.insertBefore(vds, s);
             })();
         })();
+
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
     </script>
 </head>
 
@@ -45,7 +52,7 @@
         <!--<span class="comment-count"><i></i><strong></strong></span>-->
         <!--</div>-->
         <article class="course">
-            <p class="course-des">
+            <p class="course-des" id="instructions">
 
             </p>
         </article>
@@ -245,6 +252,7 @@
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
@@ -534,7 +542,6 @@
                     $("html,body").css({overflow: "auto"}); //启用滚动条
                     $('.dark-bg').hide();
                     $('.buynow-div').hide();
-                    //location.reload()
                 });
                 //app交互——加购物车
                 $("#addToCart").on("click", function () {
@@ -793,6 +800,59 @@
                     return _html;//返回所有的页码html
                 }
             });
+
+            /*GIO参数集合*/
+            //发布时间+开课时间
+            function timechange(time) {
+                var date = new Date(time);
+                Y = date.getFullYear() + '-';
+                M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                D = date.getDate() + ' ';
+                h = date.getHours() + ':';
+                m = date.getMinutes() + ':';
+                s = date.getSeconds();
+                var creattime=Y+M+D+h+m+s;
+                return creattime;
+            }
+            console.log(timechange(data.createat));
+            console.log(timechange(data.startDate));
+
+            //有无导师
+            if(typeof(data.cooks[0]) == "undefined"){
+                var cooker="";
+            }else {
+                var cooker=data.cooks[0].cookName;
+            }
+
+            //custom page code begin here
+            gio("page.set", "onlinecourse", "课程");//页面类型
+            gio("page.set", "title", data.curriculumName);//标题
+            gio("page.set", "creattime", timechange(data.createat));//发布时间
+            gio("page.set", "commentCount", data.commentCount);//评论数
+            gio("page.set", "cookName", cooker);//导师
+            gio("page.set", "currentCount", data.currentCount);//购买数
+            gio("page.set", "price", data.price);//金额
+            gio("page.set", "styleType", data.styleType);//菜式类别
+            gio("page.set", "startDate", timechange(data.startDate));//类型
+            //custom page code end here
+            gio('send');
+
+            /*GIO参数集合发送完毕*/
+
+
+            /*深链接模块*/
+            //富文本取值
+            var text=$("#instructions").text();
+            var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
+            $.deeplink({
+                "id": id,
+                "action": "coursepage",
+                "weburl": data.url,
+                "imageURL": data.picture.path,
+                "shareTitle": data.curriculumName,
+                "shareSubTitle": shareSubTitle,
+                "iostype": "https://api.fotilestyle.com/ft/path/web/"
+            }, 1);
 
             /*微信分享链接专用*/
             var sharetitle = data.curriculumName;

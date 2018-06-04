@@ -22,16 +22,18 @@
         </div>
     </li>
 </ul>
+
 <div class="footer">
-    <img src="../img/logored.png">
+    <img src="../img/logoblack.png">
     <p>
         <span>方太生活家</span>
-        <span>分享生活的味道~</span>
+        <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">查看更多</a>
+    <span id="jump" class="deeplikopen">打开</span>
 </div>
 
 <script src="../js/lib.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script type="text/javascript" src='../js/url.js'></script>
@@ -97,6 +99,18 @@
                 setTimeout(function () {
                     document.setTitle($this.data.title);
                 })
+
+                /*深链接模块*/
+                //富文本取值
+                $.deeplink({
+                    "id": id,
+                    "action": "activealbum",
+                    "weburl": $this.data.url3,
+                    "imageURL": $this.data.picture.path,
+                    "shareTitle": $this.data.title,
+                    "shareSubTitle": $this.data.desc,
+                    "iostype": "https://api.fotilestyle.com/ft/path/recipe/"
+                }, 1);
 
                 /*微信分享链接专用*/
                 var sharetitle = $this.data.title;
@@ -186,8 +200,8 @@
                 }
             },
             jump: function (id) {
-                curriculumurl = "https://h5.fotilestyle.com/html/activedetail.html?id=" + id + "&device=" + device;
-                // curriculumurl="http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id="+id+"&device="+device;
+//              curriculumurl = "https://h5.fotilestyle.com/html/activedetail.html?id=" + id + "&device=" + device;
+                   curriculumurl="http://h5.fotilestyle.com/fotilestyle-test2/html/activedetail.html?id="+id+"&device="+device;
                 window.location.href = curriculumurl;
             }
         }

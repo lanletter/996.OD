@@ -1,0 +1,66 @@
+.banner{
+    margin: 0.4rem;
+    width: 6.7rem;
+    background: #ffffff;
+    /*padding-bottom: 1.04rem;*/
+}
+.listbanner{
+    width: 6.7rem;
+    margin-bottom: 0.6rem;
+}
+.imgbox{
+    position: relative;
+    width: 100%;
+    height:3.76rem ;
+    background-size:7.5rem auto;
+    -webkit-background-size:7.5rem auto;
+    background-repeat:no-repeat;
+    background-position:center;
+    text-align: center;
+    border-radius: 0.16rem;
+}
+.imgbox .timemark{
+    position: absolute;
+    right: 0.28rem;
+    width: 1.76rem;
+    height: 1.12rem;
+    border-bottom-left-radius: 0.16rem;
+    border-bottom-right-radius: 0.16rem;
+    color: #fff;
+}
+.imgbox .timemark1{
+    background: rgb(21,146,74);
+}
+.imgbox .timemark1 p:first-child{
+    margin-top: 0.1rem;
+    font-size: 0.36rem;
+}
+.imgbox .timemark1 p:last-child{
+    font-size: 0.24rem;
+}
+.imgbox .timemark2{
+    line-height: 1.12rem;
+    background: rgb(154,154,154);
+    font-size: 0.36rem;
+}
+
+.titlebox{
+    position: relative;
+    margin: 0 0.2rem;
+}
+.titlebox h3{
+    width: 6.22rem;
+    margin: 0.18rem 0 0.16rem;
+    max-height: 1rem;
+    line-height: 0.5rem;
+    font-size: 0.36rem;
+    font-weight: bold;
+    color: rgb(31,31,31);
+    text-align: left;
+    letter-spacing: 1px;
+}
+.titlebox p{
+    color: rgb(154,154,154);
+    font-size: 0.24rem;
+    font-weight: inherit;
+}

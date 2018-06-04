@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $.ajax({
+        url: 'http://47.97.37.120:666/fotile-api-0.0.2/' + 'menu/detail',
+        headers: {
+            version : 'v430'
+        },
+        type: 'POST',
+        data: JSON.stringify({"id": 7444, "userId": 1}),
+        timeout: 5000, //超时时间
+        contentType: "application/json;charset=utf-8",
+        dataType: 'json', //返回的数据格式
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (errorMsg) {
+            console.log('错误');
+        }
+    });
+</script>
+</body>
+</html>

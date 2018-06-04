@@ -35,15 +35,18 @@ html, body {
 }
 .video .play {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1.6rem;
-  height: 1.6rem;
-  background: url('../img/playIcon.png');
-  background-size: 1.6rem 1.6rem;
-  margin-left: -0.8rem;
-  margin-top: -0.8rem;
-  border: none;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  width: 2.44rem;
+  height: 0.72rem;
+  background:rgba(0,0,0,0.2) url('../img/triangle.png') 0.48rem 0.2rem no-repeat;
+  background-size: 0.32rem 0.32rem;
+  padding-left: 0.24rem;
+  color: #fff;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  border-radius: 0.38rem;
 }
 
 .video .noplay:focus {
@@ -64,7 +67,6 @@ html, body {
 }
 
 .video .play:focus {
-  border: none;
   outline: none;
 }
 

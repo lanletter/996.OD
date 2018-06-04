@@ -1,27 +1,28 @@
 body {
     width: 100%;
     height: 100%;
-    background-size: 100% auto;
-    background-image: url("../img/loginbg.jpg");
+    background: #fff;
     font-family: "PingFang SC";
     overflow: hidden;
 }
 .logo {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
+    display: block;
+    margin: 0 auto;
+    width: 2.22rem;
+    height: 0.916rem;
+    margin-top: 0.78rem;
 }
 .logotxt{
-    width: 2rem;
-    position: absolute;
-    top: 4.54rem;
-    left: 50%;
-    margin-left:-1rem;
-    font-size: 18px;
-    font-weight: lighter;
+    display: block;
+    margin: 0 auto;
+    width: 1.68rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.28rem;
+    font-weight: bold;
     text-align: center;
-    color: #fff;
+    color: rgb(31,31,31);
+    margin-top: 0.62rem;
 }
 /*.backto{*/
     /*font-size: 14px;*/
@@ -43,15 +44,23 @@ body {
 /*}*/
 .ulstyle {
     margin: 0 auto;
-    margin-top: 6.66rem;
+    margin-top: 0.65rem;
     width: 6.42rem;
 }
 .ulstyle li{overflow: hidden;position: relative;}
+.ulstyle li .txt{
+    margin-top: 1.34rem;
+    margin-bottom: 0.16rem;
+    font-size: 0.24rem;
+    color: rgb(102,102,102);
+    text-align: center;
+}
 .ulstyle .edit {
     margin-top: 0.54rem;
     padding-bottom: 0.1rem;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgb(232,212,199);
     width: 100%;
+    position: relative;
 }
 .ulstyle .edit img:last-child{position: absolute;right:0;margin-top: -0.5rem;}
 .ulstyle img {
@@ -63,29 +72,28 @@ body {
     margin-top: 0.16rem;
 }
 .ulstyle .txtbtn a {
-    color: #fff;
+    color: rgb(200,175,112);
     font-weight: 200;
+    font-size: 0.24rem;
 }
-.ulstyle .txtbtn a:last-child {
-    float: right;
-}
+
 .ulstyle input {
-    width: 5rem;
+    width: 6.54rem;
     background: none;
     border: none;
-    color: #fff;
-    font-weight: lighter;
-    font-size: 14px;
-    padding-right: 0.8rem;
+    color: rgb(31,31,31);
+    font-weight: bold;
+    font-size: 0.48rem;
+    letter-spacing: 2px;
+    float: left;
 }
-.ulstyle input::-webkit-input-placeholder { color:rgba(255,255,255,0.75)}
-.ulstyle input:-moz-placeholder { color:rgba(255,255,255,0.75)}
-.ulstyle input::-moz-placeholder { color:rgba(255,255,255,0.75)}
-.ulstyle input:-ms-input-placeholder { color:rgba(255,255,255,0.75)}
+.ulstyle input::-webkit-input-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.ulstyle input:-moz-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.ulstyle input::-moz-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.ulstyle input:-ms-input-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
 .loginbtn {
     display: block;
-    margin-top: 0.62rem;
-    background-color: rgb(255, 101, 101);
+    background-color: #000;
     border-radius: 0.08rem;
     width: 6.42rem;
     height: 0.9rem;
@@ -94,18 +102,20 @@ body {
     letter-spacing: 5px;
     font-family: "PingFang SC";
     font-weight: normal;
-    color: #fff;
+    font-size: 0.28rem;
+    color: rgb(200,175,112);
 }
-.loginbtn:link {color: #fff;}
-.loginbtn:visited {color: #fff;}
-.loginbtn:hover {color: #fff;}
-.loginbtn:active {color: #fff;}
+.loginbtn:link {color: rgb(200,175,112);}
+.loginbtn:visited {color: rgb(200,175,112);}
+.loginbtn:hover {color: rgb(200,175,112);}
+.loginbtn:active {color: rgb(200,175,112);}
 
 /*注册*/
 .ulstyle2 {
     margin: 0 auto;
     margin-top: 1.86rem;
     width: 6.42rem;
+    background: #ccc;
 }
 .ulstyle2 li{overflow: hidden;}
 .ulstyle2 .edit {
@@ -201,7 +211,7 @@ body {
 }
 .otherlogins .title span{
     display: inline-block;
-    color: #fff!important;
+    color: rgb(154,154,154)!important;
     font-size: 0.24rem!important;
 }
 .otherlogins li{
@@ -213,4 +223,27 @@ body {
     display: inline-block;
     width: 0.8rem;
     height: 0.8rem;
+}
+
+/*获取验证码*/
+#verifycode{
+    float: right;
+    width: 1.94rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    border-radius: 0.08rem;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    font-size: 0.24rem;
+}
+.yellowbg {
+    background-color: rgb(245, 166, 35);
+}
+
+.greenbg {
+    background-color: rgb(21,146,74);
+}
+
+.greybg {
+    background-color: rgb(203, 203, 203);
 }

@@ -200,7 +200,12 @@ body {
     color: #fff;
     text-align: center;
     padding: 36px 0 24px 0;
-    background: #fff;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.0)), color-stop(50%, rgb(255,255,255)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
 }
 .fixd div{
     height: 48px;

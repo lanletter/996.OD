@@ -3,15 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript">
+    <link href="../css/common.css" rel="stylesheet">
+    <style>
+        .blackbg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(31, 31, 31, 0.7);
+            display: block;
+            z-index: 9999999;
+        }
+
+        .reminder {
+            margin: 0.3rem auto;
+            width: 94%;
+            height: 2.32rem;
+            border-radius: 0.18rem;
+            background: #ffffff;
+            position: relative;
+            z-index: 9999999;
+        }
+
+        .reminder img {
+            width: 1.5rem;
+            height: 0.5rem;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .reminder p {
+            color: #000000;
+        }
+
+        .reminder .title {
+            padding: 0.42rem 0 0 0.46rem;
+            font-size: 0.32rem;
+            font-weight: bold;
+            line-height: 0.5rem;
+        }
+
+        .reminder p:last-child {
+            margin: 0.2rem 0.38rem 0.4rem 0.46rem;
+            font-size: 0.28rem;
+            line-height: 0.4rem;
+        }
+
+        .noscroll,
+        .noscroll body {
+            overflow: hidden;
+        }
+
+        .noscroll body {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+<h4 id="rs"></h4>
+</body>
+<script src="../js/lib.js"></script>
+<script>
+    /*判断移动设备系统环境*/
+    $(document).ready(function () {
         var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        alert('是否是Android：'+isAndroid);
-        alert('是否是iOS：'+isiOS);
-    </script>
-</head>
-<body>
+        var phoneStyle;
+        if (isiOS == true) {
+            phoneStyle = "IOS";
+            console.log("来自IOS手机");
+        } else if (isAndroid == true) {
+            phoneStyle = "Android";
+            console.log("来自Android手机");
+        } else {
+            phoneStyle = "不支持的手机系统";
+            console.log("来自不支持的手机系统");
+        }
+        alert(phoneStyle);
+    });
 
-</body>
+    /*判断浏览器环境是否是微信*/
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    if (isWeiXin()) {
+        document.getElementById("rs").innerHTML = "微信浏览器";
+        console.log(" 是来自微信内置浏览器");
+
+        var alertstr = "<div class='blackbg'><div class='reminder'>" +
+            "<img src='../img/arrowdashed.png' >" +
+            "<p class='title'>在微信中无法下载？</p>" +
+            "<p>点击右上角，选择在Safari浏览器中打开，即可下载方太生活家。</p>" +
+            "</div></div>";
+        $("body").prepend(alertstr);
+        $("html,body").css({overflow: "hidden"}); //禁用滚动条
+        /*隐藏提示*/
+        $(document).click(function () {
+            $(".blackbg").remove();
+            $("html,body").css({"overflow": "auto"});
+        });
+        $(".reminder").click(function (event) {
+            event.stopPropagation();//阻止冒泡
+        });
+
+    } else {
+        document.getElementById("rs").innerHTML = "不是微信浏览器";
+        console.log("不是来自微信内置浏览器");
+    }
+</script>
 </html>

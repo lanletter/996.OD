@@ -32,6 +32,13 @@
                 s.parentNode.insertBefore(vds, s);
             })();
         })();
+
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
     </script>
 </head>
 <body>
@@ -59,9 +66,10 @@
         <span>方太生活家</span>
         <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+    <span id="jump" class="deeplikopen">打开</span>
 </div>
 <script src="../js/lib.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
@@ -141,6 +149,41 @@
 
                     /*视频链接*/
                     $('#videobox').find('#vd').attr('src', $this.kk.top[0].url);
+
+                    /*GIO参数集合*/
+                    //发布时间
+                    var date = new Date(data.data.top[0].modifytime);
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    var creattime=Y+M+D+h+m+s;
+                    console.log(creattime);
+
+                    //custom page code begin here
+                    gio("page.set", "livevideo", "直播回放");//页面类型
+                    gio("page.set", "name", data.data.top[0].name);//标题
+                    gio("page.set", "creattime", creattime);//发布时间
+                    gio("page.set", "cookName", data.data.top[0].cookName);//导师
+                    gio("page.set", "videoLong", data.data.top[0].videoLong);//视频时长
+                    //custom page code end here
+                    gio('send');
+
+                    /*GIO参数集合发送完毕*/
+
+
+                    /*深链接模块*/
+                    $.deeplink({
+                        "id": id,
+                        "action": "videopage",
+                        "weburl": $this.kk.top[0].shareUrl,
+                        "imageURL": $this.kk.top[0].picturePath,
+                        "shareTitle": $this.kk.top[0].name,
+                        "shareSubTitle":  $this.kk.top[0].description,
+                        "iostype": "https://api.fotilestyle.com/ft/path/web/"
+                    }, 1);
 
                     /*微信分享链接专用*/
                     var sharetitle = $this.kk.top[0].name;

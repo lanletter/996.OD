@@ -207,14 +207,14 @@
             }
 
             /*友盟埋点-页面访问*/
-            var isuserid;//登录判断
-            if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
-            console.log(isuserid);
-            UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                "页面类型":"场馆详情页",
-                "页面名称": data.storeName,
-                "是否登录":isuserid
-            });
+            // var isuserid;//登录判断
+            // if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+            // console.log(isuserid);
+            // UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+            //     "页面类型":"场馆详情页",
+            //     "页面名称": data.storeName,
+            //     "是否登录":isuserid
+            // });
 
 //      data.storeServices.forEach(function(item, index) {
 //        var item = $('<li>' + item.serviceName + '</li>');

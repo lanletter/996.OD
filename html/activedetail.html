@@ -10,20 +10,27 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/lifedetail.css?ver=403">
-    <script type='text/javascript'>
+    <script>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function(){
+        (function () {
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function() {
+            (function () {
                 var vds = document.createElement('script');
-                vds.type='text/javascript';
+                vds.type = 'text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(vds, s);
             })();
         })();
+
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
     </script>
 </head>
 
@@ -42,7 +49,7 @@
             <span class="comment-count" id="star"><strong></strong></span>
         </div>
     </header>
-    <article class="content">
+    <article class="content" id="instructions">
     </article>
     <div class="active-rule">
         <p>活动规则</p>
@@ -59,9 +66,19 @@
     <div id="loading">
         <div class="btnload">下拉加载更多</div>
         <div class="imgift" style="display: none"></div>
-        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+        <div class="nomore" style="display: none">
+            <div></div>
+            已经到底了
+            <div></div>
+        </div>
     </div>
 
+</div>
+<div id="menuup">
+    <a>上传菜谱</a>
+    <p>已有<span>0</span>人上传</p>
+    <span class="device" style="display: none"></span>
+    <span class="deeplikopen" style="display: none"></span>
 </div>
 <div class="footer">
     <img src="../img/logoblack.png">
@@ -69,11 +86,12 @@
         <span>方太生活家</span>
         <span>分享生活味道</span>
     </p>
-    <a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>
+    <span id="jump" class="deeplikopen">打开</span>
 </div>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/judge.js'></script>
@@ -85,7 +103,7 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
 
@@ -104,7 +122,7 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-                    if(userid !== "1" && userid !== 1){
+                    if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
                     }
 
@@ -121,6 +139,7 @@
         var token;
         choose();
     }
+
     function choose() {
         $.ajax({
             url: urlport + 'activity/detail',
@@ -138,6 +157,7 @@
                 console.log(errorMsg);
             }
         });
+
         function callback(res) {
             data = res.data;
             console.log(res);
@@ -160,23 +180,60 @@
                 $('head title').text(data.title);
             }
 
+
+            /*上传菜谱模块*/
+            if (data.buttonStatus == 1 || data.buttonStatus == "1") {
+                $(".footer").hide();
+                $("#menuup").show();
+            } else {
+                $("#menuup").hide();
+                // $(".footer").hide();
+            }
+
+
             /*友盟埋点-页面访问*/
             var isuserid;//登录判断
-            if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+            if (userid !== 1 && userid !== "1") {
+                isuserid = "是";
+            } else {
+                isuserid = "否";
+            }
             console.log(isuserid);
-            UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                "页面类型":"活动详情页",
+            UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                "页面类型": "活动详情页",
                 "页面名称": data.title,
-                "是否登录":isuserid
+                "是否登录": isuserid
             });
 
-            /*文章内链接加device*/
-            var qs = 'device=' + device;
-            $content.find('a').each(function () {
-                var href = $(this).attr('href');
-                if (href) {
-                    href += (href.match(/\?/) ? '&' : '?') + qs;
-                    $(this).attr('href', href);
+            // $("#menuup a").text(data.buttonText);
+            $("#menuup p span").text(data.buttonCount);
+            $("#menuup .device").unbind().on("click", function () {
+                ft.callMenuUp(function (result) {
+                    //native触发
+                });
+            });
+            $("#menuup a").unbind().on("click", function () {
+                $.ajax({
+                    url: urlport + 'activity/clickCount',
+                    type: 'POST',
+                    data: JSON.stringify({"id": id}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (data) {
+                        console.log(data);
+                        callback(data);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+
+                if (device == "ios" || device == "android") {
+                    $(".device").trigger('click');
+                } else {
+                    $(".deeplikopen").trigger('click');
                 }
             });
 
@@ -208,18 +265,66 @@
                 return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
             }
 
-            if(data.isshow==1 || data.isshow==null){
+            if (data.isshow == 1 || data.isshow == null) {
                 // $header.find('time').text(format(starttime) + '-' + format(endtime));//显示时间戳
                 $header.find('time').text(data.time2);//显示字符串
-            }else {
+            } else {
                 $header.find('time').text();
             }
 
             $content.append(data.content);
 
+            /*文章内链接加device，必须放在content内容append后面！*/
+            var qs = 'device=' + device;
+            $content.find('a').each(function () {
+                var href = $(this).attr('href');
+                console.log(href);
+                if (href) {
+                    href += (href.match(/\?/) ? '&' : '?') + qs;
+                    $(this).attr('href', href);
+                    console.log(href);
+                }
+            });
+
+            /*深链接模块*/
+            //富文本取值
+            var text=$("#instructions").text();
+            var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
+            $.deeplink({
+                "id": id,
+                "action": "activepage",
+                "weburl": data.url,
+                "imageURL": data.picture.path,
+                "shareTitle": data.title,
+                "shareSubTitle": shareSubTitle,
+                "iostype": "https://api.fotilestyle.com/ft/path/web/"
+            }, 1);
+
+            /*GIO参数集合*/
+            //发布时间
+            var date = new Date(data.createat);
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+            D = date.getDate() + ' ';
+            h = date.getHours() + ':';
+            m = date.getMinutes() + ':';
+            s = date.getSeconds();
+            var creattime=Y+M+D+h+m+s;
+            console.log(creattime);
+
+            //custom page code begin here
+            gio("page.set", "activity", "活动");//页面类型
+            gio("page.set", "title", data.title);//标题
+            gio("page.set", "creattime", creattime);//发布时间
+            gio("page.set", "commentCount", data.commentCount);//类型
+            //custom page code end here
+            gio('send');
+
+            /*GIO参数集合发送完毕*/
+
             /*微信分享链接专用*/
             var sharetitle = data.title;
-            var sharedesc=data.desc;
+            var sharedesc = data.desc;
             var shareimg = data.picture.path;
             var sharestr = data.url;
             var sharelink = sharestr.replace(/api/, "h5");

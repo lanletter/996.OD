@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        var obj={
-            a:1,
-            name:'world',
-            objSayName:function(fn){
+        var obj = {
+            a: 1,
+            name: 'world',
+            objSayName: function (fn) {
                 fn()
             }
         };
-        var name='hello';
-        var arr=[1,2,3,4,5];
+        var name = 'hello';
+        var arr = [1, 2, 3, 4, 5];
+
         function foo(o) {
-            var bar=arr||[6,7,8];
-            var arr=[4,2,9];
-            var baz=o;
-            baz.a=2;
-            console.log(bar,obj.a)
+            var bar = arr || [6, 7, 8];
+            var arr = [4, 2, 9];
+            var baz = o;
+            baz.a = 2;
+            console.log(bar, obj.a)
         }
-        function sayName(){
+
+        function sayName() {
             return console.log(this.name)
         }
 
@@ -29,12 +31,12 @@
 
 
         console.log(1);
-        setTimeout(function(){
+        setTimeout(function () {
             console.log(2)
-        },100);
-        setTimeout(function(){
+        }, 100);
+        setTimeout(function () {
             console.log(this)
-        },0);
+        }, 0);
         console.log(3)
 
     </script>

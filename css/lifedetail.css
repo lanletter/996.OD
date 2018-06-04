@@ -104,3 +104,34 @@
 	width: 100%;
 	margin: 0.08rem auto;
 }
+#menuup{
+	position: fixed;
+	bottom: 0;
+	height: 2.4rem;
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.0)), color-stop(50%, rgb(255,255,255)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+	background: -o-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+	background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
+}
+#menuup a{
+	display: block;
+	margin: 0 0.4rem;
+	margin-top: 0.6rem;
+	width: 6.7rem;
+	height: 0.96rem;
+	line-height: 0.96rem;
+	font-size: 0.28rem;
+	color: rgb(200,175,112);
+	background: #000;
+	border-radius: 0.08rem;
+	text-align: center;
+}
+#menuup p{
+	margin: 0.12rem;
+	text-align: center;
+	font-size: 0.24rem;
+	color: rgb(214,66,71);
+	line-height: 0.34rem;
+}
