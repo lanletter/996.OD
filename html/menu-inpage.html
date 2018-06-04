@@ -102,13 +102,15 @@
                     <span class="txt"></i>材料清单</span>
                     <a class="unit" href="conversion-info.html">单位换算</a>
                 </dt>
-                <div v-if="materialsList.list!==undefined && materialsList.list.length"
-                     v-show="materialsList.list">
-                    <p class="title_ingredients"><span>主料</span></p>
-                    <dd v-for="item in materialsList.list">
-                        {{item.name}}
-                        <span v-html="item.unit"></span>
-                    </dd>
+                <div v-if="materialsList!==undefined && materialsList.length"
+                     v-show="materialsList">
+                    <div v-for="(item,index) in materialsList">
+                        <p class="title_ingredients" v-html="item.title"><span>主料</span></p>
+                        <dd v-for="i in item.list">
+                            {{i.name}}
+                            <span v-html="i.unit"></span>
+                        </dd>
+                    </div>
                 </div>
             </dl>
         </div>
@@ -363,7 +365,7 @@
                         //console.info(data);
                         $this.data = data.data;
                         $this.basicInfo = data.data.basicInfo;
-                        $this.materialsList = data.data.materialsList[0];
+                        $this.materialsList = data.data.materialsList;
                         id = $this.data.basicInfo.id;
                         console.log(id);
                     }
