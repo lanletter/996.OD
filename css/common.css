@@ -395,11 +395,11 @@ html{
   z-index: 9999999;
 }
 .reminder img{
-  width: 1.5rem ;
-  height: 0.5rem;
+  width: 1.46rem ;
+  height: 0.58rem;
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 0.3rem;
+  top: 0.16rem;
 }
 .reminder p{color: #000000;}
 .reminder .title{
