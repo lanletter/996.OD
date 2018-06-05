@@ -76,6 +76,7 @@ html, body {
 #buybox{
   padding-bottom: 2.18rem;
   overflow-y: auto;
+  background: #fff;
 }
 
 .jf-buy {
