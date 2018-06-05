@@ -547,7 +547,6 @@
                 }
 
                 $('.rpbutton').unbind().click(function (e) {
-                    $("#leave-words2 .textarea").focus();//默认选中
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
@@ -561,7 +560,6 @@
 			                        token = result.data.token.toString();
 			                    }
                                 $('#leave-words2').show();
-                                $("#leave-words2 .textarea").focus();//默认选中
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
