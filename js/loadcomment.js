@@ -110,9 +110,9 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // $('#leave-words').show();
-                        // test1(userid);
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        $('#leave-words').show();
+                        test1(userid);
                     }
                 });
 
@@ -461,9 +461,9 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // $('#leave-words').show();
-                        // test2(userid);
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        $('#leave-words').show();
+                        test2(userid);
                     }
                 });
 
@@ -547,6 +547,7 @@
                 }
 
                 $('.rpbutton').unbind().click(function (e) {
+                    $("#leave-words2 .textarea").focus();//默认选中
                     if (device == "ios" || device == "android") {
                         $(e.target).attr("id");     // e.target表示被点击的目标
                         var $come = $(e.target).siblings(".key");//数据来自于
@@ -571,13 +572,13 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
-                        // var $come = $(e.target).siblings(".key");//数据来自于
-                        // parentid = $come.find('.Id').text();
-                        // // alert(parentid);
-                        // $('#leave-words2').show();
-                        // test(parentid, userid);
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        parentid = $come.find('.Id').text();
+                        // alert(parentid);
+                        $('#leave-words2').show();
+                        test(parentid, userid);
                     }
                 });
 
