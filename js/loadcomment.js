@@ -11,7 +11,7 @@
         var cookstring = typecook + idcook;
         var userid = obj.userId;
         // alert(userid);
-        // var userid = 121547;//测试环境
+        var userid = 121547;//测试环境
         // var userid = 94138;//预发布环境
         console.log(cookstring);
 
@@ -110,9 +110,9 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // $('#leave-words').show();
-                        // test1(userid);
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        $('#leave-words').show();
+                        test1(userid);
                     }
                 });
 
@@ -461,9 +461,9 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // $('#leave-words').show();
-                        // test2(userid);
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        $('#leave-words').show();
+                        test2(userid);
                     }
                 });
 
@@ -570,13 +570,13 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                        // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
-                        // var $come = $(e.target).siblings(".key");//数据来自于
-                        // parentid = $come.find('.Id').text();
-                        // // alert(parentid);
-                        // $('#leave-words2').show();
-                        // test(parentid, userid);
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
+                        var $come = $(e.target).siblings(".key");//数据来自于
+                        parentid = $come.find('.Id').text();
+                        // alert(parentid);
+                        $('#leave-words2').show();
+                        test(parentid, userid);
                     }
                 });
                 $("#leave-words2 .textarea").focus();//默认选中

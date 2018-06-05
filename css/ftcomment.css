@@ -597,7 +597,7 @@
     text-align: center;
     overflow: hidden;
     z-index: 999999 !important;
-    background: rgb(247, 247, 247);
+    /*background: rgb(247, 247, 247);*/
     padding-bottom: 1rem;
 }
 
