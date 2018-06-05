@@ -67,15 +67,16 @@
         </ul>
     </div>
 </div>
-<!--<div class="footer">-->
-    <!--<img src="../img/logoblack.png">-->
-    <!--<p>-->
-        <!--<span>方太生活家</span>-->
-        <!--<span>分享生活味道</span>-->
-    <!--</p>-->
-    <!--<a onclick="javascript:window.location.href='https://t.growingio.com/app/at2/xogaz2Rm_o'">下载App</a>-->
-<!--</div>-->
+<div class="footer">
+    <img src="../img/logoblack.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <span id="jump" class="deeplikopen">打开</span>
+</div>
 <script src="../js/lib.js"></script>
+<script src="../js/deeplink.js"></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
@@ -198,6 +199,17 @@
                     }, function () {
                         console.info('error');
                     });
+
+                    /*深链接模块*/
+                    $.deeplink({
+                        "id": id,
+                        "action": "shortvideo",
+                        "weburl": data.data.pageUrl,
+                        "imageURL": data.data.picture.path,
+                        "shareTitle": data.data.title,
+                        "shareSubTitle": data.data.remark,
+                        "iostype": "https://api.fotilestyle.com/ft/path/web/"
+                    }, 1);
 
                     /*GIO参数集合*/
                     //类型
