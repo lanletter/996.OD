@@ -11,7 +11,7 @@
         var cookstring = typecook + idcook;
         var userid = obj.userId;
         // alert(userid);
-        var userid = 121547;//测试环境
+//      var userid = 121547;//测试环境
         // var userid = 94138;//预发布环境
         console.log(cookstring);
 
