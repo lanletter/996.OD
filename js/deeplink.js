@@ -58,13 +58,13 @@
                     "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
                     "</div></div>";
                 $("body").prepend(alertstr);
-                $("html,body").css({overflow: "hidden"}); //禁用滚动条
+                $("html,body").css({"height": "100%","position":"relative","overflow": "hidden"}); //禁用滚动条
                 disableScroll = true;//禁止滚动
 
                 /*隐藏提示*/
                 $(document).unbind().click(function () {
                     $(".blackbg").remove();
-                    $("html,body").css({"overflow": "auto"});
+                    $("html,body").css({"height": "auto","position":"static","overflow": "auto"}); //启用滚动条
                     disableScroll = false;//允许滚动
                 });
                 $(".reminder").click(function (event) {

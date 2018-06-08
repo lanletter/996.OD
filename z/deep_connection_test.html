@@ -6,11 +6,10 @@
 <!--自动加载隐藏页面跳转-->
 <iframe src=" " style="display:none"></iframe>
 <!--手动点击跳转-->
-<a id="deeplink" href="">打开</a>
 <a id="deeplink_android_native" href="">打开Android native</a>
 <a id="deeplink_android_web" href="">打开Android web</a>
-<a id="deeplink_ios_native" href="">打开IOS native</a>
-<a id="deeplink_ios_web" href="">打开IOS web</a>
+<span id="deeplink_ios_native">打开IOS native</span>
+<span id="deeplink_ios_web">打开IOS web</span>
 
 
 <h1 id="rs"></h1>
@@ -26,7 +25,7 @@
 
 </body>
 </html>
-<script src="../js/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
 <script type="text/javascript">
     /*判断是IOS还是Android机型*/
     var u = navigator.userAgent;
@@ -56,9 +55,9 @@
 
     /*此页面在APP中是native还是H5*/
     var deeplink_ios_web = "https://api.fotilestyle.com/ft/path/web/";
-    var deeplink_ios_native = "https://api.fotilestyle.com/ft/native/";
-    var deeplink_android_web = "fotile://api.fotilestyle.com/web-menue/";
-    var deeplink_android_native = "https://api.fotilestyle.com/ft/native/";
+    var deeplink_ios_native = "https://api.fotilestyle.com/ft/path/recipe/";
+    var deeplink_android_web = "fotile://api.fotilestyle.com/ft/web/";
+    var deeplink_android_native = "fotile://api.fotilestyle.com/ft/native/";
 
     /*获取页面参数*/
     var refid = "100";
@@ -66,18 +65,25 @@
     var imageURL = "https://fotile-iotcloud-test.oss-cn-hangzhou.aliyuncs.com/avatars/4796a1d4-0c0a-4ada-9fc6-502567e7adb9.jpg";
     var shareTitle = "剁椒芋艿";
     var shareSubTitle = "剁椒芋艿2";
-
+    var descripe="?refid=" + encodeURIComponent(refid) + "&urlString=" + encodeURIComponent(urlString) + "&imageURL" + encodeURIComponent(imageURL) + "&shareTitle" + encodeURIComponent(shareTitle) +"&shareSubTitle" + encodeURIComponent(shareSubTitle);
+    var test="?action=menupage&refid=233";
 
     /*链接+传参*/
     if(isiOS==true){
-        var deeplink_ios_web_url = deeplink_ios_web + "?refid=" + encodeURIComponent(refid) + "&urlString=" + encodeURIComponent(urlString) + "&imageURL" + encodeURIComponent(imageURL) + "&shareTitle" + encodeURIComponent(shareTitle) +"&shareSubTitle" + encodeURIComponent(shareSubTitle) ;
-        var deeplink_ios_native_url = deeplink_ios_native + "?refid=" + encodeURIComponent(refid) + "&urlString=" + encodeURIComponent(urlString) + "&imageURL" + encodeURIComponent(imageURL) + "&shareTitle" + encodeURIComponent(shareTitle) +"&shareSubTitle" + encodeURIComponent(shareSubTitle) ;
-        $("#deeplink_ios_native").attr('href',deeplink_ios_native_url);
-        $("#deeplink_ios_web").attr('href',deeplink_ios_web_url);
+        var deeplink_ios_web_url = deeplink_ios_web + test;
+        var deeplink_ios_native_url = deeplink_ios_native + test ;
+        $("#deeplink_ios_native").on('click',function () {
+            alert(deeplink_ios_native_url);
+            window.location.href=deeplink_ios_native_url;
+        });
+        $("#deeplink_ios_web").on('click',function () {
+            alert(deeplink_ios_web_url);
+            window.location.href=deeplink_ios_web_url;
+        });
     }
     if(isAndroid==true){
-        var deeplink_android_web_url = deeplink_android_web + "?refid=" + encodeURIComponent(refid) + "&urlString=" + encodeURIComponent(urlString) + "&imageURL" + encodeURIComponent(imageURL) + "&shareTitle" + encodeURIComponent(shareTitle) +"&shareSubTitle" + encodeURIComponent(shareSubTitle) ;
-        var deeplink_android_native_url = deeplink_android_native + "?refid=" + encodeURIComponent(refid) + "&urlString=" + encodeURIComponent(urlString) + "&imageURL" + encodeURIComponent(imageURL) + "&shareTitle" + encodeURIComponent(shareTitle) +"&shareSubTitle" + encodeURIComponent(shareSubTitle) ;
+        var deeplink_android_web_url = deeplink_android_web + descripe;
+        var deeplink_android_native_url = deeplink_android_native + descripe ;
         $("#deeplink_android_native").attr('href',deeplink_android_native_url);
         $("#deeplink_android_web").attr('href',deeplink_android_web_url);
     }

@@ -345,6 +345,7 @@ html, body {
   margin: 0.36rem 0.32rem; }
 .menupage .qingdan dd {
   text-align: left;
+  overflow: hidden;
 }
 .menupage .qingdan dd span{
   text-align: left;

@@ -62,82 +62,85 @@
     </script>
 </head>
 <body>
-<div id="buybox">
-    <div class="jf-buy">
-        <div class="swiper">
-            <div class="focus">
-                <mt-swipe :auto="4000">
-                    <mt-swipe-item v-for="item in url">
-                        <img :src="item.picture.path" alt="">
-                    </mt-swipe-item>
-                </mt-swipe>
+<div id="elbox">
+    <div id="buybox">
+        <div class="jf-buy">
+            <div class="swiper">
+                <div class="focus">
+                    <mt-swipe :auto="4000">
+                        <mt-swipe-item v-for="item in url">
+                            <img :src="item.picture.path" alt="">
+                        </mt-swipe-item>
+                    </mt-swipe>
+                </div>
+            </div>
+            <div class="title">
+                <h4 v-html="title"></h4>
+                <p>
+                    <span><i class="icon-broswer"></i><b v-html="viewCount"></b></span>
+                    <span><i class="icon-msg"></i><b v-html="commentCount"></b></span>
+                </p>
+            </div>
+            <div class="sku">
+                <ul>
+                    <li class="h_box">
+                        <span class="tit1">商品分类</span>
+                        <p class="btns"><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
+                                              :class="merchandiseClasses == item.id?'cur':''"
+                                              @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
+                                              v-html="item.argName"></span>
+                        </p>
+                    </li>
+                    <li class="h_box" style="height: 1.32rem;">
+                        <span class="tit">数量：</span>
+                        <em>(库存<span v-html="stock"></span>)</em>
+                        <p class="textalign">
+                            <span class="icon-reduce" @click="changeNum(0)"></span>
+                            <input v-model="count" value="" class="inputText" readonly type="text">
+                            <span class="icon-add" @click="changeNum(1)"></span>
+                        </p>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="details">
+                <h2>商品详情</h2>
+                <div class="msg" v-html="content"></div>
+            </div>
+
+            <div class="details">
+                <h3><i class="icon-truck"></i>物流说明</h3>
+                <div class="msg" v-html="logistics"></div>
+            </div>
+
+            <div class="details">
+                <h3><i class="icon-fix"></i>售后保障</h3>
+                <div class="msg" v-html="salesSupport"></div>
+            </div>
+
+            <!--<div class="details">-->
+            <!--<h3>联系客服</h3>-->
+            <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="bottomdiv"></div>
+        <div class="ft-titles">
+            <p class="title1">用户评论</p>
+            <p class="title2">共有<span v-html="commentCount">?</span>条评论</p>
+        </div>
+        <div class="ft-comment"></div>
+        <div id="loading">
+            <div class="btnload">下拉加载更多</div>
+            <div class="imgift" style="display: none"></div>
+            <div class="nomore" style="display: none">
+                <div></div>
+                已经到底了
+                <div></div>
             </div>
         </div>
-        <div class="title">
-            <h4 v-html="title"></h4>
-            <p>
-                <span><i class="icon-broswer"></i><b v-html="viewCount"></b></span>
-                <span><i class="icon-msg"></i><b v-html="commentCount"></b></span>
-            </p>
-        </div>
-        <div class="sku">
-            <ul>
-                <li class="h_box">
-                    <span class="tit1">商品分类</span>
-                    <p class="btns"><span class="sku-sel" v-for="item in dataAll.merchandiseClasses"
-                                          :class="merchandiseClasses == item.id?'cur':''"
-                                          @click="selectType(item.id,item.stock,item.paidIntegral,item.integral,item,count,totalntegral)"
-                                          v-html="item.argName"></span>
-                    </p>
-                </li>
-                <li class="h_box" style="height: 1.32rem;">
-                    <span class="tit">数量：</span>
-                    <em>(库存<span v-html="stock"></span>)</em>
-                    <p class="textalign">
-                        <span class="icon-reduce" @click="changeNum(0)"></span>
-                        <input v-model="count" value="" class="inputText" readonly type="text">
-                        <span class="icon-add" @click="changeNum(1)"></span>
-                    </p>
-                </li>
-            </ul>
-
-        </div>
-
-        <div class="details">
-            <h2>商品详情</h2>
-            <div class="msg" v-html="content"></div>
-        </div>
-
-        <div class="details">
-            <h3><i class="icon-truck"></i>物流说明</h3>
-            <div class="msg" v-html="logistics"></div>
-        </div>
-
-        <div class="details">
-            <h3><i class="icon-fix"></i>售后保障</h3>
-            <div class="msg" v-html="salesSupport"></div>
-        </div>
-
-        <!--<div class="details">-->
-        <!--<h3>联系客服</h3>-->
-        <!--<div class="msg"><i class="icon-qq mr10"></i>客服方方 753113213</div>-->
-        <!--</div>-->
-    </div>
-
-    <div class="bottomdiv"></div>
-    <div class="ft-titles">
-        <p class="title1">用户评论</p>
-        <p class="title2">共有<span v-html="commentCount">?</span>条评论</p>
-    </div>
-    <div class="ft-comment"></div>
-    <div id="loading">
-        <div class="btnload">下拉加载更多</div>
-        <div class="imgift" style="display: none"></div>
-        <div class="nomore" style="display: none">
-            <div></div>
-            已经到底了
-            <div></div>
-        </div>
+        <div style="height: 2.18rem;width: 100%;background: #fff;"></div>
     </div>
     <div class="btnbox">
         <ul class="h_box">
@@ -193,7 +196,7 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-                    if(userid !== "1" && userid !== 1){
+                    if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
                     }
 
@@ -213,7 +216,7 @@
 
     function choose() {
         var vm = new Vue({
-            el: '#buybox',
+            el: '#elbox',
             data: {
                 title: '',
                 salesSupport: '',
@@ -260,12 +263,16 @@
 
                         /*友盟埋点-页面访问*/
                         var isuserid;//登录判断
-                        if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+                        if (userid !== 1 && userid !== "1") {
+                            isuserid = "是";
+                        } else {
+                            isuserid = "否";
+                        }
                         console.log(isuserid);
-                        UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                            "页面类型":"积分商品详情页",
+                        UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                            "页面类型": "积分商品详情页",
                             "页面名称": data.data.title,
-                            "是否登录":isuserid
+                            "是否登录": isuserid
                         });
 
                         if (device == "ios") {
@@ -373,9 +380,9 @@
                             if (errorcode == "1") {
                                 // $api.toast('登陆成功', 2000);
                                 userid = result.data.userId.toString();
-			                    if(userid !== "1" && userid !== 1){
-			                        token = result.data.token.toString();
-			                    }
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
                                 window.userid = userid;
                                 // alert("userid："+userid);
                                 //积分兑换
@@ -391,14 +398,14 @@
                                     '<span class="del-com wsdel-ok">确定</span>' +
                                     '<span class="wsdel-no">取消</span>' +
                                     '</p></div></div>');
-                                $("#mask").css("display","block");
+                                $("#mask").css("display", "block");
                                 $(".wsdel-ok").unbind().click(function (e) {
-                                    $("#mask").css("display","none");
+                                    $("#mask").css("display", "none");
                                     $this.userId = userid;
                                     $this.getAddress(this.userId);
                                 });
                                 $(".wsdel-no").unbind().click(function (e) {
-                                    $("#mask").css("display","none");
+                                    $("#mask").css("display", "none");
                                 })
 
                             } else if (errorCode == "0") {
@@ -446,8 +453,8 @@
                         } else {
                             alert('兑换成功！');
                             /*友盟打点：积分兑换*/
-                            UMAnalyticsAgent.trackWithProperty("h5积分兑换",{
-                                "商品名称":data.data.title
+                            UMAnalyticsAgent.trackWithProperty("h5积分兑换", {
+                                "商品名称": data.data.title
                             });
                         }
                     }, function (err) {

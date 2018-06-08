@@ -85,6 +85,7 @@
             <!--</ul>-->
             <!--<p class="desc" v-html="item.desc"></p>-->
             <!--</div>-->
+            <p id="instructions" class="richtext" style="display: none;"></p>
             <p class="instructions richtext" v-show="data.instructions !== null" v-html="data.instructions "></p>
             <ul class="h_box special">
                 <li>
@@ -407,6 +408,8 @@
                         "是否登录": isuserid
                     });
 
+                    /*JQ方法获取，JQ方法使用必须项*/
+                    $("#instructions").html(data.data.instructions);
                     /*深链接模块*/
                     //富文本取值
                     var text=$("#instructions").text();
@@ -414,9 +417,9 @@
                     $.deeplink({
                         "id": id,
                         "action": "menupage",
-                        "weburl": data.data.basicInfo.url,
-                        "imageURL": data.data.basicInfo.images[0],
-                        "shareTitle": data.data.basicInfo.menu_name,
+                        "weburl": data.data.url,
+                        "imageURL": data.data.images[0],
+                        "shareTitle": data.data.name,
                         "shareSubTitle": shareSubTitle,
                         "iostype": "https://api.fotilestyle.com/ft/path/recipe/"
                     }, 1);

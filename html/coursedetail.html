@@ -266,6 +266,7 @@
     document.addEventListener("touchmove", function (e) {
         if (disableScroll) {
             e.preventDefault();
+            e.stopPropagation();
         }
     }, false);
 
@@ -532,16 +533,21 @@
                     $('.numbox .num').text("1");
                     $('#allprice').text(data.price);
                     $('#remarks').val("");
-                    disableScroll = true;//禁止滚动
-                    $("html,body").css({overflow: "hidden"}); //禁用滚动条
                     $('.dark-bg').show();
                     $('.buynow-div').show();
+                    $("html,body").css({"height": "100%","position":"relative","overflow": "hidden"}); //禁用滚动条
+                    document.addEventListener("ontouchmove", function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                    });
+                    disableScroll = true;//禁止滚动
                 });
                 $('#close-div').on('click', function () {
-                    disableScroll = false;//允许滚动
-                    $("html,body").css({overflow: "auto"}); //启用滚动条
                     $('.dark-bg').hide();
                     $('.buynow-div').hide();
+                    $("html,body").css({"height": "auto","position":"static","overflow": "auto"}); //启用滚动条
+                    disableScroll = false;//允许滚动
                 });
                 //app交互——加购物车
                 $("#addToCart").on("click", function () {
@@ -826,14 +832,15 @@
 
             //custom page code begin here
             gio("page.set", "onlinecourse", "课程");//页面类型
-            gio("page.set", "title", data.curriculumName);//标题
+            gio("page.set", "ID", data.id);//页面类型
+            gio("page.set", "curriculumName", data.curriculumName);//标题
             gio("page.set", "creattime", timechange(data.createat));//发布时间
             gio("page.set", "commentCount", data.commentCount);//评论数
             gio("page.set", "cookName", cooker);//导师
             gio("page.set", "currentCount", data.currentCount);//购买数
             gio("page.set", "price", data.price);//金额
             gio("page.set", "styleType", data.styleType);//菜式类别
-            gio("page.set", "startDate", timechange(data.startDate));//类型
+            gio("page.set", "startDate", timechange(data.startDate));//开课时间
             //custom page code end here
             gio('send');
 

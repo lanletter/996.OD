@@ -39,6 +39,7 @@ html, body {
   left: 0.4rem;
   width: 2.44rem;
   height: 0.72rem;
+  line-height: 0.72rem;
   background:rgba(0,0,0,0.2) url('../img/triangle.png') 0.48rem 0.2rem no-repeat;
   background-size: 0.32rem 0.32rem;
   padding-left: 0.24rem;
@@ -47,6 +48,7 @@ html, body {
   box-sizing: border-box;
   border: 1px solid #fff;
   border-radius: 0.38rem;
+  font-size: 0.28rem;
 }
 
 .video .noplay:focus {

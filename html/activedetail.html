@@ -74,7 +74,7 @@
     </div>
 
 </div>
-<div id="menuup">
+<div id="menuup" style="display: none;">
     <a>上传菜谱</a>
     <p>已有<span>0</span>人上传</p>
     <span class="device" style="display: none"></span>
@@ -314,7 +314,8 @@
 
             //custom page code begin here
             gio("page.set", "activity", "活动");//页面类型
-            gio("page.set", "title", data.title);//标题
+            gio("page.set", "ID", data.id);//id
+            gio("page.set", "titleactivity", data.title);//标题
             gio("page.set", "creattime", creattime);//发布时间
             gio("page.set", "commentCount", data.commentCount);//类型
             //custom page code end here

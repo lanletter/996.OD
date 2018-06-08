@@ -17,7 +17,7 @@
     <script src="../js/tingyun-rum.js"></script>
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/video-share2.css?ver=420" rel="stylesheet">
-    <title>直播分享</title>
+    <title>直播回放</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
@@ -164,6 +164,7 @@
 
                     //custom page code begin here
                     gio("page.set", "livevideo", "直播回放");//页面类型
+                    gio("page.set", "ID", data.data.top[0].id);//id
                     gio("page.set", "name", data.data.top[0].name);//标题
                     gio("page.set", "creattime", creattime);//发布时间
                     gio("page.set", "cookName", data.data.top[0].cookName);//导师

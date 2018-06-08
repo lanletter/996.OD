@@ -108,21 +108,21 @@ img{
 }
 #btn1{
     position: absolute;
-    top:4.95rem ;
+    top:5.65rem ;
     left: 50%;
-    margin-left: -1.63rem;
-    width: 3.25rem;
+    margin-left: -1.6rem;
+    width: 3.2rem;
     height: 0.9rem;
     border-radius: 0.9rem;
     background: none;
 }
 #btn2{
     position: absolute;
-    top:4.86rem;
+    top:4.98rem;
     left: 50%;
-    margin-left: -1.36rem;
-    width: 2.72rem;
-    height: 0.9rem;
+    margin-left: -1.33rem;
+    width: 2.71rem;
+    height: 0.91rem;
     border-radius: 0.9rem;
     background: none;
 }

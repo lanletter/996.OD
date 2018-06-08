@@ -61,13 +61,13 @@
         <ul class="list">
             <li v-for="item in datalist"><a :href="item.pageUrl">
                 <div class="img" :style="{backgroundImage: 'url(' + item.picture.path + ')'}"></div>
-                <div class="time" v-html="item.time"></div>
+                <div v-if="item.time !== '' && item.time !== null" class="time" v-html="item.time"></div>
                 <p v-html="item.title"></p>
             </a></li>
         </ul>
     </div>
 </div>
-<div class="footer">
+<div class="footer" style="display: none;">
     <img src="../img/logo_gold2.png">
     <p>
         <span>方太生活家</span>
@@ -94,10 +94,13 @@
     }
 
     var id = GetQueryString("id");
-    var device = GetQueryString("id");
+    var device = GetQueryString("device");
 
+    console.log(device);
     if (device == null || device == "null") {
         $(".footer").show();
+    }else {
+        $(".footer").hide();
     }
 
     /*选项卡*/
@@ -109,34 +112,6 @@
         document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层
         document.getElementById("tab_" + tabCon_num).classList.add("selected");
     }
-
-
-    (function () {
-        var video = $('#videobox video')[0],
-            playBtn = $('#videobox .play');
-        playBtn.on('click', function () {
-            $(this).hide();
-            var vheight = $("#videobox video").height();
-            $('#vd').css({"position": "absolute", "left": "0"});
-            $("#videobox").css({height: vheight - 1 + "px"});
-            video.play();
-            video.controls = true;
-            $("#videobox .time").hide();
-        });
-
-        video.addEventListener('ended', function () {
-            playBtn.show();
-            video.controls = false;
-            $("#videobox .time").show();
-            $('#vd').css({"position": "absolute", "left": "-10rem"});
-            $("#videobox").css({"height": "4.2rem"});
-        }, false);
-        video.addEventListener('pause', function () {
-            playBtn.hide();
-            video.controls = true;
-        }, false);
-    })();
-
 
     var vm = new Vue({
         el: '.vide-share',
@@ -181,8 +156,45 @@
                     /*视频链接*/
                     $('.video').css({"background":"url("+$this.data.picture.path+") no-repeat","background-size":"100% auto"});
                     $('#videobox').find('#vd').attr('src', $this.data.url);
-                    $("#videobox .time").text($this.data.time);
+                    console.log($this.data.time);
+                    if($this.data.time !=="" && $this.data.time !== null){
+                        $("#videobox .time").text($this.data.time);
+                    }else {
+                        $("#videobox .time").hide();
+                    }
                     $('#vdtest').attr('src', $this.data.url);
+
+
+
+
+                    (function () {
+                        var video = $('#videobox video')[0],
+                            playBtn = $('#videobox .play');
+                        playBtn.on('click', function () {
+                            $(this).hide();
+                            var vheight = $("#videobox video").height();
+                            $('#vd').css({"position": "absolute", "left": "0"});
+                            $("#videobox").css({height: vheight + "px"});
+                            video.play();
+                            $('.video').css({"background":"#000"});
+                            video.controls = true;
+                            $("#videobox .time").hide();
+                        });
+
+                        video.addEventListener('ended', function () {
+                            playBtn.show();
+                            $('.video').css({"background":"url("+$this.data.picture.path+") no-repeat","background-size":"100% auto"});
+                            video.controls = false;
+                            $("#videobox .time").show();
+                            $('#vd').css({"position": "absolute", "left": "-10rem"});
+                            $("#videobox").css({"height": "4.2rem"});
+                        }, false);
+                        video.addEventListener('pause', function () {
+                            playBtn.hide();
+                            $('.video').css({"background":"#000"});
+                            video.controls = true;
+                        }, false);
+                    })();
 
                     /*计算视频时长*/
                     // setTimeout(function(){
@@ -193,10 +205,18 @@
                     // },2000);
 
 
-                    this.$http.post(urlport + '/videoShort/recommend', {"pageNum":1,"pageSize":5,"type":1}).then(function (data) {
+                    this.$http.post(urlport + '/videoShort/recommend', {"pageNum":1,"pageSize":4,"type":1}).then(function (data) {
                         var data = data.data;
                         if (data.status == 200) {
                             $this.datalist = data.data;
+
+                            for (var i = 0; i < data.data.length; i++) {
+                                // console.log(data.data[i].pageUrl);
+                                var pageUrl = data.data[i].pageUrl;
+                                pageUrl = pageUrl + "&device=" + device;
+                                // console.log(pageUrl);
+                                data.data[i].pageUrl = pageUrl;
+                            }
                             console.info($this.datalist);
 
                         }
@@ -236,7 +256,8 @@
 
                     //custom page code begin here
                     gio("page.set", "shortvideo", "短视频");//页面类型
-                    gio("page.set", "title", $this.data.title);//标题
+                    gio("page.set", "ID", $this.data.id);//id
+                    gio("page.set", "titlesv", $this.data.title);//标题
                     gio("page.set", "type", type);//类型
                     gio("page.set", "creattime", creattime);//发布时间
                     gio("page.set", "time", $this.data.time);//视频时长

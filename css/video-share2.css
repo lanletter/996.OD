@@ -148,56 +148,56 @@ html, body {
     border-bottom: 1px solid rgb(237, 237, 237);
 }
 
-.footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 1.44rem;
-    overflow: hidden;
-    background: #fff;
-    border-top: 1px solid rgb(237,237,237);
-}
-.footer img{
-    float: left;
-    width: 0.96rem;
-    height: 0.96rem;
-    margin: 0.24rem 0 0 0.4rem;
-}
-.footer p{
-    float: left;
-    margin:0.1rem 0 0 0.22rem;
-    width: 5rem;
-}
-.footer p span{
-    display: block;
-    font-family: "PingFang SC";
-}
-.footer p span:first-child{
-    font-size: 18px;
-    font-weight: normal;
-    color:rgb(31,31,31);
-    height: 0.72rem;
-    line-height: 0.72rem;
-}
-.footer p span:last-child{
-    font-size: 14px;
-    font-weight: normal;
-    letter-spacing: 1px;
-    color: rgb(154,154,154);
-}
-.footer a{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 2.4rem;
-    height: 0.72rem;
-    line-height: 0.72rem;
-    border-radius: 0.34rem;
-    background: #fff;
-    border: 1px solid rgb(200,175,112);
-    font-size: 12px;
-    font-weight: normal;
-    text-align: center;
-    color: rgb(200,175,112);
-    margin: 0.34rem 0.4rem 0 0;
-}
+/*.footer{*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+    /*height: 1.44rem;*/
+    /*overflow: hidden;*/
+    /*background: #fff;*/
+    /*border-top: 1px solid rgb(237,237,237);*/
+/*}*/
+/*.footer img{*/
+    /*float: left;*/
+    /*width: 0.96rem;*/
+    /*height: 0.96rem;*/
+    /*margin: 0.24rem 0 0 0.4rem;*/
+/*}*/
+/*.footer p{*/
+    /*float: left;*/
+    /*margin:0.1rem 0 0 0.22rem;*/
+    /*width: 5rem;*/
+/*}*/
+/*.footer p span{*/
+    /*display: block;*/
+    /*font-family: "PingFang SC";*/
+/*}*/
+/*.footer p span:first-child{*/
+    /*font-size: 18px;*/
+    /*font-weight: normal;*/
+    /*color:rgb(31,31,31);*/
+    /*height: 0.72rem;*/
+    /*line-height: 0.72rem;*/
+/*}*/
+/*.footer p span:last-child{*/
+    /*font-size: 14px;*/
+    /*font-weight: normal;*/
+    /*letter-spacing: 1px;*/
+    /*color: rgb(154,154,154);*/
+/*}*/
+/*.footer a{*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*width: 2.4rem;*/
+    /*height: 0.72rem;*/
+    /*line-height: 0.72rem;*/
+    /*border-radius: 0.34rem;*/
+    /*background: #fff;*/
+    /*border: 1px solid rgb(200,175,112);*/
+    /*font-size: 12px;*/
+    /*font-weight: normal;*/
+    /*text-align: center;*/
+    /*color: rgb(200,175,112);*/
+    /*margin: 0.34rem 0.4rem 0 0;*/
+/*}*/
