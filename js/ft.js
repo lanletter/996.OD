@@ -305,6 +305,17 @@
             name: "callMenuUp",
             callbackId: generateID(),
             callback: noop
+        },
+        shareInfo: {
+            name: "shareInfo",
+            param: {
+                sharetitle: "",//标题
+                sharedesc: "",// 详情
+                shareimg: "",// 图片
+                sharelink: "" //url地址
+            },
+            callbackId: generateID(),
+            callback: noop
         }
 
     };
@@ -547,4 +558,18 @@
         callMenuUpConfig.callback = fn;
         callByJS(callMenuUpConfig);
     }
+
+    /*********************************************************************
+     *                           获取分享参数                             *
+     **********************************************************************/
+    ft.shareInfo  = function (option, fn) {
+        var shareInfoConfig = ft.mix(true, {}, config.shareInfo);
+        shareInfoConfig.param.sharetitle = option.sharetitle || "";
+        shareInfoConfig.param.sharedesc = option.sharedesc || "";
+        shareInfoConfig.param.shareimg = option.shareimg || "";
+        shareInfoConfig.param.sharelink = option.sharelink || "";
+        shareInfoConfig.callback = fn;
+        callByJS(shareInfoConfig);
+    }
+
 }()

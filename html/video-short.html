@@ -80,11 +80,13 @@
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
+<script src="../js/ft.js"></script>
 <script src="../js/UMAnalytics.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
+<script src="../js/ft.js"></script>
 <script>
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -270,9 +272,23 @@
                     var sharetitle = $this.data.title;
                     var sharedesc = $this.data.remark;
                     var shareimg = $this.data.picture.path;
-                    var sharestr = window.location.href;
+                    var sharestr = $this.data.pageUrl;
                     var sharelink = sharestr.replace(/api/, "h5");
-                    console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                    console.log({
+                        "sharetitle":sharetitle,
+                        "sharedesc":sharedesc,
+                        "shareimg":shareimg,
+                        "sharelink":sharelink
+                    });
+                    if( sharetitle!=="" || sharedesc!=="" || shareimg!=="" || sharelink!=="" ){
+                        ft.shareInfo({
+                            sharetitle: sharetitle,
+                            sharedesc: sharedesc,
+                            shareimg: shareimg,
+                            sharelink: sharelink
+                        }, function (result) {
+                        });
+                    }
                     $.ajax({
                         type: 'GET',
                         url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
