@@ -200,7 +200,7 @@
             </li>
             <li class="list4 border-t">
                 <span class="span18">备注：</span>
-                <input type="text" id="remarks" placeholder="填写备注信息" />
+                <input type="text" id="remarks" placeholder="填写备注信息"/>
                 <!--<div class="lightgrey" id="remarks"></div>-->
                 <!--<img src="../img/invalidPen.png" class="editpic">-->
             </li>
@@ -291,7 +291,7 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-                    if(userid !== "1" && userid !== 1){
+                    if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
                     }
 
@@ -535,10 +535,10 @@
                     $('#remarks').val("");
                     $('.dark-bg').show();
                     $('.buynow-div').show();
-                    $("html,body").css({"height": "100%","position":"relative","overflow": "hidden"}); //禁用滚动条
+                    $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
                     document.addEventListener("ontouchmove", function (e) {
-                            e.preventDefault();
-                            e.stopPropagation();
+                        e.preventDefault();
+                        e.stopPropagation();
 
                     });
                     disableScroll = true;//禁止滚动
@@ -546,7 +546,7 @@
                 $('#close-div').on('click', function () {
                     $('.dark-bg').hide();
                     $('.buynow-div').hide();
-                    $("html,body").css({"height": "auto","position":"static","overflow": "auto"}); //启用滚动条
+                    $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
                     disableScroll = false;//允许滚动
                 });
                 //app交互——加购物车
@@ -742,10 +742,10 @@
               </section>');
                 $('.teacher-box').append(cooker);
             });
-            if(data.cooks.length == 0){
+            if (data.cooks.length == 0) {
                 $(".teacher-box").hide();
                 $(".bgGroup").hide();
-                $(".title").css({"margin-bottom":"0.6rem"})
+                $(".title").css({"margin-bottom": "0.6rem"})
             }
 
             //         data.menuList.forEach(function (item, index) {
@@ -808,28 +808,42 @@
             });
 
             /*GIO参数集合*/
+
             //发布时间+开课时间
             function timechange(time) {
                 var date = new Date(time);
                 Y = date.getFullYear() + '-';
-                M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
                 D = date.getDate() + ' ';
                 h = date.getHours() + ':';
                 m = date.getMinutes() + ':';
                 s = date.getSeconds();
-                var creattime=Y+M+D+h+m+s;
+                var creattime = Y + M + D + h + m + s;
                 return creattime;
             }
+
             console.log(timechange(data.createat));
             console.log(timechange(data.startDate));
 
             //有无导师
-            if(typeof(data.cooks[0]) == "undefined"){
-                var cooker="";
-            }else {
-                var cooker=data.cooks[0].cookName;
+            if (typeof(data.cooks[0]) == "undefined") {
+                var cooker = "";
+            } else {
+                var cooker = data.cooks[0].cookName;
             }
 
+            console.log({
+                "onlinecourse": "课程",
+                "ID": data.id,
+                "curriculumName": data.curriculumName,
+                "creattime": timechange(data.createat),
+                "commentCount": data.commentCount,
+                "cookName": cooker,
+                "currentCount": data.currentCount,
+                "price": data.price,
+                "styleType": data.styleType,
+                "startDate": timechange(data.startDate)
+            })
             //custom page code begin here
             gio("page.set", "onlinecourse", "课程");//页面类型
             gio("page.set", "ID", data.id);//页面类型
@@ -849,7 +863,7 @@
 
             /*深链接模块*/
             //富文本取值
-            var text=$("#instructions").text();
+            var text = $("#instructions").text();
             var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
             $.deeplink({
                 "id": id,
