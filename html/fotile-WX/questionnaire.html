@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访客满意度问卷</title>
+    <style>
+        body{margin:0; padding:0;}
+    </style>
+</head>
+<body>
+    <iframe id="mainiframe" width="100%" height="600" frameborder="0" scrolling="auto" src="https://wj.qq.com/s/1105752/0389">
+
+    </iframe>
+
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script>
+        function changeFrameHeight(){
+            var ifm= document.getElementById("mainiframe");
+            ifm.height=document.documentElement.clientHeight;
+        }
+        window.onresize=function(){ changeFrameHeight();}
+        $(function(){changeFrameHeight();});
+    </script>
+</body>
+</html>
