@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>访客满意度问卷</title>
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>方太生活家上海体验馆(Fotile Style )访客满意度问卷 - 腾讯问卷</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="//cdn.ur.qq.com/stylesheets/pc/page_survey.css?v=1.9.146">
     <style>
         body{margin:0; padding:0;}
     </style>
+    <script src="//js.aq.qq.com/js/aq_common.js"></script>
 </head>
 <body>
     <iframe id="mainiframe" width="100%" height="600" frameborder="0" scrolling="auto" src="https://wj.qq.com/s/1105752/0389">
@@ -14,12 +20,14 @@
 
     <script src="http://code.jquery.com/jquery.min.js"></script>
     <script>
-        function changeFrameHeight(){
+        console.log(document.documentElement.clientWidth);
+        function changeFrame(){
             var ifm= document.getElementById("mainiframe");
             ifm.height=document.documentElement.clientHeight;
+            ifm.width=document.documentElement.clientWidth;
         }
-        window.onresize=function(){ changeFrameHeight();}
-        $(function(){changeFrameHeight();});
+        window.onresize=function(){changeFrame();};
+        $(function(){changeFrame();});
     </script>
 </body>
 </html>

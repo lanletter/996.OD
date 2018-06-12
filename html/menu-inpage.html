@@ -23,24 +23,12 @@
     <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
     <title>菜谱内页</title>
     <script type='text/javascript'>
-        var _vds = _vds || [];
-        window._vds = _vds;
-        (function () {
-            _vds.push(['setAccountId', '80624a28abff7348']);
-            (function () {
-                var vds = document.createElement('script');
-                vds.type = 'text/javascript';
-                vds.async = true;
-                vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(vds, s);
-            })();
-        })();
-        try {
-            webkit.messageHandlers.GrowingIO_WKWebView.postMessage('GrowingIO_OnPageLoaded');
-        } catch (err) {
-            console.log('The native context does not exist yet');
-        }
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
     </script>
 </head>
 <body>
