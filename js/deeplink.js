@@ -78,6 +78,7 @@
             $(".deeplikopen").unbind().click(function (e) {
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+                alert(deeplinkurl);
                 console.log(deeplinkurl);
                 window.location.href = deeplinkurl;/***打开app的协议，Android***/
                 window.setTimeout(function(){
