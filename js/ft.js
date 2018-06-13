@@ -316,6 +316,11 @@
             },
             callbackId: generateID(),
             callback: noop
+        },
+        multithreadedCooking: {
+            name: "multithreadedCooking",
+            callbackId: generateID(),
+            callback: noop
         }
 
     };
@@ -570,6 +575,15 @@
         shareInfoConfig.param.sharelink = option.sharelink || "";
         shareInfoConfig.callback = fn;
         callByJS(shareInfoConfig);
+    }
+
+    /*********************************************************************
+     *                           唤起多线程交互                             *
+     **********************************************************************/
+    ft.multithreadedCooking = function (option, fn) {
+        var multithreadedCookingConfig = ft.mix(true, {}, config.multithreadedCooking);
+        multithreadedCookingConfig.callback = fn;
+        callByJS(multithreadedCookingConfig);
     }
 
 }()

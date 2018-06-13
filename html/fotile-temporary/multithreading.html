@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>多线程</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../../css/ftcomment.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../../css/lifedetail.css?ver=403">
+    <style>
+        #btn{
+            width: 3rem;
+            height: 1rem;
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            margin-left:-1.5rem;
+            background: #ff615f;
+            color: #ffffff;
+            border-radius: 0.16rem;
+            font-size: 0.36rem;
+        }
+    </style>
+</head>
+<body>
+
+<button id="btn">点击触发交互</button>
+<script type="text/javascript" src='../../js/lib.js'></script>
+<script type="text/javascript" src='../../js/api.js'></script>
+<script type="text/javascript" src='../../js/ft.js'></script>
+<script src="../../js/url.js"></script>
+<script>
+    $("#btn").on("click",function (object) {
+        ft.multithreadedCooking(function (result) {
+
+        });
+    })
+</script>
+</body>
+</html>
