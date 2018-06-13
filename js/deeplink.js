@@ -6,7 +6,8 @@
         /*页面参数（页面类型+id）*/
         var id = obj.id;
         var action = obj.action;
-        var weburl= obj.weburl;
+        var weburl = obj.weburl;
+        var iostype = obj.iostype;
         var urlright = "?action=" + encodeURIComponent(action) +
             "&id=" + encodeURIComponent(id) +
             "&weburl=" + encodeURIComponent(weburl);
@@ -50,13 +51,13 @@
                     "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
                     "</div></div>";
                 $("body").prepend(alertstr);
-                $("html,body").css({"height": "100%","position":"relative","overflow": "hidden"}); //禁用滚动条
+                $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
                 disableScroll = true;//禁止滚动
 
                 /*隐藏提示*/
                 $(document).unbind().click(function () {
                     $(".blackbg").remove();
-                    $("html,body").css({"height": "auto","position":"static","overflow": "auto"}); //启用滚动条
+                    $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
                     disableScroll = false;//允许滚动
                 });
                 $(".reminder").click(function (event) {
@@ -71,11 +72,16 @@
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 alert(deeplinkurl);
-                console.log(deeplinkurl);
-                window.location.href = deeplinkurl;/***打开app的协议***/
-                window.setTimeout(function(){
-                    window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
-                },2000);
+                window.location.href = deeplinkurl;
+                /***打开app的协议，Android***/
+                window.setTimeout(function () {
+                    if (isiOS == true) {/*ios手机*/
+                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                    } else if (isAndroid == true) {/*Android手机*/
+                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                    }
+                }, 1000);
+
             })
 
         }
