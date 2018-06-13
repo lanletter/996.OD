@@ -74,7 +74,7 @@
 
         } else {
             console.log("不是来自微信内置浏览器");
-            window.onload=function() {
+            $(document).ready(function( ){
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 alert(deeplinkurl);
                 alert(isiOS);
@@ -87,7 +87,7 @@
                         window.location.href = "http://oss.fotilestyle.com/ftyy/fotilestyle.apk";
                     }
                 }, 1000);
-            };
+            });
             $(".deeplikopen").unbind().click(function (e) {
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
