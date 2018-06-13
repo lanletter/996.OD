@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  background-color: #ffffff;
+  background: #ffffff;
   overflow-x:hidden;
   -webkit-overflow-scrolling : touch;
 }
@@ -75,21 +75,21 @@ html, body {
 
 #elbox{
   position: relative;
-  background: #fff;
+  background: #ffffff;
   height: 100%;
   z-index: 0;
 }
 #buybox{
   position: relative;
   overflow-y: auto;
-  background: #fff;
+  background: #ffffff;
   height: 100%;
   z-index: 888888;
 }
 
 .jf-buy {
   /*overflow: hidden;*/
-  background-color: #fff; }
+  background: #ffffff; }
 .jf-buy .swiper{
   z-index: 0;
   height: 7.5rem!important;
