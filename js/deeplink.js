@@ -7,10 +7,17 @@
         var id = obj.id;
         var action = obj.action;
         var weburl = obj.weburl;
-        var iostype = obj.iostype;
+        var imageURL = "";
+        var shareTitle = "";
+        var shareSubTitle = "";
+        var iostype = "";
         var urlright = "?action=" + encodeURIComponent(action) +
             "&id=" + encodeURIComponent(id) +
-            "&weburl=" + encodeURIComponent(weburl);
+            "&weburl=" + encodeURIComponent(weburl) +
+            "&imageURL=" + encodeURIComponent(imageURL) +
+            "&shareTitle=" + encodeURIComponent(shareTitle) +
+            "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
+            "&iostype=" + encodeURIComponent(iostype);
 
         /*判断是IOS还是Android机型*/
         var u = navigator.userAgent;
