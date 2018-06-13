@@ -72,7 +72,7 @@
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 alert(deeplinkurl);
                 console.log(deeplinkurl);
-                window.location.href = deeplinkurl;/***打开app的协议，Android***/
+                window.location.href = deeplinkurl;/***打开app的协议***/
                 window.setTimeout(function(){
                     window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
                 },2000);
