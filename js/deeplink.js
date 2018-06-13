@@ -82,17 +82,17 @@
                     var deeplinkurl = iostype + urlright;
                     alert(deeplinkurl);
                     /*test*/
-                    // window.location.href = deeplinkurl;/***打开app的协议，ios***/
+                    window.location.href = deeplinkurl;/***打开app的协议，ios***/
                     /*test*/
-                    console.log(deeplinkurl);
-                    var ifr = document.createElement("iframe");
-                    ifr.src = deeplinkurl; /***打开app的协议，ios***/
-                    ifr.style.display = "none";
-                    document.body.appendChild(ifr);
-                    window.setTimeout(function(){
-                        document.body.removeChild(ifr);
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
-                    },2000)
+                    // console.log(deeplinkurl);
+                    // var ifr = document.createElement("iframe");
+                    // ifr.src = deeplinkurl; /***打开app的协议，ios***/
+                    // ifr.style.display = "none";
+                    // document.body.appendChild(ifr);
+                    // window.setTimeout(function(){
+                    //     document.body.removeChild(ifr);
+                    //     window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
+                    // },2000)
 
                 } else if (isAndroid == true) {
                     /*Android手机*/
