@@ -76,9 +76,9 @@
                 /***打开app的协议，Android***/
                 window.setTimeout(function () {
                     if (isiOS == true) {/*ios手机*/
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        window.location.href = "https://gio.ren/re0Y923";
                     } else if (isAndroid == true) {/*Android手机*/
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        window.location.href = "https://gio.ren/rBZ2ApB";
                     }
                 }, 1000);
 
