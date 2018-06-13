@@ -70,6 +70,7 @@
     width: 5.6rem;
     line-height: 0.66rem;
     max-height: 1.32rem;
+    overflow: hidden;
     text-align: center;
     font-size: 0.48rem;
     color: rgb(76,80,81);

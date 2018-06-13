@@ -254,7 +254,7 @@
 
                     /*GIO参数集合发送完毕*/
 
-                    /*微信分享链接专用*/
+                    /*分享链接专用*/
                     var sharetitle = $this.data.title;
                     var sharedesc = $this.data.remark;
                     var shareimg = $this.data.picture.path;
@@ -266,6 +266,7 @@
                         "shareimg":shareimg,
                         "sharelink":sharelink
                     });
+                    /*APP分享专用*/
                     if( sharetitle!=="" || sharedesc!=="" || shareimg!=="" || sharelink!=="" ){
                         ft.shareInfo({
                             sharetitle: sharetitle,
@@ -275,6 +276,7 @@
                         }, function (result) {
                         });
                     }
+                    /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
                         url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
