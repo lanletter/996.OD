@@ -854,12 +854,8 @@
             $.deeplink({
                 "id": id,
                 "action": "coursepage",
-                "weburl": data.url,
-                "imageURL": data.picture.path,
-                "shareTitle": data.curriculumName,
-                "shareSubTitle": shareSubTitle,
-                "iostype": "https://api.fotilestyle.com/ft/path/web/"
-            }, 1);
+                "weburl": data.url
+            });
             
     			/*分享链接专用*/
             var sharetitle = data.curriculumName;

@@ -415,12 +415,8 @@
                 $.deeplink({
                     "id": id,
                     "action": "storypage",
-                    "weburl": data.url,
-                    "imageURL": data.picture.path,
-                    "shareTitle": data.title,
-                    "shareSubTitle": shareSubTitle,
-                    "iostype": "https://api.fotilestyle.com/ft/path/web/"
-                }, 1);
+                    "weburl": data.url
+                });
 
                 /*判断是否有作者*/
                 if (data.cookList.length == 0) {
