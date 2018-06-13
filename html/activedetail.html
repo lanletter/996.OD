@@ -272,16 +272,6 @@
                 }
             });
 
-            /*深链接模块*/
-            //富文本取值
-            var text=$("#instructions").text();
-            var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
-            $.deeplink({
-                "id": id,
-                "action": "activepage",
-                "weburl": data.url
-            });
-
             /*GIO参数集合*/
             //发布时间
             var date = new Date(data.createat);

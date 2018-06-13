@@ -403,13 +403,6 @@
                         "是否登录": isuserid
                     });
 
-                    /*深链接模块*/
-                    $.deeplink({
-                        "id": id,
-                        "action": "menupage",
-                        "weburl": data.data.basicInfo.url
-                    });
-
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.basicInfo.images[0] + '")');
                     /*判断是否有播放器*/

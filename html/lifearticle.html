@@ -408,16 +408,6 @@
                     $('head title').text(data.title);
                 }
 
-                /*深链接模块*/
-                //富文本取值
-                var text=$("#instructions").text();
-                var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
-                $.deeplink({
-                    "id": id,
-                    "action": "storypage",
-                    "weburl": data.url
-                });
-
                 /*判断是否有作者*/
                 if (data.cookList.length == 0) {
                     $(".author").css("display", "none");

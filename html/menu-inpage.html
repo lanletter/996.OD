@@ -396,18 +396,6 @@
                         "是否登录": isuserid
                     });
 
-                    /*JQ方法获取，JQ方法使用必须项*/
-                    $("#instructions").html(data.data.instructions);
-                    /*深链接模块*/
-                    //富文本取值
-                    var text=$("#instructions").text();
-                    var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
-                    $.deeplink({
-                        "id": id,
-                        "action": "menupage",
-                        "weburl": data.data.url
-                    });
-
                     /*头图*/
                     $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
                     /*判断是否有播放器*/

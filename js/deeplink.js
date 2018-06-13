@@ -1,12 +1,31 @@
 +function () {
-    function deeplink(obj, id, action) {
 
-        console.log(obj);
+        /*获取url*/
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
 
+        function GetPageName()
+        {
+            var url=window.location.href;//获取完整URL
+            var tmp= location.pathname.replace(/(.+)[＼＼/]/,"");
+            name=tmp.replace(/.html/, "");
+            return name;
+        }
+        // alert(GetPageName());
+
+        console.log({
+            "id":GetQueryString("id"),
+            "action":GetPageName(),
+            "weburl":window.location.host + window.location.pathname
+        });
         /*页面参数（页面类型+id）*/
-        var id = obj.id;
-        var action = obj.action;
-        var weburl = obj.weburl;
+        var id = GetQueryString("id");
+        var action = GetPageName();
+        var weburl = window.location.host + window.location.pathname;
         var imageURL = "";
         var shareTitle = "";
         var shareSubTitle = "";
@@ -105,8 +124,5 @@
 
         }
 
-    }
-
-    $.deeplink = deeplink;
 
 }();

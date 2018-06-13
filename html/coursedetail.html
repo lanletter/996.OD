@@ -845,17 +845,6 @@
             gio('send');
 
             /*GIO参数集合发送完毕*/
-
-
-            /*深链接模块*/
-            //富文本取值
-            var text = $("#instructions").text();
-            var shareSubTitle = text.replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "").substring(0, 40);
-            $.deeplink({
-                "id": id,
-                "action": "coursepage",
-                "weburl": data.url
-            });
             
     			/*分享链接专用*/
             var sharetitle = data.curriculumName;
