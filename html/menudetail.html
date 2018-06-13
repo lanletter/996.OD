@@ -173,7 +173,7 @@
                         </p>
                     </div>
                     <div class="answer" v-if="item.nickNameAnswer !== '' ">
-                        <div class="best"></div>
+                        <div class="best" v-if="item.bestAnswer == 1"></div>
                         <div class="answerinfo">
                             <img class="answerimg" :src="item.titlePictureAnswer">
                             <span class="answername" v-html="item.nickNameAnswer"></span>
