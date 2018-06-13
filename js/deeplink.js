@@ -77,14 +77,13 @@
             $(document).ready(function( ){
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 alert(deeplinkurl);
-                alert(isiOS);
                 window.location.href = deeplinkurl;
-                /***打开app的协议，Android***/
+                /***打开app的协议***/
                 window.setTimeout(function () {
                     if (isiOS == true) {/*ios手机*/
-                        window.location.href = "https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8";
+                        window.location.href = "https://gio.ren/re0Y923";
                     } else if (isAndroid == true) {/*Android手机*/
-                        window.location.href = "http://oss.fotilestyle.com/ftyy/fotilestyle.apk";
+                        window.location.href = "https://gio.ren/rBZ2ApB";
                     }
                 }, 1000);
             });
@@ -93,7 +92,7 @@
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 alert(deeplinkurl);
                 window.location.href = deeplinkurl;
-                /***打开app的协议，Android***/
+                /***打开app的协议***/
                 window.setTimeout(function () {
                     if (isiOS == true) {/*ios手机*/
                         window.location.href = "https://gio.ren/re0Y923";
