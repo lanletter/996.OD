@@ -76,7 +76,7 @@
             console.log("不是来自微信内置浏览器");
             $(document).ready(function( ){
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                alert(deeplinkurl);
+                // alert(deeplinkurl);
                 window.location.href = deeplinkurl;
                 /***打开app的协议***/
                 window.setTimeout(function () {
@@ -90,7 +90,7 @@
             $(".deeplikopen").unbind().click(function (e) {
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                alert(deeplinkurl);
+                // alert(deeplinkurl);
                 window.location.href = deeplinkurl;
                 /***打开app的协议***/
                 window.setTimeout(function () {
