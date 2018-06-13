@@ -11,8 +11,8 @@
         function GetPageName()
         {
             var url=window.location.href;//获取完整URL
-            var tmp= location.pathname.replace(/(.+)[＼＼/]/,"");
-            name=tmp.replace(/.html/, "");
+            var tmp= location.pathname.replace(/(.+)[＼＼/]/,"");//获取带后缀的文件名称
+            name=tmp.replace(/.html/, "");//获取不带后缀的文件名称
             return name;
         }
         // alert(GetPageName());
