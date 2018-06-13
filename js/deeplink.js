@@ -77,32 +77,12 @@
 
             $(".deeplikopen").unbind().click(function (e) {
                 /*深链接打开*/
-                if (isiOS == true) {
-                    /*ios手机*/
-                    var deeplinkurl = iostype + urlright;
-                    alert(deeplinkurl);
-                    /*test*/
-                    window.location.href = deeplinkurl;/***打开app的协议，ios***/
-                    /*test*/
-                    // console.log(deeplinkurl);
-                    // var ifr = document.createElement("iframe");
-                    // ifr.src = deeplinkurl; /***打开app的协议，ios***/
-                    // ifr.style.display = "none";
-                    // document.body.appendChild(ifr);
-                    window.setTimeout(function(){
-                        // document.body.removeChild(ifr);
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
-                    },2000)
-
-                } else if (isAndroid == true) {
-                    /*Android手机*/
-                    var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                    console.log(deeplinkurl);
-                    window.location.href = deeplinkurl;/***打开app的协议，Android***/
-                    window.setTimeout(function(){
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
-                    },2000);
-                }
+                var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+                console.log(deeplinkurl);
+                window.location.href = deeplinkurl;/***打开app的协议，Android***/
+                window.setTimeout(function(){
+                    window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o"; /***下载app的地址***/
+                },2000);
             })
 
         }
