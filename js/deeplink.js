@@ -82,9 +82,9 @@
                 /***打开app的协议，Android***/
                 window.setTimeout(function () {
                     if (isiOS == true) {/*ios手机*/
-                        window.location.href = "https://gio.ren/re0Y923";
+                        window.location.href = "https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8";
                     } else if (isAndroid == true) {/*Android手机*/
-                        window.location.href = "https://gio.ren/rBZ2ApB";
+                        window.location.href = "http://oss.fotilestyle.com/ftyy/fotilestyle.apk";
                     }
                 }, 1000);
             };
