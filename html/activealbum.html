@@ -120,13 +120,29 @@
                     "iostype": "https://api.fotilestyle.com/ft/path/recipe/"
                 }, 1);
 
-                /*微信分享链接专用*/
+                /*分享链接专用*/
                 var sharetitle = $this.data.title;
                 var sharedesc = $this.data.desc;
                 var shareimg = $this.data.picture.path;
                 var sharestr = window.location.href;
                 var sharelink = sharestr.replace(/api/, "h5");
-                console.log(sharetitle + "|" + shareimg + "|" + sharelink + "|" + sharedesc);
+                console.log({
+                    "sharetitle":sharetitle,
+                    "sharedesc":sharedesc,
+                    "shareimg":shareimg,
+                    "sharelink":sharelink
+                });                
+                /*APP分享专用*/
+                if( sharetitle!=="" || sharedesc!=="" || shareimg!=="" || sharelink!=="" ){
+                    ft.shareInfo({
+                        sharetitle: sharetitle,
+                        sharedesc: sharedesc,
+                        shareimg: shareimg,
+                        sharelink: sharelink
+                    }, function (result) {
+                    });
+                }
+                /*微信分享专用*/
                 $.ajax({
                     type: 'GET',
                     url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
