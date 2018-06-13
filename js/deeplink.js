@@ -4,20 +4,12 @@
         console.log(obj);
 
         /*页面参数（页面类型+id）*/
-        var refid = obj.id;
+        var id = obj.id;
         var action = obj.action;
         var weburl= obj.weburl;
-        var imageURL = obj.imageURL;
-        var shareTitle = obj.shareTitle;
-        var shareSubTitle = obj.shareSubTitle;
-        var iostype= obj.iostype;
         var urlright = "?action=" + encodeURIComponent(action) +
-            "&refid=" + encodeURIComponent(refid) +
-            "&weburl=" + encodeURIComponent(weburl) +
-            "&iostype=" + encodeURIComponent(iostype) +
-            "&imageURL=" + encodeURIComponent(imageURL) +
-            "&shareTitle=" + encodeURIComponent(shareTitle) +
-            "&shareSubTitle=" + encodeURIComponent(shareSubTitle);
+            "&id=" + encodeURIComponent(id) +
+            "&weburl=" + encodeURIComponent(weburl);
 
         /*判断是IOS还是Android机型*/
         var u = navigator.userAgent;
