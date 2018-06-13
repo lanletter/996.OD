@@ -85,7 +85,7 @@
                     } else if (isAndroid == true) {/*Android手机*/
                         window.location.href = "https://gio.ren/rBZ2ApB";
                     }
-                }, 1000);
+                }, 2000);
             };
             $(".deeplikopen").unbind().click(function (e) {
                 /*深链接打开*/
