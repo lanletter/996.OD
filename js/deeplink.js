@@ -77,6 +77,7 @@
             window.onload=function() {
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 alert(deeplinkurl);
+                alert(isiOS);
                 window.location.href = deeplinkurl;
                 /***打开app的协议，Android***/
                 window.setTimeout(function () {
@@ -85,7 +86,7 @@
                     } else if (isAndroid == true) {/*Android手机*/
                         window.location.href = "https://gio.ren/rBZ2ApB";
                     }
-                }, 2000);
+                }, 1000);
             };
             $(".deeplikopen").unbind().click(function (e) {
                 /*深链接打开*/
