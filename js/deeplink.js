@@ -109,7 +109,22 @@
                     if (isiOS == true) {/*ios手机*/
                         window.location.href = "https://gio.ren/re0Y923";
                     } else if (isAndroid == true) {/*Android手机*/
-                        window.location.href = "https://gio.ren/rBZ2ApB";
+                        $("body").append(
+                            '<div id="mask" class="mask works-mask" style="z-index: 999999">' +
+                            '<div class="mask-content">' +
+                            '<p class="del-p">下载APP</p>' +
+                            '<p class="check-p">' +
+                            '<span class="del-com wsdel-ok">确定</span>' +
+                            '<span class="wsdel-no">取消</span>' +
+                            '</p></div></div>');
+                        $("#mask").css("display", "block");
+                        $(".wsdel-ok").unbind().click(function (e) {
+                            $("#mask").css("display", "none");
+                            window.location.href = "https://gio.ren/rBZ2ApB";
+                        });
+                        $(".wsdel-no").unbind().click(function (e) {
+                            $("#mask").css("display", "none");
+                        })
                     }
                 }, 1000);
             }
