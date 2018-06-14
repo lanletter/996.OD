@@ -548,14 +548,7 @@
       <workItem from="1528774565374" duration="1289000" />
       <workItem from="1528775994874" duration="1719000" />
       <workItem from="1528786967425" duration="18866000" />
-      <workItem from="1528943140543" duration="20304000" />
-    </task>
-    <task id="LOCAL-00126" summary="分享test">
-      <created>1528875620528</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1528875620528</updated>
+      <workItem from="1528943140543" duration="20380000" />
     </task>
     <task id="LOCAL-00127" summary="所有分享方式改造">
       <created>1528878049408</created>
@@ -893,11 +886,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528972046637</updated>
     </task>
-    <option name="localTasksCounter" value="175" />
+    <task id="LOCAL-00175" summary="深链接test">
+      <created>1528972101680</created>
+      <option name="number" value="00175" />
+      <option name="presentableId" value="LOCAL-00175" />
+      <option name="project" value="LOCAL" />
+      <updated>1528972101680</updated>
+    </task>
+    <option name="localTasksCounter" value="176" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2428569000" />
+    <option name="totallyTimeSpent" value="2428645000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
