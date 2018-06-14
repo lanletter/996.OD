@@ -93,9 +93,9 @@
 
         } else {
             console.log("不是来自微信内置浏览器");
-            window.onload = function(){
+            setTimeout(function () {
                 openlink();
-            }
+            });
             $(".deeplikopen").unbind().click(function (e) {
                 openlink();
             });
