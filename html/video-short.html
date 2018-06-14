@@ -252,29 +252,29 @@
                     /*GIO参数集合发送完毕*/
 
                     /*分享链接专用*/
-                    // var sharetitle = $this.data.title;
-                    // var sharedesc = $this.data.remark;
-                    // var shareimg = $this.data.picture.path;
-                    // var sharestr = $this.data.pageUrl;
-                    // var sharelink = sharestr.replace(/api/, "h5");
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.remark;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = $this.data.pageUrl;
+                    var sharelink = sharestr.replace(/api/, "h5");
                     var jsoninfo = {
-                        "id": "",
-                        "type": "",
-                        "sharetitle": "",
-                        "sharedesc": "",
-                        "shareimg": "",
-                        "sharelink": ""
+                        "id": $this.data.id,
+                        "type": 14,
+                        "sharetitle": sharetitle,
+                        "sharedesc": sharedesc,
+                        "shareimg": shareimg,
+                        "sharelink": sharelink
                     };
                     console.log(jsoninfo);
                     /*APP分享专用*/
                     if (device == null || device == "null" ) {
                         console.log("不是APP打开");
                     } else {
-                        ft.shareInfo(jsoninfo, function (result) {
-                            var errorcode = result.errorCode.toString();
-                            alert(errorcode);
-                            return false;
-                        });
+                        // ft.shareInfo(jsoninfo, function (result) {
+                        //     var errorcode = result.errorCode.toString();
+                        //     alert(errorcode);
+                        //     return false;
+                        // });
 
                     }
                     /*微信分享专用*/

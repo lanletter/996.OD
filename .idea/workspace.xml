@@ -28,8 +28,8 @@
       <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="266" column="22" lean-forward="true" selection-start-line="266" selection-start-column="22" selection-end-line="266" selection-end-column="22" />
+            <state relative-caret-position="433">
+              <caret line="272" column="22" lean-forward="false" selection-start-line="272" selection-start-column="22" selection-end-line="276" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -555,14 +555,7 @@
       <workItem from="1528774565374" duration="1289000" />
       <workItem from="1528775994874" duration="1719000" />
       <workItem from="1528786967425" duration="18866000" />
-      <workItem from="1528943140543" duration="18121000" />
-    </task>
-    <task id="LOCAL-00119" summary="深链接test">
-      <created>1528872410315</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1528872410315</updated>
+      <workItem from="1528943140543" duration="18210000" />
     </task>
     <task id="LOCAL-00120" summary="深链接test">
       <created>1528872860425</created>
@@ -900,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528969743320</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="深链接test">
+      <created>1528969842531</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1528969842531</updated>
+    </task>
+    <option name="localTasksCounter" value="169" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2426386000" />
+    <option name="totallyTimeSpent" value="2426475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="266" column="22" lean-forward="true" selection-start-line="266" selection-start-column="22" selection-end-line="266" selection-end-column="22" />
+        <state relative-caret-position="433">
+          <caret line="272" column="22" lean-forward="false" selection-start-line="272" selection-start-column="22" selection-end-line="276" selection-end-column="30" />
           <folding />
         </state>
       </provider>
