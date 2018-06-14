@@ -93,20 +93,11 @@
 
         } else {
             console.log("不是来自微信内置浏览器");
-            $(document).ready(function( ){
-                var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                // alert(deeplinkurl);
-                window.location.href = deeplinkurl;
-                /***打开app的协议***/
-                window.setTimeout(function () {
-                    if (isiOS == true) {/*ios手机*/
-                        window.location.href = "https://gio.ren/re0Y923";
-                    } else if (isAndroid == true) {/*Android手机*/
-                        window.location.href = "https://gio.ren/rBZ2ApB";
-                    }
-                }, 1000);
-            });
+            openlink();
             $(".deeplikopen").unbind().click(function (e) {
+                openlink();
+            });
+            function openlink() {
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
                 // alert(deeplinkurl);
@@ -119,8 +110,7 @@
                         window.location.href = "https://gio.ren/rBZ2ApB";
                     }
                 }, 1000);
-
-            })
+            }
 
         }
 
