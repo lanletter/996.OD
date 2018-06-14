@@ -258,8 +258,8 @@
                     var sharestr = $this.data.pageUrl;
                     var sharelink = sharestr.replace(/api/, "h5");
                     var jsoninfo = {
-                        "id": $this.data.id,
-                        "type": 14,
+                        // "id": $this.data.id,
+                        // "type": 14,
                         "sharetitle": sharetitle,
                         "sharedesc": sharedesc,
                         "shareimg": shareimg,
@@ -270,11 +270,11 @@
                     if (device == null || device == "null" ) {
                         console.log("不是APP打开");
                     } else {
-                        // ft.shareInfo(jsoninfo, function (result) {
-                        //     var errorcode = result.errorCode.toString();
-                        //     alert(errorcode);
-                        //     return false;
-                        // });
+                        ft.shareInfo(jsoninfo, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            alert(errorcode);
+                            return false;
+                        });
 
                     }
                     /*微信分享专用*/
