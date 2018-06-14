@@ -98,7 +98,6 @@
 
         } else {
             console.log("不是来自微信内置浏览器");
-            alert(device);
             // alert("不是app内");
             setTimeout(function () {
                 openlink();

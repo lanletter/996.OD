@@ -308,7 +308,7 @@
                     "sharelink":sharelink
                 });
                 /*APP分享专用*/
-                if( sharetitle!=="" || sharedesc!=="" || shareimg!=="" || sharelink!=="" ){
+                if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
                     ft.shareInfo({
                         id:  data.id,
                         type: 6,
