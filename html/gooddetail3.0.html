@@ -41,7 +41,7 @@
 <div id="main">
 
     <div class="slideBox">
-        <div class="swiper-container" >
+        <div class="swiper-container">
             <div class="swiper-wrapper" id="wrapper">
 
             </div>
@@ -92,7 +92,11 @@
     <div id="loading">
         <div class="btnload">下拉加载更多</div>
         <div class="imgift" style="display: none"></div>
-        <div class="nomore" style="display: none"><div></div>已经到底了<div></div></div>
+        <div class="nomore" style="display: none">
+            <div></div>
+            已经到底了
+            <div></div>
+        </div>
     </div>
 </div>
 <div class="fixd">
@@ -120,7 +124,7 @@
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r != null)return unescape(r[2]);
+        if (r != null) return unescape(r[2]);
         return null;
     }
 
@@ -138,7 +142,7 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-                    if(userid !== "1" && userid !== 1){
+                    if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
                     }
 
@@ -155,6 +159,7 @@
         var token;
         choose();
     }
+
     function choose() {
         $.ajax({
             url: urlport + 'merchandise/detail',
@@ -194,15 +199,19 @@
 
             /*友盟埋点-页面访问*/
             var isuserid;//登录判断
-            if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+            if (userid !== 1 && userid !== "1") {
+                isuserid = "是";
+            } else {
+                isuserid = "否";
+            }
             console.log(isuserid);
-            UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                "页面类型":"商品详情页",
+            UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                "页面类型": "商品详情页",
                 "页面名称": data.title,
-                "是否登录":isuserid
+                "是否登录": isuserid
             });
 
-            if(device == "ios"){
+            if (device == "ios") {
                 $(".fixd").css({
                     "top": window.innerHeight - $(".fixd").outerHeight()
                 });
@@ -265,43 +274,45 @@
 
             }
 
-                /*分享链接专用*/
-	            var sharetitle = data.title;
-	            var sharedesc;
-	            var subtitle=$(".info p").text();
-	            var contents = $("#main .txt").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-	            var count = contents.length;
-	            if (count > 40) {
-	                var nr = contents.substring(0, 40) + "...";
-	                sharedesc = nr;
-	            } else {
-	                sharedesc = contents;
-	            }
-	            var shareimg = data.picture.path;
-	            var sharestr = data.url;
-	            var sharelink = sharestr.replace(/api/, "h5");
-                console.log({
-                    "sharetitle":sharetitle,
-                    "sharedesc":sharedesc,
-                    "shareimg":shareimg,
-                    "sharelink":sharelink
+            /*分享链接专用*/
+            var sharetitle = data.title;
+            var sharedesc;
+            var subtitle = $(".info p").text();
+            var contents = $("#main .txt").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+            var count = contents.length;
+            if (count > 40) {
+                var nr = contents.substring(0, 40) + "...";
+                sharedesc = nr;
+            } else {
+                sharedesc = contents;
+            }
+            var shareimg = data.picture.path;
+            var sharestr = data.url;
+            var sharelink = sharestr.replace(/api/, "h5");
+            var jsoninfo = {
+                id: data.id,
+                type: 10,
+                sharetitle: sharetitle,
+                sharedesc: sharedesc,
+                shareimg: shareimg,
+                sharelink: sharelink
+            };
+            console.log(jsoninfo);
+            /*APP分享专用*/
+            if (device == null || device == "null") {
+                console.log("不是APP打开");
+            } else {
+                ft.shareInfo(jsoninfo, function (result) {
+                    var errorcode = result.errorCode.toString();
+                    alert(errorcode);
+                    return false;
                 });
-                /*APP分享专用*/
-                if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-                    ft.shareInfo({
-                        id:  data.id,
-                        type: 10,
-                        sharetitle: sharetitle,
-                        sharedesc: sharedesc,
-                        shareimg: shareimg,
-                        sharelink: sharelink
-                    }, function (result) {
-                    });
-                }
-                /*微信分享专用*/
+
+            }
+            /*微信分享专用*/
             $.ajax({
                 type: 'GET',
-                url: urlport+'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
                 success: function (data) {
                     console.info(data.appId);
                     wx.config({

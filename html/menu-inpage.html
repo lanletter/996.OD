@@ -187,7 +187,8 @@
         <p class="emtitle">绑定菜谱相关设备</p>
         <ul class="h_box">
             <li class="flex_1" v-for="item in data.devices">
-                <a class="callKitchenware" v-if="item.products!==undefined && item.products.length" id="callKitchenware" @click="callKitchenware">
+                <a class="callKitchenware" v-if="item.products!==undefined && item.products.length" id="callKitchenware"
+                   @click="callKitchenware">
                     <img :src="item.products[0].picturePath" alt="">
                     <p v-html="item.products[0].name"></p>
                     <span v-text="item.products[0].id" style="display:none"></span>
@@ -498,7 +499,7 @@
                     //         // id: data.device.id
                     //     })
                     // });
-                    
+
                     /*分享链接专用*/
                     var sharetitle = data.data.name;
                     var sharedesc;
@@ -513,25 +514,27 @@
                     var shareimg = data.data.images[0];
                     var sharestr = data.data.url;
                     var sharelink = sharestr.replace(/api/, "h5");
-	                console.log({
-	                    "sharetitle":sharetitle,
-	                    "sharedesc":sharedesc,
-	                    "shareimg":shareimg,
-	                    "sharelink":sharelink
-	                });
-	                /*APP分享专用*/
-                		if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-	                    ft.shareInfo({
-                            id:  data.data.id,
-                            type: 1,
-	                        sharetitle: sharetitle,
-	                        sharedesc: sharedesc,
-	                        shareimg: shareimg,
-	                        sharelink: sharelink
-	                    }, function (result) {
-	                    });
-	                }
-	                /*微信分享专用*/
+                    var jsoninfo = {
+                        id: data.data.id,
+                        type: 1,
+                        sharetitle: sharetitle,
+                        sharedesc: sharedesc,
+                        shareimg: shareimg,
+                        sharelink: sharelink
+                    };
+                    console.log(jsoninfo);
+                    /*APP分享专用*/
+                    if (device == null || device == "null") {
+                        console.log("不是APP打开");
+                    } else {
+                        ft.shareInfo(jsoninfo, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            alert(errorcode);
+                            return false;
+                        });
+
+                    }
+                    /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
                         url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),

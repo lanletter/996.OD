@@ -130,7 +130,7 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
-                    if(userid !== "1" && userid !== 1){
+                    if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
                     }
 
@@ -142,7 +142,7 @@
                 }
             });
         };
-    } else  {
+    } else {
         var userid = 1;
         var token;
         choose();
@@ -219,12 +219,16 @@
 
                 /*友盟埋点-页面访问*/
                 var isuserid;//登录判断
-                if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+                if (userid !== 1 && userid !== "1") {
+                    isuserid = "是";
+                } else {
+                    isuserid = "否";
+                }
                 console.log(isuserid);
-                UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                    "页面类型":"故事详情页",
+                UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                    "页面类型": "故事详情页",
                     "页面名称": data.title,
-                    "是否登录":isuserid
+                    "是否登录": isuserid
                 });
 
                 //判断是否收藏
@@ -253,9 +257,9 @@
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
-		                    if(userid !== "1" && userid !== 1){
-		                        token = result.data.token.toString();
-		                    }
+                            if (userid !== "1" && userid !== 1) {
+                                token = result.data.token.toString();
+                            }
                             //alert(userid);
                             //收藏
                             var follow = $("#star").attr('class');
@@ -280,8 +284,8 @@
                                         $("#star strong").text(parseInt(oldnum) + 1);
                                         $api.toast('收藏成功！', 3000);
                                         /*友盟打点：故事收藏*/
-                                        UMAnalyticsAgent.trackWithProperty("h5收藏故事",{
-                                            "故事名称":data.title
+                                        UMAnalyticsAgent.trackWithProperty("h5收藏故事", {
+                                            "故事名称": data.title
                                         });
                                     },
                                     error: function (errorMsg) {
@@ -450,12 +454,12 @@
                 //发布时间
                 var date = new Date(data.createat);
                 Y = date.getFullYear() + '-';
-                M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
                 D = date.getDate() + ' ';
                 h = date.getHours() + ':';
                 m = date.getMinutes() + ':';
                 s = date.getSeconds();
-                var creattime=Y+M+D+h+m+s;
+                var creattime = Y + M + D + h + m + s;
                 console.log(creattime);
 
                 //custom page code begin here
@@ -484,23 +488,25 @@
                 var shareimg = data.picture.path;
                 var sharestr = data.url;
                 var sharelink = sharestr.replace(/api/, "h5");
-                console.log({
-                    "sharetitle":sharetitle,
-                    "sharedesc":sharedesc,
-                    "shareimg":shareimg,
-                    "sharelink":sharelink
-                });
+                var jsoninfo = {
+                    id: data.id,
+                    type: 4,
+                    sharetitle: sharetitle,
+                    sharedesc: sharedesc,
+                    shareimg: shareimg,
+                    sharelink: sharelink
+                };
+                console.log(jsoninfo);
                 /*APP分享专用*/
-                if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-                    ft.shareInfo({
-                        id:  data.id,
-                        type: 4,
-                        sharetitle: sharetitle,
-                        sharedesc: sharedesc,
-                        shareimg: shareimg,
-                        sharelink: sharelink
-                    }, function (result) {
+                if (device == null || device == "null") {
+                    console.log("不是APP打开");
+                } else {
+                    ft.shareInfo(jsoninfo, function (result) {
+                        var errorcode = result.errorCode.toString();
+                        alert(errorcode);
+                        return false;
                     });
+
                 }
                 /*微信分享专用*/
                 $.ajax({

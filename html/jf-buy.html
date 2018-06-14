@@ -288,40 +288,42 @@
                                 "top": window.innerHeight - $(".btnbox ul").outerHeight(true)
                             });
                         }
-                        
-		                /*分享链接专用*/
-		                        var sharetitle = data.data.title;
-		                        var sharedesc;
-		                        var contents = $(".msg").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-		                        var count = contents.length;
-		                        if (count > 40) {
-		                            var nr = contents.substring(0, 40) + "...";
-		                            sharedesc = nr;
-		                        } else {
-		                            sharedesc = contents;
-		                        }
-		                        var shareimg = data.data.picture.path;
-		                        var sharestr = data.data.url;
-		                        var sharelink = sharestr.replace(/api/, "h5");
-		                console.log({
-		                    "sharetitle":sharetitle,
-		                    "sharedesc":sharedesc,
-		                    "shareimg":shareimg,
-		                    "sharelink":sharelink
-		                });
-		                /*APP分享专用*/
-               			if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-		                    ft.shareInfo({
-		                        id:  data.data.id,
-		                        type: 10,
-		                        sharetitle: sharetitle,
-		                        sharedesc: sharedesc,
-		                        shareimg: shareimg,
-		                        sharelink: sharelink
-		                    }, function (result) {
-		                    });
-		                }
-		                /*微信分享专用*/
+
+                        /*分享链接专用*/
+                        var sharetitle = data.data.title;
+                        var sharedesc;
+                        var contents = $(".msg").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+                        var count = contents.length;
+                        if (count > 40) {
+                            var nr = contents.substring(0, 40) + "...";
+                            sharedesc = nr;
+                        } else {
+                            sharedesc = contents;
+                        }
+                        var shareimg = data.data.picture.path;
+                        var sharestr = data.data.url;
+                        var sharelink = sharestr.replace(/api/, "h5");
+                        var jsoninfo = {
+                            id: data.data.id,
+                            type: 10,
+                            sharetitle: sharetitle,
+                            sharedesc: sharedesc,
+                            shareimg: shareimg,
+                            sharelink: sharelink
+                        };
+                        console.log(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+                                var errorcode = result.errorCode.toString();
+                                alert(errorcode);
+                                return false;
+                            });
+
+                        }
+                        /*微信分享专用*/
                         $.ajax({
                             type: 'GET',
                             url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),

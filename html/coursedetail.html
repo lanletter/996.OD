@@ -845,8 +845,8 @@
             gio('send');
 
             /*GIO参数集合发送完毕*/
-            
-    			/*分享链接专用*/
+
+            /*分享链接专用*/
             var sharetitle = data.curriculumName;
             var sharedesc;
             var contents = $content.text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
@@ -860,25 +860,27 @@
             var shareimg = data.picture.path;
             var sharestr = data.url;
             var sharelink = sharestr.replace(/api/, "h5");
-                console.log({
-                    "sharetitle":sharetitle,
-                    "sharedesc":sharedesc,
-                    "shareimg":shareimg,
-                    "sharelink":sharelink
+            var jsoninfo = {
+                id: data.id,
+                type: 2,
+                sharetitle: sharetitle,
+                sharedesc: sharedesc,
+                shareimg: shareimg,
+                sharelink: sharelink
+            };
+            console.log(jsoninfo);
+            /*APP分享专用*/
+            if (device == null || device == "null") {
+                console.log("不是APP打开");
+            } else {
+                ft.shareInfo(jsoninfo, function (result) {
+                    var errorcode = result.errorCode.toString();
+                    alert(errorcode);
+                    return false;
                 });
-                /*APP分享专用*/
-                if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-                    ft.shareInfo({
-                        id:  data.id,
-                        type: 2,
-                        sharetitle: sharetitle,
-                        sharedesc: sharedesc,
-                        shareimg: shareimg,
-                        sharelink: sharelink
-                    }, function (result) {
-                    });
-                }
-                /*微信分享专用*/
+
+            }
+            /*微信分享专用*/
             $.ajax({
                 type: 'GET',
                 url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),

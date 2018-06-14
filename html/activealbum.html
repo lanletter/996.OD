@@ -85,6 +85,7 @@
                     console.log(errorMsg);
                 }
             });
+
             function callback(res) {
                 var data = res;
                 // console.log(data);
@@ -114,23 +115,25 @@
                 var shareimg = $this.data.picture.path;
                 var sharestr = window.location.href;
                 var sharelink = sharestr.replace(/api/, "h5");
-                console.log({
-                    "sharetitle":sharetitle,
-                    "sharedesc":sharedesc,
-                    "shareimg":shareimg,
-                    "sharelink":sharelink
-                });                
+                var jsoninfo = {
+                    id: $this.data.id,
+                    type: 7,
+                    "sharetitle": sharetitle,
+                    "sharedesc": sharedesc,
+                    "shareimg": shareimg,
+                    "sharelink": sharelink
+                };
+                console.log(jsoninfo);
                 /*APP分享专用*/
-                if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-                    ft.shareInfo({
-                        id:  $this.data.id,
-                        type: 7,
-                        sharetitle: sharetitle,
-                        sharedesc: sharedesc,
-                        shareimg: shareimg,
-                        sharelink: sharelink
-                    }, function (result) {
+                if (device == null || device == "null") {
+                    console.log("不是APP打开");
+                } else {
+                    ft.shareInfo(jsoninfo, function (result) {
+                        var errorcode = result.errorCode.toString();
+                        alert(errorcode);
+                        return false;
                     });
+
                 }
                 /*微信分享专用*/
                 $.ajax({
@@ -215,7 +218,7 @@
             },
             jump: function (id) {
 //              curriculumurl = "https://h5.fotilestyle.com/html/activedetail.html?id=" + id + "&device=" + device;
-                   curriculumurl="http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id="+id+"&device="+device;
+                curriculumurl = "http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id=" + id + "&device=" + device;
                 window.location.href = curriculumurl;
             }
         }

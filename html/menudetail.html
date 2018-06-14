@@ -201,7 +201,9 @@
                 <li v-for="(item,index) in dataother"><a :href="item.url">
                     <div class="menuimg" :style="{backgroundImage: 'url(' + item.images[0] + ')'}"></div>
                     <span class="menuname" v-html="item.name"></span>
-                    <div class="time" v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined" v-html="item.videoLong"></div>
+                    <div class="time"
+                         v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"
+                         v-html="item.videoLong"></div>
                     <div class="infonum">
                         <span class="views" v-html="item.pageviews"></span>
                         <span class="collect" v-html="item.collect_count"></span>
@@ -656,10 +658,10 @@
                         }
 
                         //有无时长
-                        if(typeof(data.data.basicInfo.videoLong) == "undefined"){
-                            var videotime="";
-                        }else {
-                            var videotime=data.data.basicInfo.videoLong;
+                        if (typeof(data.data.basicInfo.videoLong) == "undefined") {
+                            var videotime = "";
+                        } else {
+                            var videotime = data.data.basicInfo.videoLong;
                         }
                         //custom page code begin here
                         gio("page.set", "menu", "菜谱");//页面类型
@@ -681,39 +683,41 @@
                         <!-- End GrowingIO Analytics code version: 2.1 -->
                     }, 2000);
 
-	                /*分享链接专用*/
-	                    var sharetitle = data.data.basicInfo.menu_name;
-	                    var sharedesc;
-	                    var contents = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-	                    var count = contents.length;
-	                    if (count > 40) {
-	                        var nr = contents.substring(0, 40) + "...";
-	                        sharedesc = nr;
-	                    } else {
-	                        sharedesc = contents;
-	                    }
-	                    var shareimg = data.data.basicInfo.images[0];
-	                    var sharestr = data.data.basicInfo.url;
-	                    var sharelink = sharestr.replace(/api/, "h5");
-	                console.log({
-	                    "sharetitle":sharetitle,
-	                    "sharedesc":sharedesc,
-	                    "shareimg":shareimg,
-	                    "sharelink":sharelink
-	                });
-	                /*APP分享专用*/
-                    if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
-	                    ft.shareInfo({
-                            id:  data.data.basicInfo.id,
-                            type: 1,
-	                        sharetitle: sharetitle,
-	                        sharedesc: sharedesc,
-	                        shareimg: shareimg,
-	                        sharelink: sharelink
-	                    }, function (result) {
-	                    });
-	                }
-	                /*微信分享专用*/
+                    /*分享链接专用*/
+                    var sharetitle = data.data.basicInfo.menu_name;
+                    var sharedesc;
+                    var contents = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+                    var count = contents.length;
+                    if (count > 40) {
+                        var nr = contents.substring(0, 40) + "...";
+                        sharedesc = nr;
+                    } else {
+                        sharedesc = contents;
+                    }
+                    var shareimg = data.data.basicInfo.images[0];
+                    var sharestr = data.data.basicInfo.url;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    var jsoninfo = {
+                        id: data.data.basicInfo.id,
+                        type: 1,
+                        sharetitle: sharetitle,
+                        sharedesc: sharedesc,
+                        shareimg: shareimg,
+                        sharelink: sharelink
+                    };
+                    console.log(jsoninfo);
+                    /*APP分享专用*/
+                    if (device == null || device == "null") {
+                        console.log("不是APP打开");
+                    } else {
+                        ft.shareInfo(jsoninfo, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            alert(errorcode);
+                            return false;
+                        });
+
+                    }
+                    /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
                         url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
