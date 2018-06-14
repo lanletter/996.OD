@@ -3,19 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="深链接test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/activealbum.html" afterPath="$PROJECT_DIR$/html/activealbum.html" />
-      <change beforePath="$PROJECT_DIR$/html/activedetail.html" afterPath="$PROJECT_DIR$/html/activedetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/coursealbum.html" afterPath="$PROJECT_DIR$/html/coursealbum.html" />
-      <change beforePath="$PROJECT_DIR$/html/coursedetail.html" afterPath="$PROJECT_DIR$/html/coursedetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/gooddetail3.0.html" afterPath="$PROJECT_DIR$/html/gooddetail3.0.html" />
-      <change beforePath="$PROJECT_DIR$/html/jf-buy.html" afterPath="$PROJECT_DIR$/html/jf-buy.html" />
-      <change beforePath="$PROJECT_DIR$/html/lifearticle.html" afterPath="$PROJECT_DIR$/html/lifearticle.html" />
-      <change beforePath="$PROJECT_DIR$/html/menu-inpage.html" afterPath="$PROJECT_DIR$/html/menu-inpage.html" />
-      <change beforePath="$PROJECT_DIR$/html/menudetail.html" afterPath="$PROJECT_DIR$/html/menudetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/sitedetail.html" afterPath="$PROJECT_DIR$/html/sitedetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/video-share.html" afterPath="$PROJECT_DIR$/html/video-share.html" />
       <change beforePath="$PROJECT_DIR$/html/video-short.html" afterPath="$PROJECT_DIR$/html/video-short.html" />
-      <change beforePath="$PROJECT_DIR$/html/video-tab.html" afterPath="$PROJECT_DIR$/html/video-tab.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,17 +25,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="258" column="66" lean-forward="true" selection-start-line="258" selection-start-column="66" selection-end-line="258" selection-end-column="66" />
+            <state relative-caret-position="306">
+              <caret line="272" column="18" lean-forward="true" selection-start-line="272" selection-start-column="18" selection-end-line="276" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video-tab.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="video-tab.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/video-tab.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-2049">
@@ -267,7 +255,6 @@
         <option value="$PROJECT_DIR$/css/common.css" />
         <option value="$PROJECT_DIR$/js/deeplink.js" />
         <option value="$PROJECT_DIR$/js/ft.js" />
-        <option value="$PROJECT_DIR$/html/video-short.html" />
         <option value="$PROJECT_DIR$/html/activealbum.html" />
         <option value="$PROJECT_DIR$/html/activedetail.html" />
         <option value="$PROJECT_DIR$/html/coursealbum.html" />
@@ -280,6 +267,7 @@
         <option value="$PROJECT_DIR$/html/sitedetail.html" />
         <option value="$PROJECT_DIR$/html/video-share.html" />
         <option value="$PROJECT_DIR$/html/video-tab.html" />
+        <option value="$PROJECT_DIR$/html/video-short.html" />
       </list>
     </option>
   </component>
@@ -567,14 +555,7 @@
       <workItem from="1528774565374" duration="1289000" />
       <workItem from="1528775994874" duration="1719000" />
       <workItem from="1528786967425" duration="18866000" />
-      <workItem from="1528943140543" duration="17093000" />
-    </task>
-    <task id="LOCAL-00115" summary="深链接test">
-      <created>1528862044283</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1528862044283</updated>
+      <workItem from="1528943140543" duration="17324000" />
     </task>
     <task id="LOCAL-00116" summary="深链接test">
       <created>1528862468877</created>
@@ -912,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528967833743</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="深链接test">
+      <created>1528968707994</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1528968707994</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2425358000" />
+    <option name="totallyTimeSpent" value="2425589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -1487,18 +1475,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-short.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="258" column="66" lean-forward="true" selection-start-line="258" selection-start-column="66" selection-end-line="258" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/video-tab.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2049">
           <caret line="20" column="35" lean-forward="false" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-short.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="272" column="18" lean-forward="true" selection-start-line="272" selection-start-column="18" selection-end-line="276" selection-end-column="30" />
           <folding />
         </state>
       </provider>
