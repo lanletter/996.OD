@@ -28,8 +28,8 @@
       <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="255" column="66" lean-forward="true" selection-start-line="255" selection-start-column="66" selection-end-line="255" selection-end-column="66" />
+            <state relative-caret-position="508">
+              <caret line="288" column="24" lean-forward="false" selection-start-line="288" selection-start-column="24" selection-end-line="288" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -548,14 +548,7 @@
       <workItem from="1528774565374" duration="1289000" />
       <workItem from="1528775994874" duration="1719000" />
       <workItem from="1528786967425" duration="18866000" />
-      <workItem from="1528943140543" duration="19760000" />
-    </task>
-    <task id="LOCAL-00121" summary="深链接test">
-      <created>1528872995401</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1528872995401</updated>
+      <workItem from="1528943140543" duration="19989000" />
     </task>
     <task id="LOCAL-00122" summary="深链接test">
       <created>1528873618583</created>
@@ -893,16 +886,23 @@
       <option name="project" value="LOCAL" />
       <updated>1528969938643</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="深链接test">
+      <created>1528971493122</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1528971493122</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2428025000" />
+    <option name="totallyTimeSpent" value="2428254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20963652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20963652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1478,8 +1478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="255" column="66" lean-forward="true" selection-start-line="255" selection-start-column="66" selection-end-line="255" selection-end-column="66" />
+        <state relative-caret-position="508">
+          <caret line="288" column="24" lean-forward="false" selection-start-line="288" selection-start-column="24" selection-end-line="288" selection-end-column="24" />
           <folding />
         </state>
       </provider>
