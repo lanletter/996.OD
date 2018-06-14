@@ -28,8 +28,8 @@
       <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="276" column="27" lean-forward="true" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
+            <state relative-caret-position="353">
+              <caret line="265" column="39" lean-forward="false" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -198,9 +198,9 @@
       <find>shareInfo</find>
       <find>footer</find>
       <find>alert</find>
-      <find>device</find>
       <find>datalist</find>
       <find>ft</find>
+      <find>device</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -555,14 +555,7 @@
       <workItem from="1528774565374" duration="1289000" />
       <workItem from="1528775994874" duration="1719000" />
       <workItem from="1528786967425" duration="18866000" />
-      <workItem from="1528943140543" duration="17553000" />
-    </task>
-    <task id="LOCAL-00117" summary="深链接test（参数整合、优化）">
-      <created>1528871531793</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1528871531793</updated>
+      <workItem from="1528943140543" duration="18021000" />
     </task>
     <task id="LOCAL-00118" summary="深链接test">
       <created>1528872070217</created>
@@ -900,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528969021638</updated>
     </task>
-    <option name="localTasksCounter" value="166" />
+    <task id="LOCAL-00166" summary="深链接test">
+      <created>1528969272940</created>
+      <option name="number" value="00166" />
+      <option name="presentableId" value="LOCAL-00166" />
+      <option name="project" value="LOCAL" />
+      <updated>1528969272940</updated>
+    </task>
+    <option name="localTasksCounter" value="167" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2425818000" />
+    <option name="totallyTimeSpent" value="2426286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -1485,8 +1485,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="276" column="27" lean-forward="true" selection-start-line="276" selection-start-column="27" selection-end-line="276" selection-end-column="27" />
+        <state relative-caret-position="353">
+          <caret line="265" column="39" lean-forward="false" selection-start-line="265" selection-start-column="39" selection-end-line="265" selection-end-column="39" />
           <folding />
         </state>
       </provider>
