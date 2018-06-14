@@ -25,6 +25,7 @@
     /*页面参数（页面类型+id）*/
     var device = GetQueryString("device");
     var id = GetQueryString("id");
+    var refid = GetQueryString("id");
     var action = GetPageName();
     var weburl = window.location.host + window.location.pathname;
     var imageURL = "";
@@ -34,6 +35,7 @@
     var urlright = "?action=" + encodeURIComponent(action) +
         "&id=" + encodeURIComponent(id) +
         "&weburl=" + encodeURIComponent(weburl) +
+        "&refid=" + encodeURIComponent(refid) +
         "&imageURL=" + encodeURIComponent(imageURL) +
         "&shareTitle=" + encodeURIComponent(shareTitle) +
         "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
