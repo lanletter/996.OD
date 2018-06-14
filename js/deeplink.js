@@ -94,7 +94,6 @@
 
     } else {
         console.log("不是来自微信内置浏览器");
-        console.log(device);
 
         if (device == null || device == "null") {
             // alert("不是app内");
@@ -117,7 +116,7 @@
             /***打开app的协议***/
             window.setTimeout(function () {
                 if (isiOS == true) {/*ios手机*/
-                    window.location.href = "https://gio.ren/re0Y923";
+                    window.location.href = "https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8";
                 } else if (isAndroid == true) {/*Android手机*/
                     $("body").append(
                         '<div id="mask" class="mask works-mask" style="z-index: 999999">' +
@@ -136,7 +135,7 @@
                         $("#mask").css("display", "none");
                     })
                 }
-            }, 2000);
+            }, 1000);
         }
 
     }
