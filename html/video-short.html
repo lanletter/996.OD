@@ -264,7 +264,10 @@
                         "sharelink": sharelink
                     });
                     /*APP分享专用*/
-                    if (device !== null && device !== "null") {
+
+                    if (device == null || device == "null") {
+                        console.log("不是APP打开");
+                    } else {
                         ft.shareInfo({
                             id: $this.data.id,
                             type: 14,
