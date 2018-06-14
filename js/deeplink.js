@@ -141,7 +141,7 @@
 
     } else {
         // alert("是app内");
-        return false;
+       console.log(device);
     }
 
 }();
