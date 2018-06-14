@@ -144,18 +144,20 @@
                     shareimg: shareimg,
                     sharelink: sharelink
                 };
-                console.log(jsoninfo);
-                /*APP分享专用*/
-                if (device == null || device == "null") {
-                    console.log("不是APP打开");
-                } else {
-                    ft.shareInfo(jsoninfo, function (result) {
-                        var errorcode = result.errorCode.toString();
-                        alert(errorcode);
-                        return false;
-                    });
+                window.setTimeout(function () {
+                    console.info(jsoninfo);
+                    /*APP分享专用*/
+                    if (device == null || device == "null") {
+                        console.log("不是APP打开");
+                    } else {
+                        ft.shareInfo(jsoninfo, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            alert(errorcode);
+                            return false;
+                        });
 
-                }
+                    }
+                }, 500);
                 /*微信分享专用*/
                 $.ajax({
                     type: 'GET',

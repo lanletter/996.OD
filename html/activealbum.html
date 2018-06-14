@@ -63,78 +63,85 @@
     }
 
     var vm = new Vue({
-        el: '.banner',
-        data: {
-            data: {}
-        },
-        created: function () {
-            var $this = this;
-            $.ajax({
-                url: urlport + 'special/detail',
-                type: 'POST',
-                data: JSON.stringify({"id": id}),
-                timeout: 5000, //超时时间
-                contentType: "application/json;charset=utf-8",
-                dataType: 'json', //返回的数据格式
-                success: function (data) {
-                    console.log(data);
-                    callback(data);
-                },
-                error: function (errorMsg) {
-                    console.log('错误');
-                    console.log(errorMsg);
-                }
-            });
-
-            function callback(res) {
-                var data = res;
-                // console.log(data);
-                if (data.status == 200) {
-                    $this.data = data.data;
-                    id = $this.data.id;
-                    console.log($this.data);
-                }
-                document.setTitle = function (t) {
-                    document.title = t;
-                    var i = document.createElement('iframe');
-                    i.style.display = 'none';
-                    i.onload = function () {
-                        setTimeout(function () {
-                            i.remove();
-                        })
+            el: '.banner',
+            data: {
+                data: {}
+            },
+            created: function () {
+                var $this = this;
+                $.ajax({
+                    url: urlport + 'special/detail',
+                    type: 'POST',
+                    data: JSON.stringify({"id": id}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (data) {
+                        console.log(data);
+                        callback(data);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
                     }
-                    document.body.appendChild(i);
-                }
-                setTimeout(function () {
-                    document.setTitle($this.data.title);
-                })
+                });
 
-                /*分享链接专用*/
-                var sharetitle = $this.data.title;
-                var sharedesc = $this.data.desc;
-                var shareimg = $this.data.picture.path;
-                var sharestr = window.location.href;
-                var sharelink = sharestr.replace(/api/, "h5");
-                var jsoninfo = {
-                    id: $this.data.id,
-                    type: 7,
-                    "sharetitle": sharetitle,
-                    "sharedesc": sharedesc,
-                    "shareimg": shareimg,
-                    "sharelink": sharelink
-                };
-                console.log(jsoninfo);
-                /*APP分享专用*/
-                if (device == null || device == "null") {
-                    console.log("不是APP打开");
-                } else {
-                    ft.shareInfo(jsoninfo, function (result) {
-                        var errorcode = result.errorCode.toString();
-                        alert(errorcode);
-                        return false;
-                    });
+                function callback(res) {
+                    var data = res;
+                    // console.log(data);
+                    if (data.status == 200) {
+                        $this.data = data.data;
+                        id = $this.data.id;
+                        console.log($this.data);
+                    }
+                    document.setTitle = function (t) {
+                        document.title = t;
+                        var i = document.createElement('iframe');
+                        i.style.display = 'none';
+                        i.onload = function () {
+                            setTimeout(function () {
+                                i.remove();
+                            })
+                        }
+                        document.body.appendChild(i);
+                    }
+                    setTimeout(function () {
+                        document.setTitle($this.data.title);
+                    })
 
+                    /*分享链接专用*/
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.desc;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = window.location.href;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    var jsoninfo = {
+                        id: $this.data.id,
+                        type: 7,
+                        "sharetitle": sharetitle,
+                        "sharedesc": sharedesc,
+                        "shareimg": shareimg,
+                        "sharelink": sharelink
+                    };
+
+                    window.setTimeout(function () {
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+                                var errorcode = result.errorCode.toString();
+                                alert(errorcode);
+                                return false;
+                            });
+
+                        }
+                    ,
+                        500
+                    );
                 }
+
                 /*微信分享专用*/
                 $.ajax({
                     type: 'GET',
@@ -192,37 +199,42 @@
 
             }
         },
-        methods: {
-            addnum: function (m) {
-                return m < 10 ? '0' + m : m
-            },
-            format: function (starttime, endtime) {
-                var $this = this;
-                var time1 = new Date(starttime);
-                var month1 = time1.getMonth() + 1;
-                var date1 = time1.getDate();
-                var hour1 = time1.getHours();
-                var minute1 = time1.getMinutes();
-                var time2 = new Date(endtime);
-                var month2 = time2.getMonth() + 1;
-                var date2 = time2.getDate();
-                var hour2 = time2.getHours();
-                var minute2 = time2.getMinutes();
-                if (month1 == month2 && date1 == date2) {
-                    return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
-                        + '-' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
-                } else {
-                    return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
-                        + '-' + $this.addnum(month2) + '月' + $this.addnum(date2) + '日' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
-                }
-            },
-            jump: function (id) {
-//              curriculumurl = "https://h5.fotilestyle.com/html/activedetail.html?id=" + id + "&device=" + device;
-                curriculumurl = "http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id=" + id + "&device=" + device;
-                window.location.href = curriculumurl;
+        methods
+    :
+    {
+        addnum: function (m) {
+            return m < 10 ? '0' + m : m
+        }
+    ,
+        format: function (starttime, endtime) {
+            var $this = this;
+            var time1 = new Date(starttime);
+            var month1 = time1.getMonth() + 1;
+            var date1 = time1.getDate();
+            var hour1 = time1.getHours();
+            var minute1 = time1.getMinutes();
+            var time2 = new Date(endtime);
+            var month2 = time2.getMonth() + 1;
+            var date2 = time2.getDate();
+            var hour2 = time2.getHours();
+            var minute2 = time2.getMinutes();
+            if (month1 == month2 && date1 == date2) {
+                return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
+                    + '-' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
+            } else {
+                return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
+                    + '-' + $this.addnum(month2) + '月' + $this.addnum(date2) + '日' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
             }
         }
-    });
+    ,
+        jump: function (id) {
+//              curriculumurl = "https://h5.fotilestyle.com/html/activedetail.html?id=" + id + "&device=" + device;
+            curriculumurl = "http://h5.fotilestyle.com/fotilestyle-test/html/activedetail.html?id=" + id + "&device=" + device;
+            window.location.href = curriculumurl;
+        }
+    }
+    })
+    ;
 
 
 </script>
