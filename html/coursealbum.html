@@ -143,6 +143,8 @@
                 /*APP分享专用*/
                 if( sharetitle!=="" || sharedesc!=="" || shareimg!=="" || sharelink!=="" ){
                     ft.shareInfo({
+                        id:  $this.data.id,
+                        type: 7,
                         sharetitle: sharetitle,
                         sharedesc: sharedesc,
                         shareimg: shareimg,

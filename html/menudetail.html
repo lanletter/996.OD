@@ -704,6 +704,8 @@
 	                /*APP分享专用*/
 	                if( sharetitle!=="" || sharedesc!=="" || shareimg!=="" || sharelink!=="" ){
 	                    ft.shareInfo({
+                            id:  data.data.basicInfo.id,
+                            type: 1,
 	                        sharetitle: sharetitle,
 	                        sharedesc: sharedesc,
 	                        shareimg: shareimg,
