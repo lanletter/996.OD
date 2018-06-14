@@ -96,6 +96,7 @@
 
     } else {
         console.log("不是来自微信内置浏览器");
+        alert(device);
 
         if (device == null || device == "null") {
             // alert("不是app内");
