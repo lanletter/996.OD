@@ -267,7 +267,7 @@
 
                     if (device == null || device == "null") {
                         console.log("不是APP打开");
-                    } else {
+                    } else if(sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!==""){
                         ft.shareInfo({
                             id: $this.data.id,
                             type: 14,
@@ -277,6 +277,8 @@
                             sharelink: sharelink
                         }, function (result) {
                         });
+                    }else {
+                        console.log("未知");
                     }
                     /*微信分享专用*/
                     $.ajax({
