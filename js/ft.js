@@ -309,6 +309,8 @@
         shareInfo: {
             name: "shareInfo",
             param: {
+                id: "",//id
+                type: "",// 类型
                 sharetitle: "",//标题
                 sharedesc: "",// 详情
                 shareimg: "",// 图片
@@ -569,6 +571,8 @@
      **********************************************************************/
     ft.shareInfo  = function (option, fn) {
         var shareInfoConfig = ft.mix(true, {}, config.shareInfo);
+        shareInfoConfig.param.id = option.id || "";
+        shareInfoConfig.param.type = option.type || "";
         shareInfoConfig.param.sharetitle = option.sharetitle || "";
         shareInfoConfig.param.sharedesc = option.sharedesc || "";
         shareInfoConfig.param.shareimg = option.shareimg || "";
