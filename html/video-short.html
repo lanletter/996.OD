@@ -72,7 +72,7 @@
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
 <script src="../js/ft.js"></script>
-<!--<script src="../js/deeplink.js"></script>-->
+<script src="../js/deeplink.js"></script>
 <script>
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -264,17 +264,17 @@
                         "sharelink": sharelink
                     });
                     /*APP分享专用*/
-                    // if (device !== null && device !== "null" && sharetitle !== "" && sharedesc !== "" && shareimg !== "" && sharelink !== "") {
-                    //     ft.shareInfo({
-                    //         id: $this.data.id,
-                    //         type: 14,
-                    //         sharetitle: sharetitle,
-                    //         sharedesc: sharedesc,
-                    //         shareimg: shareimg,
-                    //         sharelink: sharelink
-                    //     }, function (result) {
-                    //     });
-                    // }
+                    if (device !== null && device !== "null") {
+                        ft.shareInfo({
+                            id: $this.data.id,
+                            type: 14,
+                            sharetitle: sharetitle,
+                            sharedesc: sharedesc,
+                            shareimg: shareimg,
+                            sharelink: sharelink
+                        }, function (result) {
+                        });
+                    }
                     /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
