@@ -28,8 +28,8 @@
       <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="272" column="22" lean-forward="false" selection-start-line="272" selection-start-column="22" selection-end-line="276" selection-end-column="30" />
+            <state relative-caret-position="71">
+              <caret line="255" column="66" lean-forward="true" selection-start-line="255" selection-start-column="66" selection-end-line="255" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -77,6 +77,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ft.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/ft.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="259">
+              <caret line="571" column="16" lean-forward="false" selection-start-line="571" selection-start-column="7" selection-end-line="571" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="multithreading.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/fotile-temporary/multithreading.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="543">
+              <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="sitedetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,43 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="874" column="20" lean-forward="false" selection-start-line="874" selection-start-column="20" selection-end-line="874" selection-end-column="20" />
-              <folding>
-                <marker date="1528968644975" expanded="true" signature="28652:29172" ph="..." />
-                <marker date="1528968644975" expanded="true" signature="28696:29146" ph="..." />
-                <marker date="1528968644975" expanded="true" signature="28783:28950" ph="..." />
-                <marker date="1528968644975" expanded="true" signature="30207:30507" ph="..." />
-                <marker date="1528968644975" expanded="true" signature="30245:30471" ph="..." />
-                <marker date="1528968644975" expanded="false" signature="30303:30351" ph="..." />
-                <marker date="1528968644975" expanded="true" signature="30595:30821" ph="..." />
-                <marker date="1528968644975" expanded="true" signature="30633:30785" ph="..." />
-                <marker date="1528968644975" expanded="false" signature="30691:30739" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gooddetail3.0.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/gooddetail3.0.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-              <folding>
-                <marker date="1528968648584" expanded="true" signature="7731:7879" ph="..." />
-                <marker date="1528968648584" expanded="true" signature="8328:8429" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="jf-buy.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
+            <state relative-caret-position="3185">
               <caret line="421" column="49" lean-forward="false" selection-start-line="421" selection-start-column="49" selection-end-line="421" selection-end-column="49" />
               <folding>
                 <marker date="1528968652752" expanded="true" signature="13110:13131" ph="{...}" />
@@ -171,7 +158,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>window.location.href</find>
       <find>gio</find>
       <find>shop</find>
       <find>deeplink_ios_native</find>
@@ -191,16 +177,17 @@
       <find>instructions</find>
       <find>isiOS</find>
       <find>background: #fff</find>
-      <find>sharetitle</find>
       <find>icon-fix</find>
       <find>mask</find>
       <find>check-p</find>
-      <find>shareInfo</find>
       <find>footer</find>
       <find>alert</find>
-      <find>datalist</find>
       <find>ft</find>
       <find>device</find>
+      <find>shareInfo</find>
+      <find>datalist</find>
+      <find>jsoninfo</find>
+      <find>sharetitle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -319,6 +306,12 @@
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="fotile-temporary" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
@@ -555,14 +548,7 @@
       <workItem from="1528774565374" duration="1289000" />
       <workItem from="1528775994874" duration="1719000" />
       <workItem from="1528786967425" duration="18866000" />
-      <workItem from="1528943140543" duration="18210000" />
-    </task>
-    <task id="LOCAL-00120" summary="深链接test">
-      <created>1528872860425</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1528872860425</updated>
+      <workItem from="1528943140543" duration="19760000" />
     </task>
     <task id="LOCAL-00121" summary="深链接test">
       <created>1528872995401</created>
@@ -900,16 +886,23 @@
       <option name="project" value="LOCAL" />
       <updated>1528969842531</updated>
     </task>
-    <option name="localTasksCounter" value="169" />
+    <task id="LOCAL-00169" summary="深链接test">
+      <created>1528969938643</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1528969938643</updated>
+    </task>
+    <option name="localTasksCounter" value="170" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2426475000" />
+    <option name="totallyTimeSpent" value="2428025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20963652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20963652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1318,26 +1311,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/fotile-temporary/multithreading.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="83" lean-forward="false" selection-start-line="9" selection-start-column="83" selection-end-line="9" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="311">
           <caret line="96" column="8" lean-forward="false" selection-start-line="96" selection-start-column="8" selection-end-line="96" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/ft.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="324" column="26" lean-forward="true" selection-start-line="324" selection-start-column="26" selection-end-line="324" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -1407,16 +1384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="421" column="49" lean-forward="false" selection-start-line="421" selection-start-column="49" selection-end-line="421" selection-end-column="49" />
-          <folding>
-            <marker date="1528968652752" expanded="true" signature="13110:13131" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
@@ -1475,6 +1442,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/ft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="571" column="16" lean-forward="false" selection-start-line="571" selection-start-column="7" selection-end-line="571" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/fotile-temporary/multithreading.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="39" column="11" lean-forward="true" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3185">
+          <caret line="421" column="49" lean-forward="false" selection-start-line="421" selection-start-column="49" selection-end-line="421" selection-end-column="49" />
+          <folding>
+            <marker date="1528968652752" expanded="true" signature="13110:13131" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/video-tab.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2049">
@@ -1485,8 +1478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="272" column="22" lean-forward="false" selection-start-line="272" selection-start-column="22" selection-end-line="276" selection-end-column="30" />
+        <state relative-caret-position="71">
+          <caret line="255" column="66" lean-forward="true" selection-start-line="255" selection-start-column="66" selection-end-line="255" selection-end-column="66" />
           <folding />
         </state>
       </provider>

@@ -105,7 +105,16 @@
         el: '.vide-share',
         data: {
             data: {},
-            datalist: {}
+            datalist: {},
+            jsoninfo: {
+                "id": id,
+                "type": 14,
+                "sharetitle": "",
+                "sharedesc": "",
+                "shareimg": "",
+                "sharelink": ""
+            }
+
             // http: {
             //     headers: {
             //         token: 'Basic YXBpOnBhc3N3b3Jk'
@@ -258,25 +267,26 @@
                     var sharestr = $this.data.pageUrl;
                     var sharelink = sharestr.replace(/api/, "h5");
                     var jsoninfo = {
-                        "id": $this.data.id,
+                        "id": id,
                         "type": 14,
                         "sharetitle": sharetitle,
                         "sharedesc": sharedesc,
                         "shareimg": shareimg,
                         "sharelink": sharelink
                     };
-                    console.log(jsoninfo);
-                    /*APP分享专用*/
-                    if (device == null || device == "null" ) {
-                        console.log("不是APP打开");
-                    } else {
-                        // ft.shareInfo(jsoninfo, function (result) {
-                        //     var errorcode = result.errorCode.toString();
-                        //     alert(errorcode);
-                        //     return false;
-                        // });
-
-                    }
+                    window.setTimeout(function () {
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+                                var errorcode = result.errorCode.toString();
+                                alert(errorcode);
+                                return false;
+                            });
+                        }
+                    }, 1000);
                     /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
