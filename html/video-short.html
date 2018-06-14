@@ -72,7 +72,7 @@
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
 <script src="../js/ft.js"></script>
-<script src="../js/deeplink.js"></script>
+<!--<script src="../js/deeplink.js"></script>-->
 <script>
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
@@ -87,7 +87,7 @@
     console.log(device);
     if (device == null || device == "null") {
         $(".footer").show();
-    }else {
+    } else {
         $(".footer").hide();
     }
 
@@ -105,7 +105,7 @@
         el: '.vide-share',
         data: {
             data: {},
-            datalist:{}
+            datalist: {}
             // http: {
             //     headers: {
             //         token: 'Basic YXBpOnBhc3N3b3Jk'
@@ -121,8 +121,8 @@
                     console.info($this.data);
 
                     /*友盟埋点-页面访问*/
-                    UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-                        "页面类型":"短视频详情",
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                        "页面类型": "短视频详情",
                         "页面名称": data.data.title
                     });
 
@@ -142,17 +142,18 @@
                     })
 
                     /*视频链接*/
-                    $('.video').css({"background":"url("+$this.data.picture.path+") no-repeat","background-size":"100% auto"});
+                    $('.video').css({
+                        "background": "url(" + $this.data.picture.path + ") no-repeat",
+                        "background-size": "100% auto"
+                    });
                     $('#videobox').find('#vd').attr('src', $this.data.url);
                     console.log($this.data.time);
-                    if($this.data.time !=="" && $this.data.time !== null){
+                    if ($this.data.time !== "" && $this.data.time !== null) {
                         $("#videobox .time").text($this.data.time);
-                    }else {
+                    } else {
                         $("#videobox .time").hide();
                     }
                     $('#vdtest').attr('src', $this.data.url);
-
-
 
 
                     (function () {
@@ -164,14 +165,17 @@
                             $('#vd').css({"position": "absolute", "left": "0"});
                             $("#videobox").css({height: vheight + "px"});
                             video.play();
-                            $('.video').css({"background":"#000"});
+                            $('.video').css({"background": "#000"});
                             video.controls = true;
                             $("#videobox .time").hide();
                         });
 
                         video.addEventListener('ended', function () {
                             playBtn.show();
-                            $('.video').css({"background":"url("+$this.data.picture.path+") no-repeat","background-size":"100% auto"});
+                            $('.video').css({
+                                "background": "url(" + $this.data.picture.path + ") no-repeat",
+                                "background-size": "100% auto"
+                            });
                             video.controls = false;
                             $("#videobox .time").show();
                             $('#vd').css({"position": "absolute", "left": "-10rem"});
@@ -179,7 +183,7 @@
                         }, false);
                         video.addEventListener('pause', function () {
                             playBtn.hide();
-                            $('.video').css({"background":"#000"});
+                            $('.video').css({"background": "#000"});
                             video.controls = true;
                         }, false);
                     })();
@@ -193,7 +197,11 @@
                     // },2000);
 
 
-                    this.$http.post(urlport + '/videoShort/recommend', {"pageNum":1,"pageSize":4,"type":1}).then(function (data) {
+                    this.$http.post(urlport + '/videoShort/recommend', {
+                        "pageNum": 1,
+                        "pageSize": 4,
+                        "type": 1
+                    }).then(function (data) {
                         var data = data.data;
                         if (data.status == 200) {
                             $this.datalist = data.data;
@@ -217,18 +225,18 @@
                     //类型
                     if ($this.data.type == 1) {
                         var type = "烹饪技巧";
-                    } else if($this.data.type == 2){
+                    } else if ($this.data.type == 2) {
                         var type = "厨电使用";
                     }
                     //发布时间
                     var date = new Date($this.data.createat);
                     Y = date.getFullYear() + '-';
-                    M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
                     D = date.getDate() + ' ';
                     h = date.getHours() + ':';
                     m = date.getMinutes() + ':';
                     s = date.getSeconds();
-                    var creattime=Y+M+D+h+m+s;
+                    var creattime = Y + M + D + h + m + s;
                     console.log(creattime);
 
                     //custom page code begin here
@@ -250,16 +258,16 @@
                     var sharestr = $this.data.pageUrl;
                     var sharelink = sharestr.replace(/api/, "h5");
                     console.log({
-                        "sharetitle":sharetitle,
-                        "sharedesc":sharedesc,
-                        "shareimg":shareimg,
-                        "sharelink":sharelink
+                        "sharetitle": sharetitle,
+                        "sharedesc": sharedesc,
+                        "shareimg": shareimg,
+                        "sharelink": sharelink
                     });
                     /*APP分享专用*/
-                		if( device !== null && device !== "null" && sharetitle!=="" && sharedesc!=="" && shareimg!=="" && sharelink!=="" ){
+                    if (device !== null && device !== "null" && sharetitle !== "" && sharedesc !== "" && shareimg !== "" && sharelink !== "") {
                         ft.shareInfo({
-			                id:  $this.data.id,
-			                type: 14,
+                            id: $this.data.id,
+                            type: 14,
                             sharetitle: sharetitle,
                             sharedesc: sharedesc,
                             shareimg: shareimg,
