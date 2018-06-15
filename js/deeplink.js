@@ -40,7 +40,7 @@
         //     case 6:x="今天是星期六";
         //         break;
         // }
-        var weburl = window.location.host + window.location.pathname + "?";
+        var weburl = window.location.href;
         var imageURL = "";
         var shareTitle = "";
         var shareSubTitle = "";
