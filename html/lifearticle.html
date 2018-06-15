@@ -497,6 +497,18 @@
                     sharelink: sharelink
                 };
 
+                $(document).ready(function () {
+                    console.info(jsoninfo);
+                    /*APP分享专用*/
+                    if (device == null || device == "null") {
+                        console.log("不是APP打开");
+                    } else {
+                        ft.shareInfo(jsoninfo, function (result) {
+
+                        });
+
+                    }
+                });
                 $(window).load(function(){
                     alert("页面加载完毕！");
                     console.info(jsoninfo);
