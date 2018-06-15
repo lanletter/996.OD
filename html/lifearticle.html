@@ -117,6 +117,14 @@
     var id = GetQueryString("id");
     // id = 500;
     var device = GetQueryString("device");
+
+    console.log(device);
+    if (device == null || device == "null") {
+        $(".footer").show();
+    } else {
+        $(".footer").hide();
+    }
+
     if (device == "ios" || device == "android") {
         var userid;
         var token;
@@ -217,173 +225,6 @@
                 var data = res.data;
                 console.log(data);
 
-                /*友盟埋点-页面访问*/
-                var isuserid;//登录判断
-                if (userid !== 1 && userid !== "1") {
-                    isuserid = "是";
-                } else {
-                    isuserid = "否";
-                }
-                console.log(isuserid);
-                UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                    "页面类型": "故事详情页",
-                    "页面名称": data.title,
-                    "是否登录": isuserid
-                });
-
-                //判断是否收藏
-                if (userid == 1 || userid == "1") {
-                    $("#star").addClass("favorite-count");
-                    $("#star").remove("favorite-count2");
-                } else {
-                    if (data.isFavorite == 1) {
-                        $("#star").addClass("favorite-count2");
-                        $("#star").remove("favorite-count");
-                    } else {
-                        $("#star").addClass("favorite-count");
-                        $("#star").remove("favorite-count2");
-                    }
-                }
-                //点击收藏（点击之间有时间间隔3000毫秒）
-                var canClick = true;
-                $('#star').on('click', function (e) {
-                    if (!canClick) return;
-                    canClick = false;
-                    //app交互——获取登录状态
-                    ft.isLogin(function (result) {
-                        // alert(JSON.stringify(result));
-                        // alert("id:" + id + "type:" + 4 + "userid:" + userid);
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            //$api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            if (userid !== "1" && userid !== 1) {
-                                token = result.data.token.toString();
-                            }
-                            //alert(userid);
-                            //收藏
-                            var follow = $("#star").attr('class');
-                            if (follow == "favorite-count") {
-                                $.ajax({
-                                    url: urlport + 'favorite/create',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "refId": id,
-                                        "type": 4,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                    success: function (data) {
-                                        console.log(data);
-                                        console.log("111");
-                                        $("#star").addClass("favorite-count2");
-                                        $("#star").removeClass("favorite-count");
-                                        var oldnum = $("#star strong").text();
-                                        $("#star strong").text(parseInt(oldnum) + 1);
-                                        $api.toast('收藏成功！', 3000);
-                                        /*友盟打点：故事收藏*/
-                                        UMAnalyticsAgent.trackWithProperty("h5收藏故事", {
-                                            "故事名称": data.title
-                                        });
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
-                            } else if (follow == "favorite-count2") {
-                                $.ajax({
-                                    url: urlport + 'favorite/cancel',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "refId": id,
-                                        "type": 4,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                    success: function (data) {
-                                        console.log(data);
-                                        console.log("222");
-                                        $("#star").removeClass("favorite-count2");
-                                        $("#star").addClass("favorite-count");
-                                        var oldnum = $("#star strong").text();
-                                        $("#star strong").text(parseInt(oldnum) - 1);
-                                        $api.toast('取消收藏！', 3000);
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
-                            }
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
-
-                    setTimeout(function () {
-                        canClick = true;
-                    }, 3000);
-                });
-
-                // var canClick=true;
-                // $('#star').on('click', function (e) {
-                //     // alert("id:" + id + "type:" + 4 + "userid:" + userid);
-                //     if(!canClick)return;
-                //     canClick=false;
-                //
-                //     var follow = $("#star").attr('class');
-                //     if (follow == "favorite-count") {
-                //         $api.post(urlport + 'favorite/create', {
-                //             "refId": id,
-                //             "type": 4,
-                //             "userId": userid
-                //         }, function (data) {
-                //             console.log(data);
-                //             console.log("111");
-                //             $("#star").addClass("favorite-count2");
-                //             $("#star").removeClass("favorite-count");
-                //             var oldnum = $("#star").next().text();
-                //             $("#star").next().text(parseInt(oldnum) + 1);
-                //             $api.toast('收藏成功！', 3000);
-                //             //alert('收藏成功！');
-                //         });
-                //     } else if (follow == "favorite-count2") {
-                //         $api.post(urlport + 'favorite/cancel', {
-                //             "refId": id,
-                //             "type": 4,
-                //             "userId": userid
-                //         }, function (data) {
-                //             console.log(data);
-                //             console.log("222");
-                //             $("#star").addClass("favorite-count");
-                //             $("#star").removeClass("favorite-count2");
-                //             var oldnum = $("#star").next().text();
-                //             $("#star").next().text(parseInt(oldnum) - 1);
-                //             $api.toast('取消收藏！', 3000);
-                //             //alert('取消收藏！');
-                //         });
-                //     }
-                //
-                //     setTimeout(function(){
-                //         canClick=true;
-                //     },3000);
-                // });
-
-                /*判断是否有视频*/
-                if (data.video.path == null || data.video.path == "") {
-                    $(".play").css("display", "none");
-                } else {
-                    $('#videobox').find('#vd').attr('src', data.video.path);
-                }
                 $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
                 $header.find('.header__main h3').text(data.title || data.shortTitle || ' ');
                 $header.find('.view-count strong').text(data.viewCount);
@@ -393,86 +234,6 @@
                 $(".ft-titles .comment_count").text(data.commentCount);
                 $(".editing p").html(data.author);
                 $content.append(data.content);
-
-                /*文章内链接加device*/
-                var qs = 'device=' + device + '&jump=jump';
-                $content.find('a').each(function () {
-                    var href = $(this).attr('href');
-                    if (href) {
-                        href += (href.match(/\?/) ? '&' : '?') + qs;
-                        $(this).attr('href', href);
-                    }
-                });
-
-                /*title取值*/
-                var txt = data.title;
-                if (txt == undefined) {
-                    $('head title').text("生活志");
-                } else {
-                    $('head title').text(data.title);
-                }
-
-                /*判断是否有作者*/
-                if (data.cookList.length == 0) {
-                    $(".author").css("display", "none");
-                } else {
-                    data.cookList.forEach(function (item, index) {
-                        var el = $('\
-                            <div class="author__info">\
-                                <img src="' + item.picture.path + '">\
-                                <span class="by">By</span>\
-                                <span>' + item.cookName + '</span>\
-                            </div>\
-                          <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
-                        ');
-                        $('.authorbox').append(el);
-                    });
-                }
-
-                /*判断是否有推荐阅读*/
-                if (data.recommendWantFeelList.length == 0) {
-                    $(".recommend").css("display", "none");
-                    $(".recommend").prev().css("display", "none");
-                }
-                data.recommendWantFeelList.forEach(function (item, index) {
-                    var el = $('<li class="recommend__info">\
-                    <a href="' + item.url + "&jump=jump&device=" + device + '">\
-                        <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
-                        <div class="txtbox">\
-                            <h5 class="titletxt">' + item.title + '</h5>\
-                            <p class="contenttxt">' + item.content + '</p>\
-                            <div class="header__opt2">\
-                               <span class="view-count"><strong>' + item.viewCount + '</strong></span>\
-                               <span class="favorite-count"><strong>' + item.favoriteCount + '</strong></span>\
-                            </div>\
-                        </div>\
-                    </a></li>');
-                    $('.recommend ul').append(el);
-                });
-
-                /*GIO参数集合*/
-                //发布时间
-                var date = new Date(data.createat);
-                Y = date.getFullYear() + '-';
-                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-                D = date.getDate() + ' ';
-                h = date.getHours() + ':';
-                m = date.getMinutes() + ':';
-                s = date.getSeconds();
-                var creattime = Y + M + D + h + m + s;
-                console.log(creattime);
-
-                //custom page code begin here
-                gio("page.set", "story", "故事");//页面类型
-                gio("page.set", "ID", data.id);//id
-                gio("page.set", "titlestory", data.title);//标题
-                gio("page.set", "creattime", creattime);//发布时间
-                gio("page.set", "type", data.type);//类型
-                //custom page code end here
-                gio('send');
-
-                /*GIO参数集合发送完毕*/
-
 
                 /*分享链接专用*/
                 var sharetitle = data.title;
@@ -496,72 +257,278 @@
                     shareimg: shareimg,
                     sharelink: sharelink
                 };
-                window.setTimeout(function () {
-                    console.info(jsoninfo);
-                    /*APP分享专用*/
-                    if (device == null || device == "null") {
-                        console.log("不是APP打开");
+                console.info(jsoninfo);
+                /*APP分享专用*/
+                if (device == null || device == "null") {
+                    otherProgramma();
+                } else {
+                    ft.shareInfo(jsoninfo, function (result) {
+                        otherProgramma();
+                    });
+
+                }
+
+                function otherProgramma() {
+                    /*友盟埋点-页面访问*/
+                    var isuserid;//登录判断
+                    if (userid !== 1 && userid !== "1") {
+                        isuserid = "是";
                     } else {
-                        ft.shareInfo(jsoninfo, function (result) {
-
-                        });
-
+                        isuserid = "否";
                     }
-                }, 1000);
-                /*微信分享专用*/
-                $.ajax({
-                    type: 'GET',
-                    url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                    success: function (data) {
-                        console.info(data.appId);
-                        wx.config({
-                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                            appId: data.appId, // 必填，公众号的唯一标识
-                            timestamp: data.timestamp, // 必填，生成签名的时间戳
-                            nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                            signature: data.signature,
-                            jsApiList: [
-                                "onMenuShareTimeline",
-                                "onMenuShareAppMessage",
-                                "onMenuShareQQ",
-                                "onMenuShareWeibo",
-                                "onMenuShareQZone"
-                            ]
-                        });
-                        wx.ready(function () {
-                            //分享给朋友圈
-                            wx.onMenuShareTimeline({
-                                title: sharetitle, // 分享标题
-                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                imgUrl: shareimg, // 分享图标
-                                success: function () {
-                                    // 用户确认分享后执行的回调函数
-                                },
-                                cancel: function () {
-                                    // 用户取消分享后执行的回调函数
-                                }
-                            });
-                            //分享给朋友
-                            wx.onMenuShareAppMessage({
-                                title: sharetitle, // 分享标题
-                                desc: contents, // 分享描述
-                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                imgUrl: shareimg, // 分享图标
-                                type: '', // 分享类型,music、video或link，不填默认为link
-                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                success: function () {
-                                    // 用户确认分享后执行的回调函数
-                                },
-                                cancel: function () {
-                                    // 用户取消分享后执行的回调函数
-                                }
-                            });
-                        });
-                    },
-                    error: function (xhr, type) {
-                        //alert(111);
+                    console.log(isuserid);
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                        "页面类型": "故事详情页",
+                        "页面名称": data.title,
+                        "是否登录": isuserid
+                    });
+
+                    //判断是否收藏
+                    if (userid == 1 || userid == "1") {
+                        $("#star").addClass("favorite-count");
+                        $("#star").remove("favorite-count2");
+                    } else {
+                        if (data.isFavorite == 1) {
+                            $("#star").addClass("favorite-count2");
+                            $("#star").remove("favorite-count");
+                        } else {
+                            $("#star").addClass("favorite-count");
+                            $("#star").remove("favorite-count2");
+                        }
                     }
-                })
+                    //点击收藏（点击之间有时间间隔3000毫秒）
+                    var canClick = true;
+                    $('#star').on('click', function (e) {
+                        if (!canClick) return;
+                        canClick = false;
+                        //app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            // alert(JSON.stringify(result));
+                            // alert("id:" + id + "type:" + 4 + "userid:" + userid);
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                //$api.toast('登陆成功', 2000);
+                                userid = result.data.userId.toString();
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
+                                //alert(userid);
+                                //收藏
+                                var follow = $("#star").attr('class');
+                                if (follow == "favorite-count") {
+                                    $.ajax({
+                                        url: urlport + 'favorite/create',
+                                        type: 'POST',
+                                        data: JSON.stringify({
+                                            "refId": id,
+                                            "type": 4,
+                                            "userId": userid
+                                        }),
+                                        timeout: 5000, //超时时间
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                        success: function (data) {
+                                            console.log(data);
+                                            console.log("111");
+                                            $("#star").addClass("favorite-count2");
+                                            $("#star").removeClass("favorite-count");
+                                            var oldnum = $("#star strong").text();
+                                            $("#star strong").text(parseInt(oldnum) + 1);
+                                            $api.toast('收藏成功！', 3000);
+                                            /*友盟打点：故事收藏*/
+                                            UMAnalyticsAgent.trackWithProperty("h5收藏故事", {
+                                                "故事名称": data.title
+                                            });
+                                        },
+                                        error: function (errorMsg) {
+                                            console.log('错误');
+                                            console.log(errorMsg);
+                                        }
+                                    });
+                                } else if (follow == "favorite-count2") {
+                                    $.ajax({
+                                        url: urlport + 'favorite/cancel',
+                                        type: 'POST',
+                                        data: JSON.stringify({
+                                            "refId": id,
+                                            "type": 4,
+                                            "userId": userid
+                                        }),
+                                        timeout: 5000, //超时时间
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                        success: function (data) {
+                                            console.log(data);
+                                            console.log("222");
+                                            $("#star").removeClass("favorite-count2");
+                                            $("#star").addClass("favorite-count");
+                                            var oldnum = $("#star strong").text();
+                                            $("#star strong").text(parseInt(oldnum) - 1);
+                                            $api.toast('取消收藏！', 3000);
+                                        },
+                                        error: function (errorMsg) {
+                                            console.log('错误');
+                                            console.log(errorMsg);
+                                        }
+                                    });
+                                }
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+
+                        setTimeout(function () {
+                            canClick = true;
+                        }, 3000);
+                    });
+
+                    /*判断是否有视频*/
+                    if (data.video.path == null || data.video.path == "") {
+                        $(".play").css("display", "none");
+                    } else {
+                        $('#videobox').find('#vd').attr('src', data.video.path);
+                    }
+
+                    /*文章内链接加device*/
+                    var qs = 'device=' + device + '&jump=jump';
+                    $content.find('a').each(function () {
+                        var href = $(this).attr('href');
+                        if (href) {
+                            href += (href.match(/\?/) ? '&' : '?') + qs;
+                            $(this).attr('href', href);
+                        }
+                    });
+
+                    /*title取值*/
+                    var txt = data.title;
+                    if (txt == undefined) {
+                        $('head title').text("生活志");
+                    } else {
+                        $('head title').text(data.title);
+                    }
+
+                    /*判断是否有作者*/
+                    if (data.cookList.length == 0) {
+                        $(".author").css("display", "none");
+                    } else {
+                        data.cookList.forEach(function (item, index) {
+                            var el = $('\
+                            <div class="author__info">\
+                                <img src="' + item.picture.path + '">\
+                                <span class="by">By</span>\
+                                <span>' + item.cookName + '</span>\
+                            </div>\
+                          <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
+                        ');
+                            $('.authorbox').append(el);
+                        });
+                    }
+
+                    /*判断是否有推荐阅读*/
+                    if (data.recommendWantFeelList.length == 0) {
+                        $(".recommend").css("display", "none");
+                        $(".recommend").prev().css("display", "none");
+                    }
+                    data.recommendWantFeelList.forEach(function (item, index) {
+                        var el = $('<li class="recommend__info">\
+                    <a href="' + item.url + "&jump=jump&device=" + device + '">\
+                        <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+                        <div class="txtbox">\
+                            <h5 class="titletxt">' + item.title + '</h5>\
+                            <p class="contenttxt">' + item.content + '</p>\
+                            <div class="header__opt2">\
+                               <span class="view-count"><strong>' + item.viewCount + '</strong></span>\
+                               <span class="favorite-count"><strong>' + item.favoriteCount + '</strong></span>\
+                            </div>\
+                        </div>\
+                    </a></li>');
+                        $('.recommend ul').append(el);
+                    });
+
+                    /*GIO参数集合*/
+                    //发布时间
+                    var date = new Date(data.createat);
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    var creattime = Y + M + D + h + m + s;
+                    console.log(creattime);
+
+                    //custom page code begin here
+                    gio("page.set", "story", "故事");//页面类型
+                    gio("page.set", "ID", data.id);//id
+                    gio("page.set", "titlestory", data.title);//标题
+                    gio("page.set", "creattime", creattime);//发布时间
+                    gio("page.set", "type", data.type);//类型
+                    //custom page code end here
+                    gio('send');
+
+                    /*GIO参数集合发送完毕*/
+
+                    /*微信分享专用*/
+                    $.ajax({
+                        type: 'GET',
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: contents, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
+                }
+
+
             }
 
             $.loadComment({

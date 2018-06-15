@@ -96,6 +96,11 @@
     var id = GetQueryString("id");
 
     var device = GetQueryString("device");
+    if (device == null || device == "null") {
+        $(".footer").show();
+    } else {
+        $(".footer").hide();
+    }
     if (device == "ios" || device == "android") {
         var userid;
         var token;
@@ -147,8 +152,10 @@
         function callback(res) {
             data = res.data;
             console.log(res);
+
             var $header = $('.header');
             var $content = $('.content');
+            $content.append(data.content);
             $(".header_img").css("background-image", 'url("' + data.picture.path + '")');
             $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
             $header.find('.header__main .txt').text(data.title);
@@ -158,146 +165,17 @@
             $('.active-rule ul').html(data.rule);
             $(".ft-titles .comment_count").text(data.commentCount);
 
-            /*title取值*/
-            var txt = data.title;
-            if (txt == undefined) {
-                $('head title').text("活动详情");
-            } else {
-                $('head title').text(data.title);
-            }
-
-
-            /*上传菜谱模块*/
-            if (data.buttonStatus == 1 || data.buttonStatus == "1") {
-                $(".footer").hide();
-                $("#menuup").show();
-            } else {
-                $("#menuup").hide();
-                // $(".footer").hide();
-            }
-
-
-            /*友盟埋点-页面访问*/
-            var isuserid;//登录判断
-            if (userid !== 1 && userid !== "1") {
-                isuserid = "是";
-            } else {
-                isuserid = "否";
-            }
-            console.log(isuserid);
-            UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                "页面类型": "活动详情页",
-                "页面名称": data.title,
-                "是否登录": isuserid
-            });
-
-            // $("#menuup a").text(data.buttonText);
-            $("#menuup p span").text(data.buttonCount);
-            $("#menuup .device").unbind().on("click", function () {
-                ft.callMenuUp(function (result) {
-                    //native触发
-                });
-            });
-            $("#menuup a").unbind().on("click", function () {
-                $.ajax({
-                    url: urlport + 'activity/clickCount',
-                    type: 'POST',
-                    data: JSON.stringify({"id": id}),
-                    timeout: 5000, //超时时间
-                    contentType: "application/json;charset=utf-8",
-                    dataType: 'json', //返回的数据格式
-                    success: function (data) {
-                        console.log(data);
-                        callback(data);
-                    },
-                    error: function (errorMsg) {
-                        console.log('错误');
-                        console.log(errorMsg);
-                    }
-                });
-
-                if (device == "ios" || device == "android") {
-                    $(".device").trigger('click');
-                } else {
-                    $(".deeplikopen").trigger('click');
-                }
-            });
-
-            /* 时间戳格式转换 */
-            var starttime = data.startDate;
-            var endtime = data.endDate;
-
-            function add0(m) {
-                return m < 10 ? '0' + m : m
-            }
-
-            function format(starttime) {
-                var time = new Date(starttime);
-                var year = time.getFullYear();
-                var month = time.getMonth() + 1;
-                var date = time.getDate();
-                var hour = time.getHours();
-                var minute = time.getMinutes();
-                return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
-            }
-
-            function format(endtime) {
-                var time = new Date(endtime);
-                var year = time.getFullYear();
-                var month = time.getMonth() + 1;
-                var date = time.getDate();
-                var hour = time.getHours();
-                var minute = time.getMinutes();
-                return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
-            }
-
-            if (data.isshow == 1 || data.isshow == null) {
-                // $header.find('time').text(format(starttime) + '-' + format(endtime));//显示时间戳
-                $header.find('time').text(data.time2);//显示字符串
-            } else {
-                $header.find('time').text();
-            }
-
-            $content.append(data.content);
-
-            /*文章内链接加device，必须放在content内容append后面！*/
-            var qs = 'device=' + device+'&jump=jump';
-            $content.find('a').each(function () {
-                var href = $(this).attr('href');
-                console.log(href);
-                if (href) {
-                    href += (href.match(/\?/) ? '&' : '?') + qs;
-                    $(this).attr('href', href);
-                    console.log(href);
-                }
-            });
-
-            /*GIO参数集合*/
-            //发布时间
-            var date = new Date(data.createat);
-            Y = date.getFullYear() + '-';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes() + ':';
-            s = date.getSeconds();
-            var creattime = Y + M + D + h + m + s;
-            console.log(creattime);
-
-            //custom page code begin here
-            gio("page.set", "activity", "活动");//页面类型
-            gio("page.set", "ID", data.id);//id
-            gio("page.set", "titleactivity", data.title);//标题
-            gio("page.set", "creattime", creattime);//发布时间
-            gio("page.set", "commentCount", data.commentCount);//类型
-            //custom page code end here
-            gio('send');
-
-            /*GIO参数集合发送完毕*/
-
             /*分享链接专用*/
             var sharetitle = data.title;
-            var sharedesc = data.desc;
+            var sharedesc;
+            var contents = $content.text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+            var count = contents.length;
+            if (count > 40) {
+                var nr = contents.substring(0, 40) + "...";
+                sharedesc = nr;
+            } else {
+                sharedesc = contents;
+            }
             var shareimg = data.picture.path;
             var sharestr = data.url;
             var sharelink = sharestr.replace(/api/, "h5");
@@ -309,72 +187,213 @@
                 shareimg: shareimg,
                 sharelink: sharelink
             };
-            window.setTimeout(function () {
-                console.info(jsoninfo);
-                /*APP分享专用*/
-                if (device == null || device == "null") {
-                    console.log("不是APP打开");
+            console.info(jsoninfo);
+            /*APP分享专用*/
+            if (device == null || device == "null") {
+                otherProgramma();
+            } else {
+                ft.shareInfo(jsoninfo, function (result) {
+                    otherProgramma();
+                });
+
+            }
+
+            function otherProgramma() {
+
+                /*title取值*/
+                var txt = data.title;
+                if (txt == undefined) {
+                    $('head title').text("活动详情");
                 } else {
-                    ft.shareInfo(jsoninfo, function (result) {
-                     
+                    $('head title').text(data.title);
+                }
+
+
+                /*上传菜谱模块*/
+                if (data.buttonStatus == 1 || data.buttonStatus == "1") {
+                    $(".footer").hide();
+                    $("#menuup").show();
+                } else {
+                    $("#menuup").hide();
+                    // $(".footer").hide();
+                }
+
+
+                /*友盟埋点-页面访问*/
+                var isuserid;//登录判断
+                if (userid !== 1 && userid !== "1") {
+                    isuserid = "是";
+                } else {
+                    isuserid = "否";
+                }
+                console.log(isuserid);
+                UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                    "页面类型": "活动详情页",
+                    "页面名称": data.title,
+                    "是否登录": isuserid
+                });
+
+                // $("#menuup a").text(data.buttonText);
+                $("#menuup p span").text(data.buttonCount);
+                $("#menuup .device").unbind().on("click", function () {
+                    ft.callMenuUp(function (result) {
+                        //native触发
+                    });
+                });
+                $("#menuup a").unbind().on("click", function () {
+                    $.ajax({
+                        url: urlport + 'activity/clickCount',
+                        type: 'POST',
+                        data: JSON.stringify({"id": id}),
+                        timeout: 5000, //超时时间
+                        contentType: "application/json;charset=utf-8",
+                        dataType: 'json', //返回的数据格式
+                        success: function (data) {
+                            console.log(data);
+                            callback(data);
+                        },
+                        error: function (errorMsg) {
+                            console.log('错误');
+                            console.log(errorMsg);
+                        }
                     });
 
+                    if (device == "ios" || device == "android") {
+                        $(".device").trigger('click');
+                    } else {
+                        $(".deeplikopen").trigger('click');
+                    }
+                });
+
+                /* 时间戳格式转换 */
+                var starttime = data.startDate;
+                var endtime = data.endDate;
+
+                function add0(m) {
+                    return m < 10 ? '0' + m : m
                 }
-            }, 1000);
-            /*微信分享专用*/
-            $.ajax({
-                type: 'GET',
-                url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                success: function (data) {
-                    console.info(data.appId);
-                    wx.config({
-                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                        appId: data.appId, // 必填，公众号的唯一标识
-                        timestamp: data.timestamp, // 必填，生成签名的时间戳
-                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                        signature: data.signature,
-                        jsApiList: [
-                            "onMenuShareTimeline",
-                            "onMenuShareAppMessage",
-                            "onMenuShareQQ",
-                            "onMenuShareWeibo",
-                            "onMenuShareQZone"
-                        ]
-                    });
-                    wx.ready(function () {
-                        //分享给朋友圈
-                        wx.onMenuShareTimeline({
-                            title: sharetitle, // 分享标题
-                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: shareimg, // 分享图标
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                            }
-                        });
-                        //分享给朋友
-                        wx.onMenuShareAppMessage({
-                            title: sharetitle, // 分享标题
-                            desc: sharedesc, // 分享描述
-                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: shareimg, // 分享图标
-                            type: '', // 分享类型,music、video或link，不填默认为link
-                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                            }
-                        });
-                    });
-                },
-                error: function (xhr, type) {
-                    //alert(111);
+
+                function format(starttime) {
+                    var time = new Date(starttime);
+                    var year = time.getFullYear();
+                    var month = time.getMonth() + 1;
+                    var date = time.getDate();
+                    var hour = time.getHours();
+                    var minute = time.getMinutes();
+                    return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
                 }
-            })
+
+                function format(endtime) {
+                    var time = new Date(endtime);
+                    var year = time.getFullYear();
+                    var month = time.getMonth() + 1;
+                    var date = time.getDate();
+                    var hour = time.getHours();
+                    var minute = time.getMinutes();
+                    return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
+                }
+
+                if (data.isshow == 1 || data.isshow == null) {
+                    // $header.find('time').text(format(starttime) + '-' + format(endtime));//显示时间戳
+                    $header.find('time').text(data.time2);//显示字符串
+                } else {
+                    $header.find('time').text();
+                }
+
+
+                /*文章内链接加device，必须放在content内容append后面！*/
+                var qs = 'device=' + device+'&jump=jump';
+                $content.find('a').each(function () {
+                    var href = $(this).attr('href');
+                    console.log(href);
+                    if (href) {
+                        href += (href.match(/\?/) ? '&' : '?') + qs;
+                        $(this).attr('href', href);
+                        console.log(href);
+                    }
+                });
+
+                /*GIO参数集合*/
+                //发布时间
+                var date = new Date(data.createat);
+                Y = date.getFullYear() + '-';
+                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                D = date.getDate() + ' ';
+                h = date.getHours() + ':';
+                m = date.getMinutes() + ':';
+                s = date.getSeconds();
+                var creattime = Y + M + D + h + m + s;
+                console.log(creattime);
+
+                //custom page code begin here
+                gio("page.set", "activity", "活动");//页面类型
+                gio("page.set", "ID", data.id);//id
+                gio("page.set", "titleactivity", data.title);//标题
+                gio("page.set", "creattime", creattime);//发布时间
+                gio("page.set", "commentCount", data.commentCount);//类型
+                //custom page code end here
+                gio('send');
+
+                /*GIO参数集合发送完毕*/
+
+
+                /*微信分享专用*/
+                $.ajax({
+                    type: 'GET',
+                    url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                    success: function (data) {
+                        console.info(data.appId);
+                        wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: data.appId, // 必填，公众号的唯一标识
+                            timestamp: data.timestamp, // 必填，生成签名的时间戳
+                            nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                            signature: data.signature,
+                            jsApiList: [
+                                "onMenuShareTimeline",
+                                "onMenuShareAppMessage",
+                                "onMenuShareQQ",
+                                "onMenuShareWeibo",
+                                "onMenuShareQZone"
+                            ]
+                        });
+                        wx.ready(function () {
+                            //分享给朋友圈
+                            wx.onMenuShareTimeline({
+                                title: sharetitle, // 分享标题
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                            //分享给朋友
+                            wx.onMenuShareAppMessage({
+                                title: sharetitle, // 分享标题
+                                desc: sharedesc, // 分享描述
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                type: '', // 分享类型,music、video或link，不填默认为link
+                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                        });
+                    },
+                    error: function (xhr, type) {
+                        //alert(111);
+                    }
+                })
+            }
+
+
         }
 
         $.loadComment({

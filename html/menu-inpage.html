@@ -277,9 +277,11 @@
 
     var id = GetQueryString("id");
     var device = GetQueryString("device");
-    console.log(device);
+
     if (device == null || device == "null") {
         $(".footer").show();
+    } else {
+        $(".footer").hide();
     }
     if (device == "ios") {
         var userid;
@@ -380,125 +382,7 @@
                     $(".icon-time").next("span").find(".timenum").text(data.data.properties.cooking_time);
                     $(".icon-time").next("span").find(".timetype").text(data.data.properties.time_unit);
                     $(".icon-num").next("span").find("b").text(data.data.fit_number);
-
-                    /*友盟埋点-页面访问*/
-                    var isuserid;//登录判断
-                    if (userid !== 1 && userid !== "1") {
-                        isuserid = "是";
-                    } else {
-                        isuserid = "否";
-                    }
-                    console.log(isuserid);
-                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                        "页面类型": "菜谱详情页",
-                        "页面名称": data.data.name,
-                        "是否登录": isuserid
-                    });
-
-                    /*头图*/
-                    $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
-                    /*判断是否有播放器*/
-                    if (data.data.video == null || data.data.video == "") {
-                        $(".play").hide();
-                    } else {
-                        $(".play").show();
-                        $('#videobox').find('#vd').attr('src', data.data.video);
-                    }
-
-                    /*播放器*/
-                    (function () {
-                        var video = $('#videobox video')[0],
-                            playBtn = $('#videobox .play');
-                        playBtn.on('click', function () {
-                            $(this).hide();
-                            var vheight = $("#videobox video").height();
-                            $('#vd').css({"position": "absolute", "left": "0"});
-                            $('#videobox').css({"position": "fixed"});
-//            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
-//            $(".jf-buy").animate({top: vheight - 1,}, 1000);
-                            $("#videobox").css({height: vheight - 1 + "px",});
-                            $(".jf-buy").css({top: vheight - 1,});
-                            $(".smartLabel").hide();
-                            video.play();
-                            video.controls = true;
-                        });
-
-                        video.addEventListener('ended', function () {
-                            playBtn.show();
-                            video.controls = false;
-                            $('#vd').css({"position": "absolute", "left": "-10rem"});
-                            $('#videobox').css({"position": "absolute"});
-//            $("#videobox").animate({"height": "10rem"}, 1000);
-//            $(".jf-buy").animate({"top": "10rem"}, 1000);
-                            $("#videobox").css({"height": "10rem"});
-                            $(".jf-buy").css({"top": "10rem"});
-                            if (data.data.type == 2) {
-                                $(".smartLabel").show();
-                            }
-                        }, false);
-                        video.addEventListener('pause', function () {
-                            playBtn.hide();
-                            video.controls = true;
-                        }, false);
-                    })();
-
-                    /*判断是否收藏*/
-                    if (userid == 1 || userid == "1") {
-                        $("#star").addClass("icon-msg");
-                        $("#star").removeClass("icon-msg2");
-                    } else {
-                        if (data.data.isFavorite == 1) {
-                            $("#star").addClass("icon-msg2");
-                            $("#star").removeClass("icon-msg");
-                        } else {
-                            $("#star").addClass("icon-msg");
-                            $("#star").removeClass("icon-msg2");
-                        }
-                    }
-
-                    /*判断是否有智能标签*/
-                    if (data.data.type == 2) {
-                        $(".smartLabel").css("display", "block");
-                    } else {
-                        $(".smartLabel").css("display", "none");
-                    }
-
-                    /*判断是否有来源*/
-                    if (data.data.users.length == 0) {
-                        $(".text h5").css("display", "none");
-                    }
-
-                    /*判断是否有智能设备*/
-                    if (data.data.devices.length == 0 || data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
-                        $("#devices").css("display", "none");
-                        $(".jiange:eq(0)").remove();
-                    }
-                    if (data.data.classification.length == 0) {
-                        $("#classification").css("display", "none");
-                        $("#classification").prev(".bottomdiv").css("display", "none");
-                    }
-//                if(ata.data.kitchenwares.length==0){
-//                    $("#kitchenwares").css("display", "none");
-//                }
-                    if (data.data.ready_steps[0].descriptionText == "" && data.data.ready_steps[0].images[0] == "") {
-                        $("#ready_steps").css("display", "none");
-                    }
-                    if (data.data.cooking_steps[0].descriptionText == "" && data.data.cooking_steps[0].images[0] == "") {
-                        $("#cooking_steps").css("display", "none");
-                    }
-                    if (data.data.end_steps[0].descriptionText == "" && data.data.end_steps[0].images[0] == "") {
-                        $("#end_steps").css("display", "none");
-                    }
-
                     $(".instructions").html(data.data.instructions);
-
-                    //唤起智能设备
-                    // $(".callKitchenware").on('click', function (e) {
-                    //     alert("111");
-                    //     ft.callKitchenware({
-                    //         // id: data.device.id
-                    //     })
-                    // });
 
                     /*分享链接专用*/
                     var sharetitle = data.data.name;
@@ -522,72 +406,192 @@
                         shareimg: shareimg,
                         sharelink: sharelink
                     };
-                    window.setTimeout(function () {
-                        console.info(jsoninfo);
-                        /*APP分享专用*/
-                        if (device == null || device == "null") {
-                            console.log("不是APP打开");
+                    console.info(jsoninfo);
+                    /*APP分享专用*/
+                    if (device == null || device == "null") {
+                        otherProgramma();
+                    } else {
+                        ft.shareInfo(jsoninfo, function (result) {
+                            otherProgramma();
+                        });
+
+                    }
+
+                    function otherProgramma() {
+                        /*友盟埋点-页面访问*/
+                        var isuserid;//登录判断
+                        if (userid !== 1 && userid !== "1") {
+                            isuserid = "是";
                         } else {
-                            ft.shareInfo(jsoninfo, function (result) {
-                               
+                            isuserid = "否";
+                        }
+                        console.log(isuserid);
+                        UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                            "页面类型": "菜谱详情页",
+                            "页面名称": data.data.name,
+                            "是否登录": isuserid
+                        });
+
+                        /*头图*/
+                        $(".video").css("background-image", 'url("' + data.data.images[0] + '")');
+                        /*判断是否有播放器*/
+                        if (data.data.video == null || data.data.video == "") {
+                            $(".play").hide();
+                        } else {
+                            $(".play").show();
+                            $('#videobox').find('#vd').attr('src', data.data.video);
+                        }
+
+                        /*播放器*/
+                        (function () {
+                            var video = $('#videobox video')[0],
+                                playBtn = $('#videobox .play');
+                            playBtn.on('click', function () {
+                                $(this).hide();
+                                var vheight = $("#videobox video").height();
+                                $('#vd').css({"position": "absolute", "left": "0"});
+                                $('#videobox').css({"position": "fixed"});
+//            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
+//            $(".jf-buy").animate({top: vheight - 1,}, 1000);
+                                $("#videobox").css({height: vheight - 1 + "px",});
+                                $(".jf-buy").css({top: vheight - 1,});
+                                $(".smartLabel").hide();
+                                video.play();
+                                video.controls = true;
                             });
 
+                            video.addEventListener('ended', function () {
+                                playBtn.show();
+                                video.controls = false;
+                                $('#vd').css({"position": "absolute", "left": "-10rem"});
+                                $('#videobox').css({"position": "absolute"});
+//            $("#videobox").animate({"height": "10rem"}, 1000);
+//            $(".jf-buy").animate({"top": "10rem"}, 1000);
+                                $("#videobox").css({"height": "10rem"});
+                                $(".jf-buy").css({"top": "10rem"});
+                                if (data.data.type == 2) {
+                                    $(".smartLabel").show();
+                                }
+                            }, false);
+                            video.addEventListener('pause', function () {
+                                playBtn.hide();
+                                video.controls = true;
+                            }, false);
+                        })();
+
+                        /*判断是否收藏*/
+                        if (userid == 1 || userid == "1") {
+                            $("#star").addClass("icon-msg");
+                            $("#star").removeClass("icon-msg2");
+                        } else {
+                            if (data.data.isFavorite == 1) {
+                                $("#star").addClass("icon-msg2");
+                                $("#star").removeClass("icon-msg");
+                            } else {
+                                $("#star").addClass("icon-msg");
+                                $("#star").removeClass("icon-msg2");
+                            }
                         }
-                    }, 1000);
-                    /*微信分享专用*/
-                    $.ajax({
-                        type: 'GET',
-                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                        success: function (data) {
-                            console.info(data.appId);
-                            wx.config({
-                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                                appId: data.appId, // 必填，公众号的唯一标识
-                                timestamp: data.timestamp, // 必填，生成签名的时间戳
-                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                                signature: data.signature,
-                                jsApiList: [
-                                    "onMenuShareTimeline",
-                                    "onMenuShareAppMessage",
-                                    "onMenuShareQQ",
-                                    "onMenuShareWeibo",
-                                    "onMenuShareQZone"
-                                ]
-                            });
-                            wx.ready(function () {
-                                //分享给朋友圈
-                                wx.onMenuShareTimeline({
-                                    title: sharetitle, // 分享标题
-                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                    imgUrl: shareimg, // 分享图标
-                                    success: function () {
-                                        // 用户确认分享后执行的回调函数
-                                    },
-                                    cancel: function () {
-                                        // 用户取消分享后执行的回调函数
-                                    }
-                                });
-                                //分享给朋友
-                                wx.onMenuShareAppMessage({
-                                    title: sharetitle, // 分享标题
-                                    desc: contents, // 分享描述
-                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                    imgUrl: shareimg, // 分享图标
-                                    type: '', // 分享类型,music、video或link，不填默认为link
-                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                    success: function () {
-                                        // 用户确认分享后执行的回调函数
-                                    },
-                                    cancel: function () {
-                                        // 用户取消分享后执行的回调函数
-                                    }
-                                });
-                            });
-                        },
-                        error: function (xhr, type) {
-                            //alert(111);
+
+                        /*判断是否有智能标签*/
+                        if (data.data.type == 2) {
+                            $(".smartLabel").css("display", "block");
+                        } else {
+                            $(".smartLabel").css("display", "none");
                         }
-                    })
+
+                        /*判断是否有来源*/
+                        if (data.data.users.length == 0) {
+                            $(".text h5").css("display", "none");
+                        }
+
+                        /*判断是否有智能设备*/
+                        if (data.data.devices.length == 0 || data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
+                            $("#devices").css("display", "none");
+                            $(".jiange:eq(0)").remove();
+                        }
+                        if (data.data.classification.length == 0) {
+                            $("#classification").css("display", "none");
+                            $("#classification").prev(".bottomdiv").css("display", "none");
+                        }
+//                if(ata.data.kitchenwares.length==0){
+//                    $("#kitchenwares").css("display", "none");
+//                }
+                        if (data.data.ready_steps[0].descriptionText == "" && data.data.ready_steps[0].images[0] == "") {
+                            $("#ready_steps").css("display", "none");
+                        }
+                        if (data.data.cooking_steps[0].descriptionText == "" && data.data.cooking_steps[0].images[0] == "") {
+                            $("#cooking_steps").css("display", "none");
+                        }
+                        if (data.data.end_steps[0].descriptionText == "" && data.data.end_steps[0].images[0] == "") {
+                            $("#end_steps").css("display", "none");
+                        }
+
+                        //唤起智能设备
+                        // $(".callKitchenware").on('click', function (e) {
+                        //     alert("111");
+                        //     ft.callKitchenware({
+                        //         // id: data.device.id
+                        //     })
+                        // });
+
+                        /*微信分享专用*/
+                        $.ajax({
+                            type: 'GET',
+                            url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                            success: function (data) {
+                                console.info(data.appId);
+                                wx.config({
+                                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                    appId: data.appId, // 必填，公众号的唯一标识
+                                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                    signature: data.signature,
+                                    jsApiList: [
+                                        "onMenuShareTimeline",
+                                        "onMenuShareAppMessage",
+                                        "onMenuShareQQ",
+                                        "onMenuShareWeibo",
+                                        "onMenuShareQZone"
+                                    ]
+                                });
+                                wx.ready(function () {
+                                    //分享给朋友圈
+                                    wx.onMenuShareTimeline({
+                                        title: sharetitle, // 分享标题
+                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                        imgUrl: shareimg, // 分享图标
+                                        success: function () {
+                                            // 用户确认分享后执行的回调函数
+                                        },
+                                        cancel: function () {
+                                            // 用户取消分享后执行的回调函数
+                                        }
+                                    });
+                                    //分享给朋友
+                                    wx.onMenuShareAppMessage({
+                                        title: sharetitle, // 分享标题
+                                        desc: contents, // 分享描述
+                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                        imgUrl: shareimg, // 分享图标
+                                        type: '', // 分享类型,music、video或link，不填默认为link
+                                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                        success: function () {
+                                            // 用户确认分享后执行的回调函数
+                                        },
+                                        cancel: function () {
+                                            // 用户取消分享后执行的回调函数
+                                        }
+                                    });
+                                });
+                            },
+                            error: function (xhr, type) {
+                                //alert(111);
+                            }
+                        })
+                    }
+
+
                 }
 
             },

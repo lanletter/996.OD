@@ -154,6 +154,7 @@
         }
 
         var id = GetQueryString("id");
+        var device = GetQueryString("device");
 
         $api.post(urlport + 'store/detail', {
             id: id
@@ -185,191 +186,6 @@
             $header.find('.service-time time').text(data.serviceTime);
             $('.site-service ul').html(data.remark);
 
-            /* 判断是否能预约场馆 */
-            if (data.type == 1) {
-                $(".mark").show();
-            } else {
-                $(".mark").hide();
-            }
-
-            /*title取值*/
-            var txt = data.title;
-            if (txt == undefined) {
-                $('head title').text("场馆详情");
-            } else {
-                $('head title').text(data.title);
-            }
-
-            /*友盟埋点-页面访问*/
-            // var isuserid;//登录判断
-            // if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
-            // console.log(isuserid);
-            // UMAnalyticsAgent.trackWithProperty("h5页面访问",{
-            //     "页面类型":"场馆详情页",
-            //     "页面名称": data.storeName,
-            //     "是否登录":isuserid
-            // });
-
-//      data.storeServices.forEach(function(item, index) {
-//        var item = $('<li>' + item.serviceName + '</li>');
-//        $('.site-service ul').append(item);
-//      });
-
-            if (data.storePictures.length == 0) {
-                $(".site-pic").css({display: "none"});
-            }
-            /*图集*/
-            data.storePictures.forEach(function (item, index) {
-                if (item.remark != null) {
-                    var img = $('<div class="swiper-slide">\
-                    <figure>\
-                <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
-                <figcaption>' + item.remark + '</figcaption>\
-                </figure>\
-                </div>');
-                } else {
-                    var img = $('<div class="swiper-slide">\
-                    <figure>\
-              <img class="overlayimg" src="../img/Overlay Copy 2.png">\
-              <img src="' + item.picture.path + '">\
-              </figure>\
-              </div>');
-                }
-                $('.swiper-wrapper').append(img);
-
-            });
-
-            /*轮播图效果*/
-            var swiper2 = new Swiper('.swiper-container2', {
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                paginationClickable: true,
-                spaceBetween: 20,
-                observer: true,//修改swiper自己或子元素时，自动初始化swiper
-                observeParents: false,//修改swiper的父元素时，自动初始化swiper
-                onSlideChangeEnd: function (swiper) {
-                    swiper.update();
-                    swiper2.startAutoplay();
-                },
-                pagination: '.pagination',
-                paginationType: 'custom',
-                paginationCustomRender: function (swiper, current, total) {
-                    var _html = '';
-                    for (var i = 1; i <= total; i++) {
-                        if (current == i) {
-                            _html += '<li class="swiper-pagination-custom active"></li>';
-                        } else {
-                            _html += '<li class="swiper-pagination-custom"></li>';
-                        }
-                    }
-                    return _html;//返回所有的页码html
-                }
-            });
-
-
-            $('.mark').on('click', function () {
-                $('.order-pop').show();
-                $('.name').val("");
-                $('.tel').val("");
-                $('.order-type button').removeClass('check');
-                $('.order-time').val("");
-                $('.des').val("");
-                disableScroll = true;//禁止滚动
-                $("html,body").css({overflow: "hidden"}); //禁用滚动条
-                $(".mark").hide();
-            });
-
-
-            +function () {
-                var curr = new Date().getFullYear();
-                var opt = {
-                    display: "bottom",
-                    lang: "zh",
-                    maxDate: new Date(2100, 3, 10, 9, 22),
-                    minDate: new Date(),
-                    mode: "scroller",
-                    preset: "datetime",
-                    stepMinute: 5,
-                    theme: "ios"
-                };
-
-                $('.order-time').val('').scroller('destroy').scroller(opt);
-            }();
-
-            +function () {
-                $('.order-type').on('click', 'button', function (e) {
-                    $(e.target).toggleClass('check');
-                })
-            }();
-
-            $('.do-order').on('click', function () {
-                var orderInfo = $('.pop'),
-                    name = orderInfo.find('.name').val().trim(),
-                    tel = orderInfo.find('.tel').val().trim(),
-                    type = orderInfo.find('.order-type .check').text(),
-                    time = orderInfo.find('.order-time').val().trim(),
-                    des = orderInfo.find('.des').val();
-
-                /*时间戳转时间*/
-                var str = time.toString();
-                str = str.replace(/-/g, '/');
-                var date = new Date(str);
-                var time2 = date.getTime(str);
-
-                if (!name) {
-                    alert('请输入姓名');
-                    return;
-                }
-                if (!tel || !/^\d{7,}$/.test(tel)) {
-                    alert('请正确输入联系方式');
-                    return;
-                }
-                if (orderInfo.find('.order-type .check').length == 0) {
-                    alert('请选择预约类型');
-                    return;
-                }
-                var typestring = orderInfo.find('.order-type .check a').text();
-                // if(typestring=="场地参观"){
-                //     type=1;
-                // }else if(typestring=="场地租赁"){
-                //     type=2;
-                // }else if(typestring=="定制课程"){
-                //     type=3;
-                // }
-                if (!time) {
-                    alert('请选择预约时间');
-                    return;
-                }
-
-                console.log({
-                    name: name,
-                    tel: tel,
-                    serviceId: typestring,
-                    time: time2,
-                    remark: des,
-                    storeId: data.id
-                });
-                $api.post(urlport + 'user/appoint', {
-                    name: name,
-                    tel: tel,
-                    serviceId: typestring,
-                    time: time2,
-                    remark: des,
-                    storeId: data.id
-                }, function (data) {
-                    console.log(data);
-                    $('.order-pop').hide();
-                    disableScroll = false;//允许滚动
-                    $("html,body").css({overflow: "auto"}); //启用滚动条
-                    $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
-                })
-            });
-            $('.close').on('click', function () {
-                $('.order-pop').hide();
-                $(".mark").show();
-                disableScroll = false;//允许滚动
-                $("html,body").css({overflow: "auto"}); //启用滚动条
-            });
 
             /*分享链接专用*/
             var sharetitle = data.storeName;
@@ -393,70 +209,261 @@
                 shareimg: shareimg,
                 sharelink: sharelink
             };
-            window.setTimeout(function () {
-                if (device == null || device == "null") {
-                    console.log("不是APP打开");
-                } else {
-                    ft.shareInfo(jsoninfo, function (result) {
-                      
-                    });
+            console.info(jsoninfo);
+            /*APP分享专用*/
+            if (device == null || device == "null") {
+                otherProgramma();
+            } else {
+                ft.shareInfo(jsoninfo, function (result) {
+                    otherProgramma();
+                });
 
+            }
+
+            function otherProgramma() {
+                /* 判断是否能预约场馆 */
+                if (data.type == 1) {
+                    $(".mark").show();
+                } else {
+                    $(".mark").hide();
                 }
-            }, 1000);
-            /*微信分享专用*/
-            $.ajax({
-                type: 'GET',
-                url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                success: function (data) {
-                    console.info(data.appId);
-                    wx.config({
-                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                        appId: data.appId, // 必填，公众号的唯一标识
-                        timestamp: data.timestamp, // 必填，生成签名的时间戳
-                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                        signature: data.signature,
-                        jsApiList: [
-                            "onMenuShareTimeline",
-                            "onMenuShareAppMessage",
-                            "onMenuShareQQ",
-                            "onMenuShareWeibo",
-                            "onMenuShareQZone"
-                        ]
-                    });
-                    wx.ready(function () {
-                        //分享给朋友圈
-                        wx.onMenuShareTimeline({
-                            title: sharetitle, // 分享标题
-                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: shareimg, // 分享图标
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                            }
-                        });
-                        //分享给朋友
-                        wx.onMenuShareAppMessage({
-                            title: sharetitle, // 分享标题
-                            desc: contents, // 分享描述
-                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: shareimg, // 分享图标
-                            type: '', // 分享类型,music、video或link，不填默认为link
-                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                            }
-                        });
-                    });
-                },
-                error: function (xhr, type) {
-                    //alert(111);
+
+                /*title取值*/
+                var txt = data.title;
+                if (txt == undefined) {
+                    $('head title').text("场馆详情");
+                } else {
+                    $('head title').text(data.title);
                 }
-            })
+
+                /*友盟埋点-页面访问*/
+                // var isuserid;//登录判断
+                // if(userid !==1 && userid !=="1"){ isuserid = "是"; }else { isuserid = "否"; }
+                // console.log(isuserid);
+                // UMAnalyticsAgent.trackWithProperty("h5页面访问",{
+                //     "页面类型":"场馆详情页",
+                //     "页面名称": data.storeName,
+                //     "是否登录":isuserid
+                // });
+
+//      data.storeServices.forEach(function(item, index) {
+//        var item = $('<li>' + item.serviceName + '</li>');
+//        $('.site-service ul').append(item);
+//      });
+
+                if (data.storePictures.length == 0) {
+                    $(".site-pic").css({display: "none"});
+                }
+                /*图集*/
+                data.storePictures.forEach(function (item, index) {
+                    if (item.remark != null) {
+                        var img = $('<div class="swiper-slide">\
+                    <figure>\
+                <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+                <figcaption>' + item.remark + '</figcaption>\
+                </figure>\
+                </div>');
+                    } else {
+                        var img = $('<div class="swiper-slide">\
+                    <figure>\
+              <img class="overlayimg" src="../img/Overlay Copy 2.png">\
+              <img src="' + item.picture.path + '">\
+              </figure>\
+              </div>');
+                    }
+                    $('.swiper-wrapper').append(img);
+
+                });
+
+                /*轮播图效果*/
+                var swiper2 = new Swiper('.swiper-container2', {
+                    slidesPerView: 'auto',
+                    centeredSlides: true,
+                    paginationClickable: true,
+                    spaceBetween: 20,
+                    observer: true,//修改swiper自己或子元素时，自动初始化swiper
+                    observeParents: false,//修改swiper的父元素时，自动初始化swiper
+                    onSlideChangeEnd: function (swiper) {
+                        swiper.update();
+                        swiper2.startAutoplay();
+                    },
+                    pagination: '.pagination',
+                    paginationType: 'custom',
+                    paginationCustomRender: function (swiper, current, total) {
+                        var _html = '';
+                        for (var i = 1; i <= total; i++) {
+                            if (current == i) {
+                                _html += '<li class="swiper-pagination-custom active"></li>';
+                            } else {
+                                _html += '<li class="swiper-pagination-custom"></li>';
+                            }
+                        }
+                        return _html;//返回所有的页码html
+                    }
+                });
+
+
+                $('.mark').on('click', function () {
+                    $('.order-pop').show();
+                    $('.name').val("");
+                    $('.tel').val("");
+                    $('.order-type button').removeClass('check');
+                    $('.order-time').val("");
+                    $('.des').val("");
+                    disableScroll = true;//禁止滚动
+                    $("html,body").css({overflow: "hidden"}); //禁用滚动条
+                    $(".mark").hide();
+                });
+
+
+                +function () {
+                    var curr = new Date().getFullYear();
+                    var opt = {
+                        display: "bottom",
+                        lang: "zh",
+                        maxDate: new Date(2100, 3, 10, 9, 22),
+                        minDate: new Date(),
+                        mode: "scroller",
+                        preset: "datetime",
+                        stepMinute: 5,
+                        theme: "ios"
+                    };
+
+                    $('.order-time').val('').scroller('destroy').scroller(opt);
+                }();
+
+                +function () {
+                    $('.order-type').on('click', 'button', function (e) {
+                        $(e.target).toggleClass('check');
+                    })
+                }();
+
+                $('.do-order').on('click', function () {
+                    var orderInfo = $('.pop'),
+                        name = orderInfo.find('.name').val().trim(),
+                        tel = orderInfo.find('.tel').val().trim(),
+                        type = orderInfo.find('.order-type .check').text(),
+                        time = orderInfo.find('.order-time').val().trim(),
+                        des = orderInfo.find('.des').val();
+
+                    /*时间戳转时间*/
+                    var str = time.toString();
+                    str = str.replace(/-/g, '/');
+                    var date = new Date(str);
+                    var time2 = date.getTime(str);
+
+                    if (!name) {
+                        alert('请输入姓名');
+                        return;
+                    }
+                    if (!tel || !/^\d{7,}$/.test(tel)) {
+                        alert('请正确输入联系方式');
+                        return;
+                    }
+                    if (orderInfo.find('.order-type .check').length == 0) {
+                        alert('请选择预约类型');
+                        return;
+                    }
+                    var typestring = orderInfo.find('.order-type .check a').text();
+                    // if(typestring=="场地参观"){
+                    //     type=1;
+                    // }else if(typestring=="场地租赁"){
+                    //     type=2;
+                    // }else if(typestring=="定制课程"){
+                    //     type=3;
+                    // }
+                    if (!time) {
+                        alert('请选择预约时间');
+                        return;
+                    }
+
+                    console.log({
+                        name: name,
+                        tel: tel,
+                        serviceId: typestring,
+                        time: time2,
+                        remark: des,
+                        storeId: data.id
+                    });
+                    $api.post(urlport + 'user/appoint', {
+                        name: name,
+                        tel: tel,
+                        serviceId: typestring,
+                        time: time2,
+                        remark: des,
+                        storeId: data.id
+                    }, function (data) {
+                        console.log(data);
+                        $('.order-pop').hide();
+                        disableScroll = false;//允许滚动
+                        $("html,body").css({overflow: "auto"}); //启用滚动条
+                        $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
+                    })
+                });
+                $('.close').on('click', function () {
+                    $('.order-pop').hide();
+                    $(".mark").show();
+                    disableScroll = false;//允许滚动
+                    $("html,body").css({overflow: "auto"}); //启用滚动条
+                });
+
+                /*微信分享专用*/
+                $.ajax({
+                    type: 'GET',
+                    url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                    success: function (data) {
+                        console.info(data.appId);
+                        wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId: data.appId, // 必填，公众号的唯一标识
+                            timestamp: data.timestamp, // 必填，生成签名的时间戳
+                            nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                            signature: data.signature,
+                            jsApiList: [
+                                "onMenuShareTimeline",
+                                "onMenuShareAppMessage",
+                                "onMenuShareQQ",
+                                "onMenuShareWeibo",
+                                "onMenuShareQZone"
+                            ]
+                        });
+                        wx.ready(function () {
+                            //分享给朋友圈
+                            wx.onMenuShareTimeline({
+                                title: sharetitle, // 分享标题
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                            //分享给朋友
+                            wx.onMenuShareAppMessage({
+                                title: sharetitle, // 分享标题
+                                desc: contents, // 分享描述
+                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: shareimg, // 分享图标
+                                type: '', // 分享类型,music、video或link，不填默认为link
+                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                }
+                            });
+                        });
+                    },
+                    error: function (xhr, type) {
+                        //alert(111);
+                    }
+                })
+            }
+
+
         });
     });
 </script>
