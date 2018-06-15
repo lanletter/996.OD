@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="深链接test">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/html/video-short.html" afterPath="$PROJECT_DIR$/html/video-short.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,6 +25,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/video-short.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4605">
+              <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/menudetail.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -64,16 +75,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video-tab.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/video-tab.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="81" column="28" lean-forward="true" selection-start-line="81" selection-start-column="28" selection-end-line="81" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="video-share.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/video-share.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,7 +85,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activealbum.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activealbum.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activealbum.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="443">
@@ -245,7 +246,6 @@
         <option value="$PROJECT_DIR$/html/coursealbum.html" />
         <option value="$PROJECT_DIR$/html/fotile-temporary/multithreading.html" />
         <option value="$PROJECT_DIR$/js/ft.js" />
-        <option value="$PROJECT_DIR$/html/video-short.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/html/sitedetail.html" />
         <option value="$PROJECT_DIR$/html/video-share.html" />
@@ -257,6 +257,7 @@
         <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
         <option value="$PROJECT_DIR$/html/activedetail.html" />
         <option value="$PROJECT_DIR$/html/activealbum.html" />
+        <option value="$PROJECT_DIR$/html/video-short.html" />
       </list>
     </option>
   </component>
@@ -537,14 +538,7 @@
       <workItem from="1528943140543" duration="27039000" />
       <workItem from="1529037033658" duration="1518000" />
       <workItem from="1529044696612" duration="2661000" />
-      <workItem from="1529051072428" duration="8364000" />
-    </task>
-    <task id="LOCAL-00153" summary="深链接test，分享优化">
-      <created>1528965258835</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1528965258835</updated>
+      <workItem from="1529051072428" duration="8613000" />
     </task>
     <task id="LOCAL-00154" summary="深链接test">
       <created>1528965426998</created>
@@ -882,11 +876,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529059978815</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行">
+      <created>1529060065521</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1529060065521</updated>
+    </task>
+    <option name="localTasksCounter" value="203" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2447847000" />
+    <option name="totallyTimeSpent" value="2448096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -930,7 +931,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="430上线代码" />
     <MESSAGE value="430发布后更新" />
     <MESSAGE value="V430上线后存档" />
     <MESSAGE value="430菜谱H5补充" />
@@ -955,7 +955,8 @@
     <MESSAGE value="深链接test，分享优化" />
     <MESSAGE value="分享交互test" />
     <MESSAGE value="深链接test" />
-    <option name="LAST_COMMIT_MESSAGE" value="深链接test" />
+    <MESSAGE value="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行" />
+    <option name="LAST_COMMIT_MESSAGE" value="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1316,14 +1317,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-short.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="92" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/video-tab.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="463">
@@ -1423,6 +1416,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="443">
           <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-short.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4605">
+          <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
           <folding />
         </state>
       </provider>
