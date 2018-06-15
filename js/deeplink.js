@@ -134,7 +134,7 @@
             function openlink() {
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                alert(deeplinkurl);
+                // alert(deeplinkurl);
                 window.location.href = deeplinkurl;
                 /***打开app的协议***/
                 window.setTimeout(function () {
