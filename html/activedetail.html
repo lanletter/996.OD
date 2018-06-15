@@ -261,7 +261,7 @@
             $content.append(data.content);
 
             /*文章内链接加device，必须放在content内容append后面！*/
-            var qs = 'device=' + device;
+            var qs = 'device=' + device+'&jump=jump';
             $content.find('a').each(function () {
                 var href = $(this).attr('href');
                 console.log(href);

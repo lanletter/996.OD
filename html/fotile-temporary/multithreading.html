@@ -15,14 +15,16 @@
             background-repeat: no-repeat;
         }
         #btn{
-            width: 1.6rem;
-            height: 0.6rem;
+            width: 2.4rem;
+            height: 0.8rem;
             position: absolute;
-            top: 11.91rem;
+            bottom: 0.8rem;
             left: 50%;
-            margin-left:-0.8rem;
-            background: none;
+            margin-left:-1.2rem;
             border-radius: 0.6rem;
+            background-image: url(UnknownBtn.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -30,9 +32,7 @@
 
 <button id="btn"></button>
 <script type="text/javascript" src='../../js/lib.js'></script>
-<script type="text/javascript" src='../../js/api.js'></script>
 <script type="text/javascript" src='../../js/ft.js'></script>
-<script src="../../js/url.js"></script>
 <script>
     $("#btn").on("click",function (object) {
         ft.multithreadedCooking(function (result) {
