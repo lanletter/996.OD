@@ -118,10 +118,10 @@
       <file leaf-file-name="deeplink.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/deeplink.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+            <state relative-caret-position="333">
+              <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
               <folding>
-                <marker date="1529070282001" expanded="true" signature="5312:5327" ph="..." />
+                <marker date="1529070481762" expanded="true" signature="5379:5394" ph="..." />
               </folding>
             </state>
           </provider>
@@ -512,14 +512,7 @@
       <workItem from="1528943140543" duration="27039000" />
       <workItem from="1529037033658" duration="1518000" />
       <workItem from="1529044696612" duration="2661000" />
-      <workItem from="1529051072428" duration="15008000" />
-    </task>
-    <task id="LOCAL-00165" summary="深链接test">
-      <created>1528969021638</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1528969021638</updated>
+      <workItem from="1529051072428" duration="15212000" />
     </task>
     <task id="LOCAL-00166" summary="深链接test">
       <created>1528969272940</created>
@@ -857,11 +850,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529069903007</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="bug">
+      <created>1529070294618</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1529070294618</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2454491000" />
+    <option name="totallyTimeSpent" value="2454695000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -1394,10 +1394,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/deeplink.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="42" column="41" lean-forward="false" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+        <state relative-caret-position="333">
+          <caret line="41" column="12" lean-forward="true" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
           <folding>
-            <marker date="1529070282001" expanded="true" signature="5312:5327" ph="..." />
+            <marker date="1529070481762" expanded="true" signature="5379:5394" ph="..." />
           </folding>
         </state>
       </provider>
