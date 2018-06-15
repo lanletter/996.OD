@@ -151,12 +151,8 @@
                     } else {
                         ft.shareInfo(jsoninfo, function (result) {
                             var errorcode = result.errorCode.toString();
-                            //alert(errorcode);
+                            alert(errorcode);
                             if (errorcode == "1") {
-                                userid = result.data.userId.toString();
-                                if (userid !== "1" && userid !== 1) {
-                                    token = result.data.token.toString();
-                                }
                                 otherProgramma();
                             } else {
                                 alert("错误");
