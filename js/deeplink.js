@@ -19,21 +19,45 @@
         }
 
         // alert(GetPageName());
-
-        console.log({
-            "id": GetQueryString("id"),
-            "action": GetPageName(),
-            "weburl": window.location.host + window.location.pathname
-        });
         /*页面参数（页面类型+id）*/
         var id = GetQueryString("id");
         var refid = GetQueryString("id");
         var action = GetPageName();
+        // switch (action)
+        // {
+        //     case "":action="今天是星期日";
+        //         break;
+        //     case 1:x="今天是星期一";
+        //         break;
+        //     case 2:x="今天是星期二";
+        //         break;
+        //     case 3:x="今天是星期三";
+        //         break;
+        //     case 4:x="今天是星期四";
+        //         break;
+        //     case 5:x="今天是星期五";
+        //         break;
+        //     case 6:x="今天是星期六";
+        //         break;
+        // }
         var weburl = window.location.host + window.location.pathname;
         var imageURL = "";
         var shareTitle = "";
         var shareSubTitle = "";
         var iostype = "";
+
+
+        console.log({
+            "id": id,
+            "action": action,
+            "weburl": weburl,
+            "refid": refid,
+            "imageURL": imageURL,
+            "shareTitle": shareTitle,
+            "shareSubTitle": shareSubTitle,
+            "iostype": iostype
+        });
+
         var urlright = "?action=" + encodeURIComponent(action) +
             "&id=" + encodeURIComponent(id) +
             "&weburl=" + encodeURIComponent(weburl) +
@@ -42,6 +66,8 @@
             "&shareTitle=" + encodeURIComponent(shareTitle) +
             "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
             "&iostype=" + encodeURIComponent(iostype);
+
+        console.log(urlright);
 
         /*判断是IOS还是Android机型*/
         var u = navigator.userAgent;
@@ -109,7 +135,7 @@
             function openlink() {
                 /*深链接打开*/
                 var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                // alert(deeplinkurl);
+                alert(deeplinkurl);
                 window.location.href = deeplinkurl;
                 /***打开app的协议***/
                 window.setTimeout(function () {
