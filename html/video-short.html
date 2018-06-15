@@ -66,7 +66,7 @@
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
 <script src="../js/ft.js"></script>
-<script src="../js/UMAnalytics.js"></script>
+<!--<script src="../js/UMAnalytics.js"></script>-->
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
@@ -131,10 +131,10 @@
                     console.info($this.data);
 
                     /*友盟埋点-页面访问*/
-                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                        "页面类型": "短视频详情",
-                        "页面名称": data.data.title
-                    });
+//                  UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+//                      "页面类型": "短视频详情",
+//                      "页面名称": data.data.title
+//                  });
 
                     document.setTitle = function (t) {
                         document.title = t;
@@ -287,19 +287,19 @@
 
                         }
                     });
-                    // $(window).load(function(){
-                    //     alert("页面加载完毕！");
-                    //     console.info(jsoninfo);
-                    //     /*APP分享专用*/
-                    //     if (device == null || device == "null") {
-                    //         console.log("不是APP打开");
-                    //     } else {
-                    //         ft.shareInfo(jsoninfo, function (result) {
-                    //
-                    //         });
-                    //
-                    //     }
-                    // });
+                    $(window).load(function(){
+                        alert("页面加载完毕！");
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+
+                            });
+
+                        }
+                    });
                     // window.setTimeout(function () {
                     //     console.info(jsoninfo);
                     //     /*APP分享专用*/
