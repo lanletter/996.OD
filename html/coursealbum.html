@@ -79,8 +79,10 @@
 
     var id = GetQueryString("id");
     var device = GetQueryString("device");
-    if (device == "ios" || device == "android") {
-        $(".footer").css("display", "none");
+    if (device == null || device == "null") {
+        $(".footer").show();
+    } else {
+        $(".footer").hide();
     }
     var vm = new Vue({
         el: '.banner',

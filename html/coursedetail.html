@@ -266,6 +266,11 @@
 
     var id = GetQueryString("id");
     var device = GetQueryString("device");
+    if (device == null || device == "null") {
+        $(".footer").show();
+    } else {
+        $(".footer").hide();
+    }
     if (device == "ios" || device == "android") {
         var userid;
         var token;
@@ -317,7 +322,6 @@
             data = res.data;
             console.log(data);
 
-
             $("#foo").on("click", function () {
                 var id = data.id;
                 var lng = data.store.lng;
@@ -365,6 +369,488 @@
                 $('head title').text(data.title);
             }
 
+            /*友盟埋点-页面访问*/
+            var isuserid;//登录判断
+            if (userid !== 1 && userid !== "1") {
+                isuserid = "是";
+            } else {
+                isuserid = "否";
+            }
+            console.log(isuserid);
+            UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                "页面类型": "课程详情页",
+                "页面名称": data.curriculumName,
+                "是否登录": isuserid
+            });
+
+            /* 时间戳格式转换 */
+            var starttime = data.startTime;
+            var endtime = data.endTime;
+
+            function add0(m) {
+                return m < 10 ? '0' + m : m
+            }
+
+            function datatime(starttime) {
+                var time = new Date(starttime);
+                var month = time.getMonth() + 1;
+                var date = time.getDate();
+                var week = time.getDay();
+                switch (time.getDay()) {
+                    case 0:
+                        week = "日";
+                        break
+                    case 1:
+                        week = "一";
+                        break
+                    case 2:
+                        week = "二";
+                        break
+                    case 3:
+                        week = "三";
+                        break
+                    case 4:
+                        week = "四";
+                        break
+                    case 5:
+                        week = "五";
+                        break
+                    case 6:
+                        week = "六";
+                        break
+                }
+                ;
+                return add0(month) + '月' + add0(date) + '日 周' + week;
+            }
+
+            function datatime2(starttime) {
+                var time = new Date(starttime);
+                var year = time.getYear() + 1900;
+                var month = time.getMonth() + 1;
+                var date = time.getDate();
+                var week = time.getDay();
+                switch (time.getDay()) {
+                    case 0:
+                        week = "日";
+                        break;
+                    case 1:
+                        week = "一";
+                        break;
+                    case 2:
+                        week = "二";
+                        break;
+                    case 3:
+                        week = "三";
+                        break;
+                    case 4:
+                        week = "四";
+                        break;
+                    case 5:
+                        week = "五";
+                        break;
+                    case 6:
+                        week = "六";
+                        break
+                }
+                return add0(year) + '年' + add0(month) + '月' + add0(date) + '日 周' + week + ' ';
+
+            }
+
+            function hourtime(starttime, endtime) {
+                var time = new Date(starttime);
+                var hours = time.getHours();
+                var minutes = time.getMinutes();
+                if (minutes < 10) {
+                    minutes = "0" + minutes;
+                }
+                var time2 = new Date(endtime);
+                var hours2 = time2.getHours();
+                var minutes2 = time2.getMinutes();
+                if (minutes2 < 10) {
+                    minutes2 = "0" + minutes2;
+                }
+                return hours + ':' + minutes + '-' + hours2 + ':' + minutes2;
+
+            }
+
+            $content.find('.course-time-date').text(datatime(starttime));
+            $content.find('.course-time-hour').text(hourtime(starttime, endtime));
+
+
+            $api.imgAdapt($buyedit.find('.titlepic'), data.picture.path);
+            $buyedit.find('.titletxt p').text(data.curriculumName);
+            $buyedit.find('.editlist .time').text(datatime2(starttime) + hourtime(starttime, endtime));
+            $buyedit.find('.editlist .name').text(data.store.storeName);
+            $buyedit.find('.editlist .place').text(data.store.detailAddress);
+            $buyedit.find('.editlist .lightgrey b').text(remaining);
+            $buyedit.find('.ttprice span b').text(data.price);
+            $buyedit.find('.ttprice s b').text(data.price);
+            var remark = $('#remarks').val();
+
+            switch (data.status) {
+                case 'NEW': // 起售
+
+                case 'PRE': // 预售
+                    $('.dis').hide();
+                    $('.first').show();
+                    $('.last').show();
+                    $('.buy b').text(parseInt(data.price).toFixed(2));
+                    break;
+                case 'EXD': // 已开课
+                    $('.first').hide();
+                    $('.last').hide();
+                    $('.dis').show();
+                    $('.dis').text('已开课');
+                    break;
+                case 'DON': //已售罄
+                    $('.first').hide();
+                    $('.last').hide();
+                    $('.dis').show();
+                    $('.dis').text('已售罄');
+                    break;
+                case 'DBL': // 已失效
+                    $('.first').hide();
+                    $('.last').hide();
+                    $('.dis').show();
+                    $('.dis').text('已失效');
+                    break;
+                default:
+                    console.log('no');
+
+            }
+
+            if (device == "ios" || device == "android") {
+                $('.buynow').on('click', function () {
+                    $('.numbox .num').text("1");
+                    $('#allprice').text(data.price);
+                    $('#remarks').val("");
+                    $('.dark-bg').show();
+                    $('.buynow-div').show();
+                    $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+                    document.addEventListener("ontouchmove", function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+
+                    });
+                    disableScroll = true;//禁止滚动
+                });
+                $('#close-div').on('click', function () {
+                    $('.dark-bg').hide();
+                    $('.buynow-div').hide();
+                    $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+                    disableScroll = false;//允许滚动
+                });
+                //app交互——加购物车
+                $("#addToCart").on("click", function () {
+                    if (data.status == "NEW") {
+                        ft.addToCart({
+                            refId: data.id,
+                            type: 1,
+                            count: 1
+                        }, function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                $api.toast('加入购物车成功', 2000);
+                            } else if (errorcode == "0") {
+                                $api.toast('加入购物车取消', 2000);
+                            } else if (errorcode == "-1") {
+                                $api.toast('加入购物车失败', 2000);
+                            } else if (errorcode == "-2") {
+                                $api.toast('加入购物车不支持', 2000);
+                            }
+                        })
+                    } else {
+                        return;
+                    }
+                });
+            } else {
+                $('.buynow').on('click', function () {
+                    var h5url = "courseform.html?id=" + id;
+//                  alert(h5url);
+                    $.cookie('id', id);
+                    $.cookie('h5url', h5url);
+                    var loginurl = "login.html";
+                    window.location.href = loginurl;
+                });
+                $("#addToCart").on("click", function () {
+                    window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                });
+            }
+            //app交互——获取优惠券
+            $("#selectCoupon").on("click", function () {
+                // coupontype = 1;
+                // couponumber = 2222;
+                // alert(coupontype);
+                // alert(couponumber);
+                // $('.coupontype').text(coupontype);
+                // $('.couponumber').text(couponumber);
+                // setmax();
+                ft.selectCoupon(function (result) {
+                    var errorcode = result.errorCode.toString();
+                    if (errorcode == "1") {
+                        //$api.toast('获取优惠券成功', 2000);
+                        coupontype = result.data.type.toString();
+                        couponumber = result.data.number.toString();
+                        $('.coupontype').text(coupontype);
+                        $('.couponumber').text(couponumber);
+                        if (coupontype == "1") {
+                        } else if (coupontype == "2") {
+                        }
+                        setmax();
+                    } else if (errorcode == "0") {
+                        //$api.toast('获取优惠券取消', 2000);
+                        coupontype = 0;
+                        couponumber = 0;
+                        $('.coupontype').text(coupontype);
+                        $('.couponumber').text(couponumber);
+                        setmax();
+                    } else if (errorcode == "-1") {
+                        $api.toast('获取优惠券失败', 2000);
+                    } else if (errorcode == "-2") {
+                        $api.toast('获取优惠券不支持', 2000);
+                    }
+                })
+            });
+
+            /*数量加减  金额计算*/
+            var oUl = document.getElementsByClassName('numbox')[0];
+            var aLi = oUl.getElementsByTagName('li');
+            var ttbox = document.getElementsByClassName('totalbox')[0];
+            var oldprice = document.getElementById('oldprice');
+            var allprice = document.getElementById('allprice');
+            var coupontype = document.getElementsByClassName('coupontype');
+            var couponumber = document.getElementsByClassName('couponumber');
+            var couponprice;
+            var total = 0;
+            var countprice = data.price;
+            for (var i = 0; i < aLi.length; i++) {
+                shop(aLi[i]);
+            }
+
+            function shop(obj, num, price) {
+                var aInp = obj.getElementsByTagName('input');
+                var aSpan = obj.getElementsByTagName('span');
+                var num = parseInt(aSpan[0].innerHTML);
+                var price = data.price;
+                aInp[0].onclick = function () {
+                    if (num <= 1) return;
+                    num--;
+                    aSpan[0].innerHTML = num;
+                    total--;
+                    countprice -= price;
+                    oldprice.innerHTML = countprice;
+                    allprice.innerHTML = countprice;
+                    setmax()
+                };
+                aInp[1].onclick = function () {
+                    if (num >= remaining) return;
+                    num++;
+                    aSpan[0].innerHTML = num;
+                    total++;
+                    countprice += price;
+                    oldprice.innerHTML = countprice;
+                    allprice.innerHTML = countprice;
+                    setmax()
+                };
+
+            }
+
+            function setmax() {
+                //allprice = 0;
+                var price = data.price;
+                if (coupontype == "1") {
+                    $('#selectCoupon').text('全额抵扣券');
+                    couponprice = countprice - price;
+                    allprice.innerHTML = couponprice;
+                    (couponprice < 0) ? (allprice = 0) : (allprice = couponprice);
+                } else if (coupontype == "2" && price <= 300) {
+                    $('#selectCoupon').text('300元抵扣券');
+                    couponprice = countprice - price;
+                    allprice.innerHTML = couponprice;
+                    (couponprice < 0) ? (allprice = 0) : (allprice = couponprice);
+                } else if (coupontype == "2" && price > 300) {
+                    alert("优惠券不支持");
+                    return;
+                } else if (coupontype == "0") {
+                    $('#selectCoupon').text('不使用抵扣券');
+                    allprice.innerHTML = countprice;
+                    allprice = countprice;
+                } else {
+                    allprice.innerHTML = countprice;
+                    allprice = countprice;
+                }
+                document.getElementById('allprice').innerHTML = allprice;
+                //alert(countprice);
+            }
+
+            //app交互——直接购买
+            $("#purchase").on("click", function () {
+                console.log(
+                    "id:" + data.id + '|' +
+                    "num:" + $('.numbox .num').text() + '|' +
+                    "type:" + 1 + '|' +
+                    "coupontype:" + coupontype + '|' +
+                    "price:" + data.price + '|' +
+                    "voucher:" + couponumber.toString() + '|' +
+                    "remark:" + $('#remarks').val() + '|' +
+                    "picturepath:" + data.picture.path + '|' +
+                    "name:" + data.curriculumName + '|' +
+                    "oldPrice:" + $('#oldprice').text() + '|' +
+                    "newPrice:" + $('#allprice').text() + '|' +
+                    "starttime:" + data.startDate + '|' +
+                    "address1:" + data.store.storeName + '|' +
+                    "address2:" + data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
+                );
+                ft.purchase({
+                    id: data.id,
+                    num: $('.numbox .num').text(),
+                    price: data.price,
+                    type: 1,
+                    coupontype: $('.coupontype').text(),
+                    voucher: couponumber.toString(),
+                    remark: $('#remarks').val(),
+                    picturepath: data.picture.path,
+                    name: data.curriculumName,
+                    oldprice: $('#oldprice').text(),
+                    newprice: $('#allprice').text(),
+                    starttime: data.startDate,
+                    address1: data.store.storeName,
+                    address2: data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress,
+                }, function (result) {
+                })
+            });
+
+            data.cooks.forEach(function (item, index) {
+                var cooker = $('<section class="author teacher">\
+                <div class="author__info">\
+                    <img src="' + item.picture.path + '">\
+                    <span>\
+                      <b>' + item.cookName + '</b>\
+                      <strong class="text-overflow say">' + item.remark + '</strong>\
+                    </span>\
+                  <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
+                </div>\
+              </section>');
+                $('.teacher-box').append(cooker);
+            });
+            if (data.cooks.length == 0) {
+                $(".teacher-box").hide();
+                $(".bgGroup").hide();
+                $(".title").css({"margin-bottom": "0.6rem"})
+            }
+
+            //         data.menuList.forEach(function (item, index) {
+            //             var img = $('<figure>\
+            //   <img class="overlayimg" src="../img/Overlay Copy 2.png">\
+            //   <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+            //   <figcaption>' + item.remark + '</figcaption>\
+            // </figure>');
+            //             $('.site-pic').append(img);
+            //         });
+
+            if (data.menuList.length == 0) {
+                $(".site-pic").css({display: "none"});
+            }
+            /*场馆图集*/
+            data.menuList.forEach(function (item, index) {
+                if (item.remark != null) {
+                    var img = $('<div class="swiper-slide">\
+                            <figure>\
+                            <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+                            <figcaption>' + item.remark + '</figcaption>\
+                            </figure>\
+                            </div>');
+                } else {
+                    var img = $('<div class="swiper-slide">\
+                            <figure>\
+                            <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+                            </figure>\
+                            </div>');
+                }
+                $('.swiper-wrapper').append(img);
+
+            });
+
+            /*轮播图效果*/
+            var swiper2 = new Swiper('.swiper-container2', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                paginationClickable: true,
+                spaceBetween: 20,
+                observer: true,//修改swiper自己或子元素时，自动初始化swiper
+                observeParents: false,//修改swiper的父元素时，自动初始化swiper
+                onSlideChangeEnd: function (swiper) {
+                    swiper.update();
+                    swiper2.startAutoplay();
+                },
+                pagination: '.pagination',
+                paginationType: 'custom',
+                paginationCustomRender: function (swiper, current, total) {
+                    var _html = '';
+                    for (var i = 1; i <= total; i++) {
+                        if (current == i) {
+                            _html += '<li class="swiper-pagination-custom active"></li>';
+                        } else {
+                            _html += '<li class="swiper-pagination-custom"></li>';
+                        }
+                    }
+                    return _html;//返回所有的页码html
+                }
+            });
+
+            /*GIO参数集合*/
+
+            //发布时间+开课时间
+            function timechange(time) {
+                var date = new Date(time);
+                Y = date.getFullYear() + '-';
+                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                D = date.getDate() + ' ';
+                h = date.getHours() + ':';
+                m = date.getMinutes() + ':';
+                s = date.getSeconds();
+                var creattime = Y + M + D + h + m + s;
+                return creattime;
+            }
+
+            console.log(timechange(data.createat));
+            console.log(timechange(data.startDate));
+
+            //有无导师
+            if (typeof(data.cooks[0]) == "undefined") {
+                var cooker = "";
+            } else {
+                var cooker = data.cooks[0].cookName;
+            }
+
+            console.log({
+                "onlinecourse": "课程",
+                "ID": data.id,
+                "curriculumName": data.curriculumName,
+                "creattime": timechange(data.createat),
+                "commentCount": data.commentCount,
+                "cookName": cooker,
+                "currentCount": data.currentCount,
+                "price": data.price,
+                "styleType": data.styleType,
+                "startDate": timechange(data.startDate)
+            })
+            //custom page code begin here
+            gio("page.set", "onlinecourse", "课程");//页面类型
+            gio("page.set", "ID", data.id);//页面类型
+            gio("page.set", "curriculumName", data.curriculumName);//标题
+            gio("page.set", "creattime", timechange(data.createat));//发布时间
+            gio("page.set", "commentCount", data.commentCount);//评论数
+            gio("page.set", "cookName", cooker);//导师
+            gio("page.set", "currentCount", data.currentCount);//购买数
+            gio("page.set", "price", data.price);//金额
+            gio("page.set", "styleType", data.styleType);//菜式类别
+            gio("page.set", "startDate", timechange(data.startDate));//开课时间
+            //custom page code end here
+            gio('send');
+
+            /*GIO参数集合发送完毕*/
+
             /*分享链接专用*/
             var sharetitle = data.curriculumName;
             var sharedesc;
@@ -387,558 +873,106 @@
                 shareimg: shareimg,
                 sharelink: sharelink
             };
-            console.info(jsoninfo);
-            /*APP分享专用*/
-            if (device == null || device == "null") {
-                otherProgramma();
-            } else {
-                ft.shareInfo(jsoninfo, function (result) {
-                    otherProgramma();
-                });
-
-            }
-
-            function otherProgramma() {
-                /*友盟埋点-页面访问*/
-                var isuserid;//登录判断
-                if (userid !== 1 && userid !== "1") {
-                    isuserid = "是";
+            window.setTimeout(function () {
+                console.info(jsoninfo);
+                /*APP分享专用*/
+                if (device == null || device == "null") {
+                    console.log("不是APP打开");
                 } else {
-                    isuserid = "否";
-                }
-                console.log(isuserid);
-                UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                    "页面类型": "课程详情页",
-                    "页面名称": data.curriculumName,
-                    "是否登录": isuserid
-                });
-
-                /* 时间戳格式转换 */
-                var starttime = data.startTime;
-                var endtime = data.endTime;
-
-                function add0(m) {
-                    return m < 10 ? '0' + m : m
-                }
-
-                function datatime(starttime) {
-                    var time = new Date(starttime);
-                    var month = time.getMonth() + 1;
-                    var date = time.getDate();
-                    var week = time.getDay();
-                    switch (time.getDay()) {
-                        case 0:
-                            week = "日";
-                            break
-                        case 1:
-                            week = "一";
-                            break
-                        case 2:
-                            week = "二";
-                            break
-                        case 3:
-                            week = "三";
-                            break
-                        case 4:
-                            week = "四";
-                            break
-                        case 5:
-                            week = "五";
-                            break
-                        case 6:
-                            week = "六";
-                            break
-                    }
-                    ;
-                    return add0(month) + '月' + add0(date) + '日 周' + week;
-                }
-
-                function datatime2(starttime) {
-                    var time = new Date(starttime);
-                    var year = time.getYear() + 1900;
-                    var month = time.getMonth() + 1;
-                    var date = time.getDate();
-                    var week = time.getDay();
-                    switch (time.getDay()) {
-                        case 0:
-                            week = "日";
-                            break;
-                        case 1:
-                            week = "一";
-                            break;
-                        case 2:
-                            week = "二";
-                            break;
-                        case 3:
-                            week = "三";
-                            break;
-                        case 4:
-                            week = "四";
-                            break;
-                        case 5:
-                            week = "五";
-                            break;
-                        case 6:
-                            week = "六";
-                            break
-                    }
-                    return add0(year) + '年' + add0(month) + '月' + add0(date) + '日 周' + week + ' ';
-
-                }
-
-                function hourtime(starttime, endtime) {
-                    var time = new Date(starttime);
-                    var hours = time.getHours();
-                    var minutes = time.getMinutes();
-                    if (minutes < 10) {
-                        minutes = "0" + minutes;
-                    }
-                    var time2 = new Date(endtime);
-                    var hours2 = time2.getHours();
-                    var minutes2 = time2.getMinutes();
-                    if (minutes2 < 10) {
-                        minutes2 = "0" + minutes2;
-                    }
-                    return hours + ':' + minutes + '-' + hours2 + ':' + minutes2;
-
-                }
-
-                $content.find('.course-time-date').text(datatime(starttime));
-                $content.find('.course-time-hour').text(hourtime(starttime, endtime));
-
-
-                $api.imgAdapt($buyedit.find('.titlepic'), data.picture.path);
-                $buyedit.find('.titletxt p').text(data.curriculumName);
-                $buyedit.find('.editlist .time').text(datatime2(starttime) + hourtime(starttime, endtime));
-                $buyedit.find('.editlist .name').text(data.store.storeName);
-                $buyedit.find('.editlist .place').text(data.store.detailAddress);
-                $buyedit.find('.editlist .lightgrey b').text(remaining);
-                $buyedit.find('.ttprice span b').text(data.price);
-                $buyedit.find('.ttprice s b').text(data.price);
-                var remark = $('#remarks').val();
-
-                switch (data.status) {
-                    case 'NEW': // 起售
-
-                    case 'PRE': // 预售
-                        $('.dis').hide();
-                        $('.first').show();
-                        $('.last').show();
-                        $('.buy b').text(parseInt(data.price).toFixed(2));
-                        break;
-                    case 'EXD': // 已开课
-                        $('.first').hide();
-                        $('.last').hide();
-                        $('.dis').show();
-                        $('.dis').text('已开课');
-                        break;
-                    case 'DON': //已售罄
-                        $('.first').hide();
-                        $('.last').hide();
-                        $('.dis').show();
-                        $('.dis').text('已售罄');
-                        break;
-                    case 'DBL': // 已失效
-                        $('.first').hide();
-                        $('.last').hide();
-                        $('.dis').show();
-                        $('.dis').text('已失效');
-                        break;
-                    default:
-                        console.log('no');
-
-                }
-
-                if (device == "ios" || device == "android") {
-                    $('.buynow').on('click', function () {
-                        $('.numbox .num').text("1");
-                        $('#allprice').text(data.price);
-                        $('#remarks').val("");
-                        $('.dark-bg').show();
-                        $('.buynow-div').show();
-                        $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
-                        document.addEventListener("ontouchmove", function (e) {
-                            e.preventDefault();
-                            e.stopPropagation();
-
-                        });
-                        disableScroll = true;//禁止滚动
+                    ft.shareInfo(jsoninfo, function (result) {
+                       
                     });
-                    $('#close-div').on('click', function () {
-                        $('.dark-bg').hide();
-                        $('.buynow-div').hide();
-                        $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
-                        disableScroll = false;//允许滚动
-                    });
-                    //app交互——加购物车
-                    $("#addToCart").on("click", function () {
-                        if (data.status == "NEW") {
-                            ft.addToCart({
-                                refId: data.id,
-                                type: 1,
-                                count: 1
-                            }, function (result) {
-                                var errorcode = result.errorCode.toString();
-                                if (errorcode == "1") {
-                                    $api.toast('加入购物车成功', 2000);
-                                } else if (errorcode == "0") {
-                                    $api.toast('加入购物车取消', 2000);
-                                } else if (errorcode == "-1") {
-                                    $api.toast('加入购物车失败', 2000);
-                                } else if (errorcode == "-2") {
-                                    $api.toast('加入购物车不支持', 2000);
-                                }
-                            })
-                        } else {
-                            return;
-                        }
-                    });
-                } else {
-                    $('.buynow').on('click', function () {
-                        var h5url = "courseform.html?id=" + id;
-//                  alert(h5url);
-                        $.cookie('id', id);
-                        $.cookie('h5url', h5url);
-                        var loginurl = "login.html";
-                        window.location.href = loginurl;
-                    });
-                    $("#addToCart").on("click", function () {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
-                    });
+
                 }
-                //app交互——获取优惠券
-                $("#selectCoupon").on("click", function () {
-                    // coupontype = 1;
-                    // couponumber = 2222;
-                    // alert(coupontype);
-                    // alert(couponumber);
-                    // $('.coupontype').text(coupontype);
-                    // $('.couponumber').text(couponumber);
-                    // setmax();
-                    ft.selectCoupon(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            //$api.toast('获取优惠券成功', 2000);
-                            coupontype = result.data.type.toString();
-                            couponumber = result.data.number.toString();
-                            $('.coupontype').text(coupontype);
-                            $('.couponumber').text(couponumber);
-                            if (coupontype == "1") {
-                            } else if (coupontype == "2") {
+            }, 1000);
+            /*微信分享专用*/
+            $.ajax({
+                type: 'GET',
+                url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                success: function (data) {
+                    console.info(data.appId);
+                    wx.config({
+                        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                        appId: data.appId, // 必填，公众号的唯一标识
+                        timestamp: data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.signature,
+                        jsApiList: [
+                            "onMenuShareTimeline",
+                            "onMenuShareAppMessage",
+                            "onMenuShareQQ",
+                            "onMenuShareWeibo",
+                            "onMenuShareQZone"
+                        ]
+                    });
+                    wx.ready(function () {
+                        //分享给朋友圈
+                        wx.onMenuShareTimeline({
+                            title: sharetitle, // 分享标题
+                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: shareimg, // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
                             }
-                            setmax();
-                        } else if (errorcode == "0") {
-                            //$api.toast('获取优惠券取消', 2000);
-                            coupontype = 0;
-                            couponumber = 0;
-                            $('.coupontype').text(coupontype);
-                            $('.couponumber').text(couponumber);
-                            setmax();
-                        } else if (errorcode == "-1") {
-                            $api.toast('获取优惠券失败', 2000);
-                        } else if (errorcode == "-2") {
-                            $api.toast('获取优惠券不支持', 2000);
-                        }
-                    })
-                });
-
-                /*数量加减  金额计算*/
-                var oUl = document.getElementsByClassName('numbox')[0];
-                var aLi = oUl.getElementsByTagName('li');
-                var ttbox = document.getElementsByClassName('totalbox')[0];
-                var oldprice = document.getElementById('oldprice');
-                var allprice = document.getElementById('allprice');
-                var coupontype = document.getElementsByClassName('coupontype');
-                var couponumber = document.getElementsByClassName('couponumber');
-                var couponprice;
-                var total = 0;
-                var countprice = data.price;
-                for (var i = 0; i < aLi.length; i++) {
-                    shop(aLi[i]);
-                }
-
-                function shop(obj, num, price) {
-                    var aInp = obj.getElementsByTagName('input');
-                    var aSpan = obj.getElementsByTagName('span');
-                    var num = parseInt(aSpan[0].innerHTML);
-                    var price = data.price;
-                    aInp[0].onclick = function () {
-                        if (num <= 1) return;
-                        num--;
-                        aSpan[0].innerHTML = num;
-                        total--;
-                        countprice -= price;
-                        oldprice.innerHTML = countprice;
-                        allprice.innerHTML = countprice;
-                        setmax()
-                    };
-                    aInp[1].onclick = function () {
-                        if (num >= remaining) return;
-                        num++;
-                        aSpan[0].innerHTML = num;
-                        total++;
-                        countprice += price;
-                        oldprice.innerHTML = countprice;
-                        allprice.innerHTML = countprice;
-                        setmax()
-                    };
-
-                }
-
-                function setmax() {
-                    //allprice = 0;
-                    var price = data.price;
-                    if (coupontype == "1") {
-                        $('#selectCoupon').text('全额抵扣券');
-                        couponprice = countprice - price;
-                        allprice.innerHTML = couponprice;
-                        (couponprice < 0) ? (allprice = 0) : (allprice = couponprice);
-                    } else if (coupontype == "2" && price <= 300) {
-                        $('#selectCoupon').text('300元抵扣券');
-                        couponprice = countprice - price;
-                        allprice.innerHTML = couponprice;
-                        (couponprice < 0) ? (allprice = 0) : (allprice = couponprice);
-                    } else if (coupontype == "2" && price > 300) {
-                        alert("优惠券不支持");
-                        return;
-                    } else if (coupontype == "0") {
-                        $('#selectCoupon').text('不使用抵扣券');
-                        allprice.innerHTML = countprice;
-                        allprice = countprice;
-                    } else {
-                        allprice.innerHTML = countprice;
-                        allprice = countprice;
-                    }
-                    document.getElementById('allprice').innerHTML = allprice;
-                    //alert(countprice);
-                }
-
-                //app交互——直接购买
-                $("#purchase").on("click", function () {
-                    console.log(
-                        "id:" + data.id + '|' +
-                        "num:" + $('.numbox .num').text() + '|' +
-                        "type:" + 1 + '|' +
-                        "coupontype:" + coupontype + '|' +
-                        "price:" + data.price + '|' +
-                        "voucher:" + couponumber.toString() + '|' +
-                        "remark:" + $('#remarks').val() + '|' +
-                        "picturepath:" + data.picture.path + '|' +
-                        "name:" + data.curriculumName + '|' +
-                        "oldPrice:" + $('#oldprice').text() + '|' +
-                        "newPrice:" + $('#allprice').text() + '|' +
-                        "starttime:" + data.startDate + '|' +
-                        "address1:" + data.store.storeName + '|' +
-                        "address2:" + data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress
-                    );
-                    ft.purchase({
-                        id: data.id,
-                        num: $('.numbox .num').text(),
-                        price: data.price,
-                        type: 1,
-                        coupontype: $('.coupontype').text(),
-                        voucher: couponumber.toString(),
-                        remark: $('#remarks').val(),
-                        picturepath: data.picture.path,
-                        name: data.curriculumName,
-                        oldprice: $('#oldprice').text(),
-                        newprice: $('#allprice').text(),
-                        starttime: data.startDate,
-                        address1: data.store.storeName,
-                        address2: data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress,
-                    }, function (result) {
-                    })
-                });
-
-                data.cooks.forEach(function (item, index) {
-                    var cooker = $('<section class="author teacher">\
-                <div class="author__info">\
-                    <img src="' + item.picture.path + '">\
-                    <span>\
-                      <b>' + item.cookName + '</b>\
-                      <strong class="text-overflow say">' + item.remark + '</strong>\
-                    </span>\
-                  <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
-                </div>\
-              </section>');
-                    $('.teacher-box').append(cooker);
-                });
-                if (data.cooks.length == 0) {
-                    $(".teacher-box").hide();
-                    $(".bgGroup").hide();
-                    $(".title").css({"margin-bottom": "0.6rem"})
-                }
-
-                //         data.menuList.forEach(function (item, index) {
-                //             var img = $('<figure>\
-                //   <img class="overlayimg" src="../img/Overlay Copy 2.png">\
-                //   <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
-                //   <figcaption>' + item.remark + '</figcaption>\
-                // </figure>');
-                //             $('.site-pic').append(img);
-                //         });
-
-                if (data.menuList.length == 0) {
-                    $(".site-pic").css({display: "none"});
-                }
-                /*场馆图集*/
-                data.menuList.forEach(function (item, index) {
-                    if (item.remark != null) {
-                        var img = $('<div class="swiper-slide">\
-                            <figure>\
-                            <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
-                            <figcaption>' + item.remark + '</figcaption>\
-                            </figure>\
-                            </div>');
-                    } else {
-                        var img = $('<div class="swiper-slide">\
-                            <figure>\
-                            <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
-                            </figure>\
-                            </div>');
-                    }
-                    $('.swiper-wrapper').append(img);
-
-                });
-
-                /*轮播图效果*/
-                var swiper2 = new Swiper('.swiper-container2', {
-                    slidesPerView: 'auto',
-                    centeredSlides: true,
-                    paginationClickable: true,
-                    spaceBetween: 20,
-                    observer: true,//修改swiper自己或子元素时，自动初始化swiper
-                    observeParents: false,//修改swiper的父元素时，自动初始化swiper
-                    onSlideChangeEnd: function (swiper) {
-                        swiper.update();
-                        swiper2.startAutoplay();
-                    },
-                    pagination: '.pagination',
-                    paginationType: 'custom',
-                    paginationCustomRender: function (swiper, current, total) {
-                        var _html = '';
-                        for (var i = 1; i <= total; i++) {
-                            if (current == i) {
-                                _html += '<li class="swiper-pagination-custom active"></li>';
-                            } else {
-                                _html += '<li class="swiper-pagination-custom"></li>';
+                        });
+                        //分享给朋友
+                        wx.onMenuShareAppMessage({
+                            title: sharetitle, // 分享标题
+                            desc: contents, // 分享描述
+                            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: shareimg, // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
                             }
-                        }
-                        return _html;//返回所有的页码html
-                    }
-                });
-
-                /*GIO参数集合*/
-
-                //发布时间+开课时间
-                function timechange(time) {
-                    var date = new Date(time);
-                    Y = date.getFullYear() + '-';
-                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-                    D = date.getDate() + ' ';
-                    h = date.getHours() + ':';
-                    m = date.getMinutes() + ':';
-                    s = date.getSeconds();
-                    var creattime = Y + M + D + h + m + s;
-                    return creattime;
-                }
-
-                console.log(timechange(data.createat));
-                console.log(timechange(data.startDate));
-
-                //有无导师
-                if (typeof(data.cooks[0]) == "undefined") {
-                    var cooker = "";
-                } else {
-                    var cooker = data.cooks[0].cookName;
-                }
-
-                console.log({
-                    "onlinecourse": "课程",
-                    "ID": data.id,
-                    "curriculumName": data.curriculumName,
-                    "creattime": timechange(data.createat),
-                    "commentCount": data.commentCount,
-                    "cookName": cooker,
-                    "currentCount": data.currentCount,
-                    "price": data.price,
-                    "styleType": data.styleType,
-                    "startDate": timechange(data.startDate)
-                })
-                //custom page code begin here
-                gio("page.set", "onlinecourse", "课程");//页面类型
-                gio("page.set", "ID", data.id);//页面类型
-                gio("page.set", "curriculumName", data.curriculumName);//标题
-                gio("page.set", "creattime", timechange(data.createat));//发布时间
-                gio("page.set", "commentCount", data.commentCount);//评论数
-                gio("page.set", "cookName", cooker);//导师
-                gio("page.set", "currentCount", data.currentCount);//购买数
-                gio("page.set", "price", data.price);//金额
-                gio("page.set", "styleType", data.styleType);//菜式类别
-                gio("page.set", "startDate", timechange(data.startDate));//开课时间
-                //custom page code end here
-                gio('send');
-
-                /*GIO参数集合发送完毕*/
-
-                /*微信分享专用*/
-                $.ajax({
-                    type: 'GET',
-                    url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                    success: function (data) {
-                        console.info(data.appId);
-                        wx.config({
-                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                            appId: data.appId, // 必填，公众号的唯一标识
-                            timestamp: data.timestamp, // 必填，生成签名的时间戳
-                            nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                            signature: data.signature,
-                            jsApiList: [
-                                "onMenuShareTimeline",
-                                "onMenuShareAppMessage",
-                                "onMenuShareQQ",
-                                "onMenuShareWeibo",
-                                "onMenuShareQZone"
-                            ]
                         });
-                        wx.ready(function () {
-                            //分享给朋友圈
-                            wx.onMenuShareTimeline({
-                                title: sharetitle, // 分享标题
-                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                imgUrl: shareimg, // 分享图标
-                                success: function () {
-                                    // 用户确认分享后执行的回调函数
-                                },
-                                cancel: function () {
-                                    // 用户取消分享后执行的回调函数
-                                }
-                            });
-                            //分享给朋友
-                            wx.onMenuShareAppMessage({
-                                title: sharetitle, // 分享标题
-                                desc: contents, // 分享描述
-                                link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                imgUrl: shareimg, // 分享图标
-                                type: '', // 分享类型,music、video或link，不填默认为link
-                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                success: function () {
-                                    // 用户确认分享后执行的回调函数
-                                },
-                                cancel: function () {
-                                    // 用户取消分享后执行的回调函数
-                                }
-                            });
-                        });
-                    },
-                    error: function (xhr, type) {
-                        //alert(111);
-                    }
-                })
-            }
-
-
+                    });
+                },
+                error: function (xhr, type) {
+                    //alert(111);
+                }
+            })
         }
+
+        /*关注厨师*/
+        // $('.course-info').on('click', '.add-care', function (e) {
+        //     var id = $(e.target).data('id'),
+        //         follow = $(e.target).data('follow');
+        //     if (follow) {
+        //         $api.post(urlport + 'follow/cookCancel', {
+        //             "refId": id,
+        //             "type": 2,
+        //             "userId": 85507
+        //         }, function (data) {
+        //             $(e.target).data('follow', false).text('加关注');
+        //         });
+        //     } else {
+        //         $api.post(urlport + 'follow/cook', {
+        //             "refId": id,
+        //             "type": 2,
+        //             "userId": 85507
+        //         }, function (data) {
+        //             $(e.target).data('follow', true).text('已关注');
+        //         });
+        //     }
+        // });
+
+        // $('.able').on('click', function (e) {
+        //     var id = $(e.target).data('id');
+        //     $api.post(urlport + 'shoppingCart/create', {
+        //         "count": 2,
+        //         "refId": 662,
+        //         "type": 1,
+        //         "userId": 41
+        //     });
+        // });
 
         $.loadComment({
             "pageNum": 1,

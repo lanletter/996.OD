@@ -148,31 +148,31 @@
                         $(".video .play").hide();
                     }
 
-                    // /*分享链接专用*/
-                    // var sharetitle = data.data.videoName;
-                    // var sharedesc = data.data.desc;
-                    // var shareimg = data.data.picture;
-                    // var sharestr = window.location.href;
-                    // var sharelink = sharestr.replace(/api/, "h5");
-                    // var jsoninfo = {
-                    //     id: 1111,
-                    //     type: 11,
-                    //     sharetitle: sharetitle,
-                    //     sharedesc: sharedesc,
-                    //     shareimg: shareimg,
-                    //     sharelink: sharelink
-                    // };
-                    // window.setTimeout(function () {
-                    //     console.info(jsoninfo);
-                    //     /*APP分享专用*/
-                    //     if (device == null || device == "null") {
-                    //         console.log("不是APP打开");
-                    //     } else {
-                    //         ft.shareInfo(jsoninfo, function (result) {
-                    //
-                    //         });
-                    //     }
-                    // }, 1000);
+                    /*分享链接专用*/
+                    var sharetitle = data.data.videoName;
+                    var sharedesc = data.data.desc;
+                    var shareimg = data.data.picture;
+                    var sharestr = window.location.href;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    var jsoninfo = {
+                        id: 1111,
+                        type: 11,
+                        sharetitle: sharetitle,
+                        sharedesc: sharedesc,
+                        shareimg: shareimg,
+                        sharelink: sharelink
+                    };
+                    window.setTimeout(function () {
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+
+                            });
+                        }
+                    }, 1000);
                     /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
