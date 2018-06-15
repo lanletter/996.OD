@@ -18,14 +18,14 @@
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/video-short.css?ver=420" rel="stylesheet">
     <title>短视频详情</title>
-    <script>
-        !function (e, t, n, g, i) {
-            e[i] = e[i] || function () {
-                (e[i].q = e[i].q || []).push(arguments)
-            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
-        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
-        gio('init', '80624a28abff7348', {});
-    </script>
+    <!--<script>-->
+        <!--!function (e, t, n, g, i) {-->
+            <!--e[i] = e[i] || function () {-->
+                <!--(e[i].q = e[i].q || []).push(arguments)-->
+            <!--}, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)-->
+        <!--}(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");-->
+        <!--gio('init', '80624a28abff7348', {});-->
+    <!--</script>-->
 </head>
 <body style="overflow-x: hidden;">
 <video id="vdtest" controls="controls" src="" poster="" style="width: 100%;display: none;">
@@ -250,14 +250,14 @@
                     console.log(creattime);
 
                     //custom page code begin here
-                    gio("page.set", "shortvideo", "短视频");//页面类型
-                    gio("page.set", "ID", $this.data.id);//id
-                    gio("page.set", "titlesv", $this.data.title);//标题
-                    gio("page.set", "type", type);//类型
-                    gio("page.set", "creattime", creattime);//发布时间
-                    gio("page.set", "time", $this.data.time);//视频时长
-                    //custom page code end here
-                    gio('send');
+                    // gio("page.set", "shortvideo", "短视频");//页面类型
+                    // gio("page.set", "ID", $this.data.id);//id
+                    // gio("page.set", "titlesv", $this.data.title);//标题
+                    // gio("page.set", "type", type);//类型
+                    // gio("page.set", "creattime", creattime);//发布时间
+                    // gio("page.set", "time", $this.data.time);//视频时长
+                    // //custom page code end here
+                    // gio('send');
 
                     /*GIO参数集合发送完毕*/
 
@@ -281,7 +281,7 @@
                         if (device == null || device == "null") {
                             console.log("不是APP打开");
                         } else {
-                            ft.shareInfo(jsoninfo, function (result) {
+                            ft.isLogin2(function (result) {
 
                             });
 
