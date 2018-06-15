@@ -232,40 +232,6 @@
                         //     console.log(Math.round(minTime));
                         // },2000);
 
-
-                        $.ajax({
-                            type: 'POST',
-                            url: urlport + "/videoShort/recommend",
-                            data:JSON.stringify({
-                                "pageNum": 1,
-                                "pageSize": 4,
-                                "type": 1
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                            success: function (data) {
-                                console.log(data);
-                                var data = data;
-                                if (data.status == 200) {
-                                    $this.datalist = data.data;
-
-                                    for (var i = 0; i < data.data.length; i++) {
-                                        // console.log(data.data[i].pageUrl);
-                                        var pageUrl = data.data[i].pageUrl;
-                                        pageUrl = pageUrl + "&device=" + device + "&jump=jump";
-                                        // console.log(pageUrl);
-                                        data.data[i].pageUrl = pageUrl;
-                                    }
-                                    console.info($this.datalist);
-
-                                }
-                            },
-                            error: function (xhr, type) {
-                                //alert(111);
-                            }
-                        });
-
                         /*GIO参数集合*/
                         //类型
                         if ($this.data.type == 1) {
@@ -366,6 +332,28 @@
                         // })
                     }
 
+
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+
+
+            this.$http.post(urlport + '/videoShort/recommend', {"pageNum":1,"pageSize":4,"type":1}).then(function (data) {
+                var data = data.data;
+                if (data.status == 200) {
+                    $this.datalist = data.data;
+
+                    for (var i = 0; i < data.data.length; i++) {
+                        // console.log(data.data[i].pageUrl);
+                        var pageUrl = data.data[i].pageUrl;
+                        pageUrl = pageUrl + "&device=" + device;
+                        // console.log(pageUrl);
+                        data.data[i].pageUrl = pageUrl;
+                    }
+                    console.info($this.datalist);
 
                 }
 
