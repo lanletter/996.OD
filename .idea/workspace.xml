@@ -4,6 +4,7 @@
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="深链接test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/lifearticle.html" afterPath="$PROJECT_DIR$/html/lifearticle.html" />
+      <change beforePath="$PROJECT_DIR$/html/video-short.html" afterPath="$PROJECT_DIR$/html/video-short.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="276" column="22" lean-forward="true" selection-start-line="276" selection-start-column="22" selection-end-line="288" selection-end-column="23" />
+            <state relative-caret-position="227">
+              <caret line="130" column="45" lean-forward="true" selection-start-line="130" selection-start-column="45" selection-end-line="130" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -41,29 +42,6 @@
             <state relative-caret-position="221">
               <caret line="310" column="17" lean-forward="false" selection-start-line="310" selection-start-column="12" selection-end-line="310" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lifearticle.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="504" column="28" lean-forward="true" selection-start-line="504" selection-start-column="28" selection-end-line="507" selection-end-column="27" />
-              <folding>
-                <marker date="1529053968503" expanded="true" signature="7850:8029" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="18078:18080" ph="/*...*/" />
-                <marker date="1529053968503" expanded="true" signature="18080:18089" ph="/*...*/" />
-                <marker date="1529053968503" expanded="true" signature="18379:18614" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19292:19357" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19292:19369" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19292:19370" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19292:20049" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19373:20044" ph="..." />
-                <marker date="1529053968503" expanded="false" signature="19427:19475" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19528:20018" ph="..." />
-                <marker date="1529053968503" expanded="true" signature="19734:19986" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -81,7 +59,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sharestr</find>
       <find>changeFrameHeight</find>
       <find>deeplink</find>
       <find>deeplinkurl</find>
@@ -111,6 +88,7 @@
       <find>param</find>
       <find>share</find>
       <find>gio</find>
+      <find>ajax</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -176,8 +154,8 @@
         <option value="$PROJECT_DIR$/html/fotile-temporary/multithreading.html" />
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/js/ft.js" />
-        <option value="$PROJECT_DIR$/html/video-short.html" />
         <option value="$PROJECT_DIR$/html/lifearticle.html" />
+        <option value="$PROJECT_DIR$/html/video-short.html" />
       </list>
     </option>
   </component>
@@ -458,14 +436,7 @@
       <workItem from="1528943140543" duration="27039000" />
       <workItem from="1529037033658" duration="1518000" />
       <workItem from="1529044696612" duration="2661000" />
-      <workItem from="1529051072428" duration="2489000" />
-    </task>
-    <task id="LOCAL-00142" summary="深链接test">
-      <created>1528946904027</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1528946904027</updated>
+      <workItem from="1529051072428" duration="3076000" />
     </task>
     <task id="LOCAL-00143" summary="增加了深度链接失败后的安卓下载询问">
       <created>1528948495641</created>
@@ -803,11 +774,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529053882080</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="深链接test">
+      <created>1529053978360</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1529053978360</updated>
+    </task>
+    <option name="localTasksCounter" value="192" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2441972000" />
+    <option name="totallyTimeSpent" value="2442559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -1298,32 +1276,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-short.html">
+    <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="276" column="22" lean-forward="true" selection-start-line="276" selection-start-column="22" selection-end-line="288" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="1849">
+          <caret line="563" column="18" lean-forward="true" selection-start-line="563" selection-start-column="18" selection-end-line="563" selection-end-column="18" />
+          <folding>
+            <marker date="1529054395733" expanded="true" signature="7850:8029" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="18078:18080" ph="/*...*/" />
+            <marker date="1529054395733" expanded="true" signature="18080:18089" ph="/*...*/" />
+            <marker date="1529054395733" expanded="true" signature="18379:18614" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19292:19357" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19292:19369" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19292:19370" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19292:20049" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19373:20044" ph="..." />
+            <marker date="1529054395733" expanded="false" signature="19427:19475" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19528:20018" ph="..." />
+            <marker date="1529054395733" expanded="true" signature="19734:19986" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
+    <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="504" column="28" lean-forward="true" selection-start-line="504" selection-start-column="28" selection-end-line="507" selection-end-column="27" />
-          <folding>
-            <marker date="1529053968503" expanded="true" signature="7850:8029" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="18078:18080" ph="/*...*/" />
-            <marker date="1529053968503" expanded="true" signature="18080:18089" ph="/*...*/" />
-            <marker date="1529053968503" expanded="true" signature="18379:18614" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19292:19357" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19292:19369" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19292:19370" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19292:20049" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19373:20044" ph="..." />
-            <marker date="1529053968503" expanded="false" signature="19427:19475" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19528:20018" ph="..." />
-            <marker date="1529053968503" expanded="true" signature="19734:19986" ph="..." />
-          </folding>
+        <state relative-caret-position="227">
+          <caret line="130" column="45" lean-forward="true" selection-start-line="130" selection-start-column="45" selection-end-line="130" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
