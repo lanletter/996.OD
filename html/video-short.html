@@ -150,13 +150,7 @@
                         otherProgramma();
                     } else {
                         ft.shareInfo(jsoninfo, function (result) {
-                            var errorcode = result.errorCode.toString();
-                            alert(errorcode);
-                            if (errorcode == "1") {
-                                otherProgramma();
-                            } else {
-                                alert("错误");
-                            }
+                            otherProgramma();
                         });
 
                     }
