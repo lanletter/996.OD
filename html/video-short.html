@@ -74,290 +74,280 @@
 <script src="../js/ft.js"></script>
 <script src="../js/deeplink.js"></script>
 <script>
-    $(document).ready(function() {
-        SWFUploadInit();        //初始化Flash上传组件
-        alert("aaaaaaaaaaa");
-    });
 
-    window.onload=function(){
-        alert("bbbbbbbb");
-    };
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
 
-    function SWFUploadInit() {
-        function GetQueryString(name) {
-            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if (r != null) return unescape(r[2]);
-            return null;
+    var id = GetQueryString("id");
+    var device = GetQueryString("device");
+
+    console.log(device);
+    if (device == null || device == "null") {
+        $(".footer").show();
+    } else {
+        $(".footer").hide();
+    }
+
+    /*选项卡*/
+    function changeTab(tabCon_num) {
+        for (i = 0; i <= 1; i++) {
+            document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏
+            document.getElementById("tab_" + i).classList.remove("selected");
         }
+        document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层
+        document.getElementById("tab_" + tabCon_num).classList.add("selected");
+    }
 
-        var id = GetQueryString("id");
-        var device = GetQueryString("device");
-
-        console.log(device);
-        if (device == null || device == "null") {
-            $(".footer").show();
-        } else {
-            $(".footer").hide();
-        }
-
-        /*选项卡*/
-        function changeTab(tabCon_num) {
-            for (i = 0; i <= 1; i++) {
-                document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏
-                document.getElementById("tab_" + i).classList.remove("selected");
+    var vm = new Vue({
+        el: '.vide-share',
+        data: {
+            data: {},
+            datalist: {},
+            jsoninfo: {
+                "id": id,
+                "type": 14,
+                "sharetitle": "",
+                "sharedesc": "",
+                "shareimg": "",
+                "sharelink": ""
             }
-            document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层
-            document.getElementById("tab_" + tabCon_num).classList.add("selected");
-        }
 
-        var vm = new Vue({
-            el: '.vide-share',
-            data: {
-                data: {},
-                datalist: {},
-                jsoninfo: {
-                    "id": id,
-                    "type": 14,
-                    "sharetitle": "",
-                    "sharedesc": "",
-                    "shareimg": "",
-                    "sharelink": ""
+            // http: {
+            //     headers: {
+            //         token: 'Basic YXBpOnBhc3N3b3Jk'
+            //     }
+            // }
+        },
+        created: function () {
+            var $this = this;
+            this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
+                var data = data.data;
+                if (data.status == 200) {
+                    $this.data = data.data;
+                    console.info($this.data);
+
+                    /*友盟埋点-页面访问*/
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                        "页面类型": "短视频详情",
+                        "页面名称": data.data.title
+                    });
+
+                    document.setTitle = function (t) {
+                        document.title = t;
+                        var i = document.createElement('iframe');
+                        i.style.display = 'none';
+                        i.onload = function () {
+                            setTimeout(function () {
+                                i.remove();
+                            })
+                        }
+                        document.body.appendChild(i);
+                    }
+                    setTimeout(function () {
+                        document.setTitle($this.data.title);
+                    })
+
+                    /*视频链接*/
+                    $('.video').css({
+                        "background": "url(" + $this.data.picture.path + ") no-repeat",
+                        "background-size": "100% auto"
+                    });
+                    $('#videobox').find('#vd').attr('src', $this.data.url);
+                    console.log($this.data.time);
+                    if ($this.data.time !== "" && $this.data.time !== null) {
+                        $("#videobox .time").text($this.data.time);
+                    } else {
+                        $("#videobox .time").hide();
+                    }
+                    $('#vdtest').attr('src', $this.data.url);
+
+
+                    (function () {
+                        var video = $('#videobox video')[0],
+                            playBtn = $('#videobox .play');
+                        playBtn.on('click', function () {
+                            $(this).hide();
+                            var vheight = $("#videobox video").height();
+                            $('#vd').css({"position": "absolute", "left": "0"});
+                            $("#videobox").css({height: vheight + "px"});
+                            video.play();
+                            $('.video').css({"background": "#000"});
+                            video.controls = true;
+                            $("#videobox .time").hide();
+                        });
+
+                        video.addEventListener('ended', function () {
+                            playBtn.show();
+                            $('.video').css({
+                                "background": "url(" + $this.data.picture.path + ") no-repeat",
+                                "background-size": "100% auto"
+                            });
+                            video.controls = false;
+                            $("#videobox .time").show();
+                            $('#vd').css({"position": "absolute", "left": "-10rem"});
+                            $("#videobox").css({"height": "4.2rem"});
+                        }, false);
+                        video.addEventListener('pause', function () {
+                            playBtn.hide();
+                            $('.video').css({"background": "#000"});
+                            video.controls = true;
+                        }, false);
+                    })();
+
+                    /*计算视频时长*/
+                    // setTimeout(function(){
+                    //     videoTime=document.getElementById("vdtest").duration;
+                    //     console.log(videoTime);
+                    //     var minTime= videoTime/60;
+                    //     console.log(Math.round(minTime));
+                    // },2000);
+
+
+                    this.$http.post(urlport + '/videoShort/recommend', {
+                        "pageNum": 1,
+                        "pageSize": 4,
+                        "type": 1
+                    }).then(function (data) {
+                        var data = data.data;
+                        if (data.status == 200) {
+                            $this.datalist = data.data;
+
+                            for (var i = 0; i < data.data.length; i++) {
+                                // console.log(data.data[i].pageUrl);
+                                var pageUrl = data.data[i].pageUrl;
+                                pageUrl = pageUrl + "&device=" + device + "&jump=jump";
+                                // console.log(pageUrl);
+                                data.data[i].pageUrl = pageUrl;
+                            }
+                            console.info($this.datalist);
+
+                        }
+
+                    }, function () {
+                        console.info('error');
+                    });
+
+                    /*GIO参数集合*/
+                    //类型
+                    if ($this.data.type == 1) {
+                        var type = "烹饪技巧";
+                    } else if ($this.data.type == 2) {
+                        var type = "厨电使用";
+                    }
+                    //发布时间
+                    var date = new Date($this.data.createat);
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    var creattime = Y + M + D + h + m + s;
+                    console.log(creattime);
+
+                    //custom page code begin here
+                    gio("page.set", "shortvideo", "短视频");//页面类型
+                    gio("page.set", "ID", $this.data.id);//id
+                    gio("page.set", "titlesv", $this.data.title);//标题
+                    gio("page.set", "type", type);//类型
+                    gio("page.set", "creattime", creattime);//发布时间
+                    gio("page.set", "time", $this.data.time);//视频时长
+                    //custom page code end here
+                    gio('send');
+
+                    /*GIO参数集合发送完毕*/
+
+                    /*分享链接专用*/
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.remark;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = $this.data.pageUrl;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    var jsoninfo = {
+                        "id": id,
+                        "type": 14,
+                        "sharetitle": sharetitle,
+                        "sharedesc": sharedesc,
+                        "shareimg": shareimg,
+                        "sharelink": sharelink
+                    };
+                    window.setTimeout(function () {
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+
+                            });
+                        }
+                    }, 1000);
+                    /*微信分享专用*/
+                    $.ajax({
+                        type: 'GET',
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
                 }
 
-                // http: {
-                //     headers: {
-                //         token: 'Basic YXBpOnBhc3N3b3Jk'
-                //     }
-                // }
-            },
-            created: function () {
-                var $this = this;
-                this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
-                    var data = data.data;
-                    if (data.status == 200) {
-                        $this.data = data.data;
-                        console.info($this.data);
+            }, function () {
+                console.info('error');
+            });
 
-                        /*友盟埋点-页面访问*/
-                        UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                            "页面类型": "短视频详情",
-                            "页面名称": data.data.title
-                        });
-
-                        document.setTitle = function (t) {
-                            document.title = t;
-                            var i = document.createElement('iframe');
-                            i.style.display = 'none';
-                            i.onload = function () {
-                                setTimeout(function () {
-                                    i.remove();
-                                })
-                            }
-                            document.body.appendChild(i);
-                        }
-                        setTimeout(function () {
-                            document.setTitle($this.data.title);
-                        })
-
-                        /*视频链接*/
-                        $('.video').css({
-                            "background": "url(" + $this.data.picture.path + ") no-repeat",
-                            "background-size": "100% auto"
-                        });
-                        $('#videobox').find('#vd').attr('src', $this.data.url);
-                        console.log($this.data.time);
-                        if ($this.data.time !== "" && $this.data.time !== null) {
-                            $("#videobox .time").text($this.data.time);
-                        } else {
-                            $("#videobox .time").hide();
-                        }
-                        $('#vdtest').attr('src', $this.data.url);
-
-
-                        (function () {
-                            var video = $('#videobox video')[0],
-                                playBtn = $('#videobox .play');
-                            playBtn.on('click', function () {
-                                $(this).hide();
-                                var vheight = $("#videobox video").height();
-                                $('#vd').css({"position": "absolute", "left": "0"});
-                                $("#videobox").css({height: vheight + "px"});
-                                video.play();
-                                $('.video').css({"background": "#000"});
-                                video.controls = true;
-                                $("#videobox .time").hide();
-                            });
-
-                            video.addEventListener('ended', function () {
-                                playBtn.show();
-                                $('.video').css({
-                                    "background": "url(" + $this.data.picture.path + ") no-repeat",
-                                    "background-size": "100% auto"
-                                });
-                                video.controls = false;
-                                $("#videobox .time").show();
-                                $('#vd').css({"position": "absolute", "left": "-10rem"});
-                                $("#videobox").css({"height": "4.2rem"});
-                            }, false);
-                            video.addEventListener('pause', function () {
-                                playBtn.hide();
-                                $('.video').css({"background": "#000"});
-                                video.controls = true;
-                            }, false);
-                        })();
-
-                        /*计算视频时长*/
-                        // setTimeout(function(){
-                        //     videoTime=document.getElementById("vdtest").duration;
-                        //     console.log(videoTime);
-                        //     var minTime= videoTime/60;
-                        //     console.log(Math.round(minTime));
-                        // },2000);
-
-
-                        this.$http.post(urlport + '/videoShort/recommend', {
-                            "pageNum": 1,
-                            "pageSize": 4,
-                            "type": 1
-                        }).then(function (data) {
-                            var data = data.data;
-                            if (data.status == 200) {
-                                $this.datalist = data.data;
-
-                                for (var i = 0; i < data.data.length; i++) {
-                                    // console.log(data.data[i].pageUrl);
-                                    var pageUrl = data.data[i].pageUrl;
-                                    pageUrl = pageUrl + "&device=" + device + "&jump=jump";
-                                    // console.log(pageUrl);
-                                    data.data[i].pageUrl = pageUrl;
-                                }
-                                console.info($this.datalist);
-
-                            }
-
-                        }, function () {
-                            console.info('error');
-                        });
-
-                        /*GIO参数集合*/
-                        //类型
-                        if ($this.data.type == 1) {
-                            var type = "烹饪技巧";
-                        } else if ($this.data.type == 2) {
-                            var type = "厨电使用";
-                        }
-                        //发布时间
-                        var date = new Date($this.data.createat);
-                        Y = date.getFullYear() + '-';
-                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-                        D = date.getDate() + ' ';
-                        h = date.getHours() + ':';
-                        m = date.getMinutes() + ':';
-                        s = date.getSeconds();
-                        var creattime = Y + M + D + h + m + s;
-                        console.log(creattime);
-
-                        //custom page code begin here
-                        gio("page.set", "shortvideo", "短视频");//页面类型
-                        gio("page.set", "ID", $this.data.id);//id
-                        gio("page.set", "titlesv", $this.data.title);//标题
-                        gio("page.set", "type", type);//类型
-                        gio("page.set", "creattime", creattime);//发布时间
-                        gio("page.set", "time", $this.data.time);//视频时长
-                        //custom page code end here
-                        gio('send');
-
-                        /*GIO参数集合发送完毕*/
-
-                        /*分享链接专用*/
-                        var sharetitle = $this.data.title;
-                        var sharedesc = $this.data.remark;
-                        var shareimg = $this.data.picture.path;
-                        var sharestr = $this.data.pageUrl;
-                        var sharelink = sharestr.replace(/api/, "h5");
-                        var jsoninfo = {
-                            "id": id,
-                            "type": 14,
-                            "sharetitle": sharetitle,
-                            "sharedesc": sharedesc,
-                            "shareimg": shareimg,
-                            "sharelink": sharelink
-                        };
-                        window.setTimeout(function () {
-                            console.info(jsoninfo);
-                            /*APP分享专用*/
-                            if (device == null || device == "null") {
-                                console.log("不是APP打开");
-                            } else {
-                                ft.shareInfo(jsoninfo, function (result) {
-
-                                });
-                            }
-                        }, 1000);
-                        /*微信分享专用*/
-                        $.ajax({
-                            type: 'GET',
-                            url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                            success: function (data) {
-                                console.info(data.appId);
-                                wx.config({
-                                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                                    appId: data.appId, // 必填，公众号的唯一标识
-                                    timestamp: data.timestamp, // 必填，生成签名的时间戳
-                                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                                    signature: data.signature,
-                                    jsApiList: [
-                                        "onMenuShareTimeline",
-                                        "onMenuShareAppMessage",
-                                        "onMenuShareQQ",
-                                        "onMenuShareWeibo",
-                                        "onMenuShareQZone"
-                                    ]
-                                });
-                                wx.ready(function () {
-                                    //分享给朋友圈
-                                    wx.onMenuShareTimeline({
-                                        title: sharetitle, // 分享标题
-                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                        imgUrl: shareimg, // 分享图标
-                                        success: function () {
-                                            // 用户确认分享后执行的回调函数
-                                        },
-                                        cancel: function () {
-                                            // 用户取消分享后执行的回调函数
-                                        }
-                                    });
-                                    //分享给朋友
-                                    wx.onMenuShareAppMessage({
-                                        title: sharetitle, // 分享标题
-                                        desc: sharedesc, // 分享描述
-                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                        imgUrl: shareimg, // 分享图标
-                                        type: '', // 分享类型,music、video或link，不填默认为link
-                                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                        success: function () {
-                                            // 用户确认分享后执行的回调函数
-                                        },
-                                        cancel: function () {
-                                            // 用户取消分享后执行的回调函数
-                                        }
-                                    });
-                                });
-                            },
-                            error: function (xhr, type) {
-                                //alert(111);
-                            }
-                        })
-                    }
-
-                }, function () {
-                    console.info('error');
-                });
-
-            }
-        });
-    }
+        }
+    });
 
 
 </script>
