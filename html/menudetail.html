@@ -625,7 +625,7 @@
                                     for (var i = 0; i < dataother.data.length; i++) {
                                         // console.log(dataother.data[i].url);
                                         var url = dataother.data[i].url;
-                                        urlnew = url + "&device=" + device;
+                                        urlnew = url + "&device=" + device + "&jump=jump";
                                         // console.log(urlnew);
                                         dataother.data[i].url = urlnew;
                                     }
@@ -716,7 +716,7 @@
                             });
 
                         }
-                    }, 500);
+                    }, 1000);
                     /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
