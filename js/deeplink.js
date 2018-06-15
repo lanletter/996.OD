@@ -40,7 +40,7 @@
         //     case 6:x="今天是星期六";
         //         break;
         // }
-        var weburl = window.location.host + window.location.pathname;
+        var weburl = window.location.host + window.location.pathname + "?";
         var imageURL = "";
         var shareTitle = "";
         var shareSubTitle = "";
@@ -67,7 +67,6 @@
             "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
             "&iostype=" + encodeURIComponent(iostype);
 
-        console.log(urlright);
 
         /*判断是IOS还是Android机型*/
         var u = navigator.userAgent;
