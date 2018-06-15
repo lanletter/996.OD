@@ -569,7 +569,7 @@
     /*********************************************************************
      *                           获取分享参数                             *
      **********************************************************************/
-    ft.shareInfo  = function (option, fn) {
+    ft.shareInfo= function (option, fn) {
         var shareInfoConfig = ft.mix(true, {}, config.shareInfo);
         shareInfoConfig.param.id = option.id || "";
         shareInfoConfig.param.type = option.type || "";
