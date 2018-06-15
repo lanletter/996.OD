@@ -275,7 +275,8 @@
                         "shareimg": shareimg,
                         "sharelink": sharelink
                     };
-                    window.setTimeout(function () {
+                    $(window).load(function(){
+                        alert("页面加载完毕！");
                         console.info(jsoninfo);
                         /*APP分享专用*/
                         if (device == null || device == "null") {
@@ -284,8 +285,22 @@
                             ft.shareInfo(jsoninfo, function (result) {
 
                             });
+
                         }
-                    }, 1000);
+                    });
+                    // window.setTimeout(function () {
+                    //     console.info(jsoninfo);
+                    //     /*APP分享专用*/
+                    //     if (device == null || device == "null") {
+                    //         console.log("不是APP打开");
+                    //     } else {
+                    //         ft.shareInfo(jsoninfo, function (result) {
+                    //
+                    //         });
+                    //
+                    //     }
+                    // }, 1000);
+
                     /*微信分享专用*/
                     $.ajax({
                         type: 'GET',
