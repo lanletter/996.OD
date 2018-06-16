@@ -30,6 +30,7 @@
                 $("#loading").hide();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
+                <script src="../js/deeplink.js"></script>\
                   <div class="leavewords comment deeplikopen">\
                       <img src="">\
                       <div>快来分享你的作品、感想</div>\
@@ -80,7 +81,6 @@
                   <div id="commit" class="buttons commit">提交</div>\
                   <div class="buttons backto">返回详情</div>\
                 </div>\
-                <script src="../js/deeplink.js"></script>\
                 </div></form>';
 
                 Mustache.parse(noComment);
@@ -214,6 +214,7 @@
 
                 var template = '\
                 <div class="loadbox">\
+                <script src="../js/deeplink.js"></script>\
                     <div id="ft-header" class="ft-comment__header clearfix left-right">\
                       <div class="leavewords comment deeplikopen">\
                           <img src="">\
@@ -374,7 +375,6 @@
                         $onlyone.find("img").removeClass("img");\
                 </script>\
                 </div>\
-                <script src="../js/deeplink.js"></script>\
                 </div>\
                 ';
 
