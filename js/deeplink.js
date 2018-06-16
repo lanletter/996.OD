@@ -26,23 +26,6 @@
         var id = id;
         var refid = id;
         var action = GetPageName();
-        // switch (action)
-        // {
-        //     case "":action="今天是星期日";
-        //         break;
-        //     case 1:x="今天是星期一";
-        //         break;
-        //     case 2:x="今天是星期二";
-        //         break;
-        //     case 3:x="今天是星期三";
-        //         break;
-        //     case 4:x="今天是星期四";
-        //         break;
-        //     case 5:x="今天是星期五";
-        //         break;
-        //     case 6:x="今天是星期六";
-        //         break;
-        // }
         var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" +id;
         var imageURL = "";
         var shareTitle = "";

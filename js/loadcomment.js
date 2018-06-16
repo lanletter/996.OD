@@ -30,11 +30,11 @@
                 $("#loading").hide();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                  <div class="leavewords comment">\
+                  <div class="leavewords comment deeplikopen">\
                       <img src="">\
                       <div>快来分享你的作品、感想</div>\
                   </div>\
-                  <div class="leavewords nocomment">\
+                  <div class="leavewords nocomment deeplikopen">\
                     <span>登录</span>\
                     <div>请登录后发表评论</div>\
                   </div>\
@@ -110,7 +110,8 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        e.stopPropagation();
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                         // $('#leave-words').show();
                         // test1(userid);
                     }
@@ -213,11 +214,11 @@
                 var template = '\
                 <div class="loadbox">\
                     <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                      <div class="leavewords comment">\
+                      <div class="leavewords comment deeplikopen">\
                           <img src="">\
                           <div>快来分享你的作品、感想</div>\
                       </div>\
-                      <div class="leavewords nocomment">\
+                      <div class="leavewords nocomment deeplikopen">\
                         <span>登录</span>\
                         <div>请登录后发表评论</div>\
                       </div>\
@@ -274,7 +275,7 @@
                                 </p>\
                                 <p class="bottom">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                                  <span class="reply rpbutton" id="reply{{id}}">回复</span>\
+                                  <span class="reply rpbutton deeplikopen" id="reply{{id}}">回复</span>\
                                   <span class="dot"></span>\
                                   <a class="praise">{{likeCount}}</a>\
                                 </p>\
@@ -295,7 +296,7 @@
                                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                       <a class="praise">{{likeCount}}</a>\
                                       <span class="dot"></span>\
-                                      <span class="reply rpbutton" id="reply{{id}}">回复</span>\
+                                      <span class="reply rpbutton deeplikopen" id="reply{{id}}">回复</span>\
                                       <span class="delete" id="delete{{id}}">删除</span>\
                                       <span class="time"> <time>{{createat}}</time></span>\
                                   </p>\
@@ -461,7 +462,8 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        e.stopPropagation();
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                         // $('#leave-words').show();
                         // test2(userid);
                     }
@@ -571,7 +573,8 @@
                             }
                         });
                     } else {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        e.stopPropagation();
+                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                         // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
