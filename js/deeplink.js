@@ -11,7 +11,6 @@
 
     var id = GetQueryString("id");
     var device = GetQueryString("device");
-    alert(device);
 
     if (device == null || device == "null") {
         function GetPageName() {
