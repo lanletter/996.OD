@@ -10,7 +10,7 @@
 
     var device = GetQueryString("device");
 
-    if (device == null || device == "null") {
+    if (device == "ios" || device == "android") {
         function GetPageName() {
             var url = window.location.href;//获取完整URL
             var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
