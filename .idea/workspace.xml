@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" afterPath="$PROJECT_DIR$/js/loadcomment.js" />
+      <change beforePath="$PROJECT_DIR$/html/activedetail.html" afterPath="$PROJECT_DIR$/html/activedetail.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,16 +30,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="2250">
               <caret line="150" column="9" lean-forward="false" selection-start-line="150" selection-start-column="9" selection-end-line="174" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="coursealbum.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="85" column="5" lean-forward="false" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -108,6 +98,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="activedetail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/activedetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="79" column="64" lean-forward="false" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="deeplink.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/deeplink.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,10 +120,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="6930">
               <caret line="462" column="28" lean-forward="true" selection-start-line="462" selection-start-column="28" selection-end-line="462" selection-end-column="28" />
               <folding>
                 <marker date="1529114468768" expanded="true" signature="995:1483" ph="..." />
@@ -320,7 +320,6 @@
         <option value="$PROJECT_DIR$/html/jf-buy.html" />
         <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
         <option value="$PROJECT_DIR$/html/coursealbum.html" />
-        <option value="$PROJECT_DIR$/html/activedetail.html" />
         <option value="$PROJECT_DIR$/html/activealbum.html" />
         <option value="$PROJECT_DIR$/html/paymentwxpub.html" />
         <option value="$PROJECT_DIR$/html/menudetail.html" />
@@ -329,6 +328,7 @@
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/js/deeplink.js" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
+        <option value="$PROJECT_DIR$/html/activedetail.html" />
       </list>
     </option>
   </component>
@@ -374,6 +374,11 @@
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
               <item name="fotilepopularize" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
@@ -615,14 +620,7 @@
       <workItem from="1529037033658" duration="1518000" />
       <workItem from="1529044696612" duration="2661000" />
       <workItem from="1529051072428" duration="16234000" />
-      <workItem from="1529109340045" duration="4209000" />
-    </task>
-    <task id="LOCAL-00177" summary="深链接test">
-      <created>1528979688072</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1528979688072</updated>
+      <workItem from="1529109340045" duration="4303000" />
     </task>
     <task id="LOCAL-00178" summary="深链接test">
       <created>1528980002047</created>
@@ -960,11 +958,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529114242838</updated>
     </task>
-    <option name="localTasksCounter" value="226" />
+    <task id="LOCAL-00226" summary="bug">
+      <created>1529114477121</created>
+      <option name="number" value="00226" />
+      <option name="presentableId" value="LOCAL-00226" />
+      <option name="project" value="LOCAL" />
+      <updated>1529114477121</updated>
+    </task>
+    <option name="localTasksCounter" value="227" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2459926000" />
+    <option name="totallyTimeSpent" value="2460020000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="257" y="23" width="1183" height="815" extended-state="0" />
@@ -1301,14 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/activedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="97" column="42" lean-forward="true" selection-start-line="97" selection-start-column="42" selection-end-line="97" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
@@ -1398,7 +1395,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="6930">
           <caret line="462" column="28" lean-forward="true" selection-start-line="462" selection-start-column="28" selection-end-line="462" selection-end-column="28" />
           <folding>
             <marker date="1529114468768" expanded="true" signature="995:1483" ph="..." />
@@ -1480,6 +1477,14 @@
             <marker date="1529114468768" expanded="true" signature="20086:20265" ph="{...}" />
             <marker date="1529114468768" expanded="true" signature="20318:20328" ph="/*...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="79" column="64" lean-forward="false" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
