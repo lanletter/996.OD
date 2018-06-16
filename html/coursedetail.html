@@ -275,11 +275,7 @@
 
     var id = GetQueryString("id");
     var device = GetQueryString("device");
-    if (device == null || device == "null") {
-        $(".footer").show();
-    } else {
-        $(".footer").hide();
-    }
+
     if (device == "ios" || device == "android") {
         var userid;
         var token;
