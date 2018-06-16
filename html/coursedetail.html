@@ -219,6 +219,15 @@
         <div id="close-div">返回详情</div>
     </div>
 
+    <div class="footer" style="display: none;">
+        <img src="../img/logo_gold2.png">
+        <p>
+            <span>方太生活家</span>
+            <span>分享生活味道</span>
+        </p>
+        <span id="jump" class="deeplikopen">打开</span>
+    </div>
+
     <div class="bottomdiv"></div>
     <div class="ft-titles">
         <p class="title1">用户评论</p>
@@ -573,7 +582,8 @@
                     window.location.href = loginurl;
                 });
                 $("#addToCart").on("click", function () {
-                    window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                    $("#jump").trigger("click");
+                    // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                 });
             }
             //app交互——获取优惠券
