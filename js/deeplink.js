@@ -1,6 +1,7 @@
 +function () {
 
     /*获取url*/
+
     function GetQueryString(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
@@ -8,6 +9,7 @@
         return null;
     }
 
+    var id = GetQueryString("id");
     var device = GetQueryString("device");
     alert(device);
 
@@ -21,8 +23,8 @@
 
         // alert(GetPageName());
         /*页面参数（页面类型+id）*/
-        var id = GetQueryString("id");
-        var refid = GetQueryString("id");
+        var id = id;
+        var refid = id;
         var action = GetPageName();
         // switch (action)
         // {
