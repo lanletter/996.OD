@@ -110,7 +110,6 @@
                             }
                         });
                     } else {
-                        e.stopPropagation();
                         // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                         // $('#leave-words').show();
                         // test1(userid);
@@ -462,7 +461,6 @@
                             }
                         });
                     } else {
-                        e.stopPropagation();
                         // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                         // $('#leave-words').show();
                         // test2(userid);
@@ -573,7 +571,6 @@
                             }
                         });
                     } else {
-                        e.stopPropagation();
                         // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
                         // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
                         // var $come = $(e.target).siblings(".key");//数据来自于
