@@ -151,7 +151,7 @@
         <div style="height: 2.18rem;width: 100%;background: #fff;"></div>
     </div>
     <div class="btnbox">
-        <ul class="h_box">
+        <ul class="h_box" deeplikopen>
             <!--<li>-->
             <!--<div style="display: inline;" v-html="totalntegral"></div>-->
             <!--<em>积分</em>-->
@@ -449,8 +449,8 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                    } else if ((device == null)) {
-                        window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                    } else  {
+                        return false;
                     }
                 },
                 getAddress: function (userId, back) {
