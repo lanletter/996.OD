@@ -787,16 +787,13 @@
             }
 
             function deeplinkFC() {
-
                 function GetQueryString(name) {
                     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
                     var r = window.location.search.substr(1).match(reg);
                     if (r != null) return unescape(r[2]);
                     return null;
                 }
-
                 var id = GetQueryString("id");
-
                 function GetPageName() {
                     var url = window.location.href;//获取完整URL
                     var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
@@ -814,7 +811,6 @@
                 var shareTitle = "";
                 var shareSubTitle = "";
                 var iostype = "";
-
 
                 console.log({
                     "id": id,
@@ -835,7 +831,6 @@
                     "&shareTitle=" + encodeURIComponent(shareTitle) +
                     "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
                     "&iostype=" + encodeURIComponent(iostype);
-
 
                 /*判断是IOS还是Android机型*/
                 var u = navigator.userAgent;
@@ -879,7 +874,7 @@
                     console.log("不是来自微信内置浏览器");
                     /*深链接打开*/
                     var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                    alert(deeplinkurl);
+                    // alert(deeplinkurl);
                     window.location.href = deeplinkurl;
                     /***打开app的协议***/
                     window.setTimeout(function () {
