@@ -61,6 +61,7 @@
                         <p class="check-p"><span class="del-com wsdel-no">取消</span><span class="wsdel-ok">确定</span></p>\
                       </div>\
                     </aside>\
+                    <script src="../js/deeplink.js"></script>\
                     <script src="../js/imgUp.js"></script>\
                     <script>\
                         $(function(){\
@@ -325,6 +326,7 @@
                     </div></form>\
                     <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
                 <div id="scripts">\
+                <script src="../js/deeplink.js"></script>\
                 <script src="../js/imgUp.js"></script>\
                 <script>\
                     /*上传图片*/\
