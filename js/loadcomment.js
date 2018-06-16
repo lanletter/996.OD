@@ -30,12 +30,11 @@
                 $("#loading").hide();
                 var noComment = '\
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                <script src="../js/deeplink.js"></script>\
-                  <div class="leavewords comment deeplikopen">\
+                  <div class="leavewords comment">\
                       <img src="">\
                       <div>快来分享你的作品、感想</div>\
                   </div>\
-                  <div class="leavewords nocomment deeplikopen">\
+                  <div class="leavewords nocomment">\
                     <span>登录</span>\
                     <div>请登录后发表评论</div>\
                   </div>\
@@ -98,9 +97,9 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-			                    if(userid !== "1" && userid !== 1){
-			                        token = result.data.token.toString();
-			                    }
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
                                 $('#leave-words').show();
                                 test1(userid);
                             } else if (errorCode == "0") {
@@ -112,7 +111,7 @@
                             }
                         });
                     } else {
-                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        deeplinkFC()
                         // $('#leave-words').show();
                         // test1(userid);
                     }
@@ -214,13 +213,12 @@
 
                 var template = '\
                 <div class="loadbox">\
-                <script src="../js/deeplink.js"></script>\
                     <div id="ft-header" class="ft-comment__header clearfix left-right">\
-                      <div class="leavewords comment deeplikopen">\
+                      <div class="leavewords comment">\
                           <img src="">\
                           <div>快来分享你的作品、感想</div>\
                       </div>\
-                      <div class="leavewords nocomment deeplikopen">\
+                      <div class="leavewords nocomment">\
                         <span>登录</span>\
                         <div>请登录后发表评论</div>\
                       </div>\
@@ -277,7 +275,7 @@
                                 </p>\
                                 <p class="bottom">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
-                                  <span class="reply rpbutton deeplikopen" id="reply{{id}}">回复</span>\
+                                  <span class="reply rpbutton" id="reply{{id}}">回复</span>\
                                   <span class="dot"></span>\
                                   <a class="praise">{{likeCount}}</a>\
                                 </p>\
@@ -298,7 +296,7 @@
                                       <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                       <a class="praise">{{likeCount}}</a>\
                                       <span class="dot"></span>\
-                                      <span class="reply rpbutton deeplikopen" id="reply{{id}}">回复</span>\
+                                      <span class="reply rpbutton" id="reply{{id}}">回复</span>\
                                       <span class="delete" id="delete{{id}}">删除</span>\
                                       <span class="time"> <time>{{createat}}</time></span>\
                                   </p>\
@@ -450,9 +448,9 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-			                    if(userid !== "1" && userid !== 1){
-			                        token = result.data.token.toString();
-			                    }
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
                                 $('#leave-words').show();
                                 test2(userid);
                             } else if (errorCode == "0") {
@@ -464,7 +462,7 @@
                             }
                         });
                     } else {
-                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        deeplinkFC()
                         // $('#leave-words').show();
                         // test2(userid);
                     }
@@ -560,9 +558,9 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
-			                    if(userid !== "1" && userid !== 1){
-			                        token = result.data.token.toString();
-			                    }
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
                                 $('#leave-words2').show();
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
@@ -574,7 +572,7 @@
                             }
                         });
                     } else {
-                        // window.location.href = "https://t.growingio.com/app/at2/xogaz2Rm_o";
+                        deeplinkFC()
                         // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
@@ -786,6 +784,149 @@
                 // alert(homeurl);
                 window.location.href = homeurl;
                 window.event.returnValue = false;
+            }
+
+            function deeplinkFC() {
+                /*获取url*/
+
+                function GetQueryString(name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                }
+
+                var id = GetQueryString("id");
+                var device = GetQueryString("device");
+                alert(device);
+
+                if (device == null || device == "null") {
+                    function GetPageName() {
+                        var url = window.location.href;//获取完整URL
+                        var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
+                        name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+                        return name;
+                    }
+
+                    // alert(GetPageName());
+                    /*页面参数（页面类型+id）*/
+                    var id = id;
+                    var refid = id;
+                    var action = GetPageName();
+                    var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + id;
+                    var imageURL = "";
+                    var shareTitle = "";
+                    var shareSubTitle = "";
+                    var iostype = "";
+
+
+                    console.log({
+                        "id": id,
+                        "action": action,
+                        "weburl": weburl,
+                        "refid": refid,
+                        "imageURL": imageURL,
+                        "shareTitle": shareTitle,
+                        "shareSubTitle": shareSubTitle,
+                        "iostype": iostype
+                    });
+
+                    var urlright = "?action=" + encodeURIComponent(action) +
+                        "&id=" + encodeURIComponent(id) +
+                        "&weburl=" + encodeURIComponent(weburl) +
+                        "&refid=" + encodeURIComponent(refid) +
+                        "&imageURL=" + encodeURIComponent(imageURL) +
+                        "&shareTitle=" + encodeURIComponent(shareTitle) +
+                        "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
+                        "&iostype=" + encodeURIComponent(iostype);
+
+
+                    /*判断是IOS还是Android机型*/
+                    var u = navigator.userAgent;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    // console.log('是否是Android：' + isAndroid);
+                    // console.log('是否是iOS：' + isiOS);
+
+                    /*判断是否微信浏览器内打开*/
+                    function isWeiXin() {
+                        var ua = window.navigator.userAgent.toLowerCase();
+                        // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+                        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                    if (isWeiXin()) {
+                        console.log(" 是来自微信内置浏览器");
+
+                        //记录是否阻止滚动
+                        var disableScroll = false;
+                        //如果弹出对话框时，底层的视图就不让滚动了
+                        document.addEventListener("touchmove", function (e) {
+                            if (disableScroll) {
+                                e.preventDefault();
+                            }
+                        }, false);
+
+                        /*弹出浏览器打开提示*/
+                        var alertstr = "<div class='blackbg'><div class='reminder'>" +
+                            "<img src='../img/arrowdashed.png' >" +
+                            "<p class='title'>在微信中无法下载？</p>" +
+                            "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
+                            "</div></div>";
+                        $("body").prepend(alertstr);
+                        $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+                        disableScroll = true;//禁止滚动
+
+                        /*隐藏提示*/
+                        $(document).unbind().click(function () {
+                            $(".blackbg").remove();
+                            $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+                            disableScroll = false;//允许滚动
+                        });
+                        $(".reminder").click(function (event) {
+                            event.stopPropagation();//阻止冒泡
+                        });
+
+                    } else {
+                        console.log("不是来自微信内置浏览器");
+                        /*深链接打开*/
+                        var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+                        // alert(deeplinkurl);
+                        window.location.href = deeplinkurl;
+                        /***打开app的协议***/
+                        window.setTimeout(function () {
+                            if (isiOS == true) {/*ios手机*/
+                                window.location.href = "https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8";
+                            } else if (isAndroid == true) {/*Android手机*/
+                                $("body").append(
+                                    '<div id="mask" class="mask works-mask" style="z-index: 999999">' +
+                                    '<div class="mask-content">' +
+                                    '<p class="del-p">下载APP</p>' +
+                                    '<p class="check-p">' +
+                                    '<span class="del-com wsdel-ok">确定</span>' +
+                                    '<span class="wsdel-no">取消</span>' +
+                                    '</p></div></div>');
+                                $("#mask").css("display", "block");
+                                $(".wsdel-ok").unbind().click(function (e) {
+                                    $("#mask").css("display", "none");
+                                    window.location.href = "https://gio.ren/rBZ2ApB";
+                                });
+                                $(".wsdel-no").unbind().click(function (e) {
+                                    $("#mask").css("display", "none");
+                                })
+                            }
+                        }, 1000);
+
+                    }
+
+                } else {
+                    // alert("是app内");
+                    console.log(device);
+                }
             }
         }
 
