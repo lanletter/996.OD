@@ -82,6 +82,15 @@ html, body {
   overflow: hidden;
 }
 
+.vide-share .headertitle{
+  margin-top: 0.8rem;
+  font-size: 0.32rem;
+  font-weight: bold;
+  text-align: center;
+  max-height: 1rem;
+  line-height: 0.5rem;
+  overflow: hidden;
+}
 .vide-share .tit {
   position: relative;
   width: 6.3rem;
