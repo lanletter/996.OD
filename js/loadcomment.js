@@ -145,13 +145,13 @@
                         }
                         // alert(content);
                         // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
-                        var url = urlport + "comment/createGet?";
-                        var contenturl = "content=" + content;
+                        var url =  urlport + "comment/createGet?";
+                        var contenturl = "content=" + textareaTo(content);
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -264,7 +264,7 @@
                                   <a class="delete" id="delete{{id}}">删除</a>\
                                 </p>\
                                 <p class="texts">\
-                                    {{content}}\
+                                    {{{content}}}\
                                 </p>\
                                 <p class="imglist center">\
                                   {{#commentPictureList}}\
@@ -288,7 +288,7 @@
                                     <span class="title-box">\
                                         <span class="name"><b>{{userInfomation.nickName}}回复</b>@{{parentUserInfomation.nickName}}</span>\
                                         <span class="text">\
-                                            {{content}}\
+                                            {{{content}}}\
                                         </span>\
                                     </span>\
                                   </p>\
@@ -500,13 +500,13 @@
                         }
                         // alert(content);
                         // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
-                        var url = urlport + "comment/createGet?";
-                        var contenturl = "content=" + content;
+                        var url =  urlport + "comment/createGet?";
+                        var contenturl = "content=" + textareaTo(content);
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        // alert(url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists);
+                        alert(url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -572,7 +572,7 @@
                             }
                         });
                     } else {
-                        deeplinkFC()
+                        deeplinkFC();
                         // var targetid = $(e.target).attr("id");     // e.target表示被点击的目标
                         // var $come = $(e.target).siblings(".key");//数据来自于
                         // parentid = $come.find('.Id').text();
@@ -613,12 +613,12 @@
                         // alert(content);
                         // alert("refId:" + obj.refId + "type:" + obj.type + "userId:" + userid + "parentId:" + parentid);
                         var url = urlport + "comment/createGet?";
-                        var contenturl = "content=" + content;
+                        var contenturl = "content=" + textareaTo(content);
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + parentid;
-                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
+                        alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
                         $.ajax({
                             type: "get",
                             url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
@@ -784,6 +784,16 @@
                 // alert(homeurl);
                 window.location.href = homeurl;
                 window.event.returnValue = false;
+            }
+
+            function textareaTo(str){
+                var reg=new RegExp("\n","g");
+                var regSpace=new RegExp(" ","g");
+
+                str = str.replace(reg,"<br>");
+                str = str.replace(regSpace,"nbsp;");
+
+                return str;
             }
 
             function deeplinkFC() {

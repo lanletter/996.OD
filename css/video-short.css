@@ -82,15 +82,6 @@ html, body {
   overflow: hidden;
 }
 
-.vide-share .headertitle{
-  margin-top: 0.8rem;
-  font-size: 0.32rem;
-  font-weight: bold;
-  text-align: center;
-  max-height: 1rem;
-  line-height: 0.5rem;
-  overflow: hidden;
-}
 .vide-share .tit {
   position: relative;
   width: 6.3rem;
@@ -126,12 +117,18 @@ html, body {
 }
 
 .vide-share .tit h3 {
-  margin: 0.48rem 0 0.28rem 0;
-  line-height: 0.4rem;
   letter-spacing: 1px;
-  font-size: 18px;
   font-weight: bold;
   color: rgb(31, 31, 31);
+  width: 5rem;
+  margin: 0 auto;
+  margin-top: 0.3rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.48rem;
+  text-align: center;
+  line-height: 0.9rem;
+  max-height: 1.8rem;
+  overflow: hidden;
 }
 
 .vide-share .tit .introduct {
