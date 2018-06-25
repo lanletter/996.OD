@@ -225,6 +225,24 @@
                     });
                     $(".device").trigger('click');
                 });
+            }else {
+                $("#menuup a").unbind().on("click", function () {
+                    $.ajax({
+                        url: urlport + 'activity/clickCount',
+                        type: 'POST',
+                        data: JSON.stringify({"id": id}),
+                        timeout: 5000, //超时时间
+                        contentType: "application/json;charset=utf-8",
+                        dataType: 'json', //返回的数据格式
+                        success: function (data) {
+                            console.log(data);
+                        },
+                        error: function (errorMsg) {
+                            console.log('错误');
+                            console.log(errorMsg);
+                        }
+                    });
+                });
             }
 
             /* 时间戳格式转换 */

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug">
-      <change beforePath="" afterPath="$PROJECT_DIR$/z/demo-评论接口.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/activedetail.html" afterPath="$PROJECT_DIR$/html/activedetail.html" />
+      <change beforePath="$PROJECT_DIR$/z/demo-评论接口.html" afterPath="" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -92,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/html/activedetail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+              <caret line="228" column="65" lean-forward="true" selection-start-line="228" selection-start-column="65" selection-end-line="228" selection-end-column="65" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -306,7 +306,7 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="z" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -550,14 +550,7 @@
       <workItem from="1529400353550" duration="1626000" />
       <workItem from="1529565129146" duration="8085000" />
       <workItem from="1529648810727" duration="14698000" />
-      <workItem from="1529916209396" duration="2175000" />
-    </task>
-    <task id="LOCAL-00191" summary="深链接test">
-      <created>1529053978360</created>
-      <option name="number" value="00191" />
-      <option name="presentableId" value="LOCAL-00191" />
-      <option name="project" value="LOCAL" />
-      <updated>1529053978360</updated>
+      <workItem from="1529916209396" duration="2303000" />
     </task>
     <task id="LOCAL-00192" summary="深链接test">
       <created>1529054607204</created>
@@ -895,11 +888,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529921161056</updated>
     </task>
-    <option name="localTasksCounter" value="240" />
+    <task id="LOCAL-00240" summary="bug">
+      <created>1529921314951</created>
+      <option name="number" value="00240" />
+      <option name="presentableId" value="LOCAL-00240" />
+      <option name="project" value="LOCAL" />
+      <updated>1529921314951</updated>
+    </task>
+    <option name="localTasksCounter" value="241" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2492134000" />
+    <option name="totallyTimeSpent" value="2492262000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="453" y="23" width="987" height="821" extended-state="0" />
@@ -1402,7 +1402,7 @@
     <entry file="file://$PROJECT_DIR$/html/activedetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="228" column="0" lean-forward="true" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+          <caret line="228" column="65" lean-forward="true" selection-start-line="228" selection-start-column="65" selection-end-line="228" selection-end-column="65" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
