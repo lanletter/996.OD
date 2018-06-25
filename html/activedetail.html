@@ -206,7 +206,7 @@
             });
 
 
-            // if (device == "ios" || device == "android") {
+            if (device == "ios" || device == "android") {
                 $("#menuup a").unbind().on("click", function () {
                     $.ajax({
                         url: urlport + 'activity/clickCount',
@@ -225,7 +225,7 @@
                     });
                     $(".device").trigger('click');
                 });
-            // }
+            }
 
             /* 时间戳格式转换 */
             var starttime = data.startDate;
