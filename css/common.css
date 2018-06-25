@@ -345,11 +345,11 @@ html{
   float: left;
   width: 0.96rem;
   height: 0.96rem;
-  margin: 0.24rem 0 0 0.4rem;
+  margin: 0.24rem 0 0 0.2rem;
 }
 .footer p{
   float: left;
-  margin:0.1rem 0 0 0.22rem;
+  margin:0.1rem 0 0 0.18rem;
   width: 5rem;
 }
 .footer p span{
@@ -373,18 +373,35 @@ html{
   display: block;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 2rem;
   width: 1.8rem;
   height: 0.72rem;
   line-height: 0.72rem;
   border-radius: 0.34rem;
   background: none;
   border: 1px solid rgb(200,175,112);
-  font-size: 12px;
+  font-size: 0.28rem;
   font-weight: normal;
   text-align: center;
   color: rgb(200,175,112);
-  margin: 0.34rem 0.4rem 0 0;
+  margin: 0.34rem 0.16rem 0 0;
+}
+.footer #download{
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.8rem;
+  height: 0.72rem;
+  line-height: 0.72rem;
+  border-radius: 0.34rem;
+  background: rgba(200,175,112,1);
+  border: 1px solid rgb(200,175,112);
+  font-size: 0.28rem;
+  font-weight: normal;
+  text-align: center;
+  color: #ffffff;
+  margin: 0.34rem 0.16rem 0 0;
 }
 
 /*失效提示*/

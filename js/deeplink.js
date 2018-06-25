@@ -57,8 +57,17 @@
         var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        // console.log('是否是Android：' + isAndroid);
-        // console.log('是否是iOS：' + isiOS);
+        console.log('是否是Android：' + isAndroid);
+        console.log('是否是iOS：' + isiOS);
+
+        /*下载*/
+        $("#download").unbind().click(function (e) {
+            if (isiOS == true) {/*ios手机*/
+                window.location.href = "https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8";
+            } else if (isAndroid == true) {/*Android手机*/
+                window.location.href = "https://gio.ren/rBZ2ApB";
+            }
+        });
 
         /*判断是否微信浏览器内打开*/
         function isWeiXin() {
@@ -126,22 +135,7 @@
                     if (isiOS == true) {/*ios手机*/
                         window.location.href = "https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8";
                     } else if (isAndroid == true) {/*Android手机*/
-                        $("body").append(
-                            '<div id="mask" class="mask works-mask" style="z-index: 999999">' +
-                            '<div class="mask-content">' +
-                            '<p class="del-p">下载APP</p>' +
-                            '<p class="check-p">' +
-                            '<span class="del-com wsdel-ok">确定</span>' +
-                            '<span class="wsdel-no">取消</span>' +
-                            '</p></div></div>');
-                        $("#mask").css("display", "block");
-                        $(".wsdel-ok").unbind().click(function (e) {
-                            $("#mask").css("display", "none");
-                            window.location.href = "https://gio.ren/rBZ2ApB";
-                        });
-                        $(".wsdel-no").unbind().click(function (e) {
-                            $("#mask").css("display", "none");
-                        })
+                        window.location.href = "https://gio.ren/rBZ2ApB";
                     }
                 }, 1000);
             }
