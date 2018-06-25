@@ -32,6 +32,7 @@
     <header>
         <h3 v-html="data.title"></h3>
         <div v-html="data.desc"></div>
+        <p id="instructions" style="display: none"></p>
     </header>
     <ul class="menuul">
         <li v-for="(item,index) in data.list">
@@ -175,49 +176,22 @@
 
                     if (data.status == 200) {
                         console.info(data);
+                        /*url添加device标志*/
+                        for (var i = 0; i < data.data.list.length; i++) {
+                            var urlold = data.data.list[i].url;
+                            urlnew = urlold + "&device=" + device + "&jump=jump";
+                            // console.log(urlnew);
+                            data.data.list[i].url = urlnew;
+                        }
                         $this.data = data.data;
                         console.info($this.data);
-
                     }
 
-                    /*title取值*/
-                    var txt = $this.data.title;
-                    if (txt == undefined) {
-                        $('head title').text("菜谱详情");
-                    } else {
-                        $('head title').text(txt);
-                    }
-                    document.setTitle = function (t) {
-                        document.title = t;
-                        var i = document.createElement('iframe');
-                        i.style.display = 'none';
-                        i.onload = function () {
-                            setTimeout(function () {
-                                i.remove();
-                            })
-                        };
-                        document.body.appendChild(i);
-                    };
-                    setTimeout(function () {
-                        document.setTitle($this.data.title);
-                    });
-
-
-
-
-
+                    $("#instructions").html($this.data.desc);
                     /*分享链接专用*/
                     var sharetitle = $this.data.title;
-                    var sharedesc;
-                    var contents = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-                    var count = contents.length;
-                    if (count > 40) {
-                        var nr = contents.substring(0, 40) + "...";
-                        sharedesc = nr;
-                    } else {
-                        sharedesc = contents;
-                    }
-                    // var shareimg = data.data.basicInfo.images[0];
+                    var sharedesc = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+                    var shareimg = $this.data.title;
                     var sharestr = $this.data.url;
                     var sharelink = sharestr.replace(/api/, "h5");
                     /*微信分享专用*/
@@ -256,7 +230,7 @@
                                 //分享给朋友
                                 wx.onMenuShareAppMessage({
                                     title: sharetitle, // 分享标题
-                                    desc: contents, // 分享描述
+                                    desc: sharedesc, // 分享描述
                                     link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                                     imgUrl: shareimg, // 分享图标
                                     type: '', // 分享类型,music、video或link，不填默认为link
