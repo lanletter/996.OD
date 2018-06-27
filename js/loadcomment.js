@@ -506,7 +506,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        alert(url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists);
+                        // alert(url + contenturl + refIdurl + typeurl + userIdurl + parentidurl + commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
@@ -618,7 +618,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + parentid;
-                        alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl);
                         $.ajax({
                             type: "get",
                             url: url + contenturl + refIdurl + typeurl + userIdurl + parentidurl,
