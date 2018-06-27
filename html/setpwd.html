@@ -133,8 +133,8 @@
             url: urlport + "user/setPassword",
             datatype: "json",
             data: JSON.stringify({
-                accountName: $("#phonenum").val(),
-                verificationCode: $("#codenum").val(),
+                accountName: phonenum,
+                verificationCode: codenum,
                 password:$("#password").val()
             }),
             contentType: 'application/json;charset=UTF-8',

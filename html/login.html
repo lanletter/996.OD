@@ -99,7 +99,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+                // alert(JSON.stringify(ret));
                 console.log(ret);
                 if (ret.status !== 200) {
                     alert(ret.errorMessage);
@@ -122,11 +122,11 @@
     });
 
     function loginServer() {
-        alert(JSON.stringify({
-            accountName: $("#phonenum").val(),
-            verificationCode: $("#codenum").val(),
-            resource: "web"
-        }));
+        // alert(JSON.stringify({
+        //     accountName: $("#phonenum").val(),
+        //     verificationCode: $("#codenum").val(),
+        //     resource: "web"
+        // }));
         $.ajax({
             type: 'POST',
             // url: "https://h5.fotilestyle.com/AccountProxytest/v2/user_auth",
@@ -140,7 +140,7 @@
             contentType: 'application/json;charset=UTF-8',
             success: function (obj) {
                 console.log(obj);
-                alert(JSON.stringify(obj));
+                // alert(JSON.stringify(obj));
                 /*string转json*/
                 // var obj = eval('(' + ret + ')');
                 if (obj.status == 200) {

@@ -61,10 +61,10 @@
 }
 
 .menuul .num .viewnum:before {
-    background: url('../img/ViewBig.png') no-repeat;
+    background: url('../img/IconsView.png') no-repeat;
     background-size: 0.32rem 0.32rem;
 }
 .menuul .num .collectnum:before {
-    background: url('../img/heartLine.png') no-repeat;
+    background: url('../img/IconsHeart.png') no-repeat;
     background-size: 0.32rem 0.32rem;
 }
