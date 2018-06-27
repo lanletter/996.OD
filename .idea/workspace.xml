@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="去掉老版菜谱的分享交互">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/lifedetail.css" afterPath="$PROJECT_DIR$/css/lifedetail.css" />
-      <change beforePath="$PROJECT_DIR$/html/lifearticle.html" afterPath="$PROJECT_DIR$/html/lifearticle.html" />
-      <change beforePath="$PROJECT_DIR$/html/menu-inpage.html" afterPath="$PROJECT_DIR$/html/menu-inpage.html" />
-      <change beforePath="$PROJECT_DIR$/html/menudetail.html" afterPath="$PROJECT_DIR$/html/menudetail.html" />
+      <change beforePath="$PROJECT_DIR$/js/deeplink.js" afterPath="$PROJECT_DIR$/js/deeplink.js" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,16 +40,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="506">
               <caret line="720" column="24" lean-forward="false" selection-start-line="720" selection-start-column="24" selection-end-line="720" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setpwd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/setpwd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="143" column="40" lean-forward="true" selection-start-line="143" selection-start-column="40" selection-end-line="143" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -151,14 +138,24 @@
       <file leaf-file-name="activedetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="62" column="12" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+            <state relative-caret-position="208">
+              <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="deeplink.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/deeplink.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -193,7 +190,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lifedetail.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lifedetail.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/lifedetail.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
@@ -203,21 +200,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/common.css">
+      <file leaf-file-name="sitedetail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="332" column="18" lean-forward="true" selection-start-line="332" selection-start-column="18" selection-end-line="332" selection-end-column="18" />
-              <folding />
+            <state relative-caret-position="4786">
+              <caret line="403" column="43" lean-forward="true" selection-start-line="403" selection-start-column="43" selection-end-line="403" selection-end-column="43" />
+              <folding>
+                <marker date="1530087391395" expanded="true" signature="8954:9198" ph="..." />
+                <marker date="1530087391395" expanded="true" signature="8984:9174" ph="..." />
+                <marker date="1530087391395" expanded="false" signature="9030:9078" ph="..." />
+                <marker date="1530087391395" expanded="true" signature="9286:9488" ph="..." />
+                <marker date="1530087391395" expanded="true" signature="9316:9466" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video-short.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/video-short.css">
+      <file leaf-file-name="type_ios.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="2" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="500">
+              <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -317,11 +320,9 @@
         <option value="$PROJECT_DIR$/css/sitedetail.css" />
         <option value="$PROJECT_DIR$/css/coursedetail.css" />
         <option value="$PROJECT_DIR$/css/common.css" />
-        <option value="$PROJECT_DIR$/js/deeplink.js" />
         <option value="$PROJECT_DIR$/html/menualbum.html" />
         <option value="$PROJECT_DIR$/html/activedetail.html" />
         <option value="$PROJECT_DIR$/html/fotile-WX/questionnaire.html" />
-        <option value="$PROJECT_DIR$/fotilepopularize/type_ios.html" />
         <option value="$PROJECT_DIR$/css/menualbum.css" />
         <option value="$PROJECT_DIR$/html/fotile-WX/activelist.html" />
         <option value="$PROJECT_DIR$/html/sitedetail.html" />
@@ -333,6 +334,8 @@
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/lifearticle.html" />
         <option value="$PROJECT_DIR$/css/lifedetail.css" />
+        <option value="$PROJECT_DIR$/fotilepopularize/type_ios.html" />
+        <option value="$PROJECT_DIR$/js/deeplink.js" />
       </list>
     </option>
   </component>
@@ -377,7 +380,7 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="fotilepopularize" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
@@ -634,14 +637,7 @@
       <workItem from="1530070412850" duration="372000" />
       <workItem from="1530071158983" duration="443000" />
       <workItem from="1530071906077" duration="208000" />
-      <workItem from="1530087166330" duration="3076000" />
-    </task>
-    <task id="LOCAL-00199" summary="深链接test">
-      <created>1529056807091</created>
-      <option name="number" value="00199" />
-      <option name="presentableId" value="LOCAL-00199" />
-      <option name="project" value="LOCAL" />
-      <updated>1529056807091</updated>
+      <workItem from="1530087166330" duration="3569000" />
     </task>
     <task id="LOCAL-00200" summary="深链接test">
       <created>1529056995796</created>
@@ -979,11 +975,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530090056689</updated>
     </task>
-    <option name="localTasksCounter" value="248" />
+    <task id="LOCAL-00248" summary="bug">
+      <created>1530093001911</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1530093001912</updated>
+    </task>
+    <option name="localTasksCounter" value="249" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2497711000" />
+    <option name="totallyTimeSpent" value="2498204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="453" y="23" width="987" height="821" extended-state="0" />
@@ -1047,12 +1050,12 @@
     <MESSAGE value="分享除短视频其他恢复到之前版本" />
     <MESSAGE value="修复评论不能换行bug" />
     <MESSAGE value="新增菜谱专题列表页，深度链接流程优化变更" />
-    <MESSAGE value="bug" />
     <MESSAGE value="官网问卷调查链接更改" />
     <MESSAGE value="去掉登录注册异常弹框" />
     <MESSAGE value="去掉评论alert&#10;短视频ui修改" />
     <MESSAGE value="去掉老版菜谱的分享交互" />
-    <option name="LAST_COMMIT_MESSAGE" value="去掉老版菜谱的分享交互" />
+    <MESSAGE value="bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1245,14 +1248,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/deeplink.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2250">
@@ -1278,14 +1273,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="44" lean-forward="true" selection-start-line="24" selection-start-column="44" selection-end-line="25" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/fotile-WX/activelist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1307,20 +1294,6 @@
         <state relative-caret-position="103">
           <caret line="142" column="28" lean-forward="true" selection-start-line="142" selection-start-column="28" selection-end-line="142" selection-end-column="28" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="410" column="16" lean-forward="false" selection-start-line="410" selection-start-column="16" selection-end-line="410" selection-end-column="16" />
-          <folding>
-            <marker date="1530087391395" expanded="true" signature="8954:9198" ph="..." />
-            <marker date="1530087391395" expanded="true" signature="8984:9174" ph="..." />
-            <marker date="1530087391395" expanded="false" signature="9030:9078" ph="..." />
-            <marker date="1530087391395" expanded="true" signature="9286:9488" ph="..." />
-            <marker date="1530087391395" expanded="true" signature="9316:9466" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1486,10 +1459,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/lifedetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="116" column="19" lean-forward="false" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4786">
+          <caret line="403" column="43" lean-forward="true" selection-start-line="403" selection-start-column="43" selection-end-line="403" selection-end-column="43" />
+          <folding>
+            <marker date="1530087391395" expanded="true" signature="8954:9198" ph="..." />
+            <marker date="1530087391395" expanded="true" signature="8984:9174" ph="..." />
+            <marker date="1530087391395" expanded="false" signature="9030:9078" ph="..." />
+            <marker date="1530087391395" expanded="true" signature="9286:9488" ph="..." />
+            <marker date="1530087391395" expanded="true" signature="9316:9466" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="62" column="12" lean-forward="true" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
+        <state relative-caret-position="208">
+          <caret line="61" column="6" lean-forward="true" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1499,10 +1494,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/lifedetail.css">
+    <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="116" column="19" lean-forward="false" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
+        <state relative-caret-position="500">
+          <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/deeplink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="64" column="41" lean-forward="true" selection-start-line="64" selection-start-column="41" selection-end-line="64" selection-end-column="41" />
           <folding />
         </state>
       </provider>
