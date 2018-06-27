@@ -114,7 +114,7 @@
 	background: -o-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
 	background: -ms-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
 	background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
-	z-index: 999999;
+	z-index: 999998;
 }
 #menuup a{
 	display: block;
