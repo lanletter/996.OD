@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="去掉评论alert&#10;短视频ui修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" afterPath="$PROJECT_DIR$/js/loadcomment.js" />
+      <change beforePath="$PROJECT_DIR$/html/menu-inpage.html" afterPath="$PROJECT_DIR$/html/menu-inpage.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="questionnaire.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/fotile-WX/questionnaire.html">
+      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="228">
+              <caret line="519" column="44" lean-forward="true" selection-start-line="519" selection-start-column="44" selection-end-line="519" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -81,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="813" column="24" lean-forward="false" selection-start-line="813" selection-start-column="19" selection-end-line="813" selection-end-column="24" />
+              <caret line="557" column="36" lean-forward="false" selection-start-line="557" selection-start-column="31" selection-end-line="557" selection-end-column="36" />
               <folding>
                 <marker date="1530089696430" expanded="true" signature="995:1459" ph="..." />
                 <marker date="1530089696430" expanded="true" signature="1047:1155" ph="..." />
@@ -300,7 +300,6 @@
         <option value="$PROJECT_DIR$/html/video-tab.html" />
         <option value="$PROJECT_DIR$/html/gooddetail3.0.html" />
         <option value="$PROJECT_DIR$/html/paymentwxpub.html" />
-        <option value="$PROJECT_DIR$/html/menu-inpage.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/html/jf-buy.html" />
         <option value="$PROJECT_DIR$/css/menudetail.css" />
@@ -328,6 +327,7 @@
         <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/video-short.html" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
+        <option value="$PROJECT_DIR$/html/menu-inpage.html" />
       </list>
     </option>
   </component>
@@ -629,14 +629,7 @@
       <workItem from="1530070412850" duration="372000" />
       <workItem from="1530071158983" duration="443000" />
       <workItem from="1530071906077" duration="208000" />
-      <workItem from="1530087166330" duration="2106000" />
-    </task>
-    <task id="LOCAL-00197" summary="深链接test">
-      <created>1529056390622</created>
-      <option name="number" value="00197" />
-      <option name="presentableId" value="LOCAL-00197" />
-      <option name="project" value="LOCAL" />
-      <updated>1529056390622</updated>
+      <workItem from="1530087166330" duration="2433000" />
     </task>
     <task id="LOCAL-00198" summary="深链接test">
       <created>1529056630931</created>
@@ -974,11 +967,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530088177859</updated>
     </task>
-    <option name="localTasksCounter" value="246" />
+    <task id="LOCAL-00246" summary="去掉评论alert&#10;短视频ui修改">
+      <created>1530089704580</created>
+      <option name="number" value="00246" />
+      <option name="presentableId" value="LOCAL-00246" />
+      <option name="project" value="LOCAL" />
+      <updated>1530089704580</updated>
+    </task>
+    <option name="localTasksCounter" value="247" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2496741000" />
+    <option name="totallyTimeSpent" value="2497068000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="453" y="23" width="987" height="821" extended-state="0" />
@@ -1262,14 +1262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="52" lean-forward="false" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/menudetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3375">
@@ -1408,7 +1400,7 @@
     <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
-          <caret line="813" column="24" lean-forward="false" selection-start-line="813" selection-start-column="19" selection-end-line="813" selection-end-column="24" />
+          <caret line="557" column="36" lean-forward="false" selection-start-line="557" selection-start-column="31" selection-end-line="557" selection-end-column="36" />
           <folding>
             <marker date="1530089696430" expanded="true" signature="995:1459" ph="..." />
             <marker date="1530089696430" expanded="true" signature="1047:1155" ph="..." />
@@ -1490,6 +1482,14 @@
             <marker date="1530089696430" expanded="true" signature="20251:20261" ph="/*...*/" />
             <marker date="1530089696430" expanded="true" signature="44939:44954" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="519" column="44" lean-forward="true" selection-start-line="519" selection-start-column="44" selection-end-line="519" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>
