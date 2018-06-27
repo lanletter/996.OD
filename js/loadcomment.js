@@ -151,7 +151,7 @@
                         var typeurl = "&type=" + obj.type;
                         var userIdurl = "&userId=" + userid;
                         var parentidurl = "&parentId=" + 0;
-                        alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
+                        // alert(url+contenturl+refIdurl+typeurl+userIdurl+parentidurl+commentPictureIdLists);
 
                         $.ajax({
                             type: "get",
