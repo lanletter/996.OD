@@ -61,7 +61,7 @@
 
 </div>
 <div id="menuup" style="display: none;">
-    <a class="deeplikopen">上传菜谱</a>
+    <a>上传菜谱</a>
     <p>已有<span>0</span>人上传</p>
     <span class="device" style="display: none"></span>
 </div>
@@ -172,17 +172,6 @@
                 $('head title').text(data.title);
             }
 
-
-            /*上传菜谱模块*/
-            if (data.buttonStatus == 1 || data.buttonStatus == "1") {
-                $(".footer").hide();
-                $("#menuup").show();
-            } else {
-                $("#menuup").hide();
-                // $(".footer").hide();
-            }
-
-
             /*友盟埋点-页面访问*/
             var isuserid;//登录判断
             if (userid !== 1 && userid !== "1") {
@@ -207,6 +196,10 @@
 
 
             if (device == "ios" || device == "android") {
+                /*上传菜谱模块*/
+                if (data.buttonStatus == 1 || data.buttonStatus == "1") {
+                    $("#menuup").show();
+                }
                 $("#menuup a").unbind().on("click", function () {
                     $.ajax({
                         url: urlport + 'activity/clickCount',
@@ -224,24 +217,6 @@
                         }
                     });
                     $(".device").trigger('click');
-                });
-            }else {
-                $("#menuup a").unbind().on("click", function () {
-                    $.ajax({
-                        url: urlport + 'activity/clickCount',
-                        type: 'POST',
-                        data: JSON.stringify({"id": id}),
-                        timeout: 5000, //超时时间
-                        contentType: "application/json;charset=utf-8",
-                        dataType: 'json', //返回的数据格式
-                        success: function (data) {
-                            console.log(data);
-                        },
-                        error: function (errorMsg) {
-                            console.log('错误');
-                            console.log(errorMsg);
-                        }
-                    });
                 });
             }
 
