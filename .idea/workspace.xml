@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="活动上传菜谱btn显示条件更改">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug修改">
+      <change beforePath="" afterPath="$PROJECT_DIR$/z/demo-deeplink/schema01.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/z/demo-deeplink/schema_02.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/activealbum.html" afterPath="$PROJECT_DIR$/html/activealbum.html" />
-      <change beforePath="$PROJECT_DIR$/html/coursealbum.html" afterPath="$PROJECT_DIR$/html/coursealbum.html" />
-      <change beforePath="$PROJECT_DIR$/html/coursedetail.html" afterPath="$PROJECT_DIR$/html/coursedetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/gooddetail3.0.html" afterPath="$PROJECT_DIR$/html/gooddetail3.0.html" />
-      <change beforePath="$PROJECT_DIR$/html/menualbum.html" afterPath="$PROJECT_DIR$/html/menualbum.html" />
-      <change beforePath="$PROJECT_DIR$/html/video-tab.html" afterPath="$PROJECT_DIR$/html/video-tab.html" />
+      <change beforePath="$PROJECT_DIR$/js/deeplink.js" afterPath="$PROJECT_DIR$/js/deeplink.js" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,23 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3030">
-              <caret line="202" column="58" lean-forward="false" selection-start-line="202" selection-start-column="58" selection-end-line="202" selection-end-column="58" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="693">
+              <caret line="518" column="16" lean-forward="false" selection-start-line="518" selection-start-column="16" selection-end-line="537" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menualbum.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menualbum.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/menualbum.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="186" column="49" lean-forward="false" selection-start-line="186" selection-start-column="49" selection-end-line="186" selection-end-column="49" />
+            <state relative-caret-position="497">
+              <caret line="197" column="28" lean-forward="true" selection-start-line="197" selection-start-column="28" selection-end-line="197" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -72,36 +67,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activedetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/activedetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="63" column="6" lean-forward="false" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="deeplink.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="deeplink.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/deeplink.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1740">
-              <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="124" column="27" lean-forward="true" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questionnaire.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/fotile-WX/questionnaire.html">
+      <file leaf-file-name="schema01.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z/demo-deeplink/schema01.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="33" lean-forward="true" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            <state relative-caret-position="-1504">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema_02.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/z/demo-deeplink/schema_02.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="47" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -125,6 +115,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="type_ios.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1095">
+              <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="sitedetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -137,16 +137,6 @@
                 <marker date="1530087391395" expanded="true" signature="9286:9488" ph="..." />
                 <marker date="1530087391395" expanded="true" signature="9316:9466" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="type_ios.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1095">
-              <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -164,9 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>deeplikopen</find>
-      <find>window.location.href</find>
-      <find>body</find>
       <find>GetPageName</find>
       <find>alertstr</find>
       <find>addToCart</find>
@@ -194,6 +181,9 @@
       <find>token</find>
       <find>alert</find>
       <find>menuup</find>
+      <find>config</find>
+      <find>ifr</find>
+      <find>timeout</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -256,11 +246,11 @@
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/css/lifedetail.css" />
         <option value="$PROJECT_DIR$/fotilepopularize/type_ios.html" />
-        <option value="$PROJECT_DIR$/js/deeplink.js" />
         <option value="$PROJECT_DIR$/html/fotile-WX/questionnaire.html" />
         <option value="$PROJECT_DIR$/html/activedetail.html" />
         <option value="$PROJECT_DIR$/html/lifearticle.html" />
         <option value="$PROJECT_DIR$/html/menualbum.html" />
+        <option value="$PROJECT_DIR$/js/deeplink.js" />
       </list>
     </option>
   </component>
@@ -271,9 +261,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="453" />
+    <option name="x" value="583" />
     <option name="y" value="23" />
-    <option name="width" value="987" />
+    <option name="width" value="857" />
     <option name="height" value="823" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -306,17 +296,18 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="fotilepopularize" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="z" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="z" type="462c0819:PsiDirectoryNode" />
+              <item name="demo-deeplink" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -338,19 +329,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/z/demo-deeplink" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/html/fotile-temporary" />
+      <recent name="$PROJECT_DIR$/html/login/css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/z/demo-deeplink" />
       <recent name="$PROJECT_DIR$/fotilepopularize" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/z/demo-hls/html" />
       <recent name="$PROJECT_DIR$/z" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/img" />
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/html/fotile-temporary" />
-      <recent name="$PROJECT_DIR$/html/login/css" />
-      <recent name="$PROJECT_DIR$/html/login/html" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -572,14 +563,7 @@
       <workItem from="1530153323021" duration="1392000" />
       <workItem from="1530169417254" duration="3396000" />
       <workItem from="1530250999150" duration="121000" />
-      <workItem from="1530254195575" duration="7000" />
-    </task>
-    <task id="LOCAL-00204" summary="分享">
-      <created>1529060384284</created>
-      <option name="number" value="00204" />
-      <option name="presentableId" value="LOCAL-00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1529060384284</updated>
+      <workItem from="1530254195575" duration="4325000" />
     </task>
     <task id="LOCAL-00205" summary="分享">
       <created>1529060723312</created>
@@ -917,16 +901,23 @@
       <option name="project" value="LOCAL" />
       <updated>1530237946980</updated>
     </task>
-    <option name="localTasksCounter" value="253" />
+    <task id="LOCAL-00253" summary="bug修改">
+      <created>1530254214655</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1530254214655</updated>
+    </task>
+    <option name="localTasksCounter" value="254" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2504092000" />
+    <option name="totallyTimeSpent" value="2508410000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="453" y="23" width="987" height="823" extended-state="0" />
+    <frame x="583" y="23" width="857" height="823" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22695035" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2613769" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -970,7 +961,6 @@
     <MESSAGE value="深链接test（全体参数优化）" />
     <MESSAGE value="深链接test(老版本兼容)" />
     <MESSAGE value="深链接test（去掉了页面传参模式，参数直接从url获取，提高了效率）" />
-    <MESSAGE value="bug修改" />
     <MESSAGE value="增加了深度链接失败后的安卓下载询问" />
     <MESSAGE value="新增多线程交互UI" />
     <MESSAGE value="分享新增id、type参数" />
@@ -990,7 +980,8 @@
     <MESSAGE value="问卷调查title修改" />
     <MESSAGE value="活动上传菜谱btn显示条件更改" />
     <MESSAGE value="bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug" />
+    <MESSAGE value="bug修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug修改" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1000,14 +991,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/video-live.html" />
-    <entry file="file://$PROJECT_DIR$/css/lifearticle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="1" lean-forward="false" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1236,13 +1219,87 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8355">
           <caret line="557" column="36" lean-forward="false" selection-start-line="557" selection-start-column="31" selection-end-line="557" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7770">
-          <caret line="518" column="16" lean-forward="false" selection-start-line="518" selection-start-column="16" selection-end-line="537" selection-end-column="29" />
+          <folding>
+            <marker date="1530089696430" expanded="true" signature="995:1459" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1047:1155" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1209:1313" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1496:3745" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1538:3738" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1557:3714" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1872:3564" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1920:2458" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="1973:2430" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="2045:2396" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="2100:2364" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="2511:2799" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="2561:2769" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="2889:3538" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="2928:3507" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="2984:3478" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="3217:3305" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="3362:3447" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="9755:20477" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="9844:10222" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="9900:10020" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10078:10194" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10263:11832" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10305:11825" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10324:11819" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10651:11657" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10703:11262" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10760:11230" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10836:11192" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="10895:11156" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="11319:11627" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="11373:11593" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="11880:17173" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="11989:17113" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="12037:17084" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="12091:14521" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="12239:13109" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="12706:12845" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="12900:12993" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="13160:13249" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="13309:13785" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="13527:13541" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="13697:13710" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="13837:14485" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="14577:17052" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="14696:14710" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="14711:16829" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="14764:15607" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="15215:15567" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="15414:15522" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="15661:16507" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="16561:16789" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="16934:17016" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17215:17673" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17246:17261" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17262:17666" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17355:17638" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17402:17608" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17722:17828" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17856:17874" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="17949:20453" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="18031:18702" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="18054:18062" ph="/*...*/" />
+            <marker date="1530089696430" expanded="true" signature="18100:18675" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="18156:18646" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="18389:18477" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="18534:18619" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="18793:20429" ph="..." />
+            <marker date="1530089696430" expanded="true" signature="18816:18830" ph="/*...*/" />
+            <marker date="1530089696430" expanded="true" signature="18883:19576" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="19436:19549" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="19600:19611" ph="/*...*/" />
+            <marker date="1530089696430" expanded="true" signature="19666:19889" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="19734:19862" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="19913:19923" ph="/*...*/" />
+            <marker date="1530089696430" expanded="true" signature="19961:20227" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="20019:20198" ph="{...}" />
+            <marker date="1530089696430" expanded="true" signature="20251:20261" ph="/*...*/" />
+            <marker date="1530089696430" expanded="true" signature="44939:44954" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1250,14 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
           <caret line="116" column="19" lean-forward="false" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1338,18 +1387,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/deeplink.js">
+    <entry file="file://$PROJECT_DIR$/html/menualbum.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        <state relative-caret-position="497">
+          <caret line="197" column="28" lean-forward="true" selection-start-line="197" selection-start-column="28" selection-end-line="197" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menualbum.html">
+    <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="186" column="49" lean-forward="false" selection-start-line="186" selection-start-column="49" selection-end-line="186" selection-end-column="49" />
+        <state relative-caret-position="693">
+          <caret line="518" column="16" lean-forward="false" selection-start-line="518" selection-start-column="16" selection-end-line="537" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1095">
+          <caret line="73" column="24" lean-forward="true" selection-start-line="73" selection-start-column="24" selection-end-line="73" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-deeplink/schema01.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1504">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/z/demo-deeplink/schema_02.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="47" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/deeplink.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="124" column="27" lean-forward="true" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
           <folding />
         </state>
       </provider>
