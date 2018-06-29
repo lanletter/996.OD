@@ -131,19 +131,20 @@
                 // alert(deeplinkurl);
                 /***打开app的协议***/
                 window.location.href = deeplinkurl;
-                /***打开app失败后***/
+
+                // /*跳转成功后阻止浏览器继续跳转*/
+                // $(window).blur(function(){
+                //     clearTimeout(t);
+                //     return;
+                // });
+                // /***打开app失败后***/
                 // var t = setTimeout(function() {
                 //     if (isiOS == true) {/*ios手机*/
                 //         window.location.href = "https://gio.ren/re0Y923";
                 //     } else if (isAndroid == true) {/*Android手机*/
                 //         window.location.href = "https://gio.ren/rBZ2ApB";
                 //     }
-                // }, 1000);
-                // /*跳转成功后阻止浏览器继续跳转*/
-                // $(window).blur(function(){
-                //     clearTimeout(t);
-                //     return;
-                // });
+                // }, 5000);
             }
 
         }
