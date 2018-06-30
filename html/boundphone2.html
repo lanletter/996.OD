@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>密码找回</title>
+    <title>设置登录密码</title>
     <meta charset="utf-8">
     <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
     <meta content="yes" name="apple-mobile-web-app-capable">
@@ -25,17 +25,17 @@
         <p>绑定手机号</p>
     </li>
     <li class="edit">
-        <input type="password" placeholder="新密码" maxlength="20" id="newpwd"/>
-        <img src="../img/findx.png" id="delete1">
+        <input type="password" placeholder="请输入新密码" maxlength="20" id="newpwd"/>
+        <!--<img src="../img/findx.png" id="delete1">-->
     </li>
     <li class="edit">
-        <input type="password" placeholder="新密码" maxlength="20" id="newpwd2"/>
-        <img src="../img/findx.png" id="delete2">
+        <input type="password" placeholder="确认新密码" maxlength="20" id="newpwd2"/>
+        <!--<img src="../img/findx.png" id="delete2">-->
     </li>
     <li>
-        <p class="warn warn1" style="display: none;">密码前后输入不一致，请重新输入</p>
-        <p class="warn warn2" style="display: none;">密码为空</p>
-        <p class="warn warn3" style="display: none;">密码格式输入有误，请重新输入</p>
+        <!--<p class="warn warn1" style="display: none;">密码前后输入不一致，请重新输入</p>-->
+        <!--<p class="warn warn2" style="display: none;">密码为空</p>-->
+        <!--<p class="warn warn3" style="display: none;">密码格式输入有误，请重新输入</p>-->
         <span class="nextbtn">确认密码并完成绑定</span>
     </li>
 </ul>
@@ -63,42 +63,42 @@
     var nickname = $.cookie('nickname');
     var headimgurl = $.cookie('headimgurl');
     /*输入框选中效果*/
-    $(document).ready(function () {
-        $("#newpwd").focus(function () {
-            $("#delete1").css("display", "block");
-            $("#delete1").click(function () {
-                $("#newpwd").val("");
-                $("#delete1").css("display", "none");
-            });
-            $("#newpwd").keyup(function () {
-                var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
-            }).bind("paste", function () {
-                var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
-            }).css("ime-mode", "disabled");
-        });
-        $("#newpwd").blur(function () {
-            if ($("#newpwd").val() == "") {
-                $("#delete1").css("display", "none");
-            }
-        });
-        $("#newpwd2").focus(function () {
-            $("#delete2").css("display", "block");
-            $("#delete2").click(function () {
-                $("#newpwd2").val("");
-                $("#delete2").css("display", "none");
-            });
-        });
-        $("#newpwd2").blur(function () {
-            if ($("#newpwd2").val() == "") {
-                $("#delete2").css("display", "none");
-            }
-        });
-    });
+    // $(document).ready(function () {
+    //     $("#newpwd").focus(function () {
+    //         $("#delete1").css("display", "block");
+    //         $("#delete1").click(function () {
+    //             $("#newpwd").val("");
+    //             $("#delete1").css("display", "none");
+    //         });
+    //         $("#newpwd").keyup(function () {
+    //             var tmptxt = $(this).val();
+    //             $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
+    //         }).bind("paste", function () {
+    //             var tmptxt = $(this).val();
+    //             $(this).val(tmptxt.replace(/[^\w\.\/]/ig, ''));
+    //         }).css("ime-mode", "disabled");
+    //     });
+    //     $("#newpwd").blur(function () {
+    //         if ($("#newpwd").val() == "") {
+    //             $("#delete1").css("display", "none");
+    //         }
+    //     });
+    //     $("#newpwd2").focus(function () {
+    //         $("#delete2").css("display", "block");
+    //         $("#delete2").click(function () {
+    //             $("#newpwd2").val("");
+    //             $("#delete2").css("display", "none");
+    //         });
+    //     });
+    //     $("#newpwd2").blur(function () {
+    //         if ($("#newpwd2").val() == "") {
+    //             $("#delete2").css("display", "none");
+    //         }
+    //     });
+    // });
 
     $(".nextbtn").click(function () {
-        if (!loginInputValid()) return;
+        // if (!loginInputValid()) return;
         /*微信unionid和手机号注册*/
         $.ajax({
             type: 'POST',
@@ -118,6 +118,8 @@
                 if (ret.status == "200") {
                     $api.toast('微信绑定并注册成功', 2000);
                     window.location.href = h5url;
+                }else {
+                    alert(ret.errorMessage);
                 }
             }
         });
