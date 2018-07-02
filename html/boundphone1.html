@@ -26,11 +26,11 @@
     </li>
     <li class="edit">
         <input placeholder="手机号" id="phonenum" maxlength="11"/>
-        <img src="../img/findx.png" id="delete" style="display:none;">
+        <!--<img src="../img/findx.png" id="delete" style="display:none;">-->
     </li>
     <li class="editshort">
         <input placeholder="验证码" id="codenum" maxlength="6"/>
-        <img src="../img/findx.png" id="delete1">
+        <!--<img src="../img/findx.png" id="delete1">-->
     </li>
     <li class="codebtn">
         <button class="yellowbg" id="verifycode">获取验证码</button>
@@ -65,52 +65,52 @@
     $("#nickName").text(nickname);
 
     /*输入框选中效果*/
-    $(document).ready(function () {
-        /*手机号输入效果*/
-        $("#phonenum").focus(function () {
-            $("#delete").css("display", "block");
-            $(".warn1").css("display", "none");
-            $(".edit").removeClass("bdred");
-            $("#delete").click(function () {
-                $("#phonenum").val("");
-                $("#delete").css("display", "none");
-            });
-            $("#phonenum").keyup(function () {
-                var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/\D|^0/g, ''));
-            }).bind("paste", function () {
-                var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/\D|^0/g, ''));
-            }).css("ime-mode", "disabled");
-        });
-        $("#phonenum").blur(function () {
-            if ($("#phonenum").val() == "") {
-                $("#delete").css("display", "none");
-            }
-        });
-        /*验证码输入效果*/
-        $("#codenum").focus(function () {
-            $("#delete1").css("display", "block");
-            $(".warn2").css("display", "none");
-            $(".editshort").removeClass("bdred");
-            $("#delete1").click(function () {
-                $("#codenum").val("");
-                $("#delete1").css("display", "none");
-            });
-            $("#codenum").keyup(function () {
-                var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/\D|^0/g, ''));
-            }).bind("paste", function () {
-                var tmptxt = $(this).val();
-                $(this).val(tmptxt.replace(/\D|^0/g, ''));
-            }).css("ime-mode", "disabled");
-        });
-        $("#codenum").blur(function () {
-            if ($("#codenum").val() == "") {
-                $("#delete1").css("display", "none");
-            }
-        });
-    });
+    // $(document).ready(function () {
+    //     /*手机号输入效果*/
+    //     $("#phonenum").focus(function () {
+    //         $("#delete").css("display", "block");
+    //         $(".warn1").css("display", "none");
+    //         $(".edit").removeClass("bdred");
+    //         $("#delete").click(function () {
+    //             $("#phonenum").val("");
+    //             $("#delete").css("display", "none");
+    //         });
+    //         $("#phonenum").keyup(function () {
+    //             var tmptxt = $(this).val();
+    //             $(this).val(tmptxt.replace(/\D|^0/g, ''));
+    //         }).bind("paste", function () {
+    //             var tmptxt = $(this).val();
+    //             $(this).val(tmptxt.replace(/\D|^0/g, ''));
+    //         }).css("ime-mode", "disabled");
+    //     });
+    //     $("#phonenum").blur(function () {
+    //         if ($("#phonenum").val() == "") {
+    //             $("#delete").css("display", "none");
+    //         }
+    //     });
+    //     /*验证码输入效果*/
+    //     $("#codenum").focus(function () {
+    //         $("#delete1").css("display", "block");
+    //         $(".warn2").css("display", "none");
+    //         $(".editshort").removeClass("bdred");
+    //         $("#delete1").click(function () {
+    //             $("#codenum").val("");
+    //             $("#delete1").css("display", "none");
+    //         });
+    //         $("#codenum").keyup(function () {
+    //             var tmptxt = $(this).val();
+    //             $(this).val(tmptxt.replace(/\D|^0/g, ''));
+    //         }).bind("paste", function () {
+    //             var tmptxt = $(this).val();
+    //             $(this).val(tmptxt.replace(/\D|^0/g, ''));
+    //         }).css("ime-mode", "disabled");
+    //     });
+    //     $("#codenum").blur(function () {
+    //         if ($("#codenum").val() == "") {
+    //             $("#delete1").css("display", "none");
+    //         }
+    //     });
+    // });
 
     $("#verifycode").click(function () {
         /*倒计时60s*/
@@ -140,6 +140,7 @@
         }
 
         new invokeSettime("#verifycode");
+        $.cookie('phonenum', $("#phonenum").val());
 
         $.ajax({
             type: 'POST',
