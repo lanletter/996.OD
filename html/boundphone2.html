@@ -28,14 +28,7 @@
         <input type="password" placeholder="请输入新密码" maxlength="20" id="newpwd"/>
         <!--<img src="../img/findx.png" id="delete1">-->
     </li>
-    <li class="edit">
-        <input type="password" placeholder="确认新密码" maxlength="20" id="newpwd2"/>
-        <!--<img src="../img/findx.png" id="delete2">-->
-    </li>
     <li>
-        <!--<p class="warn warn1" style="display: none;">密码前后输入不一致，请重新输入</p>-->
-        <!--<p class="warn warn2" style="display: none;">密码为空</p>-->
-        <!--<p class="warn warn3" style="display: none;">密码格式输入有误，请重新输入</p>-->
         <span class="nextbtn">确认密码并完成绑定</span>
     </li>
 </ul>
@@ -73,6 +66,16 @@
         encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
         var passwordkey = encrypt.encrypt($("#newpwd").val());
         console.log(passwordkey);
+        console.log({
+            verificationCode: codenum,
+            accountName: phonenum,
+            password: passwordkey
+        });
+        alert(JSON.stringify({
+            verificationCode: codenum,
+            accountName: phonenum,
+            password: passwordkey
+        }));
         /*设置密码*/
         $.ajax({
             type: 'POST',
