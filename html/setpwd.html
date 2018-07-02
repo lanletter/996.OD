@@ -123,11 +123,11 @@
 
 
     $("#over").click(function () {
-        // alert(JSON.stringify({
-        //     accountName: phonenum,
-        //     verificationCode: codenum,
-        //     password:$("#password").val()
-        // }));
+        alert(JSON.stringify({
+            accountName: phonenum,
+            verificationCode: codenum,
+            password:$("#password").val()
+        }));
         $.ajax({
             type: 'POST',
             url: urlport + "user/setPassword",
@@ -140,7 +140,7 @@
             contentType: 'application/json;charset=UTF-8',
             success: function (obj) {
                 console.log(obj);
-                // alert(JSON.stringify(obj));
+                alert(JSON.stringify(obj));
                 if (obj.status == 200) {
                     window.location.href = "login.html";
                 } else {

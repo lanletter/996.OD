@@ -21,8 +21,8 @@
 <div class="divbreak"></div>
 <ul class="ulstyle">
     <li class="explain">
-        <p>绑定手机号</p>
-        <p>绑定手机号</p>
+        <p id="nickname">你好</p>
+        <p>设置登录密码</p>
     </li>
     <li class="edit">
         <input type="password" placeholder="请输入新密码" maxlength="20" id="newpwd"/>
@@ -62,6 +62,8 @@
     var unionid = $.cookie('unionid');
     var nickname = $.cookie('nickname');
     var headimgurl = $.cookie('headimgurl');
+
+    $("#nickname").text(nickname+"你好！");
     /*输入框选中效果*/
     // $(document).ready(function () {
     //     $("#newpwd").focus(function () {

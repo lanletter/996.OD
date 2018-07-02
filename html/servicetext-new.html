@@ -250,7 +250,7 @@
     </li>
 </ul>
 <div class="bottombg">
-    <a id="agreebtn" href="setpwd.html">同意《方太生活家会员注册协议》并继续</a>
+    <a id="agreebtn">同意《方太生活家会员注册协议》并继续</a>
 </div>
 </body>
 <script type="text/javascript" src='../js/lib.js'></script>
@@ -271,5 +271,35 @@
         "codenum":codenum
     }))
     //  alert(h5url);
+    $("#agreebtn").click(function () {
+        // alert(JSON.stringify({
+        //     accountName: phonenum,
+        //     verificationCode:codenum,
+        //     resource: "web"
+        // }));
+        $.ajax({
+            type: 'POST',
+            url: urlport + "user/LoginBySmsCode",
+            datatype: "json",
+            data: JSON.stringify({
+                accountName: phonenum,
+                verificationCode: codenum,
+                resource: "web"
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (obj) {
+                console.log(obj);
+                if (obj.status == 200) {
+                    var phonenum = obj.data.accountName;
+                    var userid = obj.data.userInfomation.userId;
+                    $.cookie('phonenum', $("#phonenum").val());
+                    $.cookie('userid', obj.data.userInfomation.userId);
+                    window.location.href = "setpwd.html";
+                } else {
+                    alert(obj.errorMessage);
+                }
+            }
+        });
+    });
 </script>
 </html>
