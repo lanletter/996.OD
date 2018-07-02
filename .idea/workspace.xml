@@ -1,489 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="test">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="删除废弃文件">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/demo.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/findpwd1.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/findpwd2.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/findpwd3.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/gooddetail-test.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/albums.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/animate.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/app.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/common.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/common/common.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/common/reset.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/courseform.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/download.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/findpwd.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/ftcomment.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/global.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/gooddetail-old.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/gooddetail.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/healthdetail.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/index.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/jf-info.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/lifearticle.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/lifedetail.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/login.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/menu-inpage.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/mint-ui.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/mobiscroll.animation-2.6.2.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/mobiscroll.core-2.6.2.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/pay/app.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/pay/global.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/pay/payment.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/shCore.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/shCoreDefault.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/sitedetail.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/swiper.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/video-js.min.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/video-share.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/video-share2.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/css/video.css" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/html/findpwd1.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/html/findpwd2.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/html/findpwd3.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/html/login.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/html/signin.html" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/Group.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/Overlay Copy 2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-e.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-n.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-ne.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-nw.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-s.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-se.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-sw.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-bg-w.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-close.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a/imgbox-spinner.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/a7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/account.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/fankui.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/fd.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/nen.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/pu.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/se.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/wu.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/xx_03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add/you.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/add@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/backto.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/bg.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/broswer@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/button@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/car.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/care.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/careold.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_01_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_07.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_08.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_09.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_17.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_21.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_21_b.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_21_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_22.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_22_b.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_22_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_24.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_26.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_27.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_37.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_38.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_39.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_40.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_41.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_42.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_43.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_45.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_46.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_47.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/icon_48.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/map.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_04.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_12.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_20.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_21.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_22.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_23.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/class/pre_24.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/clock.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/close.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/cmt_btn.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/color.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/color@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/comment.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/custom.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/easy@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/end.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/fill58.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/fill58@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/fill58@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/findx.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/fix2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/food.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/food.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/foods-1@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/foods@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/forest.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/back.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/back2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/close.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_07.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_08.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_09.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_14.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_15.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_16.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_17.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_18.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_19.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_20.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_21.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_21_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_22.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_23.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/icon_24.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m1_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m2_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m3_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m4_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/menu/m5_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/moren.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/pre_01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/share/qq.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/share/sina.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/share/wechat.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/share/wechat2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/star.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/star_hui.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/top.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/tx.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/videoIcon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/global/zhineng.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/goldpng.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/gray.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/gray1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/gray2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/gray3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/gray@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/group2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/group2@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/group3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/group@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/head.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/health/banner.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/health/banner.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/health/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/health/icon1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/health/lanmei.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/health/yong.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/banner.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/close.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_03_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_04_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/home/icon_05_on.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/horizontal_tip.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/icon_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/icon_13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/imgbox-spinner.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/invalidName-fff.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/invalidName-red.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/invalidName.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/invalidName2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/invalidPen.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/jiasaw.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/layer1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/layer1@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/layer1@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/list/pre_01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/list/pre_02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/list/pre_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/list/pre_04.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loading.gif" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/login/cover.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/login/covervideo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/login/covervideo1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/login/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/login/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/login/logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginback.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginbg.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginmsg.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginphone.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginpic.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginpwd.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/loginx.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/logo.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/logo180.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/logo@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/logo_black.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/logo_red.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/logored.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/bg.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_07.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_08.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_09.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_14.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_15.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_16.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_17.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_18.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_19.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_20.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_21.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_22.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_23.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_24.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_25.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_26.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/me/icon_27.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/msg@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/nen.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/nen2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/bg.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_01_hui.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_04_hui.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/icon_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_04.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_05.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_06.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_07.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_08.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_09.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_10.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_11.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/new/pre_12.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/num@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/path2Copy.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/path2Copy@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/people.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/phone.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/photograph4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/photograph4@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/photograph4@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/pic-1@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/pic-2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/pic@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/play.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/praise-red.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/praise.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/anzhuang.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/baoyang.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/caozuo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/kv_01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/kv_02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/kv_03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/01/kv_04.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02/anzhuang.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02/baoyang.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02/caozuo.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02/kv_01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02/kv_02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/02/kv_03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/p_1.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/p_2.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/product/p_3.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/qq@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/recipes/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/recipes/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/recipes/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/rectangle-fff.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/rectangle.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/rectangle2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/rectangle2Copy6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/rectangle775.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/rectangle775@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/reduce@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/pull_end_image_frame_9.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame1.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame10.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame11.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame12.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame13.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame14.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame15.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame16.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame17.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame18.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame19.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame2.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame20.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame3.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame4.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame5.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame6.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame7.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame8.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/refresh/refreshing_image_frame9.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/right.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/shadebg.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/share.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/shoppingcart.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/shrimp.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/star-red.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/star.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/01.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/02.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/03.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/04.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/05.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/banner.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/hot.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_07.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/store/icon_08.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/tel@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/testheader.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/thin0851Cooking.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/thin0851Cooking@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/thin0869SaladBowl.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/thin0869SaladBowl@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/time@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/timewatch.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/tip.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/tips.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/tips@2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/tips@3x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/title_box.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/truck2x.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/welcome/icon_01.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/welcome/icon_02.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/welcome/icon_03.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/welcome/icon_04.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/welcome/icon_05.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/welcome/icon_06.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/img/white.png" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/BigPictureOpen.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/ajaxplus.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/alertdiy.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/api.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/clipboard.swf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/confirm.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/doT.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/fontend.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/ft.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/imgPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/imgUp.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/jquery-2.1.1.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/jquery.cookie.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/jquery.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/json2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/judge.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/lb.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/lib.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/lib2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/lib的副本.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/loadcomment.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/mint-ui.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/mobiscroll.core-2.6.2.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/pingpp.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/remjs.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/remset.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/s.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/shBrushJScript.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/shCore.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/swiper.jquery.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/swiper.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/url.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/video-hls.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/video.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/video.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/videojs-live.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/vue-resource1.3.4.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/vue-resource@1.3.4.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/vue.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/vue.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/weixin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/html/login/js/zepto.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/imgPlugin.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/lb.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/js/remjs.js" afterPath="$PROJECT_DIR$/js/remjs.js" />
-      <change beforePath="$PROJECT_DIR$/js/remset.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/z/demo面试题.html" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/html/boundphone1.html" afterPath="$PROJECT_DIR$/html/boundphone1.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -537,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="s.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="s.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/s.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <marker date="1529565108413" expanded="true" signature="1735:1876" ph="..." />
@@ -587,17 +107,17 @@
         <entry file="file://$PROJECT_DIR$/html/menudetail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="344" column="38" lean-forward="false" selection-start-line="344" selection-start-column="38" selection-end-line="344" selection-end-column="38" />
+              <caret line="344" column="39" lean-forward="true" selection-start-line="344" selection-start-column="39" selection-end-line="344" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="158" column="11" lean-forward="false" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
+            <state relative-caret-position="271">
+              <caret line="153" column="37" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -711,8 +231,8 @@
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/js/jsencrypt.min.js" />
         <option value="$PROJECT_DIR$/html/boundphone2.html" />
-        <option value="$PROJECT_DIR$/html/boundphone1.html" />
         <option value="$PROJECT_DIR$/js/remjs.js" />
+        <option value="$PROJECT_DIR$/html/boundphone1.html" />
       </list>
     </option>
   </component>
@@ -726,7 +246,7 @@
     <option name="x" value="583" />
     <option name="y" value="23" />
     <option name="width" value="857" />
-    <option name="height" value="812" />
+    <option name="height" value="810" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -754,6 +274,17 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="fotile-temporary" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1015,14 +546,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="12472000" />
-    </task>
-    <task id="LOCAL-00217" summary="bug">
-      <created>1529109629767</created>
-      <option name="number" value="00217" />
-      <option name="presentableId" value="LOCAL-00217" />
-      <option name="project" value="LOCAL" />
-      <updated>1529109629767</updated>
+      <workItem from="1530496603373" duration="13787000" />
     </task>
     <task id="LOCAL-00218" summary="bug">
       <created>1529110008468</created>
@@ -1360,14 +884,21 @@
       <option name="project" value="LOCAL" />
       <updated>1530520447389</updated>
     </task>
-    <option name="localTasksCounter" value="266" />
+    <task id="LOCAL-00266" summary="删除废弃文件">
+      <created>1530523109040</created>
+      <option name="number" value="00266" />
+      <option name="presentableId" value="LOCAL-00266" />
+      <option name="project" value="LOCAL" />
+      <updated>1530523109040</updated>
+    </task>
+    <option name="localTasksCounter" value="267" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2523003000" />
+    <option name="totallyTimeSpent" value="2524318000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="583" y="23" width="857" height="812" extended-state="0" />
+    <frame x="583" y="23" width="857" height="810" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19719954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1408,7 +939,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="分享新增id、type参数" />
     <MESSAGE value="深链接test，分享优化" />
     <MESSAGE value="分享交互test" />
     <MESSAGE value="深链接test" />
@@ -1433,7 +963,8 @@
     <MESSAGE value="微信绑定设置密码加密" />
     <MESSAGE value="and加密js" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="删除废弃文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="删除废弃文件" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1809,14 +1340,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="344" column="38" lean-forward="false" selection-start-line="344" selection-start-column="38" selection-end-line="344" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery-2.1.1.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1839,22 +1362,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="158" column="11" lean-forward="false" selection-start-line="158" selection-start-column="11" selection-end-line="158" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1927,8 +1434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/s.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="29" lean-forward="true" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <marker date="1529565108413" expanded="true" signature="1735:1876" ph="..." />
@@ -1936,6 +1443,30 @@
             <marker date="1529565108413" expanded="true" signature="1987:2009" ph="..." />
             <marker date="1529565108413" expanded="true" signature="9920:9952" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="344" column="39" lean-forward="true" selection-start-line="344" selection-start-column="39" selection-end-line="344" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="153" column="37" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>
