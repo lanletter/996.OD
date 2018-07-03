@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="test ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/findpwd.css" afterPath="$PROJECT_DIR$/css/findpwd.css" />
+      <change beforePath="$PROJECT_DIR$/html/boundphone1.html" afterPath="$PROJECT_DIR$/html/boundphone1.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,17 +55,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+            <state relative-caret-position="201">
+              <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="findpwd.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="findpwd.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/findpwd.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="317">
@@ -243,8 +243,8 @@
         <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/login2.html" />
         <option value="$PROJECT_DIR$/html/boundphone2.html" />
-        <option value="$PROJECT_DIR$/html/boundphone1.html" />
         <option value="$PROJECT_DIR$/css/findpwd.css" />
+        <option value="$PROJECT_DIR$/html/boundphone1.html" />
       </list>
     </option>
   </component>
@@ -552,14 +552,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="23195000" />
-    </task>
-    <task id="LOCAL-00232" summary="bug">
-      <created>1529118457804</created>
-      <option name="number" value="00232" />
-      <option name="presentableId" value="LOCAL-00232" />
-      <option name="project" value="LOCAL" />
-      <updated>1529118457804</updated>
+      <workItem from="1530496603373" duration="23272000" />
     </task>
     <task id="LOCAL-00233" summary="bug">
       <created>1529118837242</created>
@@ -897,11 +890,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530603207659</updated>
     </task>
-    <option name="localTasksCounter" value="281" />
+    <task id="LOCAL-00281" summary="test ok">
+      <created>1530603499071</created>
+      <option name="number" value="00281" />
+      <option name="presentableId" value="LOCAL-00281" />
+      <option name="project" value="LOCAL" />
+      <updated>1530603499071</updated>
+    </task>
+    <option name="localTasksCounter" value="282" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2533726000" />
+    <option name="totallyTimeSpent" value="2533803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="583" y="23" width="857" height="812" extended-state="0" />
@@ -1472,18 +1472,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="17" lean-forward="false" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/findpwd.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
           <folding />
         </state>
       </provider>
