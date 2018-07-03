@@ -94,11 +94,11 @@ body {
 }
 
 .editshort input {
-    font-size: 14px;
-    height: 0.5rem;
-    line-height: 0.5rem;
-    color: rgb(47, 47, 47);
-    font-weight: lighter;
+    font-size: 0.48rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    color: rgb(31, 31, 31);
+    font-weight: bold;
 }
 
 .editshort img {
