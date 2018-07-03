@@ -132,7 +132,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+                // alert(JSON.stringify(ret));
                 if (ret.data == true || ret.data == "true") {//已注册
                     $.ajax({
                         type: 'POST',
@@ -147,9 +147,10 @@
                         }),
                         contentType: 'application/json;charset=UTF-8',
                         success: function (ret) {
-                            alert(JSON.stringify(ret));
+                            // alert(JSON.stringify(ret));
                             if (ret.status == "200") {
-                                $api.toast('微信绑定成功', 2000);
+                                alert("微信绑定成功！");
+                                alert(h5url);
                                 window.location.href = h5url;
                             } else {
                                 alert(ret.errorMessage);

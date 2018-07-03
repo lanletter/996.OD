@@ -45,11 +45,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="576" column="43" lean-forward="false" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="43" />
+              <folding>
+                <marker date="1530371874011" expanded="true" signature="28935:29455" ph="..." />
+                <marker date="1530371874011" expanded="true" signature="28979:29429" ph="..." />
+                <marker date="1530371874011" expanded="true" signature="29066:29233" ph="..." />
+                <marker date="1530371874011" expanded="true" signature="30490:30790" ph="..." />
+                <marker date="1530371874011" expanded="true" signature="30528:30754" ph="..." />
+                <marker date="1530371874011" expanded="false" signature="30586:30634" ph="..." />
+                <marker date="1530371874011" expanded="true" signature="30878:31104" ph="..." />
+                <marker date="1530371874011" expanded="true" signature="30916:31068" ph="..." />
+                <marker date="1530371874011" expanded="false" signature="30974:31022" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="134" column="43" lean-forward="true" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
+            <state relative-caret-position="271">
+              <caret line="150" column="33" lean-forward="false" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -65,20 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="findpwd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/findpwd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="1171">
               <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
               <folding />
             </state>
@@ -118,8 +128,8 @@
       <file leaf-file-name="login-wx.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login-wx.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="29" />
+            <state relative-caret-position="360">
+              <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -138,7 +148,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>menucount</find>
       <find>menulist</find>
       <find>href</find>
       <find>jump</find>
@@ -168,6 +177,7 @@
       <find>loginInputValid</find>
       <find>codenum</find>
       <find>alert</find>
+      <find>h5url</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -542,14 +552,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="22640000" />
-    </task>
-    <task id="LOCAL-00230" summary="bug">
-      <created>1529115955432</created>
-      <option name="number" value="00230" />
-      <option name="presentableId" value="LOCAL-00230" />
-      <option name="project" value="LOCAL" />
-      <updated>1529115955432</updated>
+      <workItem from="1530496603373" duration="22936000" />
     </task>
     <task id="LOCAL-00231" summary="bug">
       <created>1529116851633</created>
@@ -887,16 +890,23 @@
       <option name="project" value="LOCAL" />
       <updated>1530602729035</updated>
     </task>
-    <option name="localTasksCounter" value="279" />
+    <task id="LOCAL-00279" summary="test ok">
+      <created>1530602861238</created>
+      <option name="number" value="00279" />
+      <option name="presentableId" value="LOCAL-00279" />
+      <option name="project" value="LOCAL" />
+      <updated>1530602861238</updated>
+    </task>
+    <option name="localTasksCounter" value="280" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2533171000" />
+    <option name="totallyTimeSpent" value="2533467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="583" y="23" width="857" height="812" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19719954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19719954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1235,24 +1245,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="536" column="43" lean-forward="false" selection-start-line="536" selection-start-column="43" selection-end-line="536" selection-end-column="43" />
-          <folding>
-            <marker date="1530371874011" expanded="true" signature="28935:29455" ph="..." />
-            <marker date="1530371874011" expanded="true" signature="28979:29429" ph="..." />
-            <marker date="1530371874011" expanded="true" signature="29066:29233" ph="..." />
-            <marker date="1530371874011" expanded="true" signature="30490:30790" ph="..." />
-            <marker date="1530371874011" expanded="true" signature="30528:30754" ph="..." />
-            <marker date="1530371874011" expanded="false" signature="30586:30634" ph="..." />
-            <marker date="1530371874011" expanded="true" signature="30878:31104" ph="..." />
-            <marker date="1530371874011" expanded="true" signature="30916:31068" ph="..." />
-            <marker date="1530371874011" expanded="false" signature="30974:31022" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
@@ -1391,14 +1383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login-wx.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="77" column="29" lean-forward="false" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/findpwd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -1439,14 +1423,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/activealbum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -1463,10 +1439,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1171">
+          <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login-wx.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="2" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="576" column="43" lean-forward="false" selection-start-line="576" selection-start-column="38" selection-end-line="576" selection-end-column="43" />
+          <folding>
+            <marker date="1530371874011" expanded="true" signature="28935:29455" ph="..." />
+            <marker date="1530371874011" expanded="true" signature="28979:29429" ph="..." />
+            <marker date="1530371874011" expanded="true" signature="29066:29233" ph="..." />
+            <marker date="1530371874011" expanded="true" signature="30490:30790" ph="..." />
+            <marker date="1530371874011" expanded="true" signature="30528:30754" ph="..." />
+            <marker date="1530371874011" expanded="false" signature="30586:30634" ph="..." />
+            <marker date="1530371874011" expanded="true" signature="30878:31104" ph="..." />
+            <marker date="1530371874011" expanded="true" signature="30916:31068" ph="..." />
+            <marker date="1530371874011" expanded="false" signature="30974:31022" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="134" column="43" lean-forward="true" selection-start-line="134" selection-start-column="43" selection-end-line="134" selection-end-column="43" />
+        <state relative-caret-position="271">
+          <caret line="150" column="33" lean-forward="false" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="33" />
           <folding />
         </state>
       </provider>
