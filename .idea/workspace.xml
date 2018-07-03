@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug修复完成，去掉alert">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/boundphone1.html" afterPath="$PROJECT_DIR$/html/boundphone1.html" />
-      <change beforePath="$PROJECT_DIR$/html/setpwd.html" afterPath="$PROJECT_DIR$/html/setpwd.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,8 +48,8 @@
       <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="100" column="23" lean-forward="true" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+            <state relative-caret-position="221">
+              <caret line="104" column="43" lean-forward="true" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -543,14 +542,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="17516000" />
-    </task>
-    <task id="LOCAL-00221" summary="bug">
-      <created>1529111513255</created>
-      <option name="number" value="00221" />
-      <option name="presentableId" value="LOCAL-00221" />
-      <option name="project" value="LOCAL" />
-      <updated>1529111513255</updated>
+      <workItem from="1530496603373" duration="17658000" />
     </task>
     <task id="LOCAL-00222" summary="bug">
       <created>1529111924314</created>
@@ -888,11 +880,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530584380409</updated>
     </task>
-    <option name="localTasksCounter" value="270" />
+    <task id="LOCAL-00270" summary="test">
+      <created>1530588414357</created>
+      <option name="number" value="00270" />
+      <option name="presentableId" value="LOCAL-00270" />
+      <option name="project" value="LOCAL" />
+      <updated>1530588414358</updated>
+    </task>
+    <option name="localTasksCounter" value="271" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2528047000" />
+    <option name="totallyTimeSpent" value="2528189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="583" y="23" width="857" height="815" extended-state="0" />
@@ -957,11 +956,11 @@
     <MESSAGE value="登录注册bug" />
     <MESSAGE value="微信绑定设置密码加密" />
     <MESSAGE value="and加密js" />
-    <MESSAGE value="test" />
     <MESSAGE value="删除废弃文件" />
     <MESSAGE value="注册登录bug" />
     <MESSAGE value="bug修复完成，去掉alert" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug修复完成，去掉alert" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1466,8 +1465,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="100" column="23" lean-forward="true" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
+        <state relative-caret-position="221">
+          <caret line="104" column="43" lean-forward="true" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
           <folding />
         </state>
       </provider>

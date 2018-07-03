@@ -102,6 +102,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
+                alert(JSON.stringify(ret));
                 if (ret.status !== 200) {
                     alert(ret.errorMessage);
                 }
