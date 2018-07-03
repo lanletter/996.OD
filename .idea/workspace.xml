@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="test">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="test ok">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/boundphone1.html" afterPath="$PROJECT_DIR$/html/boundphone1.html" />
       <change beforePath="$PROJECT_DIR$/html/boundphone2.html" afterPath="$PROJECT_DIR$/html/boundphone2.html" />
     </list>
     <ignored path="fotilestyle.iws" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="boundphone2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="110" column="24" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="24" />
+            <state relative-caret-position="582">
+              <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,8 +48,8 @@
       <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+            <state relative-caret-position="1459">
+              <caret line="135" column="66" lean-forward="true" selection-start-line="135" selection-start-column="61" selection-end-line="135" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -79,18 +78,28 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
+            <state relative-caret-position="321">
               <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/signin.html">
+      <file leaf-file-name="activealbum.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/activealbum.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="69" column="9" lean-forward="false" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="9" />
+            <state relative-caret-position="660">
+              <caret line="226" column="65" lean-forward="false" selection-start-line="226" selection-start-column="65" selection-end-line="226" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="servicetext-new.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="274" column="3" lean-forward="false" selection-start-line="274" selection-start-column="3" selection-end-line="278" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -99,18 +108,8 @@
       <file leaf-file-name="setpwd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/setpwd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="632">
+            <state relative-caret-position="317">
               <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="paymentwxpub.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/paymentwxpub.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-29">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -234,8 +233,8 @@
         <option value="$PROJECT_DIR$/html/findpwd.html" />
         <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/login2.html" />
-        <option value="$PROJECT_DIR$/html/boundphone2.html" />
         <option value="$PROJECT_DIR$/html/boundphone1.html" />
+        <option value="$PROJECT_DIR$/html/boundphone2.html" />
       </list>
     </option>
   </component>
@@ -543,14 +542,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="21749000" />
-    </task>
-    <task id="LOCAL-00227" summary="bug">
-      <created>1529114572410</created>
-      <option name="number" value="00227" />
-      <option name="presentableId" value="LOCAL-00227" />
-      <option name="project" value="LOCAL" />
-      <updated>1529114572410</updated>
+      <workItem from="1530496603373" duration="22149000" />
     </task>
     <task id="LOCAL-00228" summary="bug">
       <created>1529114875141</created>
@@ -888,11 +880,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530601035660</updated>
     </task>
-    <option name="localTasksCounter" value="276" />
+    <task id="LOCAL-00276" summary="test ok">
+      <created>1530601453793</created>
+      <option name="number" value="00276" />
+      <option name="presentableId" value="LOCAL-00276" />
+      <option name="project" value="LOCAL" />
+      <updated>1530601453793</updated>
+    </task>
+    <option name="localTasksCounter" value="277" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2532280000" />
+    <option name="totallyTimeSpent" value="2532680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="583" y="23" width="857" height="812" extended-state="0" />
@@ -936,7 +935,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="分享交互test" />
     <MESSAGE value="深链接test" />
     <MESSAGE value="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行" />
     <MESSAGE value="分享" />
@@ -961,7 +959,8 @@
     <MESSAGE value="注册登录bug" />
     <MESSAGE value="bug修复完成，去掉alert" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="test ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="test ok" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1181,14 +1180,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/activealbum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3390">
-          <caret line="226" column="65" lean-forward="false" selection-start-line="226" selection-start-column="65" selection-end-line="226" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fotilepopularize/type_ios.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1095">
@@ -1240,14 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-435">
           <caret line="470" column="46" lean-forward="true" selection-start-line="470" selection-start-column="46" selection-end-line="470" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="274" column="3" lean-forward="false" selection-start-line="274" selection-start-column="3" selection-end-line="278" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -1341,7 +1324,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1416,26 +1399,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/setpwd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/findpwd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
           <caret line="86" column="21" lean-forward="false" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1456,18 +1423,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="274" column="3" lean-forward="false" selection-start-line="274" selection-start-column="3" selection-end-line="278" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/setpwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="136" column="41" lean-forward="false" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="104" column="44" lean-forward="true" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activealbum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="226" column="65" lean-forward="false" selection-start-line="226" selection-start-column="65" selection-end-line="226" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="110" column="24" lean-forward="false" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="24" />
+        <state relative-caret-position="582">
+          <caret line="67" column="0" lean-forward="true" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="98" column="25" lean-forward="true" selection-start-line="98" selection-start-column="25" selection-end-line="98" selection-end-column="25" />
+        <state relative-caret-position="1459">
+          <caret line="135" column="66" lean-forward="true" selection-start-line="135" selection-start-column="61" selection-end-line="135" selection-end-column="66" />
           <folding />
         </state>
       </provider>
