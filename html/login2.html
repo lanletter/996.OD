@@ -146,7 +146,7 @@
                     $.cookie('userid', obj.data.userInfomation.userId);
                     window.location.href = h5url;
                 } else if (obj.status == 525) {
-                    $api.toast('用户名密码错误!', 2000);
+                    alert("用户名或密码错误");
                 } else if (obj.resultCode == "2002") {
                     alert("用户名或密码错误");
                 } else {

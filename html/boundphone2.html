@@ -65,11 +65,11 @@
         var encrypt = new JSEncrypt();
         encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
         var passwordkey = encrypt.encrypt($("#newpwd").val());
-        alert(JSON.stringify({
-            verificationCode: codenum,
-            accountName: phonenum,
-            password: passwordkey
-        }));
+        // alert(JSON.stringify({
+        //     verificationCode: codenum,
+        //     accountName: phonenum,
+        //     password: passwordkey
+        // }));
         /*设置密码*/
         $.ajax({
             type: 'POST',

@@ -95,12 +95,11 @@
 
     /*提交*/
     $("#nextbtn").click(function () {
-        // if (!loginInputValid()) return;
-        alert(JSON.stringify({
-            accountName: $("#phonenum").val(),
-            password: $("#newpwd").val(),
-            verificationCode: $("#codenum").val()
-        }));
+        // alert(JSON.stringify({
+        //     accountName: $("#phonenum").val(),
+        //     password: $("#newpwd").val(),
+        //     verificationCode: $("#codenum").val()
+        // }));
         $.ajax({
             type: 'POST',
             url: urlport + 'user/forgetPassword/v421',
@@ -112,11 +111,11 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+                // alert(JSON.stringify(ret));
                 if (ret.status == "200") {
                     $api.toast('密码修改成功', 2000);
                     var buyurl = "login.html";
-                    alert(buyurl);
+                    // alert(buyurl);
                     window.location.href = buyurl;
                 } else {
                     alert(ret.errorMessage);
