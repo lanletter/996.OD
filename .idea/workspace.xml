@@ -28,8 +28,8 @@
       <file leaf-file-name="boundphone2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="105" column="42" lean-forward="true" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
+            <state relative-caret-position="406">
+              <caret line="111" column="16" lean-forward="false" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -542,14 +542,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="20992000" />
-    </task>
-    <task id="LOCAL-00225" summary="bug">
-      <created>1529114242838</created>
-      <option name="number" value="00225" />
-      <option name="presentableId" value="LOCAL-00225" />
-      <option name="project" value="LOCAL" />
-      <updated>1529114242838</updated>
+      <workItem from="1530496603373" duration="21387000" />
     </task>
     <task id="LOCAL-00226" summary="bug">
       <created>1529114477121</created>
@@ -887,11 +880,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530600370355</updated>
     </task>
-    <option name="localTasksCounter" value="274" />
+    <task id="LOCAL-00274" summary="test">
+      <created>1530600530789</created>
+      <option name="number" value="00274" />
+      <option name="presentableId" value="LOCAL-00274" />
+      <option name="project" value="LOCAL" />
+      <updated>1530600530789</updated>
+    </task>
+    <option name="localTasksCounter" value="275" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2531523000" />
+    <option name="totallyTimeSpent" value="2531918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="583" y="23" width="857" height="812" extended-state="0" />
@@ -1465,8 +1465,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="105" column="42" lean-forward="true" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
+        <state relative-caret-position="406">
+          <caret line="111" column="16" lean-forward="false" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
           <folding />
         </state>
       </provider>
