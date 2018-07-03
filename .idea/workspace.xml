@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="删除废弃文件">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="注册登录bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/boundphone1.html" afterPath="$PROJECT_DIR$/html/boundphone1.html" />
     </list>
@@ -28,8 +28,8 @@
       <file leaf-file-name="boundphone2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+            <state relative-caret-position="264">
+              <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -116,8 +116,8 @@
       <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="153" column="37" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+            <state relative-caret-position="469">
+              <caret line="208" column="41" lean-forward="true" selection-start-line="208" selection-start-column="41" selection-end-line="208" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -136,9 +136,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>content</find>
-      <find>http://192.168.0.10:8089/fotile/comment/createGet</find>
-      <find>deeplinkFC</find>
       <find>askcount</find>
       <find>menucount</find>
       <find>menulist</find>
@@ -164,8 +161,11 @@
       <find>nextbtn</find>
       <find>loginInputValid</find>
       <find>phonenum</find>
-      <find>VerificationCode</find>
       <find>newpwd</find>
+      <find>VerificationCode</find>
+      <find>loginByUnionIDAndTel</find>
+      <find>verifycode</find>
+      <find>checkVerificationCode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -546,14 +546,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="13787000" />
-    </task>
-    <task id="LOCAL-00218" summary="bug">
-      <created>1529110008468</created>
-      <option name="number" value="00218" />
-      <option name="presentableId" value="LOCAL-00218" />
-      <option name="project" value="LOCAL" />
-      <updated>1529110008468</updated>
+      <workItem from="1530496603373" duration="14879000" />
     </task>
     <task id="LOCAL-00219" summary="bug">
       <created>1529110504403</created>
@@ -891,11 +884,18 @@
       <option name="project" value="LOCAL" />
       <updated>1530523109040</updated>
     </task>
-    <option name="localTasksCounter" value="267" />
+    <task id="LOCAL-00267" summary="注册登录bug">
+      <created>1530525836749</created>
+      <option name="number" value="00267" />
+      <option name="presentableId" value="LOCAL-00267" />
+      <option name="project" value="LOCAL" />
+      <updated>1530525836749</updated>
+    </task>
+    <option name="localTasksCounter" value="268" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2524318000" />
+    <option name="totallyTimeSpent" value="2525410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="583" y="23" width="857" height="810" extended-state="0" />
@@ -959,12 +959,12 @@
     <MESSAGE value="深度链接test" />
     <MESSAGE value="微信分享图片bug" />
     <MESSAGE value="登录注册bug" />
-    <MESSAGE value="注册登录bug" />
     <MESSAGE value="微信绑定设置密码加密" />
     <MESSAGE value="and加密js" />
     <MESSAGE value="test" />
     <MESSAGE value="删除废弃文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="删除废弃文件" />
+    <MESSAGE value="注册登录bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="注册登录bug" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1456,16 +1456,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="70" column="33" lean-forward="false" selection-start-line="70" selection-start-column="33" selection-end-line="70" selection-end-column="33" />
+        <state relative-caret-position="264">
+          <caret line="73" column="16" lean-forward="true" selection-start-line="73" selection-start-column="16" selection-end-line="73" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="153" column="37" lean-forward="true" selection-start-line="153" selection-start-column="37" selection-end-line="153" selection-end-column="37" />
+        <state relative-caret-position="469">
+          <caret line="208" column="41" lean-forward="true" selection-start-line="208" selection-start-column="41" selection-end-line="208" selection-end-column="41" />
           <folding />
         </state>
       </provider>
