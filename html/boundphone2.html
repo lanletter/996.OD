@@ -71,25 +71,48 @@
         //     password: passwordkey
         // }));
         /*设置密码*/
+//         $.ajax({
+//             type: 'POST',
+//             url: urlport + 'user/setPassword',
+//             headers: {
+//                 version: 'v432'
+//             },
+//             datatype: "json",
+//             data: JSON.stringify({
+//                 verificationCode: codenum,
+//                 accountName: phonenum,
+//                 password: passwordkey
+//             }),
+//             contentType: 'application/json;charset=UTF-8',
+//             success: function (ret) {
+// //              alert(JSON.stringify(ret));
+//                 if (ret.status == "200") {
+//                     $api.toast('设置密码成功', 2000);
+//                     window.location.href = h5url;
+//                 }else {
+//                     alert(ret.errorMessage);
+//                 }
+//             }
+//         });
         $.ajax({
             type: 'POST',
-            url: urlport + 'user/setPassword',
-            headers: {
-                version: 'v432'
-            },
+            url: urlport + 'user/loginByUnionIDAndTel',
             datatype: "json",
             data: JSON.stringify({
-                verificationCode: codenum,
-                accountName: phonenum,
-                password: passwordkey
+                unionId: unionid,
+                weChat: nickname,
+                picture: headimgurl,
+                tel: $("#phonenum").val(),
+                verificationCode: $("#codenum").val(),
+                password:passwordkey
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-//              alert(JSON.stringify(ret));
+                // alert(JSON.stringify(ret));
                 if (ret.status == "200") {
-                    $api.toast('设置密码成功', 2000);
+                    $api.toast('微信绑定成功', 2000);
                     window.location.href = h5url;
-                }else {
+                } else {
                     alert(ret.errorMessage);
                 }
             }

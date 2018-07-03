@@ -57,8 +57,11 @@
     var id = $.cookie('id');
     $.cookie('id', id);
     var unionid = $.cookie('unionid');
+    $.cookie('unionid', unionid);
     var nickname = $.cookie('nickname');
+    $.cookie('nickname', nickname);
     var headimgurl = $.cookie('headimgurl');
+    $.cookie('headimgurl', headimgurl);
 
     $("#nickName").text(nickname);
 
@@ -122,22 +125,38 @@
 //      }));
         $.ajax({
             type: 'POST',
-            url: urlport + 'user/loginByUnionIDAndTel',
+            url: urlport + 'user/chenkUser',
             datatype: "json",
             data: JSON.stringify({
-                unionId: unionid,
-                weChat: nickname,
-                picture: headimgurl,
-                tel: $("#phonenum").val(),
-                verificationCode: $("#codenum").val()
+                accountName: $("#phonenum").val()
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-//              alert(JSON.stringify(ret));
-                if (ret.status == "200") {
-                    $api.toast('微信绑定成功', 2000);
-                    window.location.href = h5url;
-                }else {
+                alert(JSON.stringify(ret));
+                if (ret.data == true || ret.data == "true") {//已注册
+                    $.ajax({
+                        type: 'POST',
+                        url: urlport + 'user/loginByUnionIDAndTel',
+                        datatype: "json",
+                        data: JSON.stringify({
+                            unionId: unionid,
+                            weChat: nickname,
+                            picture: headimgurl,
+                            tel: $("#phonenum").val(),
+                            verificationCode: $("#codenum").val()
+                        }),
+                        contentType: 'application/json;charset=UTF-8',
+                        success: function (ret) {
+                            alert(JSON.stringify(ret));
+                            if (ret.status == "200") {
+                                $api.toast('微信绑定成功', 2000);
+                                window.location.href = h5url;
+                            } else {
+                                alert(ret.errorMessage);
+                            }
+                        }
+                    });
+                } else {//未注册
                     $.cookie('codenum', $("#codenum").val());
                     var boundPhone = "boundphone2.html?id=" + id;
                     window.location.href = boundPhone;
