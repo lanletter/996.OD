@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="注册登录bug">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug修复完成，去掉alert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/boundphone1.html" afterPath="$PROJECT_DIR$/html/boundphone1.html" />
-      <change beforePath="$PROJECT_DIR$/html/boundphone2.html" afterPath="$PROJECT_DIR$/html/boundphone2.html" />
-      <change beforePath="$PROJECT_DIR$/html/findpwd.html" afterPath="$PROJECT_DIR$/html/findpwd.html" />
-      <change beforePath="$PROJECT_DIR$/html/login2.html" afterPath="$PROJECT_DIR$/html/login2.html" />
       <change beforePath="$PROJECT_DIR$/html/setpwd.html" afterPath="$PROJECT_DIR$/html/setpwd.html" />
     </list>
     <ignored path="fotilestyle.iws" />
@@ -49,17 +46,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="boundphone1.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="105" column="25" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="25" />
+            <state relative-caret-position="216">
+              <caret line="100" column="23" lean-forward="true" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login2.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="254">
@@ -235,10 +232,10 @@
         <option value="$PROJECT_DIR$/js/jsencrypt.min.js" />
         <option value="$PROJECT_DIR$/js/remjs.js" />
         <option value="$PROJECT_DIR$/html/boundphone2.html" />
-        <option value="$PROJECT_DIR$/html/boundphone1.html" />
         <option value="$PROJECT_DIR$/html/findpwd.html" />
         <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/login2.html" />
+        <option value="$PROJECT_DIR$/html/boundphone1.html" />
       </list>
     </option>
   </component>
@@ -252,7 +249,7 @@
     <option name="x" value="583" />
     <option name="y" value="23" />
     <option name="width" value="857" />
-    <option name="height" value="810" />
+    <option name="height" value="815" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -285,12 +282,6 @@
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="fotile-temporary" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -552,14 +543,7 @@
       <workItem from="1530368707747" duration="60000" />
       <workItem from="1530371837674" duration="40000" />
       <workItem from="1530371881759" duration="237000" />
-      <workItem from="1530496603373" duration="15535000" />
-    </task>
-    <task id="LOCAL-00220" summary="bug">
-      <created>1529111355953</created>
-      <option name="number" value="00220" />
-      <option name="presentableId" value="LOCAL-00220" />
-      <option name="project" value="LOCAL" />
-      <updated>1529111355953</updated>
+      <workItem from="1530496603373" duration="17516000" />
     </task>
     <task id="LOCAL-00221" summary="bug">
       <created>1529111513255</created>
@@ -897,16 +881,23 @@
       <option name="project" value="LOCAL" />
       <updated>1530583602751</updated>
     </task>
-    <option name="localTasksCounter" value="269" />
+    <task id="LOCAL-00269" summary="bug修复完成，去掉alert">
+      <created>1530584380409</created>
+      <option name="number" value="00269" />
+      <option name="presentableId" value="LOCAL-00269" />
+      <option name="project" value="LOCAL" />
+      <updated>1530584380409</updated>
+    </task>
+    <option name="localTasksCounter" value="270" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2526066000" />
+    <option name="totallyTimeSpent" value="2528047000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="583" y="23" width="857" height="810" extended-state="0" />
+    <frame x="583" y="23" width="857" height="815" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19719954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19719954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -945,7 +936,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="深链接test，分享优化" />
     <MESSAGE value="分享交互test" />
     <MESSAGE value="深链接test" />
     <MESSAGE value="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行" />
@@ -970,7 +960,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="删除废弃文件" />
     <MESSAGE value="注册登录bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="注册登录bug" />
+    <MESSAGE value="bug修复完成，去掉alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug修复完成，去掉alert" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1409,14 +1400,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="105" column="25" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/boundphone2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="464">
@@ -1477,6 +1460,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
           <caret line="148" column="38" lean-forward="false" selection-start-line="148" selection-start-column="38" selection-end-line="148" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/boundphone1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="100" column="23" lean-forward="true" selection-start-line="100" selection-start-column="23" selection-end-line="100" selection-end-column="23" />
           <folding />
         </state>
       </provider>
