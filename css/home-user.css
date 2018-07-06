@@ -1,0 +1,242 @@
+header{
+    overflow: hidden;
+    padding: 0.6rem;
+    margin-bottom: 0.54rem;
+}
+.headimg {
+    width: 1.66rem;
+    height: 1.66rem;
+    border-radius: 50%;
+    float: left;
+}
+.headinfo{
+    float: left;
+    margin-left: 0.5rem;
+}
+.headinfo .nickname{
+    display: block;
+    color: #1F1F1F;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    font-size: 0.48rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+.headinfo p{
+    color: #9A9A9A;
+    font-size: 0.28rem;
+    width: 4.08rem;
+    display: block;
+}
+.headinfo .sex{
+    margin-right: 0.28rem;
+}
+.headinfo .age{
+}
+.headinfo .time{
+}
+
+.bigtitle {
+    height: 0.66rem;
+    padding-left: 0.34rem;
+    margin-bottom: 0.2rem;
+}
+.bigtitle span{
+    line-height: 0.66rem;
+    color: #1F1F1F;
+    font-size: 0.48rem;
+    font-weight: bold;
+}
+.bigtitle a{
+    float: right;
+    margin-top: 0.22rem;
+    line-height: 0.44rem;
+    color: #1F1F1F;
+    font-size: 0.28rem;
+}
+.bigtitle a:after{
+    content: '';
+    display: inline-block;
+    width: 0.4rem;
+    height: 0.4rem;
+    background: url("../img/rightarrow.png") center no-repeat;
+    background-size: 0.4rem 0.4rem;
+    vertical-align: top;
+}
+
+.menuul{
+    padding:0 0.4rem;
+    padding-bottom: 0.2rem;
+}
+.menuul li{
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+}
+.menuul li a{
+    display: block;
+    width: 6.7rem;
+    height: 3.76rem;
+    background-size: 6.7rem auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.16rem;
+}
+.menuul .name{
+    width: 6.2rem;
+    font-size: 0.36rem;
+    font-weight: bold;
+    margin: 0.18rem 0 0.16rem 0.26rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    color: #1F1F1F;
+}
+.menuul .num{
+    padding-left: 0.26rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
+}
+.menuul .num span{
+    display: inline-block;
+    font-size: 0.24rem;
+    color: #9A9A9A;
+    margin-right: 0.32rem;
+}
+.menuul .num span:before {
+    display: inline-block;
+    content: '';
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-right: 0.06rem;
+    vertical-align: top;
+}
+
+.menuul .num .viewnum:before {
+    background: url('../img/IconsView.png') no-repeat;
+    background-size: 0.32rem 0.32rem;
+}
+.menuul .num .collectnum:before {
+    background: url('../img/IconsHeart.png') no-repeat;
+    background-size: 0.32rem 0.32rem;
+}
+
+.workul{
+    padding-left:0.4rem;
+    padding-bottom: 2.24rem;
+    overflow: hidden;
+}
+.workul li{
+    float: left;
+    margin-bottom: 0.4rem;
+    margin-right: 0.3rem;
+    overflow: hidden;
+}
+.workul li a{
+    float: left;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-size:auto 3.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.16rem;
+}
+
+.empty{
+    width: 100%;
+    height: 100%;
+}
+.empty img{
+    display: block;
+    width: 2.46rem;
+    height: 2.46rem;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 0.72rem;
+}
+.empty p{
+    color: #9A9A9A;
+    font-size: 0.28rem;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+/*课程*/
+.courseul {
+    padding-left: 0.09rem;
+    padding-bottom: 1.44rem;
+    overflow: hidden;}
+.courseul li{
+    float: left;
+    width: 3.52rem;
+    height: 6.32rem;
+    margin:0 0.074rem;
+    margin-bottom: 0.26rem;
+}
+.courseul li:first-child{display: none;}
+.courseul li .img{
+    height: 4.68rem;
+    background-size: auto 100%;
+    -webkit-background-size: auto 100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0.08rem;
+}
+.courseul li h3{
+    margin-top: 0.08rem;
+    max-height: 0.8rem;
+    line-height: 0.4rem;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(47,47,47);
+    overflow: hidden;
+}
+
+.courseul li p{height: 0.4rem;line-height: 0.4rem;}
+.courseul li .txtgrey1{
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(130,130,130);
+}
+.courseul li .txtgrey2{
+    font-size: 10px;
+    font-weight: normal;
+    color: rgb(201,201,201);
+}
+.courseul li .txtgrey2 b{font-weight: normal;}
+.courseul li .txt1:before{
+    content: '';
+    display: inline-block;
+    height: 0.4rem;
+    width: 0.4rem;
+    background: url("../img/timewatch.png");
+    background-size: 0.4rem 0.4rem;
+    vertical-align: top;
+    margin-right: 0.08rem;
+}
+.courseul li .txt2:before{
+    content: '';
+    display: inline-block;
+    height: 0.4rem;
+    width: 0.4rem;
+    background: url("../img/people.png");
+    background-size: 0.4rem 0.4rem;
+    vertical-align: middle;
+    margin-right: 0.08rem;
+}
+.courseul li .price{
+    margin-left: 0.27rem;
+    color: rgb(211,174,77);
+    font-size: 10px;
+    font-weight: inherit;
+}
+.courseul li .price:before{
+    content: '';
+    display: inline-block;
+    height: 0.28rem;
+    width: 0.28rem;
+    background: url("../img/goldpng.png");
+    background-size: 0.28rem 0.28rem;
+    margin:0.06rem 0.08rem 0 0 ;
+    vertical-align: top;
+}
