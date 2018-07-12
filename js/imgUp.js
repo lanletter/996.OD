@@ -165,7 +165,7 @@
                     var formdata = new FormData();
                     var filestring = e.target.result;   //base64编码的图片数据
                     console.log(filestring);
-                    alert(filestring);
+                    // alert(filestring);
                     formdata.append("type", 2);
                     formdata.append("image", filestring);
                     var json = {};
@@ -197,7 +197,7 @@
                             }
                         },
                         error: function (e) {
-                            $("#waiting").remove();
+                            // $("#waiting").remove();
                             console.log(e);
                             // alert(JSON.stringify(e));
                             // obj.remove();
