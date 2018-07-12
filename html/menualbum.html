@@ -36,7 +36,7 @@
     </header>
     <ul class="menuul">
         <li v-for="(item,index) in data.list">
-            <a :href="item.url"  :style="{backgroundImage: 'url(' + item.picture + ')'}"></a>
+            <a :href="item.url" :style="{backgroundImage: 'url(' + item.picture + ')'}"></a>
             <p class="name" v-html="item.name"></p>
             <p class="num">
                 <span class="viewnum" v-html="item.pageviews"></span>
@@ -187,6 +187,15 @@
                         console.info($this.data);
                     }
 
+                    /*GIO埋点——页面级变量*/
+                    //custom page code begin here
+                    gio("page.set", "menufeature", "菜谱专题名称");//页面类型
+                    gio("page.set", "menufeaturecount", data.data.list.length);//菜谱专题内的菜谱数量
+                    //custom page code end here
+                    gio('send');
+                    <!-- End GrowingIO Analytics code version: 2.1 -->
+
+
                     $("#instructions").html($this.data.desc);
                     /*分享链接专用*/
                     var sharetitle = $this.data.title;
@@ -251,9 +260,7 @@
                 }
 
             },
-            methods: {
-
-            }
+            methods: {}
         });
 
     }
