@@ -50,7 +50,7 @@
                 <b v-html="basicInfo.pageviews"></b>
             </span>
             <span class="favorite">
-                <i class="deeplikopen icon-msg" id="star"></i>
+                <i class="icon-msg" id="star" @click="deeplikopen"></i>
                 <!--<i class="deeplikopen" id="star" @click="star"></i>-->
                 <b v-html="basicInfo.favoriteCount || 0"></b>
             </span>
@@ -125,11 +125,11 @@
         </div>
     </div>
 
-    <div class="device deeplikopen">进入APP体验智能设备</div>
+    <div class="device" @click="deeplikopen">进入APP体验智能设备</div>
 
     <div id="menushow">
         <h2>晒作品</h2>
-        <a class="moremenu arrow deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
+        <a class="moremenu arrow" @click="deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
         <div class="listarea" v-if="datalist.count !== 0">
             <ul class="menulist">
                 <li v-for="(item,index) in datalist.workList"><a>
@@ -152,14 +152,14 @@
                 <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
             </ul>
         </div>
-        <button class="menushowbtn deeplikopen">我要晒作品</button>
+        <button class="menushowbtn" @click="deeplikopen">我要晒作品</button>
     </div>
 
     <div id="ask">
         <h2>问大家</h2>
-        <a class="moreask arrow deeplikopen">全部<span v-html="dataask.count"></span>个问题</a>
+        <a class="moreask arrow" @click="deeplikopen">全部<span v-html="dataask.count"></span>个问题</a>
         <div class="listarea" v-if="dataask.count !== 0">
-            <ul class="asklist deeplikopen">
+            <ul class="asklist">
                 <li v-for="(item,index) in dataask.answerList" @click="deeplikopen">
                     <div class="ask">
                         <p class="title">
@@ -191,7 +191,7 @@
             <img src="../img/noask.png">
             <p>还没有人发表问题哦</p>
         </div>
-        <button class="askbtn deeplikopen">我要提问</button>
+        <button class="askbtn" @click="deeplikopen">我要提问</button>
     </div>
 
     <div id="menuother">

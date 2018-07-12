@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="评论上传图片提示test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/js/imgUp.js" afterPath="$PROJECT_DIR$/js/imgUp.js" />
+      <change beforePath="$PROJECT_DIR$/html/menudetail.html" afterPath="$PROJECT_DIR$/html/menudetail.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,7 +134,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imgUp.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imgUp.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/imgUp.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
@@ -146,6 +146,16 @@
                 <marker date="1531380135523" expanded="true" signature="6500:6616" ph="..." />
                 <marker date="1531380135523" expanded="true" signature="8229:8242" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="52" column="26" lean-forward="false" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -201,16 +211,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu-inpage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7770">
-              <caret line="518" column="16" lean-forward="false" selection-start-line="518" selection-start-column="16" selection-end-line="537" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="deeplink.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/deeplink.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -234,18 +234,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>nextbtn</find>
-      <find>phonenum</find>
-      <find>newpwd</find>
-      <find>VerificationCode</find>
-      <find>loginByUnionIDAndTel</find>
-      <find>verifycode</find>
       <find>checkVerificationCode</find>
       <find>loginInputValid</find>
       <find>codenum</find>
       <find>alert</find>
       <find>h5url</find>
-      <find>deeplikopen</find>
       <find>canClick</find>
       <find>isgray</find>
       <find>materialsList</find>
@@ -264,6 +257,13 @@
       <find>z_file</find>
       <find>waiting</find>
       <find>leave-words</find>
+      <find>uploadImg</find>
+      <find>created</find>
+      <find>callKitchenware</find>
+      <find>star</find>
+      <find>click</find>
+      <find>imgclick</find>
+      <find>deeplikopen</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -318,7 +318,6 @@
         <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/video-tab.html" />
         <option value="$PROJECT_DIR$/html/video-share.html" />
-        <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/html/coursealbum.html" />
         <option value="$PROJECT_DIR$/html/activealbum.html" />
@@ -331,6 +330,7 @@
         <option value="$PROJECT_DIR$/html/jf-buy.html" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
         <option value="$PROJECT_DIR$/js/imgUp.js" />
+        <option value="$PROJECT_DIR$/html/menudetail.html" />
       </list>
     </option>
   </component>
@@ -370,6 +370,11 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
@@ -645,14 +650,7 @@
       <workItem from="1531101888673" duration="2028000" />
       <workItem from="1531128709444" duration="89000" />
       <workItem from="1531130357534" duration="2643000" />
-      <workItem from="1531274422243" duration="9588000" />
-    </task>
-    <task id="LOCAL-00243" summary="官网问卷调查链接更改">
-      <created>1530069947716</created>
-      <option name="number" value="00243" />
-      <option name="presentableId" value="LOCAL-00243" />
-      <option name="project" value="LOCAL" />
-      <updated>1530069947716</updated>
+      <workItem from="1531274422243" duration="9910000" />
     </task>
     <task id="LOCAL-00244" summary="去掉登录注册异常弹框">
       <created>1530087531597</created>
@@ -990,11 +988,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531379992256</updated>
     </task>
-    <option name="localTasksCounter" value="292" />
+    <task id="LOCAL-00292" summary="评论上传图片提示test">
+      <created>1531380163185</created>
+      <option name="number" value="00292" />
+      <option name="presentableId" value="LOCAL-00292" />
+      <option name="project" value="LOCAL" />
+      <updated>1531380163185</updated>
+    </task>
+    <option name="localTasksCounter" value="293" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2564591000" />
+    <option name="totallyTimeSpent" value="2564913000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="508" y="23" width="932" height="815" extended-state="0" />
@@ -1221,13 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
           <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4815">
-          <caret line="321" column="26" lean-forward="true" selection-start-line="321" selection-start-column="26" selection-end-line="321" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1509,6 +1507,14 @@
             <marker date="1531380135523" expanded="true" signature="6500:6616" ph="..." />
             <marker date="1531380135523" expanded="true" signature="8229:8242" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="52" column="26" lean-forward="false" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
