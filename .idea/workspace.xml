@@ -137,14 +137,14 @@
       <file leaf-file-name="imgUp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/imgUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1590">
-              <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="21" selection-end-line="151" selection-end-column="30" />
+            <state relative-caret-position="383">
+              <caret line="168" column="21" lean-forward="false" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
               <folding>
-                <marker date="1531379152584" expanded="true" signature="6500:6515" ph="..." />
-                <marker date="1531379152584" expanded="true" signature="6500:6569" ph="..." />
-                <marker date="1531379152584" expanded="true" signature="6500:6600" ph="..." />
-                <marker date="1531379152584" expanded="true" signature="6500:6616" ph="..." />
-                <marker date="1531379152584" expanded="true" signature="8229:8242" ph="..." />
+                <marker date="1531379458933" expanded="true" signature="6500:6515" ph="..." />
+                <marker date="1531379458933" expanded="true" signature="6500:6569" ph="..." />
+                <marker date="1531379458933" expanded="true" signature="6500:6600" ph="..." />
+                <marker date="1531379458933" expanded="true" signature="6500:6616" ph="..." />
+                <marker date="1531379458933" expanded="true" signature="8226:8239" ph="..." />
               </folding>
             </state>
           </provider>
@@ -645,14 +645,7 @@
       <workItem from="1531101888673" duration="2028000" />
       <workItem from="1531128709444" duration="89000" />
       <workItem from="1531130357534" duration="2643000" />
-      <workItem from="1531274422243" duration="8678000" />
-    </task>
-    <task id="LOCAL-00238" summary="bug">
-      <created>1529916265329</created>
-      <option name="number" value="00238" />
-      <option name="presentableId" value="LOCAL-00238" />
-      <option name="project" value="LOCAL" />
-      <updated>1529916265329</updated>
+      <workItem from="1531274422243" duration="8934000" />
     </task>
     <task id="LOCAL-00239" summary="bug">
       <created>1529921161056</created>
@@ -990,11 +983,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531379011718</updated>
     </task>
-    <option name="localTasksCounter" value="287" />
+    <task id="LOCAL-00287" summary="评论上传图片提示test">
+      <created>1531379220695</created>
+      <option name="number" value="00287" />
+      <option name="presentableId" value="LOCAL-00287" />
+      <option name="project" value="LOCAL" />
+      <updated>1531379220695</updated>
+    </task>
+    <option name="localTasksCounter" value="288" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2563681000" />
+    <option name="totallyTimeSpent" value="2563937000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="508" y="23" width="932" height="815" extended-state="0" />
@@ -1500,14 +1500,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/imgUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1590">
-          <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="21" selection-end-line="151" selection-end-column="30" />
+        <state relative-caret-position="383">
+          <caret line="168" column="21" lean-forward="false" selection-start-line="168" selection-start-column="21" selection-end-line="168" selection-end-column="21" />
           <folding>
-            <marker date="1531379152584" expanded="true" signature="6500:6515" ph="..." />
-            <marker date="1531379152584" expanded="true" signature="6500:6569" ph="..." />
-            <marker date="1531379152584" expanded="true" signature="6500:6600" ph="..." />
-            <marker date="1531379152584" expanded="true" signature="6500:6616" ph="..." />
-            <marker date="1531379152584" expanded="true" signature="8229:8242" ph="..." />
+            <marker date="1531379458933" expanded="true" signature="6500:6515" ph="..." />
+            <marker date="1531379458933" expanded="true" signature="6500:6569" ph="..." />
+            <marker date="1531379458933" expanded="true" signature="6500:6600" ph="..." />
+            <marker date="1531379458933" expanded="true" signature="6500:6616" ph="..." />
+            <marker date="1531379458933" expanded="true" signature="8226:8239" ph="..." />
           </folding>
         </state>
       </provider>
