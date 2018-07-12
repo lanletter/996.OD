@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="test ok">
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/home-tutor.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/waiting.png" />
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="评论上传图片提示test">
+      <change beforePath="" afterPath="$PROJECT_DIR$/img/empty.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/home-user.css" afterPath="$PROJECT_DIR$/css/home-user.css" />
-      <change beforePath="$PROJECT_DIR$/html/activedetail.html" afterPath="$PROJECT_DIR$/html/activedetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/menualbum.html" afterPath="$PROJECT_DIR$/html/menualbum.html" />
       <change beforePath="$PROJECT_DIR$/js/imgUp.js" afterPath="$PROJECT_DIR$/js/imgUp.js" />
     </list>
     <ignored path="fotilestyle.iws" />
@@ -143,14 +139,14 @@
       <file leaf-file-name="imgUp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/imgUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="185" column="51" lean-forward="true" selection-start-line="185" selection-start-column="51" selection-end-line="185" selection-end-column="51" />
+            <state relative-caret-position="2094">
+              <caret line="199" column="51" lean-forward="false" selection-start-line="199" selection-start-column="51" selection-end-line="199" selection-end-column="51" />
               <folding>
-                <marker date="1531364199706" expanded="true" signature="6500:6514" ph="..." />
-                <marker date="1531364199706" expanded="true" signature="6500:6568" ph="..." />
-                <marker date="1531364199706" expanded="true" signature="6500:6598" ph="..." />
-                <marker date="1531364199706" expanded="true" signature="6500:6614" ph="..." />
-                <marker date="1531364199706" expanded="true" signature="8219:8232" ph="..." />
+                <marker date="1531364979698" expanded="true" signature="6500:6514" ph="..." />
+                <marker date="1531364979698" expanded="true" signature="6500:6568" ph="..." />
+                <marker date="1531364979698" expanded="true" signature="6500:6598" ph="..." />
+                <marker date="1531364979698" expanded="true" signature="6500:6614" ph="..." />
+                <marker date="1531364979698" expanded="true" signature="8219:8232" ph="..." />
               </folding>
             </state>
           </provider>
@@ -645,14 +641,7 @@
       <workItem from="1531101888673" duration="2028000" />
       <workItem from="1531128709444" duration="89000" />
       <workItem from="1531130357534" duration="2643000" />
-      <workItem from="1531274422243" duration="2714000" />
-    </task>
-    <task id="LOCAL-00235" summary="修复评论不能换行bug">
-      <created>1529647688992</created>
-      <option name="number" value="00235" />
-      <option name="presentableId" value="LOCAL-00235" />
-      <option name="project" value="LOCAL" />
-      <updated>1529647688992</updated>
+      <workItem from="1531274422243" duration="3886000" />
     </task>
     <task id="LOCAL-00236" summary="新增菜谱专题列表页，深度链接流程优化变更">
       <created>1529898378566</created>
@@ -990,16 +979,23 @@
       <option name="project" value="LOCAL" />
       <updated>1530843010156</updated>
     </task>
-    <option name="localTasksCounter" value="284" />
+    <task id="LOCAL-00284" summary="评论上传图片提示test">
+      <created>1531364257293</created>
+      <option name="number" value="00284" />
+      <option name="presentableId" value="LOCAL-00284" />
+      <option name="project" value="LOCAL" />
+      <updated>1531364257293</updated>
+    </task>
+    <option name="localTasksCounter" value="285" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2557717000" />
+    <option name="totallyTimeSpent" value="2558889000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="508" y="23" width="932" height="810" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1038,7 +1034,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="上个提交中分享方法全面改造：顺序移到最前面，其他平行方法包在回调函数中继续进行" />
     <MESSAGE value="分享" />
     <MESSAGE value="分享除短视频其他恢复到之前版本" />
     <MESSAGE value="修复评论不能换行bug" />
@@ -1063,7 +1058,8 @@
     <MESSAGE value="test" />
     <MESSAGE value="test ok" />
     <MESSAGE value="新增用户主页" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增用户主页" />
+    <MESSAGE value="评论上传图片提示test" />
+    <option name="LAST_COMMIT_MESSAGE" value="评论上传图片提示test" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1485,14 +1481,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/imgUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="185" column="51" lean-forward="true" selection-start-line="185" selection-start-column="51" selection-end-line="185" selection-end-column="51" />
+        <state relative-caret-position="2094">
+          <caret line="199" column="51" lean-forward="false" selection-start-line="199" selection-start-column="51" selection-end-line="199" selection-end-column="51" />
           <folding>
-            <marker date="1531364199706" expanded="true" signature="6500:6514" ph="..." />
-            <marker date="1531364199706" expanded="true" signature="6500:6568" ph="..." />
-            <marker date="1531364199706" expanded="true" signature="6500:6598" ph="..." />
-            <marker date="1531364199706" expanded="true" signature="6500:6614" ph="..." />
-            <marker date="1531364199706" expanded="true" signature="8219:8232" ph="..." />
+            <marker date="1531364979698" expanded="true" signature="6500:6514" ph="..." />
+            <marker date="1531364979698" expanded="true" signature="6500:6568" ph="..." />
+            <marker date="1531364979698" expanded="true" signature="6500:6598" ph="..." />
+            <marker date="1531364979698" expanded="true" signature="6500:6614" ph="..." />
+            <marker date="1531364979698" expanded="true" signature="8219:8232" ph="..." />
           </folding>
         </state>
       </provider>

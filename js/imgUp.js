@@ -197,6 +197,7 @@
                             }
                         },
                         error: function (e) {
+                            $("#waiting").remove();
                             console.log(e);
                             // alert(JSON.stringify(e));
                             // obj.remove();
