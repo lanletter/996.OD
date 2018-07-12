@@ -156,7 +156,7 @@
                 console.log(url);
                 // alert(url);
                 var alertstr = "<img id='waiting' src='../img/waiting.png' style='width: 5.7rem;height: 1.68rem;position: absolute;top: 50%;left: 50%;margin: -0.84rem 0 0 -2.85rem;z-index: 999999;'>";
-                $("body").prepend(alertstr);
+                $("#leave-words").prepend(alertstr);
 
                 var reader = new FileReader(); // 新建一个FileReader();
                 reader.readAsDataURL(file); //读取图片文件的二进制数据
@@ -197,12 +197,14 @@
                             }
                         },
                         error: function (e) {
-                            $("#waiting").remove();
+                            // $("#waiting").remove();
                             console.log(e);
                             // alert(JSON.stringify(e));
                             // obj.remove();
                             var err = "上传失败！";
                             $("#imguploadFinish").val(false);
+                            $(".up-section").remove();
+                            $(".z_file").show();
                             if (errorCallBack) {
                                 errorCallBack(err);
                             }
