@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="评论上传图片提示test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/jf-buy.html" afterPath="$PROJECT_DIR$/html/jf-buy.html" />
       <change beforePath="$PROJECT_DIR$/js/imgUp.js" afterPath="$PROJECT_DIR$/js/imgUp.js" />
-      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" afterPath="$PROJECT_DIR$/js/loadcomment.js" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -139,14 +137,14 @@
       <file leaf-file-name="imgUp.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/imgUp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-222">
-              <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
+            <state relative-caret-position="1590">
+              <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="21" selection-end-line="151" selection-end-column="30" />
               <folding>
-                <marker date="1531378941788" expanded="true" signature="6500:6514" ph="..." />
-                <marker date="1531378941788" expanded="true" signature="6500:6568" ph="..." />
-                <marker date="1531378941788" expanded="true" signature="6500:6598" ph="..." />
-                <marker date="1531378941788" expanded="true" signature="6500:6614" ph="..." />
-                <marker date="1531378941788" expanded="true" signature="8227:8240" ph="..." />
+                <marker date="1531379152584" expanded="true" signature="6500:6515" ph="..." />
+                <marker date="1531379152584" expanded="true" signature="6500:6569" ph="..." />
+                <marker date="1531379152584" expanded="true" signature="6500:6600" ph="..." />
+                <marker date="1531379152584" expanded="true" signature="6500:6616" ph="..." />
+                <marker date="1531379152584" expanded="true" signature="8229:8242" ph="..." />
               </folding>
             </state>
           </provider>
@@ -647,14 +645,7 @@
       <workItem from="1531101888673" duration="2028000" />
       <workItem from="1531128709444" duration="89000" />
       <workItem from="1531130357534" duration="2643000" />
-      <workItem from="1531274422243" duration="8462000" />
-    </task>
-    <task id="LOCAL-00237" summary="bug">
-      <created>1529913889397</created>
-      <option name="number" value="00237" />
-      <option name="presentableId" value="LOCAL-00237" />
-      <option name="project" value="LOCAL" />
-      <updated>1529913889399</updated>
+      <workItem from="1531274422243" duration="8678000" />
     </task>
     <task id="LOCAL-00238" summary="bug">
       <created>1529916265329</created>
@@ -992,16 +983,23 @@
       <option name="project" value="LOCAL" />
       <updated>1531365489158</updated>
     </task>
-    <option name="localTasksCounter" value="286" />
+    <task id="LOCAL-00286" summary="评论上传图片提示test">
+      <created>1531379011718</created>
+      <option name="number" value="00286" />
+      <option name="presentableId" value="LOCAL-00286" />
+      <option name="project" value="LOCAL" />
+      <updated>1531379011718</updated>
+    </task>
+    <option name="localTasksCounter" value="287" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2563465000" />
+    <option name="totallyTimeSpent" value="2563681000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="508" y="23" width="932" height="815" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24034335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1502,14 +1500,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/imgUp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-222">
-          <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
+        <state relative-caret-position="1590">
+          <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="21" selection-end-line="151" selection-end-column="30" />
           <folding>
-            <marker date="1531378941788" expanded="true" signature="6500:6514" ph="..." />
-            <marker date="1531378941788" expanded="true" signature="6500:6568" ph="..." />
-            <marker date="1531378941788" expanded="true" signature="6500:6598" ph="..." />
-            <marker date="1531378941788" expanded="true" signature="6500:6614" ph="..." />
-            <marker date="1531378941788" expanded="true" signature="8227:8240" ph="..." />
+            <marker date="1531379152584" expanded="true" signature="6500:6515" ph="..." />
+            <marker date="1531379152584" expanded="true" signature="6500:6569" ph="..." />
+            <marker date="1531379152584" expanded="true" signature="6500:6600" ph="..." />
+            <marker date="1531379152584" expanded="true" signature="6500:6616" ph="..." />
+            <marker date="1531379152584" expanded="true" signature="8229:8242" ph="..." />
           </folding>
         </state>
       </provider>
