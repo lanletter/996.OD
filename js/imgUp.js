@@ -155,7 +155,7 @@
                 var url = opt.url;
                 console.log(url);
                 // alert(url);
-                var alertstr = "<img id='waiting' src='../img/waiting.png' style='width: 2.85rem;height: 0.84rem;position: absolute;top: 50%;left: 50%;margin: 0 0 0 -1.425rem;z-index: 999999;'>";
+                var alertstr = "<img id='waiting' src='../img/waiting.png' style='width: 2.85rem;height: 0.84rem;position: absolute;top: 50%;left: 50%;margin: -0.84rem 0 0 -1.425rem;z-index: 999999;'>";
                 $("#leave-words").prepend(alertstr);
 
                 var reader = new FileReader(); // 新建一个FileReader();
