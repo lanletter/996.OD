@@ -729,6 +729,7 @@
             data.cooks.forEach(function (item, index) {
                 var cooker = $('<section class="author teacher">\
                     <div class="author__info">\
+                        <span id="id" style="display: none">"' + item.id + '"</span>\
                         <img src="' + item.picture.path + '">\
                         <span>\
                           <b>' + item.cookName + '</b>\
@@ -739,9 +740,10 @@
                 $('.teacher-box').append(cooker);
 
                 if(device == "ios" || device == "android"){
-                    $(".author__info").on("click",function (object) {
+                    $(".author__info").on("click",function (event) {
+                        var id = $(this).find("#id").text();
                         ft.tutorInfo({
-                            id: data.cooks[0].id
+                            id: id
                         }, function (result) {
                         })
                     });
