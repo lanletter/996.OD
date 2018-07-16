@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复菜谱深链接bug">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="个人主页test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/home-user.css" afterPath="$PROJECT_DIR$/css/home-user.css" />
       <change beforePath="$PROJECT_DIR$/html/coursedetail.html" afterPath="$PROJECT_DIR$/html/coursedetail.html" />
-      <change beforePath="$PROJECT_DIR$/html/home-tutor.html" afterPath="$PROJECT_DIR$/html/home-tutor.html" />
-      <change beforePath="$PROJECT_DIR$/html/home-user.html" afterPath="$PROJECT_DIR$/html/home-user.html" />
-      <change beforePath="$PROJECT_DIR$/html/menudetail.html" afterPath="$PROJECT_DIR$/html/menudetail.html" />
-      <change beforePath="$PROJECT_DIR$/js/ft.js" afterPath="$PROJECT_DIR$/js/ft.js" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,25 +35,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="256" column="41" lean-forward="true" selection-start-line="256" selection-start-column="41" selection-end-line="256" selection-end-column="41" />
+            <state relative-caret-position="269">
+              <caret line="743" column="48" lean-forward="false" selection-start-line="743" selection-start-column="48" selection-end-line="743" selection-end-column="48" />
               <folding>
-                <marker date="1531729051040" expanded="true" signature="28935:28983" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="28935:29312" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="28983:29259" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="28983:29281" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="28983:29284" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="29078:29196" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="29078:29256" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="31677:31977" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="31715:31941" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="31773:31821" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="32065:32291" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="32103:32255" ph="..." />
-                <marker date="1531729051040" expanded="true" signature="32161:32209" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="28935:28983" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="28935:29312" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="28983:29259" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="28983:29281" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="28983:29284" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="29078:29196" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="29078:29256" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="30887:31187" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="30925:31151" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="30983:31031" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="31275:31501" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="31313:31465" ph="..." />
+                <marker date="1531729977661" expanded="true" signature="31371:31419" ph="..." />
               </folding>
             </state>
           </provider>
@@ -67,8 +62,8 @@
       <file leaf-file-name="ft.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="332" column="26" lean-forward="true" selection-start-line="332" selection-start-column="26" selection-end-line="332" selection-end-column="26" />
+            <state relative-caret-position="495">
+              <caret line="326" column="17" lean-forward="false" selection-start-line="326" selection-start-column="8" selection-end-line="326" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -183,7 +178,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/menudetail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="521">
@@ -263,9 +258,9 @@
       <find>course</find>
       <find>teacher-box</find>
       <find>ft.</find>
-      <find>shareInfo</find>
       <find>device</find>
       <find>homeuser</find>
+      <find>shareInfo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -331,8 +326,8 @@
         <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/html/home-tutor.html" />
         <option value="$PROJECT_DIR$/js/ft.js" />
-        <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/html/menudetail.html" />
+        <option value="$PROJECT_DIR$/html/coursedetail.html" />
       </list>
     </option>
   </component>
@@ -655,14 +650,7 @@
       <workItem from="1531274422243" duration="10653000" />
       <workItem from="1531381961469" duration="1977000" />
       <workItem from="1531461755416" duration="5451000" />
-      <workItem from="1531725722013" duration="2633000" />
-    </task>
-    <task id="LOCAL-00246" summary="去掉评论alert&#10;短视频ui修改">
-      <created>1530089704580</created>
-      <option name="number" value="00246" />
-      <option name="presentableId" value="LOCAL-00246" />
-      <option name="project" value="LOCAL" />
-      <updated>1530089704580</updated>
+      <workItem from="1531725722013" duration="3266000" />
     </task>
     <task id="LOCAL-00247" summary="去掉老版菜谱的分享交互">
       <created>1530090056689</created>
@@ -1000,11 +988,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531380581437</updated>
     </task>
-    <option name="localTasksCounter" value="295" />
+    <task id="LOCAL-00295" summary="个人主页test">
+      <created>1531729346288</created>
+      <option name="number" value="00295" />
+      <option name="presentableId" value="LOCAL-00295" />
+      <option name="project" value="LOCAL" />
+      <updated>1531729346288</updated>
+    </task>
+    <option name="localTasksCounter" value="296" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2575717000" />
+    <option name="totallyTimeSpent" value="2576350000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="349" y="23" width="1091" height="807" extended-state="0" />
@@ -1048,7 +1043,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="分享除短视频其他恢复到之前版本" />
     <MESSAGE value="修复评论不能换行bug" />
     <MESSAGE value="新增菜谱专题列表页，深度链接流程优化变更" />
     <MESSAGE value="官网问卷调查链接更改" />
@@ -1073,7 +1067,8 @@
     <MESSAGE value="新增用户主页" />
     <MESSAGE value="评论上传图片提示test" />
     <MESSAGE value="修复菜谱深链接bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复菜谱深链接bug" />
+    <MESSAGE value="个人主页test" />
+    <option name="LAST_COMMIT_MESSAGE" value="个人主页test" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1479,6 +1474,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="921" column="92" lean-forward="true" selection-start-line="921" selection-start-column="92" selection-end-line="921" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="326" column="17" lean-forward="false" selection-start-line="326" selection-start-column="8" selection-end-line="326" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/coursedetail.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -1487,41 +1498,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/ft.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="332" column="26" lean-forward="true" selection-start-line="332" selection-start-column="26" selection-end-line="332" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="256" column="41" lean-forward="true" selection-start-line="256" selection-start-column="41" selection-end-line="256" selection-end-column="41" />
+        <state relative-caret-position="269">
+          <caret line="743" column="48" lean-forward="false" selection-start-line="743" selection-start-column="48" selection-end-line="743" selection-end-column="48" />
           <folding>
-            <marker date="1531729051040" expanded="true" signature="28935:28983" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="28935:29312" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="28983:29259" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="28983:29281" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="28983:29284" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="29078:29196" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="29078:29256" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="31677:31977" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="31715:31941" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="31773:31821" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="32065:32291" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="32103:32255" ph="..." />
-            <marker date="1531729051040" expanded="true" signature="32161:32209" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="28935:28983" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="28935:29312" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="28983:29259" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="28983:29281" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="28983:29284" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="29078:29196" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="29078:29256" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="30887:31187" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="30925:31151" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="30983:31031" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="31275:31501" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="31313:31465" ph="..." />
+            <marker date="1531729977661" expanded="true" signature="31371:31419" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="921" column="92" lean-forward="true" selection-start-line="921" selection-start-column="92" selection-end-line="921" selection-end-column="92" />
-          <folding />
         </state>
       </provider>
     </entry>

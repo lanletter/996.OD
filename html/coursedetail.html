@@ -741,20 +741,7 @@
                 if(device == "ios" || device == "android"){
                     $(".author__info").on("click",function (object) {
                         ft.tutorInfo({
-                            id: data.id,
-                            num: $('.numbox .num').text(),
-                            price: data.price,
-                            type: 1,
-                            coupontype: $('.coupontype').text(),
-                            voucher: couponumber.toString(),
-                            remark: $('#remarks').val(),
-                            picturepath: data.picture.path,
-                            name: data.curriculumName,
-                            oldprice: $('#oldprice').text(),
-                            newprice: $('#allprice').text(),
-                            starttime: data.startDate,
-                            address1: data.store.storeName,
-                            address2: data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress,
+                            id: data.cooks[0].id
                         }, function (result) {
                         })
                     });
