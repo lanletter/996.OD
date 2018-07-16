@@ -323,6 +323,14 @@
             name: "multithreadedCooking",
             callbackId: generateID(),
             callback: noop
+        },
+        tutorInfo:{
+            name: "tutorInfo",
+            param: {
+                id: "",//导师id
+            },
+            callbackId: generateID(),
+            callback: noop
         }
 
     };
@@ -588,6 +596,16 @@
         var multithreadedCookingConfig = ft.mix(true, {}, config.multithreadedCooking);
         multithreadedCookingConfig.callback = fn;
         callByJS(multithreadedCookingConfig);
+    }
+
+    /*********************************************************************
+     *                           获取课程导师                             *
+     **********************************************************************/
+    ft.tutorInfo= function (option, fn) {
+        var tutorInfoConfig = ft.mix(true, {}, config.tutorInfo);
+        tutorInfoConfig.param.id = option.id || "";
+        tutorInfoConfig.callback = fn;
+        callByJS(tutorInfoConfig);
     }
 
 }()

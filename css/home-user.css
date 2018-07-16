@@ -34,6 +34,7 @@ header{
 .headinfo .age{
 }
 .headinfo .time{
+    margin-right: 0.1rem;
 }
 
 .bigtitle {

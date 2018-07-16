@@ -17,7 +17,7 @@
     <!--<script src="../js/tingyun-rum.js"></script>-->
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/home-user.css?ver=420" rel="stylesheet">
-    <title>用户主页</title>
+    <title>导师主页</title>
     <script type='text/javascript'>
         !function (e, t, n, g, i) {
             e[i] = e[i] || function () {
@@ -30,14 +30,14 @@
 <body>
 <div class="personinfo">
     <header>
-        <img class="headimg" :src="data.picture.path">
+        <img class="headimg" :src="datainfo.picture">
         <div class="headinfo">
-            <span class="nickname">Jakbob</span>
+            <span class="nickname" v-text="datainfo.name">Jakbob</span>
             <p>
-                <span class="sex">男</span>
-                <span class="age">90后</span>
+                <span class="sex" v-if="datainfo.sex" v-text="sex(datainfo.sex)">男</span>
+                <span class="age" v-text="format00(datainfo.birthdate)">90后</span>
             </p>
-            <p><span class="time">2018-4-5</span>加入方太生活家</p>
+            <p><span class="time">{{format0(datainfo.createat)}}</span>加入方太生活家</p>
         </div>
     </header>
 
@@ -47,25 +47,25 @@
     <!--</div>-->
 
     <p class="bigtitle">
-        <span>菜谱</span>
+        <span>课程</span>
         <a class="deeplikopen">全部</a>
     </p>
     <ul class="courseul">
-        <li v-for="item in data.products" @click="jump(item.curriculum.id)">
-            <div class="img" :style="{backgroundImage: 'url(' +item.curriculum.picture.path+ ')'}"></div>
-            <img class="tutorimg" :src="item.curriculum.picture.path">
+        <li v-for="item in datalist" @click="jump(item.id)">
+            <div class="img" :style="{backgroundImage: 'url(' +item.picture+ ')'}"></div>
+            <img class="tutorimg" :src="item.cookList[0].picture">
             <p class="tutorname">
                 <span class="txtgrey2">
                     <b>主讲人：</b>
-                    <b v-text="item.curriculum.cityName"></b>
+                    <b v-text="item.cookNames"></b>
                 </span>
             </p>
-            <h3 v-text="item.curriculum.curriculumName">韩式经典料理韩式经典料理韩式经典料理韩式</h3>
-            <span class="price"><b v-text="item.curriculum.price">300</b>.00</span>
+            <h3 v-text="item.name">韩式经典料理韩式经典料理韩式经典料理韩式</h3>
+            <span class="price"><b v-text="item.price">300</b>.00</span>
             <p class="underline">
-                <span class="txtgrey2">{{format2(item.curriculum.startTime)}}</span>
+                <span class="txtgrey2">{{format2(item.startTime)}}</span>
                 &nbsp;&nbsp;
-                <span class="txtgrey2">{{item.curriculum.store.storeName}}</span>
+                <span class="txtgrey2">{{item.storeName}}</span>
             </p>
         </li>
     </ul>
@@ -117,12 +117,69 @@
         el: '.personinfo',
         data: {
             data: {},
-            dataask: {},
+            datainfo: {},
             datalist: {},
             dataother: {}
         },
         created: function () {
             var $this = this;
+            /*导师信息*/
+            $(document).ready(function () {
+                $.ajax({
+                    url: urlport + 'cook/home',
+                    type: 'POST',
+                    data: JSON.stringify({"cookId":"420"}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (datainfo) {
+                        console.log("导师信息：");
+                        console.log(datainfo);
+                        callback(datainfo);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+
+                function callback(datainfo) {
+                    if (datainfo.status == 200) {
+                        $this.datainfo = datainfo.data;
+                    }
+                }
+            });
+            /*课程列表*/
+            $(document).ready(function () {
+                $.ajax({
+                    url: urlport + 'cook/curriculumn',
+                    type: 'POST',
+                    data: JSON.stringify({
+                        pageNum:1,
+                        pageSize:5,
+                        cookId : "420"
+                    }),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (datalist) {
+                        console.log("课程列表：");
+                        console.log(datalist);
+                        callback(datalist);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+
+                function callback(datalist) {
+                    if (datalist.status == 200) {
+                        $this.datalist = datalist.data;
+                        // console.log($this.datalist);
+                    }
+                }
+            });
             $.ajax({
                 url: urlport + 'special/detail',
                 type: 'POST',
@@ -147,20 +204,7 @@
                     id = $this.data.id;
                     console.log($this.data);
                 }
-                document.setTitle = function (t) {
-                    document.title = t;
-                    var i = document.createElement('iframe');
-                    i.style.display = 'none';
-                    i.onload = function () {
-                        setTimeout(function () {
-                            i.remove();
-                        })
-                    };
-                    document.body.appendChild(i);
-                };
-                setTimeout(function () {
-                    document.setTitle($this.data.title);
-                });
+
                 /*分享链接专用*/
                 var sharetitle = $this.data.title;
                 var sharedesc = $this.data.desc;
@@ -225,6 +269,28 @@
 
         },
         methods: {
+            sex: function (sexnum) {
+                var sex;
+                if(sexnum==0){
+                    sex="男";
+                }else if(sex==1){
+                    sex="女";
+                }
+                return sex;
+            },
+            format0: function (createat) {
+                var time = new Date(createat);
+                var year = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                return year + '-' + month + '-' + date;
+            },
+            format00: function (createat) {
+                var time = new Date(createat);
+                var year = time.getFullYear();
+                var years=String(year).charAt(2);
+                return years + '0后';
+            },
             addnum: function (m) {
                 return m < 10 ? '0' + m : m
             },

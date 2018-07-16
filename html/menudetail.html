@@ -56,9 +56,9 @@
             </span>
         </p>
 
-        <div class="author" id="author" v-if="basicInfo.user_name !== '' ">
+        <div class="author" id="author" v-if="basicInfo.user_name !== '' && basicInfo.user_name !== null ">
             <div class="authorbox">
-                <img :src="basicInfo.picturePath">
+                <img :src="basicInfo.picturePath" @click="homeuser">
                 <span>内容来自</span>
                 <b v-html="basicInfo.user_name"></b>
             </div>
@@ -918,14 +918,8 @@
                         pid: dom2.toString()
                     })
                 },
-                pushStore: function (obj) {
-                    //app交互——唤起智能菜谱
-                    // $("#pushStore").on("click", function () {
-                    //alert("111");
-                    ft.pushStore(function (result) {
-
-                    });
-                    //});
+                homeuser: function (obj) {
+                    window.location.href="homeuser.html?userid="+data.data.basicInfo.userId;
                 },
                 star: function (obj) {
                     console.log(canClick);

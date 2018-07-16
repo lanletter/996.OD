@@ -728,16 +728,41 @@
 
             data.cooks.forEach(function (item, index) {
                 var cooker = $('<section class="author teacher">\
-                <div class="author__info">\
-                    <img src="' + item.picture.path + '">\
-                    <span>\
-                      <b>' + item.cookName + '</b>\
-                      <strong class="text-overflow say">' + item.remark + '</strong>\
-                    </span>\
-                  <!-- <button class="red-btn add-care" data-follow="' + item.isFollow + '" data-id="' + item.id + '">' + (item.isFollow ? "已关注" : "加关注") + '</button> -->\
-                </div>\
-              </section>');
+                    <div class="author__info">\
+                        <img src="' + item.picture.path + '">\
+                        <span>\
+                          <b>' + item.cookName + '</b>\
+                          <strong class="text-overflow say">' +item.remark + '</strong>\
+                        </span>\
+                    </div>\
+                </section>');
                 $('.teacher-box').append(cooker);
+
+                if(device == "ios" || device == "android"){
+                    $(".author__info").on("click",function (object) {
+                        ft.tutorInfo({
+                            id: data.id,
+                            num: $('.numbox .num').text(),
+                            price: data.price,
+                            type: 1,
+                            coupontype: $('.coupontype').text(),
+                            voucher: couponumber.toString(),
+                            remark: $('#remarks').val(),
+                            picturepath: data.picture.path,
+                            name: data.curriculumName,
+                            oldprice: $('#oldprice').text(),
+                            newprice: $('#allprice').text(),
+                            starttime: data.startDate,
+                            address1: data.store.storeName,
+                            address2: data.store.cityName + ' ' + data.store.areaName + ' ' + data.store.detailAddress,
+                        }, function (result) {
+                        })
+                    });
+                }else {
+                    $(".author__info").on("click",function (object) {
+                        window.location.href = "home-tutor.html?id="+ item.picture.id;
+                    });
+                }
             });
             if (data.cooks.length == 0) {
                 $(".teacher-box").hide();
