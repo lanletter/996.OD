@@ -817,6 +817,7 @@ img{
   background-size:auto 3.06rem!important;
   -webkit-background-size:auto 3.06rem!important;
   background-position:center center;
+  overflow: hidden;
 }
 #menushow .menulist li .pageimg1{
   width: 3.06rem;
@@ -826,6 +827,7 @@ img{
   background-size: 3.06rem auto!important;
   -webkit-background-size: 3.06rem auto!important;
   background-position:center center;
+  overflow: hidden;
 }
 #menushow .menulist li .pageimg2{
   width: 3.06rem;
@@ -836,7 +838,7 @@ img{
   -webkit-background-size:auto 3.06rem!important;
   background-position:center center;
 }
-#menushow .userinfo{margin-top: 0.16rem;}
+#menushow .userinfo{margin-top: 0.16rem;overflow: hidden;}
 #menushow .userinfo span{
   line-height: 0.48rem;
   font-size: 0.24rem;
@@ -845,10 +847,12 @@ img{
   overflow: hidden;
 }
 #menushow .menulist li .userimg{
+  display: inline-block;
   margin: 0 0.12rem 0 0.2rem;
   width: 0.48rem;
   height: 0.48rem;
   border-radius: 50%;
+  overflow: hidden;
 }
 #menushow .likenum{
   display: inline-block;
