@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="个人主页test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/faq-info1.html" afterPath="$PROJECT_DIR$/html/faq-info1.html" />
       <change beforePath="$PROJECT_DIR$/html/home-user.html" afterPath="$PROJECT_DIR$/html/home-user.html" />
       <change beforePath="$PROJECT_DIR$/html/menudetail.html" afterPath="$PROJECT_DIR$/html/menudetail.html" />
     </list>
@@ -40,8 +39,8 @@
       <file leaf-file-name="home-user.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/home-user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            <state relative-caret-position="305">
+              <caret line="249" column="37" lean-forward="true" selection-start-line="249" selection-start-column="37" selection-end-line="249" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -163,17 +162,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/menudetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="218">
+              <caret line="145" column="86" lean-forward="false" selection-start-line="145" selection-start-column="78" selection-end-line="145" selection-end-column="86" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="faq-info1.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="faq-info1.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
@@ -216,10 +215,8 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>callKitchenware</find>
       <find>star</find>
       <find>leave-words</find>
-      <find>imgclick</find>
       <find>datainfo</find>
       <find>starttime</find>
       <find>length</find>
@@ -242,10 +239,12 @@
       <find>jump</find>
       <find>sex</find>
       <find>datawork</find>
-      <find>homeuser</find>
       <find>sharedesc</find>
       <find>format00</find>
       <find>deeplikopen</find>
+      <find>pageimg1</find>
+      <find>imgclick</find>
+      <find>homeuser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -309,10 +308,10 @@
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/js/url.js" />
         <option value="$PROJECT_DIR$/html/home-tutor.html" />
-        <option value="$PROJECT_DIR$/html/home-user.html" />
-        <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/faq-info2.html" />
         <option value="$PROJECT_DIR$/html/faq-info1.html" />
+        <option value="$PROJECT_DIR$/html/home-user.html" />
+        <option value="$PROJECT_DIR$/html/menudetail.html" />
       </list>
     </option>
   </component>
@@ -323,10 +322,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="349" />
+    <option name="x" value="279" />
     <option name="y" value="23" />
-    <option name="width" value="1091" />
-    <option name="height" value="810" />
+    <option name="width" value="1161" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -630,14 +629,7 @@
       <workItem from="1531274422243" duration="10653000" />
       <workItem from="1531381961469" duration="1977000" />
       <workItem from="1531461755416" duration="5451000" />
-      <workItem from="1531725722013" duration="14211000" />
-    </task>
-    <task id="LOCAL-00251" summary="活动上传菜谱btn显示条件更改">
-      <created>1530153786798</created>
-      <option name="number" value="00251" />
-      <option name="presentableId" value="LOCAL-00251" />
-      <option name="project" value="LOCAL" />
-      <updated>1530153786798</updated>
+      <workItem from="1531725722013" duration="15283000" />
     </task>
     <task id="LOCAL-00252" summary="bug">
       <created>1530237946978</created>
@@ -975,16 +967,23 @@
       <option name="project" value="LOCAL" />
       <updated>1531806840473</updated>
     </task>
-    <option name="localTasksCounter" value="300" />
+    <task id="LOCAL-00300" summary="个人主页test">
+      <created>1531810884779</created>
+      <option name="number" value="00300" />
+      <option name="presentableId" value="LOCAL-00300" />
+      <option name="project" value="LOCAL" />
+      <updated>1531810884779</updated>
+    </task>
+    <option name="localTasksCounter" value="301" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2587295000" />
+    <option name="totallyTimeSpent" value="2588367000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="349" y="23" width="1091" height="810" extended-state="0" />
+    <frame x="279" y="23" width="1161" height="807" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20439963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1920758" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1402,14 +1401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
@@ -1505,14 +1496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1525,6 +1508,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
           <caret line="103" column="6" lean-forward="true" selection-start-line="103" selection-start-column="6" selection-end-line="103" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/home-user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="249" column="37" lean-forward="true" selection-start-line="249" selection-start-column="37" selection-end-line="249" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="145" column="86" lean-forward="false" selection-start-line="145" selection-start-column="78" selection-end-line="145" selection-end-column="86" />
           <folding />
         </state>
       </provider>

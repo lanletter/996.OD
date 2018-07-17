@@ -67,7 +67,7 @@
         </p>
         <ul class="workul">
             <li v-for="(item,index) in datawork.workList">
-                <a :href="'menudetail.html?id=' + item.id" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
+                <a :href="item.menuUrl" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
             </li>
         </ul>
     </div>

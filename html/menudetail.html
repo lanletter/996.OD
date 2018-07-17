@@ -143,7 +143,7 @@
                     </div>
                     <!--<img class="pageimg"  :src="item.picturePath">-->
                     <div class="userinfo">
-                        <img class="userimg" :src="item.titlePicture">
+                        <img class="userimg" :src="item.titlePicture" @click="homeuser(item.userId)">
                         <span v-html="item.nickName"></span>
                     </div>
                     <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
