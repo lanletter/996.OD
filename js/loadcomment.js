@@ -319,7 +319,7 @@
                       <div id="bgfff"></div>\
                       <div class="topborder">\
                           <div class="boxhf">\
-                              <input class="textarea" placeholder="请输入最新评论..." maxlength="200" />\
+                              <textarea class="textarea" placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                               <div id="commit2" class="commit">回复</div>\
                           </div>\
                       </div>\
