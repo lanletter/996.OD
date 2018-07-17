@@ -105,7 +105,7 @@
         return null;
     }
 
-    var id = GetQueryString("id");
+    var id = String(GetQueryString("id"));
     var device = GetQueryString("device");
     if (device == null || device == "null") {
         $(".footer").show();
