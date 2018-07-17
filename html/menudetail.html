@@ -131,23 +131,27 @@
         <a class="moremenu arrow" @click="deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
         <div class="listarea" v-if="datalist.count !== 0">
             <ul class="menulist">
-                <li v-for="(item,index) in datalist.workList"><a>
-                    <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"
-                         class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                         @click="imgclick">
-                        <img class="pageimg2" :src="item.picturePath" style="display: none;">
+                <li v-for="(item,index) in datalist.workList">
+                    <div class="workdetail">
+                        <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"
+                             class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
+                             @click="imgclick">
+                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
+                        </div>
+                        <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
+                             @click="imgclick">
+                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
+                        </div>
+                        <!--<img class="pageimg"  :src="item.picturePath">-->
+                        <div class="userinfo">
+                            <div @click="homeuser(item.userId)"  class="imgparent">
+                                <img class="userimg" :src="item.titlePicture">
+                            </div>
+                            <span v-html="item.nickName"></span>
+                        </div>
+                        <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
                     </div>
-                    <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                         @click="imgclick">
-                        <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                    </div>
-                    <!--<img class="pageimg"  :src="item.picturePath">-->
-                    <div class="userinfo">
-                        <img class="userimg" :src="item.titlePicture" @click="homeuser(item.userId)">
-                        <span v-html="item.nickName"></span>
-                    </div>
-                    <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
-                </a></li>
+                </li>
                 <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
             </ul>
         </div>
