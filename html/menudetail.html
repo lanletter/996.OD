@@ -57,8 +57,8 @@
         </p>
 
         <div class="author" id="author" v-if="basicInfo.user_name !== '' && basicInfo.user_name !== null ">
-            <div class="authorbox">
-                <img :src="basicInfo.picturePath" @click="homeuser">
+            <div class="authorbox" @click="homeuser(basicInfo.userId)">
+                <img :src="basicInfo.picturePath">
                 <span>内容来自</span>
                 <b v-html="basicInfo.user_name"></b>
             </div>
@@ -918,8 +918,8 @@
                         pid: dom2.toString()
                     })
                 },
-                homeuser: function (obj) {
-                    window.location.href="homeuser.html?userid="+data.data.basicInfo.userId;
+                homeuser: function (userId) {
+                    window.location.href="homeuser.html?id="+userId;
                 },
                 star: function (obj) {
                     console.log(canClick);

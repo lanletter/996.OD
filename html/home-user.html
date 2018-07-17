@@ -14,7 +14,7 @@
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
     <meta http-equiv="imagetoolbar" content="false">
-    <!--<script src="../js/tingyun-rum.js"></script>-->
+    <script src="../js/tingyun-rum.js"></script>
     <link href="../css/common.css?ver=420" rel="stylesheet">
     <link href="../css/home-user.css?ver=420" rel="stylesheet">
     <title>用户主页</title>
@@ -35,7 +35,7 @@
             <span class="nickname" v-text="datainfo.name">Jakbob</span>
             <p>
                 <span class="sex" v-text="sex(datainfo.sex)">男</span>
-                <span class="age" v-text="datainfo.birthdate">90后</span>
+                <span class="age" v-text="format00(datainfo.birthdate)">90后</span>
             </p>
             <p><span class="time">{{format(datainfo.createat)}}</span>加入方太生活家</p>
         </div>
@@ -49,11 +49,11 @@
     <div v-else>
         <p class="bigtitle">
             <span>菜谱</span>
-            <a class="deeplikopen">全部</a>
+            <a @click="deeplikopen">全部</a>
         </p>
         <ul class="menuul">
-            <li v-for="(item,index) in data.list">
-                <a :href="item.url" :style="{backgroundImage: 'url(' + item.picture + ')'}"></a>
+            <li v-for="(item,index) in datamenu.list">
+                <a :href="item.url" :style="{backgroundImage: 'url(' + item.image + ')'}"></a>
                 <p class="name" v-html="item.name"></p>
                 <p class="num">
                     <span class="viewnum" v-html="item.pageviews"></span>
@@ -63,11 +63,11 @@
         </ul>
         <p class="bigtitle">
             <span>作品</span>
-            <a class="deeplikopen">全部</a>
+            <a @click="deeplikopen">全部</a>
         </p>
         <ul class="workul">
-            <li v-for="(item,index) in data.list">
-                <a :href="item.url" :style="{backgroundImage: 'url(' + item.picture + ')'}"></a>
+            <li v-for="(item,index) in datawork.workList">
+                <a :href="'menudetail.html?id=' + item.id" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
             </li>
         </ul>
     </div>
@@ -132,7 +132,7 @@
                 $.ajax({
                     url: urlport + 'user/userInfomation',
                     type: 'POST',
-                    data: JSON.stringify({"userId":1}),
+                    data: JSON.stringify({"userId":id}),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
                     dataType: 'json', //返回的数据格式
@@ -151,6 +151,66 @@
                     if (datainfo.status == 200) {
                         $this.datainfo = datainfo.data;
                     }
+                    /*分享链接专用*/
+                    var sharetitle = $this.datainfo.name + "的方太生活家主页";
+                    var sharedesc = "快来看看" + $this.datainfo.name + "的菜谱和作品吧！";
+                    var shareimg = $this.datainfo.picture;
+                    var sharestr = $this.datainfo.url;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    /*微信分享专用*/
+                    $.ajax({
+                        type: 'GET',
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            // console.info(data.appId);
+                            wx.config({
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
                 }
             });
 
@@ -159,12 +219,12 @@
                 $.ajax({
                     url: urlport + 'menu/userMenu',
                     type: 'POST',
-                    data: JSON.stringify({ userid:2 }),
+                    data: JSON.stringify({ "pageNum":1,"pageSize":5,"userId":id }),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
                     dataType: 'json', //返回的数据格式
                     success: function (datamenu) {
-                        console.log("作品集：");
+                        console.log("我的菜谱：");
                         console.log(datamenu);
                         callback(datamenu);
                     },
@@ -188,14 +248,14 @@
                     type: 'POST',
                     data: JSON.stringify({
                         "pageNum" : 1,
-                        "pageSize" : 10,
-                        "userId" : "7444"
+                        "pageSize" : 6,
+                        "userId" : id
                     }),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
                     dataType: 'json', //返回的数据格式
                     success: function (datawork) {
-                        console.log("作品集：");
+                        console.log("我的作品：");
                         console.log(datawork);
                         callback(datawork);
                     },
@@ -212,67 +272,6 @@
                 }
             });
 
-            // /*分享链接专用*/
-            // var sharetitle = $this.data.title;
-            // var sharedesc = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-            // var shareimg = $this.data.picture;
-            // var sharestr = $this.data.url;
-            // var sharelink = sharestr.replace(/api/, "h5");
-            // /*微信分享专用*/
-            // $.ajax({
-            //     type: 'GET',
-            //     url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-            //     success: function (data) {
-            //         // console.info(data.appId);
-            //         wx.config({
-            //             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-            //             appId: data.appId, // 必填，公众号的唯一标识
-            //             timestamp: data.timestamp, // 必填，生成签名的时间戳
-            //             nonceStr: data.nonceStr, // 必填，生成签名的随机串
-            //             signature: data.signature,
-            //             jsApiList: [
-            //                 "onMenuShareTimeline",
-            //                 "onMenuShareAppMessage",
-            //                 "onMenuShareQQ",
-            //                 "onMenuShareWeibo",
-            //                 "onMenuShareQZone"
-            //             ]
-            //         });
-            //         wx.ready(function () {
-            //             //分享给朋友圈
-            //             wx.onMenuShareTimeline({
-            //                 title: sharetitle, // 分享标题
-            //                 link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            //                 imgUrl: shareimg, // 分享图标
-            //                 success: function () {
-            //                     // 用户确认分享后执行的回调函数
-            //                 },
-            //                 cancel: function () {
-            //                     // 用户取消分享后执行的回调函数
-            //                 }
-            //             });
-            //             //分享给朋友
-            //             wx.onMenuShareAppMessage({
-            //                 title: sharetitle, // 分享标题
-            //                 desc: sharedesc, // 分享描述
-            //                 link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            //                 imgUrl: shareimg, // 分享图标
-            //                 type: '', // 分享类型,music、video或link，不填默认为link
-            //                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-            //                 success: function () {
-            //                     // 用户确认分享后执行的回调函数
-            //                 },
-            //                 cancel: function () {
-            //                     // 用户取消分享后执行的回调函数
-            //                 }
-            //             });
-            //         });
-            //     },
-            //     error: function (xhr, type) {
-            //         //alert(111);
-            //     }
-            // })
-
         },
         methods: {
             sex: function (sexnum) {
@@ -284,12 +283,127 @@
                 }
                 return sex;
             },
+            format0: function (createat) {
+                var time = new Date(createat);
+                var year = time.getFullYear();
+                var month = time.getMonth();
+                var date = time.getDate();
+                return year + '-' + month + '-' + date;
+
+            },
+            format00: function (createat) {
+                var time = new Date(createat);
+                var year = time.getFullYear();
+                var years=String(year).charAt(2);
+                return years + '0后';
+            },
             format: function (createat) {
                 var time = new Date(createat);
                 var year = time.getFullYear();
                 var month = time.getMonth();
                 var date = time.getDate();
                 return year + '-' + month + '-' + date;
+            },
+            deeplikopen: function (obj) {
+                function GetQueryString(name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                }
+                var id = GetQueryString("id");
+                function GetPageName() {
+                    var url = window.location.href;//获取完整URL
+                    var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
+                    name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+                    return name;
+                }
+
+                // alert(GetPageName());
+                /*页面参数（页面类型+id）*/
+                var id = id;
+                var refid = id;
+                var action = GetPageName();
+                var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + id;
+                var imageURL = "";
+                var shareTitle = "";
+                var shareSubTitle = "";
+                var iostype = "";
+
+                console.log({
+                    "id": id,
+                    "action": action,
+                    "weburl": weburl,
+                    "refid": refid,
+                    "imageURL": imageURL,
+                    "shareTitle": shareTitle,
+                    "shareSubTitle": shareSubTitle,
+                    "iostype": iostype
+                });
+
+                var urlright = "?action=" + encodeURIComponent(action) +
+                    "&id=" + encodeURIComponent(id) +
+                    "&weburl=" + encodeURIComponent(weburl) +
+                    "&refid=" + encodeURIComponent(refid) +
+                    "&imageURL=" + encodeURIComponent(imageURL) +
+                    "&shareTitle=" + encodeURIComponent(shareTitle) +
+                    "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
+                    "&iostype=" + encodeURIComponent(iostype);
+
+                /*判断是IOS还是Android机型*/
+                var u = navigator.userAgent;
+                var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                // console.log('是否是Android：' + isAndroid);
+                // console.log('是否是iOS：' + isiOS);
+
+                /*判断是否微信浏览器内打开*/
+                function isWeiXin() {
+                    var ua = window.navigator.userAgent.toLowerCase();
+                    // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+                    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+
+                if (isWeiXin()) {
+                    console.log(" 是来自微信内置浏览器");
+                    /*弹出浏览器打开提示*/
+                    var alertstr = "<div class='blackbg'><div class='reminder'>" +
+                        "<img src='../img/arrowdashed.png' >" +
+                        "<p class='title'>在微信中无法下载？</p>" +
+                        "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
+                        "</div></div>";
+                    $("body").prepend(alertstr);
+                    $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+
+                    /*隐藏提示*/
+                    $(".blackbg").unbind().click(function () {
+                        $(".blackbg").remove();
+                        $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+                    });
+                    $(".reminder").click(function (event) {
+                        event.stopPropagation();//阻止冒泡
+                    });
+
+                } else {
+                    console.log("不是来自微信内置浏览器");
+                    /*深链接打开*/
+                    var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+                    // alert(deeplinkurl);
+                    window.location.href = deeplinkurl;
+                    /***打开app的协议***/
+                    window.setTimeout(function () {
+                        if (isiOS == true) {/*ios手机*/
+                            window.location.href = "https://gio.ren/re0Y923";
+                        } else if (isAndroid == true) {/*Android手机*/
+                            window.location.href = "https://gio.ren/rBZ2ApB";
+                        }
+                    }, 1000);
+
+                }
             }
         }
     });
