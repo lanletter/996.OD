@@ -600,6 +600,9 @@
                             console.log("推荐条件：");
                             console.log(data);
                             var sunNameJson = data.data.basicInfo.subNameList;
+                            if(sunNameJson==null){
+                                sunNameJson=["平和质"];
+                            }
                             // console.log(sunNameJson);
                             $.ajax({
                                 url: urlport + 'menu/getMenuByRecommend',

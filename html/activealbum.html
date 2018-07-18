@@ -106,12 +106,12 @@
                             setTimeout(function () {
                                 i.remove();
                             })
-                        }
+                        };
                         document.body.appendChild(i);
-                    }
+                    };
                     setTimeout(function () {
                         document.setTitle($this.data.title);
-                    })
+                    });
 
                     /*分享链接专用*/
                     var sharetitle = $this.data.title;
@@ -136,7 +136,6 @@
                             ft.shareInfo(jsoninfo, function (result) {
 
                             });
-
                         }
                     }, 2000);
 
