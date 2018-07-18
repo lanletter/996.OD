@@ -225,7 +225,7 @@ html, body {
 }
 
 .btnbox {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   height: 0.96rem;
   padding: 0.72rem 0 0.48rem 0;
