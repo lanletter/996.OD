@@ -569,6 +569,7 @@
                                     token = result.data.token.toString();
                                 }
                                 $('#leave-words2').show();
+                                $(".btnbox").hide();//积分购买样式兼容
                                 test(parentid, userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -649,6 +650,7 @@
                             },
                             complete: function () {
                                 $('#leave-words2').hide();
+                                $(".btnbox").show();//积分购买样式兼容
                                 refresh(homeurl);
                             }
                         });
