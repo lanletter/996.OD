@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="个人主页test">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug修改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/download.css" afterPath="$PROJECT_DIR$/css/download.css" />
+      <change beforePath="$PROJECT_DIR$/html/jf-buy.html" afterPath="$PROJECT_DIR$/html/jf-buy.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,17 +134,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jf-buy.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="jf-buy.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="152" column="19" lean-forward="true" selection-start-line="152" selection-start-column="19" selection-end-line="152" selection-end-column="19" />
+            <state relative-caret-position="375">
+              <caret line="149" column="14" lean-forward="false" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="download.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="download.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/download.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="430">
@@ -317,7 +317,6 @@
         <option value="$PROJECT_DIR$/html/menualbum.html" />
         <option value="$PROJECT_DIR$/html/activedetail.html" />
         <option value="$PROJECT_DIR$/html/评分表.html" />
-        <option value="$PROJECT_DIR$/html/jf-buy.html" />
         <option value="$PROJECT_DIR$/js/imgUp.js" />
         <option value="$PROJECT_DIR$/css/home-user.css" />
         <option value="$PROJECT_DIR$/js/ft.js" />
@@ -331,6 +330,7 @@
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
         <option value="$PROJECT_DIR$/css/download.css" />
+        <option value="$PROJECT_DIR$/html/jf-buy.html" />
       </list>
     </option>
   </component>
@@ -654,14 +654,7 @@
       <workItem from="1531381961469" duration="1977000" />
       <workItem from="1531461755416" duration="5451000" />
       <workItem from="1531725722013" duration="20948000" />
-      <workItem from="1531879745927" duration="204000" />
-    </task>
-    <task id="LOCAL-00260" summary="注册登录bug">
-      <created>1530516033266</created>
-      <option name="number" value="00260" />
-      <option name="presentableId" value="LOCAL-00260" />
-      <option name="project" value="LOCAL" />
-      <updated>1530516033266</updated>
+      <workItem from="1531879745927" duration="326000" />
     </task>
     <task id="LOCAL-00261" summary="微信绑定设置密码加密">
       <created>1530518889832</created>
@@ -999,11 +992,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531818769587</updated>
     </task>
-    <option name="localTasksCounter" value="309" />
+    <task id="LOCAL-00309" summary="bug修改">
+      <created>1531879961982</created>
+      <option name="number" value="00309" />
+      <option name="presentableId" value="LOCAL-00309" />
+      <option name="project" value="LOCAL" />
+      <updated>1531879961983</updated>
+    </task>
+    <option name="localTasksCounter" value="310" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2594236000" />
+    <option name="totallyTimeSpent" value="2594358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="279" y="23" width="1161" height="807" extended-state="0" />
@@ -1079,7 +1079,6 @@
     <MESSAGE value="问卷调查title修改" />
     <MESSAGE value="活动上传菜谱btn显示条件更改" />
     <MESSAGE value="bug" />
-    <MESSAGE value="bug修改" />
     <MESSAGE value="深度链接test" />
     <MESSAGE value="微信分享图片bug" />
     <MESSAGE value="登录注册bug" />
@@ -1094,7 +1093,8 @@
     <MESSAGE value="评论上传图片提示test" />
     <MESSAGE value="修复菜谱深链接bug" />
     <MESSAGE value="个人主页test" />
-    <option name="LAST_COMMIT_MESSAGE" value="个人主页test" />
+    <MESSAGE value="bug修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug修改" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1539,18 +1539,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="152" column="19" lean-forward="true" selection-start-line="152" selection-start-column="19" selection-end-line="152" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/download.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="430">
           <caret line="239" column="17" lean-forward="false" selection-start-line="239" selection-start-column="17" selection-end-line="239" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="149" column="14" lean-forward="false" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
           <folding />
         </state>
       </provider>

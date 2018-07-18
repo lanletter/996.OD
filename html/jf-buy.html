@@ -133,6 +133,21 @@
             <!--</div>-->
         </div>
 
+        <div class="btnbox">
+            <ul class="h_box">
+                <!--<li>-->
+                <!--<div style="display: inline;" v-html="totalntegral"></div>-->
+                <!--<em>积分</em>-->
+                <!--<span class="price" >{{payintegral}}积分</span>-->
+                <!--<span v-if="integral > payintegral" v-html="integral">积分</span>-->
+                <!--</li>-->
+                <li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">
+                    <em>立即兑换</em>
+                    <div style="display: inline;" v-html="totalntegral"></div>
+                    <em>积分</em>
+                </li>
+            </ul>
+        </div>
         <div class="bottomdiv"></div>
         <div class="ft-titles">
             <p class="title1">用户评论</p>
@@ -149,21 +164,6 @@
             </div>
         </div>
         <div style="height: 2.18rem;width: 100%;background: #fff;"></div>
-    </div>
-    <div class="btnbox">
-        <ul class="h_box">
-            <!--<li>-->
-            <!--<div style="display: inline;" v-html="totalntegral"></div>-->
-            <!--<em>积分</em>-->
-            <!--<span class="price" >{{payintegral}}积分</span>-->
-            <!--<span v-if="integral > payintegral" v-html="integral">积分</span>-->
-            <!--</li>-->
-            <li class="buy" @click="submit(dataAll.id,dataAll.paidIntegral)">
-                <em>立即兑换</em>
-                <div style="display: inline;" v-html="totalntegral"></div>
-                <em>积分</em>
-            </li>
-        </ul>
     </div>
 </div>
 
