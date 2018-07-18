@@ -101,6 +101,7 @@
                                     token = result.data.token.toString();
                                 }
                                 $('#leave-words').show();
+                                $(".btnbox").hide();//积分购买样式兼容
                                 test1(userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -120,6 +121,7 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
+                    $(".btnbox").show();//积分购买样式兼容
                     isdelete();
                 });
 
@@ -176,6 +178,7 @@
                             },
                             complete: function () {
                                 $('#leave-words').hide();
+                                $(".btnbox").show();//积分购买样式兼容
                                 refresh(homeurl);
                             }
                         });
@@ -452,6 +455,7 @@
                                     token = result.data.token.toString();
                                 }
                                 $('#leave-words').show();
+                                $(".btnbox").hide();//积分购买样式兼容
                                 test2(userid);
                             } else if (errorCode == "0") {
                                 $api.toast('登陆取消', 2000);
@@ -471,10 +475,12 @@
                 /*取消留言*/
                 $('.backto').on('click', function () {
                     $('#leave-words').hide();
+                    $(".btnbox").show();//积分购买样式兼容
                     isdelete();
                 });
                 $('#bgfff').on('click', function () {
                     $('#leave-words2').hide();
+                    $(".btnbox").show();//积分购买样式兼容
                     isdelete();
                 });
 
@@ -531,6 +537,7 @@
                             },
                             complete: function () {
                                 $('#leave-words').hide();
+                                $(".btnbox").show();//积分购买样式兼容
                                 refresh(homeurl);
                             }
                         });
