@@ -225,7 +225,7 @@ html, body {
 }
 
 .btnbox {
-  position: fixed;
+  position: absolute;
   bottom: 0;
   height: 0.96rem;
   padding: 0.72rem 0 0.48rem 0;
@@ -237,7 +237,7 @@ html, body {
   background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
   width: 100%;
   overflow: hidden;
-  z-index: 999998;}
+  z-index: 99999;}
 .btnbox ul {
   width: 100%;
   height: 0.96rem;
