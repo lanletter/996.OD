@@ -147,7 +147,7 @@
                         }
                         // alert(content);
                         // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
-                        var url =  urlport + "comment/createGet?";
+                        var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + textareaTo(content);
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
@@ -255,7 +255,7 @@
                       <li class="ft-comment__content left-right clearfix">\
                         <div class="boxright"> \
                             <div class="parentdiv">\
-                                <img src="{{userInfomation.titlePicture}}" class="header-pic userurl">\
+                                <div class="header-pic userurl"><img src="{{userInfomation.titlePicture}}"></div>\
                                 <span style="display: none;">{{userId}}</span>\
                                 <p class="titles">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
@@ -507,7 +507,7 @@
                         }
                         // alert(content);
                         // alert("refId:"+obj.refId+"type:"+obj.type+"userId:"+userid+"parentId:"+0+"content:"+content);
-                        var url =  urlport + "comment/createGet?";
+                        var url = urlport + "comment/createGet?";
                         var contenturl = "content=" + textareaTo(content);
                         var refIdurl = "&refId=" + obj.refId;
                         var typeurl = "&type=" + obj.type;
@@ -555,15 +555,19 @@
                     });
                 }
 
-                $(".userurl").unbind().click(function (e) {
+                // $(document).click(function (e) {
+                //     console.log(e);
+                // })
+                $('.userurl').unbind().click(function (e) {
                     var imguserid = $(e.target).next().text();     // e.target表示被点击的目标
+                    console.log(imguserid);
                     if (device == "ios" || device == "android") {
                         ft.tutorInfo({
                             id: imguserid,
-                            type:1
+                            type: 1
                         }, function (result) {
                         })
-                    }else {
+                    } else {
                         deeplinkFC();
                         // window.location.href = "home-user.html?id="+imguserid;
                     }
@@ -810,12 +814,12 @@
                 window.event.returnValue = false;
             }
 
-            function textareaTo(str){
-                var reg=new RegExp("\n","g");
-                var regSpace=new RegExp(" ","g");
+            function textareaTo(str) {
+                var reg = new RegExp("\n", "g");
+                var regSpace = new RegExp(" ", "g");
 
-                str = str.replace(reg,"<br>");
-                str = str.replace(regSpace,"nbsp;");
+                str = str.replace(reg, "<br>");
+                str = str.replace(regSpace, "nbsp;");
 
                 return str;
             }
@@ -827,7 +831,9 @@
                     if (r != null) return unescape(r[2]);
                     return null;
                 }
+
                 var id = GetQueryString("id");
+
                 function GetPageName() {
                     var url = window.location.href;//获取完整URL
                     var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称

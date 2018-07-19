@@ -267,6 +267,12 @@
     border-radius: 50%;
     border: none;
 }
+.ft-comment__content .header-pic img{
+    width: 0.96rem;
+    height: 0.96rem;
+    border-radius: 50%;
+    border: none;
+}
 
 .ft-comment__content p {
     overflow: hidden;
