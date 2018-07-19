@@ -559,11 +559,15 @@
                     var imguserid = $(e.target).next().text();     // e.target表示被点击的目标
                     // console.log(imguserid);
                     // window.location.href = "home-user.html?id="+imguserid;
-                    ft.tutorInfo({
-                        id: imguserid,
-                        type:1
-                    }, function (result) {
-                    })
+                    if (device == "ios" || device == "android") {
+                        ft.tutorInfo({
+                            id: imguserid,
+                            type:1
+                        }, function (result) {
+                        })
+                    }else {
+                        deeplinkFC();
+                    }
                 });
 
                 $('.rpbutton').unbind().click(function (e) {
