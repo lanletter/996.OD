@@ -559,7 +559,7 @@
                     var imguserid = $(e.target).next().text();     // e.target表示被点击的目标
                     // console.log(imguserid);
                     // window.location.href = "home-user.html?id="+imguserid;
-                    ft.userInfo({
+                    ft.tutorInfo({
                         id: imguserid,
                         type:1
                     }, function (result) {
