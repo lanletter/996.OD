@@ -47,7 +47,7 @@
     </div>
 
     <div v-else>
-        <p class="bigtitle">
+        <p class="bigtitle" v-if="datainfo.myMenuCount !== 0">
             <span>菜谱</span>
             <a @click="deeplikopen">全部</a>
         </p>
@@ -61,7 +61,7 @@
                 </p>
             </li>
         </ul>
-        <p class="bigtitle">
+        <p class="bigtitle" v-if="datainfo.myWorkCount !== 0">
             <span>作品</span>
             <a @click="deeplikopen">全部</a>
         </p>

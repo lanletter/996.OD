@@ -46,7 +46,7 @@
         <p>该用户什么都没有留下</p>
     </div>
 
-    <p class="bigtitle">
+    <p class="bigtitle" v-if="datalist.count !== 0">
         <span>课程</span>
         <a @click="deeplikopen">全部</a>
     </p>

@@ -255,7 +255,8 @@
                       <li class="ft-comment__content left-right clearfix">\
                         <div class="boxright"> \
                             <div class="parentdiv">\
-                                <img src="{{userInfomation.titlePicture}}" class="header-pic">\
+                                <img src="{{userInfomation.titlePicture}}" class="header-pic userurl">\
+                                <span style="display: none;">{{userId}}</span>\
                                 <p class="titles">\
                                   <span class="key"><span class="Id">{{id}}</span><span class="refId">{{refId}}</span><span class="type">{{type}}</span><span class="userId"><b>{{userId}}</b></span><span class="parentId">{{parentId}}</span><span class="isLike"><b>{{isLike}}</b></span><span class="otstatus"><b>{{otstatus}}</b></span><span class="status"><b>{{status}}</b></span></span>\
                                   <span class="title-box clearfix left-right">\
@@ -553,6 +554,16 @@
                         }
                     });
                 }
+
+                $(".userurl").unbind().click(function (e) {
+                    var imguserid = $(e.target).next().text();     // e.target表示被点击的目标
+                    // console.log(imguserid);
+                    // window.location.href = "home-user.html?id="+imguserid;
+                    ft.userInfo({
+                        id: imguserid
+                    }, function (result) {
+                    })
+                });
 
                 $('.rpbutton').unbind().click(function (e) {
                     $("#leave-words2 .textarea").focus();//默认选中
