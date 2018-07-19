@@ -557,8 +557,6 @@
 
                 $(".userurl").unbind().click(function (e) {
                     var imguserid = $(e.target).next().text();     // e.target表示被点击的目标
-                    // console.log(imguserid);
-                    // window.location.href = "home-user.html?id="+imguserid;
                     if (device == "ios" || device == "android") {
                         ft.tutorInfo({
                             id: imguserid,
@@ -567,6 +565,7 @@
                         })
                     }else {
                         deeplinkFC();
+                        // window.location.href = "home-user.html?id="+imguserid;
                     }
                 });
 
