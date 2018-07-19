@@ -152,9 +152,9 @@
                     /*title取值*/
                     var txt = $this.datainfo.name + "的方太生活家主页";
                     if (txt == undefined) {
-                        $('head title').text("活动详情");
+                        $('head title').text("用户主页");
                     } else {
-                        $('head title').text(data.title);
+                        $('head title').text($this.datainfo.name);
                     }
 
                     /*分享链接专用*/
