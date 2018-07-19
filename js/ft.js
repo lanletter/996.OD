@@ -327,15 +327,8 @@
         tutorInfo:{
             name: "tutorInfo",
             param: {
-                id: ""//导师id
-            },
-            callbackId: generateID(),
-            callback: noop
-        },
-        userInfo:{
-            name: "userInfo",
-            param: {
-                id: ""//用户id
+                id: "",//导师id
+                type:""
             },
             callbackId: generateID(),
             callback: noop
@@ -612,18 +605,9 @@
     ft.tutorInfo= function (option, fn) {
         var tutorInfoConfig = ft.mix(true, {}, config.tutorInfo);
         tutorInfoConfig.param.id = option.id || "";
+        tutorInfoConfig.param.type = option.type || "";
         tutorInfoConfig.callback = fn;
         callByJS(tutorInfoConfig);
-    }
-
-    /*********************************************************************
-     *                           获取课程导师                             *
-     **********************************************************************/
-    ft.userInfo= function (option, fn) {
-        var userInfoConfig = ft.mix(true, {}, config.userInfo);
-        userInfoConfig.param.id = option.id || "";
-        userInfoConfig.callback = fn;
-        callByJS(userInfoConfig);
     }
 
 }()

@@ -560,7 +560,8 @@
                     // console.log(imguserid);
                     // window.location.href = "home-user.html?id="+imguserid;
                     ft.userInfo({
-                        id: imguserid
+                        id: imguserid,
+                        type:1
                     }, function (result) {
                     })
                 });
