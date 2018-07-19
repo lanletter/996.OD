@@ -4,9 +4,8 @@
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug调试">
       <change beforePath="" afterPath="$PROJECT_DIR$/z/new.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/ftcomment.css" afterPath="$PROJECT_DIR$/css/ftcomment.css" />
-      <change beforePath="$PROJECT_DIR$/html/coursedetail.html" afterPath="$PROJECT_DIR$/html/coursedetail.html" />
-      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" afterPath="$PROJECT_DIR$/js/loadcomment.js" />
+      <change beforePath="$PROJECT_DIR$/html/home-tutor.html" afterPath="$PROJECT_DIR$/html/home-tutor.html" />
+      <change beforePath="$PROJECT_DIR$/html/home-user.html" afterPath="$PROJECT_DIR$/html/home-user.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +27,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home-tutor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="169">
+              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home-user.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/home-user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
@@ -118,16 +137,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ft.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/ft.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="326" column="17" lean-forward="false" selection-start-line="326" selection-start-column="8" selection-end-line="326" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="activealbum.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activealbum.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -141,8 +150,8 @@
       <file leaf-file-name="activedetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-634">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="203">
+              <caret line="165" column="12" lean-forward="false" selection-start-line="165" selection-start-column="12" selection-end-line="171" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -215,16 +224,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo-设备判断.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/z/demo-设备判断.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -238,7 +237,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addnum</find>
       <find>e</find>
       <find>jump</find>
       <find>sex</find>
@@ -268,6 +266,7 @@
       <find>loadComment</find>
       <find>ft-comment</find>
       <find>userurl</find>
+      <find>title</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -328,13 +327,13 @@
         <option value="$PROJECT_DIR$/html/activealbum.html" />
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/faq-info1.html" />
-        <option value="$PROJECT_DIR$/html/home-user.html" />
-        <option value="$PROJECT_DIR$/html/home-tutor.html" />
         <option value="$PROJECT_DIR$/js/ft.js" />
         <option value="$PROJECT_DIR$/z/new.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/css/ftcomment.css" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
+        <option value="$PROJECT_DIR$/html/home-tutor.html" />
+        <option value="$PROJECT_DIR$/html/home-user.html" />
       </list>
     </option>
   </component>
@@ -659,14 +658,7 @@
       <workItem from="1531461755416" duration="5451000" />
       <workItem from="1531725722013" duration="20948000" />
       <workItem from="1531879745927" duration="4527000" />
-      <workItem from="1531967386193" duration="8079000" />
-    </task>
-    <task id="LOCAL-00275" summary="test">
-      <created>1530601035660</created>
-      <option name="number" value="00275" />
-      <option name="presentableId" value="LOCAL-00275" />
-      <option name="project" value="LOCAL" />
-      <updated>1530601035660</updated>
+      <workItem from="1531967386193" duration="8484000" />
     </task>
     <task id="LOCAL-00276" summary="test ok">
       <created>1530601453793</created>
@@ -1004,11 +996,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531981562668</updated>
     </task>
-    <option name="localTasksCounter" value="324" />
+    <task id="LOCAL-00324" summary="bug调试">
+      <created>1531986197571</created>
+      <option name="number" value="00324" />
+      <option name="presentableId" value="LOCAL-00324" />
+      <option name="project" value="LOCAL" />
+      <updated>1531986197572</updated>
+    </task>
+    <option name="localTasksCounter" value="325" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2606638000" />
+    <option name="totallyTimeSpent" value="2607043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="349" y="23" width="1091" height="807" extended-state="0" />
@@ -1371,26 +1370,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="49" column="23" lean-forward="true" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/ft.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="326" column="17" lean-forward="false" selection-start-line="326" selection-start-column="8" selection-end-line="326" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2330">
-          <caret line="218" column="33" lean-forward="true" selection-start-line="218" selection-start-column="33" selection-end-line="218" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1434,14 +1417,6 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/activedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-634">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1571,6 +1546,30 @@
             <marker date="1531986154405" expanded="true" signature="20459:20638" ph="{...}" />
             <marker date="1531986154405" expanded="true" signature="20691:20701" ph="/*...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="165" column="12" lean-forward="false" selection-start-line="165" selection-start-column="12" selection-end-line="171" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/home-user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

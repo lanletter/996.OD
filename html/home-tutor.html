@@ -147,6 +147,15 @@
                     if (datainfo.status == 200) {
                         $this.datainfo = datainfo.data;
                     }
+
+                    /*title取值*/
+                    var txt = $this.datainfo.name + "的方太生活家主页";
+                    if (txt == undefined) {
+                        $('head title').text("活动详情");
+                    } else {
+                        $('head title').text(data.title);
+                    }
+
                     /*分享链接专用*/
                     var sharetitle = $this.datainfo.name + "的方太生活家主页";
                     var sharedesc = "快来看看" + $this.datainfo.name + "老师的课程吧！";
