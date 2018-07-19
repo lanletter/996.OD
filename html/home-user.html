@@ -150,11 +150,11 @@
                         $this.datainfo = datainfo.data;
                     }
                     /*title取值*/
-                    var txt = $this.datainfo.name + "的方太生活家主页";
+                    var txt = $this.datainfo.name;
                     if (txt == undefined) {
                         $('head title').text("用户主页");
                     } else {
-                        $('head title').text($this.datainfo.name);
+                        $('head title').text($this.datainfo.name + "的方太生活家主页");
                     }
 
                     /*分享链接专用*/

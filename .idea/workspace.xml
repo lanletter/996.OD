@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug调试">
-      <change beforePath="" afterPath="$PROJECT_DIR$/z/new.html" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/home-tutor.html" afterPath="$PROJECT_DIR$/html/home-tutor.html" />
       <change beforePath="$PROJECT_DIR$/html/home-user.html" afterPath="$PROJECT_DIR$/html/home-user.html" />
@@ -27,21 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home-tutor.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home-tutor.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="155" column="64" lean-forward="false" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
+            <state relative-caret-position="170">
+              <caret line="151" column="49" lean-forward="false" selection-start-line="151" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home-user.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home-user.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/home-user.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="364">
-              <caret line="156" column="64" lean-forward="false" selection-start-line="156" selection-start-column="64" selection-end-line="156" selection-end-column="64" />
+              <caret line="156" column="77" lean-forward="false" selection-start-line="156" selection-start-column="77" selection-end-line="156" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -332,8 +331,8 @@
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/css/ftcomment.css" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
-        <option value="$PROJECT_DIR$/html/home-tutor.html" />
         <option value="$PROJECT_DIR$/html/home-user.html" />
+        <option value="$PROJECT_DIR$/html/home-tutor.html" />
       </list>
     </option>
   </component>
@@ -658,14 +657,7 @@
       <workItem from="1531461755416" duration="5451000" />
       <workItem from="1531725722013" duration="20948000" />
       <workItem from="1531879745927" duration="4527000" />
-      <workItem from="1531967386193" duration="8728000" />
-    </task>
-    <task id="LOCAL-00277" summary="test ok">
-      <created>1530601899283</created>
-      <option name="number" value="00277" />
-      <option name="presentableId" value="LOCAL-00277" />
-      <option name="project" value="LOCAL" />
-      <updated>1530601899283</updated>
+      <workItem from="1531967386193" duration="8822000" />
     </task>
     <task id="LOCAL-00278" summary="test ok">
       <created>1530602729035</created>
@@ -1003,11 +995,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531986582873</updated>
     </task>
-    <option name="localTasksCounter" value="326" />
+    <task id="LOCAL-00326" summary="bug调试">
+      <created>1531986827652</created>
+      <option name="number" value="00326" />
+      <option name="presentableId" value="LOCAL-00326" />
+      <option name="project" value="LOCAL" />
+      <updated>1531986827652</updated>
+    </task>
+    <option name="localTasksCounter" value="327" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2607287000" />
+    <option name="totallyTimeSpent" value="2607381000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="349" y="23" width="1091" height="807" extended-state="0" />
@@ -1557,18 +1556,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+    <entry file="file://$PROJECT_DIR$/html/home-user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="155" column="64" lean-forward="false" selection-start-line="155" selection-start-column="64" selection-end-line="155" selection-end-column="64" />
+        <state relative-caret-position="364">
+          <caret line="156" column="77" lean-forward="false" selection-start-line="156" selection-start-column="77" selection-end-line="156" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-user.html">
+    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="156" column="64" lean-forward="false" selection-start-line="156" selection-start-column="64" selection-end-line="156" selection-end-column="64" />
+        <state relative-caret-position="170">
+          <caret line="151" column="49" lean-forward="false" selection-start-line="151" selection-start-column="49" selection-end-line="151" selection-end-column="49" />
           <folding />
         </state>
       </provider>
