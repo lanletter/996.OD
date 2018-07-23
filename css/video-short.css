@@ -173,18 +173,18 @@ html, body {
 }
 .recommend .list .img{
   width: 3.2rem;
-  height: 3.2rem;
+  height: 2.4rem;
   border: none;
   border-radius: 0.16rem;
   margin-bottom: 0.2rem;
-  background-size: auto 3.2rem;
-  -webkit-background-size: auto 3.2rem;
+  background-size: auto 2.4rem;
+  -webkit-background-size: auto 2.4rem;
   background-position: center;
 }
 .recommend .list .time{
   position: absolute;
   left: 0.2rem;
-  top: 2.54rem;
+  top: 1.74rem;
   width: 1.48rem;
   height: 0.48rem;
   line-height: 0.48rem;
