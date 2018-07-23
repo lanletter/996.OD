@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug调试">
-      <change beforePath="" afterPath="$PROJECT_DIR$/img/closex.png" />
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="导师首页新增弹出框，去掉无用参数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/css/home-user.css" afterPath="$PROJECT_DIR$/css/home-user.css" />
-      <change beforePath="$PROJECT_DIR$/html/home-tutor.html" afterPath="$PROJECT_DIR$/html/home-tutor.html" />
+      <change beforePath="$PROJECT_DIR$/html/home-user.html" afterPath="$PROJECT_DIR$/html/home-user.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="home-tutor.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home-tutor.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="264" column="50" lean-forward="false" selection-start-line="264" selection-start-column="50" selection-end-line="264" selection-end-column="50" />
+            <state relative-caret-position="342">
+              <caret line="271" column="47" lean-forward="true" selection-start-line="271" selection-start-column="47" selection-end-line="271" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -54,6 +52,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
               <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home-user.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/home-user.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -109,7 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>perspective</find>
       <find>homeuser</find>
       <find>userId</find>
       <find>textarea</find>
@@ -133,12 +140,13 @@
       <find>tutorInfo</find>
       <find>ft</find>
       <find>type</find>
-      <find>format00</find>
-      <find>format0</find>
       <find>format2</find>
-      <find>format</find>
       <find>strong</find>
       <find>jump</find>
+      <find>format00</find>
+      <find>createat</find>
+      <find>format0</find>
+      <find>format</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -200,12 +208,12 @@
         <option value="$PROJECT_DIR$/z/new.html" />
         <option value="$PROJECT_DIR$/css/coursedetail.css" />
         <option value="$PROJECT_DIR$/js/ft.js" />
-        <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/css/ftcomment.css" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
         <option value="$PROJECT_DIR$/css/home-user.css" />
         <option value="$PROJECT_DIR$/html/home-tutor.html" />
+        <option value="$PROJECT_DIR$/html/home-user.html" />
       </list>
     </option>
   </component>
@@ -216,10 +224,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="349" />
+    <option name="x" value="475" />
     <option name="y" value="23" />
-    <option name="width" value="1091" />
-    <option name="height" value="810" />
+    <option name="width" value="965" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -247,6 +255,11 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -521,14 +534,7 @@
       <workItem from="1531725722013" duration="20948000" />
       <workItem from="1531879745927" duration="4527000" />
       <workItem from="1531967386193" duration="13787000" />
-      <workItem from="1532311413740" duration="6719000" />
-    </task>
-    <task id="LOCAL-00286" summary="评论上传图片提示test">
-      <created>1531379011718</created>
-      <option name="number" value="00286" />
-      <option name="presentableId" value="LOCAL-00286" />
-      <option name="project" value="LOCAL" />
-      <updated>1531379011718</updated>
+      <workItem from="1532311413740" duration="8041000" />
     </task>
     <task id="LOCAL-00287" summary="评论上传图片提示test">
       <created>1531379220695</created>
@@ -866,16 +872,23 @@
       <option name="project" value="LOCAL" />
       <updated>1532321810047</updated>
     </task>
-    <option name="localTasksCounter" value="335" />
+    <task id="LOCAL-00335" summary="导师首页新增弹出框，去掉无用参数">
+      <created>1532328483746</created>
+      <option name="number" value="00335" />
+      <option name="presentableId" value="LOCAL-00335" />
+      <option name="project" value="LOCAL" />
+      <updated>1532328483746</updated>
+    </task>
+    <option name="localTasksCounter" value="336" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2619065000" />
+    <option name="totallyTimeSpent" value="2620387000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="349" y="23" width="1091" height="810" extended-state="0" />
+    <frame x="475" y="23" width="965" height="807" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20439963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23108809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -936,7 +949,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="新增菜谱专题列表页，深度链接流程优化变更" />
     <MESSAGE value="官网问卷调查链接更改" />
     <MESSAGE value="去掉登录注册异常弹框" />
     <MESSAGE value="去掉评论alert&#10;短视频ui修改" />
@@ -961,7 +973,8 @@
     <MESSAGE value="个人主页test" />
     <MESSAGE value="bug修改" />
     <MESSAGE value="bug调试" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug调试" />
+    <MESSAGE value="导师首页新增弹出框，去掉无用参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="导师首页新增弹出框，去掉无用参数" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1340,14 +1353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="307" column="29" lean-forward="false" selection-start-line="307" selection-start-column="29" selection-end-line="307" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -1405,6 +1410,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="271" column="47" lean-forward="true" selection-start-line="271" selection-start-column="47" selection-end-line="271" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/home-user.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="516">
@@ -1413,13 +1428,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+    <entry file="file://$PROJECT_DIR$/html/home-user.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="264" column="50" lean-forward="false" selection-start-line="264" selection-start-column="50" selection-end-line="264" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="383">
+          <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

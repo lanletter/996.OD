@@ -289,21 +289,13 @@
                 }
                 return sex;
             },
-            format0: function (createat) {
-                var time = new Date(createat);
-                var year = time.getFullYear();
-                var month = time.getMonth();
-                var date = time.getDate();
-                return year + '-' + month + '-' + date;
-
-            },
             format00: function (createat) {
                 var time = new Date(createat);
                 var year = time.getFullYear();
-                if (1949 < year < 2010) {
+                if (Number(year) > Number(1959) && Number(year) < Number(2010)) {
                     var years = String(year).charAt(2) + '0后';
-                } else {
-                    years = year;
+                }else {
+                    years = "出生于" + year + "年";
                 }
                 return years;
             },
