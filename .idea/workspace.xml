@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="bug调试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/coursedetail.html" afterPath="$PROJECT_DIR$/html/coursedetail.html" />
-      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" afterPath="$PROJECT_DIR$/js/loadcomment.js" />
+      <change beforePath="$PROJECT_DIR$/css/ftcomment.css" afterPath="$PROJECT_DIR$/css/ftcomment.css" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -96,18 +95,18 @@
       <file leaf-file-name="coursedetail.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/coursedetail.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="479" column="0" lean-forward="true" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
+            <state relative-caret-position="151">
+              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loadcomment.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="574" column="26" lean-forward="false" selection-start-line="574" selection-start-column="26" selection-end-line="574" selection-end-column="26" />
+            <state relative-caret-position="218">
+              <caret line="257" column="49" lean-forward="false" selection-start-line="257" selection-start-column="49" selection-end-line="257" selection-end-column="49" />
               <folding>
                 <marker date="1532314638873" expanded="true" signature="995:1459" ph="..." />
                 <marker date="1532314638873" expanded="true" signature="1047:1155" ph="..." />
@@ -203,11 +202,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ftcomment.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ftcomment.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/ftcomment.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4110">
-              <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+            <state relative-caret-position="573">
+              <caret line="274" column="25" lean-forward="false" selection-start-line="274" selection-start-column="25" selection-end-line="274" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -252,10 +251,10 @@
       <find>userurl</find>
       <find>sayName</find>
       <find>teacher-box</find>
-      <find>strong</find>
-      <find>tutorInfo</find>
       <find>type</find>
       <find>ft</find>
+      <find>tutorInfo</find>
+      <find>strong</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -315,7 +314,6 @@
         <option value="$PROJECT_DIR$/html/activealbum.html" />
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/faq-info1.html" />
-        <option value="$PROJECT_DIR$/css/ftcomment.css" />
         <option value="$PROJECT_DIR$/z/new.html" />
         <option value="$PROJECT_DIR$/css/coursedetail.css" />
         <option value="$PROJECT_DIR$/js/ft.js" />
@@ -323,6 +321,7 @@
         <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
+        <option value="$PROJECT_DIR$/css/ftcomment.css" />
       </list>
     </option>
   </component>
@@ -336,7 +335,7 @@
     <option name="x" value="349" />
     <option name="y" value="23" />
     <option name="width" value="1091" />
-    <option name="height" value="807" />
+    <option name="height" value="805" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -364,6 +363,11 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
@@ -648,14 +652,7 @@
       <workItem from="1531725722013" duration="20948000" />
       <workItem from="1531879745927" duration="4527000" />
       <workItem from="1531967386193" duration="13787000" />
-      <workItem from="1532311413740" duration="2591000" />
-    </task>
-    <task id="LOCAL-00283" summary="新增用户主页">
-      <created>1530843010156</created>
-      <option name="number" value="00283" />
-      <option name="presentableId" value="LOCAL-00283" />
-      <option name="project" value="LOCAL" />
-      <updated>1530843010156</updated>
+      <workItem from="1532311413740" duration="2894000" />
     </task>
     <task id="LOCAL-00284" summary="评论上传图片提示test">
       <created>1531364257293</created>
@@ -993,14 +990,21 @@
       <option name="project" value="LOCAL" />
       <updated>1532314371325</updated>
     </task>
-    <option name="localTasksCounter" value="332" />
+    <task id="LOCAL-00332" summary="bug调试">
+      <created>1532314661308</created>
+      <option name="number" value="00332" />
+      <option name="presentableId" value="LOCAL-00332" />
+      <option name="project" value="LOCAL" />
+      <updated>1532314661308</updated>
+    </task>
+    <option name="localTasksCounter" value="333" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2614937000" />
+    <option name="totallyTimeSpent" value="2615240000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="349" y="23" width="1091" height="807" extended-state="0" />
+    <frame x="349" y="23" width="1091" height="805" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20439963" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1375,14 +1379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/ftcomment.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4110">
-          <caret line="274" column="0" lean-forward="false" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/activealbum.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3285">
@@ -1412,14 +1408,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
           <caret line="307" column="29" lean-forward="false" selection-start-line="307" selection-start-column="29" selection-end-line="307" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/coursedetail.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="479" column="0" lean-forward="true" selection-start-line="479" selection-start-column="0" selection-end-line="479" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1459,8 +1447,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/loadcomment.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="574" column="26" lean-forward="false" selection-start-line="574" selection-start-column="26" selection-end-line="574" selection-end-column="26" />
+        <state relative-caret-position="218">
+          <caret line="257" column="49" lean-forward="false" selection-start-line="257" selection-start-column="49" selection-end-line="257" selection-end-column="49" />
           <folding>
             <marker date="1532314638873" expanded="true" signature="995:1459" ph="..." />
             <marker date="1532314638873" expanded="true" signature="1047:1155" ph="..." />
@@ -1542,6 +1530,22 @@
             <marker date="1532314638873" expanded="true" signature="20459:20638" ph="{...}" />
             <marker date="1532314638873" expanded="true" signature="20691:20701" ph="/*...*/" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/coursedetail.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/ftcomment.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="274" column="25" lean-forward="false" selection-start-line="274" selection-start-column="25" selection-end-line="274" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
