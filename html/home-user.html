@@ -300,12 +300,12 @@
             format00: function (createat) {
                 var time = new Date(createat);
                 var year = time.getFullYear();
-                if(1949<year<2010){
-                    var years=String(year).charAt(2);
-                }else {
-                    years=year;
+                if (1949 < year < 2010) {
+                    var years = String(year).charAt(2) + '0后';
+                } else {
+                    years = year;
                 }
-                return years + '0后';
+                return years;
             },
             format: function (createat) {
                 var time = new Date(createat);

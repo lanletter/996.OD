@@ -128,7 +128,7 @@
                 $.ajax({
                     url: urlport + 'cook/home',
                     type: 'POST',
-                    data: JSON.stringify({"cookId":id}),
+                    data: JSON.stringify({"cookId": id}),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
                     dataType: 'json', //返回的数据格式
@@ -224,9 +224,9 @@
                     url: urlport + 'cook/curriculumn',
                     type: 'POST',
                     data: JSON.stringify({
-                        pageNum:1,
-                        pageSize:5,
-                        cookId : id
+                        pageNum: 1,
+                        pageSize: 5,
+                        cookId: id
                     }),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
@@ -254,10 +254,10 @@
         methods: {
             sex: function (sexnum) {
                 var sex;
-                if(sexnum==0){
-                    sex="男";
-                }else if(sex==1){
-                    sex="女";
+                if (sexnum == 0) {
+                    sex = "男";
+                } else if (sex == 1) {
+                    sex = "女";
                 }
                 return sex;
             },
@@ -271,8 +271,12 @@
             format00: function (createat) {
                 var time = new Date(createat);
                 var year = time.getFullYear();
-                var years=String(year).charAt(2);
-                return years + '0后';
+                if (1949 < year < 2010) {
+                    var years = String(year).charAt(2) + '0后';
+                } else {
+                    years = year;
+                }
+                return years;
             },
             addnum: function (m) {
                 return m < 10 ? '0' + m : m
@@ -319,7 +323,9 @@
                     if (r != null) return unescape(r[2]);
                     return null;
                 }
+
                 var id = GetQueryString("id");
+
                 function GetPageName() {
                     var url = window.location.href;//获取完整URL
                     var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
