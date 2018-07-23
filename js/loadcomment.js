@@ -568,11 +568,7 @@
                         }, function (result) {
                         })
                     } else {
-                        ft.tutorInfo({
-                            id: imguserid,
-                            type: 1
-                        }, function (result) {
-                        })
+                        deeplinkFC();
                         // window.location.href = "home-user.html?id="+imguserid;
                     }
                 });
