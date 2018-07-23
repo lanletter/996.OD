@@ -559,7 +559,7 @@
                 //     console.log(e);
                 // })
                 $('.userurl').unbind().click(function (e) {
-                    var imguserid = $(e.target).next().text();     // e.target表示被点击的目标
+                    var imguserid = $(e.target).next();     // e.target表示被点击的目标
                     console.log(imguserid);
                     if (device == "ios" || device == "android") {
                         ft.tutorInfo({
