@@ -328,7 +328,7 @@
             name: "tutorInfo",
             param: {
                 id: "",//导师id
-                type:""
+                type: ""// 类型
             },
             callbackId: generateID(),
             callback: noop
