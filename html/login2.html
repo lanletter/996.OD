@@ -50,6 +50,7 @@
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/url.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/jsencrypt.min.js'></script>
 <script>
     /*获取url*/
     var h5url = $.cookie('h5url');
@@ -122,6 +123,10 @@
 //            resource:"web",
 //            corp_id:"1007d4b036464a00"
 //        }))	;
+        /*使用加密*/
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
+        var passwordkey = encrypt.encrypt($("#password").val());
         $.ajax({
             type: 'POST',
             // url: "https://h5.fotilestyle.com/AccountProxytest/v2/user_auth",
@@ -129,7 +134,7 @@
             datatype: "json",
             data: JSON.stringify({
                 accountName: $("#phonenum").val(),
-                password: $("#password").val(),
+                password: passwordkey,
                 resource: "web"
             }),
             contentType: 'application/json;charset=UTF-8',
