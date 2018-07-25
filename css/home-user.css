@@ -140,11 +140,20 @@ header{
     margin-right: 0.3rem;
     overflow: hidden;
 }
-.workul li a{
+.workul li .a1{
     float: left;
     width: 3.2rem;
     height: 3.2rem;
     background-size:auto 3.2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.16rem;
+}
+.workul li .a2{
+    float: left;
+    width: 3.2rem;
+    height: 3.2rem;
+    background-size: 3.2rem auto;
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 0.16rem;

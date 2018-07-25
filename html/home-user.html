@@ -67,7 +67,8 @@
         </p>
         <ul class="workul">
             <li v-for="(item,index) in datawork.workList">
-                <a :href="item.menuUrl" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
+                <a :href="item.menuUrl" v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)" class="a1" :style="{backgroundImage: 'url(' + item.picturePath + ')' }"></a>
+                <a :href="item.menuUrl" v-else class="a2" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
             </li>
         </ul>
     </div>
