@@ -16,7 +16,9 @@ header{
 .headinfo .nickname{
     display: block;
     color: #1F1F1F;
+    width: 4.08rem;
     height: 0.6rem;
+    overflow: hidden;
     line-height: 0.6rem;
     font-size: 0.48rem;
     font-weight: bold;

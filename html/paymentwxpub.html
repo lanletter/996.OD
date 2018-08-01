@@ -93,18 +93,18 @@
 //                  alert(result);
                     if (result == "success") {
                         $api.toast('支付成功!', 2000);
-                           var urllong="http://h5.fotilestyle.com/fotilestyle-test/html/coursedetail.html?id=" + id;
-//                      var urllong = "https://h5.fotilestyle.com/html/coursedetail.html?id=" + id;
+//                         var urllong="http://h5.fotilestyle.com/fotilestyle-test2/html/coursedetail.html?id=" + id;
+                        var urllong = "https://h5.fotilestyle.com/html/coursedetail.html?id=" + id;
                         window.location.href = urllong;
                     } else if (result == "cancel") {
                         $api.toast('支付取消!', 2000);
-                           var buyurl = "http://h5.fotilestyle.com/fotilestyle-test/html/courseform.html?id=" + id;
-//                      var buyurl = "https://h5.fotilestyle.com/html/courseform.html?id=" + id;
+//                         var buyurl = "http://h5.fotilestyle.com/fotilestyle-test2/html/courseform.html?id=" + id;
+                        var buyurl = "https://h5.fotilestyle.com/html/courseform.html?id=" + id;
                         window.location.href = buyurl;
                     } else if (result == "fail") {
                         $api.toast('支付失败,请重试或重新下单!', 2000);
-                           var buyurl = "http://h5.fotilestyle.com/fotilestyle-test/html/courseform.html?id=" + id;
-//                      var buyurl = "https://h5.fotilestyle.com/html/courseform.html?id=" + id;
+//                         var buyurl = "http://h5.fotilestyle.com/fotilestyle-test2/html/courseform.html?id=" + id;
+                        var buyurl = "https://h5.fotilestyle.com/html/courseform.html?id=" + id;
                         window.location.href = buyurl;
                     }
                 });

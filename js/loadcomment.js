@@ -42,6 +42,7 @@
                   <p class="welcome">暂无评论，快来成为第一个评论的用户吧！</p>\
                 </div>\
                 <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
+                  <img id="waiting" src="../img/waiting.png" style="display:none;width: 2.85rem;height: 0.84rem;position: absolute;top: 50%;left: 50%;margin: -0.84rem 0 0 -1.425rem;z-index: 999999;">\
                   <p class="bgfff"></p>\
                   <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                   <div class="imgup">\
@@ -227,6 +228,7 @@
                       </div>\
                     </div>\
                     <form id="picForm"><div id="leave-words" class="leave-words"><div class="boxpl">\
+                      <img id="waiting" src="../img/waiting.png" style="display:none;width: 2.85rem;height: 0.84rem;position: absolute;top: 50%;left: 50%;margin: -0.84rem 0 0 -1.425rem;z-index: 999999;">\
                       <p class="bgfff"></p>\
                       <textarea placeholder="请输入最新评论..." maxlength="200" onchange="this.value=this.value.substring(0, 200)" onkeydown="this.value=this.value.substring(0, 200)" onkeyup="this.value=this.value.substring(0, 200)"></textarea>\
                       <div class="imgup">\

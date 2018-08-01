@@ -44,11 +44,13 @@
 
             /* 点击图片的文本框 */
             $(this).change(function () {
+                $("#waiting").show();
                 var reader = new FileReader(); // 新建一个FileReader();
                 var idFile = $(this).attr("id");
                 var file = document.getElementById(idFile);
                 console.log(file);
                 var imgContainer = $(this).parents(".z_photo"); // 存放图片的父亲元素
+                $("#waiting").show();
                 var fileList = file.files; // 获取的图片文件
                 var input = $(this).parent();// 文本框的父亲元素
                 var imgArr = [];
@@ -56,9 +58,11 @@
                 var numUp = imgContainer.find(".up-section").length;
                 var totalNum = numUp + fileList.length; // 总的数量
                 if (fileList.length > imageNum || totalNum > imageNum) {
+                    $("#waiting").hide();
                     alert("上传图片数目不可以超过1个，请重新选择"); // 一次选择上传超过1个
                     // 或者是已经上传和这次上传的到的总数也不可以超过1个
                 } else if (numUp < imageNum) {
+                    $("#waiting").show();
                     fileList = validateUp(fileList, defaults);
                     for (var i = 0; i < fileList.length; i++) {
                         var imgUrl = window.URL.createObjectURL(fileList[i]);
@@ -155,9 +159,6 @@
                 var url = opt.url;
                 console.log(url);
                 // alert(url);
-                var alertstr = "<img id='waiting' src='../img/waiting.png' style='width: 2.85rem;height: 0.84rem;position: absolute;top: 50%;left: 50%;margin: -0.84rem 0 0 -1.425rem;z-index: 999999;'>";
-                $("#leave-words").prepend(alertstr);
-
                 var reader = new FileReader(); // 新建一个FileReader();
                 reader.readAsDataURL(file); //读取图片文件的二进制数据
                 reader.onload = function (e) { // reader onload start

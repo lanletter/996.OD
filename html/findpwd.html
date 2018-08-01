@@ -38,6 +38,7 @@
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/url.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/jsencrypt.min.js'></script>
 <script>
     /*获取url*/
     var h5url = $.cookie('h5url');
@@ -95,18 +96,26 @@
 
     /*提交*/
     $("#nextbtn").click(function () {
-        // alert(JSON.stringify({
-        //     accountName: $("#phonenum").val(),
-        //     password: $("#newpwd").val(),
-        //     verificationCode: $("#codenum").val()
-        // }));
+        /*使用加密*/
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
+        var passwordkey = encrypt.encrypt($("#newpwd").val());
+        console.log(passwordkey);
+//      alert(JSON.stringify({
+//          accountName: $("#phonenum").val(),
+//          password: passwordkey,
+//          verificationCode: $("#codenum").val()
+//      }));
         $.ajax({
             type: 'POST',
             url: urlport + 'user/forgetPassword/v421',
             datatype: "json",
+            headers: {
+                version: 'v432'
+            },
             data: JSON.stringify({
                 accountName: $("#phonenum").val(),
-                password: $("#newpwd").val(),
+                password: passwordkey,
                 verificationCode: $("#codenum").val()
             }),
             contentType: 'application/json;charset=UTF-8',
