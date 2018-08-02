@@ -2,7 +2,7 @@
     overflow: hidden;
     background: #ffffff;
     z-index: 0;
-    margin-top: 0.66rem;
+    padding-top: 0.66rem;
 }
 
 .ft-comment li {
