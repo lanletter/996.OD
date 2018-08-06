@@ -88,7 +88,11 @@ html, body {
   margin: 0.6rem;
 }
 
-.vide-share .tit img {
+.vide-share .tit .cooker{
+  display: block;
+  margin-bottom: 0.7rem;
+}
+.vide-share .tit .cooker img {
   display: block;
   margin: 0 auto;
   margin-top: 0.96rem;
@@ -98,16 +102,16 @@ html, body {
   border-radius: 100%;
 }
 
-.vide-share .tit .name {
+.vide-share .tit .cooker .name {
   font-size: 0.28rem;
   color: #1f1f1f;
   margin: 0 auto;
   margin-bottom: 0.2rem;
   text-align: center;
-  max-width: 5rem;
+  max-width: 4.68rem;
 }
 
-.vide-share .tit .cookdesc {
+.vide-share .tit .cooker .cookdesc {
   margin: 0 auto;
   width: 4.68rem;
   line-height: 0.4rem;

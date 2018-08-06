@@ -161,6 +161,60 @@ header{
     border-radius: 0.16rem;
 }
 
+
+.videoul{
+    padding-left:0.4rem;
+    padding-bottom: 2.24rem;
+    overflow: hidden;
+}
+.videoul li{
+    float: left;
+    width: 3.2rem;
+    height: 3.8rem;
+    margin-bottom: 0.4rem;
+    margin-right: 0.3rem;
+    overflow: hidden;
+    position: relative;
+}
+.videoul li .svideo{
+    float: left;
+    width: 3.2rem;
+    height: 2.4rem;
+    background-size:auto 2.4rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.16rem;
+    margin-bottom: 0.2rem;
+}
+.videoul li .stitle{
+    width:2.86rem;
+    max-height:1rem;
+    font-size:0.36rem;
+    font-weight: bold;
+    color:rgba(31,31,31,1);
+    line-height:0.5rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.videoul li .time{
+    position: absolute;
+    left: 0.2rem;
+    top: 1.74rem;
+    width: 1.48rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    background:url(../img/timebg.png) no-repeat;
+    background-size:1.48rem 0.48rem ;
+    color: #ffffff;
+    font-size: 0.24rem;
+    font-weight: normal;
+    padding-left: 0.56rem;
+    overflow: hidden;
+    z-index: 999;
+}
+
 .empty{
     width: 100%;
     height: 100%;

@@ -41,7 +41,12 @@
 <div class="vide-share">
     <div class="tit">
         <h3 v-html="data.title"></h3>
-        <p class="introduct" v-html="data.remark"></p>
+        <a class="cooker" :href="cooker.url">
+            <img :src="cooker.picture.path">
+            <p class="name" v-html="cooker.cookName"></p>
+            <p class="cookdesc" v-html="cooker.remark"></p>
+        </a>
+        <p class="introduct" v-html="data.content"></p>
     </div>
     <div class="recommend">
         <p class="title">相关推荐</p>
@@ -109,6 +114,7 @@
         el: '.vide-share',
         data: {
             data: {},
+            cooker: {},
             datalist: {},
             jsoninfo: {
                 "id": id,
@@ -116,7 +122,7 @@
                 "sharetitle": "",
                 "sharedesc": "",
                 "shareimg": "",
-                "sharelink": ""
+                "sharelink": "",
             }
 
             // http: {
@@ -131,6 +137,9 @@
                 var data = data.data;
                 if (data.status == 200) {
                     $this.data = data.data;
+                    $this.cooker = data.data.cook;
+                    $this.cooker.url = data.data.cook.url + "&device=" + device +"&jump=jump";
+
                     console.info($this.data);
 
                     /*友盟埋点-页面访问*/

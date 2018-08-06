@@ -38,34 +38,48 @@
         </div>
     </header>
 
-    <div class="empty" v-if="datalist.count == 0">
+    <div class="empty" v-if="datalist.count == 0 && datainfo.myWorkCount == 0">
         <img src="../img/empty.png">
         <p>该用户什么都没有留下</p>
     </div>
 
-    <p class="bigtitle" v-if="datalist.count !== 0">
-        <span>课程</span>
-        <a @click="deeplikopen">全部</a>
-    </p>
-    <ul class="courseul">
-        <li v-for="item in datalist" @click="jump(item.id)">
-            <div class="img" :style="{backgroundImage: 'url(' +item.picture+ ')'}"></div>
-            <img class="tutorimg" :src="item.cookList[0].picture">
-            <p class="tutorname">
+    <div v-else>
+        <p class="bigtitle" v-if="datalist.count !== 0">
+            <span>课程</span>
+            <a @click="deeplikopen">全部</a>
+        </p>
+        <ul class="courseul">
+            <li v-for="item in datalist" @click="jump(item.id)">
+                <div class="img" :style="{backgroundImage: 'url(' +item.picture+ ')'}"></div>
+                <img class="tutorimg" :src="item.cookList[0].picture">
+                <p class="tutorname">
                 <span class="txtgrey2">
                     <b>主讲人：</b>
                     <b v-text="item.cookNames"></b>
                 </span>
-            </p>
-            <h3 v-text="item.name">韩式经典料理韩式经典料理韩式经典料理韩式</h3>
-            <span class="price"><b v-text="item.price">300</b>.00</span>
-            <p class="underline">
-                <span class="txtgrey2">{{format2(item.startTime)}}</span>
-                &nbsp;&nbsp;
-                <span class="txtgrey2">{{item.storeName}}</span>
-            </p>
-        </li>
-    </ul>
+                </p>
+                <h3 v-text="item.name">韩式经典料理韩式经典料理韩式经典料理韩式</h3>
+                <span class="price"><b v-text="item.price">300</b>.00</span>
+                <p class="underline">
+                    <span class="txtgrey2">{{format2(item.startTime)}}</span>
+                    &nbsp;&nbsp;
+                    <span class="txtgrey2">{{item.storeName}}</span>
+                </p>
+            </li>
+        </ul>
+
+        <p class="bigtitle" v-if="datainfo.myWorkCount !== 0">
+            <span>厨房攻略</span>
+            <a @click="deeplikopen">全部</a>
+        </p>
+        <ul class="videoul">
+            <li v-for="(item,index) in datawork">
+                <a :href="item.pageUrl" class="svideo" :style="{backgroundImage: 'url(' + item.picture.path + ')'}"></a>
+                <div v-if="item.time !== '' && item.time !== null" class="time" v-html="item.time"></div>
+                <h3 class="stitle" v-html="item.title"></h3>
+            </li>
+        </ul>
+    </div>
 
     <div class="darkbg" style="display: none;">
         <div class="remarkall">
@@ -123,7 +137,8 @@
             data: {},
             datainfo: {},
             datalist: {},
-            dataother: {}
+            dataother: {},
+            datawork: {}
         },
         created: function () {
             var $this = this;
@@ -253,6 +268,43 @@
                     }
                 }
             });
+            /*短视频列表*/
+            $(document).ready(function () {
+                $.ajax({
+                    url: urlport + 'videoShort/list',
+                    type: 'POST',
+                    data: JSON.stringify({
+                        "pageNum" : 1,
+                        "pageSize" : 10,
+                        "cookId" : id
+                    }),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (datawork) {
+                        console.log("短视频列表：");
+                        console.log(datawork);
+                        callback(datawork);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+                function callback(datawork) {
+                    if (datawork.status == 200) {
+                        for (var i = 0; i < datawork.data.length; i++) {
+                            // console.log(data.data[i].pageUrl);
+                            var pageUrl = datawork.data[i].pageUrl;
+                            pageUrl = pageUrl + "&device=" + device + "&jump=jump";
+                            // console.log(pageUrl);
+                            datawork.data[i].pageUrl = pageUrl;
+                        }
+                        $this.datawork = datawork.data;
+                        console.log($this.datawork);
+                    }
+                }
+            });
 
         },
         methods: {
@@ -353,7 +405,7 @@
                     /*弹出浏览器打开提示*/
                     var alertstr = "<div class='blackbg'><div class='reminder'>" +
                         "<img src='../img/arrowdashed.png' >" +
-                        "<p class='title'>在微信中无法下载？</p>" +
+                        "<p class='title'>在微信中无法打开？</p>" +
                         "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
                         "</div></div>";
                     $("body").prepend(alertstr);
