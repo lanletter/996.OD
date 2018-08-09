@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>课程订单创建</title>
     <meta charset="utf-8">
@@ -11,9 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
     <link rel="stylesheet" type="text/css" href="../css/courseform.css?ver=403">
 </head>
-
 <body>
-
 <div class="buynow-div">
     <ul class="editlist">
         <li class="borderb padding1">
@@ -65,8 +62,8 @@
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/url.js'></script>
-<!--<script type="text/javascript" src='../js/alertdiy.js'></script>-->
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/ajaxsetup.js'></script>
 
 <script type="text/javascript">
     /*获取url*/
@@ -80,7 +77,6 @@
     var id = $.cookie('id');
     var userId = $.cookie('userid');
     var phonenum = $.cookie('phonenum');
-    console.log(phonenum + userId);
 
     $(document).ready(function () {
         $("#phonenum").focus(function () {
@@ -112,7 +108,7 @@
         $(this).bind('focus', function () {
             $('.ttprice').css('position', 'static');
         }).bind('blur', function () {
-            $('.ttprice').css({ 'position': 'absolute', 'bottom': '0' });
+            $('.ttprice').css({'position': 'absolute', 'bottom': '0'});
         });
     });
 
@@ -252,8 +248,11 @@
 //                          alert(urllong);
                             window.location.href = urllong;
 
+                        } else if(data.status == 4009){
+                            alert(data.errorMessage);
+                            window.location.href = "login.html";
                         } else {
-                            $api.toast('订单创建失败', 2000);
+                            alert(data.errorMessage);
                         }
                     },
                     error: function (errorMsg) {

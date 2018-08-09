@@ -146,10 +146,11 @@
                 console.log(obj);
                 // alert(JSON.stringify(obj));
                 if (obj.status == 200) {
-                    var phonenum = obj.data.accountName;
                     var userid = obj.data.userInfomation.userId;
+                    var token = obj.data.token;
+                    $.cookie('token', token);
+                    $.cookie('userid', userid);
                     $.cookie('phonenum', $("#phonenum").val());
-                    $.cookie('userid', obj.data.userInfomation.userId);
                     window.location.href = h5url;
                 } else if (obj.status == 525) {
                     alert("用户名或密码错误");
