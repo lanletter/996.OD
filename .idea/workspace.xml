@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="v437基本完成">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="注册登录test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/html/findpwd.html" afterPath="$PROJECT_DIR$/html/findpwd.html" />
+      <change beforePath="$PROJECT_DIR$/html/login.html" afterPath="$PROJECT_DIR$/html/login.html" />
       <change beforePath="$PROJECT_DIR$/html/login2.html" afterPath="$PROJECT_DIR$/html/login2.html" />
       <change beforePath="$PROJECT_DIR$/html/setpwd.html" afterPath="$PROJECT_DIR$/html/setpwd.html" />
     </list>
@@ -29,8 +31,8 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2340">
-              <caret line="156" column="42" lean-forward="false" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="42" />
+            <state relative-caret-position="410">
+              <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -91,16 +93,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5010">
-              <caret line="334" column="29" lean-forward="true" selection-start-line="334" selection-start-column="29" selection-end-line="334" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ajaxsetup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -111,21 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setpwd.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="setpwd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/setpwd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="139" column="29" lean-forward="true" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="activedetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/activedetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="93" column="0" lean-forward="true" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+            <state relative-caret-position="417">
+              <caret line="107" column="69" lean-forward="true" selection-start-line="107" selection-start-column="69" selection-end-line="108" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -134,8 +116,28 @@
       <file leaf-file-name="login2.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="125" column="46" lean-forward="true" selection-start-line="125" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
+            <state relative-caret-position="422">
+              <caret line="53" column="65" lean-forward="true" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login-wx.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/login-wx.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="findpwd.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/findpwd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -234,7 +236,6 @@
         <option value="$PROJECT_DIR$/css/coursedetail.css" />
         <option value="$PROJECT_DIR$/js/ft.js" />
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
-        <option value="$PROJECT_DIR$/html/findpwd.html" />
         <option value="$PROJECT_DIR$/html/sitedetail.html" />
         <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/js/url.js" />
@@ -244,13 +245,14 @@
         <option value="$PROJECT_DIR$/html/home-tutor.html" />
         <option value="$PROJECT_DIR$/css/video-short.css" />
         <option value="$PROJECT_DIR$/html/video-short.html" />
-        <option value="$PROJECT_DIR$/html/login.html" />
         <option value="$PROJECT_DIR$/html/coursedetail.html" />
         <option value="$PROJECT_DIR$/html/courseform.html" />
         <option value="$PROJECT_DIR$/js/jquery.min.js" />
         <option value="$PROJECT_DIR$/js/ajaxsetup.js" />
-        <option value="$PROJECT_DIR$/html/login2.html" />
         <option value="$PROJECT_DIR$/html/setpwd.html" />
+        <option value="$PROJECT_DIR$/html/login.html" />
+        <option value="$PROJECT_DIR$/html/login2.html" />
+        <option value="$PROJECT_DIR$/html/findpwd.html" />
       </list>
     </option>
   </component>
@@ -264,7 +266,7 @@
     <option name="x" value="434" />
     <option name="y" value="23" />
     <option name="width" value="1006" />
-    <option name="height" value="810" />
+    <option name="height" value="807" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -297,6 +299,11 @@
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
               <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -582,14 +589,7 @@
       <workItem from="1532411149039" duration="5072000" />
       <workItem from="1532509143663" duration="466000" />
       <workItem from="1533104836647" duration="18793000" />
-      <workItem from="1534128155336" duration="3782000" />
-    </task>
-    <task id="LOCAL-00295" summary="个人主页test">
-      <created>1531729346288</created>
-      <option name="number" value="00295" />
-      <option name="presentableId" value="LOCAL-00295" />
-      <option name="project" value="LOCAL" />
-      <updated>1531729346288</updated>
+      <workItem from="1534128155336" duration="4416000" />
     </task>
     <task id="LOCAL-00296" summary="个人主页test">
       <created>1531730001576</created>
@@ -927,14 +927,21 @@
       <option name="project" value="LOCAL" />
       <updated>1533544494030</updated>
     </task>
-    <option name="localTasksCounter" value="344" />
+    <task id="LOCAL-00344" summary="注册登录test">
+      <created>1534321591364</created>
+      <option name="number" value="00344" />
+      <option name="presentableId" value="LOCAL-00344" />
+      <option name="project" value="LOCAL" />
+      <updated>1534321591365</updated>
+    </task>
+    <option name="localTasksCounter" value="345" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2652265000" />
+    <option name="totallyTimeSpent" value="2652899000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="434" y="23" width="1006" height="810" extended-state="0" />
+    <frame x="434" y="23" width="1006" height="807" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22166999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -997,7 +1004,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="去掉老版菜谱的分享交互" />
     <MESSAGE value="深链接gio监测test" />
     <MESSAGE value="问卷调查title修改" />
     <MESSAGE value="活动上传菜谱btn显示条件更改" />
@@ -1022,7 +1028,8 @@
     <MESSAGE value="v434版本上线后" />
     <MESSAGE value="去掉单位换算说明入口，积分兑换背景色bug" />
     <MESSAGE value="v437基本完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="v437基本完成" />
+    <MESSAGE value="注册登录test" />
+    <option name="LAST_COMMIT_MESSAGE" value="注册登录test" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1032,13 +1039,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/findpwd.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="85" column="24" lean-forward="true" selection-start-line="85" selection-start-column="24" selection-end-line="85" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/structural.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -1169,13 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/findpwd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="29" lean-forward="false" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1323,14 +1316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2340">
-          <caret line="156" column="42" lean-forward="false" selection-start-line="156" selection-start-column="30" selection-end-line="156" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8655">
@@ -1386,18 +1371,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login2.html">
+    <entry file="file://$PROJECT_DIR$/html/setpwd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="125" column="46" lean-forward="true" selection-start-line="125" selection-start-column="46" selection-end-line="126" selection-end-column="46" />
+        <state relative-caret-position="417">
+          <caret line="107" column="69" lean-forward="true" selection-start-line="107" selection-start-column="69" selection-end-line="108" selection-end-column="65" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/setpwd.html">
+    <entry file="file://$PROJECT_DIR$/html/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="139" column="29" lean-forward="true" selection-start-line="139" selection-start-column="29" selection-end-line="139" selection-end-column="29" />
+        <state relative-caret-position="410">
+          <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="53" column="65" lean-forward="true" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login-wx.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/findpwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
           <folding />
         </state>
       </provider>
