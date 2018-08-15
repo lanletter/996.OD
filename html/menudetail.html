@@ -249,7 +249,7 @@
 <script src="../js/BigPictureOpen.js"></script>
 <script src="../js/url.js"></script>
 <script type="text/javascript" src="../js/UMAnalytics.js"></script>
-<!--<script type="text/javascript" src="../js/ajaxsetup.js"></script>-->
+<script type="text/javascript" src="../js/ajaxsetup2.js"></script>
 
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
@@ -344,9 +344,6 @@
 
                 $.ajax({
                     url: urlport + 'menu/detail',
-                    headers: {
-                        version: 'v432'
-                    },
                     type: 'POST',
                     data: JSON.stringify({"id": id, "userId": userid}),
                     timeout: 5000, //超时时间
