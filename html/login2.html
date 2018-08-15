@@ -122,12 +122,13 @@
         encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
         var passwordkey = encrypt.encrypt($("#password").val());
         console.log(passwordkey);
-//      alert(JSON.stringify({
-//          accountName: $("#phonenum").val(),
-//          password: passwordkey,
-//          resource:"web",
-//          corp_id:"1007d4b036464a00"
-//      }))	;
+        alert(JSON.stringify({
+            accountName: $("#phonenum").val(),
+            passwordold: $("#password").val(),
+            password: passwordkey,
+            resource: "web",
+            corp_id: "1007d4b036464a00"
+        }));
         $.ajax({
             type: 'POST',
             url: urlport + "user/login/v421",
@@ -139,12 +140,12 @@
                 accountName: $("#phonenum").val(),
                 password: passwordkey,
                 resource: "web",
-                corp_id:"1007d4b036464a00"
+                corp_id: "1007d4b036464a00"
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (obj) {
                 console.log(obj);
-                // alert(JSON.stringify(obj));
+                alert(JSON.stringify(obj));
                 if (obj.status == 200) {
                     var userid = obj.data.userInfomation.userId;
                     var token = obj.data.token;
@@ -174,7 +175,7 @@
 
     $("#loginwx").click(function () {
 //      var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=http://h5.fotilestyle.com/fotilestyle-test2/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-           var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+        var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
         window.location.href = loginwx;
     })
 

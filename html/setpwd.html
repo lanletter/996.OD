@@ -128,11 +128,12 @@
         var encrypt = new JSEncrypt();
         encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
         var passwordkey = encrypt.encrypt($("#password").val());
-        // alert(JSON.stringify({
-        //     accountName: phonenum,
-        //     verificationCode: codenum,
-        //     password:passwordkey
-        // }));
+        alert(JSON.stringify({
+            accountName: phonenum,
+            verificationCode: codenum,
+            passwordold: $("#password").val(),
+            password:passwordkey
+        }));
         $.ajax({
             type: 'POST',
             url: urlport + "user/setPassword",
@@ -145,7 +146,7 @@
             contentType: 'application/json;charset=UTF-8',
             success: function (obj) {
                 console.log(obj);
-                // alert(JSON.stringify(obj));
+                alert(JSON.stringify(obj));
                 if (obj.status == 200) {
                     window.location.href = "login.html";
                 } else {
