@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="注册登录test">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="注册登录加版本号">
+      <change beforePath="" afterPath="$PROJECT_DIR$/js/ajaxsetup2.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/html/findpwd.html" afterPath="$PROJECT_DIR$/html/findpwd.html" />
       <change beforePath="$PROJECT_DIR$/html/login.html" afterPath="$PROJECT_DIR$/html/login.html" />
@@ -31,30 +32,19 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="410">
-              <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+            <state relative-caret-position="129">
+              <caret line="52" column="69" lean-forward="true" selection-start-line="52" selection-start-column="69" selection-end-line="53" selection-end-column="66" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+      <file leaf-file-name="ajaxsetup2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/ajaxsetup2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8655">
-              <caret line="577" column="36" lean-forward="false" selection-start-line="577" selection-start-column="36" selection-end-line="577" selection-end-column="46" />
-              <folding>
-                <marker date="1533804752369" expanded="true" signature="28928:29389" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="28976:29361" ph="..." />
-                <marker date="1533804752369" expanded="false" signature="29024:29037" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="29155:29333" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="31096:31396" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="31134:31360" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="31192:31240" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="31484:31710" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="31522:31674" ph="..." />
-                <marker date="1533804752369" expanded="true" signature="31580:31628" ph="..." />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,18 +55,6 @@
             <state relative-caret-position="3780">
               <caret line="252" column="64" lean-forward="false" selection-start-line="252" selection-start-column="64" selection-end-line="252" selection-end-column="64" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery-2.1.1.min.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/jquery-2.1.1.min.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -96,8 +74,8 @@
       <file leaf-file-name="ajaxsetup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state relative-caret-position="300">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="26" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -106,8 +84,8 @@
       <file leaf-file-name="setpwd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/setpwd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="107" column="69" lean-forward="true" selection-start-line="107" selection-start-column="69" selection-end-line="108" selection-end-column="65" />
+            <state relative-caret-position="432">
+              <caret line="108" column="52" lean-forward="false" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -117,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/html/login2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="422">
-              <caret line="53" column="65" lean-forward="true" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
+              <caret line="53" column="52" lean-forward="false" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -133,11 +111,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="findpwd.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="findpwd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/findpwd.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="615">
-              <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+              <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="signin.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/signin.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1881">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -202,7 +190,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/css/sitedetail.css" />
         <option value="$PROJECT_DIR$/css/common.css" />
         <option value="$PROJECT_DIR$/css/menualbum.css" />
         <option value="$PROJECT_DIR$/html/fotile-WX/activelist.html" />
@@ -249,9 +236,10 @@
         <option value="$PROJECT_DIR$/html/courseform.html" />
         <option value="$PROJECT_DIR$/js/jquery.min.js" />
         <option value="$PROJECT_DIR$/js/ajaxsetup.js" />
-        <option value="$PROJECT_DIR$/html/setpwd.html" />
+        <option value="$PROJECT_DIR$/js/ajaxsetup2.js" />
         <option value="$PROJECT_DIR$/html/login.html" />
         <option value="$PROJECT_DIR$/html/login2.html" />
+        <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/findpwd.html" />
       </list>
     </option>
@@ -266,7 +254,7 @@
     <option name="x" value="434" />
     <option name="y" value="23" />
     <option name="width" value="1006" />
-    <option name="height" value="807" />
+    <option name="height" value="805" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -325,19 +313,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/css" />
+      <recent name="$PROJECT_DIR$/z/demo-deeplink" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/z/demo-deeplink" />
       <recent name="$PROJECT_DIR$/fotilepopularize" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/z/demo-hls/html" />
       <recent name="$PROJECT_DIR$/z" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/img" />
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/z/demo-deeplink" />
-      <recent name="$PROJECT_DIR$/html/fotile-temporary" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -589,14 +577,7 @@
       <workItem from="1532411149039" duration="5072000" />
       <workItem from="1532509143663" duration="466000" />
       <workItem from="1533104836647" duration="18793000" />
-      <workItem from="1534128155336" duration="4416000" />
-    </task>
-    <task id="LOCAL-00296" summary="个人主页test">
-      <created>1531730001576</created>
-      <option name="number" value="00296" />
-      <option name="presentableId" value="LOCAL-00296" />
-      <option name="project" value="LOCAL" />
-      <updated>1531730001576</updated>
+      <workItem from="1534128155336" duration="5910000" />
     </task>
     <task id="LOCAL-00297" summary="个人主页test">
       <created>1531730775266</created>
@@ -934,14 +915,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534321591365</updated>
     </task>
-    <option name="localTasksCounter" value="345" />
+    <task id="LOCAL-00345" summary="注册登录加版本号">
+      <created>1534322235933</created>
+      <option name="number" value="00345" />
+      <option name="presentableId" value="LOCAL-00345" />
+      <option name="project" value="LOCAL" />
+      <updated>1534322235933</updated>
+    </task>
+    <option name="localTasksCounter" value="346" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2652899000" />
+    <option name="totallyTimeSpent" value="2654393000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="434" y="23" width="1006" height="807" extended-state="0" />
+    <frame x="434" y="23" width="1006" height="805" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22166999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1004,7 +992,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="深链接gio监测test" />
     <MESSAGE value="问卷调查title修改" />
     <MESSAGE value="活动上传菜谱btn显示条件更改" />
     <MESSAGE value="深度链接test" />
@@ -1029,7 +1016,8 @@
     <MESSAGE value="去掉单位换算说明入口，积分兑换背景色bug" />
     <MESSAGE value="v437基本完成" />
     <MESSAGE value="注册登录test" />
-    <option name="LAST_COMMIT_MESSAGE" value="注册登录test" />
+    <MESSAGE value="注册登录加版本号" />
+    <option name="LAST_COMMIT_MESSAGE" value="注册登录加版本号" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1039,18 +1027,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/structural.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="98" column="16" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/img/rightarrow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3075">
@@ -1363,38 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/setpwd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="107" column="69" lean-forward="true" selection-start-line="107" selection-start-column="69" selection-end-line="108" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="53" column="65" lean-forward="true" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/login-wx.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1403,10 +1347,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="26" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ajaxsetup2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="52" column="69" lean-forward="true" selection-start-line="52" selection-start-column="69" selection-end-line="53" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="53" column="52" lean-forward="false" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/setpwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="108" column="52" lean-forward="false" selection-start-line="108" selection-start-column="52" selection-end-line="108" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/findpwd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
-          <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
+          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1881">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
