@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="436版请求头">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="去掉alert">
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/504.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/base64.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.css.map" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.scss" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/full_video_placeholder.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/logo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/logo1@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/logo2@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/p1-2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/poster2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/prod_youxiangji_banner.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/share.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_1_pic.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_pic_1.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_pic_2.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_video_1.mp4" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_video_2.mp4" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_pic.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_pic_20180813.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_pic_201808132024.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_text@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/youyanqingshu_full.mp4" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/youyanqingshu_full_shuban.mp4" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/youyanqingshu_short.mp4" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/Fx.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/flexible.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/qixi2018-m.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/html/login.html" afterPath="$PROJECT_DIR$/html/login.html" />
-      <change beforePath="$PROJECT_DIR$/html/login2.html" afterPath="$PROJECT_DIR$/html/login2.html" />
-      <change beforePath="$PROJECT_DIR$/html/setpwd.html" afterPath="$PROJECT_DIR$/html/setpwd.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,21 +55,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="2355">
               <caret line="157" column="25" lean-forward="false" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setpwd.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/setpwd.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="108" column="65" lean-forward="false" selection-start-line="108" selection-start-column="65" selection-end-line="108" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -50,7 +68,7 @@
       <file leaf-file-name="signin.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/signin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
+            <state relative-caret-position="945">
               <caret line="63" column="65" lean-forward="false" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
               <folding />
             </state>
@@ -60,7 +78,7 @@
       <file leaf-file-name="sitedetail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
+            <state relative-caret-position="2055">
               <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
               <folding>
                 <marker date="1534324720466" expanded="true" signature="8971:9215" ph="..." />
@@ -76,8 +94,18 @@
       <file leaf-file-name="video-share.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/video-share.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="69" column="65" lean-forward="false" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
+            <state relative-caret-position="283">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wx.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,7 +144,7 @@
       <file leaf-file-name="video-short.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="1230">
               <caret line="82" column="65" lean-forward="false" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
               <folding />
             </state>
@@ -126,8 +154,8 @@
       <file leaf-file-name="video-tab.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/video-tab.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+            <state relative-caret-position="990">
+              <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -256,7 +284,7 @@
     <option name="x" value="434" />
     <option name="y" value="23" />
     <option name="width" value="1006" />
-    <option name="height" value="811" />
+    <option name="height" value="817" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -277,7 +305,6 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -293,12 +320,21 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="fotile-WX" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+              <item name="fotile-WX" type="462c0819:PsiDirectoryNode" />
+              <item name="qixi2018" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -315,19 +351,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/js" />
-      <recent name="$PROJECT_DIR$/img" />
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/css" />
-      <recent name="$PROJECT_DIR$/z/demo-deeplink" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/z/demo-deeplink" />
       <recent name="$PROJECT_DIR$/fotilepopularize" />
       <recent name="$PROJECT_DIR$/img" />
       <recent name="$PROJECT_DIR$/z/demo-hls/html" />
       <recent name="$PROJECT_DIR$/z" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html/fotile-WX" />
+      <recent name="$PROJECT_DIR$/js" />
+      <recent name="$PROJECT_DIR$/img" />
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -579,14 +615,8 @@
       <workItem from="1532411149039" duration="5072000" />
       <workItem from="1532509143663" duration="466000" />
       <workItem from="1533104836647" duration="18793000" />
-      <workItem from="1534128155336" duration="8361000" />
-    </task>
-    <task id="LOCAL-00301" summary="个人主页test">
-      <created>1531812014277</created>
-      <option name="number" value="00301" />
-      <option name="presentableId" value="LOCAL-00301" />
-      <option name="project" value="LOCAL" />
-      <updated>1531812014277</updated>
+      <workItem from="1534128155336" duration="9456000" />
+      <workItem from="1534411338733" duration="41000" />
     </task>
     <task id="LOCAL-00302" summary="个人主页test">
       <created>1531813343323</created>
@@ -924,14 +954,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534324880988</updated>
     </task>
-    <option name="localTasksCounter" value="350" />
+    <task id="LOCAL-00350" summary="去掉alert">
+      <created>1534385777145</created>
+      <option name="number" value="00350" />
+      <option name="presentableId" value="LOCAL-00350" />
+      <option name="project" value="LOCAL" />
+      <updated>1534385777145</updated>
+    </task>
+    <option name="localTasksCounter" value="351" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2656844000" />
+    <option name="totallyTimeSpent" value="2657980000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="434" y="23" width="1006" height="811" extended-state="0" />
+    <frame x="434" y="23" width="1006" height="817" extended-state="0" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22166999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -994,7 +1031,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="深度链接test" />
     <MESSAGE value="微信分享图片bug" />
     <MESSAGE value="登录注册bug" />
     <MESSAGE value="微信绑定设置密码加密" />
@@ -1019,7 +1055,8 @@
     <MESSAGE value="注册登录加版本号" />
     <MESSAGE value="全部页面加版本号" />
     <MESSAGE value="436版请求头" />
-    <option name="LAST_COMMIT_MESSAGE" value="436版请求头" />
+    <MESSAGE value="去掉alert" />
+    <option name="LAST_COMMIT_MESSAGE" value="去掉alert" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1029,13 +1066,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="93" column="37" lean-forward="true" selection-start-line="93" selection-start-column="37" selection-end-line="93" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z/demo-设备判断.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1062,7 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4950">
           <caret line="330" column="24" lean-forward="false" selection-start-line="330" selection-start-column="24" selection-end-line="330" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +1099,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8550">
           <caret line="570" column="23" lean-forward="false" selection-start-line="570" selection-start-column="23" selection-end-line="570" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,7 +1135,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="176" column="23" lean-forward="false" selection-start-line="176" selection-start-column="23" selection-end-line="176" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1122,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,9 +1156,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1140,9 +1163,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1500">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1150,7 +1170,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1158,7 +1177,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1174,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1182,7 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="98" column="37" lean-forward="false" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1190,7 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1198,7 +1212,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1206,7 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
           <caret line="50" column="65" lean-forward="true" selection-start-line="50" selection-start-column="65" selection-end-line="50" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1214,7 +1226,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="86" column="51" lean-forward="false" selection-start-line="86" selection-start-column="51" selection-end-line="86" selection-end-column="51" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1222,7 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="44" column="69" lean-forward="true" selection-start-line="44" selection-start-column="69" selection-end-line="45" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1230,7 +1240,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="40" column="65" lean-forward="false" selection-start-line="40" selection-start-column="65" selection-end-line="40" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1238,7 +1247,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
           <caret line="70" column="66" lean-forward="false" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,18 +1254,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
           <caret line="257" column="65" lean-forward="false" selection-start-line="257" selection-start-column="65" selection-end-line="257" selection-end-column="65" />
-          <folding>
-            <marker date="1534324641712" expanded="true" signature="28994:29455" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="29042:29427" ph="..." />
-            <marker date="1534324641712" expanded="false" signature="29090:29103" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="29221:29399" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="31162:31462" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="31200:31426" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="31258:31306" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="31550:31776" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="31588:31740" ph="..." />
-            <marker date="1534324641712" expanded="true" signature="31646:31694" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1265,7 +1261,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3378">
           <caret line="252" column="64" lean-forward="false" selection-start-line="252" selection-start-column="64" selection-end-line="252" selection-end-column="64" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1273,7 +1268,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="41" column="65" lean-forward="false" selection-start-line="41" selection-start-column="65" selection-end-line="41" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,10 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="120" column="65" lean-forward="false" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
-          <folding>
-            <marker date="1534324660891" expanded="true" signature="7870:8018" ph="..." />
-            <marker date="1534324660891" expanded="true" signature="8467:8568" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1292,7 +1282,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
           <caret line="111" column="65" lean-forward="false" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,7 +1289,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
           <caret line="100" column="65" lean-forward="false" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1308,7 +1296,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="183" column="65" lean-forward="false" selection-start-line="183" selection-start-column="65" selection-end-line="183" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1316,15 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="397">
           <caret line="103" column="65" lean-forward="false" selection-start-line="103" selection-start-column="65" selection-end-line="103" selection-end-column="65" />
-          <folding>
-            <marker date="1534324681212" expanded="true" signature="8020:8199" ph="..." />
-            <marker date="1534324681212" expanded="true" signature="18549:18784" ph="..." />
-            <marker date="1534324681212" expanded="true" signature="19462:20219" ph="..." />
-            <marker date="1534324681212" expanded="true" signature="19543:20214" ph="..." />
-            <marker date="1534324681212" expanded="false" signature="19597:19645" ph="..." />
-            <marker date="1534324681212" expanded="true" signature="19698:20188" ph="..." />
-            <marker date="1534324681212" expanded="true" signature="19904:20156" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1332,7 +1310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1340,7 +1317,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
           <caret line="53" column="65" lean-forward="false" selection-start-line="53" selection-start-column="65" selection-end-line="53" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1348,7 +1324,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="69" column="65" lean-forward="false" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1356,7 +1331,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="251" column="65" lean-forward="false" selection-start-line="251" selection-start-column="65" selection-end-line="251" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,13 +1338,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
           <caret line="258" column="65" lean-forward="false" selection-start-line="258" selection-start-column="65" selection-end-line="258" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/setpwd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
+        <state relative-caret-position="1620">
           <caret line="108" column="65" lean-forward="false" selection-start-line="108" selection-start-column="65" selection-end-line="108" selection-end-column="65" />
           <folding />
         </state>
@@ -1378,7 +1351,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/signin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
+        <state relative-caret-position="945">
           <caret line="63" column="65" lean-forward="false" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
           <folding />
         </state>
@@ -1386,7 +1359,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
+        <state relative-caret-position="2055">
           <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
           <folding>
             <marker date="1534324720466" expanded="true" signature="8971:9215" ph="..." />
@@ -1398,17 +1371,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-share.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="69" column="65" lean-forward="false" selection-start-line="69" selection-start-column="65" selection-end-line="69" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="1230">
           <caret line="82" column="65" lean-forward="false" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
           <folding />
         </state>
@@ -1416,8 +1381,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/video-tab.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="66" column="45" lean-forward="true" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+        <state relative-caret-position="990">
+          <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -1448,8 +1413,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="2355">
           <caret line="157" column="25" lean-forward="false" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-share.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

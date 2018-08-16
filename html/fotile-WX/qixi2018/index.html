@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>一封50年的情书</title>
+  <script src="./js/flexible.js"></script>
+  <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/qixi2018-m.css?201808142140">
+  <script>
+    var screenHeight = window.innerHeight - window.screen.height
+    console.log(screenHeight)
+    if( screenHeight <= 630 ) {
+      var head = document.getElementsByTagName('head')[0];
+      var link = document.createElement('link');
+      link.href = './css/504.css';
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      head.appendChild(link);
+    }
+  </script>
+</head>
+
+<body>
+  <div style="position:absolute;top:-9999px;left:-9999px;opacity: 0;">
+    <img src="https://www.fotile.com/Public/Mobile/qixi2018/images/share.jpg" alt="">
+  </div>
+  <!-- loading screen S -->
+  <div class="loading-wrapper">
+    <div class="inner">
+      <span class="logo"></span>
+      <span class="loading-spin"></span>
+    </div>
+  </div>
+  <!-- loading screen End -->
+
+  <div class="story-swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide-1">
+        <!-- 第一屏短视频 S -->
+        <div class="short-video-wrap">
+          <div class="video-box">
+            <video src="./images/youyanqingshu_short.mp4" 
+            poster="./images/swiper_1_pic.png" 
+            class="short-video" 
+            id="shortVideo" 
+            loop 
+            -controls
+            webkit-playsinline="true" 
+            playsinline="true" 
+            x5-playsinline="true" 
+            x-webkit-airplay="allow"  
+            x5-video-orientation="portraint" 
+            style="object-fit:fill"></video>
+          </div>
+        </div>
+        <!-- 第一屏短视频 End -->
+
+        <div class="content">
+          <div class="logo">
+            <img src="./images/logo1@2x.png" alt="方太 因爱伟大">
+          </div>
+          <span class="space-line"></span>
+          <div class="swiper-slide-1-letter"></div>
+          <div class="open-letter-text"></div>
+        </div>
+
+      </div>
+
+      <!-- video S -->
+      <div class="swiper-slide swiper-slide-2">
+        <div class="full-video-wrap">
+          <!-- 完成视频 S -->
+          <video 
+          src="./images/youyanqingshu_full_shuban.mp4" 
+          poster="./images/full_video_placeholder.jpg" 
+          class="full-video" 
+          id="fullVideo" 
+          loop 
+          controls
+          preload="auto" 
+          webkit-playsinline="true" 
+          playsinline="true" 
+          x5-playsinline="true" 
+          x-webkit-airplay="allow" 
+          x5-video-orientation="portraint" 
+          style="object-fit:fill"></video>
+          <!-- 完成视频 End -->
+          <span class="full-video-loading"></span>
+        </div>
+      </div>
+      <!-- video End -->
+
+      <div class="swiper-slide swiper-slide-3">
+        <div class="sub-swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide sub-swiper-slide">
+              <video 
+              src="./images/swiper_3_video_1.mp4" 
+              poster="./images/swiper_3_pic_1.jpg" 
+              class="sub-video" 
+              id="swiper-slide-3-video-1" 
+              loop 
+              webkit-playsinline="true" 
+              playsinline="true" 
+              x5-playsinline="true" 
+              x-webkit-airplay="allow" 
+              x5-video-orientation="portraint" 
+              style="object-fit:fill"></video>
+            </div>
+            <div class="swiper-slide sub-swiper-slide">
+              <video 
+              src="./images/swiper_3_video_2.mp4" 
+              poster="./images/swiper_3_pic_2.jpg" 
+              class="sub-video" 
+              id="swiper-slide-3-video-2" 
+              loop 
+              webkit-playsinline="true" 
+              playsinline="true" 
+              x5-playsinline="true" 
+              x-webkit-airplay="allow" 
+              x5-video-orientation="portraint" 
+              style="object-fit:fill"></video>
+            </div>
+          </div>
+          <div class="sub-swiper-pagination"></div>
+        </div>
+        <div class="content">
+          <div class="swiper-slide-3-letter-1"></div>
+          <div class="swiper-slide-3-letter-2"></div>
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-slide-4">
+        <div class="product-outer">
+          <img src="./images/prod_youxiangji_banner.png">
+        </div>
+        <div class="content">
+          <div class="swiper-slide-4-letter"></div>
+          <a href="https://m.efotile.com/?utm_source=fotile-xinmeiti-weixin-h5youyanqingshu-qixi2018" class="control-btn">前往了解详情</a>
+        </div>
+        <div class="swiper-slide-4-footer">
+          <img src="./images/logo2@2x.png">
+          <p>*不跑烟：在方太实验室规定条件下测试，肉眼未见明显的油烟逃逸。</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide swiper-slide-5">
+        <a href="https://mp.weixin.qq.com/s/4v_jGfBcupY2ERRu-owM8w">
+          <img src="./images/swiper_5_pic_201808132024.jpg">
+        </a>
+        <div class="content">
+          <img src="./images/swiper_5_text@2x.png">
+        </div>
+      </div>
+
+    </div>
+
+    <span class="guide-arrow" id="guideArrow">&nbsp;</span>
+
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+  <script src="./js/Fx.min.js"></script>
+  <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
+  <script src="./js/qixi2018-m.js?201808161606"></script>
+  <script>
+    var imgs = [
+      './images/swiper_1_pic.png',
+      './images/full_video_placeholder.jpg',
+      './images/swiper_3_pic_1.jpg',
+      './images/swiper_3_pic_2.jpg'
+    ];
+    $.preload(imgs, {
+      each: function (count) {
+        // $progress.html(Math.round((count + 1) / len * 100) + '%');
+      },
+      all: function () {
+        console.log('图片加载完成')
+        $('.loading-wrapper').hide();
+        shortVideo.play();
+      }
+    });
+
+
+    var sharetitle = "一封50年的情书";
+    var sharelink = location.href.split('?')[0];
+    console.log(sharelink)
+    var shareimg = "https://www.fotile.com/Public/Mobile/qixi2018/images/share.jpg";
+    var sharedesc = "七夕，愿你的爱情收获幸福的智慧。";
+
+    // alert(JSON.stringify({
+    //   sharetitle: sharetitle,
+    //   sharelink: sharelink,
+    //   shareimg: shareimg,
+    //   sharedesc: sharedesc
+    // }))
+
+    $.ajax({
+      type: 'GET',
+      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+      success: function (data) {
+        console.info(data.appId);
+        wx.config({
+            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            appId: data.appId, // 必填，公众号的唯一标识
+            timestamp: data.timestamp, // 必填，生成签名的时间戳
+            nonceStr: data.nonceStr, // 必填，生成签名的随机串
+            signature: data.signature,
+            jsApiList: [
+                "onMenuShareTimeline",
+                "onMenuShareAppMessage",
+                "onMenuShareQQ",
+                "onMenuShareWeibo",
+                "onMenuShareQZone"
+            ]
+        });
+        wx.ready(function () {
+          //分享给朋友圈
+          wx.onMenuShareTimeline({
+            title: sharetitle, // 分享标题
+            desc: sharedesc, // 分享描述
+            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: shareimg, // 分享图标
+            success: function () {
+              // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          });
+          //分享给朋友
+          wx.onMenuShareAppMessage({
+            title: sharetitle, // 分享标题
+            desc: sharedesc, // 分享描述
+            link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: shareimg, // 分享图标
+            type: '', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+              // 用户确认分享后执行的回调函数
+            },
+            cancel: function () {
+              // 用户取消分享后执行的回调函数
+            }
+          });
+        });
+      },
+      error: function (xhr, type) {
+        //alert(111);
+      }
+
+      
+    })
+
+
+  </script>
+
+</body>
+
+</html>
