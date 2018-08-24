@@ -345,6 +345,9 @@
                 $.ajax({
                     url: urlport + 'menu/detail',
                     type: 'POST',
+                    headers: { // 添加默认请求头
+                        "version":"v437"
+                    },
                     data: JSON.stringify({"id": id, "userId": userid}),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
