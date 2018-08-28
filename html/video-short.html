@@ -41,7 +41,7 @@
 <div class="vide-share">
     <div class="tit">
         <h3 v-html="data.title"></h3>
-        <a class="cooker" :href="cooker.url">
+        <a class="cooker"  @click="jumpto(cooker.url,cooker.id)">
             <img :src="cooker.picture.path">
             <p class="name" v-html="cooker.cookName"></p>
             <p class="cookdesc" v-html="cooker.remark"></p>
@@ -371,6 +371,24 @@
                 console.info('error');
             });
 
+        },
+        methods: {
+            jumpto: function (url,id) {
+                if (device == null || device == "null") {
+                    alert(url);
+                    //不是APP打开
+                    window.location.href = url;
+
+                } else {
+                    alert(id);
+                    //是APP打开
+                    ft.tutorInfo({
+                        id: id,
+                        type: "0"
+                    }, function (result) {
+                    })
+                }
+            }
         }
     });
 

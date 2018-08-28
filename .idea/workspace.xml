@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="去掉alert">
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/504.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/base64.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.css.map" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/css/qixi2018-m.scss" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/full_video_placeholder.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/logo1@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/logo2@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/p1-2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/poster2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/prod_youxiangji_banner.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/share.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_1_pic.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_pic_1.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_pic_2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_video_1.mp4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_3_video_2.mp4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_pic.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_pic_20180813.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_pic_201808132024.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/swiper_5_text@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/youyanqingshu_full.mp4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/youyanqingshu_full_shuban.mp4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/images/youyanqingshu_short.mp4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/Fx.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/flexible.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/qixi2018-m.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js" />
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="短视频导师增加跳转方法">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/html/video-short.html" afterPath="$PROJECT_DIR$/html/video-short.html" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,47 +35,73 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="signin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/signin.html">
+      <file leaf-file-name="menudetail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/menudetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="945">
-              <caret line="63" column="65" lean-forward="false" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
+            <state relative-caret-position="5220">
+              <caret line="348" column="39" lean-forward="false" selection-start-line="348" selection-start-column="39" selection-end-line="348" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sitedetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/sitedetail.html">
+      <file leaf-file-name="home-user.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/home-user.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2055">
-              <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
+            <state relative-caret-position="1500">
+              <caret line="100" column="65" lean-forward="false" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home-tutor.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4620">
+              <caret line="308" column="10" lean-forward="true" selection-start-line="308" selection-start-column="10" selection-end-line="313" selection-end-column="14" />
               <folding>
-                <marker date="1534324720466" expanded="true" signature="8971:9215" ph="..." />
-                <marker date="1534324720466" expanded="true" signature="9001:9191" ph="..." />
-                <marker date="1534324720466" expanded="false" signature="9047:9095" ph="..." />
-                <marker date="1534324720466" expanded="true" signature="9303:9505" ph="..." />
-                <marker date="1534324720466" expanded="true" signature="9333:9483" ph="..." />
+                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video-share.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/video-share.html">
+      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="359">
+              <caret line="52" column="25" lean-forward="true" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wx.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js">
+      <file leaf-file-name="ft.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/ft.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="9060">
+              <caret line="604" column="16" lean-forward="false" selection-start-line="604" selection-start-column="7" selection-end-line="604" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coursedetail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="11160">
+              <caret line="744" column="23" lean-forward="true" selection-start-line="744" selection-start-column="23" selection-end-line="749" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="coursealbum.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1050">
+              <caret line="70" column="66" lean-forward="false" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -114,18 +110,8 @@
       <file leaf-file-name="ajaxsetup.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lose.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/lose.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="60">
+              <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -134,28 +120,8 @@
       <file leaf-file-name="ajaxsetup2.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ajaxsetup2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="3" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video-short.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/video-short.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="82" column="65" lean-forward="false" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="video-tab.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/video-tab.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+            <state relative-caret-position="345">
+              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -174,18 +140,13 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ft-comment</find>
-      <find>script</find>
-      <find>title</find>
       <find>time1</find>
       <find>userurl</find>
       <find>sayName</find>
       <find>teacher-box</find>
-      <find>tutorInfo</find>
       <find>type</find>
       <find>format2</find>
       <find>strong</find>
-      <find>jump</find>
       <find>format00</find>
       <find>createat</find>
       <find>format0</find>
@@ -195,7 +156,6 @@
       <find>cooker</find>
       <find>cookerpicture</find>
       <find>datawork</find>
-      <find>deeplikopen</find>
       <find>header</find>
       <find>gio</find>
       <find>ajax</find>
@@ -204,6 +164,12 @@
       <find>status</find>
       <find>codenum</find>
       <find>alert</find>
+      <find>deeplikopen</find>
+      <find>click</find>
+      <find>jump</find>
+      <find>tutorInfo</find>
+      <find>window.location.href</find>
+      <find>jumpto</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -261,16 +227,16 @@
         <option value="$PROJECT_DIR$/html/lifearticle.html" />
         <option value="$PROJECT_DIR$/html/login2.html" />
         <option value="$PROJECT_DIR$/html/menualbum.html" />
-        <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/servicetext-new.html" />
         <option value="$PROJECT_DIR$/html/setpwd.html" />
         <option value="$PROJECT_DIR$/html/signin.html" />
         <option value="$PROJECT_DIR$/html/sitedetail.html" />
         <option value="$PROJECT_DIR$/html/video-share.html" />
-        <option value="$PROJECT_DIR$/html/video-short.html" />
         <option value="$PROJECT_DIR$/html/video-tab.html" />
-        <option value="$PROJECT_DIR$/js/ajaxsetup2.js" />
         <option value="$PROJECT_DIR$/js/ajaxsetup.js" />
+        <option value="$PROJECT_DIR$/js/ajaxsetup2.js" />
+        <option value="$PROJECT_DIR$/html/menudetail.html" />
+        <option value="$PROJECT_DIR$/html/video-short.html" />
       </list>
     </option>
   </component>
@@ -284,7 +250,7 @@
     <option name="x" value="434" />
     <option name="y" value="23" />
     <option name="width" value="1006" />
-    <option name="height" value="817" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -304,7 +270,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -320,21 +286,13 @@
             <path>
               <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
               <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="fotile-WX" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="fotilestyle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="fotilestyle" type="462c0819:PsiDirectoryNode" />
-              <item name="html" type="462c0819:PsiDirectoryNode" />
-              <item name="fotile-WX" type="462c0819:PsiDirectoryNode" />
-              <item name="qixi2018" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -616,21 +574,10 @@
       <workItem from="1532509143663" duration="466000" />
       <workItem from="1533104836647" duration="18793000" />
       <workItem from="1534128155336" duration="9456000" />
-      <workItem from="1534411338733" duration="41000" />
-    </task>
-    <task id="LOCAL-00302" summary="个人主页test">
-      <created>1531813343323</created>
-      <option name="number" value="00302" />
-      <option name="presentableId" value="LOCAL-00302" />
-      <option name="project" value="LOCAL" />
-      <updated>1531813343324</updated>
-    </task>
-    <task id="LOCAL-00303" summary="个人主页test">
-      <created>1531816926012</created>
-      <option name="number" value="00303" />
-      <option name="presentableId" value="LOCAL-00303" />
-      <option name="project" value="LOCAL" />
-      <updated>1531816926012</updated>
+      <workItem from="1534411338733" duration="1170000" />
+      <workItem from="1535008956482" duration="2339000" />
+      <workItem from="1535425498115" duration="915000" />
+      <workItem from="1535426627633" duration="32000" />
     </task>
     <task id="LOCAL-00304" summary="个人主页test">
       <created>1531817655425</created>
@@ -961,16 +908,30 @@
       <option name="project" value="LOCAL" />
       <updated>1534385777145</updated>
     </task>
-    <option name="localTasksCounter" value="351" />
+    <task id="LOCAL-00351" summary="新增官网活动页面">
+      <created>1534411398019</created>
+      <option name="number" value="00351" />
+      <option name="presentableId" value="LOCAL-00351" />
+      <option name="project" value="LOCAL" />
+      <updated>1534411398019</updated>
+    </task>
+    <task id="LOCAL-00352" summary="新增官网活动页面">
+      <created>1535094810514</created>
+      <option name="number" value="00352" />
+      <option name="presentableId" value="LOCAL-00352" />
+      <option name="project" value="LOCAL" />
+      <updated>1535094810515</updated>
+    </task>
+    <option name="localTasksCounter" value="353" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2657980000" />
+    <option name="totallyTimeSpent" value="2662395000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="434" y="23" width="1006" height="817" extended-state="0" />
+    <frame x="434" y="23" width="1006" height="825" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22166999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22166999" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09295775" sideWeight="0.5043371" order="13" side_tool="true" content_ui="tabs" />
@@ -1031,7 +992,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="微信分享图片bug" />
     <MESSAGE value="登录注册bug" />
     <MESSAGE value="微信绑定设置密码加密" />
     <MESSAGE value="and加密js" />
@@ -1056,7 +1016,8 @@
     <MESSAGE value="全部页面加版本号" />
     <MESSAGE value="436版请求头" />
     <MESSAGE value="去掉alert" />
-    <option name="LAST_COMMIT_MESSAGE" value="去掉alert" />
+    <MESSAGE value="新增官网活动页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增官网活动页面" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1066,13 +1027,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/z/demo-设备判断.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/z/demo-test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1085,13 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7080">
           <caret line="472" column="30" lean-forward="false" selection-start-line="472" selection-start-column="30" selection-end-line="478" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/ft.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4950">
-          <caret line="330" column="24" lean-forward="false" selection-start-line="330" selection-start-column="24" selection-end-line="330" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1243,20 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="70" column="66" lean-forward="false" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="257" column="65" lean-forward="false" selection-start-line="257" selection-start-column="65" selection-end-line="257" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/courseform.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3378">
@@ -1275,20 +1208,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="120" column="65" lean-forward="false" selection-start-line="120" selection-start-column="65" selection-end-line="120" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="111" column="65" lean-forward="false" selection-start-line="111" selection-start-column="65" selection-end-line="111" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/home-user.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="100" column="65" lean-forward="false" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
         </state>
       </provider>
     </entry>
@@ -1327,13 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="251" column="65" lean-forward="false" selection-start-line="251" selection-start-column="65" selection-end-line="251" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="379">
@@ -1345,7 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1620">
           <caret line="108" column="65" lean-forward="false" selection-start-line="108" selection-start-column="65" selection-end-line="108" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,7 +1264,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
           <caret line="63" column="65" lean-forward="false" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1361,21 +1271,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2055">
           <caret line="137" column="65" lean-forward="false" selection-start-line="137" selection-start-column="65" selection-end-line="137" selection-end-column="65" />
-          <folding>
-            <marker date="1534324720466" expanded="true" signature="8971:9215" ph="..." />
-            <marker date="1534324720466" expanded="true" signature="9001:9191" ph="..." />
-            <marker date="1534324720466" expanded="false" signature="9047:9095" ph="..." />
-            <marker date="1534324720466" expanded="true" signature="9303:9505" ph="..." />
-            <marker date="1534324720466" expanded="true" signature="9333:9483" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-short.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="82" column="65" lean-forward="false" selection-start-line="82" selection-start-column="65" selection-end-line="82" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,23 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="990">
           <caret line="66" column="45" lean-forward="false" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/ajaxsetup2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="3" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1407,7 +1285,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-share.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="29" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/fotile-WX/qixi2018/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1419,18 +1317,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-share.html">
+    <entry file="file://$PROJECT_DIR$/js/ajaxsetup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="27" lean-forward="false" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/fotile-WX/qixi2018/js/wx.js">
+    <entry file="file://$PROJECT_DIR$/js/ajaxsetup2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="345">
+          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/menudetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5220">
+          <caret line="348" column="39" lean-forward="false" selection-start-line="348" selection-start-column="39" selection-end-line="348" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coursealbum.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="66" lean-forward="false" selection-start-line="70" selection-start-column="66" selection-end-line="70" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/home-user.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="65" lean-forward="false" selection-start-line="100" selection-start-column="65" selection-end-line="100" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/home-tutor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4620">
+          <caret line="308" column="10" lean-forward="true" selection-start-line="308" selection-start-column="10" selection-end-line="313" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/ft.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9060">
+          <caret line="604" column="16" lean-forward="false" selection-start-line="604" selection-start-column="7" selection-end-line="604" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11160">
+          <caret line="744" column="23" lean-forward="true" selection-start-line="744" selection-start-column="23" selection-end-line="749" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-short.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="52" column="25" lean-forward="true" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
           <folding />
         </state>
       </provider>
