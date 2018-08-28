@@ -375,12 +375,12 @@
         methods: {
             jumpto: function (url,id) {
                 if (device == null || device == "null") {
-                    alert(url);
+                    // alert(url);
                     //不是APP打开
                     window.location.href = url;
 
                 } else {
-                    alert(id);
+                    // alert(id);
                     //是APP打开
                     ft.tutorInfo({
                         id: id,
