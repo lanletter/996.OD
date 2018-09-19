@@ -97,12 +97,12 @@
 <script type="text/javascript" src='../js/video.min.js'></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script type="text/javascript" src='../js/judge.js'></script>
 <script type="text/javascript" src='../js/url.js'></script>
-<script type="text/javascript" src="../js/ajaxsetup.js"></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script type="text/javascript" src="../js/UMAnalytics.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/deeplink.js'></script>
@@ -136,8 +136,10 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
                     if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
+                        $.cookie('token', token);
                     }
 
                     choose();
@@ -263,8 +265,10 @@
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+                            $.cookie('userid', userid);
                             if (userid !== "1" && userid !== 1) {
                                 token = result.data.token.toString();
+                                $.cookie('token', token);
                             }
                             //alert(userid);
                             //收藏
@@ -273,6 +277,12 @@
                                 $.ajax({
                                     url: urlport + 'favorite/create',
                                     type: 'POST',
+                                    headers: { // 默认添加请求头
+                                        "userId": userid,
+                                        "token": token,
+                                        "deviceType":"web",
+                                        "version":"v437"
+                                    },
                                     data: JSON.stringify({
                                         "refId": id,
                                         "type": 4,
@@ -303,6 +313,12 @@
                                 $.ajax({
                                     url: urlport + 'favorite/cancel',
                                     type: 'POST',
+                                    headers: { // 默认添加请求头
+                                        "userId": userid,
+                                        "token": token,
+                                        "deviceType":"web",
+                                        "version":"v437"
+                                    },
                                     data: JSON.stringify({
                                         "refId": id,
                                         "type": 4,

@@ -41,10 +41,10 @@
 <div class="vide-share">
     <div class="tit">
         <h3 v-html="data.title"></h3>
-        <a class="cooker"  @click="jumpto(cooker.url,cooker.id)">
-            <img :src="cooker.picture.path">
-            <p class="name" v-html="cooker.cookName"></p>
-            <p class="cookdesc" v-html="cooker.remark"></p>
+        <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"  @click="jumpto(data.cook.url,data.cook.id)">
+            <img :src="data.cook.picture.path">
+            <p class="name" v-html="data.cook.cookName"></p>
+            <p class="cookdesc" v-html="data.cook.remark"></p>
         </a>
         <p class="introduct" v-html="data.content"></p>
     </div>
@@ -115,7 +115,6 @@
         el: '.vide-share',
         data: {
             data: {},
-            cooker: {},
             datalist: {},
             jsoninfo: {
                 "id": id,
@@ -136,12 +135,13 @@
             var $this = this;
             this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
                 var data = data.data;
+                // console.log(data);
                 if (data.status == 200) {
                     $this.data = data.data;
-                    $this.cooker = data.data.cook;
-                    $this.cooker.url = data.data.cook.url + "&device=" + device +"&jump=jump";
-
-                    console.info($this.data);
+                    console.log($this.data);
+                    if(data.data.cook !== null && data.data.cook !== undefined){
+                        $this.data.cook.url = data.data.cook.url + "&device=" + device +"&jump=jump";
+                    }
 
                     /*友盟埋点-页面访问*/
                     UMAnalyticsAgent.trackWithProperty("h5页面访问", {

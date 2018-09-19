@@ -174,14 +174,14 @@
 <script src="../js/mint-ui.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script src="../js/url.js"></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src="../js/UMAnalytics.js"></script>
 <script type="text/javascript" src='../js/deeplink.js'></script>
-<script type="text/javascript" src="../js/ajaxsetup.js"></script>
 
 <script>
 
@@ -210,8 +210,10 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
                     if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
+                    $.cookie('token', token);
                     }
 
                     choose();
@@ -415,8 +417,10 @@
                             if (errorcode == "1") {
                                 // $api.toast('登陆成功', 2000);
                                 userid = result.data.userId.toString();
+                            $.cookie('userid', userid);
                                 if (userid !== "1" && userid !== 1) {
                                     token = result.data.token.toString();
+                                $.cookie('token', token);
                                 }
                                 window.userid = userid;
                                 // alert("userid："+userid);

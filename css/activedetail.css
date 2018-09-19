@@ -54,28 +54,28 @@
 	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
-.content {
+#instructions {
 	text-align: justify;
 	background: #fff;
-	padding: 0.68rem 0.6rem 0.48rem 0.6rem;
+	padding: 0.68rem 0.6rem 0 0.6rem;
 	font-size: 16px;
 	letter-spacing: 0.03rem;
 	color: rgb(76,80,81);
 	font-weight: lighter;
 	font-family: "PingFangSC-Light"!important;
 }
-.content img {
+#instructions img {
 	width: 7.5rem;
 	margin: 0.08rem -0.6rem;
 }
-.content iframe {
+#instructions iframe {
 	width: 7.18rem!important;
 	height: 4rem!important;
 	margin: 0.48rem -0.32rem;
 }
-.content h2 {font-weight: bold!important;font-size: 18px!important;}
-.content h3 {font-weight: bold!important;font-size: 16px!important;}
-.content h4 {font-weight: normal!important;font-size: 10px!important;}
+#instructions h2 {font-weight: bold!important;font-size: 18px!important;}
+#instructions h3 {font-weight: bold!important;font-size: 16px!important;}
+#instructions h4 {font-weight: normal!important;font-size: 10px!important;}
 
 .MsoNormal:last-child img{margin-bottom: -0.32rem;}
 .active-rule{
@@ -103,36 +103,4 @@
 .active-rule ul img {
 	width: 100%;
 	margin: 0.08rem auto;
-}
-#menuup{
-	position: fixed;
-	bottom: 0;
-	height: 2.4rem;
-	background: -moz-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.0)), color-stop(50%, rgb(255,255,255)));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
-	background: -o-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
-	background: -ms-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
-	background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
-	z-index: 999998;
-}
-#menuup a{
-	display: block;
-	margin: 0 0.4rem;
-	margin-top: 0.6rem;
-	width: 6.7rem;
-	height: 0.96rem;
-	line-height: 0.96rem;
-	font-size: 0.28rem;
-	color: rgb(200,175,112);
-	background: #000;
-	border-radius: 0.08rem;
-	text-align: center;
-}
-#menuup p{
-	margin: 0.12rem;
-	text-align: center;
-	font-size: 0.24rem;
-	color: rgb(214,66,71);
-	line-height: 0.34rem;
 }

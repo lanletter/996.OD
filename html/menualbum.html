@@ -97,8 +97,10 @@
             //alert(errorcode);
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
                 if (userid !== "1" && userid !== 1) {
                     token = result.data.token.toString();
+                    $.cookie('token', token);
                 }
                 choose();
             } else if (errorCode == "0") {
@@ -115,8 +117,10 @@
             //alert(errorcode);
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
                 if (userid !== "1" && userid !== 1) {
                     token = result.data.token.toString();
+                    $.cookie('token', token);
                 }
                 /*Android端判断是否菜谱页*/
                 if (device == "android") {

@@ -112,13 +112,13 @@
 <script src="../js/doT.min.js"></script>
 <script src="../js/s.js"></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script type="text/javascript" src='../js/ft.js'></script>
 <script src="../js/url.js"></script>
 <script src="../js/UMAnalytics.js"></script>
 <script src="../js/judge.js"></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
-<script type="text/javascript" src="../js/ajaxsetup.js"></script>
 <script>
 
     function GetQueryString(name) {
@@ -146,8 +146,10 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
                     if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
+                    $.cookie('token', token);
                     }
 
                     choose();

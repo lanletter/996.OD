@@ -10,6 +10,7 @@
         var idcook = $.cookie('idcook');
         var cookstring = typecook + idcook;
         var userid = obj.userId;
+        $.cookie('userid', userid);
         // alert(userid);
         // var userid = 121547;//测试环境
         // var userid = 94138;//预发布环境
@@ -63,6 +64,7 @@
                       </div>\
                     </aside>\
                     <script src="../js/imgUp.js"></script>\
+                    <script type="text/javascript" src="../js/ajaxsetup.js"></script>\
                     <script>\
                         $(function(){\
                             $("#file").takungaeImgup({\
@@ -98,8 +100,10 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                $.cookie('userid', userid);
                                 if (userid !== "1" && userid !== 1) {
                                     token = result.data.token.toString();
+                                    $.cookie('token', token);
                                 }
                                 $('#leave-words').show();
                                 $(".btnbox").hide();//积分购买样式兼容
@@ -333,6 +337,7 @@
                     <div id="outerdiv" style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;"><div id="innerdiv" style="position:absolute;"><img id="bigimg" src="" /></div></div>\
                 <div id="scripts">\
                 <script src="../js/imgUp.js"></script>\
+                <script type="text/javascript" src="../js/ajaxsetup.js"></script>\
                 <script>\
                     /*上传图片*/\
                         $(function(){\
@@ -454,8 +459,10 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                $.cookie('userid', userid);
                                 if (userid !== "1" && userid !== 1) {
                                     token = result.data.token.toString();
+                                    $.cookie('token', token);
                                 }
                                 $('#leave-words').show();
                                 $(".btnbox").hide();//积分购买样式兼容
@@ -586,8 +593,10 @@
                             // alert("errorcode："+errorcode);
                             if (errorcode == "1") {
                                 userid = result.data.userId.toString();
+                                $.cookie('userid', userid);
                                 if (userid !== "1" && userid !== 1) {
                                     token = result.data.token.toString();
+                                    $.cookie('token', token);
                                 }
                                 $('#leave-words2').show();
                                 $(".btnbox").hide();//积分购买样式兼容

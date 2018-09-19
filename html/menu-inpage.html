@@ -256,11 +256,12 @@
 
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
 <script type="text/javascript" src='../js/loadcomment.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script type="text/javascript" src='../js/ft.js'></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script src="../js/url.js"></script>
 <script type="text/javascript" src="../js/UMAnalytics.js"></script>
@@ -292,8 +293,10 @@
             //alert(errorcode);
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
+                            $.cookie('userid', userid);
                 if (userid !== "1" && userid !== 1) {
                     token = result.data.token.toString();
+                            $.cookie('token', token);
                 }
                 choose();
             } else if (errorCode == "0") {
@@ -310,8 +313,10 @@
             //alert(errorcode);
             if (errorcode == "1") {
                 userid = result.data.userId.toString();
+                $.cookie('userid', userid);
                 if (userid !== "1" && userid !== 1) {
                     token = result.data.token.toString();
+                    $.cookie('token', token);
                 }
                 /*Android端判断是否菜谱页*/
                 if (device == "android") {
@@ -345,7 +350,7 @@
             created: function () {
                 var $this = this;
                 $.ajax({
-                    url: urlport + 'menu/detail',
+                    url: urlport2 + 'menu/detail',
                     type: 'POST',
                     data: JSON.stringify({"id": id, "userId": userid}),
                     timeout: 5000, //超时时间
@@ -644,8 +649,10 @@
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
                             userid = result.data.userId.toString();
+                            $.cookie('userid', userid);
                             if (userid !== "1" && userid !== 1) {
                                 token = result.data.token.toString();
+                            $.cookie('token', token);
                             }
                             //alert(userid);
                             //收藏

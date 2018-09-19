@@ -1,0 +1,524 @@
+
+/*晒作品*/
+.worklist {
+    margin-left: 0.34rem;
+    margin-top: 0.8rem;
+    position: relative;
+}
+
+.worklist h2 {
+    height: 0.66rem;
+    line-height: 0.66rem;
+    font-size: 0.48rem;
+    font-weight: bold;
+    color: rgb(31, 31, 31);
+    letter-spacing: 2px;
+}
+
+.worklist .moremenu {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0.72rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    font-size: 0.28rem;
+    color: rgb(31, 31, 31);
+}
+
+.worklist .listarea {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.worklist .list {
+    width: 300%;
+    margin: 0.2rem 0 0.5rem 0;
+}
+
+.worklist .list li {
+    float: left;
+    margin-right: 0.28rem;
+    border-radius: 0.16rem;
+    overflow: hidden;
+    width: 3.06rem;
+    height: 5.56rem;
+}
+
+.worklist .list li .workdetail {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgb(237, 237, 237);
+    border-radius: 0.16rem;
+    overflow: hidden;
+}
+
+.worklist .list li .pageimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.06rem;
+    height: 3.06rem;
+    margin: -1px -1px 0 -1px;
+    background-repeat: no-repeat;
+    background-size: auto 3.06rem !important;
+    -webkit-background-size: auto 3.06rem !important;
+    background-position: center center;
+    overflow: hidden;
+}
+
+.worklist .list li .pageimg1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.06rem;
+    height: 3.06rem;
+    margin: -1px -1px 0 -1px;
+    background-repeat: no-repeat;
+    background-size: 3.06rem auto !important;
+    -webkit-background-size: 3.06rem auto !important;
+    background-position: center center;
+    overflow: hidden;
+}
+
+.worklist .list li .pageimg2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3.06rem;
+    height: 3.06rem;
+    margin: -1px -1px 0 -1px;
+    background-repeat: no-repeat;
+    background-size: auto 3.06rem !important;
+    -webkit-background-size: auto 3.06rem !important;
+    background-position: center center;
+}
+
+.worklist .userinfo {
+    margin-top:3.22rem;
+    overflow: hidden;
+}
+
+.worklist .userinfo span {
+    display: inline-block;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    color: rgb(154, 154, 154);
+    width: 1.9rem;
+    height: 0.48rem;
+    overflow: hidden;
+}
+
+.worklist .usertxt{
+    margin: 0.2rem 0.5rem 0.16rem 0.3rem;
+    overflow: hidden;
+    color: #1F1F1F;
+    font-size: 0.24rem;
+    line-height: 0.34rem;
+    height: 0.68rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;;
+}
+
+.worklist .list li .imgparent{
+    display: inline-block;
+    margin: 0 0.12rem 0 0.2rem;
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.worklist .list li .userimg {
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.worklist .likenum {
+    position: absolute;
+    left: 0rem;
+    bottom: 0rem;
+    display: inline-block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    margin: 0.3rem 0.2rem 0.18rem;
+    color: rgb(200, 175, 112);
+}
+
+.worklist .likenum:before {
+    display: inline-block;
+    content: '';
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.08rem;
+    vertical-align: top;
+    background: url('../img/likenum.png') no-repeat;
+    background-size: 0.48rem 0.48rem;
+}
+
+.worklist .menushowbtn {
+    margin-top: 0.5rem;
+    margin-left: 0.1rem;
+    width: 6.7rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    border: 1px dashed rgb(214, 214, 214);
+    background: rgb(244, 244, 244) url("../img/Camera.png") 2.1rem center no-repeat;
+    background-size: 0.64rem;
+    color: rgb(154, 154, 154);
+    border-radius: 0.16rem;
+    font-size: 0.28rem;
+    text-align: center;
+    padding-left: 0.6rem;
+    font-weight: normal;
+}
+
+/*问答*/
+.asklist {
+    margin-left: 0.4rem;
+    margin-top: 0.8rem;
+    position: relative;
+}
+
+.asklist h2 {
+    height: 0.66rem;
+    line-height: 0.66rem;
+    font-size: 0.48rem;
+    font-weight: bold;
+    color: rgb(31, 31, 31);
+    letter-spacing: 2px;
+    margin-bottom: 0.68rem;
+}
+
+.asklist .moreask {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0.26rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    font-size: 0.28rem;
+    color: rgb(31, 31, 31);
+}
+
+.asklist .list {
+    margin-left: 0.2rem;
+    width: 6.3rem;
+    display: block;
+}
+
+.asklist .list li {
+    display: block;
+    cursor: pointer;
+}
+
+.asklist .list li:first-child {
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+.asklist .ask .title {
+    display: block;
+    width: 100%;
+    height: 0.72rem;
+    overflow: hidden;
+}
+
+.asklist .ask img {
+    float: left;
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 50%;
+}
+
+.asklist .ask .title span {
+    float: left;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    font-size: 0.24rem;
+    color: rgb(31, 31, 31);
+    margin-left: 0.14rem;
+}
+
+.asklist .ask .txt {
+    display: block;
+    width: 100%;
+    line-height: 0.5rem;
+    letter-spacing: 1px;
+    color: rgb(31, 31, 31);
+    font-size: 0.36rem;
+    font-weight: bold;
+    margin: 0.24rem 0;
+    margin-right: 0.4rem;
+}
+
+.asklist .noanswer {
+    height: 0.34rem;
+    margin-bottom: 0.4rem;
+}
+
+.asklist .noanswer span {
+    font-size: 0.24rem;
+    line-height: 0.34rem;
+}
+
+.asklist .noanswer span:first-child {
+    color: rgb(154, 154, 154);
+    font-weight: normal;
+}
+
+.asklist .noanswer span:last-child {
+    float: right;
+    color: rgb(200, 175, 112);
+    font-weight: bold;
+}
+
+.asklist .answer {
+    width: 6.3rem;
+    border-radius: 0.16rem;
+    background: rgb(244, 244, 244);
+    position: relative;
+    margin-bottom: 0.4rem;
+}
+
+.asklist .answer .best {
+    position: absolute;
+    top: 0.15rem;
+    right: -0.3rem;
+    width: 1.6rem;
+    height: 0.8rem;
+    font-size: 0.24rem;
+    font-weight: bold;
+    text-align: center;
+    background: url("../img/bestanswer.png") no-repeat;
+    background-size: 1.6rem 0.8rem;
+    color: #ffffff;
+    overflow: hidden;
+    z-index: 900;
+}
+
+.asklist .answer .answerinfo {
+    padding-top: 0.28rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+}
+
+.asklist .answer .answerimg {
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    margin-left: 0.4rem;
+}
+
+.asklist .answer .answername {
+    margin-left: 0.12rem;
+    font-size: 0.24rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+}
+
+.asklist .answer .content {
+    margin: 0.2rem 0.4rem;
+    font-size: 0.28rem;
+    font-weight: bold;
+    line-height: 0.4rem;
+}
+
+.asklist .answer .num .likeCount {
+    display: inline-block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    margin: 0.04rem 0.2rem 0.24rem 0.34rem;
+    color: rgb(200, 175, 112);
+}
+
+.asklist .answer .num .likeCount:before {
+    display: inline-block;
+    content: '';
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.08rem;
+    vertical-align: top;
+    background: url('../img/likenum.png') no-repeat;
+    background-size: 0.48rem 0.48rem;
+}
+
+.asklist .answer .num .answerCount {
+    float: right;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    font-size: 0.24rem;
+    font-weight: bold;
+    margin: 0.02rem 0.4rem 0.24rem 0;
+    color: rgb(200, 175, 112);
+}
+
+.asklist .askstyle {
+    width: 6.7rem;
+}
+
+.asklist .askstyle img {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 auto;
+    margin-top: 0.78rem;
+}
+
+.asklist .askstyle p {
+    margin: 0.14rem 0 0.7rem 0;
+    text-align: center;
+    font-size: 0.28rem;
+    color: rgb(31, 31, 31);
+}
+
+.asklist .askbtn {
+    width: 6.7rem;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    background: rgb(200, 175, 112);
+    color: #ffffff;
+    border-radius: 0.16rem;
+    font-size: 0.28rem;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 0.8rem;
+}
+
+/*浮条*/
+.floatbtn{
+    position: fixed;
+    bottom: 0;
+    height: 1.98rem;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 31%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255,255,255,0.0)), color-stop(31%, rgb(255,255,255)));
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 31%);
+    background: -o-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 31%);
+    background: -ms-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 31%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 31%);
+    z-index: 999998;
+}
+.floatbtn a{
+    display: block;
+    margin: 0 0.4rem;
+    margin-top: 0.58rem;
+    width: 6.7rem;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    font-size: 0.28rem;
+    color: rgb(200,175,112);
+    background: #000;
+    border-radius: 0.08rem;
+    text-align: center;
+}
+.floatbtn a.over{
+    display: block;
+    margin: 0 0.4rem;
+    margin-top: 0.58rem;
+    width: 6.7rem;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    font-size: 0.28rem;
+    color: #ffffff;
+    background: #d6d6d6;
+    border-radius: 0.08rem;
+    text-align: center;
+}
+.floatbtn p{
+    margin: 0.12rem;
+    text-align: center;
+    font-size: 0.24rem;
+    color: rgb(214,66,71);
+    line-height: 0.34rem;
+}
+
+/*菜谱列表模块*/
+.menulist{
+    position: fixed;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    z-index: 999999;
+    /*padding:0 0.4rem;*/
+
+}
+.menuul{
+    height: 9.5rem;
+    margin:1.86rem 0 2.66rem 0.4rem;
+    overflow-y: auto;
+}
+.menuul li{
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+}
+.menuul li .menuleft{
+    float: left;
+}
+.menuul li .menuright{
+    float: left;
+    width: 3.2rem;
+}
+.menuul li a{
+    display: block;
+    width: 3.2rem;
+    height: 1.8rem;
+    background-size: 3.2rem auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.16rem;
+}
+.menuul .name{
+    width: 3.2rem;
+    line-height: 0.5rem;
+    max-height: 1rem;
+    font-size: 0.36rem;
+    font-weight: bold;
+    margin: 0.18rem 0 0.16rem 0.26rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+}
+.menuul .num{
+    padding-left: 0.26rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
+}
+.menuul .num span{
+    display: inline-block;
+    font-size: 0.24rem;
+    color: #9A9A9A;
+    margin-right: 0.32rem;
+}
+.menuul .num span:before {
+    display: inline-block;
+    content: '';
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-right: 0.06rem;
+    vertical-align: top;
+}
+
+.menuul .num .viewnum:before {
+    background: url('../img/IconsView.png') no-repeat;
+    background-size: 0.32rem 0.32rem;
+}
+.menuul .num .collectnum:before {
+    background: url('../img/IconsHeart.png') no-repeat;
+    background-size: 0.32rem 0.32rem;
+}
