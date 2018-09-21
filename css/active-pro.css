@@ -211,87 +211,132 @@
     color: rgb(31, 31, 31);
 }
 
-.asklist .list {
+.listarea .list {
     margin-left: 0.2rem;
     width: 6.3rem;
     display: block;
 }
 
-.asklist .list li {
+.listarea .list li {
     display: block;
     cursor: pointer;
 }
 
-.asklist .list li:first-child {
+.listarea .list li:first-child {
     margin-bottom: 0.4rem;
     border-bottom: 1px solid rgb(237, 237, 237);
 }
 
-.asklist .ask .title {
+.list .ask .title {
     display: block;
     width: 100%;
-    height: 0.72rem;
+    height: 0.96rem;
     overflow: hidden;
 }
 
-.asklist .ask img {
+.list .ask img {
     float: left;
-    width: 0.72rem;
-    height: 0.72rem;
+    width: 0.96rem;
+    height: 0.96rem;
     border-radius: 50%;
 }
 
-.asklist .ask .title span {
+.list .ask .title .userinfo {
     float: left;
-    height: 0.72rem;
-    line-height: 0.72rem;
+    height: 0.96rem;
     font-size: 0.24rem;
     color: rgb(31, 31, 31);
     margin-left: 0.14rem;
 }
+.list .ask .title .name {
+    height: 0.50rem;
+    line-height: 0.50rem;
+    font-size: 0.36rem;
+    font-weight: bold;
+    color: rgb(31, 31, 31);
+    margin: 0.04rem 0;
+}
+.list .ask .title .time {
+    height: 0.34rem;
+    line-height: 0.34rem;
+    font-size: 0.24rem;
+    color: #9A9A9A;
+}
 
-.asklist .ask .txt {
+.list .ask .title .likeCount {
+    float: right;
+    display: inline-block;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    font-size: 0.24rem;
+    /*margin: 0.04rem 0.2rem 0.24rem 0.34rem;*/
+    color: rgb(200, 175, 112);
+}
+
+.list .ask .title .likeCount:before {
+    display: inline-block;
+    content: '';
+    width: 0.50rem;
+    height: 0.50rem;
+    line-height: 0.96rem;
+    margin-top: -0.06rem;
+    margin-right: 0.08rem;
+    vertical-align: middle;
+    background: url('../img/likenum.png') no-repeat;
+    background-size: 0.50rem 0.50rem;
+}
+
+.list .ask .txt {
     display: block;
     width: 100%;
-    line-height: 0.5rem;
+    max-height: 1.2rem;
+    line-height: 0.4rem;
     letter-spacing: 1px;
-    color: rgb(31, 31, 31);
-    font-size: 0.36rem;
+    color: #1F1F1F;
+    font-size: 0.28rem;
     font-weight: bold;
     margin: 0.24rem 0;
     margin-right: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:3;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
 }
+.list .ask .txt span:first-child{color:#C8AF70; }
 
-.asklist .noanswer {
+.list .noanswer {
     height: 0.34rem;
     margin-bottom: 0.4rem;
 }
 
-.asklist .noanswer span {
+.list .noanswer span {
     font-size: 0.24rem;
     line-height: 0.34rem;
 }
 
-.asklist .noanswer span:first-child {
+.list .noanswer span:first-child {
     color: rgb(154, 154, 154);
     font-weight: normal;
 }
 
-.asklist .noanswer span:last-child {
+.list .noanswer span:last-child {
     float: right;
     color: rgb(200, 175, 112);
     font-weight: bold;
 }
 
-.asklist .answer {
+.list .answer {
     width: 6.3rem;
     border-radius: 0.16rem;
     background: rgb(244, 244, 244);
     position: relative;
     margin-bottom: 0.4rem;
+    padding-bottom: 0.4rem;
 }
 
-.asklist .answer .best {
+.list .answer .best {
     position: absolute;
     top: 0.15rem;
     right: -0.3rem;
@@ -307,13 +352,16 @@
     z-index: 900;
 }
 
-.asklist .answer .answerinfo {
+.list .answer .answerinfo {
     padding-top: 0.28rem;
-    height: 0.48rem;
-    line-height: 0.48rem;
+    padding-left: 0.36rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.28rem;
+    color: #1F1F1F;
 }
 
-.asklist .answer .answerimg {
+.list .answer .answerimg {
     display: inline-block;
     width: 0.48rem;
     height: 0.48rem;
@@ -321,55 +369,30 @@
     margin-left: 0.4rem;
 }
 
-.asklist .answer .answername {
-    margin-left: 0.12rem;
-    font-size: 0.24rem;
-    height: 0.48rem;
-    line-height: 0.48rem;
+
+.list .answer .answername {
+    color: #C8AF70;
+    font-weight: bold;
 }
 
-.asklist .answer .content {
-    margin: 0.2rem 0.4rem;
+.list .answer .content {
+    margin: 0.2rem 0.4rem 0;
     font-size: 0.28rem;
-    font-weight: bold;
     line-height: 0.4rem;
+    color: #9A9A9A;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
 }
 
-.asklist .answer .num .likeCount {
-    display: inline-block;
-    height: 0.48rem;
-    line-height: 0.48rem;
-    font-size: 0.24rem;
-    margin: 0.04rem 0.2rem 0.24rem 0.34rem;
-    color: rgb(200, 175, 112);
-}
-
-.asklist .answer .num .likeCount:before {
-    display: inline-block;
-    content: '';
-    width: 0.48rem;
-    height: 0.48rem;
-    margin-right: 0.08rem;
-    vertical-align: top;
-    background: url('../img/likenum.png') no-repeat;
-    background-size: 0.48rem 0.48rem;
-}
-
-.asklist .answer .num .answerCount {
-    float: right;
-    height: 0.34rem;
-    line-height: 0.34rem;
-    font-size: 0.24rem;
-    font-weight: bold;
-    margin: 0.02rem 0.4rem 0.24rem 0;
-    color: rgb(200, 175, 112);
-}
-
-.asklist .askstyle {
+.list .askstyle {
     width: 6.7rem;
 }
 
-.asklist .askstyle img {
+.list .askstyle img {
     display: block;
     width: 1.6rem;
     height: 1.6rem;
@@ -377,14 +400,14 @@
     margin-top: 0.78rem;
 }
 
-.asklist .askstyle p {
+.list .askstyle p {
     margin: 0.14rem 0 0.7rem 0;
     text-align: center;
     font-size: 0.28rem;
     color: rgb(31, 31, 31);
 }
 
-.asklist .askbtn {
+.list .askbtn {
     width: 6.7rem;
     height: 0.96rem;
     line-height: 0.96rem;
@@ -445,7 +468,7 @@
 }
 
 /*菜谱列表模块*/
-.menulist{
+.alertlist{
     position: fixed;
     top:0;
     width: 100%;
@@ -471,7 +494,7 @@
     float: left;
     width: 3.2rem;
 }
-.menuul li a{
+.menuul li img{
     display: block;
     width: 3.2rem;
     height: 1.8rem;
@@ -480,6 +503,11 @@
     background-repeat: no-repeat;
     border-radius: 0.16rem;
 }
+.menuul li .urllink{
+    display: block;
+    overflow: hidden;
+}
+
 .menuul .name{
     width: 3.2rem;
     line-height: 0.5rem;
@@ -521,4 +549,260 @@
 .menuul .num .collectnum:before {
     background: url('../img/IconsHeart.png') no-repeat;
     background-size: 0.32rem 0.32rem;
+}
+
+/*问答列表页*/
+.listul{
+    height: 9.5rem;
+    width: 7.1rem;
+    display: block;
+    margin:1.86rem 0 2.66rem 0.4rem!important;
+    overflow-y: auto;
+}
+
+.listul li {
+    display: block;
+    cursor: pointer;
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid rgb(237, 237, 237);
+}
+
+.listul li:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.listul .ask .title {
+    display: block;
+    width: 100%;
+    height: 0.96rem;
+    overflow: hidden;
+}
+
+.listul .ask img {
+    float: left;
+    width: 0.96rem;
+    height: 0.96rem;
+    border-radius: 0.16rem;
+}
+
+.listul .ask .title .userinfo {
+    float: left;
+    width: 3.2rem;
+    max-height: 0.88rem;
+    line-height: 0.44rem;
+    font-size: 0.32rem;
+    font-weight: bold;
+    color: rgb(31, 31, 31);
+    margin-left: 0.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+}
+
+.listul .ask .title .likeCount {
+    float: right;
+    display: inline-block;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    font-size: 0.24rem;
+    /*margin: 0.04rem 0.2rem 0.24rem 0.34rem;*/
+    color: rgb(200, 175, 112);
+}
+
+.listul .ask .title .likeCount:before {
+    display: inline-block;
+    content: '';
+    width: 0.50rem;
+    height: 0.50rem;
+    line-height: 0.96rem;
+    margin-top: -0.06rem;
+    margin-right: 0.08rem;
+    vertical-align: middle;
+    background: url('../img/likenum.png') no-repeat;
+    background-size: 0.50rem 0.50rem;
+}
+
+.listul .btn{
+    float: right;
+    margin: 0.46rem 0.4rem 0 0;
+    width:1.74rem;
+    height:0.50rem;
+    line-height: 0.5rem;
+    text-align: center;
+    color: #ffffff;
+    background:rgba(21,146,74,1);
+    border-radius:0.25rem;
+}
+
+.listul .ask .txt {
+    display: block;
+    width: 100%;
+    max-height: 1.2rem;
+    line-height: 0.4rem;
+    letter-spacing: 1px;
+    color: #1F1F1F;
+    font-size: 0.28rem;
+    font-weight: bold;
+    margin: 0.24rem 0;
+    margin-right: 0.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:3;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+}
+.listul .ask .txt span:first-child{color:#C8AF70; }
+
+.listul .noanswer {
+    height: 0.34rem;
+    margin-bottom: 0.4rem;
+}
+
+.listul .noanswer span {
+    font-size: 0.24rem;
+    line-height: 0.34rem;
+}
+
+.listul .noanswer span:first-child {
+    color: rgb(154, 154, 154);
+    font-weight: normal;
+}
+
+.listul .noanswer span:last-child {
+    float: right;
+    color: rgb(200, 175, 112);
+    font-weight: bold;
+}
+
+.listul .answer {
+    width: 5.9rem;
+    border-radius: 0.16rem;
+    background: rgb(244, 244, 244);
+    position: relative;
+    margin-top: 0.4rem;
+    padding: 0.4rem 0.4rem 0.22rem;
+    overflow: hidden;
+}
+
+.listul .answer .best {
+    position: absolute;
+    top: 0.15rem;
+    right: -0.3rem;
+    width: 1.6rem;
+    height: 0.8rem;
+    font-size: 0.24rem;
+    font-weight: bold;
+    text-align: center;
+    background: url("../img/bestanswer.png") no-repeat;
+    background-size: 1.6rem 0.8rem;
+    color: #ffffff;
+    overflow: hidden;
+    z-index: 900;
+}
+
+.listul .answer .answerinfo {
+    padding-top: 0.28rem;
+    padding-left: 0.36rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.28rem;
+    color: #1F1F1F;
+}
+
+.listul .answer .answerimg {
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.48rem;
+    border-radius: 50%;
+    margin-left: 0.4rem;
+}
+
+
+.listul .answer .answername {
+    color: #C8AF70;
+    font-weight: bold;
+}
+
+.listul .answer .content {
+    margin:0 0.4rem 0.2rem 0;
+    font-size: 0.28rem;
+    max-height: 0.8rem;
+    line-height: 0.4rem;
+    color: #1F1F1F;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+}
+
+.listul .listlist{
+    width: 6.3rem;
+    margin-bottom: 0.34rem;
+    padding-bottom: 0.2rem;
+    overflow: hidden;
+    border-bottom: 1px solid #EDEDED;
+}
+.listul .listlist:last-child{
+    margin-bottom: 0;
+    border-bottom: none;
+
+}
+
+.listul .askstyle {
+    width: 6.7rem;
+}
+
+.listul .askstyle img {
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 auto;
+    margin-top: 0.78rem;
+}
+
+.listul .askstyle p {
+    margin: 0.14rem 0 0.7rem 0;
+    text-align: center;
+    font-size: 0.28rem;
+    color: rgb(31, 31, 31);
+}
+
+.listul .askbtn {
+    width: 6.7rem;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    background: rgb(200, 175, 112);
+    color: #ffffff;
+    border-radius: 0.16rem;
+    font-size: 0.28rem;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 0.8rem;
+}
+.listul .answer .num .likeCount {
+    display: inline-block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    margin: 0.04rem 0.2rem 0.24rem 0.34rem;
+    color: rgb(200, 175, 112);
+}
+
+.listul .answer .num .answerCount {
+    float: left;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    font-size: 0.24rem;
+    font-weight: bold;
+    color: rgb(200, 175, 112);
 }

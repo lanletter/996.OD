@@ -170,9 +170,9 @@
                             <span v-html="item.nickName"></span><br>
                         </p>
                         <p class="txt" v-html="item.content"></p>
-                        <p class="noanswer" v-if="item.nickNameAnswer == '' ">
-                            <span>0 回答</span>
-                            <span>我要回答</span>
+                        <p class="noanswer">
+                            <span class="answerbtn">我要回答</span>
+                            <span class="none" v-if="item.nickNameAnswer == '' ">0 回答</span>
                         </p>
                     </div>
                     <div class="answer" v-if="item.nickNameAnswer !== '' ">
@@ -182,9 +182,11 @@
                             <span class="answername" v-html="item.nickNameAnswer"></span>
                         </div>
                         <p class="content" v-html="item.contentAnswer"></p>
-                        <p class="num">
+                        <p class="numlike">
                             <span class="likeCount" v-html="item.likeCountAnswer"></span>
-                            <span class="answerCount">全部{{item.answerCount}}个回答</span>
+                        </p>
+                        <p class="numanswer">
+                            <span class="answerCount">全部 {{item.answerCount}} 个回答</span>
                         </p>
                     </div>
                 </li>
@@ -192,7 +194,7 @@
         </div>
         <div class="askstyle" v-if="dataask.count == 0">
             <img src="../img/noask.png">
-            <p>还没有人发表问题哦</p>
+            <p>下载APP参与问答</p>
         </div>
         <button class="askbtn" @click="deeplikopen">我要提问</button>
     </div>
@@ -218,17 +220,14 @@
 
 </div>
 
-<div class="footer" style="display: none;">
-    <img src="../img/logo_gold2.png">
-    <p>
-        <span>方太生活家</span>
-        <span>分享生活味道</span>
-    </p>
-    <span id="jump" class="deeplikopen">打开</span>
-    <span id="download">下载</span>
+<div class="menufooter deeplikopen" style="display: none;">
+    <div class="bottom__opt">
+        <span class="iconask view-count">问答</span>
+        <span class="iconshow view-count">晒作品</span>
+        <span class="iconfavor view-count">收藏</span>
+    </div>
 </div>
 
-<p style="display: none;" id="DeviceId"></p>
 <div id="gio" style="display: none">
     <span id="askcount"></span>
     <span id="menucount"></span>
@@ -265,9 +264,9 @@
     var id = GetQueryString("id");
     var device = GetQueryString("device");
     if (device == null || device == "null") {
-        $(".footer").show();
+        $(".menufooter").show();
     } else {
-        $(".footer").hide();
+        $(".menufooter").hide();
     }
     if (device == "ios") {
         var userid;

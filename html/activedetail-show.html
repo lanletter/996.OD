@@ -103,56 +103,19 @@
         <button class="menushowbtn" @click="deeplikopen">我要晒作品</button>
     </div>
 
-    <div id="ask">
-        <h2>问大家</h2>
-        <a class="moreask arrow" @click="deeplikopen">全部<span v-html="dataask.count"></span>个问题</a>
-        <div class="listarea" v-if="dataask.count !== 0">
-            <ul class="asklist">
-                <li v-for="(item,index) in dataask.answerList" @click="deeplikopen">
-                    <div class="ask">
-                        <p class="title">
-                            <img class="askimg" :src="item.titlePicture">
-                            <span v-html="item.nickName"></span><br>
-                        </p>
-                        <p class="txt" v-html="item.content"></p>
-                        <p class="noanswer" v-if="item.nickNameAnswer == '' ">
-                            <span>0 回答</span>
-                            <span>我要回答</span>
-                        </p>
-                    </div>
-                    <div class="answer" v-if="item.nickNameAnswer !== '' ">
-                        <div class="best" v-if="item.bestAnswer == 1"></div>
-                        <div class="answerinfo">
-                            <img class="answerimg" :src="item.titlePictureAnswer">
-                            <span class="answername" v-html="item.nickNameAnswer"></span>
-                        </div>
-                        <p class="content" v-html="item.contentAnswer"></p>
-                        <p class="num">
-                            <span class="likeCount" v-html="item.likeCountAnswer"></span>
-                            <span class="answerCount">全部{{item.answerCount}}个回答</span>
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="askstyle" v-if="dataask.count == 0">
-            <img src="../img/noask.png">
-            <p>还没有人发表问题哦</p>
-        </div>
-        <button class="askbtn" @click="deeplikopen">我要提问</button>
-    </div>
-
-    <div class="menulist" style="display: none;">
+    <div class="alertlist" style="display: none;">
         <ul class="menuul">
-            <li v-for="(item,index) in datamenu.list">
-                <a class="menuleft" :href="item.url" :style="{backgroundImage: 'url(' + item.picture + ')'}"></a>
-                <div class="menuright">
-                    <p class="name" v-html="item.name"></p>
-                    <p class="num">
-                        <span class="viewnum" v-html="item.pageviews"></span>
-                        <span class="collectnum" v-html="item.collect_count"></span>
-                    </p>
-                </div>
+            <li v-for="(item,index) in datamenu">
+                <a class="urllink" :href="item.url">
+                    <img class="menuleft" :style="{backgroundImage: 'url(' + item.picturePath + ')'}">
+                    <div class="menuright">
+                        <p class="name" v-html="item.name"></p>
+                        <p class="num">
+                            <span class="viewnum" v-html="item.viewCount"></span>
+                            <span class="collectnum" v-html="item.favoriteCount"></span>
+                        </p>
+                    </div>
+                </a>
             </li>
         </ul>
         <div class="floatbtn">
@@ -401,51 +364,18 @@
                         }
                     });
 
-                    /*问答模块*/
-                    $(document).ready(function () {
-                        $.ajax({
-                            url: urlport + 'comment/answer/list',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                "pageNum": 1,
-                                "pageSize": 40,
-                                "refId": id,
-                                "userId": userid
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (dataask) {
-                                console.log("问大家：");
-                                console.log(dataask);
-                                $("#gio #askcount").text(dataask.data.count);
-                                callback(dataask);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
-                            }
-                        });
-
-                        function callback(dataask) {
-                            if (dataask.status == 200) {
-                                $this.dataask = dataask.data;
-                                // console.log($this.dataask);
-                            }
-                        }
-                    });
-
                     /*参加活动菜谱列表*/
                     $(document).ready(function () {
                         $.ajax({
-                            url: urlport2 + 'special/menuDetail',
+                            url: urlport + 'activity/getActivityMenuList',
                             type: 'POST',
-                            data: JSON.stringify({"id": 156}),
+                            data: JSON.stringify({"id": 59}),
                             timeout: 5000, //超时时间
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式
                             success: function (data) {
                                 callback(data);
+                                // console.log(data);
                             },
                             error: function (errorMsg) {
                                 console.log('错误');
@@ -455,7 +385,14 @@
 
                         function callback(datamenu) {
                             if (datamenu.status == 200) {
-                                $this.datamenu = datamenu.data;
+                                /*url*/
+                                for (var i = 0; i < datamenu.data.menuList.length; i++) {
+                                    var id = datamenu.data.menuList[i].id;
+                                    urlnew = "menudetail.html?id="+ id + "&device=" + device + "&jump=jump";
+                                    datamenu.data.menuList[i].url = urlnew;
+                                }
+                                $this.datamenu = datamenu.data.menuList;
+                                console.log("菜谱列表：");
                                 console.log($this.datamenu);
                             }
                         }
@@ -472,14 +409,6 @@
                     s = date.getSeconds();
                     var creattime = Y + M + D + h + m + s;
                     console.log(creattime);
-
-                    $.loadComment({
-                        "pageNum": 1,
-                        "pageSize": 10,
-                        "type": 6,
-                        "refId": parseInt(id),
-                        "userId": parseInt(userid)
-                    }, 1);
 
                     //custom page code begin here
                     gio("page.set", "activity", "活动");//页面类型
@@ -579,11 +508,11 @@
             },
             methods: {
                 openlist: function () {
-                    $(".menulist").show();
+                    $(".alertlist").show();
                     $("html,body").css({"overflow": "hidden"}); //禁用滚动条
                 },
                 closelist: function () {
-                    $(".menulist").hide();
+                    $(".alertlist").hide();
                     $("html,body").css({"overflow": "auto"}); //启用滚动条
                 },
                 atten: function () {
