@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修改">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="v440完成待测试">
       <change beforePath="$PROJECT_DIR$/html/activedetail-ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-ask.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/activedetail-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-show.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/home-user.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/home-user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/jf-buy.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/jf-buy.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/menudetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/menudetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/deeplink.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/deeplink.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/ft.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/ft.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/loadcomment.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loadcomment.js" afterDir="false" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,7 +50,7 @@
           <entry key="css" value="1549" />
           <entry key="html" value="2177" />
           <entry key="js" value="41" />
-          <entry key="txt" value="38" />
+          <entry key="txt" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -66,7 +58,7 @@
           <entry key="CSS" value="1549" />
           <entry key="HTML" value="2177" />
           <entry key="JavaScript" value="41" />
-          <entry key="PLAIN_TEXT" value="38" />
+          <entry key="PLAIN_TEXT" value="56" />
         </counts>
       </usages-collector>
     </session>
@@ -94,8 +86,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="170" column="58" lean-forward="true" selection-start-line="170" selection-start-column="58" selection-end-line="170" selection-end-column="58" />
+            <state relative-caret-position="416">
+              <caret line="624" column="21" lean-forward="true" selection-start-line="624" selection-start-column="21" selection-end-line="624" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -198,7 +190,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ajax</find>
       <find>dataexclist</find>
       <find>comment</find>
       <find>linkblock</find>
@@ -218,7 +209,6 @@
       <find>https://gio.ren/re0Y923</find>
       <find>deeplikopen</find>
       <find>homeuser</find>
-      <find>startbtn</find>
       <find>menulink</find>
       <find>questionlink</find>
       <find>datalist</find>
@@ -228,6 +218,8 @@
       <find>'.'</find>
       <find>getHours</find>
       <find>ft</find>
+      <find>btn</find>
+      <find>startbtn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -596,14 +588,7 @@
       <workItem from="1537351332900" duration="65000" />
       <workItem from="1537410848095" duration="21577000" />
       <workItem from="1537840650062" duration="40155000" />
-      <workItem from="1538034734314" duration="4898000" />
-    </task>
-    <task id="LOCAL-00310" summary="bug修改">
-      <created>1531880076454</created>
-      <option name="number" value="00310" />
-      <option name="presentableId" value="LOCAL-00310" />
-      <option name="project" value="LOCAL" />
-      <updated>1531880076454</updated>
+      <workItem from="1538034734314" duration="5149000" />
     </task>
     <task id="LOCAL-00311" summary="bug修改">
       <created>1531880166652</created>
@@ -941,14 +926,22 @@
       <option name="project" value="LOCAL" />
       <updated>1538031764208</updated>
     </task>
-    <option name="localTasksCounter" value="359" />
+    <task id="LOCAL-00359" summary="v440完成待测试">
+      <created>1538040162481</created>
+      <option name="number" value="00359" />
+      <option name="presentableId" value="LOCAL-00359" />
+      <option name="project" value="LOCAL" />
+      <updated>1538040162481</updated>
+    </task>
+    <option name="localTasksCounter" value="360" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2755284000" />
+    <option name="totallyTimeSpent" value="2755535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="458" y="23" width="975" height="821" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24318658" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -1011,7 +1004,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="bug修复完成，去掉alert" />
     <MESSAGE value="test" />
     <MESSAGE value="test ok" />
     <MESSAGE value="新增用户主页" />
@@ -1036,7 +1028,8 @@
     <MESSAGE value="活动详情页UI基本完成，数据接口尚不完善" />
     <MESSAGE value="功能基本完成" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="v440完成待测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="v440完成待测试" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1367,8 +1360,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="170" column="58" lean-forward="true" selection-start-line="170" selection-start-column="58" selection-end-line="170" selection-end-column="58" />
+        <state relative-caret-position="416">
+          <caret line="624" column="21" lean-forward="true" selection-start-line="624" selection-start-column="21" selection-end-line="624" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
