@@ -57,8 +57,8 @@
         var u = navigator.userAgent;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
         var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        console.log('是否是Android：' + isAndroid);
-        console.log('是否是iOS：' + isiOS);
+        // console.log('是否是Android：' + isAndroid);
+        // console.log('是否是iOS：' + isiOS);
 
         /*下载*/
         $("#download").unbind().click(function (e) {
@@ -116,7 +116,7 @@
             })
 
         } else {
-            console.log("不是来自微信内置浏览器");
+            // console.log("不是来自微信内置浏览器");
             // alert("不是app内");
             setTimeout(function () {
                 openlink();

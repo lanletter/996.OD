@@ -332,6 +332,14 @@
             },
             callbackId: generateID(),
             callback: noop
+        },
+        workDetail:{
+            name: "workDetail",
+            param: {
+                id: ""//作品id
+            },
+            callbackId: generateID(),
+            callback: noop
         }
 
     };
@@ -608,6 +616,16 @@
         tutorInfoConfig.param.type = option.type || "";
         tutorInfoConfig.callback = fn;
         callByJS(tutorInfoConfig);
+    }
+
+    /*********************************************************************
+     *                           进入作品详情                             *
+     **********************************************************************/
+    ft.workDetail= function (option, fn) {
+        var productionConfig = ft.mix(true, {}, config.workDetail);
+        productionConfig.param.id = option.id || "";
+        productionConfig.callback = fn;
+        callByJS(productionConfig);
     }
 
 }()

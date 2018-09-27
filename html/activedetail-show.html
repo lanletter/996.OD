@@ -34,7 +34,7 @@
             </div>
             <div class="header__opt">
                 <span class="view-count"><strong v-html="data.viewCount"></strong></span>
-                <span class="comment-count" id="star"><strong v-html="data.commentCount"></strong></span>
+                <span class="share-count"><strong v-html="data.shareCount"></strong></span>
             </div>
         </header>
         <article id="instructions" v-html="data.content">
@@ -43,28 +43,32 @@
 
     <div class="worklist">
         <h2>优秀作品</h2>
-        <div class="listarea" v-if="datalist.count !== 0">
+        <div class="listarea" v-if="dataexclist.length > 0">
             <ul class="list">
-                <li v-for="(item,index) in datalist.workList">
+                <li v-for="(item,index) in dataexclist">
                     <div class="workdetail">
-                        <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"
-                             class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="imgclick">
-                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                        </div>
-                        <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="imgclick">
-                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                        </div>
-                        <!--<img class="pageimg"  :src="item.picturePath">-->
+                        <!--<div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"-->
+                        <!--class="pageimg1" :style="{backgroundImage: 'url(' + item.imgurl + ')'}"-->
+                        <!--@click="imgclick">-->
+                        <!--<img class="pageimg2" :src="item.imgurl" style="display: none;">-->
+                        <!--</div>-->
+                        <!--<div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.imgurl + ')'}"-->
+                        <!--@click="imgclick">-->
+                        <!--<img class="pageimg2" :src="item.imgurl" style="display: none;">-->
+                        <!--</div>-->
+                        <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
                         <div class="userinfo">
-                            <div @click="homeuser(item.userId)" class="imgparent">
-                                <img class="userimg" :src="item.titlePicture">
+                            <div @click="homeuser(item.comment.userId)" class="imgparent">
+                                <img class="userimg" :src="item.comment.userInfomation.titlePicture">
                             </div>
-                            <span v-html="item.nickName"></span>
+                            <span v-html="item.comment.userInfomation.nickName"></span>
                         </div>
-                        <p class="usertxt">我做的特别好，你们快 来也可以试试来也可以试试</p>
-                        <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
+                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
+                            我做的特别好，你们快 来也可以试试来也可以试试</p>
+                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                              v-if="parseInt(item.comment.isLike) == 0 "
+                              v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                        <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                     </div>
                 </li>
                 <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
@@ -72,29 +76,25 @@
         </div>
     </div>
     <div class="worklist" id="menushow">
-        <h2>晒作品</h2>
+        <h2>用户活动作品</h2>
         <a class="moremenu arrow" @click="deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
-        <div class="listarea" v-if="datalist.count !== 0">
+        <div class="listarea" v-if="datalist.length > 0">
             <ul class="list">
-                <li v-for="(item,index) in datalist.workList">
+                <li v-for="(item,index) in datalist">
                     <div class="workdetail">
-                        <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"
-                             class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="imgclick">
-                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                        </div>
-                        <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="imgclick">
-                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                        </div>
+                        <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
                         <div class="userinfo">
-                            <div @click="homeuser(item.userId)" class="imgparent">
-                                <img class="userimg" :src="item.titlePicture">
+                            <div @click="homeuser(item.comment.userId)" class="imgparent">
+                                <img class="userimg" :src="item.comment.userInfomation.titlePicture">
                             </div>
-                            <span v-html="item.nickName"></span>
+                            <span v-html="item.comment.userInfomation.nickName"></span>
                         </div>
-                        <p class="usertxt">我做的特别好，你们快 来也可以试试来也可以试试</p>
-                        <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
+                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
+                            我做的特别好，你们快 来也可以试试来也可以试试</p>
+                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                              v-if="parseInt(item.comment.isLike) == 0 "
+                              v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                        <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                     </div>
                 </li>
                 <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
@@ -124,8 +124,8 @@
     </div>
 
     <div class="floatbtn" id="menuup">
-        <a @click="openlist">我要参与</a>
-        <!--<a class="over">活动已结束</a>-->
+        <a v-if="start" @click="startbtn">我要参与</a>
+        <a class="over" v-else>活动已结束</a>
         <span class="device" style="display: none"></span>
     </div>
 </div>
@@ -193,13 +193,16 @@
             el: '.avtive',
             data: {
                 data: {},
-                dataask: {},
+                dataexclist: [],
                 datalist: {},
-                datamenu: {}
+                datamenu: {},
+                item: [],
+                isLike: '',
+                likenum: '',
+                start: ''
             },
             created: function () {
                 var $this = this;
-
                 $.ajax({
                     url: urlport + 'activity/detail',
                     type: 'POST',
@@ -222,7 +225,6 @@
                     // console.log(data);
                     $this.data = data.data;
                     console.log($this.data);
-
                     var $header = $('.header');
                     $(".ft-titles .comment_count").text(data.commentCount);
 
@@ -234,6 +236,15 @@
                         $('head title').text(data.title);
                     }
 
+                    /*活动状态*/
+                    endDate = $this.data.endDate;
+                    var timestamp = Date.parse(new Date());
+                    if (timestamp < endDate) {
+                        $this.start = true;
+                    } else {
+                        $this.start = false;
+                    }
+
                     /*友盟埋点-页面访问*/
                     var isuserid;//登录判断
                     if (userid !== 1 && userid !== "1") {
@@ -241,81 +252,13 @@
                     } else {
                         isuserid = "否";
                     }
-                    console.log(isuserid);
                     UMAnalyticsAgent.trackWithProperty("h5页面访问", {
                         "页面类型": "活动详情页",
                         "页面名称": data.title,
                         "是否登录": isuserid
                     });
 
-                    $("#menuup .device").unbind().on("click", function () {
-                        ft.callMenuUp(function (result) {
-                            //native触发
-                        });
-                    });
-
-
-                    if (device == "ios" || device == "android") {
-                        /*上传菜谱模块*/
-                        if (data.buttonStatus == 1 || data.buttonStatus == "1") {
-                            $("#menuup").show();
-                        }
-                        $("#menuup a").unbind().on("click", function () {
-                            $.ajax({
-                                url: urlport + 'activity/clickCount',
-                                type: 'POST',
-                                data: JSON.stringify({"id": id}),
-                                timeout: 5000, //超时时间
-                                contentType: "application/json;charset=utf-8",
-                                dataType: 'json', //返回的数据格式
-                                success: function (data) {
-                                    console.log(data);
-                                },
-                                error: function (errorMsg) {
-                                    console.log('错误');
-                                    console.log(errorMsg);
-                                }
-                            });
-                            $(".device").trigger('click');
-                        });
-                    }
-
-                    /* 时间戳格式转换 */
-                    var starttime = data.startDate;
-                    var endtime = data.endDate;
-
-                    function add0(m) {
-                        return m < 10 ? '0' + m : m
-                    }
-
-                    function format(starttime) {
-                        var time = new Date(starttime);
-                        var year = time.getFullYear();
-                        var month = time.getMonth() + 1;
-                        var date = time.getDate();
-                        var hour = time.getHours();
-                        var minute = time.getMinutes();
-                        return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
-                    }
-
-                    function format(endtime) {
-                        var time = new Date(endtime);
-                        var year = time.getFullYear();
-                        var month = time.getMonth() + 1;
-                        var date = time.getDate();
-                        var hour = time.getHours();
-                        var minute = time.getMinutes();
-                        return year + '年' + add0(month) + '月' + add0(date) + '号' + add0(hour) + ':' + add0(minute);
-                    }
-
-                    if (data.isshow == 1 || data.isshow == null) {
-                        // $header.find('time').text(format(starttime) + '-' + format(endtime));//显示时间戳
-                        $header.find('time').text(data.time2);//显示字符串
-                    } else {
-                        $header.find('time').text();
-                    }
-
-                    /*文章内链接加device，必须放在content内容append后面！*/
+                    /*富文本内链接加device，必须放在content内容append后面！*/
                     var qs = 'device=' + device + '&jump=jump';
                     $("#instructions").find('a').each(function () {
                         var href = $(this).attr('href');
@@ -327,27 +270,61 @@
                         }
                     });
 
-
-                    id=200;
-                    userid=1;
-                    /*晒作品*/
+                    /*优秀作品*/
                     $(document).ready(function () {
                         $.ajax({
-                            url: urlport + 'comment/work/list',
+                            url: urlport + 'activity/getExcellentWork',
                             type: 'POST',
                             data: JSON.stringify({
                                 "pageNum": 1,
-                                "pageSize": 5,
-                                "refId": id,
+                                "pageSize": 20,
+                                "id": id,
+                                "userId": userid
+                            }),
+                            timeout: 5000, //超时时间
+                            contentType: "application/json;charset=utf-8",
+                            dataType: 'json', //返回的数据格式
+                            success: function (dataexclist) {
+                                console.log("优秀作品：");
+                                callback(dataexclist);
+                            },
+                            error: function (errorMsg) {
+                                console.log('错误');
+                                console.log(errorMsg);
+                            }
+                        });
+
+                        function callback(dataexclist) {
+                            if (dataexclist.status == 200) {
+                                $this.dataexclist = dataexclist.data.list;
+                                console.log($this.dataexclist);
+                                for (var i = 0; i < $this.dataexclist.length; i++) {
+                                    var item = $this.dataexclist[i];
+                                    item.isLike = $this.dataexclist[i].comment.isLike;
+                                    item.id = $this.dataexclist[i].comment.id;
+                                    item.likenum = $this.dataexclist[i].comment.likeCount;
+                                }
+                            }
+                        }
+                    });
+
+                    /*用户活动作品*/
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: urlport + 'activity/getUserActivityWork',
+                            type: 'POST',
+                            data: JSON.stringify({
+                                "pageNum": 1,
+                                "pageSize": 40,
+                                "id": id,
                                 "userId": userid
                             }),
                             timeout: 5000, //超时时间
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式
                             success: function (datalist) {
-                                console.log("晒作品：");
-                                console.log(datalist);
-                                $("#gio #menucount").text(datalist.data.count);
+                                console.log("用户活动作品：");
+                                // console.log(datalist);
                                 callback(datalist);
                             },
                             error: function (errorMsg) {
@@ -358,8 +335,14 @@
 
                         function callback(datalist) {
                             if (datalist.status == 200) {
-                                $this.datalist = datalist.data;
-                                // console.log($this.datalist.workList);
+                                $this.datalist = datalist.data.list;
+                                console.log($this.datalist);
+                                for (var i = 0; i < $this.datalist.length; i++) {
+                                    var item = $this.datalist[i];
+                                    item.isLike = $this.datalist[i].comment.isLike;
+                                    item.id = $this.datalist[i].comment.id;
+                                    item.likenum = $this.datalist[i].comment.likeCount;
+                                }
                             }
                         }
                     });
@@ -369,7 +352,7 @@
                         $.ajax({
                             url: urlport + 'activity/getActivityMenuList',
                             type: 'POST',
-                            data: JSON.stringify({"id": 59}),
+                            data: JSON.stringify({"id": id}),
                             timeout: 5000, //超时时间
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式
@@ -388,7 +371,7 @@
                                 /*url*/
                                 for (var i = 0; i < datamenu.data.menuList.length; i++) {
                                     var id = datamenu.data.menuList[i].id;
-                                    urlnew = "menudetail.html?id="+ id + "&device=" + device + "&jump=jump";
+                                    urlnew = datamenu.data.menuList[i].url + "&device=" + device + "&jump=jump";
                                     datamenu.data.menuList[i].url = urlnew;
                                 }
                                 $this.datamenu = datamenu.data.menuList;
@@ -408,7 +391,7 @@
                     m = date.getMinutes() + ':';
                     s = date.getSeconds();
                     var creattime = Y + M + D + h + m + s;
-                    console.log(creattime);
+                    // console.log(creattime);
 
                     //custom page code begin here
                     gio("page.set", "activity", "活动");//页面类型
@@ -507,6 +490,35 @@
 
             },
             methods: {
+                menulink: function (id, url) {
+                    if (device == "ios" || device == "android") {
+                        ft.production({
+                            id: id
+                        }, function (result) {
+                        })
+                    } else {
+                        window.location.href = url;
+                    }
+                },
+                homeuser: function (userId) {
+                    if (device == "ios" || device == "android") {
+                        ft.tutorInfo({
+                            id: id,
+                            type: "0"
+                        }, function (result) {
+                        })
+                    } else {
+                        window.location.href = "home-user.html?id=" + userId;
+                    }
+                },
+                startbtn: function () {
+                    var $this = this;
+                    if (device == "ios" || device == "android") {
+                        $this.openlist();
+                    } else {
+                        $this.deeplikopen();
+                    }
+                },
                 openlist: function () {
                     $(".alertlist").show();
                     $("html,body").css({"overflow": "hidden"}); //禁用滚动条
@@ -515,34 +527,59 @@
                     $(".alertlist").hide();
                     $("html,body").css({"overflow": "auto"}); //启用滚动条
                 },
-                atten: function () {
-                    if (this.isgray) return;
-                    this.isgray = true;
-                    console.info(11);
-                },
-                play: function (obj) {
-                    var obj = document.getElementById("video");
-                    obj.play();
-                    document.getElementById("play").style.display = 'none';
-                    obj.controls = true;
-                    obj.addEventListener('ended', function () {
-                        document.getElementById("play").style.display = 'block';
-                        obj.controls = false;
+                givePraise: function (item, id, likenum, isLike) {  //点赞
+                    console.log("givePraise");
+                    var $this = this;
+                    // app交互——获取登录状态
+                    ft.isLogin(function (result) {
+                        var errorcode = result.errorCode.toString();
+                        if (errorcode == "1") {
+                            //$api.toast('登陆成功', 2000);
+                            userid = result.data.userId.toString();
+                            if (userid !== "1" && userid !== 1) {
+                                token = result.data.token.toString();
+                            }
+                            /*一次性点赞*/
+                            $this.item = item;
+                            $this.likenum = likenum;
+                            $this.isLike = isLike;
+                            if ($this.isLike == 0) {
+                                $.ajax({
+                                    url: urlport + 'like/create',
+                                    type: 'POST',
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 101,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式
+                                    success: function (data) {
+                                        console.log(data);
+                                        newnum = parseInt(likenum) + 1;
+                                        $this.item.likenum = newnum;
+                                        $this.item.isLike = 1;
+                                        console.log($this.item.likenum);
+                                        Vue.set($this.item, likenum, newnum);//改变视图点赞值
+                                        Vue.set($this.item, isLike, 1);//改变视图点赞状态
+                                        console.log($this.item);
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
+                                });
+                            }
+                        } else if (errorCode == "0") {
+                            $api.toast('登陆取消', 2000);
+                        } else if (errorCode == "-1") {
+                            $api.toast('登陆失败', 2000);
+                        } else if (errorCode == "-2") {
+                            $api.toast('登陆不支持', 2000);
+                        }
                     });
-                    obj.addEventListener('pause', function () {
-                        document.getElementById("play").style.display = 'block';
-                        obj.controls = false;
-                    });
-                    //console.info(55);
-                },
-                imgclick: function (obj) {
-                    /*点击查看大图*/
-                    // console.log(obj.currentTarget);
-                    var imgdom = obj.currentTarget.innerHTML;
-                    $("#imgSrc").empty().append(imgdom.toString());
-                    var _this = $("#imgSrc .pageimg2");
-                    // console.log(_this.attr("src"));
-                    imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+
                 },
                 deeplikopen: function (obj) {
                     function GetQueryString(name) {
@@ -557,7 +594,7 @@
                     function GetPageName() {
                         var url = window.location.href;//获取完整URL
                         var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
-                        name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+                        var name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
                         return name;
                     }
 
@@ -646,109 +683,6 @@
                         }, 1000);
 
                     }
-                },
-                callKitchenware: function (obj) {
-                    //app交互——唤起智能菜谱
-                    // alert(obj.currentTarget.innerHTML);
-                    var dom = obj.currentTarget.innerHTML;
-                    $("#DeviceId").empty().append(dom.toString());
-                    var dom2 = $("#DeviceId span").text();
-                    // alert(dom2);
-                    ft.callKitchenware({
-                        pid: dom2.toString()
-                    })
-                },
-                homeuser: function (userId) {
-                    window.location.href = "home-user.html?id=" + userId;
-                },
-                star: function (obj) {
-                    console.log(canClick);
-                    if (!canClick) return;
-                    canClick = false;
-
-                    // app交互——获取登录状态
-                    ft.isLogin(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            //$api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            if (userid !== "1" && userid !== 1) {
-                                token = result.data.token.toString();
-                            }
-                            //alert(userid);
-                            //收藏
-                            var follow = $("#star").attr('class');
-                            if (follow == "icon-msg") {
-                                $.ajax({
-                                    url: urlport + 'favorite/create',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "refId": id,
-                                        "type": 1,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式
-                                    success: function (data) {
-                                        console.log(data);
-                                        console.log("111");
-                                        $("#star").addClass("icon-msg2");
-                                        $("#star").removeClass("icon-msg");
-                                        var oldnum = $("#star").next().text();
-                                        $("#star").next().text(parseInt(oldnum) + 1);
-                                        $api.toast('收藏成功！', 3000);
-                                        /*友盟打点：菜谱收藏*/
-                                        UMAnalyticsAgent.trackWithProperty("h5收藏菜谱", {
-                                            "菜谱名称": data.data.name
-                                        });
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
-                            } else if (follow == "icon-msg2") {
-                                $.ajax({
-                                    url: urlport + 'favorite/cancel',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "refId": id,
-                                        "type": 1,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式
-                                    success: function (data) {
-                                        console.log(data);
-                                        console.log("222");
-                                        $("#star").addClass("icon-msg");
-                                        $("#star").removeClass("icon-msg2");
-                                        var oldnum = $("#star").next().text();
-                                        $("#star").next().text(parseInt(oldnum) - 1);
-                                        $api.toast('取消收藏！', 3000);
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
-                            }
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
-
-                    setTimeout(function () {
-                        canClick = true;
-                    }, 3000);
-
-
                 }
 
             }

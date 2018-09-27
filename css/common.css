@@ -179,6 +179,11 @@ input,textarea{-webkit-appearance: none;}
    background-size: 0.48rem 0.48rem;
  }
 
+.header__opt .share-count:before {
+  background: url('../img/usershare.png') no-repeat;
+  background-size: 0.48rem 0.48rem;
+}
+
 /*文章推荐部分信息*/
 .header__opt2 {
   position: absolute;

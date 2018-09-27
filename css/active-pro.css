@@ -28,8 +28,7 @@
 
 .worklist .listarea {
     width: 100%;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 .worklist .list {
@@ -39,11 +38,13 @@
 
 .worklist .list li {
     float: left;
-    margin-right: 0.28rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.6rem;
     border-radius: 0.16rem;
     overflow: hidden;
     width: 3.06rem;
     height: 5.56rem;
+    position: relative;
 }
 
 .worklist .list li .workdetail {
@@ -58,9 +59,7 @@
 }
 
 .worklist .list li .pageimg {
-    position: absolute;
-    top: 0;
-    left: 0;
+    float: left;
     width: 3.06rem;
     height: 3.06rem;
     margin: -1px -1px 0 -1px;
@@ -69,6 +68,7 @@
     -webkit-background-size: auto 3.06rem !important;
     background-position: center center;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .worklist .list li .pageimg1 {
@@ -99,7 +99,8 @@
 }
 
 .worklist .userinfo {
-    margin-top:3.22rem;
+    margin-top:3.26rem;
+    height: 0.48rem;
     overflow: hidden;
 }
 
@@ -135,6 +136,7 @@
     height: 0.48rem;
     border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
 }
 .worklist .list li .userimg {
     width: 0.48rem;
@@ -163,6 +165,50 @@
     margin-right: 0.08rem;
     vertical-align: top;
     background: url('../img/likenum.png') no-repeat;
+    background-size: 0.48rem 0.48rem;
+}
+.worklist .likenum0 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    margin: 0.3rem 0.2rem 0.18rem;
+    color: rgb(200, 175, 112);
+}
+
+.worklist .likenum0:before {
+    display: inline-block;
+    content: '';
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.08rem;
+    vertical-align: top;
+    background: url('../img/GoodFill.png') no-repeat;
+    background-size: 0.48rem 0.48rem;
+}
+.worklist .likenum2 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: inline-block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    margin: 0.3rem 0.2rem 0.18rem;
+    color: rgb(200, 175, 112);
+}
+
+.worklist .likenum2:before {
+    display: inline-block;
+    content: '';
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.08rem;
+    vertical-align: top;
+    background: url('../img/GoodFill.png') no-repeat;
     background-size: 0.48rem 0.48rem;
 }
 
@@ -197,7 +243,7 @@
     font-weight: bold;
     color: rgb(31, 31, 31);
     letter-spacing: 2px;
-    margin-bottom: 0.68rem;
+    margin-bottom: 0.4rem;
 }
 
 .asklist .moreask {
@@ -213,23 +259,25 @@
 
 .listarea .list {
     margin-left: 0.2rem;
-    width: 6.3rem;
+    width: 7.1rem;
     display: block;
+    overflow: hidden;
 }
 
 .listarea .list li {
     display: block;
     cursor: pointer;
+    border-bottom: 1px solid rgb(237, 237, 237);
+    margin-bottom: 0.4rem;
 }
 
-.listarea .list li:first-child {
-    margin-bottom: 0.4rem;
-    border-bottom: 1px solid rgb(237, 237, 237);
+.listarea .list li:last-child {
+    border: none;
 }
 
 .list .ask .title {
     display: block;
-    width: 100%;
+    width: 6.3rem;
     height: 0.96rem;
     overflow: hidden;
 }
@@ -263,7 +311,7 @@
     color: #9A9A9A;
 }
 
-.list .ask .title .likeCount {
+.list .ask .title .likenum {
     float: right;
     display: inline-block;
     height: 0.96rem;
@@ -273,7 +321,7 @@
     color: rgb(200, 175, 112);
 }
 
-.list .ask .title .likeCount:before {
+.list .ask .title .likenum:before {
     display: inline-block;
     content: '';
     width: 0.50rem;
@@ -286,9 +334,53 @@
     background-size: 0.50rem 0.50rem;
 }
 
+.list .ask .title .likenum0 {
+    float: right;
+    display: inline-block;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    font-size: 0.24rem;
+    color: rgb(200, 175, 112);
+}
+
+.list .ask .title .likenum0:before {
+    display: inline-block;
+    content: '';
+    width: 0.50rem;
+    height: 0.50rem;
+    line-height: 0.96rem;
+    margin-top: -0.06rem;
+    margin-right: 0.08rem;
+    vertical-align: middle;
+    background: url('../img/GoodFill.png') no-repeat;
+    background-size: 0.50rem 0.50rem;
+}
+
+.list .ask .title .likenum2 {
+    float: right;
+    display: inline-block;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    font-size: 0.24rem;
+    color: rgb(200, 175, 112);
+}
+
+.list .ask .title .likenum2:before {
+    display: inline-block;
+    content: '';
+    width: 0.50rem;
+    height: 0.50rem;
+    line-height: 0.96rem;
+    margin-top: -0.06rem;
+    margin-right: 0.08rem;
+    vertical-align: middle;
+    background: url('../img/GoodFill.png') no-repeat;
+    background-size: 0.50rem 0.50rem;
+}
+
 .list .ask .txt {
     display: block;
-    width: 100%;
+    width: 6.3rem;
     max-height: 1.2rem;
     line-height: 0.4rem;
     letter-spacing: 1px;
@@ -296,7 +388,7 @@
     font-size: 0.28rem;
     font-weight: bold;
     margin: 0.24rem 0;
-    margin-right: 0.4rem;
+    padding-right: 0.4rem;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp:3;
@@ -332,8 +424,8 @@
     border-radius: 0.16rem;
     background: rgb(244, 244, 244);
     position: relative;
-    margin-bottom: 0.4rem;
     padding-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
 }
 
 .list .answer .best {
@@ -552,6 +644,23 @@
 }
 
 /*问答列表页*/
+.noanswer img{
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 auto;
+    margin-top: 1.78rem;
+}
+.noanswer p{
+    margin-top: 0.14rem;
+    width: 100%;
+    height:0.40rem;
+    font-size:0.28rem;
+    font-weight:bold;
+    color:rgba(31,31,31,1);
+    line-height:0.40rem;
+    text-align: center;
+}
 .listul{
     height: 9.5rem;
     width: 7.1rem;
@@ -566,6 +675,10 @@
     padding-bottom: 0.4rem;
     margin-bottom: 0.4rem;
     border-bottom: 1px solid rgb(237, 237, 237);
+}
+.listul li a{
+    display: block;
+    overflow: hidden;
 }
 
 .listul li:last-child {
