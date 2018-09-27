@@ -341,10 +341,11 @@
             callbackId: generateID(),
             callback: noop
         },
-        workDetail:{
-            name: "workDetail",
+        questionDetail:{
+            name: "questionDetail",
             param: {
-                id: ""//作品id
+                id: "",//问题id
+                menuurl: ""//菜谱id
             },
             callbackId: generateID(),
             callback: noop
@@ -632,6 +633,17 @@
     ft.workDetail= function (option, fn) {
         var productionConfig = ft.mix(true, {}, config.workDetail);
         productionConfig.param.id = option.id || "";
+        productionConfig.callback = fn;
+        callByJS(productionConfig);
+    }
+
+    /*********************************************************************
+     *                           进入问题详情                             *
+     **********************************************************************/
+    ft.questionDetail= function (option, fn) {
+        var productionConfig = ft.mix(true, {}, config.questionDetail);
+        productionConfig.param.id = option.id || "";
+        productionConfig.param.menuurl = option.menuurl || "";
         productionConfig.callback = fn;
         callByJS(productionConfig);
     }

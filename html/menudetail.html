@@ -218,15 +218,15 @@
         </div>
     </div>
 
-</div>
-
-<div class="menufooter deeplikopen" style="display: none;">
-    <div class="bottom__opt">
-        <span class="iconask view-count">问答</span>
-        <span class="iconshow view-count">晒作品</span>
-        <span class="iconfavor view-count">收藏</span>
+    <div class="menufooter" style="display: none;" @click="deeplikopen">
+        <div class="bottom__opt">
+            <span class="iconask view-count">问答</span>
+            <span class="iconshow view-count">晒作品</span>
+            <span class="iconfavor view-count">收藏</span>
+        </div>
     </div>
 </div>
+
 
 <div id="gio" style="display: none">
     <span id="askcount"></span>
@@ -827,7 +827,7 @@
                     function GetPageName() {
                         var url = window.location.href;//获取完整URL
                         var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
-                        name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+                        var name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
                         return name;
                     }
 
@@ -914,7 +914,6 @@
                                 window.location.href = "https://gio.ren/rBZ2ApB";
                             }
                         }, 1000);
-
                     }
                 },
                 callKitchenware: function (obj) {

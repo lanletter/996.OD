@@ -46,7 +46,8 @@
                     <li v-for="(item,index) in dataexclist">
                         <div class="ask">
                             <div class="title">
-                                <img class="askimg" :src="item.answer.userInfomation.titlePicture">
+                                <img class="askimg" @click="homeuser(item.answer.userId)"
+                                     :src="item.answer.userInfomation.titlePicture">
                                 <div class="userinfo">
                                     <div class="name" v-html="item.answer.userInfomation.nickName"></div>
                                     <div class="time" v-html="item.answer.createat"></div>
@@ -54,7 +55,8 @@
                                 <!--<span class="likeCount" v-html="item.answer.likeCount"></span>-->
                                 <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
                                       v-if="parseInt(item.answer.isLike) == 0 "
-                                      v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                                      v-html="item.likenum"
+                                      @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
                                 <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                             </div>
                             <p class="txt">回答了<span>[<b v-html="item.question.title"></b>]</span>中的提问：<span
@@ -64,7 +66,7 @@
                             <!--<span>我要回答</span>-->
                             <!--</p>-->
                         </div>
-                        <div class="answer">
+                        <div class="answer" @click="menulink(item.question.id,item.question.url)">
                             <div class="answerinfo">
                                 <span class="answername" v-html="item.question.userInfomation.nickName"></span>的提问：
                             </div>
@@ -79,15 +81,21 @@
             <h2>活动动态</h2>
             <div class="listarea">
                 <ul class="list">
-                    <li v-for="(item,index) in datalist" @click="deeplikopen">
+                    <li v-for="(item,index) in datalist">
                         <div class="ask">
                             <div class="title">
-                                <img class="askimg" :src="item.answer.userInfomation.titlePicture">
+                                <img class="askimg" @click="homeuser(item.answer.userId)"
+                                     :src="item.answer.userInfomation.titlePicture">
                                 <div class="userinfo">
                                     <div class="name" v-html="item.answer.userInfomation.nickName"></div>
                                     <div class="time" v-html="item.answer.createat"></div>
                                 </div>
-                                <span class="likeCount" v-html="item.answer.likeCount"></span>
+                                <!--<span class="likeCount" v-html="item.answer.likeCount"></span>-->
+                                <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                                      v-if="parseInt(item.answer.isLike) == 0 "
+                                      v-html="item.likenum"
+                                      @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                                <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                             </div>
                             <p class="txt">回答了<span>[<b v-html="item.question.title"></b>]</span>中的提问：<span
                                     v-html="item.answer.content"></span></p>
@@ -96,7 +104,7 @@
                             <!--<span>我要回答</span>-->
                             <!--</p>-->
                         </div>
-                        <div class="answer">
+                        <div class="answer" @click="menulink(item.question.id,item.question.url)">
                             <div class="answerinfo">
                                 <span class="answername" v-html="item.question.userInfomation.nickName"></span>的提问：
                             </div>
@@ -219,7 +227,8 @@
                 item: [],
                 isLike: '',
                 likenum: '',
-                start: ''
+                start: '',
+                createat:''
             },
             created: function () {
                 var $this = this;
@@ -316,13 +325,49 @@
                         function callback(dataexclist) {
                             if (dataexclist.status == 200) {
                                 $this.dataexclist = dataexclist.data.list;
-                                console.log($this.dataexclist);
+                                // console.log($this.dataexclist);
                                 for (var i = 0; i < $this.dataexclist.length; i++) {
+                                    var item = $this.dataexclist[i];
+                                    /*点赞相关*/
                                     var item = $this.dataexclist[i];
                                     item.isLike = $this.dataexclist[i].answer.isLike;
                                     item.id = $this.dataexclist[i].answer.id;
                                     item.likenum = $this.dataexclist[i].answer.likeCount;
+                                    /*时间相关*/
+                                    item.createat = $this.dataexclist[i].answer.createat;
+                                    item.createat = new Date(item.createat).app();
+                                    Date.prototype.app=function() {
+                                        var time = this.getTime();
+                                        var now = new Date().getTime();
+                                        var dif = now - time;
+                                        if (dif < 0) return '刚刚';
+                                        if (dif < 10*60*1000) {
+                                            return '刚刚';
+                                        } else if (dif < 60*60*1000) {
+                                            return Math.floor(dif/(1000*60))+'分钟前';
+                                        } else if (dif < 24*60*60*1000) {
+                                            return Math.floor(dif/(1000*60*60))+'小时前';
+                                        } else {
+                                            // if (this.getYear() == new Date().getYear()) {
+                                            //     return (this.getMonth()+1)+'/'+this.getDate();
+                                            // } else {
+                                            //     return this.getFullYear()+'/'+(this.getMonth()+1)+'/'+this.getDate();
+                                            // }
+                                            var FullYear = this.getFullYear();
+                                            var Month = this.getMonth()+1;
+                                            var Day = this.getDate();
+                                            var hours = this.getHours();
+                                            if (hours < 10) { hours = "0" + hours; }
+                                            var Minutes = this.getMinutes();
+                                            var Seconds = this.getSeconds();
+                                            var time = FullYear + '/' + Month + '/' + Day + ' ' + hours + ':' + Minutes + ':' + Seconds;
+                                            return time;
+                                        }
+                                    };
+                                    /*修改后的数据：*/
+                                    $this.dataexclist[i].answer.createat=item.createat;
                                 }
+                                console.log($this.dataexclist);
                             }
                         }
                     });
@@ -354,13 +399,42 @@
                         function callback(datalist) {
                             if (datalist.status == 200) {
                                 $this.datalist = datalist.data.list;
-                                console.log($this.datalist);
                                 for (var i = 0; i < $this.datalist.length; i++) {
                                     var item = $this.datalist[i];
+                                    /*点赞相关*/
                                     item.isLike = $this.datalist[i].answer.isLike;
                                     item.id = $this.datalist[i].answer.id;
                                     item.likenum = $this.datalist[i].answer.likeCount;
+                                    /*时间相关*/
+                                    item.createat = $this.datalist[i].answer.createat;
+                                    item.createat = new Date(item.createat).app();
+                                    Date.prototype.app=function() {
+                                        var time = this.getTime();
+                                        var now = new Date().getTime();
+                                        var dif = now - time;
+                                        if (dif < 0) return '刚刚';
+                                        if (dif < 10*60*1000) {
+                                            return '刚刚';
+                                        } else if (dif < 60*60*1000) {
+                                            return Math.floor(dif/(1000*60))+'分钟前';
+                                        } else if (dif < 24*60*60*1000) {
+                                            return Math.floor(dif/(1000*60*60))+'小时前';
+                                        } else {
+                                            var FullYear = this.getFullYear();
+                                            var Month = this.getMonth()+1;
+                                            var Day = this.getDate();
+                                            var hours = this.getHours();
+                                            if (hours < 10) { hours = "0" + hours; }
+                                            var Minutes = this.getMinutes();
+                                            var Seconds = this.getSeconds();
+                                            var time = FullYear + '/' + Month + '/' + Day + ' ' + hours + ':' + Minutes + ':' + Seconds;
+                                            return time;
+                                        }
+                                    };
+                                    /*修改后的数据：*/
+                                    $this.datalist[i].answer.createat=item.createat;
                                 }
+                                console.log($this.datalist);
                             }
                         }
                     });
@@ -508,8 +582,9 @@
             methods: {
                 menulink: function (id, url) {
                     if (device == "ios" || device == "android") {
-                        ft.production({
-                            id: id
+                        ft.questionDetail({
+                            id: id,
+                            menuurl: url
                         }, function (result) {
                         })
                     } else {
@@ -519,7 +594,7 @@
                 homeuser: function (userId) {
                     if (device == "ios" || device == "android") {
                         ft.tutorInfo({
-                            id: id,
+                            id: userId,
                             type: "0"
                         }, function (result) {
                         })
@@ -530,7 +605,20 @@
                 startbtn: function () {
                     var $this = this;
                     if (device == "ios" || device == "android") {
-                        $this.openlist();
+                        // app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                /*打开隐藏列表*/
+                                $this.openlist();
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
                     } else {
                         $this.openlist();
                         // $this.deeplikopen();

@@ -47,15 +47,6 @@
             <ul class="list">
                 <li v-for="(item,index) in dataexclist">
                     <div class="workdetail">
-                        <!--<div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"-->
-                        <!--class="pageimg1" :style="{backgroundImage: 'url(' + item.imgurl + ')'}"-->
-                        <!--@click="imgclick">-->
-                        <!--<img class="pageimg2" :src="item.imgurl" style="display: none;">-->
-                        <!--</div>-->
-                        <!--<div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.imgurl + ')'}"-->
-                        <!--@click="imgclick">-->
-                        <!--<img class="pageimg2" :src="item.imgurl" style="display: none;">-->
-                        <!--</div>-->
                         <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
                         <div class="userinfo">
                             <div @click="homeuser(item.comment.userId)" class="imgparent">
@@ -126,7 +117,6 @@
     <div class="floatbtn" id="menuup">
         <a v-if="start" @click="startbtn">我要参与</a>
         <a class="over" v-else>活动已结束</a>
-        <span class="device" style="display: none"></span>
     </div>
 </div>
 
@@ -503,7 +493,7 @@
                 homeuser: function (userId) {
                     if (device == "ios" || device == "android") {
                         ft.tutorInfo({
-                            id: id,
+                            id: userId,
                             type: "0"
                         }, function (result) {
                         })
@@ -514,7 +504,20 @@
                 startbtn: function () {
                     var $this = this;
                     if (device == "ios" || device == "android") {
-                        $this.openlist();
+                        // app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                /*打开隐藏列表*/
+                                $this.openlist();
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
                     } else {
                         $this.deeplikopen();
                     }
