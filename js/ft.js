@@ -340,6 +340,14 @@
             },
             callbackId: generateID(),
             callback: noop
+        },
+        workDetail:{
+            name: "workDetail",
+            param: {
+                id: ""//作品id
+            },
+            callbackId: generateID(),
+            callback: noop
         }
 
     };
