@@ -47,7 +47,7 @@
     </div>
 
     <div v-else>
-        <p class="bigtitle" v-if="datainfo.myMenuCount !== 0">
+        <p class="bigtitle" v-if="datainfo.myMenuCount > 0">
             <span>菜谱</span>
             <a @click="deeplikopen">全部</a>
         </p>
@@ -61,14 +61,17 @@
                 </p>
             </li>
         </ul>
-        <p class="bigtitle" v-if="datainfo.myWorkCount !== 0">
+        <p class="bigtitle" v-if="datainfo.myWorkCount > 0">
             <span>作品</span>
             <a @click="deeplikopen">全部</a>
         </p>
         <ul class="workul">
             <li v-for="(item,index) in datawork.workList">
-                <a :href="item.menuUrl" v-if=" parseInt(item.picturePathImageWidth) > parseInt(item.picturePathImageHeight) " class="a1" :style="{backgroundImage: 'url(' + item.picturePath + ')' }"></a>
-                <a :href="item.menuUrl" v-else class="a2" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
+                <a @click="menuUrl(item.menuUrl)" v-if=" parseInt(item.picturePathImageWidth) > parseInt(item.picturePathImageHeight) " class="a1" :style="{backgroundImage: 'url(' + item.picturePath + ')' }"></a>
+                <a @click="menuUrl(item.menuUrl)" v-else class="a2" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"></a>
+                <p class="usertxt" v-html="item.content" @click="menuUrl(item.menuUrl)"></p>
+                <p class="menuname" @click="menuUrl(item.menuUrl)">来自：<span v-html="item.menuName"></span></p>
+                <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
             </li>
         </ul>
     </div>
@@ -98,7 +101,7 @@
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
 <script type="text/javascript" src='../js/deeplink.js'></script>
-<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+<!--<script type="text/javascript" src="../js/ajaxsetup.js"></script>-->
 <script>
     /*获取url*/
     function GetQueryString(name) {
@@ -130,7 +133,7 @@
             /*用户信息*/
             $(document).ready(function () {
                 $.ajax({
-                    url: urlport + 'user/userInfomation',
+                    url: urlport2 + 'user/userInfomation',
                     type: 'POST',
                     data: JSON.stringify({"userId":id}),
                     timeout: 5000, //超时时间
@@ -252,12 +255,12 @@
             /*我的作品*/
             $(document).ready(function () {
                 $.ajax({
-                    url: urlport + 'comment/work/myWork',
+                    url: urlport2 + 'comment/work/myWork',
                     type: 'POST',
                     data: JSON.stringify({
                         "pageNum" : 1,
                         "pageSize" : 6,
-                        "userId" : id
+                        "userId" : 152469
                     }),
                     timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
@@ -307,6 +310,9 @@
                 var month = time.getMonth();
                 var date = time.getDate();
                 return year + '-' + month + '-' + date;
+            },
+            menuUrl: function (menuUrl) {
+                window.location.href = menuUrl;
             },
             deeplikopen: function (obj) {
                 function GetQueryString(name) {

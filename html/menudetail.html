@@ -207,8 +207,7 @@
                 <li v-for="(item,index) in dataother"><a :href="item.url">
                     <div class="menuimg" :style="{backgroundImage: 'url(' + item.images[0] + ')'}"></div>
                     <span class="menuname" v-html="item.name"></span>
-                    <div class="time"
-                         v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"
+                    <div class="time" v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"
                          v-html="item.videoLong"></div>
                     <div class="infonum">
                         <span class="views" v-html="item.pageviews"></span>

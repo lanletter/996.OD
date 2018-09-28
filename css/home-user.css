@@ -138,9 +138,14 @@ header{
 }
 .workul li{
     float: left;
+    width: 3.2rem;
+    height: 5.56rem;
     margin-bottom: 0.4rem;
     margin-right: 0.3rem;
+    border-radius:0.16rem;
+    border:1px solid rgba(237,237,237,1);
     overflow: hidden;
+    position: relative;
 }
 .workul li .a1{
     float: left;
@@ -149,7 +154,7 @@ header{
     background-size:auto 3.2rem;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 0.16rem;
+    border-radius:0.16rem 0.16rem 0 0;
 }
 .workul li .a2{
     float: left;
@@ -158,9 +163,66 @@ header{
     background-size: 3.2rem auto;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 0.16rem;
+    border-radius:0.16rem 0.16rem 0 0;
 }
 
+.workul li .usertxt{
+    position: absolute;
+    top: 3.4rem;
+    left:0.3rem;
+    overflow: hidden;
+    color: #1F1F1F;
+    font-size: 0.24rem;
+    line-height: 0.34rem;
+    height: 0.68rem;
+    width: 2.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;;
+}
+.workul li .menuname{
+    position: absolute;
+    top: 4.24rem;
+    left:0.3rem;
+    max-height: 0.56rem;
+    width: 2.6rem;
+    line-height: 0.28rem;
+    font-size: 0.2rem;
+    font-weight: bold;
+    color:rgba(214,214,214,1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;;
+}
+
+.workul li .likenum {
+    position: absolute;
+    left: 0rem;
+    bottom: 0rem;
+    display: inline-block;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    font-size: 0.24rem;
+    margin: 0.3rem 0.2rem 0.18rem;
+    color: rgb(200, 175, 112);
+}
+
+.workul li .likenum:before {
+    display: inline-block;
+    content: '';
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.08rem;
+    vertical-align: top;
+    background: url('../img/likenum.png') no-repeat;
+    background-size: 0.48rem 0.48rem;
+}
 
 .videoul{
     padding-left:0.4rem;
