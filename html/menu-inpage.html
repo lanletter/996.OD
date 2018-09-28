@@ -350,7 +350,7 @@
             created: function () {
                 var $this = this;
                 $.ajax({
-                    url: urlport2 + 'menu/detail',
+                    url: urlport + 'menu/detail',
                     type: 'POST',
                     data: JSON.stringify({"id": id, "userId": userid}),
                     timeout: 5000, //超时时间
