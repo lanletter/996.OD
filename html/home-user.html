@@ -133,7 +133,7 @@
             /*用户信息*/
             $(document).ready(function () {
                 $.ajax({
-                    url: urlport2 + 'user/userInfomation',
+                    url: urlport + 'user/userInfomation',
                     type: 'POST',
                     data: JSON.stringify({"userId":id}),
                     timeout: 5000, //超时时间
@@ -255,7 +255,7 @@
             /*我的作品*/
             $(document).ready(function () {
                 $.ajax({
-                    url: urlport2 + 'comment/work/myWork',
+                    url: urlport + 'comment/work/myWork',
                     type: 'POST',
                     data: JSON.stringify({
                         "pageNum" : 1,
