@@ -133,22 +133,23 @@
             <ul class="menulist">
                 <li v-for="(item,index) in datalist.workList">
                     <div class="workdetail">
-                        <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"
-                             class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="imgclick">
-                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                        </div>
-                        <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="imgclick">
-                            <img class="pageimg2" :src="item.picturePath" style="display: none;">
-                        </div>
-                        <!--<img class="pageimg"  :src="item.picturePath">-->
-                        <div class="userinfo">
-                            <div @click="homeuser(item.userId)" class="imgparent">
+                        <!--<div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"-->
+                             <!--class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"-->
+                             <!--@click="imgclick">-->
+                            <!--<img class="pageimg2" :src="item.picturePath" style="display: none;">-->
+                        <!--</div>-->
+                        <!--<div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"-->
+                             <!--@click="imgclick">-->
+                            <!--<img class="pageimg2" :src="item.picturePath" style="display: none;">-->
+                        <!--</div>-->
+                        <img class="pageimg"  :src="item.picturePath" @click="deeplikopen">
+                        <div class="userinfo" @click="homeuser(item.userId)">
+                            <div class="imgparent">
                                 <img class="userimg" :src="item.titlePicture">
                             </div>
                             <span v-html="item.nickName"></span>
                         </div>
+                        <p class="usertxt" v-html="item.content" @click="deeplikopen"></p>
                         <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
                     </div>
                 </li>
@@ -163,19 +164,19 @@
         <a class="moreask arrow" @click="deeplikopen">全部<span v-html="dataask.count"></span>个问题</a>
         <div class="listarea" v-if="dataask.count !== 0">
             <ul class="asklist">
-                <li v-for="(item,index) in dataask.answerList" @click="deeplikopen">
+                <li v-for="(item,index) in dataask.answerList">
                     <div class="ask">
-                        <p class="title">
+                        <p class="title" @click="homeuser(item.userId)">
                             <img class="askimg" :src="item.titlePicture">
                             <span v-html="item.nickName"></span><br>
                         </p>
                         <p class="txt" v-html="item.content"></p>
                         <p class="noanswer">
-                            <span class="answerbtn">我要回答</span>
+                            <span class="answerbtn" @click="deeplikopen">我要回答</span>
                             <span class="none" v-if="item.nickNameAnswer == '' ">0 回答</span>
                         </p>
                     </div>
-                    <div class="answer" v-if="item.nickNameAnswer !== '' ">
+                    <div class="answer" v-if="item.nickNameAnswer !== '' " @click="deeplikopen">
                         <div class="best" v-if="item.bestAnswer == 1"></div>
                         <div class="answerinfo">
                             <img class="answerimg" :src="item.titlePictureAnswer">

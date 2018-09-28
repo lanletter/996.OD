@@ -1001,7 +1001,7 @@ img {
     border-radius: 0.16rem;
     overflow: hidden;
     width: 3.06rem;
-    height: 4.66rem;
+    height: 5.56rem;
 }
 
 #menushow .menulist li .workdetail {
@@ -1086,6 +1086,24 @@ img {
     height: 0.48rem;
     border-radius: 50%;
     overflow: hidden;
+}
+
+#menushow .menulist li .usertxt{
+    position: absolute;
+    top: 3.9rem;
+    left:0.3rem;
+    overflow: hidden;
+    color: #1F1F1F;
+    font-size: 0.24rem;
+    line-height: 0.34rem;
+    height: 0.68rem;
+    width: 2.4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp:2;
+    word-break:break-all;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;;
 }
 
 #menushow .likenum {
