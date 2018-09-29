@@ -395,19 +395,21 @@
                     /*GIO参数集合发送完毕*/
 
                     /*分享链接专用*/
-                    var sharetitle = data.title;
-                    var sharedesc = data.desc;
-                    var shareimg = data.picture.path;
-                    var sharestr = data.url;
+                    // console.info($this.data);
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.desc;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = $this.data.url;
                     var sharelink = sharestr.replace(/api/, "h5");
                     var jsoninfo = {
-                        id: data.id,
-                        type: 6,
+                        id: id,
+                        type: 101,
                         sharetitle: sharetitle,
                         sharedesc: sharedesc,
                         shareimg: shareimg,
                         sharelink: sharelink
                     };
+                    console.info(jsoninfo);
                     window.setTimeout(function () {
                         console.info(jsoninfo);
                         /*APP分享专用*/
@@ -504,6 +506,7 @@
                 startbtn: function () {
                     var $this = this;
                     if (device == "ios" || device == "android") {
+                        alert(device);
                         // app交互——获取登录状态
                         ft.isLogin(function (result) {
                             var errorcode = result.errorCode.toString();

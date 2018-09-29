@@ -495,14 +495,15 @@
                     /*GIO参数集合发送完毕*/
 
                     /*分享链接专用*/
-                    var sharetitle = data.title;
-                    var sharedesc = data.desc;
-                    var shareimg = data.picture.path;
-                    var sharestr = data.url;
+                    // console.info($this.data);
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.desc;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = $this.data.url;
                     var sharelink = sharestr.replace(/api/, "h5");
                     var jsoninfo = {
-                        id: data.id,
-                        type: 6,
+                        id: id,
+                        type: 102,
                         sharetitle: sharetitle,
                         sharedesc: sharedesc,
                         shareimg: shareimg,
