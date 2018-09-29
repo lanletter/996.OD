@@ -95,7 +95,7 @@
     </div>
 
     <div class="alertlist" style="display: none;">
-        <ul class="menuul">
+        <ul class="menuul" v-if="datamenu.length > 0">
             <li v-for="(item,index) in datamenu">
                 <a class="urllink" :href="item.url">
                     <img class="menuleft" :style="{backgroundImage: 'url(' + item.picturePath + ')'}">
@@ -109,6 +109,10 @@
                 </a>
             </li>
         </ul>
+        <div class="nomenu" v-else>
+            <img src="../img/empty.png">
+            <p>没有找到相关菜谱</p>
+        </div>
         <div class="floatbtn">
             <a @click="closelist">返回活动详情</a>
         </div>

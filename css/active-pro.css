@@ -642,6 +642,23 @@
     background: url('../img/IconsHeart.png') no-repeat;
     background-size: 0.32rem 0.32rem;
 }
+.nomenu img{
+    display: block;
+    width: 2.46rem;
+    height: 2.46rem;
+    margin: 0 auto;
+    margin-top: 50%;
+}
+.nomenu p{
+    margin-top: 0.72rem;
+    width: 100%;
+    height:0.40rem;
+    font-size:0.28rem;
+    font-weight:bold;
+    color:#9A9A9A;
+    line-height:0.40rem;
+    text-align: center;
+}
 
 /*问答列表页*/
 .noanswer img{
