@@ -41,9 +41,9 @@
         </article>
     </div>
 
-    <div class="worklist">
+    <div class="worklist" v-if="dataexclist.length > 0">
         <h2>优秀作品</h2>
-        <div class="listarea" v-if="dataexclist.length > 0">
+        <div class="listarea">
             <ul class="list">
                 <li v-for="(item,index) in dataexclist">
                     <div class="workdetail">
@@ -66,10 +66,10 @@
             </ul>
         </div>
     </div>
-    <div class="worklist" id="menushow">
+    <div class="worklist" id="menushow" v-if="datalist.length > 0">
         <h2>用户活动作品</h2>
         <a class="moremenu arrow" @click="deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
-        <div class="listarea" v-if="datalist.length > 0">
+        <div class="listarea">
             <ul class="list">
                 <li v-for="(item,index) in datalist">
                     <div class="workdetail">
@@ -276,6 +276,7 @@
                             dataType: 'json', //返回的数据格式
                             success: function (dataexclist) {
                                 console.log("优秀作品：");
+                                console.log(dataexclist);
                                 callback(dataexclist);
                             },
                             error: function (errorMsg) {
@@ -288,11 +289,13 @@
                             if (dataexclist.status == 200) {
                                 $this.dataexclist = dataexclist.data.list;
                                 console.log($this.dataexclist);
-                                for (var i = 0; i < $this.dataexclist.length; i++) {
-                                    var item = $this.dataexclist[i];
-                                    item.isLike = $this.dataexclist[i].comment.isLike;
-                                    item.id = $this.dataexclist[i].comment.id;
-                                    item.likenum = $this.dataexclist[i].comment.likeCount;
+                                if($this.dataexclist !== null){
+                                    for (var i = 0; i < $this.dataexclist.length; i++) {
+                                        var item = $this.dataexclist[i];
+                                        item.isLike = $this.dataexclist[i].comment.isLike;
+                                        item.id = $this.dataexclist[i].comment.id;
+                                        item.likenum = $this.dataexclist[i].comment.likeCount;
+                                    }
                                 }
                             }
                         }
@@ -327,11 +330,13 @@
                             if (datalist.status == 200) {
                                 $this.datalist = datalist.data.list;
                                 console.log($this.datalist);
-                                for (var i = 0; i < $this.datalist.length; i++) {
-                                    var item = $this.datalist[i];
-                                    item.isLike = $this.datalist[i].comment.isLike;
-                                    item.id = $this.datalist[i].comment.id;
-                                    item.likenum = $this.datalist[i].comment.likeCount;
+                                if($this.datalist !== null){
+                                    for (var i = 0; i < $this.datalist.length; i++) {
+                                        var item = $this.datalist[i];
+                                        item.isLike = $this.datalist[i].comment.isLike;
+                                        item.id = $this.datalist[i].comment.id;
+                                        item.likenum = $this.datalist[i].comment.likeCount;
+                                    }
                                 }
                             }
                         }
@@ -359,10 +364,12 @@
                         function callback(datamenu) {
                             if (datamenu.status == 200) {
                                 /*url*/
-                                for (var i = 0; i < datamenu.data.menuList.length; i++) {
-                                    var id = datamenu.data.menuList[i].id;
-                                    urlnew = datamenu.data.menuList[i].url + "&device=" + device + "&jump=jump";
-                                    datamenu.data.menuList[i].url = urlnew;
+                                if(datamenu.data.menuList !== null){
+                                    for (var i = 0; i < datamenu.data.menuList.length; i++) {
+                                        var id = datamenu.data.menuList[i].id;
+                                        urlnew = datamenu.data.menuList[i].url + "&device=" + device + "&jump=jump";
+                                        datamenu.data.menuList[i].url = urlnew;
+                                    }
                                 }
                                 $this.datamenu = datamenu.data.menuList;
                                 console.log("菜谱列表：");
