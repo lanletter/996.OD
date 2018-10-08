@@ -37,8 +37,7 @@
                 <span class="share-count"><strong v-html="data.shareCount"></strong></span>
             </div>
         </header>
-        <article id="instructions" v-html="data.content">
-        </article>
+        <article id="instructions" v-html="contenthtml"></article>
     </div>
 
     <div class="worklist" v-if="dataexclist.length > 0">
@@ -123,6 +122,7 @@
         <a class="over" v-else>活动已结束</a>
     </div>
 </div>
+<div id="instruct" style="display: none"></div>
 
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
@@ -252,17 +252,21 @@
                         "是否登录": isuserid
                     });
 
-                    /*富文本内链接加device，必须放在content内容append后面！*/
-                    var qs = 'device=' + device + '&jump=jump';
-                    $("#instructions").find('a').each(function () {
+                    /*曲线救国富文本*/
+                    var $content = $('#instruct');
+                    $content.append($this.data.content);
+                    /*文章内链接加device，必须放在content内容append后面！*/
+                    var qs = 'device=' + device+'&jump=jump';
+                    $content.find('a').each(function () {
                         var href = $(this).attr('href');
-                        console.log(href);
+                        // console.log(href);
                         if (href) {
                             href += (href.match(/\?/) ? '&' : '?') + qs;
                             $(this).attr('href', href);
-                            console.log(href);
+                            // console.log(href);
                         }
                     });
+                    $this.contenthtml = $content.html();
 
                     /*优秀作品*/
                     $(document).ready(function () {

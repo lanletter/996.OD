@@ -37,8 +37,7 @@
                 <span class="share-count"><strong v-html="data.shareCount"></strong></span>
             </div>
         </header>
-        <article id="instructions" v-html="data.content">
-        </article>
+        <article id="instructions" v-html="contenthtml"></article>
         <div class="asklist" v-if="dataexclist.length > 0">
             <h2>优秀回答</h2>
             <div class="listarea">
@@ -158,9 +157,10 @@
     </div>
 </div>
 
+<div id="instruct" style="display: none"></div>
+
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
-<script type="text/javascript" src='../js/api.js'></script>
 <script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script type="text/javascript" src="../js/ajaxsetup.js"></script>
 <script src="../js/BigPictureOpen.js"></script>
@@ -224,6 +224,7 @@
                 dataexclist: {},
                 datalist: {},
                 dataask: {},
+                contenthtml: {},
                 item: [],
                 isLike: '',
                 likenum: '',
@@ -251,12 +252,9 @@
 
                 function callback(data) {
                     var data = data;
-                    // console.log(data);
+
                     $this.data = data.data;
                     console.log($this.data);
-
-                    var $header = $('.header');
-                    $(".ft-titles .comment_count").text(data.commentCount);
 
                     /*title取值*/
                     var txt = data.title;
@@ -265,6 +263,23 @@
                     } else {
                         $('head title').text(data.title);
                     }
+
+                    /*曲线救国富文本*/
+                    var $content = $('#instruct');
+                    $content.append($this.data.content);
+                    /*文章内链接加device，必须放在content内容append后面！*/
+                    var qs = 'device=' + device+'&jump=jump';
+                    $content.find('a').each(function () {
+                        var href = $(this).attr('href');
+                        // console.log(href);
+                        if (href) {
+                            href += (href.match(/\?/) ? '&' : '?') + qs;
+                            $(this).attr('href', href);
+                            // console.log(href);
+                        }
+                    });
+                    $this.contenthtml = $content.html();
+
 
                     /*活动状态*/
                     endDate = $this.data.endDate;
@@ -286,18 +301,6 @@
                         "页面类型": "活动详情页",
                         "页面名称": data.title,
                         "是否登录": isuserid
-                    });
-
-                    /*文章内链接加device，必须放在content内容append后面！*/
-                    var qs = 'device=' + device + '&jump=jump';
-                    $("#instructions").find('a').each(function () {
-                        var href = $(this).attr('href');
-                        console.log(href);
-                        if (href) {
-                            href += (href.match(/\?/) ? '&' : '?') + qs;
-                            $(this).attr('href', href);
-                            console.log(href);
-                        }
                     });
 
                     /*优秀回答*/

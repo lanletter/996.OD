@@ -144,7 +144,6 @@
             data = res.data;
             console.log(res);
             var $header = $('.header');
-            var $content = $('.content');
             $(".header_img").css("background-image", 'url("' + data.picture.path + '")');
             $api.imgAdapt($header.find('.header__main .img'), data.picture.path);
             $header.find('.header__main .txt').text(data.title);
@@ -211,8 +210,8 @@
                 $header.find('time').text();
             }
 
+            var $content = $('#instructions');
             $content.append(data.content);
-
             /*文章内链接加device，必须放在content内容append后面！*/
             var qs = 'device=' + device+'&jump=jump';
             $content.find('a').each(function () {
@@ -224,7 +223,6 @@
                     console.log(href);
                 }
             });
-
             /*GIO参数集合*/
             //发布时间
             var date = new Date(data.createat);
