@@ -1002,6 +1002,7 @@ img {
     overflow: hidden;
     width: 3.06rem;
     height: 5.56rem;
+    overflow: hidden;
 }
 
 #menushow .menulist li .workdetail {

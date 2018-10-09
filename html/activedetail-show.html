@@ -348,6 +348,42 @@
                                 }
                             }
                         }
+
+                        /*下拉加载更多*/
+                        var windowHeight = $(window).height();
+                        $(window).off('scroll').on('scroll', function () {
+                            var scrollTop = $(window).scrollTop();
+                            var scrollHeight = $(document).height();
+                            // console.log(scrollTop);
+                            // console.log(windowHeight);
+                            // console.log(scrollHeight);
+                            if (scrollTop + windowHeight == scrollHeight) {
+                                pageSize = pageSize + 40;
+                                console.log(pageSize);
+                                $.ajax({
+                                    url: urlport + 'activity/getUserActivityWork',
+                                    type: 'POST',
+                                    data: JSON.stringify({
+                                        "pageNum": 1,
+                                        "pageSize": pageSize,
+                                        "id": id,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式
+                                    success: function (datalist) {
+                                        console.log("用户活动作品：");
+                                        callback(datalist);
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
+                                });
+                            }
+                        });
+                        /*下拉加载结束*/
                     });
 
                     /*参加活动菜谱列表*/

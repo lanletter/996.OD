@@ -201,7 +201,7 @@
                     pageSize = pageSize + 5;
                     console.log(pageSize);
                     $.ajax({
-                        url: urlport + 'activity/list\n',
+                        url: urlport + 'activity/list',
                         type: 'POST',
                         data: JSON.stringify({"pageNum": 1, "pageSize": pageSize}),
                         timeout: 5000, //超时时间

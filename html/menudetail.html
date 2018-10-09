@@ -133,16 +133,8 @@
             <ul class="menulist">
                 <li v-for="(item,index) in datalist.workList">
                     <div class="workdetail">
-                        <!--<div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"-->
-                             <!--class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"-->
-                             <!--@click="imgclick">-->
-                            <!--<img class="pageimg2" :src="item.picturePath" style="display: none;">-->
-                        <!--</div>-->
-                        <!--<div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}"-->
-                             <!--@click="imgclick">-->
-                            <!--<img class="pageimg2" :src="item.picturePath" style="display: none;">-->
-                        <!--</div>-->
-                        <img class="pageimg"  :src="item.picturePath" @click="deeplikopen">
+                        <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)" class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen"></div>
+                        <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen"></div>
                         <div class="userinfo" @click="homeuser(item.userId)">
                             <div class="imgparent">
                                 <img class="userimg" :src="item.titlePicture">
