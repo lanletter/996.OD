@@ -67,7 +67,6 @@
     </div>
     <div class="worklist" id="menushow" v-if="datalist.length > 0">
         <h2>用户活动作品</h2>
-        <a class="moremenu arrow" @click="deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
         <div class="listarea">
             <ul class="list">
                 <li v-for="(item,index) in datalist">
