@@ -310,43 +310,42 @@
 
                     /*用户活动作品*/
                     $(document).ready(function () {
-                        $.ajax({
-                            url: urlport + 'activity/getUserActivityWork',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                "pageNum": 1,
-                                "pageSize": 40,
-                                "id": id,
-                                "userId": userid
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (datalist) {
-                                console.log("用户活动作品：");
-                                // console.log(datalist);
-                                callback(datalist);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
-                            }
-                        });
-
-                        function callback(datalist) {
-                            if (datalist.status == 200) {
-                                $this.datalist = datalist.data.list;
-                                console.log($this.datalist);
-                                if($this.datalist !== null){
-                                    for (var i = 0; i < $this.datalist.length; i++) {
-                                        var item = $this.datalist[i];
-                                        item.isLike = $this.datalist[i].comment.isLike;
-                                        item.id = $this.datalist[i].comment.id;
-                                        item.likenum = $this.datalist[i].comment.likeCount;
+                        var pageSize=40;
+                        function ajaxscoll(pageSize){
+                            $.ajax({
+                                url: urlport + 'activity/getUserActivityWork',
+                                type: 'POST',
+                                data: JSON.stringify({
+                                    "pageNum": 1,
+                                    "pageSize": pageSize,
+                                    "id": id,
+                                    "userId": userid
+                                }),
+                                timeout: 5000, //超时时间
+                                contentType: "application/json;charset=utf-8",
+                                dataType: 'json', //返回的数据格式
+                                success: function (datalist) {
+                                    console.log("用户活动作品：");
+                                    // console.log(datalist);
+                                    if (datalist.status == 200) {
+                                        $this.datalist = datalist.data.list;
+                                        console.log($this.datalist);
+                                        if($this.datalist !== null){
+                                            for (var i = 0; i < $this.datalist.length; i++) {
+                                                var item = $this.datalist[i];
+                                                item.isLike = $this.datalist[i].comment.isLike;
+                                                item.id = $this.datalist[i].comment.id;
+                                                item.likenum = $this.datalist[i].comment.likeCount;
+                                            }
+                                        }
                                     }
+                                },
+                                error: function (errorMsg) {
+                                    console.log('错误');
                                 }
-                            }
+                            });
                         }
+                        ajaxscoll(pageSize);
 
                         /*下拉加载更多*/
                         var windowHeight = $(window).height();
@@ -358,28 +357,7 @@
                             // console.log(scrollHeight);
                             if (scrollTop + windowHeight == scrollHeight) {
                                 pageSize = pageSize + 40;
-                                console.log(pageSize);
-                                $.ajax({
-                                    url: urlport + 'activity/getUserActivityWork',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "pageNum": 1,
-                                        "pageSize": pageSize,
-                                        "id": id,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式
-                                    success: function (datalist) {
-                                        console.log("用户活动作品：");
-                                        callback(datalist);
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
+                                ajaxscoll(pageSize);
                             }
                         });
                         /*下拉加载结束*/

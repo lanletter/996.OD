@@ -377,69 +377,84 @@
 
                     /*问答活动动态*/
                     $(document).ready(function () {
-                        $.ajax({
-                            url: urlport + 'activity/getActivityAnswerDynamic',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                "pageNum": 1,
-                                "pageSize": 40,
-                                "id": id
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (datalist) {
-                                console.log("问答活动动态：");
-                                // console.log(datalist);
-                                callback(datalist);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
+                        var pageSize=40;
+                        function ajaxscoll(pageSize){
+                            $.ajax({
+                                url: urlport + 'activity/getActivityAnswerDynamic',
+                                type: 'POST',
+                                data: JSON.stringify({
+                                    "pageNum": 1,
+                                    "pageSize": pageSize,
+                                    "id": id
+                                }),
+                                timeout: 5000, //超时时间
+                                contentType: "application/json;charset=utf-8",
+                                dataType: 'json', //返回的数据格式
+                                success: function (datalist) {
+                                    console.log("问答活动动态：");
+                                    // console.log(datalist);
+                                    if (datalist.status == 200) {
+                                        $this.datalist = datalist.data.list;
+                                        for (var i = 0; i < $this.datalist.length; i++) {
+                                            var item = $this.datalist[i];
+                                            /*点赞相关*/
+                                            item.isLike = $this.datalist[i].answer.isLike;
+                                            item.id = $this.datalist[i].answer.id;
+                                            item.likenum = $this.datalist[i].answer.likeCount;
+                                            /*时间相关*/
+                                            item.createat = $this.datalist[i].answer.createat;
+                                            item.createat = new Date(item.createat).app();
+                                            Date.prototype.app=function() {
+                                                var time = this.getTime();
+                                                var now = new Date().getTime();
+                                                var dif = now - time;
+                                                if (dif < 0) return '刚刚';
+                                                if (dif < 10*60*1000) {
+                                                    return '刚刚';
+                                                } else if (dif < 60*60*1000) {
+                                                    return Math.floor(dif/(1000*60))+'分钟前';
+                                                } else if (dif < 24*60*60*1000) {
+                                                    return Math.floor(dif/(1000*60*60))+'小时前';
+                                                } else {
+                                                    var FullYear = this.getFullYear();
+                                                    var Month = this.getMonth()+1;
+                                                    var Day = this.getDate();
+                                                    var hours = this.getHours();
+                                                    if (hours < 10) { hours = "0" + hours; }
+                                                    var Minutes = this.getMinutes();
+                                                    var Seconds = this.getSeconds();
+                                                    var time = FullYear + '/' + Month + '/' + Day + ' ' + hours + ':' + Minutes + ':' + Seconds;
+                                                    return time;
+                                                }
+                                            };
+                                            /*修改后的数据：*/
+                                            $this.datalist[i].answer.createat=item.createat;
+                                        }
+                                        console.log($this.datalist);
+                                    }
+                                },
+                                error: function (errorMsg) {
+                                    console.log('错误');
+                                    console.log(errorMsg);
+                                }
+                            });
+                        }
+                        ajaxscoll(pageSize);
+
+                        /*下拉加载更多*/
+                        var windowHeight = $(window).height();
+                        $(window).off('scroll').on('scroll', function () {
+                            var scrollTop = $(window).scrollTop();
+                            var scrollHeight = $(document).height();
+                            // console.log(scrollTop);
+                            // console.log(windowHeight);
+                            // console.log(scrollHeight);
+                            if (scrollTop + windowHeight == scrollHeight) {
+                                pageSize = pageSize + 40;
+                                ajaxscoll(pageSize);
                             }
                         });
-
-                        function callback(datalist) {
-                            if (datalist.status == 200) {
-                                $this.datalist = datalist.data.list;
-                                for (var i = 0; i < $this.datalist.length; i++) {
-                                    var item = $this.datalist[i];
-                                    /*点赞相关*/
-                                    item.isLike = $this.datalist[i].answer.isLike;
-                                    item.id = $this.datalist[i].answer.id;
-                                    item.likenum = $this.datalist[i].answer.likeCount;
-                                    /*时间相关*/
-                                    item.createat = $this.datalist[i].answer.createat;
-                                    item.createat = new Date(item.createat).app();
-                                    Date.prototype.app=function() {
-                                        var time = this.getTime();
-                                        var now = new Date().getTime();
-                                        var dif = now - time;
-                                        if (dif < 0) return '刚刚';
-                                        if (dif < 10*60*1000) {
-                                            return '刚刚';
-                                        } else if (dif < 60*60*1000) {
-                                            return Math.floor(dif/(1000*60))+'分钟前';
-                                        } else if (dif < 24*60*60*1000) {
-                                            return Math.floor(dif/(1000*60*60))+'小时前';
-                                        } else {
-                                            var FullYear = this.getFullYear();
-                                            var Month = this.getMonth()+1;
-                                            var Day = this.getDate();
-                                            var hours = this.getHours();
-                                            if (hours < 10) { hours = "0" + hours; }
-                                            var Minutes = this.getMinutes();
-                                            var Seconds = this.getSeconds();
-                                            var time = FullYear + '/' + Month + '/' + Day + ' ' + hours + ':' + Minutes + ':' + Seconds;
-                                            return time;
-                                        }
-                                    };
-                                    /*修改后的数据：*/
-                                    $this.datalist[i].answer.createat=item.createat;
-                                }
-                                console.log($this.datalist);
-                            }
-                        }
+                        /*下拉加载结束*/
                     });
 
                     /*问答模块列表*/
