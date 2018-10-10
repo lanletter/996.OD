@@ -639,88 +639,59 @@
                 },
                 givePraise: function (item, id, likenum, isLike) {  //点赞
                     var $this = this;
-
-                    /*一次性点赞*/
-                    $this.item = item;
-                    $this.likenum = likenum;
-                    $this.isLike = isLike;
-                    if ($this.isLike == 0) {
-                        $.ajax({
-                            url: urlport + 'like/create',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                "refId": id,
-                                "type": 102,
-                                "userId": userid
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (data) {
-                                console.log(data);
-                                newnum = parseInt(likenum) + 1;
-                                $this.item.likenum = newnum;
-                                $this.item.isLike = 1;
-                                console.log($this.item.likenum);
-                                Vue.set($this.item, likenum, newnum);//改变视图点赞值
-                                Vue.set($this.item, isLike, 1);//改变视图点赞状态
-                                console.log($this.item);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
+                    if (device == "ios" || device == "android") {
+                        // app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                //$api.toast('登陆成功', 2000);
+                                userid = result.data.userId.toString();
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
+                                /*一次性点赞*/
+                                $this.item = item;
+                                $this.likenum = likenum;
+                                $this.isLike = isLike;
+                                if ($this.isLike == 0) {
+                                    $.ajax({
+                                        url: urlport + 'like/create',
+                                        type: 'POST',
+                                        data: JSON.stringify({
+                                            "refId": id,
+                                            "type": 102,
+                                            "userId": userid
+                                        }),
+                                        timeout: 5000, //超时时间
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: 'json', //返回的数据格式
+                                        success: function (data) {
+                                            console.log(data);
+                                            newnum = parseInt(likenum) + 1;
+                                            $this.item.likenum = newnum;
+                                            $this.item.isLike = 1;
+                                            console.log($this.item.likenum);
+                                            Vue.set($this.item, likenum, newnum);//改变视图点赞值
+                                            Vue.set($this.item, isLike, 1);//改变视图点赞状态
+                                            console.log($this.item);
+                                        },
+                                        error: function (errorMsg) {
+                                            console.log('错误');
+                                            console.log(errorMsg);
+                                        }
+                                    });
+                                }
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
                             }
                         });
+                    } else {
+                        $this.deeplikopen();
                     }
-                    // app交互——获取登录状态
-                    // ft.isLogin(function (result) {
-                    //     var errorcode = result.errorCode.toString();
-                    //     if (errorcode == "1") {
-                    //         //$api.toast('登陆成功', 2000);
-                    //         userid = result.data.userId.toString();
-                    //         if (userid !== "1" && userid !== 1) {
-                    //             token = result.data.token.toString();
-                    //         }
-                    //         /*一次性点赞*/
-                    //         $this.item = item;
-                    //         $this.likenum = likenum;
-                    //         $this.isLike = isLike;
-                    //         if ($this.isLike == 0) {
-                    //             $.ajax({
-                    //                 url: urlport + 'like/create',
-                    //                 type: 'POST',
-                    //                 data: JSON.stringify({
-                    //                     "refId": id,
-                    //                     "type": 101,
-                    //                     "userId": userid
-                    //                 }),
-                    //                 timeout: 5000, //超时时间
-                    //                 contentType: "application/json;charset=utf-8",
-                    //                 dataType: 'json', //返回的数据格式
-                    //                 success: function (data) {
-                    //                     console.log(data);
-                    //                     newnum = parseInt(likenum) + 1;
-                    //                     $this.item.likenum = newnum;
-                    //                     $this.item.isLike = 1;
-                    //                     console.log($this.item.likenum);
-                    //                     Vue.set($this.item, likenum, newnum);//改变视图点赞值
-                    //                     Vue.set($this.item, isLike, 1);//改变视图点赞状态
-                    //                     console.log($this.item);
-                    //                 },
-                    //                 error: function (errorMsg) {
-                    //                     console.log('错误');
-                    //                     console.log(errorMsg);
-                    //                 }
-                    //             });
-                    //         }
-                    //     } else if (errorCode == "0") {
-                    //         $api.toast('登陆取消', 2000);
-                    //     } else if (errorCode == "-1") {
-                    //         $api.toast('登陆失败', 2000);
-                    //     } else if (errorCode == "-2") {
-                    //         $api.toast('登陆不支持', 2000);
-                    //     }
-                    // });
 
                 },
                 deeplikopen: function (obj) {
