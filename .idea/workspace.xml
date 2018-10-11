@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复bug:跳转用户type错误">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复bug:跳转添加jump参数">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/activedetail-ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-ask.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/activedetail-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/active-pro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/active-pro.css" afterDir="false" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,13 +23,13 @@
     <session id="1033080811">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="3" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -50,18 +49,18 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1742" />
+          <entry key="css" value="1757" />
           <entry key="html" value="2649" />
           <entry key="js" value="41" />
-          <entry key="txt" value="232" />
+          <entry key="txt" value="241" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1742" />
+          <entry key="CSS" value="1757" />
           <entry key="HTML" value="2649" />
           <entry key="JavaScript" value="41" />
-          <entry key="PLAIN_TEXT" value="232" />
+          <entry key="PLAIN_TEXT" value="241" />
         </counts>
       </usages-collector>
     </session>
@@ -74,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+            <state relative-caret-position="578">
+              <caret line="552" column="28" lean-forward="true" selection-start-line="552" selection-start-column="28" selection-end-line="552" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -90,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/fotile-WX/activelist.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="85" column="29" lean-forward="true" selection-start-line="85" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
+            <state relative-caret-position="1275">
+              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -99,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="644" column="21" lean-forward="true" selection-start-line="644" selection-start-column="21" selection-end-line="644" selection-end-column="21" />
+            <state relative-caret-position="311">
+              <caret line="642" column="30" selection-start-line="642" selection-start-column="30" selection-end-line="642" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -113,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="371" column="45" lean-forward="true" selection-start-line="371" selection-start-column="45" selection-end-line="371" selection-end-column="45" />
+            <state relative-caret-position="5565">
+              <caret line="371" column="45" selection-start-line="371" selection-start-column="45" selection-end-line="371" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -122,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/active-pro.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="140" column="29" lean-forward="true" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+            <state relative-caret-position="250">
+              <caret line="575" column="28" lean-forward="true" selection-start-line="575" selection-start-column="28" selection-end-line="575" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -141,7 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ft</find>
       <find>openlist</find>
       <find>noanswer</find>
       <find>datamenu</find>
@@ -171,6 +169,7 @@
       <find>btn</find>
       <find>我要回答</find>
       <find>imgparent</find>
+      <find>menuul</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -540,14 +539,8 @@
       <workItem from="1537410848095" duration="21577000" />
       <workItem from="1537840650062" duration="40155000" />
       <workItem from="1538034734314" duration="22006000" />
-      <workItem from="1538980871501" duration="18370000" />
-    </task>
-    <task id="LOCAL-00329" summary="bug调试">
-      <created>1532313259244</created>
-      <option name="number" value="00329" />
-      <option name="presentableId" value="LOCAL-00329" />
-      <option name="project" value="LOCAL" />
-      <updated>1532313259244</updated>
+      <workItem from="1538980871501" duration="18859000" />
+      <workItem from="1539248912772" duration="470000" />
     </task>
     <task id="LOCAL-00330" summary="bug调试">
       <created>1532314268791</created>
@@ -885,16 +878,45 @@
       <option name="project" value="LOCAL" />
       <updated>1539242138149</updated>
     </task>
-    <option name="localTasksCounter" value="378" />
+    <task id="LOCAL-00378" summary="修复bug:跳转添加jump参数">
+      <created>1539243037800</created>
+      <option name="number" value="00378" />
+      <option name="presentableId" value="LOCAL-00378" />
+      <option name="project" value="LOCAL" />
+      <updated>1539243037800</updated>
+    </task>
+    <option name="localTasksCounter" value="379" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2790762000" />
+    <option name="totallyTimeSpent" value="2791721000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="431" y="23" width="1009" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23481782" />
+      <window_info id="Structure" order="1" sideWeight="0.499316" weight="0.25" />
+      <window_info id="Favorites" order="2" sideWeight="0.500684" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32166892" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32837838" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="调试" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49566296" weight="0.091530055" />
+      <window_info anchor="bottom" id="运行" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49722221" weight="0.30191258" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32968536" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5043371" side_tool="true" weight="0.09295775" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23481782" />
       <window_info id="Structure" order="1" sideWeight="0.499316" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.500684" side_tool="true" weight="0.25" />
@@ -911,28 +933,6 @@
       <window_info anchor="bottom" id="运行" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49722221" weight="0.30191258" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32968536" />
-      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5043371" side_tool="true" weight="0.09295775" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24395373" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32166892" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32837838" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="调试" order="7" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49566296" weight="0.09418283" />
-      <window_info anchor="bottom" id="运行" order="10" />
-      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49722221" weight="0.30191258" />
-      <window_info anchor="bottom" id="Terminal" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5043371" side_tool="true" weight="0.09295775" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -956,7 +956,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="注册登录加版本号" />
     <MESSAGE value="全部页面加版本号" />
     <MESSAGE value="436版请求头" />
     <MESSAGE value="新增官网活动页面" />
@@ -981,7 +980,8 @@
     <MESSAGE value="修复分页bug" />
     <MESSAGE value="修复bug:跳转用户type错误" />
     <MESSAGE value="修复bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复bug" />
+    <MESSAGE value="修复bug:跳转添加jump参数" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复bug:跳转添加jump参数" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1210,9 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="250" column="21" lean-forward="true" selection-start-line="250" selection-start-column="21" selection-end-line="250" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1266,13 +1263,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/fotile-WX/activelist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="85" column="29" lean-forward="true" selection-start-line="85" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -1280,24 +1270,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/active-pro.css">
+    <entry file="file://$PROJECT_DIR$/html/fotile-WX/activelist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="140" column="29" lean-forward="true" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+        <state relative-caret-position="1275">
+          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/menu-inpage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="371" column="45" lean-forward="true" selection-start-line="371" selection-start-column="45" selection-end-line="371" selection-end-column="45" />
+        <state relative-caret-position="5565">
+          <caret line="371" column="45" selection-start-line="371" selection-start-column="45" selection-end-line="371" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/active-pro.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="575" column="28" lean-forward="true" selection-start-line="575" selection-start-column="28" selection-end-line="575" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
+        <state relative-caret-position="578">
+          <caret line="552" column="28" lean-forward="true" selection-start-line="552" selection-start-column="28" selection-end-line="552" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1310,8 +1307,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="644" column="21" lean-forward="true" selection-start-line="644" selection-start-column="21" selection-end-line="644" selection-end-column="21" />
+        <state relative-caret-position="311">
+          <caret line="642" column="30" selection-start-line="642" selection-start-column="30" selection-end-line="642" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
