@@ -95,7 +95,7 @@
     <div class="alertlist" style="display: none;">
         <ul class="menuul" v-if="datamenu.length > 0">
             <li v-for="(item,index) in datamenu">
-                <a class="urllink" :href="item.url">
+                <a class="urllink" :href="item.url+'&jump=jump'">
                     <img class="menuleft" :style="{backgroundImage: 'url(' + item.picturePath + ')'}">
                     <div class="menuright">
                         <p class="name" v-html="item.name"></p>

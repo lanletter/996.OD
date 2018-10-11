@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复分页bug">
+    <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复bug:跳转用户type错误">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/activedetail-ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-ask.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/activedetail-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-show.html" afterDir="false" />
@@ -51,17 +51,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1742" />
-          <entry key="html" value="2632" />
+          <entry key="html" value="2649" />
           <entry key="js" value="41" />
-          <entry key="txt" value="219" />
+          <entry key="txt" value="232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1742" />
-          <entry key="HTML" value="2632" />
+          <entry key="HTML" value="2649" />
           <entry key="JavaScript" value="41" />
-          <entry key="PLAIN_TEXT" value="219" />
+          <entry key="PLAIN_TEXT" value="232" />
         </counts>
       </usages-collector>
     </session>
@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="31" />
+            <state relative-caret-position="248">
+              <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
+            <state relative-caret-position="253">
+              <caret line="644" column="21" lean-forward="true" selection-start-line="644" selection-start-column="21" selection-end-line="644" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -141,9 +141,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>urlport2</find>
-      <find>data</find>
-      <find>url</find>
       <find>ft</find>
       <find>openlist</find>
       <find>noanswer</find>
@@ -171,6 +168,9 @@
       <find>pageSize</find>
       <find>callback</find>
       <find>type</find>
+      <find>btn</find>
+      <find>我要回答</find>
+      <find>imgparent</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -251,7 +251,7 @@
     <option name="x" value="431" />
     <option name="y" value="23" />
     <option name="width" value="1009" />
-    <option name="height" value="815" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -540,21 +540,7 @@
       <workItem from="1537410848095" duration="21577000" />
       <workItem from="1537840650062" duration="40155000" />
       <workItem from="1538034734314" duration="22006000" />
-      <workItem from="1538980871501" duration="15719000" />
-    </task>
-    <task id="LOCAL-00327" summary="bug调试">
-      <created>1531986922546</created>
-      <option name="number" value="00327" />
-      <option name="presentableId" value="LOCAL-00327" />
-      <option name="project" value="LOCAL" />
-      <updated>1531986922546</updated>
-    </task>
-    <task id="LOCAL-00328" summary="bug调试">
-      <created>1532311806508</created>
-      <option name="number" value="00328" />
-      <option name="presentableId" value="LOCAL-00328" />
-      <option name="project" value="LOCAL" />
-      <updated>1532311806509</updated>
+      <workItem from="1538980871501" duration="18370000" />
     </task>
     <task id="LOCAL-00329" summary="bug调试">
       <created>1532313259244</created>
@@ -885,14 +871,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539165535151</updated>
     </task>
-    <option name="localTasksCounter" value="376" />
+    <task id="LOCAL-00376" summary="修复bug:跳转用户type错误">
+      <created>1539238885399</created>
+      <option name="number" value="00376" />
+      <option name="presentableId" value="LOCAL-00376" />
+      <option name="project" value="LOCAL" />
+      <updated>1539238885399</updated>
+    </task>
+    <task id="LOCAL-00377" summary="修复bug">
+      <created>1539242138149</created>
+      <option name="number" value="00377" />
+      <option name="presentableId" value="LOCAL-00377" />
+      <option name="project" value="LOCAL" />
+      <updated>1539242138149</updated>
+    </task>
+    <option name="localTasksCounter" value="378" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2788111000" />
+    <option name="totallyTimeSpent" value="2790762000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="431" y="23" width="1009" height="815" extended-state="0" />
+    <frame x="431" y="23" width="1009" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23481782" />
@@ -907,7 +907,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="调试" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49566296" visible="true" weight="0.092669435" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49566296" visible="true" weight="0.091530055" />
       <window_info anchor="bottom" id="运行" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49722221" weight="0.30191258" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.32968536" />
@@ -956,7 +956,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="注册登录test" />
     <MESSAGE value="注册登录加版本号" />
     <MESSAGE value="全部页面加版本号" />
     <MESSAGE value="436版请求头" />
@@ -979,9 +978,10 @@
     <MESSAGE value="增加空菜谱占位图" />
     <MESSAGE value="活动详情增加曲线救国富文本处理" />
     <MESSAGE value="去掉全部" />
-    <MESSAGE value="修复bug" />
     <MESSAGE value="修复分页bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复分页bug" />
+    <MESSAGE value="修复bug:跳转用户type错误" />
+    <MESSAGE value="修复bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复bug" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -1296,8 +1296,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="31" />
+        <state relative-caret-position="248">
+          <caret line="96" column="49" lean-forward="true" selection-start-line="96" selection-start-column="49" selection-end-line="96" selection-end-column="49" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1310,8 +1310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="616" column="36" selection-start-line="616" selection-start-column="36" selection-end-line="616" selection-end-column="36" />
+        <state relative-caret-position="253">
+          <caret line="644" column="21" lean-forward="true" selection-start-line="644" selection-start-column="21" selection-end-line="644" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />

@@ -122,7 +122,7 @@
     <div class="alertlist listarea" style="display: none;">
         <ul class="listul" v-if="dataask.length > 0">
             <li v-for="item in dataask">
-                <a :href="item.url">
+                <a :href="item.url + '&jump=jump'">
                     <div class="ask">
                         <div class="title">
                             <img class="askimg" :src="item.picturePath">
