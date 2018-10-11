@@ -51,7 +51,7 @@
                             <div @click="homeuser(item.comment.userId)" class="imgparent">
                                 <img class="userimg" :src="item.comment.userInfomation.titlePicture">
                             </div>
-                            <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)" class="imgparent"></span>
+                            <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)"></span>
                         </div>
                         <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
                             我做的特别好，你们快 来也可以试试来也可以试试</p>
@@ -76,7 +76,7 @@
                             <div @click="homeuser(item.comment.userId)" class="imgparent">
                                 <img class="userimg" :src="item.comment.userInfomation.titlePicture">
                             </div>
-                            <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)" class="imgparent"></span>
+                            <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)"></span>
                         </div>
                         <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
                             我做的特别好，你们快 来也可以试试来也可以试试</p>
