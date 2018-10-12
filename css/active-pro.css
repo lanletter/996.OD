@@ -680,29 +680,28 @@
     text-align: center;
 }
 .listul{
-    height: 9.5rem;
+    height: 100%;
     width: 7.1rem;
     display: block;
     margin:1.86rem 0 2.66rem 0.4rem!important;
     overflow-y: auto;
 }
 
-.listul li {
+.listul .listli {
     display: block;
     cursor: pointer;
     padding-bottom: 0.4rem;
     margin-bottom: 0.4rem;
     border-bottom: 1px solid rgb(237, 237, 237);
+    overflow: hidden;
+}
+.listul .listli:last-child {
+    padding-bottom: 3.6rem;
+    border-bottom: none;
 }
 .listul li a{
     display: block;
     overflow: hidden;
-}
-
-.listul li:last-child {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: none;
 }
 
 .listul .ask .title {

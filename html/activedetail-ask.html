@@ -113,7 +113,7 @@
 
     <div class="alertlist listarea" style="display: none;">
         <ul class="listul" v-if="dataask.length > 0">
-            <li v-for="item in dataask">
+            <li class="listli" v-for="item in dataask">
                 <a :href="item.url + '&jump=jump'">
                     <div class="ask">
                         <div class="title">
@@ -127,7 +127,8 @@
                         <div class="listlist" v-for="index in item.answerList">
                             <p class="content" v-html="index.content"></p>
                             <p class="num">
-                                <span class="answerCount">已有{{index.count}}人回答</span>
+                                <span class="answerCount" v-if="index.count == 0">还没有人解答</span>
+                                <span class="answerCount" v-else>已有{{index.count}}人回答</span>
                             </p>
                         </div>
                     </div>
