@@ -48,7 +48,7 @@
                                 <img class="askimg" @click="homeuser(item.answer.userId)"
                                      :src="item.answer.userInfomation.titlePicture">
                                 <div class="userinfo">
-                                    <div class="name" v-html="item.answer.userInfomation.nickName"></div>
+                                    <div class="name" v-html="item.answer.userInfomation.nickName" @click="homeuser(item.answer.userId)"></div>
                                     <div class="time" v-html="item.answer.createat"></div>
                                 </div>
                                 <!--<span class="likeCount" v-html="item.answer.likeCount"></span>-->
@@ -82,7 +82,7 @@
                                 <img class="askimg" @click="homeuser(item.answer.userId)"
                                      :src="item.answer.userInfomation.titlePicture">
                                 <div class="userinfo">
-                                    <div class="name" v-html="item.answer.userInfomation.nickName"></div>
+                                    <div class="name" v-html="item.answer.userInfomation.nickName" @click="homeuser(item.answer.userId)"></div>
                                     <div class="time" v-html="item.answer.createat"></div>
                                 </div>
                                 <!--<span class="likeCount" v-html="item.answer.likeCount"></span>-->
