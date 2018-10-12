@@ -122,7 +122,7 @@
                             <div class="btn">前往回答</div>
                         </div>
                     </div>
-                    <div class="answer" v-if="item.nickNameAnswer !== '' ">
+                    <div class="answer" v-if="item.answerList.length > 0 ">
                         <div class="best" v-if="item.bestAnswer == 1"></div>
                         <div class="listlist" v-for="index in item.answerList">
                             <p class="content" v-html="index.content"></p>
