@@ -60,10 +60,6 @@
                             </div>
                             <p class="txt">回答了<span>[<b v-html="item.question.title"></b>]</span>中的提问：<span
                                     v-html="item.answer.content"></span></p>
-                            <!--<p class="noanswer" v-if="item.nickNameAnswer == '' ">-->
-                            <!--<span>0 回答</span>-->
-                            <!--<span>我要回答</span>-->
-                            <!--</p>-->
                         </div>
                         <div class="answer" @click="menulink(item.question.id,item.question.url)">
                             <div class="answerinfo">
@@ -98,10 +94,6 @@
                             </div>
                             <p class="txt">回答了<span>[<b v-html="item.question.title"></b>]</span>中的提问：<span
                                     v-html="item.answer.content"></span></p>
-                            <!--<p class="noanswer" v-if="item.nickNameAnswer == '' ">-->
-                            <!--<span>0 回答</span>-->
-                            <!--<span>我要回答</span>-->
-                            <!--</p>-->
                         </div>
                         <div class="answer" @click="menulink(item.question.id,item.question.url)">
                             <div class="answerinfo">
@@ -127,7 +119,7 @@
                         <div class="title">
                             <img class="askimg" :src="item.picturePath">
                             <div class="userinfo" v-html="item.name"></div>
-                            <div class="btn">我要回答</div>
+                            <div class="btn">前往回答</div>
                         </div>
                     </div>
                     <div class="answer" v-if="item.nickNameAnswer !== '' ">
@@ -221,9 +213,9 @@
             el: '.avtive',
             data: {
                 data: {},
-                dataexclist: {},
-                datalist: {},
-                dataask: {},
+                dataexclist: [],
+                datalist: [],
+                dataask: [],
                 contenthtml: {},
                 item: [],
                 isLike: '',
@@ -257,11 +249,11 @@
                     console.log($this.data);
 
                     /*title取值*/
-                    var txt = data.title;
+                    var txt = $this.data.title;
                     if (txt == undefined) {
                         $('head title').text("活动详情");
                     } else {
-                        $('head title').text(data.title);
+                        $('head title').text($this.data.title);
                     }
 
                     /*曲线救国富文本*/
@@ -299,7 +291,7 @@
                     }
                     UMAnalyticsAgent.trackWithProperty("h5页面访问", {
                         "页面类型": "活动详情页",
-                        "页面名称": data.title,
+                        "页面名称": $this.data.title,
                         "是否登录": isuserid
                     });
 
@@ -316,7 +308,7 @@
                             dataType: 'json', //返回的数据格式
                             success: function (dataexclist) {
                                 console.log("优秀回答：");
-                                // console.log(dataexclist);
+                                console.log(dataexclist);
                                 callback(dataexclist);
                             },
                             error: function (errorMsg) {
@@ -472,21 +464,17 @@
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式
                             success: function (dataask) {
-                                callback(dataask);
+                                if (dataask.status == 200) {
+                                    $this.dataask = dataask.data.list;
+                                    console.log("问答列表：");
+                                    console.log($this.dataask);
+                                }
                             },
                             error: function (errorMsg) {
                                 console.log('错误');
                                 console.log(errorMsg);
                             }
                         });
-
-                        function callback(dataask) {
-                            if (dataask.status == 200) {
-                                $this.dataask = dataask.data.list;
-                                console.log("问答列表：");
-                                console.log($this.dataask);
-                            }
-                        }
                     });
 
                     /*GIO参数集合*/
@@ -503,10 +491,10 @@
 
                     //custom page code begin here
                     gio("page.set", "activity", "活动");//页面类型
-                    gio("page.set", "ID", data.id);//id
-                    gio("page.set", "titleactivity", data.title);//标题
+                    gio("page.set", "ID", $this.data.id);//id
+                    gio("page.set", "titleactivity", $this.data.title);//标题
                     gio("page.set", "creattime", creattime);//发布时间
-                    gio("page.set", "commentCount", data.commentCount);//类型
+                    gio("page.set", "commentCount", $this.data.commentCount);//类型
                     //custom page code end here
                     gio('send');
 
@@ -640,8 +628,8 @@
                             }
                         });
                     } else {
-                        // $this.openlist();
-                        $this.deeplikopen();
+                        $this.openlist();
+                        // $this.deeplikopen();
                     }
                 },
                 openlist: function () {

@@ -106,6 +106,18 @@
                     </div>
                 </a>
             </li>
+            <li v-for="(item,index) in datamenu">
+                <a class="urllink" :href="item.url+'&jump=jump'">
+                    <img class="menuleft" :style="{backgroundImage: 'url(' + item.picturePath + ')'}">
+                    <div class="menuright">
+                        <p class="name" v-html="item.name"></p>
+                        <p class="num">
+                            <span class="viewnum" v-html="item.viewCount"></span>
+                            <span class="collectnum" v-html="item.favoriteCount"></span>
+                        </p>
+                    </div>
+                </a>
+            </li>
         </ul>
         <div class="nomenu" v-else>
             <img src="../img/empty.png">
@@ -551,7 +563,8 @@
                             }
                         });
                     } else {
-                        $this.deeplikopen();
+                        $this.openlist();
+                        // $this.deeplikopen();
                     }
                 },
                 openlist: function () {
