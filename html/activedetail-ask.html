@@ -337,7 +337,7 @@
                                         var now = new Date().getTime();
                                         var dif = now - time;
                                         if (dif < 0) return '刚刚';
-                                        if (dif < 10*60*1000) {
+                                        if (dif < 10*1000) {
                                             return Math.floor(dif/(1000*10))+'秒前';
                                         } else if (dif < 60*60*1000) {
                                             return Math.floor(dif/(1000*60))+'分钟前';
