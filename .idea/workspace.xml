@@ -98,8 +98,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="339" column="52" selection-start-line="339" selection-start-column="52" selection-end-line="339" selection-end-column="52" />
+            <state relative-caret-position="216">
+              <caret line="404" column="68" lean-forward="true" selection-start-line="404" selection-start-column="68" selection-end-line="404" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -163,7 +163,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>instructions</find>
       <find>instruct</find>
       <find>activity/list</find>
       <find>urlport</find>
@@ -193,6 +192,7 @@
       <find>ajaxsetup</find>
       <find>ajax</find>
       <find>token</find>
+      <find>刚刚</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -565,21 +565,7 @@
       <workItem from="1538980871501" duration="18859000" />
       <workItem from="1539248912772" duration="4263000" />
       <workItem from="1539312282032" duration="9682000" />
-      <workItem from="1539592110649" duration="305000" />
-    </task>
-    <task id="LOCAL-00338" summary="bug">
-      <created>1532398535024</created>
-      <option name="number" value="00338" />
-      <option name="presentableId" value="LOCAL-00338" />
-      <option name="project" value="LOCAL" />
-      <updated>1532398535025</updated>
-    </task>
-    <task id="LOCAL-00339" summary="bug">
-      <created>1532418752383</created>
-      <option name="number" value="00339" />
-      <option name="presentableId" value="LOCAL-00339" />
-      <option name="project" value="LOCAL" />
-      <updated>1532418752383</updated>
+      <workItem from="1539592110649" duration="2001000" />
     </task>
     <task id="LOCAL-00340" summary="bug">
       <created>1532489805128</created>
@@ -910,11 +896,25 @@
       <option name="project" value="LOCAL" />
       <updated>1539333207635</updated>
     </task>
-    <option name="localTasksCounter" value="387" />
+    <task id="LOCAL-00387" summary="修复bug">
+      <created>1539673045745</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1539673045745</updated>
+    </task>
+    <task id="LOCAL-00388" summary="修复bug">
+      <created>1539684928538</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1539684928538</updated>
+    </task>
+    <option name="localTasksCounter" value="389" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2805501000" />
+    <option name="totallyTimeSpent" value="2807197000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="431" y="23" width="1009" height="821" extended-state="0" />
@@ -1310,8 +1310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="339" column="52" selection-start-line="339" selection-start-column="52" selection-end-line="339" selection-end-column="52" />
+        <state relative-caret-position="216">
+          <caret line="404" column="68" lean-forward="true" selection-start-line="404" selection-start-column="68" selection-end-line="404" selection-end-column="68" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
