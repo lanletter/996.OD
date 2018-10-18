@@ -89,7 +89,6 @@
                 <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
             </ul>
         </div>
-        <button class="menushowbtn" @click="deeplikopen">我要晒作品</button>
     </div>
 
     <div class="alertlist" style="display: none;">
@@ -187,8 +186,8 @@
             data: {
                 data: {},
                 dataexclist: [],
-                datalist: {},
-                datamenu: {},
+                datalist: [],
+                datamenu: [],
                 item: [],
                 isLike: '',
                 likenum: '',
@@ -395,6 +394,7 @@
                                 $this.datamenu = datamenu.data.menuList;
                                 console.log("菜谱列表：");
                                 console.log($this.datamenu);
+                                console.log($this.datamenu.length);
                             }
                         }
                     });
@@ -551,8 +551,8 @@
                             }
                         });
                     } else {
-                        // $this.openlist();
-                        $this.deeplikopen();
+                        $this.openlist();
+                        // $this.deeplikopen();
                     }
                 },
                 openlist: function () {
