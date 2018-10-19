@@ -768,8 +768,9 @@
     height:0.50rem;
     line-height: 0.5rem;
     text-align: center;
+    font-size: 0.24rem;
     color: #ffffff;
-    background:rgba(21,146,74,1);
+    background:#15924A;
     border-radius:0.25rem;
 }
 

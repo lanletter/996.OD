@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/active-pro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/active-pro.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/activedetail-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-show.html" afterDir="false" />
     </list>
     <ignored path="fotilestyle.iws" />
@@ -35,30 +36,30 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="active-pro" value="1" />
-          <entry key="css" value="16" />
-          <entry key="html" value="43" />
+          <entry key="css" value="17" />
+          <entry key="html" value="44" />
           <entry key="js" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="17" />
-          <entry key="HTML" value="43" />
+          <entry key="CSS" value="18" />
+          <entry key="HTML" value="44" />
           <entry key="JavaScript" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="1820" />
-          <entry key="html" value="2826" />
+          <entry key="css" value="1836" />
+          <entry key="html" value="2856" />
           <entry key="js" value="41" />
           <entry key="txt" value="244" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1820" />
-          <entry key="HTML" value="2826" />
+          <entry key="CSS" value="1836" />
+          <entry key="HTML" value="2856" />
           <entry key="JavaScript" value="41" />
           <entry key="PLAIN_TEXT" value="244" />
         </counts>
@@ -70,11 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="88" column="26" lean-forward="true" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
+            <state relative-caret-position="265">
+              <caret line="552" column="33" selection-start-line="552" selection-start-column="33" selection-end-line="552" selection-end-column="33" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -87,10 +88,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/fotile-WX/activelist.html">
+        <entry file="file://$PROJECT_DIR$/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
+            <state relative-caret-position="223">
+              <caret line="328" column="1" selection-start-line="328" selection-start-column="1" selection-end-line="328" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="548" column="44" lean-forward="true" selection-start-line="548" selection-end-line="549" />
             </state>
           </provider>
         </entry>
@@ -98,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5565">
-              <caret line="371" column="51" selection-start-line="371" selection-start-column="51" selection-end-line="371" selection-end-column="51" />
+            <state relative-caret-position="248">
+              <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -150,11 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/active-pro.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8715">
-              <caret line="581" column="1" lean-forward="true" selection-start-line="581" selection-start-column="1" selection-end-line="581" selection-end-column="1" />
+            <state relative-caret-position="327">
+              <caret line="770" column="23" lean-forward="true" selection-start-line="770" selection-start-column="23" selection-end-line="770" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -172,11 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>givePraise</find>
-      <find>$content</find>
-      <find>deeplikopen</find>
-      <find>pageSize</find>
-      <find>type</find>
       <find>btn</find>
       <find>imgparent</find>
       <find>data.title</find>
@@ -200,8 +205,13 @@
       <find>datamenu</find>
       <find>datalist</find>
       <find>length</find>
-      <find>dataexclist</find>
       <find>callback</find>
+      <find>我要晒作品</find>
+      <find>over</find>
+      <find>userInfomation</find>
+      <find>dataexclist</find>
+      <find>css</find>
+      <find>html,body</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -266,9 +276,9 @@
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/js/url.js" />
-        <option value="$PROJECT_DIR$/css/active-pro.css" />
         <option value="$PROJECT_DIR$/html/activedetail-ask.html" />
         <option value="$PROJECT_DIR$/html/activedetail-show.html" />
+        <option value="$PROJECT_DIR$/css/active-pro.css" />
       </list>
     </option>
   </component>
@@ -278,10 +288,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="821" />
+    <option name="height" value="813" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -574,21 +584,7 @@
       <workItem from="1539248912772" duration="4263000" />
       <workItem from="1539312282032" duration="9682000" />
       <workItem from="1539592110649" duration="6862000" />
-      <workItem from="1539858509605" duration="14000" />
-    </task>
-    <task id="LOCAL-00342" summary="去掉单位换算说明入口，积分兑换背景色bug">
-      <created>1533176794632</created>
-      <option name="number" value="00342" />
-      <option name="presentableId" value="LOCAL-00342" />
-      <option name="project" value="LOCAL" />
-      <updated>1533176794632</updated>
-    </task>
-    <task id="LOCAL-00343" summary="v437基本完成">
-      <created>1533544494029</created>
-      <option name="number" value="00343" />
-      <option name="presentableId" value="LOCAL-00343" />
-      <option name="project" value="LOCAL" />
-      <updated>1533544494030</updated>
+      <workItem from="1539858509605" duration="4567000" />
     </task>
     <task id="LOCAL-00344" summary="注册登录test">
       <created>1534321591364</created>
@@ -919,21 +915,35 @@
       <option name="project" value="LOCAL" />
       <updated>1539685532265</updated>
     </task>
-    <option name="localTasksCounter" value="391" />
+    <task id="LOCAL-00391" summary="修复bug">
+      <created>1539858534775</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1539858534775</updated>
+    </task>
+    <task id="LOCAL-00392" summary="修复bug">
+      <created>1539919862172</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1539919862173</updated>
+    </task>
+    <option name="localTasksCounter" value="393" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2812072000" />
+    <option name="totallyTimeSpent" value="2816625000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="821" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="810" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16349542" />
       <window_info id="Structure" order="1" sideWeight="0.499316" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.500684" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.32166892" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32166892" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32837838" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -1134,13 +1144,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="181" column="25" selection-start-line="181" selection-start-column="14" selection-end-line="181" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/ft-3/html/mybody.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1516" />
@@ -1177,13 +1180,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="42" selection-start-line="42" selection-end-line="62" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="474" column="46" lean-forward="true" selection-start-line="474" selection-start-column="46" selection-end-line="475" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1256,36 +1252,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="88" column="26" lean-forward="true" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/fotile-WX/activelist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1275">
           <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="86" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5565">
-          <caret line="371" column="51" selection-start-line="371" selection-start-column="51" selection-end-line="371" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1322,10 +1292,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="548" column="44" lean-forward="true" selection-start-line="548" selection-end-line="549" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="328" column="1" selection-start-line="328" selection-start-column="1" selection-end-line="328" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="552" column="33" selection-start-line="552" selection-start-column="33" selection-end-line="552" selection-end-column="33" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/active-pro.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8715">
-          <caret line="581" column="1" lean-forward="true" selection-start-line="581" selection-start-column="1" selection-end-line="581" selection-end-column="1" />
+        <state relative-caret-position="327">
+          <caret line="770" column="23" lean-forward="true" selection-start-line="770" selection-start-column="23" selection-end-line="770" selection-end-column="23" />
         </state>
       </provider>
     </entry>
