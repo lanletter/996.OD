@@ -53,8 +53,11 @@
                             </div>
                             <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)"></span>
                         </div>
-                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)"></p>
-                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}" v-if="parseInt(item.comment.isLike) == 0 " v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
+                            我做的特别好，你们快 来也可以试试来也可以试试</p>
+                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                              v-if="parseInt(item.comment.isLike) == 0 "
+                              v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
                         <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                     </div>
                 </li>
@@ -291,9 +294,7 @@
                         function callback(dataexclist) {
                             if (dataexclist.status == 200) {
                                 $this.dataexclist = dataexclist.data.list;
-                                console.log($this.dataexclist);
-                                console.log($this.dataexclist.length);
-                                if($this.dataexclist > 0){
+                                if($this.dataexclist.length > 0){
                                     for (var i = 0; i < $this.dataexclist.length; i++) {
                                         var item = $this.dataexclist[i];
                                         item.isLike = $this.dataexclist[i].comment.isLike;
@@ -301,6 +302,8 @@
                                         item.likenum = $this.dataexclist[i].comment.likeCount;
                                     }
                                 }
+                                console.log($this.dataexclist);
+                                console.log($this.dataexclist.length);
                             }
                         }
                     });
@@ -327,7 +330,7 @@
                                     if (datalist.status == 200) {
                                         $this.datalist = datalist.data.list;
                                         console.log($this.datalist);
-                                        if($this.datalist !== null){
+                                        if($this.datalist.length > 0){
                                             for (var i = 0; i < $this.datalist.length; i++) {
                                                 var item = $this.datalist[i];
                                                 item.isLike = $this.datalist[i].comment.isLike;
