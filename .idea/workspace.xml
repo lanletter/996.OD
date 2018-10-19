@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="修复bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/active-pro.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/active-pro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/activedetail-ask.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-ask.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/activedetail-show.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/activedetail-show.html" afterDir="false" />
     </list>
     <ignored path="fotilestyle.iws" />
@@ -51,7 +51,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1836" />
-          <entry key="html" value="2856" />
+          <entry key="html" value="2866" />
           <entry key="js" value="41" />
           <entry key="txt" value="244" />
         </counts>
@@ -59,7 +59,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1836" />
-          <entry key="HTML" value="2856" />
+          <entry key="HTML" value="2866" />
           <entry key="JavaScript" value="41" />
           <entry key="PLAIN_TEXT" value="244" />
         </counts>
@@ -71,11 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="552" column="33" selection-start-line="552" selection-start-column="33" selection-end-line="552" selection-end-column="33" />
+            <state relative-caret-position="243">
+              <caret line="587" column="56" lean-forward="true" selection-start-line="587" selection-start-column="56" selection-end-line="587" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -108,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
+            <state relative-caret-position="213">
+              <caret line="512" column="32" lean-forward="true" selection-start-line="512" selection-start-column="32" selection-end-line="512" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -160,7 +160,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/active-pro.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="327">
@@ -182,8 +182,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>btn</find>
-      <find>imgparent</find>
       <find>data.title</find>
       <find>menuul</find>
       <find>dataask</find>
@@ -209,9 +207,11 @@
       <find>我要晒作品</find>
       <find>over</find>
       <find>userInfomation</find>
-      <find>dataexclist</find>
       <find>css</find>
       <find>html,body</find>
+      <find>dataexclist</find>
+      <find>isLike</find>
+      <find>type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -276,9 +276,9 @@
         <option value="$PROJECT_DIR$/html/menudetail.html" />
         <option value="$PROJECT_DIR$/html/home-user.html" />
         <option value="$PROJECT_DIR$/js/url.js" />
+        <option value="$PROJECT_DIR$/css/active-pro.css" />
         <option value="$PROJECT_DIR$/html/activedetail-ask.html" />
         <option value="$PROJECT_DIR$/html/activedetail-show.html" />
-        <option value="$PROJECT_DIR$/css/active-pro.css" />
       </list>
     </option>
   </component>
@@ -584,21 +584,7 @@
       <workItem from="1539248912772" duration="4263000" />
       <workItem from="1539312282032" duration="9682000" />
       <workItem from="1539592110649" duration="6862000" />
-      <workItem from="1539858509605" duration="4567000" />
-    </task>
-    <task id="LOCAL-00344" summary="注册登录test">
-      <created>1534321591364</created>
-      <option name="number" value="00344" />
-      <option name="presentableId" value="LOCAL-00344" />
-      <option name="project" value="LOCAL" />
-      <updated>1534321591365</updated>
-    </task>
-    <task id="LOCAL-00345" summary="注册登录加版本号">
-      <created>1534322235933</created>
-      <option name="number" value="00345" />
-      <option name="presentableId" value="LOCAL-00345" />
-      <option name="project" value="LOCAL" />
-      <updated>1534322235933</updated>
+      <workItem from="1539858509605" duration="7028000" />
     </task>
     <task id="LOCAL-00346" summary="注册登录加版本号">
       <created>1534323885378</created>
@@ -929,11 +915,25 @@
       <option name="project" value="LOCAL" />
       <updated>1539919862173</updated>
     </task>
-    <option name="localTasksCounter" value="393" />
+    <task id="LOCAL-00393" summary="修复bug">
+      <created>1539931844789</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1539931844789</updated>
+    </task>
+    <task id="LOCAL-00394" summary="修复bug">
+      <created>1539933260616</created>
+      <option name="number" value="00394" />
+      <option name="presentableId" value="LOCAL-00394" />
+      <option name="project" value="LOCAL" />
+      <updated>1539933260616</updated>
+    </task>
+    <option name="localTasksCounter" value="395" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2816625000" />
+    <option name="totallyTimeSpent" value="2819086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="810" extended-state="6" />
@@ -1306,24 +1306,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
+    <entry file="file://$PROJECT_DIR$/css/active-pro.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="552" column="33" selection-start-line="552" selection-start-column="33" selection-end-line="552" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="327">
+          <caret line="770" column="23" lean-forward="true" selection-start-line="770" selection-start-column="23" selection-end-line="770" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/activedetail-ask.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
+        <state relative-caret-position="213">
+          <caret line="512" column="32" lean-forward="true" selection-start-line="512" selection-start-column="32" selection-end-line="512" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1332,10 +1325,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/active-pro.css">
+    <entry file="file://$PROJECT_DIR$/html/activedetail-show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="770" column="23" lean-forward="true" selection-start-line="770" selection-start-column="23" selection-end-line="770" selection-end-column="23" />
+        <state relative-caret-position="243">
+          <caret line="587" column="56" lean-forward="true" selection-start-line="587" selection-start-column="56" selection-end-line="587" selection-end-column="56" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
