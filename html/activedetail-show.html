@@ -23,7 +23,7 @@
 
 <body style="overflow-x: hidden;">
 <div class="avtive">
-    <div class=" pbfoot">
+    <div>
         <header class="header">
             <div class="header_img" :style="{backgroundImage: 'url(' + data.picture.path + ')'}"></div>
             <div class="header__main">
@@ -53,11 +53,8 @@
                             </div>
                             <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)"></span>
                         </div>
-                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
-                            我做的特别好，你们快 来也可以试试来也可以试试</p>
-                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
-                              v-if="parseInt(item.comment.isLike) == 0 "
-                              v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)"></p>
+                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}" v-if="parseInt(item.comment.isLike) == 0 " v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
                         <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                     </div>
                 </li>
@@ -295,7 +292,8 @@
                             if (dataexclist.status == 200) {
                                 $this.dataexclist = dataexclist.data.list;
                                 console.log($this.dataexclist);
-                                if($this.dataexclist !== null){
+                                console.log($this.dataexclist.length);
+                                if($this.dataexclist > 0){
                                     for (var i = 0; i < $this.dataexclist.length; i++) {
                                         var item = $this.dataexclist[i];
                                         item.isLike = $this.dataexclist[i].comment.isLike;
@@ -557,11 +555,11 @@
                 },
                 openlist: function () {
                     $(".alertlist").show();
-                    $("html,body").css({"overflow": "hidden"}); //禁用滚动条
+                    $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
                 },
                 closelist: function () {
                     $(".alertlist").hide();
-                    $("html,body").css({"overflow": "auto"}); //启用滚动条
+                    $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
                 },
                 givePraise: function (item, id, likenum, isLike) {  //点赞
                     var $this = this;

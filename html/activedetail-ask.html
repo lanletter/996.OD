@@ -635,11 +635,11 @@
                 },
                 openlist: function () {
                     $(".alertlist").show();
-                    $("html,body").css({"overflow": "hidden"}); //禁用滚动条
+                    $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
                 },
                 closelist: function () {
                     $(".alertlist").hide();
-                    $("html,body").css({"overflow": "auto"}); //启用滚动条
+                    $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
                 },
                 givePraise: function (item, id, likenum, isLike) {  //点赞
                     var $this = this;
