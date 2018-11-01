@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/menulist/menulist",
+    "pages/menuspecial/menuspecial",
+    "pages/search/search",
+    "pages/menudetail/menudetail",
+    "pages/videomenu/videomenu",
+    "pages/videolist/videolist",
+    "pages/menulist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "方太生活家",
+    "navigationBarTextStyle": "black"
+  }
+}

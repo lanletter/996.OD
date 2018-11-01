@@ -1,0 +1,193 @@
+<!--header-->
+<view class='header'>
+  <image class='imgstyle' mode='aspectFill' src='{{databasic.images[0]}}'></image>
+  <cover-view class='cover'>
+    <cover-view class='videobtn' wx:if="{{(databasic.video.length>0)==true}}" data-id="{{databasic.id}}" bindtap='openvideo'>
+      <cover-image class='triangle' src='/imgs/triangle.png'></cover-image>
+      完整视频
+    </cover-view>
+    <cover-image wx:if="{{(databasic.type==2)==true}}" class='smarticon' src='/imgs/smarticon.png'></cover-image>
+  </cover-view>
+  <text class='title'>{{databasic.menu_name}}</text>
+  <view class='icons'>
+    <view class='icon pageview'>
+      <image src='/imgs/MenuView.png'></image>
+      <text>{{databasic.pageviews}}</text>
+    </view>
+    <view class='icon favorcount'>
+      <image src='/imgs/MenuCollection.png'></image>
+      <text class='favorcount'>{{databasic.favoriteCount}}</text>
+    </view>
+  </view>
+</view>
+
+<!--basic contenter-->
+<view class='contenter'>
+  <!--富文本-->
+  <rich-text class='instructions' nodes="{{databasic.instructions}}"></rich-text>
+  <!--材料清单-->
+  <view class='shadowbox'>
+    <view class='icons'>
+      <view class='icon pageview'>
+        <image src='/imgs/Menushadow1.png'></image>
+        <view>
+          <text>{{databasic.pageviews}}</text>
+          <text>容易程度</text>
+        </view>
+      </view>
+      <view class='icon pageview'>
+        <image src='/imgs/Menushadow2.png'></image>
+        <view>
+          <text>{{databasic.pageviews}}</text>
+          <text>预计耗时</text>
+        </view>
+      </view>
+      <view class='icon favorcount'>
+        <image src='/imgs/Menushadow3.png'></image>
+        <view>
+          <text>{{databasic.pageviews}}</text>
+          <text>适宜人数</text>
+        </view>
+      </view>
+    </view>
+    <view class='materiallist'>
+      <text class='titlebig'>材料清单</text>
+      <view class='list' wx:for="{{materialsList}}" wx:for-item="value" wx:key="title">
+        <text class='titlemin'>{{value.title}}</text>
+        <view class='detail' wx:for="{{value.list}}" wx:for-item="item" wx:key="name">
+          <text class='name'>{{item.name}}</text>
+          <text class='unit'>{{item.unit}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!--详细步骤-->
+  <view class='step'>
+    <text class='titlebig'>菜谱详情</text>
+    <view class='loop'>
+      <view class='stepdetail' wx:for="{{menuSteps}}" wx:for-item="value" wx:key="value">
+        <view class='titlemin'>
+          <text class='stepcount'>步骤 {{index+1}}/{{menuSteps.length}}</text>
+          <block wx:if="{{(value.step_time>0)==true}}">
+            <text class='steptime'>耗时：{{value.step_time}}分钟</text>
+          </block>
+        </view>
+        <image class='stepimg' mode='aspectFill' src='{{value.images[0]}}'></image>
+        <text class='steptext'>{{value.description}}</text>
+        <view class='steptips' wx:if="{{(value.reminder.length>0)==true}}">
+          <view class='dot'></view>
+          <text>{{value.reminder}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 晒作品 -->
+<view class='show'>
+  <view>
+    <text class='titlebig'>晒作品</text>
+    <navigator url="/pages/menuspecial/menuspecial?title=navigate" hover-class="none" class='more'>
+      <text>全部 {{datashow.count}} 个作品</text>
+      <image src='/imgs/arrowright.png'></image>
+    </navigator>
+  </view>
+  <!-- 作品集 -->
+  <block wx:if="{{(datashow.count>0)==true}}">
+    <scroll-view scroll-x class='ulist'>
+      <view class='list' wx:for="{{datashow.workList}}" wx:for-item="value" wx:key="value">
+        <image class='titlepic' mode='aspectFill' src='{{value.picturePath}}'></image>
+        <view class='userinfo'>
+          <image mode='aspectFill' src='{{value.titlePicture}}'></image>
+          <text>{{value.nickName}}</text>
+        </view>
+        <view class='content'>{{value.content}}</view>
+        <view class='like'>
+          <image src='/imgs/goodline.png'></image>
+          <text>{{value.likeCount}}</text>
+        </view>
+      </view>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <text class='noshow'>暂无作品</text>
+  </block>
+</view>
+
+<!-- 问大家 -->
+<view class='ask'>
+  <view>
+    <text class='titlebig'>问大家</text>
+    <navigator url="/pages/menuspecial/menuspecial?title=navigate" hover-class="none" class='more'>
+      <text>全部 {{dataask.count}} 个作品</text>
+      <image src='/imgs/arrowright.png'></image>
+    </navigator>
+  </view>
+  <!-- 问答集 -->
+  <block wx:if="{{(dataask.count>0)==true}}">
+    <view class='ulist'>
+      <view class='list' wx:for="{{dataask.answerList}}" wx:for-item="value" wx:key="value">
+        <view class='askinfo'>
+          <image mode='aspectFill' src='{{value.titlePicture}}'></image>
+          <text>{{value.nickName}}</text>
+        </view>
+        <view class='askcontent'>{{value.content}}</view>
+        <view class='answer'>
+          <view class='answerinfo'>
+            <image mode='aspectFill' src='{{value.titlePictureAnswer}}'></image>
+            <text>{{value.nickNameAnswer}}</text>
+          </view>
+          <view class='answercontent'>{{value.contentAnswer}}</view>
+          <view class='like'>
+            <image src='/imgs/goodline.png'></image>
+            <text>{{value.likeCountAnswer}}</text>
+          </view>
+          <view class='answercount'>全部 {{value.answerCount}} 个回答 </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='noask'>
+      <image src='/imgs/noask.png'></image>
+      <text>还没有人发表问题哦</text>
+    </view>
+  </block>
+</view>
+
+<!-- 推荐菜谱 -->
+<view class='recommend'>
+  <view>
+    <text class='titlebig'>推荐菜谱</text>
+  </view>
+  <view class='ulist'>
+    <view class='list' wx:for="{{datarecommend}}" wx:for-item="value" wx:key="value">
+      <image class='picture' mode='aspectFill' src='{{value.images[0]}}'></image>
+      <text class='titlemin'>{{value.name}}</text>
+      <view class='icons'>
+        <view class='icon pageview'>
+          <image src='/imgs/MenuView.png'></image>
+          <text>{{value.pageviews}}</text>
+        </view>
+        <view class='icon favorcount'>
+          <image src='/imgs/MenuCollection.png'></image>
+          <text class='favorcount'>{{value.collect_count}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- footer -->
+<view class='footer'>
+  <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='tabbtn'>
+    <image class='icon' src='/imgs/MenuCollection.png'></image>
+    <text class='txt txtgrey'>收藏</text>
+  </navigator>
+  <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='tabbtn'>
+    <image class='icon' src='/imgs/IconsShare.png'></image>
+    <text class='txt txtgold'>分享给好友</text>
+  </navigator>
+</view>

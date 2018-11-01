@@ -1,0 +1,4 @@
+<!--pages/videolist/videolist.wxml-->
+<view  wx:for="{{logs}}" wx:for-item="value">
+  {{value.catname}}
+</view>

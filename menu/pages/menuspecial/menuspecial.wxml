@@ -1,0 +1,13 @@
+
+<view class='ulist'>
+  <view class='list' wx:for="{{data}}" wx:for-item="value" wx:key="value">
+    <navigator url="/pages/menulist/menulist?title=navigate&id={{value.id}}" hover-class="none">
+      <image class='headpic' mode='aspectFill' src='{{value.picture}}'></image>
+      <cover-view class='cover'>
+        <cover-view>{{value.title}}</cover-view>
+        <cover-view>{{value.specialCount}}个菜谱</cover-view>
+      </cover-view>
+    </navigator>
+  </view>
+</view>
+

@@ -1,0 +1,42 @@
+.ulist{margin-bottom: 40rpx;}
+.list{
+  position: relative;
+  margin: 40rpx 40rpx 0 40rpx;
+  width: 670rpx;
+  height: 470rpx;
+  border-radius:  12rpx;
+  overflow: hidden;
+}
+.headpic{
+  width: 670rpx;
+  height: 470rpx;
+}
+.cover{
+  position: absolute;
+  top: 0;
+  width: 670rpx;
+  height: 470rpx;
+background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(0,0,0,0.5) 100%);
+}
+.cover cover-view:first-child{
+  position: absolute;
+  top:320rpx;
+  left: 40rpx;
+height:66rpx;
+font-size:48rpx;
+font-family:PingFangSC-Semibold;
+font-weight:600;
+color:rgba(255,255,255,1);
+line-height:66rpx;
+}
+.cover cover-view:last-child{
+  position: absolute;
+  bottom:40rpx;
+  left: 42rpx;
+height:44rpx;
+font-size:32rpx;
+font-family:PingFangSC-Semibold;
+font-weight:600;
+color:rgba(255,255,255,1);
+line-height:44rpx;
+}

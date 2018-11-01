@@ -1,0 +1,59 @@
+
+  <navigator url="/pages/search/search?title=navigate" hover-class="none" class="search">
+    <image class="searchicon" src='/imgs/search.png'></image>
+    <text class='searchtxt'>想学什么菜？</text>
+  </navigator>
+
+  <view class='gap1 bigimg'>
+    <navigator url="/pages/menulist/menulist?title=navigate" hover-class="none" class='homeicon'>
+      <image src='/imgs/homeicon1.png'></image>
+    </navigator>
+    <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='homeicon'>
+      <image src='/imgs/homeicon2.png'></image>
+    </navigator>
+  </view>
+
+  <view class='gap1'>
+    <text class='bigtitle'>菜谱专题</text>
+    <navigator url="/pages/menuspecial/menuspecial?title=navigate" hover-class="none" class='more'>
+      <text>全部</text>
+      <image src='/imgs/arrowright.png'></image>
+    </navigator>
+    <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='menucover'>
+      <image src='/imgs/homeicon1.png'></image>
+      <cover-view class='title'>营养早餐</cover-view>
+      <cover-view class='counts'>
+        <cover-view>90</cover-view>
+        <cover-view>个菜谱</cover-view>
+      </cover-view>
+    </navigator>
+  </view>
+
+  <view class='gap2'>
+    <view class='hotlist'>
+      <image class='icon' src='/imgs/homeicon3.png'></image>
+      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='jump'>
+        <text class='txt'>热门菜谱TOP30</text>
+        <image class='more' src='/imgs/arrowright.png'></image>
+      </navigator>
+    </view>
+    <view class='hotlist'>
+      <image class='icon' src='/imgs/homeicon4.png'></image>
+      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='jump'>
+        <text class='txt'>用户菜谱TOP10</text>
+        <image class='more' src='/imgs/arrowright.png'></image>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='tabselect'>
+      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='tabbtn'>
+        <image class='icon' src='/imgs/IconsPotGold.png'></image>
+        <text class='txt txtgold'>学做菜</text>
+      </navigator>
+      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='tabbtn'>
+        <image class='icon' src='/imgs/IconsStarGrey.png'></image>
+        <text class='txt txtgrey'>收藏夹</text>
+      </navigator>
+  </view>
+
