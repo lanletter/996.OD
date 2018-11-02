@@ -1,12 +1,12 @@
 {
   "pages": [
-    "pages/videodetail/videodetail",
     "pages/home/home",
     "pages/menuspecial/menuspecial",
     "pages/search/search",
     "pages/menudetail/menudetail",
     "pages/videomenu/videomenu",
     "pages/videolist/videolist",
+    "pages/videodetail/videodetail",
     "pages/menulist/menulist",
     "pages/menulist30/menulist30",
     "pages/menulist10/menulist10"
