@@ -21,8 +21,7 @@ Page({
     // var id = 5507;
     this.getdata(id);
     this.getshowdata(id);
-    this.getaskdata(id);
-    this.getaskdata(id);
+    this.getaskdata(id)
   },
   getdata: function (id) {//定义函数名称
     var that = this;   // 这个地方非常重要，重置data{}里数据时候setData方法的this应为以及函数的this, 如果在下方的sucess直接写this就变成了wx.request()的this了
