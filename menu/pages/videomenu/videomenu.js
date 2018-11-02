@@ -49,7 +49,7 @@ Page({
     wx.request({
       url: 'https://api.fotilestyle.com/fotile-api-0.0.2/menu/detail',
       data: {
-        "id": id,
+        "id": 5507,
         "userId": 1
       },
       header: {
@@ -64,7 +64,8 @@ Page({
         console.log(videourl);
         console.log(videopic);
         that.setData({
-          videourl: videourl
+          videourl: videourl,
+          videopic: videopic
         })
 
       },

@@ -19,7 +19,7 @@
       <text>全部</text>
       <image src='/imgs/arrowright.png'></image>
     </navigator>
-    <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='menucover'>
+    <navigator url="/pages/menulist/menulist?title=navigate&id=26" hover-class="none" class='menucover'>
       <image src='/imgs/homeicon1.png'></image>
       <cover-view class='title'>营养早餐</cover-view>
       <cover-view class='counts'>
@@ -32,14 +32,14 @@
   <view class='gap2'>
     <view class='hotlist'>
       <image class='icon' src='/imgs/homeicon3.png'></image>
-      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='jump'>
+      <navigator url="/pages/menulist30/menulist30?title=navigate" hover-class="none" class='jump'>
         <text class='txt'>热门菜谱TOP30</text>
         <image class='more' src='/imgs/arrowright.png'></image>
       </navigator>
     </view>
     <view class='hotlist'>
       <image class='icon' src='/imgs/homeicon4.png'></image>
-      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='jump'>
+      <navigator url="/pages/menulist10/menulist10?title=navigate" hover-class="none" class='jump'>
         <text class='txt'>用户菜谱TOP10</text>
         <image class='more' src='/imgs/arrowright.png'></image>
       </navigator>

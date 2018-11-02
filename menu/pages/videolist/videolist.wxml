@@ -1,4 +1,10 @@
-<!--pages/videolist/videolist.wxml-->
-<view  wx:for="{{logs}}" wx:for-item="value">
-  {{value.catname}}
+<view class='blackbg'>
+  <video id="myVideo" class="videobox" src="{{videourl}}" direction="-90" objectFit="contain" autoplay loop enable-danmu danmu-btn controls>
+  </video>
+  <cover-view class='collect'>
+    <cover-image src='/imgs/MenuCollection.png'></cover-image>
+  </cover-view>
+  <cover-view class='titlelink' data-id="{{id}}" bindtap="bindlinkdetail">
+    {{data.title}} 
+  </cover-view>
 </view>
