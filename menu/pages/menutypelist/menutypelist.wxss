@@ -1,0 +1,78 @@
+.leftview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 158rpx;
+  height: 100%;
+  box-shadow: 4px 4px 14px 0px rgba(0, 0, 0, 0.09);
+  padding-top: 40rpx;
+}
+
+.leftview .tabs{
+  height: 56rpx;
+  margin: 29rpx 0;
+  font-size: 28rpx;
+  line-height: 56rpx;
+  text-align: center;
+  /* background: pink; */
+}
+
+.leftview .listname {
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(154, 154, 154, 1);
+}
+
+.leftview .listnameactive {
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  border-left:4rpx solid rgba(200,175,112,1);
+  box-sizing: border-box;
+}
+
+.rightview {
+  padding-left: 158rpx;
+  padding-top: 60rpx;
+}
+
+.rightview .listfather {
+  overflow: hidden;
+}
+
+.rightview .listfather .title {
+  display: block;
+  width: 100%;
+  margin-left: 28rpx;
+  height: 66rpx;
+  font-size: 48rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 66rpx;
+  margin-bottom: 20rpx;
+}
+
+.rightview .listchild {
+  float: left;
+  width: 160rpx;
+  margin-bottom: 60rpx;
+  margin-left: 28rpx;
+}
+
+.rightview .listchild image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 16rpx;
+}
+
+.rightview .listchild text {
+  display: block;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 40rpx;
+  text-align: center;
+}

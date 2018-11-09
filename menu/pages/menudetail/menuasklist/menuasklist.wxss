@@ -1,0 +1,122 @@
+page {
+  background: #f4f4f4;
+}
+
+.ask .noask {
+  margin: 78rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ask .noask image {
+  margin: 0 auto;
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.ask .noask text {
+  display: block;
+  margin-top: 14rpx;
+  width: 100%;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 40rpx;
+  text-align: center;
+}
+.ask{
+  margin-bottom: 60rpx;
+}
+
+.ask .ulist {
+  margin: 40rpx 40rpx 0 40rpx;
+}
+
+.ask .ulist .list {
+  padding-bottom: 36rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 28rpx 24rpx 24rpx 40rpx;
+  margin-bottom: 28rpx;
+}
+
+.ask .ulist .list .askinfo {
+  margin-top: 40rpx;
+  height: 72rpx;
+  margin-left: 20rpx;
+}
+
+.ask .ulist .list .askcontent {
+  display: block;
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 50rpx;
+  width: 586rpx;
+}
+
+.ask .answer {
+  margin-top: 8rpx;
+  width: 586rpx;
+}
+
+.ask .answer .answercontent {
+  margin-top: 20rpx;
+  display: block;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(31, 31, 31, 1);
+  line-height: 48rpx;
+  width: 586rpx;
+}
+
+.ask .buttominfo {
+  margin-top: 16rpx;
+  height: 34rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.ask .buttominfo view {
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(154, 154, 154, 1);
+  line-height: 34rpx;
+}
+
+.footer{
+  width: 100%;
+  height: 52rpx;
+  margin-bottom: 48rpx;
+  position: relative;
+}
+.footer .txt{
+  width: 100%;
+  text-align: center;
+font-size:28rpx;
+font-family:PingFangSC-Semibold;
+font-weight:600;
+color:rgba(214,214,214,1);
+line-height:52rpx;
+}
+.footer .leftline{
+  position: absolute;
+  left: 40rpx;
+  top:26rpx;
+  width: 60rpx;
+  border-top: 1px solid #D6D6D6;
+}
+.footer .rightline{
+  position: absolute;
+  right: 40rpx;
+  top:26rpx;
+  width: 60rpx;
+  border-top: 1px solid #D6D6D6;
+}

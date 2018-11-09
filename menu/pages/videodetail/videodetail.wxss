@@ -1,0 +1,336 @@
+/*视频*/
+
+.videobox {
+  width: 100%;
+  height: 422rpx;
+}
+
+.header .title {
+  display: block;
+  margin: 0 auto;
+  margin-top: 80rpx;
+  width: 456rpx;
+  max-height: 160rpx;
+  line-height: 80rpx;
+  font-size: 56rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  text-align: center;
+  overflow: hidden;
+}
+
+.header .icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 40rpx;
+  height: 48rpx;
+}
+
+.header .icons .pageview {
+  margin-right: 32rpx;
+}
+
+.header .icons .icon image {
+  float: left;
+  height: 48rpx;
+  width: 48rpx;
+  vertical-align: top;
+  margin-right: 6rpx;
+}
+
+.header .icons .icon text {
+  float: left;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(154, 154, 154, 1);
+}
+
+.contenter {
+  margin: 0 40rpx;
+  margin-top: 80rpx;
+  border-top: 1px solid rgba(237, 237, 237, 1);
+}
+
+.contenter .instructions {
+  display: block;
+  padding-top: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(31, 31, 31, 1);
+  line-height: 56rpx;
+}
+
+.contenter .tips {
+  margin-top: 40rpx;
+  width: 100%;
+  background: rgba(254, 242, 188, 1);
+  border-radius: 16rpx;
+  position: relative;
+}
+
+.contenter .tips .dot {
+  position: absolute;
+  left: 28rpx;
+  top: 30rpx;
+  width: 12rpx;
+  height: 12rpx;
+  background: rgba(213, 150, 0, 1);
+  border-radius: 50%;
+}
+
+.contenter .tips text {
+  display: block;
+  padding: 18rpx 23rpx 18rpx 56rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(213, 150, 0, 1);
+  line-height: 34rpx;
+}
+
+.show {
+  margin-top: 80rpx;
+  margin-left: 40rpx;
+}
+
+.show .titlebig {
+  height: r66px;
+  font-size: 48rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 66rpx;
+}
+
+.show .noshow {
+  display: block;
+  margin: 116rpx 0;
+  width: 100%;
+  height: 44rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(214, 214, 214, 1);
+  line-height: 44rpx;
+  text-align: center;
+}
+
+.show .ulist {
+  margin-top: 20rpx;
+  width: 100%;
+  height: 400rpx;
+  white-space: nowrap;
+}
+
+.show .ulist .list {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 480rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16rpx;
+  margin-right: 28rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.show .ulist .list .titlemin {
+  display: block;
+  margin-top: 14rpx;
+  margin-left: 20rpx;
+  width: 416rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.show .ulist .list .titlepic {
+  width: 480rpx;
+  height: 270rpx;
+  border-radius: 16rpx;
+}
+
+.show .ulist .list .time {
+  display: block;
+  position: absolute;
+  left: 20rpx;
+  top: 202rpx;
+  width: 148rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8rpx;
+}
+
+.show .ulist .list .time .icon {
+  display: block;
+  width: 48rpx;
+  height: 48rpx;
+  float: left;
+  margin-right: 10rpx;
+}
+
+.show .ulist .list .icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 24rpx;
+  margin-left: 20rpx;
+  height: 32rpx;
+}
+
+.show .ulist .list .icons .pageview {
+  margin-right: 32rpx;
+}
+
+.show .ulist .list .icons .icon image {
+  float: left;
+  height: 32rpx;
+  width: 32rpx;
+  vertical-align: top;
+  margin-right: 6rpx;
+}
+
+.show .ulist .list .icons .icon text {
+  float: left;
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(154, 154, 154, 1);
+}
+
+.recommend {
+  margin-top: 80rpx;
+  margin-left: 40rpx;
+  margin-bottom: 186rpx;
+}
+
+.recommend .titlebig {
+  height: r66px;
+  font-size: 48rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 66rpx;
+}
+
+.recommend .ulist {
+  margin-top: 40rpx;
+  overflow: hidden;
+}
+
+.recommend .ulist .list {
+  float: left;
+  width: 320rpx;
+  margin-right: 30rpx;
+  margin-bottom: 60rpx;
+  position: relative;
+}
+
+.recommend .picture {
+  width: 320rpx;
+  height: 240rpx;
+  border-radius: 16rpx;
+}
+
+.recommend .titlemin {
+  width: 320rpx;
+  height: 100rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: rgba(31, 31, 31, 1);
+  line-height: 50rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.recommend .time {
+  display: block;
+  position: absolute;
+  left: 20rpx;
+  top: 172rpx;
+  width: 148rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8rpx;
+}
+
+.recommend .time .icon {
+  display: block;
+  width: 48rpx;
+  height: 48rpx;
+  float: left;
+  margin-right: 10rpx;
+}
+
+/*footer*/
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 165rpx;
+  border-top: 1px solid #ededed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #fff;
+}
+
+.footer .tabbtn {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .icon {
+  margin: 10rpx auto;
+  margin-bottom: 0;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.footer .txt {
+  margin-top: 16rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.footer .txtgold {
+  color: rgba(200, 175, 112, 1);
+}
+
+.footer .txtgrey {
+  color: #d6d6d6;
+}

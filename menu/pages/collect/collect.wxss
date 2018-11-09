@@ -1,0 +1,44 @@
+
+.tabselect {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 165rpx;
+  border-top: 1px solid #ededed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: #fff;
+}
+
+.tabselect .tabbtn {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabselect .icon {
+  margin: 10rpx auto;
+  margin-bottom: 0;
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.tabselect .txt {
+  margin-top: 16rpx;
+  height: 28rpx;
+  font-size: 20rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  line-height: 28rpx;
+  text-align: center;
+}
+
+.tabselect .txtgold {
+  color: rgba(200, 175, 112, 1);
+}
+
+.tabselect .txtgrey {
+  color: #d6d6d6;
+}
