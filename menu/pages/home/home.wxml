@@ -5,7 +5,7 @@
   </navigator>
 
   <view class='gap1 bigimg'>
-    <navigator url="/pages/menulist/menulist?title=navigate" hover-class="none" class='homeicon'>
+    <navigator url="/pages/menutypelist/menutypelist?title=navigate" hover-class="none" class='homeicon'>
       <image src='/imgs/homeicon1.png'></image>
     </navigator>
     <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='homeicon'>
@@ -51,7 +51,7 @@
         <image class='icon' src='/imgs/IconsPotGold.png'></image>
         <text class='txt txtgold'>学做菜</text>
       </navigator>
-      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='tabbtn'>
+      <navigator url="/pages/collect/collect?title=navigate" hover-class="none" class='tabbtn'>
         <image class='icon' src='/imgs/IconsStarGrey.png'></image>
         <text class='txt txtgrey'>收藏夹</text>
       </navigator>

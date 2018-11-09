@@ -1,4 +1,4 @@
-// pages/menulist/menulist.js
+
 Page({
 
   /**
@@ -14,7 +14,7 @@ Page({
   onLoad: function (option) {
     console.log(option);
     var id = option.id;
-    // var id = 26;
+    var id = 26;
     console.log(id);
     this.getdata(id);
   },

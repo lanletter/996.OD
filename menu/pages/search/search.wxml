@@ -1,2 +1,94 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<!-- 搜索框 -->
+<view class="{{searched==false?'searchbar1':'searchbar2'}}">
+  <image wx:if="{{searched==true}}" class='icon' src='/imgs/search.png'></image>
+  <input type='text' value='{{inputvalue}}' confirm-type='search' placeholder='菜谱、短视频' placeholder-class="placeholder" bindinput="bindinput" bindfocus='bindfocus' bindconfirm='bindconfirm'></input>
+</view>
+<cover-image class="{{searched==false?'deleteinputvalue':'deleteinputvalue2'}}" wx:if='{{startinput==true}}' src='/imgs/delete1.png' bindtap='deleteinputvalue'></cover-image>
+
+<!-- 搜索内容 -->
+<block wx:if="{{searched==false}}">
+  <block wx:if='{{startinput==false}}'>
+    <view class='tiplist'>
+      <view wx:for="{{historywords}}" wx:for-item="value" wx:key="value">
+        <image class='clock' src='/imgs/clock.png'></image>
+        <text data-value='{{value}}' bindtap='chooseword'>{{value}}</text>
+        <image class='deleteword' src='/imgs/x.png' bindtap='deleteword' data-index='{{index}}'></image>
+      </view>
+    </view>
+  </block>
+  <block wx:else='{{startinput==true}}'>
+    <view class='tiplist'>
+      <view wx:for="{{datawords}}" wx:for-item="value" wx:key="value">
+        <image class='clock' src='/imgs/clock.png'></image>
+        <text data-value='{{value}}' bindtap='chooseword'>{{value}}</text>
+      </view>
+    </view>
+  </block>
+  <view class='hots'>
+    <text class='title'>热门搜索</text>
+    <view class='hotlist'>
+      <view wx:for="{{datahotlist}}" wx:for-item="value" wx:key="value" data-value='{{value.keyworld}}' bindtap='chooseword'>{{value.keyworld}}</view>
+    </view>
+  </view>
+</block>
+<block wx:else="{{searched==true}}">
+  <block wx:if='{{startinput==false}}'>
+  </block>
+  <block wx:else='{{startinput==true}}'>
+    <view class='tiplist'>
+      <view wx:for="{{datawords}}" wx:for-item="value" wx:key="value">
+        <image class='clock' src='/imgs/clock.png'></image>
+        <text data-value='{{value}}' bindtap='chooseword'>{{value}}</text>
+      </view>
+    </view>
+  </block>
+  <view class='tabbar'>
+    <cover-view wx:for="{{types}}" wx:for-item="value" wx:key="value" class="tabs {{currentTab==index?'tab1':'tab2'}}" data-searchtype="{{value.searchType}}" data-current="{{index}}" bindtap='clicktap'>{{value.name}}</cover-view>
+  </view>
+  <view class='ulist' wx:for="{{types}}" wx:for-item="value" wx:key="value">
+    <view wx:if="{{(currentTab==index)==true}}">
+      <!-- 课程 -->
+      <view wx:if="{{(searchtype=='1')==true}}" class='listcourse'>
+        1
+      </view>
+      <!-- 菜谱 -->
+      <view wx:if="{{(searchtype=='2')==true}}" class='listmenu'>
+        <view class='list' wx:for="{{datamenu.menuList}}" wx:for-item="value" wx:key="value">
+          <navigator url="/pages/menudetail/menudetail?title=navigate&id={{value.id}}" hover-class="none">
+            <image class='headpic' mode='aspectFill' src='{{value.picture.path}}'></image>
+            <view class='info'>
+              <text class='titlemin'>{{value.name}}</text>
+              <view class='icons'>
+                <view class='icon pageview'>
+                  <image src='/imgs/MenuView.png'></image>
+                  <text>{{value.pageviews}}</text>
+                </view>
+                <view class='icon favorcount'>
+                  <image src='/imgs/MenuCollection.png'></image>
+                  <text class='favorcount'>{{value.collect_count}}</text>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <!-- 故事 -->
+      <view wx:if="{{(searchtype=='4')==true}}" class='liststory'>
+        4
+      </view>
+      <!-- 短视频 -->
+      <view wx:if="{{(searchtype=='14')==true}}" class='listvideo'>
+        <view class='list' wx:for="{{datavideo.videoShortList}}" wx:for-item="value" wx:key="value">
+          <navigator url="/pages/videodetail/videodetail?title=navigate&id={{value.id}}" hover-class="none">
+            <image class='picture' mode='aspectFill' src='{{value.picture.path}}'></image>
+            <text class='titlemin'>{{value.title}}</text>
+            <cover-view class='time'>
+              <cover-image class='icon' src='/imgs/timebg.png'></cover-image>
+              {{value.time}}
+            </cover-view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

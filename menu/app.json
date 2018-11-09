@@ -1,15 +1,22 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/menuspecial/menuspecial",
     "pages/search/search",
-    "pages/menudetail/menudetail",
+    "pages/home/home",
+    "pages/collect/collect",
     "pages/videomenu/videomenu",
     "pages/videolist/videolist",
     "pages/videodetail/videodetail",
+    "pages/menutypelist/menutypelist",
+    "pages/menuspecial/menuspecial",
     "pages/menulist/menulist",
     "pages/menulist30/menulist30",
-    "pages/menulist10/menulist10"
+    "pages/menulist10/menulist10",
+    "pages/menudetail/menudetail",
+    "pages/menudetail/menuasklist/menuasklist",
+    "pages/menudetail/menushowlist/menushowlist",
+    "pages/menudetail/menuasklist/askdetail/askdetail",
+    "pages/menudetail/menushowlist/showpicture/showpicture",
+    "pages/menutype/menutype"
   ],
   "window": {
     "backgroundTextStyle": "light",

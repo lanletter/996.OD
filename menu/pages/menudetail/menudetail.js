@@ -1,6 +1,5 @@
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -16,9 +15,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (option) {
-    var id = option.id;
+  onLoad: function (options) {
+    var id = options.id;
     // var id = 5507;
+    var id = 10128;
     this.getdata(id);
     this.getshowdata(id);
     this.getaskdata(id)
@@ -138,6 +138,33 @@ Page({
     var id = event.currentTarget.dataset.id;
     wx.navigateTo({
       url: "../videomenu/videomenu?id=" + id
+    })
+  },
+
+  /* 跳转作品列表 */
+  moreshow: function (event){
+    console.log(event.currentTarget.dataset.id);
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/pages/menudetail/menushowlist/menushowlist?id=" + id
+    })
+  },
+
+  /* 跳转问答列表 */
+  moreask: function (event) {
+    console.log(event.currentTarget.dataset.id);
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/pages/menudetail/menuasklist/menuasklist?id=" + id
+    })
+  },
+
+  /* 跳转推荐菜谱 */
+  jumprecommend: function (event) {
+    console.log(event.currentTarget.dataset.id);
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "../menudetail/menudetail?id=" + id
     })
   },
 

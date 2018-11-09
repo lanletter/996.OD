@@ -31,21 +31,21 @@
       <view class='icon pageview'>
         <image src='/imgs/Menushadow1.png'></image>
         <view>
-          <text>{{databasic.pageviews}}</text>
+          <text>{{databasic.labelInfo}}</text>
           <text>容易程度</text>
         </view>
       </view>
       <view class='icon pageview'>
         <image src='/imgs/Menushadow2.png'></image>
         <view>
-          <text>{{databasic.pageviews}}</text>
+          <text>{{databasic.cooking_time}}分钟</text>
           <text>预计耗时</text>
         </view>
       </view>
       <view class='icon favorcount'>
         <image src='/imgs/Menushadow3.png'></image>
         <view>
-          <text>{{databasic.pageviews}}</text>
+          <text>{{databasic.fit_number}}人</text>
           <text>适宜人数</text>
         </view>
       </view>
@@ -89,10 +89,10 @@
 <view class='show'>
   <view>
     <text class='titlebig'>晒作品</text>
-    <navigator url="/pages/menuspecial/menuspecial?title=navigate" hover-class="none" class='more'>
+    <view class='more' data-id="{{databasic.id}}" bindtap='moreshow'>
       <text>全部 {{datashow.count}} 个作品</text>
       <image src='/imgs/arrowright.png'></image>
-    </navigator>
+    </view>
   </view>
   <!-- 作品集 -->
   <block wx:if="{{(datashow.count>0)==true}}">
@@ -120,10 +120,10 @@
 <view class='ask'>
   <view>
     <text class='titlebig'>问大家</text>
-    <navigator url="/pages/menuspecial/menuspecial?title=navigate" hover-class="none" class='more'>
+    <view class='more' data-id="{{databasic.id}}" bindtap='moreask'>
       <text>全部 {{dataask.count}} 个作品</text>
       <image src='/imgs/arrowright.png'></image>
-    </navigator>
+    </view>
   </view>
   <!-- 问答集 -->
   <block wx:if="{{(dataask.count>0)==true}}">
@@ -164,8 +164,8 @@
   </view>
   <view class='ulist'>
     <view class='list' wx:for="{{datarecommend}}" wx:for-item="value" wx:key="value">
-      <image class='picture' mode='aspectFill' src='{{value.images[0]}}'></image>
-      <text class='titlemin'>{{value.name}}</text>
+      <image class='picture' mode='aspectFill' src='{{value.images[0]}}' data-id="{{value.id}}" bindtap="jumprecommend"></image>
+      <text class='titlemin' data-id="{{value.id}}" bindtap="jumprecommend">{{value.name}}</text>
       <view class='icons'>
         <view class='icon pageview'>
           <image src='/imgs/MenuView.png'></image>

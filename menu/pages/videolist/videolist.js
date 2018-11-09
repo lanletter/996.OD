@@ -7,16 +7,50 @@ Page({
     data:{},
     id:"",
     videourl: "",
-    videopic: ""
+    videopic: "",
+    yellowbg:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-    console.log(option);
+    var that = this;
+    // console.log(option);
     var id = option.id;
-    this.getdata(id);
+    wx.getNetworkType({
+      success: function (res) {
+        console.log(res.networkType);
+        if (res.networkType=="wifi"){
+          that.getdata(id);
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '当前状态下播放视频可能会消耗流量，是否继续?',
+            confirmText: '继续',
+            success(res) {
+              if (res.confirm) {
+                // console.log('用户点击继续');
+                that.getdata(id);
+              } else if (res.cancel) {
+                // console.log('用户点击取消');
+                wx.navigateTo({
+                  url: '/pages/home/home'
+                })
+              }
+            }
+          })
+        }
+        that.setData({
+          netWorkType: res.networkType
+        })
+      }
+    })
+    setTimeout(function () {
+      that.setData({
+        yellowbg: false
+      })
+    }, 5000);
   },
 
   getdata: function (id) {//定义函数名称
@@ -38,8 +72,8 @@ Page({
         var id = res.data.data.id;
         var videopic = res.data.data.picture.path;
         var videourl = res.data.data.url;
-        console.log(videourl);
-        console.log(videopic);
+        // console.log(videourl);
+        // console.log(videopic);
         that.setData({
           data: data,
           id: id,
@@ -60,7 +94,6 @@ Page({
       url: "/pages/videodetail/videodetail?id=" + id
     })
   },
-
 
   onReady: function () {
 
