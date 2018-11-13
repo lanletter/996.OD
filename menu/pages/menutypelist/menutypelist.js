@@ -1,4 +1,6 @@
-// pages/menutypelist/menutypelist.js
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
+
 Page({
 
   /**
@@ -20,7 +22,7 @@ Page({
   getdata: function () {
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/menu/category403',
+      url: ajaxurl +'menu/category403',
       data: {},
       method: "POST",
       success: function (res) {

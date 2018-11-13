@@ -12,7 +12,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+ 
+  },
+
+  onPullDownRefresh: function () {
+    console.log("1");
+    // wx.showNavigationBarLoading() //在标题栏中显示加载
+
+    // //模拟加载
+    // setTimeout(function () {
+    //   // complete
+    //   wx.hideNavigationBarLoading() //完成停止加载
+    //   wx.stopPullDownRefresh() //停止下拉刷新
+    // }, 1500);
   },
 
   /**

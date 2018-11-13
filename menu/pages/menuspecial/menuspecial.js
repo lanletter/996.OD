@@ -1,4 +1,6 @@
-// pages/menuspecial/menuspecial.js
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
+
 Page({
 
   /**
@@ -17,7 +19,7 @@ Page({
   getdata: function () {//定义函数名称
     var that = this;   // 这个地方非常重要，重置data{}里数据时候setData方法的this应为以及函数的this, 如果在下方的sucess直接写this就变成了wx.request()的this了
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/special/menuList',
+      url: ajaxurl +'special/menuList',
       data: {
         "pageNum": 1,
         "pageSize": 10

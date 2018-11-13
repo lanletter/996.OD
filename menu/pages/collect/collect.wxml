@@ -1,6 +1,6 @@
 
   <view class='tabselect'>
-      <navigator url="/pages/videolist/videolist?title=navigate" hover-class="none" class='tabbtn'>
+      <navigator url="/pages/home/home?title=navigate" hover-class="none" class='tabbtn'>
         <image class='icon' src='/imgs/IconsPotGrey.png'></image>
         <text class='txt txtgrey'>学做菜</text>
       </navigator>

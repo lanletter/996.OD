@@ -1,4 +1,6 @@
-// pages/videodetail/videodetail.js
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
+
 Page({
 
   /**
@@ -23,7 +25,7 @@ Page({
   getdata: function (id) {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/videoShort/detail',
+      url: ajaxurl +'videoShort/detail',
       data: {
         "id": 247,
         "userId": 1
@@ -48,7 +50,7 @@ Page({
   getdatalist: function () {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/videoShort/recommend',
+      url: ajaxurl +'videoShort/recommend',
       data: {
         "pageNum": 1,
         "pageSize": 4,

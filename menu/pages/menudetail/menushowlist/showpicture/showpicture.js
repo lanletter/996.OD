@@ -1,5 +1,5 @@
-// pages/menudetail/menushowlist/showpicture/showpicture.js
-Page({
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;Page({
 
   /**
    * 页面的初始数据

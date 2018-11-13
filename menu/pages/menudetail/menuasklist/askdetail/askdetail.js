@@ -1,4 +1,5 @@
-// pages/menudetail/menuasklist/askdetail/askdetail.js
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
 Page({
 
   /**
@@ -21,7 +22,7 @@ Page({
   getdata: function (id) {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/comment/answer/detail',
+      url: ajaxurl +'comment/answer/detail',
       data: {
         "id": id,
         "userId": 1,

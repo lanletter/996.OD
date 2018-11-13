@@ -1,28 +1,35 @@
-// pages/search/search.js
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    datahotlist:{},
-    inputvalue: '',
-    startinput: false,
-    searched: false,
-    historywords: [],
-    datawords: [],
-    types: {},
-    currentTab: 0,
-    searchtype: '',
-    datamenu: {},
-    datavideo: {},
+    datahotlist: {}, //热词
+    datawords: [], //联想词
+    historywords: [], //历史搜索记录
+    types: {}, //选项列表
+    datamenu: [], //菜谱列表
+    datavideo: [], //短视频列表
+    inputvalue: '', //搜索值
+    startinput: false, //是否触发搜索
+    searched: false, //搜索前后修改样式
+    currentTab: 0, //选项卡排序号
+    searchtype: '', //搜索结果类型
+    pagenum2: 1, //菜谱翻页
+    pagenum14: 1, //短视频翻页
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.stopPullDownRefresh() //停止下拉刷新
     var that = this;
+    console.log(ajaxurl);
+    that.gethotlist();
     wx.getStorage({
       key: 'history',
       success(res) {
@@ -33,14 +40,13 @@ Page({
         })
       }
     })
-    that.gethotlist();
   },
 
   gethotlist: function () {
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/search/hotlist',
-      data: { },
+      url: ajaxurl + 'search/hotlist',
+      data: {},
       method: "POST",
       success: function (res) {
         console.log("热词列表：");
@@ -61,7 +67,7 @@ Page({
     // console.log(e.detail);
     if (e.detail.value !== "") {
       this.setData({
-        startinput:true
+        startinput: true
       })
       that.checkword(e.detail.value)
     }
@@ -71,7 +77,7 @@ Page({
   checkword: function (value) {
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/search/suggest',
+      url: ajaxurl + 'search/suggest',
       data: {
         "keyWord": value
       },
@@ -93,7 +99,7 @@ Page({
   deleteinputvalue: function () {
     this.setData({
       inputvalue: '',
-      startinput:false
+      startinput: false
     })
   },
 
@@ -102,6 +108,9 @@ Page({
     var that = this;
     var value = e.detail.value;
     console.log(value);
+    /* 搜索状态重置 */
+    that.restart(value);
+
     that.getsearch(value);
 
     /* 存储搜索记录 */
@@ -125,15 +134,32 @@ Page({
     var that = this;
     console.log(e.currentTarget.dataset);
     var value = e.currentTarget.dataset.value;
-    this.setData({
-      inputvalue: value
-    })
+    that.restart(value);
+    // this.setData({
+    //   inputvalue: value,
+    //   datawords: [],
+    //   currentTab: 0
+    // })
     that.getsearch(value)
+    /* 存储搜索记录 */
+    wx.getStorage({
+      key: 'history',
+      success(res) {
+        var historywords = res.data;
+        console.log(historywords);
+        historywords.push(value)
+        console.log(historywords);
+        wx.setStorageSync('history', historywords);
+        that.setData({
+          historywords: historywords
+        })
+      }
+    })
   },
 
   /* 删除联想词 */
   deleteword: function (e) {
-    var that=this;
+    var that = this;
     console.log(e.currentTarget.dataset);
     var index = e.currentTarget.dataset.index;
     //删除下标index的1个元素
@@ -142,7 +168,7 @@ Page({
       success(res) {
         var historywords = res.data;
         console.log(historywords);
-        historywords.splice(index,1);
+        historywords.splice(index, 1);
         console.log(historywords);
         //更新缓存和本地数据
         wx.setStorageSync('history', historywords);
@@ -151,18 +177,18 @@ Page({
         })
       }
     })
-    
+
   },
 
-  getsearch: function (value) {
+  getsearch: function () {
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/search/searchJsonMenu',
+      url: ajaxurl + 'search/searchJsonMenu',
       data: {
-        "keyWord": value
+        "keyWord": that.data.inputvalue
       },
-      header:{
-        version:"v440"
+      header: {
+        version: "v440"
       },
       method: "POST",
       success: function (res) {
@@ -174,8 +200,8 @@ Page({
           types: types,
           searchtype: types[0].searchType
         })
-        that.getdatamenu(value);
-        that.getdatavideo(value);
+        that.getdatamenu();
+        that.getdatavideo();
       },
       fail: function (err) { },//请求失败
       complete: function () { }//请求完成后执行的函数
@@ -204,23 +230,25 @@ Page({
     }
   },
 
-  getdatamenu: function (value){
-    var that=this;
+  getdatamenu: function () {
+    var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/search/searchJson/v420',
+      url: ajaxurl + 'search/searchJson/v420',
       data: {
-        "keyWord": value,
-        "pageNum":1,
-        "pageSize":10,
-        "searchType":2
+        "keyWord": that.data.inputvalue,
+        "pageNum": that.data.pagenum2,
+        "pageSize": 10,
+        "searchType": 2
       },
       method: "POST",
       success: function (res) {
         console.log("菜谱列表：");
-        console.log(res.data);
-        var datamenu = res.data.data;
+        var arr1 = that.data.datamenu;
+        var arr2 = res.data.data.menuList;
+        arr1 = arr1.concat(arr2); //合并数组
+        console.log(arr1);
         that.setData({
-          datamenu: datamenu
+          datamenu: arr1 //合并后存入data
         })
       },
       fail: function (err) { },//请求失败
@@ -228,27 +256,51 @@ Page({
     })
   },
 
-  getdatavideo: function (value) {
+  getdatavideo: function () {
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/search/searchJson/v420',
+      url: ajaxurl + 'search/searchJson/v420',
       data: {
-        "keyWord": value,
-        "pageNum": 1,
+        "keyWord": that.data.inputvalue,
+        "pageNum": that.data.pagenum14,
         "pageSize": 10,
         "searchType": 14
       },
       method: "POST",
       success: function (res) {
         console.log("短视频列表：");
-        console.log(res.data);
-        var datavideo = res.data.data;
+        var arr1 = that.data.datavideo;
+        var arr2 = res.data.data.videoShortList;
+        console.log(arr1);
+        console.log(arr2);
+        arr1 = arr1.concat(arr2); //合并数组
+        console.log(arr1);
         that.setData({
-          datavideo: datavideo
+          datavideo: arr1 //合并后存入data
         })
       },
       fail: function (err) { },//请求失败
       complete: function () { }//请求完成后执行的函数
+    })
+  },
+
+  /* 数据重置 */
+  restart: function (value) {
+    var that = this;
+    console.log("数据重置：");
+    console.log({
+      inputvalue: value,
+      datawords: [],
+      datamenu: [],
+      datavideo: [],
+      currentTab: 0
+    })
+    that.setData({
+      inputvalue: value,
+      datawords: [],
+      datamenu: [],
+      datavideo: [],
+      currentTab: 0
     })
   },
 
@@ -284,14 +336,42 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var that = this;
+    console.log("1");
+    that.setData({
+      inputvalue: '',
+      startinput: false,
+      searched: false,
+      currentTab: 0,
+      searchtype: '',
+    })
+    this.onLoad();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    console.log("onReachBottom");
+    var that=this;
+    var searchtype = that.data.searchtype;
+    console.log(searchtype);
 
+    if (searchtype==2){ //菜谱列表下拉加载
+      var pagenum2 = that.data.pagenum2 + 1;
+      console.log(pagenum2);
+      that.setData({
+        pagenum2: pagenum2,
+      })
+      that.getdatamenu(that.data.inputvalue);
+    } else if (searchtype == 14) { //短视频列表下拉加载
+      var pagenum14 = that.data.pagenum14 + 1;
+      console.log(pagenum14);
+      that.setData({
+        pagenum14: pagenum14,
+      })
+      that.getdatavideo(that.data.inputvalue);
+    }
   },
 
   /**
@@ -299,5 +379,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
 })

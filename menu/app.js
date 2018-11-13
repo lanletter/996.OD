@@ -34,6 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
-  }
+    userInfo: null,
+    ajaxurl:'https://api.fotilestyle.com/fotile-api-0.0.2/'
+  },
+  
+ 
 })

@@ -9,6 +9,9 @@ function getRandomColor() {
   return '#' + rgb.join('')
 }
 
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
+
 Page({
   onReady: function (res) {
     this.videoContext = wx.createVideoContext('myVideo')
@@ -47,7 +50,7 @@ Page({
   getdata: function (id) {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/menu/detail',
+      url: ajaxurl +'menu/detail',
       data: {
         "id": 5507,
         "userId": 1

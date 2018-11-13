@@ -7,6 +7,7 @@
 
 <!-- 搜索内容 -->
 <block wx:if="{{searched==false}}">
+  <!-- 显示搜索历史 -->
   <block wx:if='{{startinput==false}}'>
     <view class='tiplist'>
       <view wx:for="{{historywords}}" wx:for-item="value" wx:key="value">
@@ -16,6 +17,7 @@
       </view>
     </view>
   </block>
+  <!-- 显示搜索联想词 -->
   <block wx:else='{{startinput==true}}'>
     <view class='tiplist'>
       <view wx:for="{{datawords}}" wx:for-item="value" wx:key="value">
@@ -53,7 +55,7 @@
       </view>
       <!-- 菜谱 -->
       <view wx:if="{{(searchtype=='2')==true}}" class='listmenu'>
-        <view class='list' wx:for="{{datamenu.menuList}}" wx:for-item="value" wx:key="value">
+        <view class='list' wx:for="{{datamenu}}" wx:for-item="value" wx:key="value">
           <navigator url="/pages/menudetail/menudetail?title=navigate&id={{value.id}}" hover-class="none">
             <image class='headpic' mode='aspectFill' src='{{value.picture.path}}'></image>
             <view class='info'>
@@ -78,7 +80,7 @@
       </view>
       <!-- 短视频 -->
       <view wx:if="{{(searchtype=='14')==true}}" class='listvideo'>
-        <view class='list' wx:for="{{datavideo.videoShortList}}" wx:for-item="value" wx:key="value">
+        <view class='list' wx:for="{{datavideo}}" wx:for-item="value" wx:key="value">
           <navigator url="/pages/videodetail/videodetail?title=navigate&id={{value.id}}" hover-class="none">
             <image class='picture' mode='aspectFill' src='{{value.picture.path}}'></image>
             <text class='titlemin'>{{value.title}}</text>

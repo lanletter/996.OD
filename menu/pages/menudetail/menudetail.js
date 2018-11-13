@@ -1,3 +1,5 @@
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
 
 Page({
   /**
@@ -26,7 +28,7 @@ Page({
   getdata: function (id) {//定义函数名称
     var that = this;   // 这个地方非常重要，重置data{}里数据时候setData方法的this应为以及函数的this, 如果在下方的sucess直接写this就变成了wx.request()的this了
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/menu/detail',
+      url: ajaxurl +'menu/detail',
       data: {
         "id": id, 
         "userId": 1
@@ -59,7 +61,7 @@ Page({
   getshowdata: function (id) {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/comment/work/list',
+      url: ajaxurl +'comment/work/list',
       data: {
         "pageNum": 1,
         "pageSize": 5,
@@ -84,7 +86,7 @@ Page({
   getaskdata: function (id) {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/comment/answer/list',
+      url: ajaxurl +'comment/answer/list',
       data: {
         "pageNum": 1,
         "pageSize": 2,
@@ -109,7 +111,7 @@ Page({
   getrecommenddata: function (sunNameJson) {//定义函数名称
     var that = this;
     wx.request({
-      url: 'https://api.fotilestyle.com/fotile-api-0.0.2/menu/getMenuByRecommend',
+      url: ajaxurl +'menu/getMenuByRecommend',
       data: {
         "pageNum": 1,
         "pageSize": 4,
