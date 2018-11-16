@@ -1,5 +1,16 @@
 var app = getApp();
 var ajaxurl = app.globalData.ajaxurl;
+const toasts = require('../../utils/toasts.js');
+
+function uniq(array) {
+  var temp = []; //一个新的临时数组
+  for (var i = 0; i < array.length; i++) {
+    if (temp.indexOf(array[i]) == -1) {
+      temp.push(array[i]);
+    }
+  }
+  return temp;
+}
 
 Page({
 
@@ -26,7 +37,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.stopPullDownRefresh() //停止下拉刷新
+    toasts.loading();
     var that = this;
     console.log(ajaxurl);
     that.gethotlist();
@@ -56,7 +67,7 @@ Page({
           datahotlist: datahotlist
         })
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
@@ -90,7 +101,7 @@ Page({
           datawords: datawords
         })
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
@@ -118,12 +129,12 @@ Page({
       key: 'history',
       success(res) {
         var historywords = res.data;
-        console.log(historywords);
-        historywords.push(value)
-        console.log(historywords);
-        wx.setStorageSync('history', historywords);
+        console.log(historywords); //获取当前数组
+        historywords.unshift(value); //新增元素插入数组（前）
+        console.log(uniq(historywords)); //数组去重
+        wx.setStorageSync('history', uniq(historywords));
         that.setData({
-          historywords: historywords
+          historywords: uniq(historywords)
         })
       }
     })
@@ -135,30 +146,26 @@ Page({
     console.log(e.currentTarget.dataset);
     var value = e.currentTarget.dataset.value;
     that.restart(value);
-    // this.setData({
-    //   inputvalue: value,
-    //   datawords: [],
-    //   currentTab: 0
-    // })
     that.getsearch(value)
     /* 存储搜索记录 */
     wx.getStorage({
       key: 'history',
       success(res) {
         var historywords = res.data;
-        console.log(historywords);
-        historywords.push(value)
-        console.log(historywords);
-        wx.setStorageSync('history', historywords);
+        console.log(historywords); //获取当前数组
+        historywords.unshift(value); //新增元素插入数组（前）
+        console.log(uniq(historywords)); //数组去重
+        wx.setStorageSync('history', uniq(historywords));
         that.setData({
-          historywords: historywords
+          historywords: uniq(historywords)
         })
       }
     })
   },
 
-  /* 删除联想词 */
+  /* 删除历史词 */
   deleteword: function (e) {
+    toasts.iferror();
     var that = this;
     console.log(e.currentTarget.dataset);
     var index = e.currentTarget.dataset.index;
@@ -181,6 +188,7 @@ Page({
   },
 
   getsearch: function () {
+    toasts.iferror();
     var that = this;
     wx.request({
       url: ajaxurl + 'search/searchJsonMenu',
@@ -203,7 +211,7 @@ Page({
         that.getdatamenu();
         that.getdatavideo();
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
 
@@ -251,7 +259,7 @@ Page({
           datamenu: arr1 //合并后存入data
         })
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
@@ -279,7 +287,7 @@ Page({
           datavideo: arr1 //合并后存入data
         })
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
@@ -315,7 +323,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    toasts.finish(); //停止下拉刷新效果
   },
 
   /**

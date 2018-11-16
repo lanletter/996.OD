@@ -1,5 +1,8 @@
 var app = getApp();
-var ajaxurl = app.globalData.ajaxurl;Page({
+var ajaxurl = app.globalData.ajaxurl;
+const toasts = require('../../../../utils/toasts.js');
+
+Page({
 
   /**
    * 页面的初始数据
@@ -12,6 +15,7 @@ var ajaxurl = app.globalData.ajaxurl;Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    toasts.loading();
     console.log(options);
     var src = options.src;
     this.setData({
@@ -30,7 +34,7 @@ var ajaxurl = app.globalData.ajaxurl;Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    toasts.finish(); //停止下拉刷新效果
   },
 
   /**

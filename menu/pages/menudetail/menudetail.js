@@ -1,5 +1,6 @@
 var app = getApp();
 var ajaxurl = app.globalData.ajaxurl;
+const toasts = require('../../utils/toasts.js');
 
 Page({
   /**
@@ -18,9 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    toasts.loading();
     var id = options.id;
     // var id = 5507;
-    var id = 10128;
+    // var id = 10128;
     this.getdata(id);
     this.getshowdata(id);
     this.getaskdata(id)
@@ -54,7 +56,7 @@ Page({
         that.getrecommenddata(sunNameJson);
 
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
@@ -79,7 +81,7 @@ Page({
           datashow: res.data.data,
         })
       },
-      fail: function (err) { },
+      fail: function (err) { toasts.fail(); },
       complete: function () { }
     })
   },
@@ -104,7 +106,7 @@ Page({
           dataask: res.data.data,
         })
       },
-      fail: function (err) { },
+      fail: function (err) { toasts.fail(); },
       complete: function () { }
     })
   },
@@ -128,13 +130,14 @@ Page({
           datarecommend: res.data.data,
         })
       },
-      fail: function (err) { },
+      fail: function (err) { toasts.fail(); },
       complete: function () { }
     })
   },
 
   /* 跳转视频页面 */
   openvideo: function (event) {
+    toasts.iferror();
     console.log(event.currentTarget);
     console.log(event.currentTarget.dataset.id);
     var id = event.currentTarget.dataset.id;
@@ -144,7 +147,8 @@ Page({
   },
 
   /* 跳转作品列表 */
-  moreshow: function (event){
+  moreshow: function (event) {
+    toasts.iferror();
     console.log(event.currentTarget.dataset.id);
     var id = event.currentTarget.dataset.id;
     wx.navigateTo({
@@ -154,6 +158,7 @@ Page({
 
   /* 跳转问答列表 */
   moreask: function (event) {
+    toasts.iferror();
     console.log(event.currentTarget.dataset.id);
     var id = event.currentTarget.dataset.id;
     wx.navigateTo({
@@ -163,6 +168,7 @@ Page({
 
   /* 跳转推荐菜谱 */
   jumprecommend: function (event) {
+    toasts.iferror();
     console.log(event.currentTarget.dataset.id);
     var id = event.currentTarget.dataset.id;
     wx.navigateTo({
@@ -181,7 +187,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    toasts.finish(); //停止下拉刷新效果
   },
 
   /**

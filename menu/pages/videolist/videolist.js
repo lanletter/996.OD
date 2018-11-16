@@ -1,5 +1,6 @@
 var app = getApp();
 var ajaxurl = app.globalData.ajaxurl;
+const toasts = require('../../utils/toasts.js');
 
 Page({
   /**
@@ -17,6 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
+    toasts.loading();
     var that = this;
     // console.log(option);
     var id = option.id;
@@ -84,12 +86,13 @@ Page({
         })
 
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
 
-  bindlinkdetail: function (e){
+  bindlinkdetail: function (e) {
+    toasts.iferror();
     // console.log(e);
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
@@ -105,7 +108,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    toasts.finish(); //停止下拉刷新效果
   },
 
   /**

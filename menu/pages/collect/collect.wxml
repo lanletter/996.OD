@@ -1,3 +1,52 @@
+  <view class='tabbar'>
+    <cover-view wx:for="{{types}}" wx:for-item="value" wx:key="value" class="tabs {{currentTab==index?'tab1':'tab2'}}" data-searchtype="{{value.searchType}}" data-current="{{index}}" bindtap='clicktap'>{{value.name}}</cover-view>
+  </view>
+  <view class='ulist' wx:for="{{types}}" wx:for-item="value" wx:key="value">
+    <view wx:if="{{(currentTab==index)==true}}">
+      <!-- 课程 -->
+      <view wx:if="{{(searchtype=='1')==true}}" class='listcourse'>
+        1
+      </view>
+      <!-- 菜谱 -->
+      <view wx:if="{{(searchtype=='2')==true}}" class='listmenu'>
+        <view class='list' wx:for="{{datamenu}}" wx:for-item="value" wx:key="value">
+          <navigator url="/pages/menudetail/menudetail?title=navigate&id={{value.id}}" hover-class="none">
+            <image class='headpic' mode='aspectFill' src='{{value.picture.path}}'></image>
+            <view class='info'>
+              <text class='titlemin'>{{value.name}}</text>
+              <view class='icons'>
+                <view class='icon pageview'>
+                  <image src='/imgs/MenuView.png'></image>
+                  <text>{{value.pageviews}}</text>
+                </view>
+                <view class='icon favorcount'>
+                  <image src='/imgs/MenuCollection.png'></image>
+                  <text class='favorcount'>{{value.collect_count}}</text>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+      <!-- 故事 -->
+      <view wx:if="{{(searchtype=='4')==true}}" class='liststory'>
+        4
+      </view>
+      <!-- 短视频 -->
+      <view wx:if="{{(searchtype=='14')==true}}" class='listvideo'>
+        <view class='list' wx:for="{{datavideo}}" wx:for-item="value" wx:key="value">
+          <navigator url="/pages/videodetail/videodetail?title=navigate&id={{value.id}}" hover-class="none">
+            <image class='picture' mode='aspectFill' src='{{value.picture.path}}'></image>
+            <text class='titlemin'>{{value.title}}</text>
+            <cover-view class='time'>
+              <cover-image class='icon' src='/imgs/timebg.png'></cover-image>
+              {{value.time}}
+            </cover-view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
 
   <view class='tabselect'>
       <navigator url="/pages/home/home?title=navigate" hover-class="none" class='tabbtn'>

@@ -11,6 +11,7 @@ function getRandomColor() {
 
 var app = getApp();
 var ajaxurl = app.globalData.ajaxurl;
+const toasts = require('../../utils/toasts.js');
 
 Page({
   onReady: function (res) {
@@ -72,7 +73,7 @@ Page({
         })
 
       },
-      fail: function (err) { },//请求失败
+      fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
     })
   },
@@ -91,6 +92,7 @@ Page({
   },
 
   bindSendDanmu: function (e) {
+    toasts.iferror();
     var that = this;
     console.log("text:" + this.inputValue);
     console.log("color:" + getRandomColor());
@@ -106,7 +108,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    toasts.finish(); //停止下拉刷新效果
   },
 
   /**

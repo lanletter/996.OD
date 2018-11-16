@@ -1,30 +1,52 @@
-// pages/home/home.js
+var app = getApp();
+var ajaxurl = app.globalData.ajaxurl;
+const toasts = require('../../utils/toasts.js');
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    data:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+    toasts.loading();
+    var userid = 94138;
+    console.log(userid);
+    this.getdata(userid);
   },
 
-  onPullDownRefresh: function () {
-    console.log("1");
-    // wx.showNavigationBarLoading() //在标题栏中显示加载
+  getdata: function (userid) {//定义函数名称
+    var that = this;   // 这个地方非常重要，重置data{}里数据时候setData方法的this应为以及函数的this, 如果在下方的sucess直接写this就变成了wx.request()的this了
+    wx.request({
+      url: ajaxurl + 'index/greatest/v430',
+      data: {
+        // "userId": userid
+      },
+      header: {
+        "version": "v430"
+      },
+      method: "POST",
+      success: function (res) {
+        console.log(res.data);
+        if (res.data.status==200){
+          that.setData({//如果在sucess直接写this就变成了wx.request()的this了.必须为getdata函数的this,不然无法重置调用函数
+            data: res.data.data
+          })
+        }else{
+          toasts.fail();
+        }
 
-    // //模拟加载
-    // setTimeout(function () {
-    //   // complete
-    //   wx.hideNavigationBarLoading() //完成停止加载
-    //   wx.stopPullDownRefresh() //停止下拉刷新
-    // }, 1500);
+      },
+      fail: function (err) { toasts.fail(); },//请求失败
+      complete: function () { }//请求完成后执行的函数
+    })
   },
 
   /**
@@ -38,7 +60,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    toasts.finish();
   },
 
   /**

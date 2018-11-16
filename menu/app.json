@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/search/search",
     "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/search/search",
     "pages/collect/collect",
     "pages/videomenu/videomenu",
     "pages/videolist/videolist",
@@ -23,7 +25,7 @@
     "navigationBarTitleText": "方太生活家",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
-    "backgroundTextStyle": "dark"
-  }
-  
+    "backgroundTextStyle": "dark",
+    "onReachBottomDistance":600
+  } 
 }
