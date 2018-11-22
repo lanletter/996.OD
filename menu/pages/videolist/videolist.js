@@ -7,27 +7,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    data:{},
-    id:"",
+    title: "",
+    id: "",
     videourl: "",
     videopic: "",
-    yellowbg:true
+    yellowbg: true,
+    pagenum: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-    toasts.loading();
     var that = this;
-    // console.log(option);
-    var id = option.id;
+    console.log(option);
+    if (option.page > 1) {
+      var page = option.page
+    } else {
+      var page = 1
+    }
+    console.log(page);
+    that.setData({
+      pagenum: page
+    })
+
     wx.getNetworkType({
       success: function (res) {
         console.log(res.networkType);
-        if (res.networkType=="wifi"){
-          that.getdata(id);
-        }else{
+        if (res.networkType == "wifi") {
+          that.getlistdata(page);
+        } else {
           wx.showModal({
             title: '提示',
             content: '当前状态下播放视频可能会消耗流量，是否继续?',
@@ -35,7 +44,7 @@ Page({
             success(res) {
               if (res.confirm) {
                 // console.log('用户点击继续');
-                that.getdata(id);
+                that.getlistdata(page);
               } else if (res.cancel) {
                 // console.log('用户点击取消');
                 wx.navigateTo({
@@ -57,34 +66,33 @@ Page({
     }, 5000);
   },
 
-  getdata: function (id) {//定义函数名称
+  getlistdata: function (page) {
     var that = this;
     wx.request({
-      url: ajaxurl +'videoShort/detail',
+      url: ajaxurl + '/videoShort/list',
       data: {
-        "id": 247,
-        "userId": 1
+        "pageNum": page,
+        "pageSize": 1
       },
       header: {
-        "version": "v440"
+        "version": "v450"
       },
       method: "POST",
       success: function (res) {
-        console.log("菜谱详情:");
+        console.log("列表:");
         console.log(res.data);
-        var data = res.data.data;
-        var id = res.data.data.id;
-        var videopic = res.data.data.picture.path;
-        var videourl = res.data.data.url;
-        // console.log(videourl);
-        // console.log(videopic);
+        var id = res.data.data[0].id;
+        var videopic = res.data.data[0].picture.path;
+        var videourl = res.data.data[0].url;
+        var title = res.data.data[0].title;
+        console.log(videourl);
+        console.log(videopic);
         that.setData({
-          data: data,
+          title: title,
           id: id,
           videourl: videourl,
           videopic: videopic
         })
-
       },
       fail: function (err) { toasts.fail(); },//请求失败
       complete: function () { }//请求完成后执行的函数
@@ -108,7 +116,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    toasts.finish(); //停止下拉刷新效果
+
   },
 
   /**
@@ -129,6 +137,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    var that = this;
+    console.log(that.data.pagenum);
+    var pagenum = that.data.pagenum - 1;
+    console.log(pagenum);
 
   },
 
@@ -136,7 +148,16 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var that = this;
+    // console.log("onReachBottom");
+    // var that = this;
+    console.log(that.data.pagenum);
+    var page = parseInt(that.data.pagenum) + 1;
+    console.log(page);
+    // this.getdata(that.data.id);
+    wx.redirectTo({
+      url: '/pages/videolist/videolist?page=' + page,
+    })
   },
 
   /**

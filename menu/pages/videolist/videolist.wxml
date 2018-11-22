@@ -12,3 +12,4 @@
     {{data.title}} 
   </cover-view>
 </view>
+<view style='height:1rpx;'></view>

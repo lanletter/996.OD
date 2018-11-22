@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    data:{}
+    datamenuspecial:{}
   },
 
   /**
@@ -18,26 +18,25 @@ Page({
   onLoad: function (options) {
     toasts.loading();
     var userid = 94138;
-    console.log(userid);
+    // console.log(userid);
     this.getdata(userid);
   },
 
   getdata: function (userid) {//定义函数名称
     var that = this;   // 这个地方非常重要，重置data{}里数据时候setData方法的this应为以及函数的this, 如果在下方的sucess直接写this就变成了wx.request()的this了
     wx.request({
-      url: ajaxurl + 'index/greatest/v430',
-      data: {
-        // "userId": userid
-      },
+      url: ajaxurl + 'index/greatest/wx',
+      data: { },
       header: {
-        "version": "v430"
+        "version": "v450"
       },
       method: "POST",
       success: function (res) {
-        console.log(res.data);
+        // console.log(res);
+        // console.log(res.data.data[1]);
         if (res.data.status==200){
           that.setData({//如果在sucess直接写this就变成了wx.request()的this了.必须为getdata函数的this,不然无法重置调用函数
-            data: res.data.data
+            datamenuspecial: res.data.data[1]
           })
         }else{
           toasts.fail();
@@ -45,8 +44,28 @@ Page({
 
       },
       fail: function (err) { toasts.fail(); },//请求失败
-      complete: function () { }//请求完成后执行的函数
+      complete: function (res) { }//请求完成后执行的函数
     })
+  },
+
+  /* 获取授权 */
+  getLogin:function(){
+    wx.navigateTo({
+      url: "/pages/impower/impower"
+    })
+  },
+
+  /**
+   * 跳转菜谱专题页
+   */
+  jumpmenu: function (event) {
+    console.log(event.currentTarget);
+    console.log(event.currentTarget.dataset.id);
+    var id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "/pages/menulist/menulist?id=" + id
+    })
+
   },
 
   /**

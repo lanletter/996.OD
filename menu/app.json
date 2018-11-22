@@ -5,8 +5,8 @@
     "pages/logs/logs",
     "pages/search/search",
     "pages/collect/collect",
-    "pages/videomenu/videomenu",
     "pages/videolist/videolist",
+    "pages/videomenu/videomenu",
     "pages/videodetail/videodetail",
     "pages/menutypelist/menutypelist",
     "pages/menuspecial/menuspecial",
@@ -18,7 +18,8 @@
     "pages/menudetail/menushowlist/menushowlist",
     "pages/menudetail/menuasklist/askdetail/askdetail",
     "pages/menudetail/menushowlist/showpicture/showpicture",
-    "pages/menutype/menutype"
+    "pages/menutype/menutype",
+    "pages/impower/impower"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
@@ -26,6 +27,6 @@
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark",
-    "onReachBottomDistance":600
-  } 
+    "onReachBottomDistance": 600
+  }
 }

@@ -93,6 +93,13 @@
   height: 48rpx;
 }
 
+.header .icons .icon{
+  display: block;
+  border:0;
+  background: yellow;
+  width: 100rpx;
+}
+
 .header .icons .pageview {
   margin-right: 32rpx;
 }
@@ -147,7 +154,7 @@
 }
 
 .contenter .shadowbox .icon {
-  height: 52rpx;
+  display: block;
 }
 
 .contenter .shadowbox .icon image {

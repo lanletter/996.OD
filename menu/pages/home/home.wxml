@@ -1,4 +1,4 @@
-
+  <view style="height:100rpx;width:100%;background:yellow;" bindtap="getLogin"></view>
   <navigator url="/pages/search/search?title=navigate" hover-class="none" class="search">
     <image class="searchicon" src='/imgs/search.png'></image>
     <text class='searchtxt'>想学什么菜？</text>
@@ -19,14 +19,14 @@
       <text>全部</text>
       <image src='/imgs/arrowright.png'></image>
     </navigator>
-    <navigator url="/pages/menulist/menulist?title=navigate&id=26" hover-class="none" class='menucover'>
-      <image src='/imgs/homeicon1.png'></image>
-      <cover-view class='title'>营养早餐</cover-view>
+    <view data-id='{{datamenuspecial.showProductList[0].selectoneval}}' hover-class="none" class='menucover' bindtap='jumpmenu'>
+      <image src='{{datamenuspecial.showProductList[0].picture.path}}'></image>
+      <cover-view class='title'>{{datamenuspecial.showProductList[0].title}}</cover-view>
       <cover-view class='counts'>
-        <cover-view>90</cover-view>
+        <cover-view>{{datamenuspecial.showProductList[0].specialCount}}</cover-view>
         <cover-view>个菜谱</cover-view>
       </cover-view>
-    </navigator>
+    </view>
   </view>
 
   <view class='gap2'>

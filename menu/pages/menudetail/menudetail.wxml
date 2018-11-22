@@ -14,10 +14,10 @@
       <image src='/imgs/MenuView.png'></image>
       <text>{{databasic.pageviews}}</text>
     </view>
-    <view class='icon favorcount'>
+    <button class='icon favorcount'>
       <image src='/imgs/MenuCollection.png'></image>
       <text class='favorcount'>{{databasic.favoriteCount}}</text>
-    </view>
+    </button>
   </view>
 </view>
 

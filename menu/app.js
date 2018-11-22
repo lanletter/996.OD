@@ -9,17 +9,50 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // console.log(res);
+        console.log(res);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: 'https://apptest.fotilestyle.com:666/fotile-api-0.0.2/pay/wxtokenMini',
+          data: {
+            "code": res.code
+          },
+          method: "POST",
+          success: function (res) {
+            console.log(res);
+            console.log(res.data.data.session_key);
+            var session_key = res.data.data.session_key
+            wx.getUserInfo({
+              success: function (res) {
+                console.log(res);
+                var encryptedData = res.encryptedData
+                var iv = res.iv
+                var data={
+                  "session_key": session_key,
+                  "iv": iv,
+                  "encryptedData": encryptedData
+                }
+                console.log(data);
+              },
+              fail: function (res) {
+                console.log(res);
+                wx.login() //session_key 已经失效，需要重新执行登录流程
+              }
+            })
+          },
+          fail: function (err) { },//请求失败
+          complete: function (res) { }//请求完成后执行的函数
+        })
       }
     })
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        console.log(res);
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              console.log(res);
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
 
@@ -30,7 +63,16 @@ App({
               }
             }
           })
+        }else{
+        
         }
+      }
+    })
+
+    /*重新设置用户授权状态 */
+    wx.openSetting({
+      success(res) {
+
       }
     })
 
@@ -46,25 +88,12 @@ App({
       }
     })
 
-    wx.getUserInfo({
-      success: function (res) {
-        // console.log(res);
-        var userInfo = res.userInfo
-        var nickName = userInfo.nickName
-        var avatarUrl = userInfo.avatarUrl
-        var gender = userInfo.gender //性别 0：未知、1：男、2：女
-        var province = userInfo.province
-        var city = userInfo.city
-        var country = userInfo.country
-      }
-    })
-
   },
   globalData: {
     userInfo: null,
-    ajaxurl: 'https://api.fotilestyle.com/fotile-api-0.0.2/',
-    // ajaxurl: 'http://apptest.fotilestyle.com:666/fotile-api-0.0.2/',
+    // ajaxurl: 'https://api.fotilestyle.com/fotile-api-0.0.2/',
+    ajaxurl: 'https://apptest.fotilestyle.com:666/fotile-api-0.0.2/',
   },
-  
- 
+
+
 })
