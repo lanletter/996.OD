@@ -3,6 +3,7 @@
     <extensionMap>
       <mapping pattern="active-pro" type="CSS" />
       <mapping pattern=".node-version" type="PLAIN_TEXT" />
+      <mapping ext="wxss" type="Stylus" />
     </extensionMap>
   </component>
 </application>
