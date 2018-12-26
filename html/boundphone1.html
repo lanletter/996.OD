@@ -177,7 +177,7 @@
             return false;
         }
         var codenum = document.getElementById('codenum').value;
-        if (!(/^\d{4}$/.test(codenum))) {
+        if (!(/^\d{6}$/.test(codenum))) {
             document.getElementById("codenum").value = "";
             $("#delete1").css("display", "none");
             $(".warn2").css("display", "block");
