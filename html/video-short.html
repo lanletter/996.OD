@@ -128,29 +128,27 @@
         var token;
         $(".footer").hide();
         //app交互—获取userid
-        window.onload = function () {
-            ft.isLogin2(function (result) {
-                console.log(result);
-                // alert(JSON.stringify(result));
-                var errorcode = result.errorCode.toString();
-                //alert(errorcode);
-                console.log(errorcode);
-                if (errorcode == "1") {
-                    userid = result.data.userId.toString();
-                    goon();
-                    $.cookie('userid', userid);
-                    if (userid !== "1" && userid !== 1) {
-                        token = result.data.token.toString();
-                        $.cookie('token', token);
-                    }
+        ft.isLogin2(function (result) {
+            console.log(result);
+            // alert(JSON.stringify(result));
+            var errorcode = result.errorCode.toString();
+            //alert(errorcode);
+            console.log(errorcode);
+            if (errorcode == "1") {
+                userid = result.data.userId.toString();
+                goon();
+                // $.cookie('userid', userid);
+                // if (userid !== "1" && userid !== 1) {
+                //     token = result.data.token.toString();
+                //     $.cookie('token', token);
+                // }
 
 
-                } else if (errorCode == "0") {
-                } else if (errorCode == "-1") {
-                } else if (errorCode == "-2") {
-                }
-            });
-        };
+            } else if (errorCode == "0") {
+            } else if (errorCode == "-1") {
+            } else if (errorCode == "-2") {
+            }
+        });
     } else {
         var userid = 1;
         var token;
@@ -170,7 +168,7 @@
                     "sharetitle": "",
                     "sharedesc": "",
                     "shareimg": "",
-                    "sharelink": "",
+                    "sharelink": ""
                 },
 
                 http: {
@@ -183,7 +181,7 @@
                 var $this = this;
                 this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
                     var data = data.data;
-                    // console.log(data);
+                    console.log(data);
                     if (data.status == 200) {
                         $this.data = data.data;
                         console.log($this.data);
@@ -300,7 +298,7 @@
                                             url: urlport + 'favorite/create',
                                             type: 'POST',
                                             headers: {
-                                                "version":"v450"
+                                                "version": "v450"
                                             },
                                             data: JSON.stringify({
                                                 "refId": id,
@@ -329,7 +327,7 @@
                                             url: urlport + 'favorite/cancel',
                                             type: 'POST',
                                             headers: {
-                                                "version":"v450"
+                                                "version": "v450"
                                             },
                                             data: JSON.stringify({
                                                 "refId": id,
