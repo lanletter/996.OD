@@ -8,24 +8,23 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <!-- 不要让设备识别电话号码和邮箱地址-->
     <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
-          name="viewport">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <script src="../js/tingyun-rum.js"></script>
-    <link href="../css/common.css?ver=403" rel="stylesheet">
-    <!--<link href="../css/jf-info.css?ver=403" rel="stylesheet">-->
+    <link href="../css/common/reset.css?ver=403" rel="stylesheet">
+    <link href="../css/jf-info.css?ver=403" rel="stylesheet">
     <title>积分说明</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function () {
+        (function(){
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function () {
+            (function() {
                 var vds = document.createElement('script');
-                vds.type = 'text/javascript';
+                vds.type='text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -33,95 +32,47 @@
             })();
         })();
     </script>
-    <style>
-        .ullist{
-            width: 100%;
-            height: 0.8rem;
-            padding-left: 0.4rem;
-            border-bottom: 1px solid rgb(237,237,237);
-        }
-        .ullist li{
-            margin:0 0.78rem 0 0;
-            font-size: 0.24rem;
-            color: rgb(154,154,154);
-            height: 0.8rem;
-            line-height: 0.8rem;
-            float: left;
-        }
-        .ullist .cur{
-            color: rgb(31,31,31);
-            font-weight: bold;
-        }
-        .ullist .cur:after {
-            content: '';
-            display: block;
-            width: 50%;
-            border-radius: 0.35rem;
-            margin-top: -1px;
-            margin-left: 25%;
-            height: 4px;
-            background-color: rgb(200,175,112);
-        }
-        .content{
-            margin-bottom: 3.76rem;
-        }
-        .content div{
-            width: 100%;
-        }
-        .content p{color: #1f1f1f;}
-        .content .title{
-            margin: 0.8rem 0.4rem 0 0.4rem;
-            padding-left:0.8rem;
-            font-size: 0.48rem;
-            font-weight: bold;
-            text-indent: -0.8rem;
-            letter-spacing: 1px;
-            line-height: 0.66rem;
-        }
-        .content .texts{
-            text-align: justify;
-            line-height: 0.48rem;
-            margin: 0.4rem 0.6rem 0 0.6rem;
-            font-size: 0.28rem;
-        }
-    </style>
 </head>
 <body>
-<div id="BigDIV" class="content">
-    <div id="JKDiv_0">
-        <p class="title">1、如何获取积分？</p>
-        <p class="texts">完成注册、在APP内签到、完善个人信息、购买课程或商品、参与线上活动等可以获取积分。<br>备注：订单生成后如取消订单或退货，积分将自动扣除。</p>
-
-        <p class="title">2、完成相关任务能获取多少积分？</p>
-        <p class="texts">
-            注册：首次注册可获500积分。<br>
-            签到：5积分/次，限每日1次。<br>
-            完善个人信息：完成新手任务，完善全部个人信息可获得40积分。详细任务见新手任务页面<br/>
-            购买：购买可获积分=价格*会员等级享有的积分获取倍率（会员等级倍率可在会员说明中查看）。<br>
-            活动：根据相关活动具体说明发放<br>
-        </p>
-
-        <p class="title">3、积分的有效期多久？</p>
-        <p class="texts">积分有效期为12个月，每年1月1日零点清零去年1月1日零点以前获得的积分，到期前1个月对会员做短信或邮件提醒，到期后自动清零，到期后自动清楚，请及时使用。
-            <br/>注*：会员积分不实行滚动清零政策，实行固定时间节点清零。例：某会员2017年1月1日零点前获得积分，将在2018年1月1日零点清零。2017年1月1日零点以后至2018年1月1日零点以前获得的积分，不会在2018年1月1日零点清零。
-        </p>
-
-        <p class="title">4、积分可以用来做什么？</p>
-        <p class="texts">可在积分商城中进行商品兑换，或在参加其他活动时使用。</p>
-    </div>
+<div class="jf-info">
+    <!--<h4>积分说明</h4>-->
+    <ul>
+        <li v-html="instruction"></li>
+    </ul>
 </div>
-</body>
-<script src="../js/lib.js"></script>
+
 <script>
-    $("li").click(function(e) {
-        $("li").removeClass("cur");
-        $(this).addClass("cur");
-    });
-    function ChangeDiv(divId, divName, zDivCount) {
-        for (i = 0; i <= zDivCount; i++) {
-            document.getElementById(divName + i).style.display = "none";
-        }
-        document.getElementById(divName + divId).style.display = "block";
+    function setFontSize(){
+        document.documentElement.style.fontSize = document.documentElement.clientWidth/375*10+"px";
     }
+    setFontSize();
+    window.onresize = function(){
+        setFontSize();
+    };
 </script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="../js/url.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.jf-info',
+        data:{
+            instruction:'积分说明积分说明积分说明积分说明积分说明'
+        },
+        created:function(){
+            var $this = this;
+            this.$http.post(urlport+'instruction/detail','{"code":"member"}').then(function(data){
+                console.info(data.data);
+                var data = data.data;
+                if(data.status == 200){
+                    $this.instruction = data.data.instruction;
+                }
+            },function(){
+                console.info('error');
+            });
+        }
+    });
+
+</script>
+</body>
 </html>
