@@ -132,7 +132,8 @@
         //app交互—获取userid
         window.onload = function () {
             ft.isLogin2(function (result) {
-                // alert(JSON.stringify(result));
+                console.log(result);
+                alert(JSON.stringify(result));
                 var errorcode = result.errorCode.toString();
                 //alert(errorcode);
                 console.log(errorcode);
