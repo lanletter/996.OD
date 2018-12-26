@@ -52,7 +52,7 @@
             <p class="cookdesc" v-html="data.cook.remark"></p>
         </a>
         <p class="introduct" v-html="data.content"></p>
-        <div v-if="data.tip !== undefined && data.tip !== null" class="tips">
+        <div v-if="data.tip.length > 0 " class="tips">
             <div class='dot'></div>
             <div class='txt' v-html="data.tip"></div>
         </div>
