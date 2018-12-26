@@ -222,11 +222,11 @@
             var qs = 'device=' + device+'&jump=jump';
             $content.find('a').each(function () {
                 var href = $(this).attr('href');
-                console.log(href);
+                // console.log(href);
                 if (href) {
                     href += (href.match(/\?/) ? '&' : '?') + qs;
                     $(this).attr('href', href);
-                    console.log(href);
+                    // console.log(href);
                 }
             });
             /*GIO参数集合*/

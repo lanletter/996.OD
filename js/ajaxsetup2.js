@@ -23,7 +23,7 @@ $(function () {
             "userId": userid,
             "token": token,
             "deviceType":"web",
-            "version":"v440"
+            "version":"v450"
         }
     });
 });

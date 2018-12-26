@@ -106,7 +106,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+                // alert(JSON.stringify(ret));
                 if (ret.status !== 200) {
                     alert(ret.errorMessage);
                 }
@@ -116,21 +116,14 @@
 
     $(".nextbtn").click(function () {
         if (!loginInputValid()) return;
-        console.log({
-            unionId: unionid,
-            weChat: nickname,
-            picture: headimgurl,
-            tel: $("#phonenum").val(),
-            verificationCode: $("#codenum").val()
-        });
         /*微信unionid和手机号绑定or注册*/
-        alert(JSON.stringify({
-            unionId: unionid,
-            weChat: nickname,
-            picture: headimgurl,
-            tel: $("#phonenum").val(),
-            verificationCode: $("#codenum").val()
-        }));
+//      alert(JSON.stringify({
+//          unionId: unionid,
+//          weChat: nickname,
+//          picture: headimgurl,
+//          tel: $("#phonenum").val(),
+//          verificationCode: $("#codenum").val()
+//      }));
         $.ajax({
             type: 'POST',
             url: urlport + 'user/chenkUser',
@@ -140,7 +133,7 @@
             }),
             contentType: 'application/json;charset=UTF-8',
             success: function (ret) {
-                alert(JSON.stringify(ret));
+                // alert(JSON.stringify(ret));
                 if (ret.data == true || ret.data == "true") {//已注册
                     $.ajax({
                         type: 'POST',
@@ -155,7 +148,7 @@
                         }),
                         contentType: 'application/json;charset=UTF-8',
                         success: function (ret) {
-                            alert(JSON.stringify(ret));
+                            // alert(JSON.stringify(ret));
                             if (ret.status == "200") {
                                 alert("微信绑定成功！");
                                 window.location.href = h5url;
@@ -184,7 +177,7 @@
             return false;
         }
         var codenum = document.getElementById('codenum').value;
-        if (!(/^\d{6}$/.test(codenum))) {
+        if (!(/^\d{4}$/.test(codenum))) {
             document.getElementById("codenum").value = "";
             $("#delete1").css("display", "none");
             $(".warn2").css("display", "block");

@@ -14,7 +14,7 @@
         // alert(userid);
         // var userid = 121547;//测试环境
         // var userid = 94138;//预发布环境
-        console.log(cookstring);
+        // console.log(cookstring);
 
         $api.post(urlport + 'comment/list', obj,
             function (res) {
@@ -33,7 +33,7 @@
                 <div id="ft-header" class="ft-comment__header clearfix left-right">\
                   <div class="leavewords comment">\
                       <img src="">\
-                      <div>快来分享你的作品、感想</div>\
+                      <div>等你来分享</div>\
                   </div>\
                   <div class="leavewords nocomment">\
                     <span>登录</span>\
@@ -224,7 +224,7 @@
                     <div id="ft-header" class="ft-comment__header clearfix left-right">\
                       <div class="leavewords comment">\
                           <img src="">\
-                          <div>快来分享你的作品、感想</div>\
+                          <div>等你来分享</div>\
                       </div>\
                       <div class="leavewords nocomment">\
                         <span>登录</span>\

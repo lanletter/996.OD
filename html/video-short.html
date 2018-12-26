@@ -41,12 +41,35 @@
 <div class="vide-share">
     <div class="tit">
         <h3 v-html="data.title"></h3>
-        <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"  @click="jumpto(data.cook.url,data.cook.id)">
+        <div class="header__opt">
+            <span class="view-count"><strong v-html="data.viewCount"></strong></span>
+            <span class="" id="star"><strong v-html="data.isFavorite"></strong></span>
+        </div>
+        <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"
+           @click="jumpto(data.cook.url,data.cook.id)">
             <img :src="data.cook.picture.path">
             <p class="name" v-html="data.cook.cookName"></p>
             <p class="cookdesc" v-html="data.cook.remark"></p>
         </a>
         <p class="introduct" v-html="data.content"></p>
+        <div class="tips">
+            <div class='dot'></div>
+            <div class='txt' v-html="data.tip"></div>
+        </div>
+    </div>
+    <div class="recommend">
+        <p class="title">菜谱推荐</p>
+        <ul class="ulist">
+            <li v-for="item in menulist"><a :href="item.pageUrl">
+                <div class="img" :style="{backgroundImage: 'url(' + item.imgurl + ')'}"></div>
+                <div v-if="item.videoLong !== '' && item.videoLong !== null" class="time" v-html="item.videoLong"></div>
+                <p class="name" v-html="item.name"></p>
+                <div class="icons">
+                    <span class="view-count"><strong v-html="item.pageviews"></strong></span>
+                    <span class="favorite-count"><strong v-html="item.collect_count"></strong></span>
+                </div>
+            </a></li>
+        </ul>
     </div>
     <div class="recommend">
         <p class="title">相关推荐</p>
@@ -69,6 +92,7 @@
     <span id="download">下载</span>
 </div>
 <script src="../js/lib.js"></script>
+<script type="text/javascript" src='../js/api.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/url.js"></script>
@@ -98,299 +122,474 @@
         $(".footer").show();
     } else {
         $(".footer").hide();
-        $(".vide-share").css({"padding-bottom":"0.48rem"});
+        $(".vide-share").css({"padding-bottom": "0.48rem"});
     }
 
-    /*选项卡*/
-    function changeTab(tabCon_num) {
-        for (i = 0; i <= 1; i++) {
-            document.getElementById("tabCon_" + i).style.display = "none"; //将所有的层都隐藏
-            document.getElementById("tab_" + i).classList.remove("selected");
-        }
-        document.getElementById("tabCon_" + tabCon_num).style.display = "block";//显示当前层
-        document.getElementById("tab_" + tabCon_num).classList.add("selected");
-    }
-
-    var vm = new Vue({
-        el: '.vide-share',
-        data: {
-            data: {},
-            datalist: {},
-            jsoninfo: {
-                "id": id,
-                "type": 14,
-                "sharetitle": "",
-                "sharedesc": "",
-                "shareimg": "",
-                "sharelink": "",
-            }
-
-            // http: {
-            //     headers: {
-            //         token: 'Basic YXBpOnBhc3N3b3Jk'
-            //     }
-            // }
-        },
-        created: function () {
-            var $this = this;
-            this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
-                var data = data.data;
-                // console.log(data);
-                if (data.status == 200) {
-                    $this.data = data.data;
-                    console.log($this.data);
-                    if(data.data.cook !== null && data.data.cook !== undefined){
-                        $this.data.cook.url = data.data.cook.url + "&device=" + device +"&jump=jump";
+    if (device == "ios" || device == "android") {
+        var userid;
+        var token;
+        $(".footer").hide();
+        //app交互—获取userid
+        window.onload = function () {
+            ft.isLogin2(function (result) {
+                // alert(JSON.stringify(result));
+                var errorcode = result.errorCode.toString();
+                //alert(errorcode);
+                console.log(errorcode);
+                if (errorcode == "1") {
+                    userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
+                    if (userid !== "1" && userid !== 1) {
+                        token = result.data.token.toString();
+                        $.cookie('token', token);
                     }
 
-                    /*友盟埋点-页面访问*/
-                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                        "页面类型": "短视频详情",
-                        "页面名称": data.data.title
-                    });
+                    goon();
 
-                    document.setTitle = function (t) {
-                        document.title = t;
-                        var i = document.createElement('iframe');
-                        i.style.display = 'none';
-                        i.onload = function () {
-                            setTimeout(function () {
-                                i.remove();
-                            })
+                } else if (errorCode == "0") {
+                } else if (errorCode == "-1") {
+                } else if (errorCode == "-2") {
+                }
+            });
+        };
+    } else {
+        var userid = 1;
+        var token;
+        goon();
+    }
+
+    function goon() {
+        var vm = new Vue({
+            el: '.vide-share',
+            data: {
+                data: {},
+                menulist: {},
+                datalist: {},
+                jsoninfo: {
+                    "id": id,
+                    "type": 14,
+                    "sharetitle": "",
+                    "sharedesc": "",
+                    "shareimg": "",
+                    "sharelink": "",
+                },
+
+                http: {
+                    header: {
+                        "version": "v450"
+                    }
+                }
+            },
+            created: function () {
+                var $this = this;
+                this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
+                    var data = data.data;
+                    // console.log(data);
+                    if (data.status == 200) {
+                        $this.data = data.data;
+                        console.log($this.data);
+                        if (data.data.cook !== null && data.data.cook !== undefined) {
+                            $this.data.cook.url = data.data.cook.url + "&device=" + device + "&jump=jump";
                         }
-                        document.body.appendChild(i);
-                    }
-                    setTimeout(function () {
-                        document.setTitle($this.data.title);
-                    })
 
-                    /*视频链接*/
-                    $('.video').css({
-                        "background": "url(" + $this.data.picture.path + ") no-repeat",
-                        "background-size": "100% auto"
-                    });
-                    $('#videobox').find('#vd').attr('src', $this.data.url);
-                    console.log($this.data.time);
-                    if ($this.data.time !== "" && $this.data.time !== null) {
-                        $("#videobox .time").text($this.data.time);
-                    } else {
-                        $("#videobox .time").hide();
-                    }
-                    $('#vdtest').attr('src', $this.data.url);
-
-
-                    (function () {
-                        var video = $('#videobox video')[0],
-                            playBtn = $('#videobox .play');
-                        playBtn.on('click', function () {
-                            $(this).hide();
-                            var vheight = $("#videobox video").height();
-                            $('#vd').css({"position": "absolute", "left": "0"});
-                            $("#videobox").css({height: vheight + "px"});
-                            video.play();
-                            $('.video').css({"background": "#000"});
-                            video.controls = true;
-                            $("#videobox .time").hide();
+                        /*友盟埋点-页面访问*/
+                        UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                            "页面类型": "短视频详情",
+                            "页面名称": data.data.title
                         });
 
-                        video.addEventListener('ended', function () {
-                            playBtn.show();
-                            $('.video').css({
-                                "background": "url(" + $this.data.picture.path + ") no-repeat",
-                                "background-size": "100% auto"
-                            });
-                            video.controls = false;
-                            $("#videobox .time").show();
-                            $('#vd').css({"position": "absolute", "left": "-10rem"});
-                            $("#videobox").css({"height": "4.2rem"});
-                        }, false);
-                        video.addEventListener('pause', function () {
-                            playBtn.hide();
-                            $('.video').css({"background": "#000"});
-                            video.controls = true;
-                        }, false);
-                    })();
-
-                    /*计算视频时长*/
-                    // setTimeout(function(){
-                    //     videoTime=document.getElementById("vdtest").duration;
-                    //     console.log(videoTime);
-                    //     var minTime= videoTime/60;
-                    //     console.log(Math.round(minTime));
-                    // },2000);
-
-
-                    $.ajax({
-                        type: 'POST',
-                        url: urlport + "/videoShort/recommend",
-                        data: JSON.stringify({
-                            "pageNum": 1,
-                            "pageSize": 4,
-                            "type": 1
-                        }),
-                        timeout: 5000, //超时时间
-                        contentType: "application/json;charset=utf-8",
-                        dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                        success: function (data) {
-                            console.log(data);
-                            var data = data;
-                            if (data.status == 200) {
-                                $this.datalist = data.data;
-
-                                for (var i = 0; i < data.data.length; i++) {
-                                    // console.log(data.data[i].pageUrl);
-                                    var pageUrl = data.data[i].pageUrl;
-                                    pageUrl = pageUrl + "&device=" + device + "&jump=jump";
-                                    // console.log(pageUrl);
-                                    data.data[i].pageUrl = pageUrl;
-                                }
-                                console.info($this.datalist);
-
+                        document.setTitle = function (t) {
+                            document.title = t;
+                            var i = document.createElement('iframe');
+                            i.style.display = 'none';
+                            i.onload = function () {
+                                setTimeout(function () {
+                                    i.remove();
+                                })
                             }
-                        },
-                        error: function (xhr, type) {
-                            //alert(111);
+                            document.body.appendChild(i);
                         }
-                    });
+                        setTimeout(function () {
+                            document.setTitle($this.data.title);
+                        })
 
-                    /*GIO参数集合*/
-                    //类型
-                    if ($this.data.type == 1) {
-                        var type = "烹饪技巧";
-                    } else if ($this.data.type == 2) {
-                        var type = "厨电使用";
-                    }
-                    //发布时间
-                    var date = new Date($this.data.createat);
-                    Y = date.getFullYear() + '-';
-                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-                    D = date.getDate() + ' ';
-                    h = date.getHours() + ':';
-                    m = date.getMinutes() + ':';
-                    s = date.getSeconds();
-                    var creattime = Y + M + D + h + m + s;
-                    console.log(creattime);
-
-                    //custom page code begin here
-                    gio("page.set", "shortvideo", "短视频");//页面类型
-                    gio("page.set", "ID", $this.data.id);//id
-                    gio("page.set", "titlesv", $this.data.title);//标题
-                    gio("page.set", "type", type);//类型
-                    gio("page.set", "creattime", creattime);//发布时间
-                    gio("page.set", "time", $this.data.time);//视频时长
-                    //custom page code end here
-                    gio('send');
-
-                    /*GIO参数集合发送完毕*/
-
-
-                    /*分享链接专用*/
-                    var sharetitle = $this.data.title;
-                    var sharedesc = $this.data.remark;
-                    var shareimg = $this.data.picture.path;
-                    var sharestr = $this.data.pageUrl;
-                    var sharelink = sharestr.replace(/api/, "h5");
-                    var jsoninfo = {
-                        "id": id,
-                        "type": 14,
-                        "sharetitle": sharetitle,
-                        "sharedesc": sharedesc,
-                        "shareimg": shareimg,
-                        "sharelink": sharelink
-                    };
-                    window.setTimeout(function () {
-                        console.info(jsoninfo);
-                        /*APP分享专用*/
-                        if (device == null || device == "null") {
-                            console.log("不是APP打开");
+                        /*视频链接*/
+                        $('.video').css({
+                            "background": "url(" + $this.data.picture.path + ") no-repeat",
+                            "background-size": "100% auto"
+                        });
+                        $('#videobox').find('#vd').attr('src', $this.data.url);
+                        console.log($this.data.time);
+                        if ($this.data.time !== "" && $this.data.time !== null) {
+                            $("#videobox .time").text($this.data.time);
                         } else {
-                            ft.shareInfo(jsoninfo, function (result) {
-
-                            });
+                            $("#videobox .time").hide();
                         }
-                    }, 2000);
-                    /*微信分享专用*/
-                    $.ajax({
-                        type: 'GET',
-                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                        success: function (data) {
-                            console.info(data.appId);
-                            wx.config({
-                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                                appId: data.appId, // 必填，公众号的唯一标识
-                                timestamp: data.timestamp, // 必填，生成签名的时间戳
-                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                                signature: data.signature,
-                                jsApiList: [
-                                    "onMenuShareTimeline",
-                                    "onMenuShareAppMessage",
-                                    "onMenuShareQQ",
-                                    "onMenuShareWeibo",
-                                    "onMenuShareQZone"
-                                ]
+                        $('#vdtest').attr('src', $this.data.url);
+
+
+                        (function () {
+                            var video = $('#videobox video')[0],
+                                playBtn = $('#videobox .play');
+                            playBtn.on('click', function () {
+                                $(this).hide();
+                                var vheight = $("#videobox video").height();
+                                $('#vd').css({"position": "absolute", "left": "0"});
+                                $("#videobox").css({height: vheight + "px"});
+                                video.play();
+                                $('.video').css({"background": "#000"});
+                                video.controls = true;
+                                $("#videobox .time").hide();
                             });
-                            wx.ready(function () {
-                                //分享给朋友圈
-                                wx.onMenuShareTimeline({
-                                    title: sharetitle, // 分享标题
-                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                    imgUrl: shareimg, // 分享图标
-                                    success: function () {
-                                        // 用户确认分享后执行的回调函数
-                                    },
-                                    cancel: function () {
-                                        // 用户取消分享后执行的回调函数
-                                    }
+
+                            video.addEventListener('ended', function () {
+                                playBtn.show();
+                                $('.video').css({
+                                    "background": "url(" + $this.data.picture.path + ") no-repeat",
+                                    "background-size": "100% auto"
                                 });
-                                //分享给朋友
-                                wx.onMenuShareAppMessage({
-                                    title: sharetitle, // 分享标题
-                                    desc: sharedesc, // 分享描述
-                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                    imgUrl: shareimg, // 分享图标
-                                    type: '', // 分享类型,music、video或link，不填默认为link
-                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                    success: function () {
-                                        // 用户确认分享后执行的回调函数
-                                    },
-                                    cancel: function () {
-                                        // 用户取消分享后执行的回调函数
-                                    }
-                                });
-                            });
-                        },
-                        error: function (xhr, type) {
-                            //alert(111);
+                                video.controls = false;
+                                $("#videobox .time").show();
+                                $('#vd').css({"position": "absolute", "left": "-10rem"});
+                                $("#videobox").css({"height": "4.2rem"});
+                            }, false);
+                            video.addEventListener('pause', function () {
+                                playBtn.hide();
+                                $('.video').css({"background": "#000"});
+                                video.controls = true;
+                            }, false);
+                        })();
+
+                        /*计算视频时长*/
+                        // setTimeout(function(){
+                        //     videoTime=document.getElementById("vdtest").duration;
+                        //     console.log(videoTime);
+                        //     var minTime= videoTime/60;
+                        //     console.log(Math.round(minTime));
+                        // },2000);
+
+                        //判断是否收藏
+                        if (userid == 1 || userid == "1") {
+                            $("#star").addClass("favorite-count");
+                            $("#star").remove("favorite-count2");
+                        } else {
+                            if (data.isFavorite == 1) {
+                                $("#star").addClass("favorite-count2");
+                                $("#star").remove("favorite-count");
+                            } else {
+                                $("#star").addClass("favorite-count");
+                                $("#star").remove("favorite-count2");
+                            }
                         }
-                    })
+                        var canClick = true;
+                        $('#star').on('click', function (e) {
+                            if (!canClick) return;
+                            canClick = false;
+                            //app交互——获取登录状态
+                            ft.isLogin(function (result) {
+                                // alert(JSON.stringify(result));
+                                // alert("id:" + id + "type:" + 4 + "userid:" + userid);
+                                var errorcode = result.errorCode.toString();
+                                if (errorcode == "1") {
+                                    //$api.toast('登陆成功', 2000);
+                                    userid = result.data.userId.toString();
+                                    $.cookie('userid', userid);
+                                    if (userid !== "1" && userid !== 1) {
+                                        token = result.data.token.toString();
+                                        $.cookie('token', token);
+                                    }
+                                    //alert(userid);
+                                    //收藏
+                                    var follow = $("#star").attr('class');
+                                    if (follow == "favorite-count") {
+                                        $.ajax({
+                                            url: urlport + 'favorite/create',
+                                            type: 'POST',
+                                            headers: {
+                                                "version":"v450"
+                                            },
+                                            data: JSON.stringify({
+                                                "refId": id,
+                                                "type": 4,
+                                                "userId": userid
+                                            }),
+                                            timeout: 5000, //超时时间
+                                            contentType: "application/json;charset=utf-8",
+                                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                            success: function (data) {
+                                                console.log(data);
+                                                console.log("111");
+                                                $("#star").addClass("favorite-count2");
+                                                $("#star").removeClass("favorite-count");
+                                                var oldnum = $("#star strong").text();
+                                                $("#star strong").text(parseInt(oldnum) + 1);
+                                                $api.toast('收藏成功！', 3000);
+                                            },
+                                            error: function (errorMsg) {
+                                                console.log('错误');
+                                                console.log(errorMsg);
+                                            }
+                                        });
+                                    } else if (follow == "favorite-count2") {
+                                        $.ajax({
+                                            url: urlport + 'favorite/cancel',
+                                            type: 'POST',
+                                            headers: {
+                                                "version":"v450"
+                                            },
+                                            data: JSON.stringify({
+                                                "refId": id,
+                                                "type": 4,
+                                                "userId": userid
+                                            }),
+                                            timeout: 5000, //超时时间
+                                            contentType: "application/json;charset=utf-8",
+                                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                            success: function (data) {
+                                                console.log(data);
+                                                console.log("222");
+                                                $("#star").removeClass("favorite-count2");
+                                                $("#star").addClass("favorite-count");
+                                                var oldnum = $("#star strong").text();
+                                                $("#star strong").text(parseInt(oldnum) - 1);
+                                                $api.toast('取消收藏！', 3000);
+                                            },
+                                            error: function (errorMsg) {
+                                                console.log('错误');
+                                                console.log(errorMsg);
+                                            }
+                                        });
+                                    }
+                                } else if (errorCode == "0") {
+                                    $api.toast('登陆取消', 2000);
+                                } else if (errorCode == "-1") {
+                                    $api.toast('登陆失败', 2000);
+                                } else if (errorCode == "-2") {
+                                    $api.toast('登陆不支持', 2000);
+                                }
+                            });
+
+                            setTimeout(function () {
+                                canClick = true;
+                            }, 3000);
+                        });
+
+                        /*推荐菜谱*/
+                        $(document).ready(function () {
+                            $.ajax({
+                                url: urlport + 'videoShort/recommendMenus',
+                                type: 'POST',
+                                data: JSON.stringify({
+                                    "id": id
+                                }),
+                                header: {
+                                    "version": "v450"
+                                },
+                                timeout: 5000, //超时时间
+                                contentType: "application/json;charset=utf-8",
+                                dataType: 'json', //返回的数据格式
+                                success: function (menulist) {
+                                    console.log("推荐菜谱：");
+                                    console.log(menulist);
+                                    if (menulist.status == 200) {
+                                        for (var i = 0; i < menulist.data.length; i++) {
+                                            var url = menulist.data[i].url;
+                                            var pageUrl = url + "&device=" + device + "&jump=jump";
+                                            menulist.data[i].pageUrl = pageUrl;
+                                            var imgurl = menulist.data[i].images[0];
+                                            var pos = imgurl.indexOf('?');
+                                            if (pos > 0) {//如果？存在
+                                                var result = imgurl.substring(0, pos);
+                                            } else {//？不存在
+                                                var result = imgurl;
+                                            }
+                                            menulist.data[i].imgurl = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_540,w_960/auto-orient,0";
+                                        }
+                                        $this.menulist = menulist.data;
+                                        console.log($this.menulist);
+                                    }
+                                },
+                                error: function (errorMsg) {
+                                    console.log('错误');
+                                    console.log(errorMsg);
+                                }
+                            });
+
+                        });
+
+                        $.ajax({
+                            type: 'POST',
+                            url: urlport + "/videoShort/recommend",
+                            data: JSON.stringify({
+                                "pageNum": 1,
+                                "pageSize": 4,
+                                "type": 1
+                            }),
+                            timeout: 5000, //超时时间
+                            contentType: "application/json;charset=utf-8",
+                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                            success: function (data) {
+                                console.log(data);
+                                var data = data;
+                                if (data.status == 200) {
+                                    $this.datalist = data.data;
+
+                                    for (var i = 0; i < data.data.length; i++) {
+                                        // console.log(data.data[i].pageUrl);
+                                        var pageUrl = data.data[i].pageUrl;
+                                        pageUrl = pageUrl + "&device=" + device + "&jump=jump";
+                                        // console.log(pageUrl);
+                                        data.data[i].pageUrl = pageUrl;
+                                    }
+                                    console.info($this.datalist);
+
+                                }
+                            },
+                            error: function (xhr, type) {
+                                //alert(111);
+                            }
+                        });
+
+                        /*GIO参数集合*/
+                        //类型
+                        if ($this.data.type == 1) {
+                            var type = "烹饪技巧";
+                        } else if ($this.data.type == 2) {
+                            var type = "厨电使用";
+                        }
+                        //发布时间
+                        var date = new Date($this.data.createat);
+                        Y = date.getFullYear() + '-';
+                        M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                        D = date.getDate() + ' ';
+                        h = date.getHours() + ':';
+                        m = date.getMinutes() + ':';
+                        s = date.getSeconds();
+                        var creattime = Y + M + D + h + m + s;
+                        console.log(creattime);
+
+                        //custom page code begin here
+                        gio("page.set", "shortvideo", "短视频");//页面类型
+                        gio("page.set", "ID", $this.data.id);//id
+                        gio("page.set", "titlesv", $this.data.title);//标题
+                        gio("page.set", "type", type);//类型
+                        gio("page.set", "creattime", creattime);//发布时间
+                        gio("page.set", "time", $this.data.time);//视频时长
+                        //custom page code end here
+                        gio('send');
+
+                        /*GIO参数集合发送完毕*/
 
 
-                }
+                        /*分享链接专用*/
+                        var sharetitle = $this.data.title;
+                        var sharedesc = $this.data.remark;
+                        var shareimg = $this.data.picture.path;
+                        var sharestr = $this.data.pageUrl;
+                        var sharelink = sharestr.replace(/api/, "h5");
+                        var jsoninfo = {
+                            "id": id,
+                            "type": 14,
+                            "sharetitle": sharetitle,
+                            "sharedesc": sharedesc,
+                            "shareimg": shareimg,
+                            "sharelink": sharelink
+                        };
+                        window.setTimeout(function () {
+                            console.info(jsoninfo);
+                            /*APP分享专用*/
+                            if (device == null || device == "null") {
+                                console.log("不是APP打开");
+                            } else {
+                                ft.shareInfo(jsoninfo, function (result) {
 
-            }, function () {
-                console.info('error');
-            });
+                                });
+                            }
+                        }, 2000);
+                        /*微信分享专用*/
+                        $.ajax({
+                            type: 'GET',
+                            url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                            success: function (data) {
+                                console.info(data.appId);
+                                wx.config({
+                                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                    appId: data.appId, // 必填，公众号的唯一标识
+                                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                    signature: data.signature,
+                                    jsApiList: [
+                                        "onMenuShareTimeline",
+                                        "onMenuShareAppMessage",
+                                        "onMenuShareQQ",
+                                        "onMenuShareWeibo",
+                                        "onMenuShareQZone"
+                                    ]
+                                });
+                                wx.ready(function () {
+                                    //分享给朋友圈
+                                    wx.onMenuShareTimeline({
+                                        title: sharetitle, // 分享标题
+                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                        imgUrl: shareimg, // 分享图标
+                                        success: function () {
+                                            // 用户确认分享后执行的回调函数
+                                        },
+                                        cancel: function () {
+                                            // 用户取消分享后执行的回调函数
+                                        }
+                                    });
+                                    //分享给朋友
+                                    wx.onMenuShareAppMessage({
+                                        title: sharetitle, // 分享标题
+                                        desc: sharedesc, // 分享描述
+                                        link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                        imgUrl: shareimg, // 分享图标
+                                        type: '', // 分享类型,music、video或link，不填默认为link
+                                        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                        success: function () {
+                                            // 用户确认分享后执行的回调函数
+                                        },
+                                        cancel: function () {
+                                            // 用户取消分享后执行的回调函数
+                                        }
+                                    });
+                                });
+                            },
+                            error: function (xhr, type) {
+                                //alert(111);
+                            }
+                        })
 
-        },
-        methods: {
-            jumpto: function (url,id) {
-                if (device == null || device == "null") {
-                    // alert(url);
-                    //不是APP打开
-                    window.location.href = url;
 
-                } else {
-                    // alert(id);
-                    //是APP打开
-                    ft.tutorInfo({
-                        id: id,
-                        type: "0"
-                    }, function (result) {
-                    })
+                    }
+
+                }, function () {
+                    console.info('error');
+                });
+
+            },
+            methods: {
+                jumpto: function (url, id) {
+                    if (device == null || device == "null") {
+                        // alert(url);
+                        //不是APP打开
+                        window.location.href = url;
+
+                    } else {
+                        // alert(id);
+                        //是APP打开
+                        ft.tutorInfo({
+                            id: id,
+                            type: "0"
+                        }, function (result) {
+                        })
+                    }
                 }
             }
-        }
-    });
+        });
+
+    }
 
 
 </script>

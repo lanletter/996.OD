@@ -23,98 +23,106 @@
 
 <body style="overflow-x: hidden;">
 <div class="avtive">
-    <div>
-        <header class="header">
-            <div class="header_img" :style="{backgroundImage: 'url(' + data.picture.path + ')'}"></div>
-            <div class="header__main">
-                <div class="title">
-                    <h3 class="txt" v-html="data.title"></h3>
-                    <time v-if="data.isshow == 1 || data.isshow == null " v-html="data.time2"></time>
+    <div class=" pbfoot">
+        <div>
+            <header class="header">
+                <img class="header_img" :src="header_img">
+                <!--<div class="header_img" :style="{backgroundImage: 'url(' + data.picture.path + ')'}"></div>-->
+                <div class="header__main">
+                    <div class="title">
+                        <h3 class="txt" v-html="data.title"></h3>
+                        <time v-if="data.isshow == 1 || data.isshow == null " v-html="data.time2"></time>
+                    </div>
                 </div>
-            </div>
-            <div class="header__opt">
-                <span class="view-count"><strong v-html="data.viewCount"></strong></span>
-                <span class="share-count"><strong v-html="data.shareCount"></strong></span>
-            </div>
-        </header>
-        <article id="instructions" v-html="contenthtml"></article>
-    </div>
+                <div class="header__opt">
+                    <span class="view-count"><strong v-html="data.viewCount"></strong></span>
+                    <span class="share-count"><strong v-html="data.commentCount"></strong></span>
+                </div>
+            </header>
+            <article id="instructions" v-html="contenthtml"></article>
+        </div>
 
-    <div class="worklist" v-if="dataexclist.length > 0">
-        <h2>优秀作品</h2>
-        <div class="listarea">
-            <ul class="list">
-                <li v-for="(item,index) in dataexclist">
-                    <div class="workdetail">
-                        <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
-                        <div class="userinfo">
-                            <div @click="homeuser(item.comment.userId)" class="imgparent">
-                                <img class="userimg" :src="item.comment.userInfomation.titlePicture">
+        <div class="worklist" v-if="dataexclist.length > 0">
+            <h2>优秀作品</h2>
+            <div class="listarea">
+                <ul class="list">
+                    <li v-for="(item,index) in dataexclist">
+                        <div class="workdetail">
+                            <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
+                            <div class="userinfo">
+                                <div @click="homeuser(item.comment.userId)" class="imgparent">
+                                    <img class="userimg" :src="item.comment.userInfomation.titlePicture">
+                                </div>
+                                <span v-html="item.comment.userInfomation.nickName"
+                                      @click="homeuser(item.comment.userId)"></span>
                             </div>
-                            <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)"></span>
+                            <p class="usertxt" v-html="item.comment.content"
+                               @click="menulink(item.comment.id,item.url)">
+                                我做的特别好，你们快 来也可以试试来也可以试试</p>
+                            <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                                  v-if="parseInt(item.comment.isLike) == 0 "
+                                  v-html="item.likenum"
+                                  @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                            <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                         </div>
-                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
-                            我做的特别好，你们快 来也可以试试来也可以试试</p>
-                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
-                              v-if="parseInt(item.comment.isLike) == 0 "
-                              v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
-                        <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
-                    </div>
-                </li>
-                <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
-            </ul>
+                    </li>
+                    <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="worklist" id="menushow" v-if="datalist.length > 0">
-        <h2>用户活动作品</h2>
-        <div class="listarea">
-            <ul class="list">
-                <li v-for="(item,index) in datalist">
-                    <div class="workdetail">
-                        <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
-                        <div class="userinfo">
-                            <div @click="homeuser(item.comment.userId)" class="imgparent">
-                                <img class="userimg" :src="item.comment.userInfomation.titlePicture">
+        <div class="worklist" id="menushow" v-if="datalist.length > 0">
+            <h2>用户活动作品</h2>
+            <div class="listarea">
+                <ul class="list">
+                    <li v-for="(item,index) in datalist">
+                        <div class="workdetail">
+                            <img class="pageimg" :src="item.commentPicture" @click="menulink(item.comment.id,item.url)">
+                            <div class="userinfo">
+                                <div @click="homeuser(item.comment.userId)" class="imgparent">
+                                    <img class="userimg" :src="item.comment.userInfomation.titlePicture">
+                                </div>
+                                <span v-html="item.comment.userInfomation.nickName"
+                                      @click="homeuser(item.comment.userId)"></span>
                             </div>
-                            <span v-html="item.comment.userInfomation.nickName" @click="homeuser(item.comment.userId)"></span>
+                            <p class="usertxt" v-html="item.comment.content"
+                               @click="menulink(item.comment.id,item.url)">
+                                我做的特别好，你们快 来也可以试试来也可以试试</p>
+                            <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                                  v-if="parseInt(item.comment.isLike) == 0 "
+                                  v-html="item.likenum"
+                                  @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                            <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
                         </div>
-                        <p class="usertxt" v-html="item.comment.content" @click="menulink(item.comment.id,item.url)">
-                            我做的特别好，你们快 来也可以试试来也可以试试</p>
-                        <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
-                              v-if="parseInt(item.comment.isLike) == 0 "
-                              v-html="item.likenum" @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
-                        <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
-                    </div>
+                    </li>
+                    <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alertlist" style="display: none;">
+            <ul class="menuul" v-if="datamenu.length > 0">
+                <li v-for="(item,index) in datamenu">
+                    <a class="urllink" :href="item.url+'&jump=jump'">
+                        <img class="menuleft" :style="{backgroundImage: 'url(' + item.picturePath + ')'}">
+                        <div class="menuright">
+                            <p class="name" v-html="item.name"></p>
+                            <p class="num">
+                                <span class="viewnum" v-html="item.viewCount"></span>
+                                <span class="collectnum" v-html="item.favoriteCount"></span>
+                            </p>
+                        </div>
+                    </a>
                 </li>
-                <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
             </ul>
+            <div class="nomenu" v-else>
+                <img src="../img/empty.png">
+                <p>没有找到相关菜谱</p>
+            </div>
+            <div class="floatbtn">
+                <a @click="closelist">返回活动详情</a>
+            </div>
         </div>
     </div>
-
-    <div class="alertlist" style="display: none;">
-        <ul class="menuul" v-if="datamenu.length > 0">
-            <li v-for="(item,index) in datamenu">
-                <a class="urllink" :href="item.url+'&jump=jump'">
-                    <img class="menuleft" :style="{backgroundImage: 'url(' + item.picturePath + ')'}">
-                    <div class="menuright">
-                        <p class="name" v-html="item.name"></p>
-                        <p class="num">
-                            <span class="viewnum" v-html="item.viewCount"></span>
-                            <span class="collectnum" v-html="item.favoriteCount"></span>
-                        </p>
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <div class="nomenu" v-else>
-            <img src="../img/empty.png">
-            <p>没有找到相关菜谱</p>
-        </div>
-        <div class="floatbtn">
-            <a @click="closelist">返回活动详情</a>
-        </div>
-    </div>
-
     <div class="floatbtn" id="menuup">
         <a v-if="start" @click="startbtn">我要参与</a>
         <a class="over" v-else>活动已结束</a>
@@ -166,7 +174,7 @@
                         $.cookie('token', token);
                     }
 
-                    choose(userid,token);
+                    choose(userid, token);
 
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
@@ -177,10 +185,10 @@
     } else {
         var userid = 1;
         var token;
-        choose(userid,token);
+        choose(userid, token);
     }
 
-    function choose(userid,token) {
+    function choose(userid, token) {
         var vm = new Vue({
             el: '.avtive',
             data: {
@@ -191,6 +199,7 @@
                 item: [],
                 isLike: '',
                 likenum: '',
+                header_img:'',
                 start: ''
             },
             created: function () {
@@ -205,7 +214,7 @@
                         "version": "v440"
                     },
                     data: JSON.stringify({"id": id}),
-                    timeout: 5000, //超时时间
+                    // timeout: 5000, //超时时间
                     contentType: "application/json;charset=utf-8",
                     dataType: 'json', //返回的数据格式
                     success: function (data) {
@@ -225,6 +234,17 @@
                     console.log($this.data);
                     var $header = $('.header');
                     $(".ft-titles .comment_count").text(data.commentCount);
+
+                    /*头图压缩裁剪*/
+                    var headimg = data.data.picture.path;
+                    var ifpos = headimg.indexOf('?');
+                    if (ifpos > 0) {//如果？存在
+                        result = headimg.substring(0, ifpos);
+                    } else {//？不存在
+                        result = headimg;
+                    }
+                    headimg = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_500,w_375/auto-orient,0";
+                    $this.header_img= headimg;
 
                     /*title取值*/
                     var txt = data.title;
@@ -260,7 +280,7 @@
                     var $content = $('#instruct');
                     $content.append($this.data.content);
                     /*文章内链接加device，必须放在content内容append后面！*/
-                    var qs = 'device=' + device+'&jump=jump';
+                    var qs = 'device=' + device + '&jump=jump';
                     $content.find('a').each(function () {
                         var href = $(this).attr('href');
                         // console.log(href);
@@ -283,7 +303,6 @@
                                 "id": id,
                                 "userId": userid
                             }),
-                            timeout: 5000, //超时时间
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式
                             success: function (dataexclist) {
@@ -300,12 +319,24 @@
                         function callback(dataexclist) {
                             if (dataexclist.status == 200) {
                                 $this.dataexclist = dataexclist.data.list;
-                                if($this.dataexclist.length > 0){
+                                if ($this.dataexclist.length > 0) {
                                     for (var i = 0; i < $this.dataexclist.length; i++) {
                                         var item = $this.dataexclist[i];
                                         item.isLike = $this.dataexclist[i].comment.isLike;
                                         item.id = $this.dataexclist[i].comment.id;
                                         item.likenum = $this.dataexclist[i].comment.likeCount;
+
+                                        /*图片压缩裁剪*/
+                                        var imgUrl = item.commentPicture;
+                                        var pos = imgUrl.indexOf('?');
+                                        if (pos > 0) {//如果？存在
+                                            result = imgUrl.substring(0, pos);
+                                        } else {//？不存在
+                                            result = imgUrl;
+                                        }
+                                        imgUrl2 = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_153,w_153/auto-orient,0";
+                                        item.commentPicture = imgUrl2;
+
                                     }
                                 }
                                 console.log($this.dataexclist);
@@ -316,8 +347,9 @@
 
                     /*用户活动作品*/
                     $(document).ready(function () {
-                        var pageSize=40;
-                        function ajaxscoll(pageSize){
+                        var pageSize = 10;
+                        ajaxscoll(pageSize);
+                        function ajaxscoll(pageSize) {
                             $.ajax({
                                 url: urlport + 'activity/getUserActivityWork',
                                 type: 'POST',
@@ -327,7 +359,6 @@
                                     "id": id,
                                     "userId": userid
                                 }),
-                                timeout: 5000, //超时时间
                                 contentType: "application/json;charset=utf-8",
                                 dataType: 'json', //返回的数据格式
                                 success: function (datalist) {
@@ -335,15 +366,26 @@
                                     console.log(datalist);
                                     if (datalist.status == 200) {
                                         $this.datalist = datalist.data.list;
-                                        console.log($this.datalist);
-                                        if($this.datalist.length > 0){
+                                        if ($this.datalist.length > 0) {
                                             for (var i = 0; i < $this.datalist.length; i++) {
                                                 var item = $this.datalist[i];
                                                 item.isLike = $this.datalist[i].comment.isLike;
                                                 item.id = $this.datalist[i].comment.id;
                                                 item.likenum = $this.datalist[i].comment.likeCount;
+
+                                                /*图片压缩裁剪*/
+                                                var imgUrl = item.commentPicture;
+                                                var pos = imgUrl.indexOf('?');
+                                                if (pos > 0) {//如果？存在
+                                                    result = imgUrl.substring(0, pos);
+                                                } else {//？不存在
+                                                    result = imgUrl;
+                                                }
+                                                imgUrl2 = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_153,w_153/auto-orient,0";
+                                                item.commentPicture = imgUrl2;
                                             }
                                         }
+                                        console.log($this.datalist);
                                     }
                                 },
                                 error: function (errorMsg) {
@@ -351,18 +393,14 @@
                                 }
                             });
                         }
-                        ajaxscoll(pageSize);
 
                         /*下拉加载更多*/
                         var windowHeight = $(window).height();
                         $(window).off('scroll').on('scroll', function () {
                             var scrollTop = $(window).scrollTop();
                             var scrollHeight = $(document).height();
-                            // console.log(scrollTop);
-                            // console.log(windowHeight);
-                            // console.log(scrollHeight);
                             if (scrollTop + windowHeight == scrollHeight) {
-                                pageSize = pageSize + 40;
+                                pageSize = pageSize + 10;
                                 ajaxscoll(pageSize);
                             }
                         });
@@ -375,12 +413,11 @@
                             url: urlport + 'activity/getActivityMenuList',
                             type: 'POST',
                             data: JSON.stringify({"id": id}),
-                            timeout: 5000, //超时时间
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式
                             success: function (data) {
                                 callback(data);
-                                // console.log(data);
+                                console.log(data);
                             },
                             error: function (errorMsg) {
                                 console.log('错误');
@@ -390,12 +427,24 @@
 
                         function callback(datamenu) {
                             if (datamenu.status == 200) {
+                                // console.log(datamenu.data.menuList);
                                 /*url*/
-                                if(datamenu.data.menuList !== null){
+                                if (datamenu.data.menuList !== null) {
                                     for (var i = 0; i < datamenu.data.menuList.length; i++) {
                                         var id = datamenu.data.menuList[i].id;
                                         urlnew = datamenu.data.menuList[i].url + "&device=" + device + "&jump=jump";
                                         datamenu.data.menuList[i].url = urlnew;
+
+                                        /*图片压缩裁剪*/
+                                        var imgUrl = datamenu.data.menuList[i].picturePath;
+                                        var pos = imgUrl.indexOf('?');
+                                        if (pos > 0) {//如果？存在
+                                            result = imgUrl.substring(0, pos);
+                                        } else {//？不存在
+                                            result = imgUrl;
+                                        }
+                                        imgUrl2 = result + "?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_153,w_153/auto-orient,0";
+                                        datamenu.data.menuList[i].picturePath = imgUrl2;
                                     }
                                 }
                                 $this.datamenu = datamenu.data.menuList;
@@ -438,7 +487,7 @@
                     var sharelink = sharestr.replace(/api/, "h5");
                     var jsoninfo = {
                         id: id,
-                        type: 9,
+                        type: 6,
                         sharetitle: sharetitle,
                         sharedesc: sharedesc,
                         shareimg: shareimg,
@@ -622,7 +671,7 @@
                                 $api.toast('登陆不支持', 2000);
                             }
                         });
-                    }else {
+                    } else {
                         $this.deeplikopen();
                     }
                 },

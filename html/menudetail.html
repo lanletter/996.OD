@@ -328,14 +328,8 @@
                 isgray: false,
                 isshow: false
             },
-            // http: {
-            //     headers: {
-            //         version: 'v430'
-            //     }
-            // },
             created: function () {
                 var $this = this;
-
                 $.ajax({
                     url: urlport + 'menu/detail',
                     type: 'POST',
@@ -343,7 +337,7 @@
                         "userId": userid,
                         "token": token,
                         "deviceType": "web",
-                        "version": "v440"
+                        "version": "v437"
                     },
                     data: JSON.stringify({"id": id, "userId": userid}),
                     timeout: 5000, //超时时间

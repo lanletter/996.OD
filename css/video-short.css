@@ -143,6 +143,35 @@ html, body {
   line-height: 0.56rem;
 }
 
+.vide-share .tit .tips{
+  margin-top: 0.40rem;
+  margin-left: -0.2rem;
+  width: 6.7rem;
+  background: rgba(254, 242, 188, 1);
+  border-radius: 0.16rem;
+  position: relative;
+}
+
+.vide-share .tit .tips .dot {
+  position: absolute;
+  left: 0.28rem;
+  top: 0.30rem;
+  width: 0.12rem;
+  height: 0.12rem;
+  background: rgba(213, 150, 0, 1);
+  border-radius: 50%;
+}
+
+.vide-share .tit .tips .txt {
+  display: block;
+  padding: 0.18rem 0.23rem 0.18rem 0.56rem;
+  font-size: 0.24rem;
+  font-weight: 400;
+  color: rgba(213, 150, 0, 1);
+  line-height: 0.34rem;
+}
+
+
 .header__opt {
   text-align: center;
   margin-top: 0.2rem !important;
@@ -210,4 +239,102 @@ html, body {
   letter-spacing: 1px;
   line-height: 0.5rem;
   overflow: hidden;
+}
+
+.recommend .ulist{
+  width: 100%;
+  height: 4rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.recommend .ulist li{
+  display: inline-block;
+  width: 4.8rem;
+  margin-right: 0.28rem;
+  position: relative;
+  overflow: hidden;
+}
+.recommend .ulist li a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.recommend .ulist li .img{
+  width: 4.8rem;
+  height: 2.7rem;
+  background-size: auto 2.7rem;
+  border-radius: 0.16rem;
+  overflow: hidden;
+}
+.recommend .ulist li .time{
+  position: absolute;
+  left: 0.2rem;
+  top: 2.02rem;
+  width: 1.48rem;
+  height: 0.48rem;
+  line-height: 0.48rem;
+  background:url(../img/timebg.png) no-repeat;
+  background-size:1.48rem 0.48rem ;
+  color: #ffffff;
+  font-size: 0.24rem;
+  font-weight: normal;
+  padding-left: 0.56rem;
+  overflow: hidden;
+}
+.recommend .ulist li .name{
+  display: block;
+  margin: 0.14rem 0 0 0.2rem ;
+  width: 4.16rem;
+  height: 0.5rem;
+  font-size:0.36rem;
+  font-weight:bold;
+  color:rgba(31,31,31,1);
+  line-height: 0.5rem;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+/*文章推荐部分信息*/
+.icons {
+  margin-left: 0.2rem;
+  text-align: left;
+  overflow: hidden;
+}
+
+.icons span {
+  display: inline-block;
+  line-height: 0.32rem;
+  margin-right: 0.28rem;
+  color: rgb(154,154,154);
+  font-weight: 400;
+  font-size: 0.24rem;
+}
+
+.icons span strong{
+  line-height: 0.32rem;
+}
+.icons span:last-child{margin-right: 0}
+
+.icons span:before {
+  display: inline-block;
+  content: '';
+  width: 0.32rem;
+  height: 0.32rem;
+  margin-right: 0.06rem;
+  vertical-align: top;
+}
+
+.icons .view-count:before {
+  background: url('../img/View.png') no-repeat;
+  background-size: 0.32rem 0.32rem;
+}
+.icons .favorite-count:before {
+  background: url('../img/heartFill.png') no-repeat;
+  background-size: 0.32rem 0.32rem;
+}
+.icons .favorite-count2:before {
+  background: url('../img/heartRed.png') no-repeat;
+  background-size: 0.32rem 0.32rem;
 }

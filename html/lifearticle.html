@@ -44,7 +44,6 @@
         </div>
         <div class="header__opt">
             <span class="view-count"><strong></strong></span>
-            <!--<span class="comment-count"><strong></strong></span>-->
             <span class="" id="star"><strong></strong></span>
         </div>
     </header>
@@ -195,6 +194,12 @@
             $.ajax({
                 url: urlport + 'wantFeel/detail',
                 type: 'POST',
+                headers: { // 默认添加请求头
+                    "userId": userid,
+                    "token": token,
+                    "deviceType": "web",
+                    "version": "v440"
+                },
                 data: JSON.stringify({"id": id, "userId": userid}),
                 timeout: 5000, //超时时间
                 contentType: "application/json;charset=utf-8",
@@ -281,7 +286,7 @@
                                         "userId": userid,
                                         "token": token,
                                         "deviceType":"web",
-                                        "version":"v440"
+                                        "version":"v437"
                                     },
                                     data: JSON.stringify({
                                         "refId": id,
@@ -317,7 +322,7 @@
                                         "userId": userid,
                                         "token": token,
                                         "deviceType":"web",
-                                        "version":"v440"
+                                        "version":"v437"
                                     },
                                     data: JSON.stringify({
                                         "refId": id,
