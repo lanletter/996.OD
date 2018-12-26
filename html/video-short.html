@@ -52,12 +52,12 @@
             <p class="cookdesc" v-html="data.cook.remark"></p>
         </a>
         <p class="introduct" v-html="data.content"></p>
-        <div class="tips">
+        <div v-if="data.tip !== undefined && data.tip !== null" class="tips">
             <div class='dot'></div>
             <div class='txt' v-html="data.tip"></div>
         </div>
     </div>
-    <div class="recommend">
+    <div v-if="menulist.length > 0" class="recommend">
         <p class="title">菜谱推荐</p>
         <ul class="ulist">
             <li v-for="item in menulist"><a :href="item.pageUrl">
