@@ -191,12 +191,6 @@
                             $this.data.cook.url = data.data.cook.url + "&device=" + device + "&jump=jump";
                         }
 
-                        /*友盟埋点-页面访问*/
-                        UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                            "页面类型": "短视频详情",
-                            "页面名称": data.data.title
-                        });
-
                         document.setTitle = function (t) {
                             document.title = t;
                             var i = document.createElement('iframe');
@@ -267,6 +261,7 @@
                         //     console.log(Math.round(minTime));
                         // },2000);
 
+                        console.log(userid);
                         //判断是否收藏
                         if (userid == 1 || userid == "1") {
                             $("#star").addClass("favorite-count");
