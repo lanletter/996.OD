@@ -137,13 +137,13 @@
                 console.log(errorcode);
                 if (errorcode == "1") {
                     userid = result.data.userId.toString();
+                    goon();
                     $.cookie('userid', userid);
                     if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
                         $.cookie('token', token);
                     }
 
-                    goon();
 
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
