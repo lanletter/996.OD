@@ -43,7 +43,8 @@
         <h3 v-html="data.title"></h3>
         <div class="header__opt">
             <span class="view-count"><strong v-html="data.viewCount"></strong></span>
-            <span class="" id="star"><strong v-html="data.isFavorite"></strong></span>
+            <span v-if="data.isFavorite == 0" class="favorite-count" id="star" @click="star()"><strong v-html="data.isFavorite"></strong></span>
+            <span v-else class="favorite-count2" id="unstar()"><strong v-html="data.isFavorite"></strong></span>
         </div>
         <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"
            @click="jumpto(data.cook.url,data.cook.id)">
@@ -91,13 +92,14 @@
     <span id="jump" class="deeplikopen">打开</span>
     <span id="download">下载</span>
 </div>
-<script src="../js/lib.js"></script>
-<script type="text/javascript" src='../js/api.js'></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/jquery-2.1.1.min.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script src="../js/lib2.js"></script>
 <script src="../js/url.js"></script>
 <script src="../js/ft.js"></script>
-<script type="text/javascript" src='../js/jquery.cookie.js'></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
@@ -260,19 +262,8 @@
                         // },2000);
 
                         console.log(userid);
-                        //判断是否收藏
-                        if (userid == 1 || userid == "1") {
-                            $("#star").addClass("favorite-count");
-                            $("#star").remove("favorite-count2");
-                        } else {
-                            if (data.isFavorite == 1) {
-                                $("#star").addClass("favorite-count2");
-                                $("#star").remove("favorite-count");
-                            } else {
-                                $("#star").addClass("favorite-count");
-                                $("#star").remove("favorite-count2");
-                            }
-                        }
+                        $('#star').text($this.data.isFavorite);
+
                         var canClick = true;
                         $('#star').on('click', function (e) {
                             if (!canClick) return;
@@ -577,6 +568,9 @@
                         }, function (result) {
                         })
                     }
+                },
+                star:function () {
+
                 }
             }
         });
