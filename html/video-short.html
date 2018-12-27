@@ -182,7 +182,11 @@
             },
             created: function () {
                 var $this = this;
-                this.$http.post(urlport + '/videoShort/detail', {"id": id}).then(function (data) {
+                console.log(userid);
+                this.$http.post(urlport + '/videoShort/detail', {
+                    "id": id,
+                    "userId": userid
+                }).then(function (data) {
                     var data = data.data;
                     console.log(data);
                     if (data.status == 200) {
@@ -200,12 +204,12 @@
                                 setTimeout(function () {
                                     i.remove();
                                 })
-                            }
+                            };
                             document.body.appendChild(i);
-                        }
+                        };
                         setTimeout(function () {
                             document.setTitle($this.data.title);
-                        })
+                        });
 
                         /*视频链接*/
                         $('.video').css({
