@@ -512,11 +512,15 @@
                                 dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
                                 success: function (data) {
                                     console.log(data);
-                                    console.log("收藏成功");
-                                    $this.data.isFavorite = 1;
-                                    var oldnum = $this.data.viewCount;
-                                    $this.data.viewCount = parseInt(oldnum) + 1;
-                                    $api.toast('收藏成功！', 3000);
+                                    if(data.status==200){
+                                        console.log("收藏成功");
+                                        $this.data.isFavorite = 1;
+                                        var oldnum = $this.data.viewCount;
+                                        $this.data.viewCount = parseInt(oldnum) + 1;
+                                        $api.toast('收藏成功！', 3000);
+                                    }else {
+                                        $api.toast(data.errorMessage);
+                                    }
                                 },
                                 error: function (errorMsg) {
                                     console.log('错误');
@@ -571,11 +575,15 @@
                                 dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
                                 success: function (data) {
                                     console.log(data);
-                                    console.log("取消收藏");
-                                    $this.data.isFavorite = 0;
-                                    var oldnum = $this.data.viewCount;
-                                    $this.data.viewCount = parseInt(oldnum) - 1;
-                                    $api.toast('取消收藏！', 3000);
+                                    if(data.status==200){
+                                        console.log("取消收藏");
+                                        $this.data.isFavorite = 0;
+                                        var oldnum = $this.data.viewCount;
+                                        $this.data.viewCount = parseInt(oldnum) - 1;
+                                        $api.toast('取消收藏！', 3000);
+                                    }else {
+                                        $api.toast(data.errorMessage);
+                                    }
                                 },
                                 error: function (errorMsg) {
                                     console.log('错误');
