@@ -61,7 +61,7 @@
         },
         created:function(){
             var $this = this;
-            this.$http.post(urlport+'instruction/detail','{"code":"member"}').then(function(data){
+            this.$http.post(urlport+'instruction/detail','{"code":"integral:"}').then(function(data){
                 console.info(data.data);
                 var data = data.data;
                 if(data.status == 200){

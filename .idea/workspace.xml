@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="调试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/video-short.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/video-short.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/faq-info1.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/faq-info1.html" afterDir="false" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,15 +39,15 @@
         <counts>
           <entry key="active-pro" value="1" />
           <entry key="css" value="23" />
-          <entry key="html" value="83" />
-          <entry key="js" value="33" />
+          <entry key="html" value="88" />
+          <entry key="js" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="24" />
-          <entry key="HTML" value="83" />
-          <entry key="JavaScript" value="33" />
+          <entry key="HTML" value="88" />
+          <entry key="JavaScript" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -73,20 +73,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/html/video-short.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="581" column="64" selection-start-line="581" selection-start-column="64" selection-end-line="581" selection-end-column="64" />
+            <state relative-caret-position="671">
+              <caret line="143" column="78" selection-start-line="143" selection-start-column="78" selection-end-line="143" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
+        <entry file="file://$PROJECT_DIR$/html/video-short.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="599" column="20" selection-start-line="599" selection-start-column="20" selection-end-line="599" selection-end-column="37" />
+            <state relative-caret-position="185">
+              <caret line="187" column="36" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="436">
+              <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/url.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -96,17 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
               <caret line="202" column="55" selection-start-line="202" selection-start-column="49" selection-end-line="202" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/lib.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,42 +133,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/coursedetail.html">
+        <entry file="file://$PROJECT_DIR$/html/conversion-info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="810">
+              <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/ft.js">
+        <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="265" column="16" selection-start-line="265" selection-start-column="8" selection-end-line="265" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/menudetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1212">
-              <caret line="336" column="40" selection-start-line="336" selection-start-column="34" selection-end-line="336" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#ul#0;n#div#0;n#div#3;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#6;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/courseform.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="235" column="49" lean-forward="true" selection-start-line="235" selection-start-column="49" selection-end-line="235" selection-end-column="49" />
+            <state relative-caret-position="103">
+              <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -199,7 +183,6 @@
       <find>addClass</find>
       <find>$header</find>
       <find>jumpto</find>
-      <find>totalntegral</find>
       <find>isFavorite</find>
       <find>canClick</find>
       <find>click</find>
@@ -208,6 +191,7 @@
       <find>star</find>
       <find>unstar</find>
       <find>userid</find>
+      <find>totalntegral</find>
       <find>viewCount</find>
     </findStrings>
   </component>
@@ -269,13 +253,13 @@
         <option value="$PROJECT_DIR$/js/ajaxsetup.js" />
         <option value="$PROJECT_DIR$/js/ajaxsetup2.js" />
         <option value="$PROJECT_DIR$/html/faq-info2.html" />
-        <option value="$PROJECT_DIR$/html/faq-info1.html" />
         <option value="$PROJECT_DIR$/html/servicetext-new.html" />
         <option value="$PROJECT_DIR$/html/conversion-info.html" />
         <option value="$PROJECT_DIR$/html/boundphone1.html" />
         <option value="$PROJECT_DIR$/html/boundphone2.html" />
         <option value="$PROJECT_DIR$/html/login-wx.html" />
         <option value="$PROJECT_DIR$/html/video-short.html" />
+        <option value="$PROJECT_DIR$/html/faq-info1.html" />
       </list>
     </option>
   </component>
@@ -594,21 +578,7 @@
       <workItem from="1545620827870" duration="12000" />
       <workItem from="1545634230801" duration="4056000" />
       <workItem from="1545717438706" duration="12859000" />
-      <workItem from="1545811175213" duration="13148000" />
-    </task>
-    <task id="LOCAL-00373" summary="修复bug">
-      <created>1539163296572</created>
-      <option name="number" value="00373" />
-      <option name="presentableId" value="LOCAL-00373" />
-      <option name="project" value="LOCAL" />
-      <updated>1539163296572</updated>
-    </task>
-    <task id="LOCAL-00374" summary="修复bug">
-      <created>1539164092067</created>
-      <option name="number" value="00374" />
-      <option name="presentableId" value="LOCAL-00374" />
-      <option name="project" value="LOCAL" />
-      <updated>1539164092067</updated>
+      <workItem from="1545811175213" duration="16081000" />
     </task>
     <task id="LOCAL-00375" summary="修复分页bug">
       <created>1539165535151</created>
@@ -939,14 +909,29 @@
       <option name="project" value="LOCAL" />
       <updated>1545893761217</updated>
     </task>
-    <option name="localTasksCounter" value="422" />
+    <task id="LOCAL-00422" summary="调试">
+      <created>1545894669927</created>
+      <option name="number" value="00422" />
+      <option name="presentableId" value="LOCAL-00422" />
+      <option name="project" value="LOCAL" />
+      <updated>1545894669927</updated>
+    </task>
+    <task id="LOCAL-00423" summary="调试">
+      <created>1545897995518</created>
+      <option name="number" value="00423" />
+      <option name="presentableId" value="LOCAL-00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1545897995518</updated>
+    </task>
+    <option name="localTasksCounter" value="424" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2859083000" />
+    <option name="totallyTimeSpent" value="2862016000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="396" y="23" width="1044" height="821" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22678398" />
       <window_info id="Structure" order="1" sideWeight="0.499316" weight="0.25" />
@@ -1088,13 +1073,6 @@
     <entry file="file://$PROJECT_DIR$/html/findpwd1.html" />
     <entry file="file://$PROJECT_DIR$/html/findpwd2.html" />
     <entry file="file://$PROJECT_DIR$/html/findpwd3.html" />
-    <entry file="file://$PROJECT_DIR$/js/url.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/lifedetail.css" />
     <entry file="file://$PROJECT_DIR$/html/lifedetail.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1168,29 +1146,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="143" column="78" selection-start-line="143" selection-start-column="78" selection-end-line="143" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/faq-info.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/coupon-info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/jf-info.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -1201,20 +1158,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/html/paymentwxpub.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/conversion-info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/lose.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1313,13 +1256,6 @@
     <entry file="file://$PROJECT_DIR$/html/video-share.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="599" column="20" selection-start-line="599" selection-start-column="20" selection-end-line="599" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/lifearticle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
@@ -1327,10 +1263,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="671">
+          <caret line="143" column="78" selection-start-line="143" selection-start-column="78" selection-end-line="143" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/conversion-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="22" selection-start-line="54" selection-start-column="22" selection-end-line="54" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/coupon-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jf-buy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="599" column="20" selection-start-line="599" selection-start-column="20" selection-end-line="599" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/url.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/video-short.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="581" column="64" selection-start-line="581" selection-start-column="64" selection-end-line="581" selection-end-column="64" />
+        <state relative-caret-position="185">
+          <caret line="187" column="36" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
         </state>
       </provider>
     </entry>
