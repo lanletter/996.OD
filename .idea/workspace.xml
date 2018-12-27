@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9db29d8a-53b3-4c7c-b312-a89b76b524b7" name="默认" comment="调试">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/faq-info1.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/faq-info1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/faq-info2.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/faq-info2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/video-short.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/video-short.html" afterDir="false" />
     </list>
     <ignored path="fotilestyle.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,21 +40,21 @@
         <counts>
           <entry key="active-pro" value="1" />
           <entry key="css" value="23" />
-          <entry key="html" value="88" />
+          <entry key="html" value="89" />
           <entry key="js" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="24" />
-          <entry key="HTML" value="88" />
+          <entry key="HTML" value="89" />
           <entry key="JavaScript" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="2109" />
-          <entry key="html" value="3341" />
+          <entry key="html" value="3362" />
           <entry key="js" value="46" />
           <entry key="txt" value="299" />
         </counts>
@@ -61,7 +62,7 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="2109" />
-          <entry key="HTML" value="3341" />
+          <entry key="HTML" value="3362" />
           <entry key="JavaScript" value="46" />
           <entry key="PLAIN_TEXT" value="299" />
         </counts>
@@ -76,26 +77,33 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="671">
-              <caret line="143" column="78" selection-start-line="143" selection-start-column="78" selection-end-line="143" selection-end-column="78" />
+            <state relative-caret-position="471">
+              <caret line="143" column="78" selection-start-line="143" selection-start-column="70" selection-end-line="143" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/video-short.html">
+        <entry file="file://$PROJECT_DIR$/html/faq-info.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="187" column="36" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="36" />
-            </state>
+            <state relative-caret-position="-1707" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/video-short.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="142">
+              <caret line="558" column="50" lean-forward="true" selection-start-line="558" selection-start-column="50" selection-end-line="558" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
+            <state relative-caret-position="448">
+              <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -144,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+            <state relative-caret-position="224">
+              <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -170,7 +178,6 @@
       <find>rem</find>
       <find>imgurl</find>
       <find>快来分享你的作品、感想</find>
-      <find>instruction</find>
       <find>ptitle</find>
       <find>jf-info</find>
       <find>warn2</find>
@@ -193,6 +200,7 @@
       <find>userid</find>
       <find>totalntegral</find>
       <find>viewCount</find>
+      <find>instruction</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -252,14 +260,14 @@
         <option value="$PROJECT_DIR$/js/loadcomment.js" />
         <option value="$PROJECT_DIR$/js/ajaxsetup.js" />
         <option value="$PROJECT_DIR$/js/ajaxsetup2.js" />
-        <option value="$PROJECT_DIR$/html/faq-info2.html" />
         <option value="$PROJECT_DIR$/html/servicetext-new.html" />
         <option value="$PROJECT_DIR$/html/conversion-info.html" />
         <option value="$PROJECT_DIR$/html/boundphone1.html" />
         <option value="$PROJECT_DIR$/html/boundphone2.html" />
         <option value="$PROJECT_DIR$/html/login-wx.html" />
-        <option value="$PROJECT_DIR$/html/video-short.html" />
         <option value="$PROJECT_DIR$/html/faq-info1.html" />
+        <option value="$PROJECT_DIR$/html/faq-info2.html" />
+        <option value="$PROJECT_DIR$/html/video-short.html" />
       </list>
     </option>
   </component>
@@ -273,7 +281,7 @@
     <option name="x" value="396" />
     <option name="y" value="23" />
     <option name="width" value="1044" />
-    <option name="height" value="821" />
+    <option name="height" value="820" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -578,21 +586,7 @@
       <workItem from="1545620827870" duration="12000" />
       <workItem from="1545634230801" duration="4056000" />
       <workItem from="1545717438706" duration="12859000" />
-      <workItem from="1545811175213" duration="16081000" />
-    </task>
-    <task id="LOCAL-00375" summary="修复分页bug">
-      <created>1539165535151</created>
-      <option name="number" value="00375" />
-      <option name="presentableId" value="LOCAL-00375" />
-      <option name="project" value="LOCAL" />
-      <updated>1539165535151</updated>
-    </task>
-    <task id="LOCAL-00376" summary="修复bug:跳转用户type错误">
-      <created>1539238885399</created>
-      <option name="number" value="00376" />
-      <option name="presentableId" value="LOCAL-00376" />
-      <option name="project" value="LOCAL" />
-      <updated>1539238885399</updated>
+      <workItem from="1545811175213" duration="17867000" />
     </task>
     <task id="LOCAL-00377" summary="修复bug">
       <created>1539242138149</created>
@@ -923,14 +917,28 @@
       <option name="project" value="LOCAL" />
       <updated>1545897995518</updated>
     </task>
-    <option name="localTasksCounter" value="424" />
+    <task id="LOCAL-00424" summary="调试">
+      <created>1545899351423</created>
+      <option name="number" value="00424" />
+      <option name="presentableId" value="LOCAL-00424" />
+      <option name="project" value="LOCAL" />
+      <updated>1545899351423</updated>
+    </task>
+    <task id="LOCAL-00425" summary="调试">
+      <created>1545899736754</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1545899736754</updated>
+    </task>
+    <option name="localTasksCounter" value="426" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2862016000" />
+    <option name="totallyTimeSpent" value="2863802000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="396" y="23" width="1044" height="821" extended-state="0" />
+    <frame x="396" y="23" width="1044" height="820" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22678398" />
@@ -1146,9 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/faq-info.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/jf-info.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1263,13 +1268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="143" column="78" selection-start-line="143" selection-start-column="78" selection-end-line="143" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/conversion-info.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -1298,24 +1296,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/video-short.html">
+    <entry file="file://$PROJECT_DIR$/html/servicetext-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="187" column="36" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="40" column="9" lean-forward="true" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+        <state relative-caret-position="471">
+          <caret line="143" column="78" selection-start-line="143" selection-start-column="70" selection-end-line="143" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/html/faq-info1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="63" column="76" selection-start-line="63" selection-start-column="76" selection-end-line="63" selection-end-column="76" />
+        <state relative-caret-position="448">
+          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/faq-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1707" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/faq-info2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/video-short.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="558" column="50" lean-forward="true" selection-start-line="558" selection-start-column="50" selection-end-line="558" selection-end-column="50" />
         </state>
       </provider>
     </entry>
