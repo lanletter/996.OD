@@ -43,8 +43,8 @@
         <h3 v-html="data.title"></h3>
         <div class="header__opt">
             <span class="view-count"><strong v-html="data.viewCount"></strong></span>
-            <span v-if="data.isFavorite == 0" class="favorite-count" @click="star()"><strong v-html="data.viewCount"></strong></span>
-            <span v-else class="favorite-count2" @click="unstar()"><strong v-html="data.viewCount"></strong></span>
+            <span v-if="data.isFavorite == 0" class="favorite-count" @click="star()"><strong v-html="data.favoriteCount"></strong></span>
+            <span v-else class="favorite-count2" @click="unstar()"><strong v-html="data.favoriteCount"></strong></span>
         </div>
         <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"
            @click="jumpto(data.cook.url,data.cook.id)">
@@ -515,8 +515,8 @@
                                     if(data.status==200){
                                         console.log("收藏成功");
                                         $this.data.isFavorite = 1;
-                                        var oldnum = $this.data.viewCount;
-                                        $this.data.viewCount = parseInt(oldnum) + 1;
+                                        var oldnum = $this.data.favoriteCount;
+                                        $this.data.favoriteCount = parseInt(oldnum) + 1;
                                         $api.toast('收藏成功！', 3000);
                                     }else {
                                         $api.toast(data.errorMessage);
@@ -578,8 +578,8 @@
                                     if(data.status==200){
                                         console.log("取消收藏");
                                         $this.data.isFavorite = 0;
-                                        var oldnum = $this.data.viewCount;
-                                        $this.data.viewCount = parseInt(oldnum) - 1;
+                                        var oldnum = $this.data.favoriteCount;
+                                        $this.data.favoriteCount = parseInt(oldnum) - 1;
                                         $api.toast('取消收藏！', 3000);
                                     }else {
                                         $api.toast(data.errorMessage);
