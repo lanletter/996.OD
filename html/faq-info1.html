@@ -57,12 +57,12 @@
     var vm = new Vue({
         el: '.jf-info',
         data:{
-            instruction:'积分说明积分说明积分说明积分说明积分说明'
+            instruction:''
         },
         created:function(){
             var $this = this;
-            this.$http.post(urlport+'instruction/detail','{"code":"integral:"}').then(function(data){
-                console.info(data.data);
+            this.$http.post(urlport+'instruction/detail','{"code":"integral"}').then(function(data){
+                console.log(data.data);
                 var data = data.data;
                 if(data.status == 200){
                     $this.instruction = data.data.instruction;

@@ -63,7 +63,7 @@
         created:function(){
             var $this = this;
             this.$http.post(urlport+'instruction/detail',{"code":"member"}).then(function(data){
-                console.info(data.data);
+                console.log(data.data);
                 var data = data.data;
                 if(data.status == 200){
                     console.log(data);
