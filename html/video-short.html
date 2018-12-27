@@ -44,7 +44,7 @@
         <div class="header__opt">
             <span class="view-count"><strong v-html="data.viewCount"></strong></span>
             <span v-if="data.isFavorite == 0" class="favorite-count" id="star" @click="star()"><strong v-html="data.viewCount"></strong></span>
-            <span v-else class="favorite-count2" id="unstar()"><strong v-html="data.viewCount"></strong></span>
+            <span v-else class="favorite-count2" @click="unstar()"><strong v-html="data.viewCount"></strong></span>
         </div>
         <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"
            @click="jumpto(data.cook.url,data.cook.id)">
@@ -261,100 +261,6 @@
                         //     var minTime= videoTime/60;
                         //     console.log(Math.round(minTime));
                         // },2000);
-
-
-                        // var canClick = true;
-                        $('#star').on('click', function (e) {
-                            if (!canClick) return;
-                            canClick = false;
-                            //app交互——获取登录状态
-                            ft.isLogin(function (result) {
-                                // alert(JSON.stringify(result));
-                                // alert("id:" + id + "type:" + 4 + "userid:" + userid);
-                                var errorcode = result.errorCode.toString();
-                                if (errorcode == "1") {
-                                    //$api.toast('登陆成功', 2000);
-                                    userid = result.data.userId.toString();
-                                    $.cookie('userid', userid);
-                                    if (userid !== "1" && userid !== 1) {
-                                        token = result.data.token.toString();
-                                        $.cookie('token', token);
-                                    }
-                                    //alert(userid);
-                                    //收藏
-                                    var follow = $("#star").attr('class');
-                                    if (follow == "favorite-count") {
-                                        $.ajax({
-                                            url: urlport + 'favorite/create',
-                                            type: 'POST',
-                                            headers: {
-                                                "version": "v450"
-                                            },
-                                            data: JSON.stringify({
-                                                "refId": id,
-                                                "type": 14,
-                                                "userId": userid
-                                            }),
-                                            timeout: 5000, //超时时间
-                                            contentType: "application/json;charset=utf-8",
-                                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                            success: function (data) {
-                                                console.log(data);
-                                                console.log("111");
-                                                $("#star").addClass("favorite-count2");
-                                                $("#star").removeClass("favorite-count");
-                                                var oldnum = $("#star strong").text();
-                                                $("#star strong").text(parseInt(oldnum) + 1);
-                                                $api.toast('收藏成功！', 3000);
-                                            },
-                                            error: function (errorMsg) {
-                                                console.log('错误');
-                                                console.log(errorMsg);
-                                            }
-                                        });
-                                    } else if (follow == "favorite-count2") {
-                                        $.ajax({
-                                            url: urlport + 'favorite/cancel',
-                                            type: 'POST',
-                                            headers: {
-                                                "version": "v450"
-                                            },
-                                            data: JSON.stringify({
-                                                "refId": id,
-                                                "type": 14,
-                                                "userId": userid
-                                            }),
-                                            timeout: 5000, //超时时间
-                                            contentType: "application/json;charset=utf-8",
-                                            dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                            success: function (data) {
-                                                console.log(data);
-                                                console.log("222");
-                                                $("#star").removeClass("favorite-count2");
-                                                $("#star").addClass("favorite-count");
-                                                var oldnum = $("#star strong").text();
-                                                $("#star strong").text(parseInt(oldnum) - 1);
-                                                $api.toast('取消收藏！', 3000);
-                                            },
-                                            error: function (errorMsg) {
-                                                console.log('错误');
-                                                console.log(errorMsg);
-                                            }
-                                        });
-                                    }
-                                } else if (errorCode == "0") {
-                                    $api.toast('登陆取消', 2000);
-                                } else if (errorCode == "-1") {
-                                    $api.toast('登陆失败', 2000);
-                                } else if (errorCode == "-2") {
-                                    $api.toast('登陆不支持', 2000);
-                                }
-                            });
-
-                            setTimeout(function () {
-                                canClick = true;
-                            }, 3000);
-                        });
 
                         /*推荐菜谱*/
                         $(document).ready(function () {
