@@ -481,147 +481,262 @@
                 },
                 star: function () {
                     var $this = this;
-                    console.log($this.canClick);
-                    if (!$this.canClick) return;
-                    $this.canClick = false;
-                    var userid = 518576;
-                    console.log({
-                        "refId": id,
-                        "type": 14,
-                        "userId": userid
-                    });
-                    //app交互——获取登录状态
-                    ft.isLogin(function (result) {
-                        // alert(JSON.stringify(result));
-                        // alert("id:" + id + "type:" + 4 + "userid:" + userid);
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            //$api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            $.cookie('userid', userid);
-                            if (userid !== "1" && userid !== 1) {
-                                token = result.data.token.toString();
-                                $.cookie('token', token);
-                            }
-                            $.ajax({
-                                url: urlport + 'favorite/create',
-                                type: 'POST',
-                                headers: {
-                                    "userId": userid,
-                                    "token": token,
-                                    "deviceType": "web",
-                                    "version": "v450"
-                                },
-                                data: JSON.stringify({
-                                    "refId": id,
-                                    "type": 14,
-                                    "userId": userid
-                                }),
-                                timeout: 5000, //超时时间
-                                contentType: "application/json;charset=utf-8",
-                                dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                success: function (data) {
-                                    console.log(data);
-                                    if (data.status == 200) {
-                                        console.log("收藏成功");
-                                        $this.data.isFavorite = 1;
-                                        var oldnum = $this.data.favoriteCount;
-                                        $this.data.favoriteCount = parseInt(oldnum) + 1;
-                                        $api.toast('收藏成功！', 3000);
-                                    } else {
-                                        $api.toast(data.errorMessage);
-                                    }
-                                },
-                                error: function (errorMsg) {
-                                    console.log('错误');
-                                    console.log(errorMsg);
+                    console.log(device);
+                    if (device !== null && device !== "null") {
+                        console.log($this.canClick);
+                        if (!$this.canClick) return;
+                        $this.canClick = false;
+                        // var userid = 518576;
+                        console.log({
+                            "refId": id,
+                            "type": 14,
+                            "userId": userid
+                        });
+                        //app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            // alert(JSON.stringify(result));
+                            // alert("id:" + id + "type:" + 4 + "userid:" + userid);
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                //$api.toast('登陆成功', 2000);
+                                userid = result.data.userId.toString();
+                                $.cookie('userid', userid);
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                    $.cookie('token', token);
                                 }
-                            });
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
+                                $.ajax({
+                                    url: urlport + 'favorite/create',
+                                    type: 'POST',
+                                    headers: {
+                                        "userId": userid,
+                                        "token": token,
+                                        "deviceType": "web",
+                                        "version": "v450"
+                                    },
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 14,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                    success: function (data) {
+                                        console.log(data);
+                                        if (data.status == 200) {
+                                            console.log("收藏成功");
+                                            $this.data.isFavorite = 1;
+                                            var oldnum = $this.data.favoriteCount;
+                                            $this.data.favoriteCount = parseInt(oldnum) + 1;
+                                            $api.toast('收藏成功！', 3000);
+                                        } else {
+                                            $api.toast(data.errorMessage);
+                                        }
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
+                                });
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
 
-                    setTimeout(function () {
-                        $this.canClick = true;
-                    }, 3000);
+                        setTimeout(function () {
+                            $this.canClick = true;
+                        }, 3000);
+
+                    } else {
+                        $this.deeplikopen();
+                    }
                 },
                 unstar: function () {
+                    console.log(device);
                     var $this = this;
-                    console.log($this.canClick);
-                    if (!$this.canClick) return;
-                    $this.canClick = false;
-                    //app交互——获取登录状态
-                    var userid = 518576;
-                    console.log({
-                        "refId": id,
-                        "type": 14,
-                        "userId": userid
-                    });
-                    ft.isLogin(function (result) {
-                        console.log(result);
-                        // alert(JSON.stringify(result));
-                        // alert("id:" + id + "type:" + 4 + "userid:" + userid);
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            //$api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            $.cookie('userid', userid);
-                            if (userid !== "1" && userid !== 1) {
-                                token = result.data.token.toString();
-                                $.cookie('token', token);
-                            }
-                            $.ajax({
-                                url: urlport + 'favorite/cancel',
-                                type: 'POST',
-                                headers: {
-                                    "userId": userid,
-                                    "token": token,
-                                    "deviceType": "web",
-                                    "version": "v450"
-                                },
-                                data: JSON.stringify({
-                                    "refId": id,
-                                    "type": 14,
-                                    "userId": userid
-                                }),
-                                timeout: 5000, //超时时间
-                                contentType: "application/json;charset=utf-8",
-                                dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
-                                success: function (data) {
-                                    console.log(data);
-                                    if (data.status == 200) {
-                                        console.log("取消收藏");
-                                        $this.data.isFavorite = 0;
-                                        var oldnum = $this.data.favoriteCount;
-                                        $this.data.favoriteCount = parseInt(oldnum) - 1;
-                                        $api.toast('取消收藏！', 3000);
-                                    } else {
-                                        $api.toast(data.errorMessage);
-                                    }
-                                },
-                                error: function (errorMsg) {
-                                    console.log('错误');
-                                    console.log(errorMsg);
+                    if (device !== null && device !== "null") {
+                        console.log($this.canClick);
+                        if (!$this.canClick) return;
+                        $this.canClick = false;
+                        //app交互——获取登录状态
+                        console.log({
+                            "refId": id,
+                            "type": 14,
+                            "userId": userid
+                        });
+                        ft.isLogin(function (result) {
+                            console.log(result);
+                            // alert(JSON.stringify(result));
+                            // alert("id:" + id + "type:" + 4 + "userid:" + userid);
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                //$api.toast('登陆成功', 2000);
+                                userid = result.data.userId.toString();
+                                $.cookie('userid', userid);
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                    $.cookie('token', token);
                                 }
-                            });
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
+                                $.ajax({
+                                    url: urlport + 'favorite/cancel',
+                                    type: 'POST',
+                                    headers: {
+                                        "userId": userid,
+                                        "token": token,
+                                        "deviceType": "web",
+                                        "version": "v450"
+                                    },
+                                    data: JSON.stringify({
+                                        "refId": id,
+                                        "type": 14,
+                                        "userId": userid
+                                    }),
+                                    timeout: 5000, //超时时间
+                                    contentType: "application/json;charset=utf-8",
+                                    dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
+                                    success: function (data) {
+                                        console.log(data);
+                                        if (data.status == 200) {
+                                            console.log("取消收藏");
+                                            $this.data.isFavorite = 0;
+                                            var oldnum = $this.data.favoriteCount;
+                                            $this.data.favoriteCount = parseInt(oldnum) - 1;
+                                            $api.toast('取消收藏！', 3000);
+                                        } else {
+                                            $api.toast(data.errorMessage);
+                                        }
+                                    },
+                                    error: function (errorMsg) {
+                                        console.log('错误');
+                                        console.log(errorMsg);
+                                    }
+                                });
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+
+                        setTimeout(function () {
+                            $this.canClick = true;
+                        }, 3000);
+                    }else {
+                        $this.deeplikopen();
+                    }
+
+                },
+                deeplikopen: function () {
+                    var $this = this;
+
+                    function GetQueryString(name) {
+                        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                        var r = window.location.search.substr(1).match(reg);
+                        if (r != null) return unescape(r[2]);
+                        return null;
+                    }
+
+                    var id = GetQueryString("id");
+
+                    function GetPageName() {
+                        var url = window.location.href;//获取完整URL
+                        var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
+                        var name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+                        return name;
+                    }
+
+                    // alert(GetPageName());
+                    /*页面参数（页面类型+id）*/
+                    var id = id;
+                    var refid = id;
+                    var action = GetPageName();
+                    var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + id;
+                    var imageURL = "";
+                    var shareTitle = "";
+                    var shareSubTitle = "";
+                    var iostype = "";
+
+                    console.log({
+                        "id": id,
+                        "action": action,
+                        "weburl": weburl,
+                        "refid": refid,
+                        "imageURL": imageURL,
+                        "shareTitle": shareTitle,
+                        "shareSubTitle": shareSubTitle,
+                        "iostype": iostype
                     });
 
-                    setTimeout(function () {
-                        $this.canClick = true;
-                    }, 3000);
-                }
+                    var urlright = "?action=" + encodeURIComponent(action) +
+                        "&id=" + encodeURIComponent(id) +
+                        "&weburl=" + encodeURIComponent(weburl) +
+                        "&refid=" + encodeURIComponent(refid) +
+                        "&imageURL=" + encodeURIComponent(imageURL) +
+                        "&shareTitle=" + encodeURIComponent(shareTitle) +
+                        "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
+                        "&iostype=" + encodeURIComponent(iostype);
+
+                    /*判断是IOS还是Android机型*/
+                    var u = navigator.userAgent;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    // console.log('是否是Android：' + isAndroid);
+                    // console.log('是否是iOS：' + isiOS);
+
+                    /*判断是否微信浏览器内打开*/
+                    function isWeiXin() {
+                        var ua = window.navigator.userAgent.toLowerCase();
+                        // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+                        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                    if (isWeiXin()) {
+                        console.log(" 是来自微信内置浏览器");
+                        /*弹出浏览器打开提示*/
+                        var alertstr = "<div class='blackbg'><div class='reminder'>" +
+                            "<img src='../img/arrowdashed.png' >" +
+                            "<p class='title'>在微信中无法打开？</p>" +
+                            "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
+                            "</div></div>";
+                        $("body").prepend(alertstr);
+                        $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+
+                        /*隐藏提示*/
+                        $(".blackbg").unbind().click(function () {
+                            $(".blackbg").remove();
+                            $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+                        });
+                        $(".reminder").click(function (event) {
+                            event.stopPropagation();//阻止冒泡
+                        });
+
+                    } else {
+                        console.log("不是来自微信内置浏览器");
+                        /*深链接打开*/
+                        var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+                        // alert(deeplinkurl);
+                        window.location.href = deeplinkurl;
+                        /***打开app的协议***/
+                        window.setTimeout(function () {
+                            if (isiOS == true) {/*ios手机*/
+                                window.location.href = "https://gio.ren/re0Y923";
+                            } else if (isAndroid == true) {/*Android手机*/
+                                window.location.href = "https://gio.ren/rBZ2ApB";
+                            }
+                        }, 1000);
+                    }
+                },
             }
         });
 
