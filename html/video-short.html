@@ -43,7 +43,8 @@
         <h3 v-html="data.title"></h3>
         <div class="header__opt">
             <span class="view-count"><strong v-html="data.viewCount"></strong></span>
-            <span v-if="data.isFavorite == 0" class="favorite-count" @click="star()"><strong v-html="data.favoriteCount"></strong></span>
+            <span v-if="data.isFavorite == 0" class="favorite-count" @click="star()"><strong
+                    v-html="data.favoriteCount"></strong></span>
             <span v-else class="favorite-count2" @click="unstar()"><strong v-html="data.favoriteCount"></strong></span>
         </div>
         <a class="cooker" v-if="data.cook !== undefined && data.cook !== null"
@@ -104,7 +105,7 @@
 <link href="../css/hls/video-js.css" rel="stylesheet">
 <script src="../js/hls/video.js"></script>
 <script src="../js/deeplink.js"></script>
-<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+<!--<script type="text/javascript" src="../js/ajaxsetup.js"></script>-->
 <script>
 
     function GetQueryString(name) {
@@ -172,8 +173,8 @@
                     "shareimg": "",
                     "sharelink": ""
                 },
-                isFavorite:"",
-                canClick:true,
+                isFavorite: "",
+                canClick: true,
                 http: {
                     header: {
                         "version": "v450"
@@ -478,20 +479,21 @@
                         })
                     }
                 },
-                star:function () {
+                star: function () {
                     var $this = this;
                     console.log($this.canClick);
                     if (!$this.canClick) return;
                     $this.canClick = false;
+                    var userid = 518576;
+                    console.log({
+                        "refId": id,
+                        "type": 14,
+                        "userId": userid
+                    });
                     //app交互——获取登录状态
                     ft.isLogin(function (result) {
                         // alert(JSON.stringify(result));
                         // alert("id:" + id + "type:" + 4 + "userid:" + userid);
-                        console.log({
-                            "refId": id,
-                            "type": 14,
-                            "userId": userid
-                        });
                         var errorcode = result.errorCode.toString();
                         if (errorcode == "1") {
                             //$api.toast('登陆成功', 2000);
@@ -505,6 +507,9 @@
                                 url: urlport + 'favorite/create',
                                 type: 'POST',
                                 headers: {
+                                    "userId": userid,
+                                    "token": token,
+                                    "deviceType": "web",
                                     "version": "v450"
                                 },
                                 data: JSON.stringify({
@@ -517,13 +522,13 @@
                                 dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
                                 success: function (data) {
                                     console.log(data);
-                                    if(data.status==200){
+                                    if (data.status == 200) {
                                         console.log("收藏成功");
                                         $this.data.isFavorite = 1;
                                         var oldnum = $this.data.favoriteCount;
                                         $this.data.favoriteCount = parseInt(oldnum) + 1;
                                         $api.toast('收藏成功！', 3000);
-                                    }else {
+                                    } else {
                                         $api.toast(data.errorMessage);
                                     }
                                 },
@@ -545,12 +550,13 @@
                         $this.canClick = true;
                     }, 3000);
                 },
-                unstar:function () {
+                unstar: function () {
                     var $this = this;
                     console.log($this.canClick);
                     if (!$this.canClick) return;
                     $this.canClick = false;
                     //app交互——获取登录状态
+                    var userid = 518576;
                     console.log({
                         "refId": id,
                         "type": 14,
@@ -573,6 +579,9 @@
                                 url: urlport + 'favorite/cancel',
                                 type: 'POST',
                                 headers: {
+                                    "userId": userid,
+                                    "token": token,
+                                    "deviceType": "web",
                                     "version": "v450"
                                 },
                                 data: JSON.stringify({
@@ -585,13 +594,13 @@
                                 dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
                                 success: function (data) {
                                     console.log(data);
-                                    if(data.status==200){
+                                    if (data.status == 200) {
                                         console.log("取消收藏");
                                         $this.data.isFavorite = 0;
                                         var oldnum = $this.data.favoriteCount;
                                         $this.data.favoriteCount = parseInt(oldnum) - 1;
                                         $api.toast('取消收藏！', 3000);
-                                    }else {
+                                    } else {
                                         $api.toast(data.errorMessage);
                                     }
                                 },
