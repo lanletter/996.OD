@@ -14,6 +14,10 @@
           <option name="url" value="https://gitee.com/lanletter/fotilestyleWX.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://118.178.134.116:8888" />
+          <option name="userName" value="liuan" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/git" />
