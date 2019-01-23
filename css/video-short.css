@@ -91,6 +91,7 @@ html, body {
 .vide-share .tit .cooker{
   display: block;
   margin-bottom: 0.7rem;
+  border-top: 1px solid rgb(237, 237, 237);
 }
 .vide-share .tit .cooker img {
   display: block;
@@ -176,7 +177,6 @@ html, body {
   text-align: center;
   margin-top: 0.2rem !important;
   padding-bottom: 0.62rem !important;
-  border-bottom: 1px solid rgb(237, 237, 237);
 }
 
 .recommend{

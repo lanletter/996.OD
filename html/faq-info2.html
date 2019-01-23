@@ -8,24 +8,22 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <!-- 不要让设备识别电话号码和邮箱地址-->
     <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
-          name="viewport">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
     <!-- DNS预解析-->
     <meta http-equiv="x-dns-prefetch-control" content="on">
 
     <script src="../js/tingyun-rum.js"></script>
-    <link href="../css/common.css?ver=403" rel="stylesheet">
-    <!--<link href="../css/jf-info.css?ver=403" rel="stylesheet">-->
+    <link href="../css/common/reset.css?ver=403" rel="stylesheet">
+    <link href="../css/jf-info.css?ver=403" rel="stylesheet">
     <title>会员说明</title>
     <script type='text/javascript'>
         var _vds = _vds || [];
         window._vds = _vds;
-        (function () {
+        (function(){
             _vds.push(['setAccountId', '80624a28abff7348']);
-            (function () {
+            (function() {
                 var vds = document.createElement('script');
-                vds.type = 'text/javascript';
+                vds.type='text/javascript';
                 vds.async = true;
                 vds.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'dn-growing.qbox.me/vds.js';
                 var s = document.getElementsByTagName('script')[0];
@@ -33,101 +31,50 @@
             })();
         })();
     </script>
-    <style>
-        .ullist{
-            width: 100%;
-            height: 0.8rem;
-            padding-left: 0.4rem;
-            border-bottom: 1px solid rgb(237,237,237);
-        }
-        .ullist li{
-            margin:0 0.78rem 0 0;
-            font-size: 0.24rem;
-            color: rgb(154,154,154);
-            height: 0.8rem;
-            line-height: 0.8rem;
-            float: left;
-        }
-        .ullist .cur{
-            color: rgb(31,31,31);
-            font-weight: bold;
-        }
-        .ullist .cur:after {
-            content: '';
-            display: block;
-            width: 50%;
-            border-radius: 0.35rem;
-            margin-top: -1px;
-            margin-left: 25%;
-            height: 4px;
-            background-color: rgb(200,175,112);
-        }
-        .content{
-            margin-bottom: 3.76rem;
-        }
-        .content div{
-            width: 100%;
-        }
-        .content p{color: #1f1f1f;}
-        .content .title{
-            margin: 0.8rem 0.4rem 0 0.4rem;
-            padding-left:0.8rem;
-            font-size: 0.48rem;
-            font-weight: bold;
-            text-indent: -0.8rem;
-            letter-spacing: 1px;
-            line-height: 0.66rem;
-        }
-        .content .texts{
-            text-align: justify;
-            line-height: 0.48rem;
-            margin: 0.4rem 0.6rem 0 0.6rem;
-            font-size: 0.28rem;
-        }
-    </style>
 </head>
 <body>
-<div id="BigDIV" class="content">
-    <div id="JKDiv_1">
-        <p class="title">1、会员有哪几个等级？</p>
-        <p class="texts">
-            注册会员：仅注册成为会员，未发生购买行为。<br>
-            幸福家一星会员：1个自然年内发生购买或者推荐他人购买的行为，会员本人购买或可识别的推荐他人购买生活家课程或方太商城产品，金额大于零且不超过5000元可升为幸福家一星会员。<br>
-            幸福家二星会员：1个自然年内发生购买或者推荐他人购买的行为，会员本人购买或可识别的推荐他人购买生活家课程或方太商城产品，金额大于5000元且不超过10000元可升为幸福家二星会员。<br>
-            幸福家三星会员：1个自然年内发生购买或者推荐他人购买的行为，会员本人购买或可识别的推荐他人购买生活家课程或方太商城产品，金额大于10000元且不超过35000元可升为幸福家三星会员。<br>
-            幸福家四星会员：1个自然年内发生购买或者推荐他人购买的行为，会员本人购买或可识别的推荐他人购买生活家课程或方太商城产品，金额大于35000元且不超过50000元可升为幸福家四星会员。<br>
-            幸福家五星会员：1个自然年内发生购买或者推荐他人购买的行为，会员本人购买或可识别的推荐他人购买生活家课程或方太商城产品，金额大于50000元且不超过100000元可升为幸福家五星会员。<br>
-            幸福家六星会员：1个自然年内发生购买或者推荐他人购买的行为，会员本人购买或可识别的推荐他人购买生活家课程或方太商城产品，金额大于100000元可升为幸福家六星会员。<br>
-        </p>
-
-        <p class="title">2、不同等级会员享有哪些权益？</p>
-        <p class="texts">
-            用户可以通过在APP内注册、签到、购买烹饪课程或商城商品、参与线上活动获取积分，新注册用户将一次性获得500积分。不同等级的用户在方太商城购买产品，依照购买权益可获得实付金额1-6倍不等的积分，确认收货后积分自动到账，订单生成后如取消订单或退货，则积分自动扣除。（具体权益可在会员权益说明中查看）
-        </p>
-
-        <p class="title">3、会员怎么升级？</p>
-        <p class="texts">
-            （1）会员升级注意事项：会员升级仅需满足累计推荐购买或购买金额条件，自注册起，一个自然年内会员达到升级条件，在最后一笔订单完成后，系统管理员3天内在系统后台完成审核升级（自每年01月01日至次年01月01日为一个自然年）。<br>
-            （2）首次升级：会员累计消费为0的会员属注册会员，在首笔订单完成后，系统管理员3天内在系统后台完成审核升级。<br>
-            （3）累计实付金额：累计金额仅含实付金额，扣除红包、折价特权码、折扣等部分。<br>
-        </p>
-
-        <p class="title">4、会员会降级吗？</p>
-        <p class="texts">会员等级实行不降级政策。</p>
-    </div>
+<div class="jf-info">
+    <!--<h4>会员说明</h4>-->
+    <ul>
+        <li v-html="instruction"></li>
+    </ul>
 </div>
-</body>
-<script src="../js/lib.js"></script>
+
 <script>
-    $("li").click(function(e) {
-        $("li").removeClass("cur");
-        $(this).addClass("cur");
-    });
-    function ChangeDiv(divId, divName, zDivCount) {
-        for (i = 0; i <= zDivCount; i++) {
-            document.getElementById(divName + i).style.display = "none";
-        }
-        document.getElementById(divName + divId).style.display = "block";
+    function setFontSize(){
+        document.documentElement.style.fontSize = document.documentElement.clientWidth/375*10+"px";
     }
+    setFontSize();
+    window.onresize = function(){
+        setFontSize();
+    };
 </script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="../js/url.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.jf-info',
+        data:{
+            instruction:''
+        },
+        created:function(){
+            var $this = this;
+            this.$http.post(urlport+'instruction/detail',{"code":"member"}).then(function(data){
+                console.log(data.data);
+                var data = data.data;
+                if(data.status == 200){
+                    console.log(data);
+                    $this.instruction = data.data.instruction;
+                }
+
+            },function(){
+                console.info('error');
+            });
+
+        }
+    });
+
+</script>
+</body>
 </html>

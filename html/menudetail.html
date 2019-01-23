@@ -8,7 +8,6 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <!-- 不要让设备识别电话号码和邮箱地址-->
     <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
           name="viewport">
     <!-- DNS预解析-->
@@ -229,6 +228,7 @@
      style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;">
     <div id="innerdiv" style="position:absolute;"><img id="bigimg" src=""/></div>
 </div>
+<div id="instructions" style="display: none"></div>
 
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
@@ -364,6 +364,9 @@
                         id = $this.data.basicInfo.id;
                         console.log(id);
                     }
+
+                    /*分享用*/
+                    $('#instructions').html($this.basicInfo.instructions);
 
                     /*title取值*/
                     var txt = $this.basicInfo.menu_name;

@@ -8,7 +8,6 @@
     <meta name="apple-touch-fullscreen" content="yes">
     <!-- 不要让设备识别电话号码和邮箱地址-->
     <meta content="telephone=no,email=no" name="format-detection">
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
     <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
           name="viewport">
     <!-- DNS预解析-->
@@ -54,7 +53,7 @@
             <p class="cookdesc" v-html="data.cook.remark"></p>
         </a>
         <p class="introduct" v-html="data.content"></p>
-        <div v-if="data.tip.length > 0 " class="tips">
+        <div v-if="data.tip!==null && data.tip.length > 0 " class="tips">
             <div class='dot'></div>
             <div class='txt' v-html="data.tip"></div>
         </div>
@@ -322,11 +321,10 @@
                             contentType: "application/json;charset=utf-8",
                             dataType: 'json', //返回的数据格式：json/xml/html/script/jsonp/text
                             success: function (data) {
-                                console.log(data);
+                                // console.log(data);
                                 var data = data;
                                 if (data.status == 200) {
                                     $this.datalist = data.data;
-
                                     for (var i = 0; i < data.data.length; i++) {
                                         // console.log(data.data[i].pageUrl);
                                         var pageUrl = data.data[i].pageUrl;
