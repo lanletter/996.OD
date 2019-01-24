@@ -1,3 +1,0 @@
-<view class='picturebg'>
-<image src='{{src}}'></image>
-</view>

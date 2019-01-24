@@ -1,6 +1,0 @@
-<view class='blackbg'>
-  <video id="myVideo" class="videobox" src="{{videourl}}" direction="-90" objectFit="contain" autoplay poster="{{videopic}}" danmu-list="{{danmuList}}" bindtimeupdate='bindtimeupdate' enable-danmu danmu-btn controls>
-  </video>
-  <input class='barrage' placeholder-class="placeholder" placeholder='说点什么吧~~~' bindblur="bindInputBlur" />
-  <button class='btn' bindtap="bindSendDanmu" data-x="{{currentTime}}">发送弹幕</button>
-</view>
