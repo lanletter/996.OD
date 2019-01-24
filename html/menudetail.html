@@ -38,7 +38,6 @@
     <div class="smartLabel" style="display: none;"></div>
 </div>
 <div class="jf-buy menupage pbfoot" v-cloak>
-
     <div class="titletop">
         <h4 v-html="basicInfo.menu_name"></h4>
         <div style="display: none" id="userid"></div>
@@ -50,7 +49,7 @@
             <span class="favorite">
                 <i class="icon-msg" id="star" @click="deeplikopen"></i>
                 <!--<i class="deeplikopen" id="star" @click="star"></i>-->
-                <b v-html="basicInfo.favoriteCount || 0"></b>
+           <b v-html="basicInfo.favoriteCount || 0"></b>
             </span>
         </p>
 
@@ -76,17 +75,17 @@
                     <li>
                         <i class="icon-time"></i>
                         <span>
-                        <b class="timenum" v-html="basicInfo.cooking_time"></b>
-                        <b class="timetype">分钟</b>
-                        <em>预计耗时</em>
-                    </span>
+              <b class="timenum" v-html="basicInfo.cooking_time">10-30</b>
+              <b class="timetype">分钟</b>
+              <em>预计耗时</em>
+            </span>
                     </li>
                     <li>
                         <i class="icon-num"></i>
                         <span>
-                        <b v-html="basicInfo.fit_number"></b>人<br/>
-                        <em>适宜人数</em>
-                    </span>
+              <b v-html="basicInfo.fit_number"></b>人<br/>
+              <em>适宜人数</em>
+            </span>
                     </li>
                 </ul>
                 <dt class="tit">
@@ -107,7 +106,31 @@
         </div>
     </div>
 
-    <h4 class="stepTitle">菜谱详情</h4>
+    <h4 class="stepTitle">
+        <span>菜谱详情</span>
+        <div @click="openq" class="questions"></div>
+    </h4>
+    <div class="questionbg" v-if="issue">
+        <div class="questiondetail">
+            <div @click="closeq" class="close"></div>
+            <h4>方太产品参数说明</h4>
+            <dl>
+                <dt>电磁灶/燃气灶</dt>
+                <dd>大火≈7-9档；中火≈4-6档；小火≈1-3档</dd>
+                <dt>蒸箱</dt>
+                <dd>如无方太蒸箱，可用普通蒸锅替代，水烧开后再按照步骤时间计时</dd>
+                <dt>烤箱</dt>
+                <dd>
+                    预热：方太烤箱预热好之后会有提示音；其他烤箱可观察加热管状态，当加热管由红色转为黑色的时候，就表示预热好了；<br> 若无“常规烘焙”模式，可用“上下火”模式替代，统一设置成步骤中的温度即可；<br> 若无“低温烘焙”模式，将烤箱设置到最低温（30-45度），同时在烤箱中放一杯水即可；<br> 越是大烤箱温控就能越准确，若家中是小烤箱，尽量将食物放在烤箱中间位置，稍微调高温度，多试几次，摸准自家烤箱的脾气。
+                </dd>
+                <dt>烤箱</dt>
+                <dd>
+                    预热：方太烤箱预热好之后会有提示音；其他烤箱可观察加热管状态，当加热管由红色转为黑色的时候，就表示预热好了；<br> 若无“常规烘焙”模式，可用“上下火”模式替代，统一设置成步骤中的温度即可；<br> 若无“低温烘焙”模式，将烤箱设置到最低温（30-45度），同时在烤箱中放一杯水即可；<br> 越是大烤箱温控就能越准确，若家中是小烤箱，尽量将食物放在烤箱中间位置，稍微调高温度，多试几次，摸准自家烤箱的脾气。
+                </dd>
+            </dl>
+            <button>我知道了</button>
+        </div>
+    </div>
     <div class="step" id="allsteps">
         <div class="stepbox" v-for="(item,index) in data.menuSteps" track-by="$index">
             <h4>步骤 <em><span v-html="index + 1"></span>/<span v-html="data.menuSteps.length"></span></em></h4>
@@ -132,8 +155,11 @@
             <ul class="menulist">
                 <li v-for="(item,index) in datalist.workList">
                     <div class="workdetail">
-                        <div v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)" class="pageimg1" :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen"></div>
-                        <div v-else class="pageimg" :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen"></div>
+                        <div :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
+                             @click="deeplikopen"
+                             class="pageimg1" v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"></div>
+                        <div :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen" class="pageimg"
+                             v-else></div>
                         <div class="userinfo" @click="homeuser(item.userId)">
                             <div class="imgparent">
                                 <img class="userimg" :src="item.titlePicture">
@@ -198,7 +224,8 @@
                 <li v-for="(item,index) in dataother"><a :href="item.url">
                     <div class="menuimg" :style="{backgroundImage: 'url(' + item.images[0] + ')'}"></div>
                     <span class="menuname" v-html="item.name"></span>
-                    <div class="time" v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"
+                    <div class="time"
+                         v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"
                          v-html="item.videoLong"></div>
                     <div class="infonum">
                         <span class="views" v-html="item.pageviews"></span>
@@ -208,16 +235,17 @@
             </ul>
         </div>
     </div>
-
-    <div class="menufooter" style="display: none;" @click="deeplikopen">
-        <div class="bottom__opt">
-            <span class="iconask view-count">问答</span>
-            <span class="iconshow view-count">晒作品</span>
-            <span class="iconfavor view-count">收藏</span>
-        </div>
-    </div>
 </div>
 
+<div class="footer" style="display: none;">
+    <img src="../img/logo_gold2.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <span class="deeplikopen" id="jump">打开</span>
+    <span id="download">下载</span>
+</div>
 
 <div id="gio" style="display: none">
     <span id="askcount"></span>
@@ -256,9 +284,9 @@
     var id = GetQueryString("id");
     var device = GetQueryString("device");
     if (device == null || device == "null") {
-        $(".menufooter").show();
+        $(".footer").show();
     } else {
-        $(".menufooter").hide();
+        $(".footer").hide();
     }
     if (device == "ios") {
         var userid;
@@ -326,7 +354,8 @@
                 basicInfo: {},
                 materialsList: {},
                 isgray: false,
-                isshow: false
+                isshow: false,
+                issue:false
             },
             created: function () {
                 var $this = this;
@@ -657,7 +686,7 @@
                         }
 
                         //有无时长
-                        if (typeof(data.data.basicInfo.videoLong) == "undefined") {
+                        if (typeof (data.data.basicInfo.videoLong) == "undefined") {
                             var videotime = "";
                         } else {
                             var videotime = data.data.basicInfo.videoLong;
@@ -802,6 +831,22 @@
                     var _this = $("#imgSrc .pageimg2");
                     // console.log(_this.attr("src"));
                     imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+                },
+                openq: function(obj){
+                    var $this = this;
+                    $this.issue=true;
+                    console.log(this.issue);
+                    $(".footer").hide();
+                    $('html,body').css('overflow','hidden');
+                    // $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+                },
+                closeq:function(obj){
+                    var $this = this;
+                    $this.issue=false;
+                    console.log(this.issue);
+                    $(".footer").show();
+                    $('html,body').css('overflow','auto');
+                    // $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
                 },
                 deeplikopen: function (obj) {
                     function GetQueryString(name) {

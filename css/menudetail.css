@@ -396,6 +396,10 @@ img {
     border-bottom: 1px dotted rgb(214, 214, 214);
 }
 
+/*.special li {*/
+/*width: 30%;*/
+/*}*/
+
 .special span {
     font-size: 0.2rem;
     display: inline-block;
@@ -537,12 +541,101 @@ img {
 }
 
 .menupage .stepTitle {
-    color: rgb(31, 31, 31);
-    width: 4.92rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
     margin: 0.8rem 0.4rem -0.32rem 0.4rem;
+}
+
+.menupage .stepTitle span {
+    float: left;
+    display: inline-block;
     text-align: left;
     letter-spacing: 2px;
     font-size: 0.48rem;
+    color: rgb(31, 31, 31);
+}
+
+.menupage .stepTitle .questions {
+    float: left;
+    display: block;
+    width: 0.4rem;
+    height: 0.4rem;
+    margin: 0.12rem 0.2rem;
+    vertical-align: top;
+    background: url("../img/question-black@3x.png") no-repeat;
+    background-size: 0.4rem;
+}
+
+.questionbg {
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(31, 31, 31, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+}
+
+.questiondetail {
+    width: 5.9rem;
+    height: 11.5rem;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0.32rem 0.2rem 0 rgba(0, 0, 0, 0.09);
+    border-radius: 0.16rem;
+    position: relative;
+    overflow: hidden;
+}
+.questiondetail .close{
+    display: block;
+    width: 0.64rem;
+    height: 0.64rem;
+    position: absolute;
+    right: 0.16rem;
+    top:0.16rem;
+    background: url("../img/closex.png") no-repeat;
+    background-size: 0.64rem;
+}
+.questiondetail h4{
+    margin: 0.6rem 0.4rem;
+    height:0.66rem;
+    font-size:0.48rem;
+    font-weight:bold;
+    color:rgba(31,31,31,1);
+    line-height:0.66rem;
+}
+.questiondetail dl{
+    height: 8rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0 0.4rem;
+}
+.questiondetail dl dt{
+    font-size:0.28rem;
+    font-weight:bold;
+    color:rgba(31,31,31,1);
+    line-height:0.40rem;
+}
+.questiondetail dl dd{
+    margin: 0.2rem 0 0.6rem 0;
+    font-size:0.24rem;
+    color:#9A9A9A;
+    line-height:0.34rem;
+}
+.questiondetail button{
+    position: absolute;
+    bottom: 0;
+    margin: 0.4rem;
+    width:5.1rem;
+    height:0.96rem;
+    background:rgba(21,146,74,1);
+    border-radius: 0.16rem;
+    color: #fff;
+    line-height: 0.96rem;
+    font-size:0.28rem;
 }
 
 .menupage .dateime {
@@ -1089,10 +1182,10 @@ img {
     overflow: hidden;
 }
 
-#menushow .menulist li .usertxt{
+#menushow .menulist li .usertxt {
     position: absolute;
     top: 3.9rem;
-    left:0.3rem;
+    left: 0.3rem;
     overflow: hidden;
     color: #1F1F1F;
     font-size: 0.24rem;
@@ -1101,10 +1194,10 @@ img {
     width: 2.4rem;
     overflow: hidden;
     text-overflow: ellipsis;
-    -webkit-line-clamp:2;
-    word-break:break-all;
-    display:-webkit-box;
-    -webkit-box-orient:vertical;;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;;
 }
 
 #menushow .likenum {
@@ -1325,13 +1418,15 @@ img {
     background: url('../img/likenum.png') no-repeat;
     background-size: 0.48rem 0.48rem;
 }
-#ask .answer .numanswer{
+
+#ask .answer .numanswer {
     margin: 0 0.4rem;
     height: 0.76rem;
     line-height: 0.76rem;
     text-align: center;
     border-top: 1px solid #E7E7E7;
 }
+
 #ask .answer .numanswer .answerCount {
     font-size: 0.24rem;
     font-weight: bold;

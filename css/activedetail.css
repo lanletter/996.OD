@@ -104,3 +104,12 @@
 	width: 100%;
 	margin: 0.08rem auto;
 }
+
+.infocard{
+	width: 6.7rem;
+	box-sizing: border-box;
+	margin: 0.8rem 0.4rem;
+	padding: 0.4rem 0.4rem 0.8rem 0.4rem;
+	box-shadow:0.04rem 0.1rem 0.32rem 0 rgba(0,0,0,0.14);
+	border-radius:0.16rem;
+}

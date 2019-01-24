@@ -1090,3 +1090,48 @@ img{
 	padding: 0.2rem 0.3rem;
 	line-height: 0.52rem;
 }
+/*循环*/
+.slideBox {
+	position: relative;
+}
+
+.swiper-container {
+	margin: 0;
+	padding: 0;
+}
+
+.bgimg {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	z-index: 1;
+}
+
+.swiper-wrapper {
+	z-index: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.swiper-pagination-bullet {
+	background: rgba(0,0,0, 0.2);
+	opacity: 1;
+}
+
+.swiper-pagination {
+	position: absolute;
+	left: 0;
+	bottom: 15px;
+	z-index: 99;
+	width: 100%;
+	text-align: center;
+}
+
+.swiper-pagination-bullet {
+	margin-right: 8px;
+}
+
+.swiper-pagination-bullet-active {
+	background: rgb(200,175,112);
+}
+/*循环*/
