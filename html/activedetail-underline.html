@@ -36,18 +36,48 @@
         </div>
     </header>
     <div class="infocard">
-        <h4>活动详情</h4>
+        <h4>活动信息</h4>
+        <ul>
+            <li>
+                <span class="title">场馆名称</span>
+                <span class="detail">方太生活家上海体验馆</span>
+                <button>详情</button>
+            </li>
+            <li>
+                <span class="title">活动地址</span>
+                <span class="detail">上海徐汇区桃江路8号</span>
+                <img id="tomap" src="../img/local_gold.png">
+            </li>
+            <li>
+                <span class="title">活动时间</span>
+                <span class="detail">2月12日 周日 14:00-16:00</span>
+            </li>
+            <li>
+                <div>
+                    <span class="title">剩余人数</span>
+                    <span class="detail">10 人</span>
+                </div>
+                <div class="apart">/</div>
+                <div>
+                    <span class="title">总人数</span>
+                    <span class="detail">12 人</span>
+                </div>
+                <p>1个名额可带一位小朋友</p>
+            </li>
+        </ul>
 
-    
+
     </div>
+
+    <h4 class="bigtitle">活动详情</h4>
     <article class="content" id="instructions">
     </article>
-    <div class="active-rule">
-        <p>活动规则</p>
-        <ul>
+    <!--<div class="active-rule">-->
+    <!--<p>活动规则</p>-->
+    <!--<ul>-->
 
-        </ul>
-    </div>
+    <!--</ul>-->
+    <!--</div>-->
     <div class="bottomdiv"></div>
     <div class="ft-titles">
         <p class="title1">用户评论</p>
@@ -64,15 +94,21 @@
         </div>
     </div>
 </div>
-<div class="footer" style="display: none;">
-    <img src="../img/logo_gold2.png">
-    <p>
-        <span>方太生活家</span>
-        <span>分享生活味道</span>
-    </p>
-    <span id="jump" class="deeplikopen">打开</span>
-    <span id="download">下载</span>
+
+<div class="buy-box">
+    <span class="canbuy">
+        立即报名¥<em>2.00</em>
+    </span>
 </div>
+<!--<div class="footer" style="display: none;">-->
+<!--<img src="../img/logo_gold2.png">-->
+<!--<p>-->
+<!--<span>方太生活家</span>-->
+<!--<span>分享生活味道</span>-->
+<!--</p>-->
+<!--<span id="jump" class="deeplikopen">打开</span>-->
+<!--<span id="download">下载</span>-->
+<!--</div>-->
 <script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src='../js/lib.js'></script>
 <script type="text/javascript" src='../js/api.js'></script>
@@ -114,10 +150,10 @@
                     $.cookie('userid', userid);
                     if (userid !== "1" && userid !== 1) {
                         token = result.data.token.toString();
-                    		$.cookie('token', token);
+                        $.cookie('token', token);
                     }
 
-                    choose(userid,token);
+                    choose(userid, token);
 
                 } else if (errorCode == "0") {
                 } else if (errorCode == "-1") {
@@ -128,10 +164,10 @@
     } else {
         var userid = 1;
         var token;
-        choose(userid,token);
+        choose(userid, token);
     }
 
-    function choose(userid,token) {
+    function choose(userid, token) {
         $.ajax({
             url: urlport + 'activity/detail',
             type: 'POST',
@@ -228,8 +264,21 @@
 
             $content.append(data.content);
 
+            $("#tomap").on("click", function () {
+                console.log(data);
+                var id = data.id;
+                var lng = data.lng;
+                var lat = data.lat;
+                var sitename = data.storeName;
+                var urlstr = "map.html?id=" + id + "&" + "lng=" + lng + "&" + "lat=" + lat + "&" + "sitename=" + sitename;
+                //alert(urlstr);
+                // window.location.href = encodeURI(urlstr);
+                //alert(encodeURI(urlstr));
+                return false;
+            });
+
             /*文章内链接加device，必须放在content内容append后面！*/
-            var qs = 'device=' + device+'&jump=jump';
+            var qs = 'device=' + device + '&jump=jump';
             $content.find('a').each(function () {
                 var href = $(this).attr('href');
                 console.log(href);
@@ -284,7 +333,7 @@
                     console.log("不是APP打开");
                 } else {
                     ft.shareInfo(jsoninfo, function (result) {
-                     
+
                     });
 
                 }

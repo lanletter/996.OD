@@ -1,115 +1,265 @@
-.header{
-	background-color: #fff;
+.header {
+    background-color: #fff;
 }
 
-.header_img{
-	width: 100%;
-	height: 10rem;
-	position: relative;
-	background-repeat:no-repeat;
-	background-size:auto 10rem!important;
-	-webkit-background-size:auto 10rem!important;
-	background-position:center;
-	z-index: 999999;
+.header_img {
+    width: 100%;
+    height: 10rem;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: auto 10rem !important;
+    -webkit-background-size: auto 10rem !important;
+    background-position: center;
+    z-index: 999999;
 }
 
-.header__main{
-	position: relative;
-}
-.header__main img{
-	width: 100%;
-	height: 100%;
+.header__main {
+    position: relative;
 }
 
-.header__main .title h3{
-	width: 5.6rem;
-	max-height: 1.32rem;
-	overflow:hidden;
-	text-align: center;
-	font-size: 0.48rem;
-	color: #292929;
-	margin: 0.8rem auto 0 auto;
-	display: block;
-	letter-spacing: 1px;
-	font-weight: bold;
+.header__main img {
+    width: 100%;
+    height: 100%;
 }
-.header__main .title time{
-	display: block;
-	width: 100%;
-	text-align: center;
-	margin:0.28rem auto 0.28rem auto;
-	font-size: 0.24rem;
-	color: rgb(102,102,102);
-	line-height: 0.34rem;
-	max-height: 0.68rem;
+
+.header__main .title h3 {
+    width: 5.6rem;
+    max-height: 1.32rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.48rem;
+    color: #292929;
+    margin: 0.8rem auto 0 auto;
+    display: block;
+    letter-spacing: 1px;
+    font-weight: bold;
 }
-.lifetime{
-	position: absolute;
-	bottom: 0.06rem;
-	right: 0.16rem;
-	font-size: 0.2rem;
-	color: rgb(247,247,247);
-	font-family: "PingFangSC-Light";
-	font-weight: lighter;
-	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+
+.header__main .title time {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 0.28rem auto 0.28rem auto;
+    font-size: 0.24rem;
+    color: rgb(102, 102, 102);
+    line-height: 0.34rem;
+    max-height: 0.68rem;
+}
+
+.lifetime {
+    position: absolute;
+    bottom: 0.06rem;
+    right: 0.16rem;
+    font-size: 0.2rem;
+    color: rgb(247, 247, 247);
+    font-family: "PingFangSC-Light";
+    font-weight: lighter;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.bigtitle{
+    margin-left: 0.4rem;
+    height:0.66rem;
+    font-size:0.48rem;
+    font-weight:bold;
+    color:rgba(31,31,31,1);
+    line-height:0.66rem;
 }
 
 #instructions {
-	text-align: justify;
-	background: #fff;
-	padding: 0.68rem 0.6rem 0 0.6rem;
-	font-size: 16px;
-	letter-spacing: 0.03rem;
-	color: rgb(76,80,81);
-	font-weight: lighter;
-	font-family: "PingFangSC-Light"!important;
+    text-align: justify;
+    background: #fff;
+    padding: 0.2rem 0.4rem 0.8rem 0.4rem;
+    font-size: 14px;
+    letter-spacing: 0.03rem;
+    color: rgb(76, 80, 81);
+    font-weight: lighter;
 }
+
 #instructions img {
-	width: 7.5rem;
-	margin: 0.08rem -0.6rem;
+    width: 7.5rem;
+    margin: 0.08rem -0.6rem;
 }
+
 #instructions iframe {
-	width: 7.18rem!important;
-	height: 4rem!important;
-	margin: 0.48rem -0.32rem;
+    width: 7.18rem !important;
+    height: 4rem !important;
+    margin: 0.48rem -0.32rem;
 }
-#instructions h2 {font-weight: bold!important;font-size: 18px!important;}
-#instructions h3 {font-weight: bold!important;font-size: 16px!important;}
-#instructions h4 {font-weight: normal!important;font-size: 10px!important;}
 
-.MsoNormal:last-child img{margin-bottom: -0.32rem;}
-.active-rule{
-	background-color:rgb(244,244,244);
-	margin:0.6rem 0.4rem 0.8rem 0.4rem;
-	padding: 0.6rem 0.4rem;
-	border-radius: 0.16rem;
+#instructions h2 {
+    font-weight: bold !important;
+    font-size: 18px !important;
 }
-.active-rule p{
-	height: 0.5rem;
-	line-height: 0.5rem;
-	letter-spacing: 1px;
-	color: rgb(31,31,31);
-	font-size: 18px;
-	text-align: center;
-	margin-bottom: 0.58rem;
-	font-weight: bold;
+
+#instructions h3 {
+    font-weight: bold !important;
+    font-size: 16px !important;
 }
-.active-rule ul{
-	line-height: 0.48rem;
-	text-align: justify;
-	color: rgb(31,31,31);
-	font-size: 14px;
+
+#instructions h4 {
+    font-weight: normal !important;
+    font-size: 10px !important;
 }
+
+.MsoNormal:last-child img {
+    margin-bottom: -0.32rem;
+}
+
+.active-rule {
+    background-color: rgb(244, 244, 244);
+    margin: 0.6rem 0.4rem 0.8rem 0.4rem;
+    padding: 0.6rem 0.4rem;
+    border-radius: 0.16rem;
+}
+
+.active-rule p {
+    height: 0.5rem;
+    line-height: 0.5rem;
+    letter-spacing: 1px;
+    color: rgb(31, 31, 31);
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 0.58rem;
+    font-weight: bold;
+}
+
+.active-rule ul {
+    line-height: 0.48rem;
+    text-align: justify;
+    color: rgb(31, 31, 31);
+    font-size: 14px;
+}
+
 .active-rule ul img {
-	width: 100%;
-	margin: 0.08rem auto;
+    width: 100%;
+    margin: 0.08rem auto;
 }
 
-.infocard{
-	width: 6.7rem;
-	box-sizing: border-box;
-	margin: 0.8rem 0.4rem;
-	padding: 0.4rem 0.4rem 0.8rem 0.4rem;
-	box-shadow:0.04rem 0.1rem 0.32rem 0 rgba(0,0,0,0.14);
-	border-radius:0.16rem;
+.infocard {
+    width: 6.7rem;
+    box-sizing: border-box;
+    margin: 0.8rem 0.4rem;
+    padding: 0.4rem 0.4rem 0.8rem 0.4rem;
+    box-shadow: 0.04rem 0.1rem 0.32rem 0 rgba(0, 0, 0, 0.14);
+    border-radius: 0.16rem;
+}
+
+.infocard h4 {
+    height: 0.66rem;
+    font-size: 0.48rem;
+    font-weight: bold;
+    color: rgba(31, 31, 31, 1);
+    line-height: 0.66rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.infocard li {
+    position: relative;
+    margin-top: 0.6rem;
+}
+.infocard li:last-child {overflow: hidden;}
+
+.infocard li .title {
+    display: block;
+    height: 0.52rem;
+    font-size: 0.28rem;
+    color: rgba(154, 154, 154, 1);
+    line-height: 0.52rem;
+}
+
+.infocard li .detail {
+    display: block;
+    height: 0.50rem;
+    font-size: 0.36rem;
+    font-weight: bold;
+    color: rgba(31, 31, 31, 1);
+    line-height: 0.50rem;
+}
+
+.infocard li button {
+    position: absolute;
+    right: 0;
+    top: 0.54rem;
+    width: 1.28rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    background: rgba(31, 31, 31, 1);
+    border-radius: 0.25rem;
+    font-size: 0.28rem;
+    font-weight: bold;
+    color: rgba(200, 175, 112, 1);
+    text-align: center;
+}
+
+
+.infocard li img {
+    position: absolute;
+    right: 0;
+    top: 0.42rem;
+    width: 0.72rem;
+    height: 0.72rem;
+
+}
+.infocard li div {
+    float: left;
+    overflow: hidden;
+}
+.infocard li div.apart{
+    margin-left: 0.12rem;
+    margin-right: 0.28rem;
+    font-size: 0.8rem;
+    color:#D6D6D6;
+}
+
+.infocard li p {
+    display: block;
+    float: left;
+    margin-top: 0.18rem;
+    width:5.9rem;
+    background:rgba(244,244,244,1);
+    border-radius:0.08rem;
+    box-sizing: border-box;
+    padding:0.18rem 0.30rem;
+    font-size:0.28rem;
+    color:rgba(102,102,102,1);
+    line-height:0.52rem;
+}
+
+.buy-box {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    height: 0.96rem !important;
+    padding: 0.72rem 0 0.48rem 0;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.0) 0%, rgb(255, 255, 255) 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.0)), color-stop(50%, rgb(255, 255, 255)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.0) 0%, rgb(255, 255, 255) 50%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0.0) 0%, rgb(255, 255, 255) 50%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.0) 0%, rgb(255, 255, 255) 50%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.0) 0%, rgb(255, 255, 255) 50%);
+    z-index: 999999;
+    overflow: hidden;
+}
+
+.buy-box span {
+    display: block;
+    box-sizing: border-box;
+    margin: 0 0.4rem;
+    width:6.70rem;
+    height:0.96rem;
+    line-height: 0.96rem;
+    text-align: center;
+    border-radius: 0.08rem;
+    overflow: hidden;
+    /*display: none;*/
+}
+
+.buy-box span.canbuy{
+    display: block;
+    background:rgba(31,31,31,1);
+    color:#C8AF70 ;
+    font-size: 0.28rem;
+    font-weight: bold;
 }
