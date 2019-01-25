@@ -1,260 +1,263 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <!-- 全屏显示-->
-    <meta name="apple-touch-fullscreen" content="yes">
-    <!-- 不要让设备识别电话号码和邮箱地址-->
-    <meta content="telephone=no,email=no" name="format-detection">
-    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
-          name="viewport">
-    <!-- DNS预解析-->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-    <meta http-equiv="imagetoolbar" content="false">
-    <script src="../js/tingyun-rum.js"></script>
-    <link href="../css/common.css?ver=420" rel="stylesheet">
-    <link href="../css/animate.css?ver=420" rel="stylesheet">
-    <link href="../css/jf-info.css?ver=420" rel="stylesheet">
-    <link href="../css/menudetail.css?ver=420" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=420">
-    <title>菜谱内页</title>
-    <script type='text/javascript'>
-        !function (e, t, n, g, i) {
-            e[i] = e[i] || function () {
-                (e[i].q = e[i].q || []).push(arguments)
-            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
-        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
-        gio('init', '80624a28abff7348', {});
-    </script>
+  <meta charset="utf-8">
+  <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <!-- 全屏显示-->
+  <meta content="yes" name="apple-touch-fullscreen">
+  <!-- 不要让设备识别电话号码和邮箱地址-->
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+        name="viewport">
+  <!-- DNS预解析-->
+  <meta content="on" http-equiv="x-dns-prefetch-control">
+  <meta content="false" http-equiv="imagetoolbar">
+  <script src="../js/tingyun-rum.js"></script>
+  <link href="../css/common.css?ver=420" rel="stylesheet">
+  <link href="../css/animate.css?ver=420" rel="stylesheet">
+  <link href="../css/jf-info.css?ver=420" rel="stylesheet">
+  <link href="../css/menudetail.css?ver=420" rel="stylesheet">
+  <link href="../css/ftcomment.css?ver=420" rel="stylesheet" type="text/css">
+  <title>菜谱内页</title>
+  <script type='text/javascript'>
+    !function (e, t, n, g, i) {
+      e[i] = e[i] || function () {
+        (e[i].q = e[i].q || []).push(arguments)
+      }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+    }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+    gio('init', '80624a28abff7348', {});
+  </script>
 </head>
 <body oncontextmenu="return false">
 <div id="videobox" class="video">
-    <video id="vd" controls="controls" controlslist=”nodownload src="">
-        <source type="video/mp4">
-    </video>
-    <button class="play" style="display: none;">完整视频</button>
-    <div class="smartLabel" style="display: none;"></div>
+  <video controls="controls" controlslist=”nodownload id="vd" src="">
+    <source type="video/mp4">
+  </video>
+  <button class="play" style="display: none;">完整视频</button>
+  <div class="smartLabel" style="display: none;"></div>
 </div>
 <div class="jf-buy menupage pbfoot" v-cloak>
-    <div class="titletop">
-        <h4 v-html="basicInfo.menu_name"></h4>
-        <div style="display: none" id="userid"></div>
-        <p class="icons">
+  <div class="titletop">
+    <h4 v-html="basicInfo.menu_name"></h4>
+    <div id="userid" style="display: none"></div>
+    <p class="icons">
             <span>
                 <i class="icon-broswer"></i>
                 <b v-html="basicInfo.pageviews"></b>
             </span>
-            <span class="favorite">
+      <span class="favorite">
                 <i class="icon-msg" id="star" @click="deeplikopen"></i>
-                <!--<i class="deeplikopen" id="star" @click="star"></i>-->
+        <!--<i class="deeplikopen" id="star" @click="star"></i>-->
            <b v-html="basicInfo.favoriteCount || 0"></b>
             </span>
-        </p>
-
-        <div class="author" id="author" v-if="basicInfo.user_name !== '' && basicInfo.user_name !== null ">
-            <div class="authorbox" @click="homeuser(basicInfo.userId)">
-                <img :src="basicInfo.picturePath">
-                <span>内容来自</span>
-                <b v-html="basicInfo.user_name"></b>
-            </div>
-        </div>
-
-        <div class="text">
-            <p class="instructions richtext" v-show="data.instructions !== null" v-html="basicInfo.instructions "></p>
-        </div>
-
-        <div class="qingdan">
-            <dl>
-                <ul class="h_box special">
-                    <li>
-                        <i class="icon-easy"></i>
-                        <span><b v-html="basicInfo.labelInfo"></b><br/><em>难易程度</em></span>
-                    </li>
-                    <li>
-                        <i class="icon-time"></i>
-                        <span>
+    </p>
+    
+    <div class="author" id="author" v-if="basicInfo.user_name !== '' && basicInfo.user_name !== null ">
+      <div @click="homeuser(basicInfo.userId)" class="authorbox">
+        <img :src="basicInfo.picturePath">
+        <span>内容来自</span>
+        <b v-html="basicInfo.user_name"></b>
+      </div>
+    </div>
+    
+    <div class="text">
+      <p class="instructions richtext" v-html="basicInfo.instructions " v-show="data.instructions !== null"></p>
+    </div>
+    
+    <div class="qingdan">
+      <dl>
+        <ul class="h_box special">
+          <li>
+            <i class="icon-easy"></i>
+            <span><b v-html="basicInfo.labelInfo"></b><br/><em>难易程度</em></span>
+          </li>
+          <li>
+            <i class="icon-time"></i>
+            <span>
               <b class="timenum" v-html="basicInfo.cooking_time">10-30</b>
               <b class="timetype">分钟</b>
               <em>预计耗时</em>
             </span>
-                    </li>
-                    <li>
-                        <i class="icon-num"></i>
-                        <span>
+          </li>
+          <li>
+            <i class="icon-num"></i>
+            <span>
               <b v-html="basicInfo.fit_number"></b>人<br/>
               <em>适宜人数</em>
             </span>
-                    </li>
-                </ul>
-                <dt class="tit">
-                    <span class="txt"></i>材料清单</span>
-                    <!--<a class="unit" href="conversion-info.html">单位换算</a>-->
-                </dt>
-                <div v-if="materialsList!==undefined && materialsList.length"
-                     v-show="materialsList">
-                    <div v-for="(item,index) in materialsList">
-                        <p class="title_ingredients" v-html="item.title"><span>主料</span></p>
-                        <dd v-for="i in item.list">
-                            {{i.name}}
-                            <span v-html="i.unit"></span>
-                        </dd>
-                    </div>
-                </div>
-            </dl>
+          </li>
+        </ul>
+        <dt class="tit">
+          <span class="txt"></i>材料清单</span>
+          <!--<a class="unit" href="conversion-info.html">单位换算</a>-->
+        </dt>
+        <div v-if="materialsList!==undefined && materialsList.length"
+             v-show="materialsList">
+          <div v-for="(item,index) in materialsList">
+            <p class="title_ingredients" v-html="item.title"><span>主料</span></p>
+            <dd v-for="i in item.list">
+              {{i.name}}
+              <span v-html="i.unit"></span>
+            </dd>
+          </div>
         </div>
+      </dl>
     </div>
-
-    <h4 class="stepTitle">
-        <span>菜谱详情</span>
-        <div @click="openq" class="questions"></div>
-    </h4>
-    <div class="questionbg" v-if="issue">
-        <div class="questiondetail">
-            <div @click="closeq" class="close"></div>
-            <h4>方太产品参数说明</h4>
-            <dl>
-                <dt>电磁灶/燃气灶</dt>
-                <dd>大火≈7-9档；中火≈4-6档；小火≈1-3档</dd>
-                <dt>蒸箱</dt>
-                <dd>如无方太蒸箱，可用普通蒸锅替代，水烧开后再按照步骤时间计时</dd>
-                <dt>烤箱</dt>
-                <dd>
-                    预热：方太烤箱预热好之后会有提示音；其他烤箱可观察加热管状态，当加热管由红色转为黑色的时候，就表示预热好了；<br> 若无“常规烘焙”模式，可用“上下火”模式替代，统一设置成步骤中的温度即可；<br> 若无“低温烘焙”模式，将烤箱设置到最低温（30-45度），同时在烤箱中放一杯水即可；<br> 越是大烤箱温控就能越准确，若家中是小烤箱，尽量将食物放在烤箱中间位置，稍微调高温度，多试几次，摸准自家烤箱的脾气。
-                </dd>
-                <dt>烤箱</dt>
-                <dd>
-                    预热：方太烤箱预热好之后会有提示音；其他烤箱可观察加热管状态，当加热管由红色转为黑色的时候，就表示预热好了；<br> 若无“常规烘焙”模式，可用“上下火”模式替代，统一设置成步骤中的温度即可；<br> 若无“低温烘焙”模式，将烤箱设置到最低温（30-45度），同时在烤箱中放一杯水即可；<br> 越是大烤箱温控就能越准确，若家中是小烤箱，尽量将食物放在烤箱中间位置，稍微调高温度，多试几次，摸准自家烤箱的脾气。
-                </dd>
-            </dl>
-            <button>我知道了</button>
-        </div>
+  </div>
+  
+  <h4 class="stepTitle">
+    <span>菜谱详情</span>
+    <div @click="openq" class="questions"></div>
+  </h4>
+  <div class="questionbg" v-if="issue">
+    <div class="questiondetail">
+      <div @click="closeq" class="close"></div>
+      <h4>方太产品参数说明</h4>
+      <dl>
+        <dt>电磁灶/燃气灶</dt>
+        <dd>大火≈7-9档；中火≈4-6档；小火≈1-3档</dd>
+        <dt>蒸箱</dt>
+        <dd>如无方太蒸箱，可用普通蒸锅替代，水烧开后再按照步骤时间计时</dd>
+        <dt>烤箱</dt>
+        <dd>
+          预热：方太烤箱预热好之后会有提示音；其他烤箱可观察加热管状态，当加热管由红色转为黑色的时候，就表示预热好了；<br> 若无“常规烘焙”模式，可用“上下火”模式替代，统一设置成步骤中的温度即可；<br>
+          若无“低温烘焙”模式，将烤箱设置到最低温（30-45度），同时在烤箱中放一杯水即可；<br> 越是大烤箱温控就能越准确，若家中是小烤箱，尽量将食物放在烤箱中间位置，稍微调高温度，多试几次，摸准自家烤箱的脾气。
+        </dd>
+        <dt>烤箱</dt>
+        <dd>
+          预热：方太烤箱预热好之后会有提示音；其他烤箱可观察加热管状态，当加热管由红色转为黑色的时候，就表示预热好了；<br> 若无“常规烘焙”模式，可用“上下火”模式替代，统一设置成步骤中的温度即可；<br>
+          若无“低温烘焙”模式，将烤箱设置到最低温（30-45度），同时在烤箱中放一杯水即可；<br> 越是大烤箱温控就能越准确，若家中是小烤箱，尽量将食物放在烤箱中间位置，稍微调高温度，多试几次，摸准自家烤箱的脾气。
+        </dd>
+      </dl>
+      <button>我知道了</button>
     </div>
-    <div class="step" id="allsteps">
-        <div class="stepbox" v-for="(item,index) in data.menuSteps" track-by="$index">
-            <h4>步骤 <em><span v-html="index + 1"></span>/<span v-html="data.menuSteps.length"></span></em></h4>
-            <div class="steptime" v-if="item.step_time !=='' && item.step_time !==0">耗时：<span
-                    v-html="item.step_time"></span> 分钟
+  </div>
+  <div class="step" id="allsteps">
+    <div class="stepbox" track-by="$index" v-for="(item,index) in data.menuSteps">
+      <h4>步骤 <em><span v-html="index + 1"></span>/<span v-html="data.menuSteps.length"></span></em></h4>
+      <div class="steptime" v-if="item.step_time !=='' && item.step_time !==0">耗时：<span
+        v-html="item.step_time"></span> 分钟
+      </div>
+      <img :src="ite" alt="" v-for="ite in item.images" v-show="item.images[0] !== ''">
+      <p class="txt" v-html="item.description"
+         v-show="item.description !== undefined && item.descriptionText!==''"></p>
+      <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
+        <i class="icon-tips"></i><span v-html="item.reminder"></span>
+      </div>
+    </div>
+  </div>
+  
+  <div @click="deeplikopen" class="device">进入APP体验智能设备</div>
+  
+  <div id="menushow">
+    <h2>晒作品</h2>
+    <a @click="deeplikopen" class="moremenu arrow">全部<span v-html="datalist.count"></span>个作品</a>
+    <div class="listarea" v-if="datalist.count !== 0">
+      <ul class="menulist">
+        <li v-for="(item,index) in datalist.workList">
+          <div class="workdetail">
+            <div :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
+                 @click="deeplikopen"
+                 class="pageimg1"
+                 v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"></div>
+            <div :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen" class="pageimg"
+                 v-else></div>
+            <div @click="homeuser(item.userId)" class="userinfo">
+              <div class="imgparent">
+                <img :src="item.titlePicture" class="userimg">
+              </div>
+              <span v-html="item.nickName"></span>
             </div>
-            <img v-show="item.images[0] !== ''" v-for="ite in item.images" :src="ite" alt="">
-            <p class="txt" v-show="item.description !== undefined && item.descriptionText!==''"
-               v-html="item.description"></p>
-            <div class="introduc" v-if="item.reminderText !== ''" v-show="item.reminder">
-                <i class="icon-tips"></i><span v-html="item.reminder"></span>
+            <p @click="deeplikopen" class="usertxt" v-html="item.content"></p>
+            <span @click="deeplikopen" class="likenum" v-html="item.likeCount"></span>
+          </div>
+        </li>
+        <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
+      </ul>
+    </div>
+    <button @click="deeplikopen" class="menushowbtn">我要晒作品</button>
+  </div>
+  
+  <div id="ask">
+    <h2>问大家</h2>
+    <a @click="deeplikopen" class="moreask arrow">全部<span v-html="dataask.count"></span>个问题</a>
+    <div class="listarea" v-if="dataask.count !== 0">
+      <ul class="asklist">
+        <li v-for="(item,index) in dataask.answerList">
+          <div class="ask">
+            <p @click="homeuser(item.userId)" class="title">
+              <img :src="item.titlePicture" class="askimg">
+              <span v-html="item.nickName"></span><br>
+            </p>
+            <p class="txt" v-html="item.content"></p>
+            <p class="noanswer">
+              <span @click="deeplikopen" class="answerbtn">我要回答</span>
+              <span class="none" v-if="item.nickNameAnswer == '' ">0 回答</span>
+            </p>
+          </div>
+          <div @click="deeplikopen" class="answer" v-if="item.nickNameAnswer !== '' ">
+            <div class="best" v-if="item.bestAnswer == 1"></div>
+            <div class="answerinfo">
+              <img :src="item.titlePictureAnswer" class="answerimg">
+              <span class="answername" v-html="item.nickNameAnswer"></span>
             </div>
-        </div>
+            <p class="content" v-html="item.contentAnswer"></p>
+            <p class="numlike">
+              <span class="likeCount" v-html="item.likeCountAnswer"></span>
+            </p>
+            <p class="numanswer">
+              <span class="answerCount">全部 {{item.answerCount}} 个回答</span>
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
-
-    <div class="device" @click="deeplikopen">进入APP体验智能设备</div>
-
-    <div id="menushow">
-        <h2>晒作品</h2>
-        <a class="moremenu arrow" @click="deeplikopen">全部<span v-html="datalist.count"></span>个作品</a>
-        <div class="listarea" v-if="datalist.count !== 0">
-            <ul class="menulist">
-                <li v-for="(item,index) in datalist.workList">
-                    <div class="workdetail">
-                        <div :style="{backgroundImage: 'url(' + item.picturePath + ')'}"
-                             @click="deeplikopen"
-                             class="pageimg1" v-if="parseInt(item.picturePathImageHeight) > parseInt(item.picturePathImageWidth)"></div>
-                        <div :style="{backgroundImage: 'url(' + item.picturePath + ')'}" @click="deeplikopen" class="pageimg"
-                             v-else></div>
-                        <div class="userinfo" @click="homeuser(item.userId)">
-                            <div class="imgparent">
-                                <img class="userimg" :src="item.titlePicture">
-                            </div>
-                            <span v-html="item.nickName"></span>
-                        </div>
-                        <p class="usertxt" v-html="item.content" @click="deeplikopen"></p>
-                        <span class="likenum" v-html="item.likeCount" @click="deeplikopen"></span>
-                    </div>
-                </li>
-                <div style="float: left;width: 1px;overflow: hidden;color: #fff;">1</div>
-            </ul>
-        </div>
-        <button class="menushowbtn" @click="deeplikopen">我要晒作品</button>
+    <div class="askstyle" v-if="dataask.count == 0">
+      <img src="../img/noask.png">
+      <p>下载APP参与问答</p>
     </div>
-
-    <div id="ask">
-        <h2>问大家</h2>
-        <a class="moreask arrow" @click="deeplikopen">全部<span v-html="dataask.count"></span>个问题</a>
-        <div class="listarea" v-if="dataask.count !== 0">
-            <ul class="asklist">
-                <li v-for="(item,index) in dataask.answerList">
-                    <div class="ask">
-                        <p class="title" @click="homeuser(item.userId)">
-                            <img class="askimg" :src="item.titlePicture">
-                            <span v-html="item.nickName"></span><br>
-                        </p>
-                        <p class="txt" v-html="item.content"></p>
-                        <p class="noanswer">
-                            <span class="answerbtn" @click="deeplikopen">我要回答</span>
-                            <span class="none" v-if="item.nickNameAnswer == '' ">0 回答</span>
-                        </p>
-                    </div>
-                    <div class="answer" v-if="item.nickNameAnswer !== '' " @click="deeplikopen">
-                        <div class="best" v-if="item.bestAnswer == 1"></div>
-                        <div class="answerinfo">
-                            <img class="answerimg" :src="item.titlePictureAnswer">
-                            <span class="answername" v-html="item.nickNameAnswer"></span>
-                        </div>
-                        <p class="content" v-html="item.contentAnswer"></p>
-                        <p class="numlike">
-                            <span class="likeCount" v-html="item.likeCountAnswer"></span>
-                        </p>
-                        <p class="numanswer">
-                            <span class="answerCount">全部 {{item.answerCount}} 个回答</span>
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="askstyle" v-if="dataask.count == 0">
-            <img src="../img/noask.png">
-            <p>下载APP参与问答</p>
-        </div>
-        <button class="askbtn" @click="deeplikopen">我要提问</button>
+    <button @click="deeplikopen" class="askbtn">我要提问</button>
+  </div>
+  
+  <div id="menuother">
+    <h2>推荐菜谱</h2>
+    <div class="listarea">
+      <ul class="otherlist">
+        <li v-for="(item,index) in dataother"><a :href="item.url">
+          <div :style="{backgroundImage: 'url(' + item.images[0] + ')'}" class="menuimg"></div>
+          <span class="menuname" v-html="item.name"></span>
+          <div class="time"
+               v-html="item.videoLong"
+               v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"></div>
+          <div class="infonum">
+            <span class="views" v-html="item.pageviews"></span>
+            <span class="collect" v-html="item.collect_count"></span>
+          </div>
+        </a></li>
+      </ul>
     </div>
-
-    <div id="menuother">
-        <h2>推荐菜谱</h2>
-        <div class="listarea">
-            <ul class="otherlist">
-                <li v-for="(item,index) in dataother"><a :href="item.url">
-                    <div class="menuimg" :style="{backgroundImage: 'url(' + item.images[0] + ')'}"></div>
-                    <span class="menuname" v-html="item.name"></span>
-                    <div class="time"
-                         v-if="item.videoLong !== '' && item.videoLong !== null && item.videoLong !== undefined"
-                         v-html="item.videoLong"></div>
-                    <div class="infonum">
-                        <span class="views" v-html="item.pageviews"></span>
-                        <span class="collect" v-html="item.collect_count"></span>
-                    </div>
-                </a></li>
-            </ul>
-        </div>
-    </div>
+  </div>
 </div>
 
 <div class="footer" style="display: none;">
-    <img src="../img/logo_gold2.png">
-    <p>
-        <span>方太生活家</span>
-        <span>分享生活味道</span>
-    </p>
-    <span class="deeplikopen" id="jump">打开</span>
-    <span id="download">下载</span>
+  <img src="../img/logo_gold2.png">
+  <p>
+    <span>方太生活家</span>
+    <span>分享生活味道</span>
+  </p>
+  <span class="deeplikopen" id="jump">打开</span>
+  <span id="download">下载</span>
 </div>
 
 <div id="gio" style="display: none">
-    <span id="askcount"></span>
-    <span id="menucount"></span>
+  <span id="askcount"></span>
+  <span id="menucount"></span>
 </div>
 <div id="imgSrc"></div>
 <div id="outerdiv"
      style="position:fixed;top:0;left:0;background:rgba(0,0,0,0.7);z-index:999999;width:100%;height:100%;display:none;">
-    <div id="innerdiv" style="position:absolute;"><img id="bigimg" src=""/></div>
+  <div id="innerdiv" style="position:absolute;"><img id="bigimg" src=""/></div>
 </div>
 <div id="instructions" style="display: none"></div>
 
@@ -273,248 +276,248 @@
 <script src="../js/hls/video.js"></script>
 <script type="text/javascript" src='../js/deeplink.js'></script>
 <script>
-    /*获取url*/
-    function GetQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]);
-        return null;
-    }
-
-    var id = GetQueryString("id");
-    var device = GetQueryString("device");
-    if (device == null || device == "null") {
-        $(".footer").show();
-    } else {
-        $(".footer").hide();
-    }
-    if (device == "ios") {
-        var userid;
-        var token;
-        //app交互—获取userid
-        ft.isLogin2(function (result) {
-            var errorcode = result.errorCode.toString();
-            //alert(errorcode);
-            if (errorcode == "1") {
-                userid = result.data.userId.toString();
-                $.cookie('userid', userid);
-                if (userid !== "1" && userid !== 1) {
-                    token = result.data.token.toString();
-                    $.cookie('token', token);
-                }
-                choose();
-            } else if (errorCode == "0") {
-            } else if (errorCode == "-1") {
-            } else if (errorCode == "-2") {
-            }
-        });
-    } else if (device == "android") {
-        var userid;
-        var token;
-        //app交互—获取userid
-        ft.isLogin2(function (result) {
-            var errorcode = result.errorCode.toString();
-            //alert(errorcode);
-            if (errorcode == "1") {
-                userid = result.data.userId.toString();
-                $.cookie('userid', userid);
-                if (userid !== "1" && userid !== 1) {
-                    token = result.data.token.toString();
-                    $.cookie('token', token);
-                }
-                /*Android端判断是否菜谱页*/
-                if (device == "android") {
-                    ft.MenuLinght(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        // alert(errorcode);
-                        choose();//继续执行后面内容
-                    });
-                }
-            } else if (errorCode == "0") {
-            } else if (errorCode == "-1") {
-            } else if (errorCode == "-2") {
-            }
-        });
-    } else {
-        var userid = 1;
-        var token;
+  /*获取url*/
+  function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+  }
+  
+  var id = GetQueryString("id");
+  var device = GetQueryString("device");
+  if (device == null || device == "null") {
+    $(".footer").show();
+  } else {
+    $(".footer").hide();
+  }
+  if (device == "ios") {
+    var userid;
+    var token;
+    //app交互—获取userid
+    ft.isLogin2(function (result) {
+      var errorcode = result.errorCode.toString();
+      //alert(errorcode);
+      if (errorcode == "1") {
+        userid = result.data.userId.toString();
+        $.cookie('userid', userid);
+        if (userid !== "1" && userid !== 1) {
+          token = result.data.token.toString();
+          $.cookie('token', token);
+        }
         choose();
-    }
-
-    var canClick = true;
-
-    function choose() {
-        var vm = new Vue({
-            el: '.menupage',
-            data: {
-                data: {},
-                dataask: {},
-                datalist: {},
-                dataother: {},
-                basicInfo: {},
-                materialsList: {},
-                isgray: false,
-                isshow: false,
-                issue:false
-            },
-            created: function () {
-                var $this = this;
-                $.ajax({
-                    url: urlport + 'menu/detail',
-                    type: 'POST',
-                    headers: { // 默认添加请求头
-                        "userId": userid,
-                        "token": token,
-                        "deviceType": "web",
-                        "version": "v437"
-                    },
-                    data: JSON.stringify({"id": id, "userId": userid}),
-                    timeout: 5000, //超时时间
-                    contentType: "application/json;charset=utf-8",
-                    dataType: 'json', //返回的数据格式
-                    success: function (data) {
-                        console.log(data);
-                        callback(data);
-                    },
-                    error: function (errorMsg) {
-                        console.log('错误');
-                        console.log(errorMsg);
-                    }
-                });
-
-                function callback(data) {
-                    var data = data;
-
-                    if (data.status == 200) {
-                        //console.info(data);
-                        $this.data = data.data;
-                        $this.basicInfo = data.data.basicInfo;
-                        $this.materialsList = data.data.materialsList;
-                        id = $this.data.basicInfo.id;
-                        console.log(id);
-                    }
-
-                    /*分享用*/
-                    $('#instructions').html($this.basicInfo.instructions);
-
-                    /*title取值*/
-                    var txt = $this.basicInfo.menu_name;
-                    if (txt == undefined) {
-                        $('head title').text("菜谱详情");
-                    } else {
-                        $('head title').text(txt);
-                    }
-                    document.setTitle = function (t) {
-                        document.title = t;
-                        var i = document.createElement('iframe');
-                        i.style.display = 'none';
-                        i.onload = function () {
-                            setTimeout(function () {
-                                i.remove();
-                            })
-                        };
-                        document.body.appendChild(i);
-                    };
-                    setTimeout(function () {
-                        document.setTitle(data.data.basicInfo.menu_name);
-                    });
-
-                    /*友盟埋点-页面访问*/
-                    var isuserid;//登录判断
-                    if (userid !== 1 && userid !== "1") {
-                        isuserid = "是";
-                    } else {
-                        isuserid = "否";
-                    }
-                    // console.log(isuserid);
-                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
-                        "页面类型": "菜谱详情页",
-                        "页面名称": data.data.basicInfo.menu_name,
-                        "是否登录": isuserid
-                    });
-
-                    /*头图*/
-                    $(".video").css("background-image", 'url("' + data.data.basicInfo.images[0] + '")');
-                    /*判断是否有播放器*/
-                    if (data.data.basicInfo.video == null || data.data.basicInfo.video == "") {
-                        $(".play").hide();
-                    } else {
-                        $(".play").show();
-                        $('#videobox').find('#vd').attr('src', data.data.basicInfo.video);
-                    }
-
-                    /*播放器*/
-                    (function () {
-                        var video = $('#videobox video')[0],
-                            playBtn = $('#videobox .play');
-                        playBtn.on('click', function () {
-                            $(this).hide();
-                            var vheight = $("#videobox video").height();
-                            $('#vd').css({"position": "absolute", "left": "0"});
-                            $('#videobox').css({"position": "fixed"});
+      } else if (errorCode == "0") {
+      } else if (errorCode == "-1") {
+      } else if (errorCode == "-2") {
+      }
+    });
+  } else if (device == "android") {
+    var userid;
+    var token;
+    //app交互—获取userid
+    ft.isLogin2(function (result) {
+      var errorcode = result.errorCode.toString();
+      //alert(errorcode);
+      if (errorcode == "1") {
+        userid = result.data.userId.toString();
+        $.cookie('userid', userid);
+        if (userid !== "1" && userid !== 1) {
+          token = result.data.token.toString();
+          $.cookie('token', token);
+        }
+        /*Android端判断是否菜谱页*/
+        if (device == "android") {
+          ft.MenuLinght(function (result) {
+            var errorcode = result.errorCode.toString();
+            // alert(errorcode);
+            choose();//继续执行后面内容
+          });
+        }
+      } else if (errorCode == "0") {
+      } else if (errorCode == "-1") {
+      } else if (errorCode == "-2") {
+      }
+    });
+  } else {
+    var userid = 1;
+    var token;
+    choose();
+  }
+  
+  var canClick = true;
+  
+  function choose() {
+    var vm = new Vue({
+      el: '.menupage',
+      data: {
+        data: {},
+        dataask: {},
+        datalist: {},
+        dataother: {},
+        basicInfo: {},
+        materialsList: {},
+        isgray: false,
+        isshow: false,
+        issue: false
+      },
+      created: function () {
+        var $this = this;
+        $.ajax({
+          url: urlport + 'menu/detail',
+          type: 'POST',
+          headers: { // 默认添加请求头
+            "userId": userid,
+            "token": token,
+            "deviceType": "web",
+            "version": "v437"
+          },
+          data: JSON.stringify({"id": id, "userId": userid}),
+          timeout: 5000, //超时时间
+          contentType: "application/json;charset=utf-8",
+          dataType: 'json', //返回的数据格式
+          success: function (data) {
+            console.log(data);
+            callback(data);
+          },
+          error: function (errorMsg) {
+            console.log('错误');
+            console.log(errorMsg);
+          }
+        });
+        
+        function callback(data) {
+          var data = data;
+          
+          if (data.status == 200) {
+            //console.info(data);
+            $this.data = data.data;
+            $this.basicInfo = data.data.basicInfo;
+            $this.materialsList = data.data.materialsList;
+            id = $this.data.basicInfo.id;
+            console.log(id);
+          }
+          
+          /*分享用*/
+          $('#instructions').html($this.basicInfo.instructions);
+          
+          /*title取值*/
+          var txt = $this.basicInfo.menu_name;
+          if (txt == undefined) {
+            $('head title').text("菜谱详情");
+          } else {
+            $('head title').text(txt);
+          }
+          document.setTitle = function (t) {
+            document.title = t;
+            var i = document.createElement('iframe');
+            i.style.display = 'none';
+            i.onload = function () {
+              setTimeout(function () {
+                i.remove();
+              })
+            };
+            document.body.appendChild(i);
+          };
+          setTimeout(function () {
+            document.setTitle(data.data.basicInfo.menu_name);
+          });
+          
+          /*友盟埋点-页面访问*/
+          var isuserid;//登录判断
+          if (userid !== 1 && userid !== "1") {
+            isuserid = "是";
+          } else {
+            isuserid = "否";
+          }
+          // console.log(isuserid);
+          UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+            "页面类型": "菜谱详情页",
+            "页面名称": data.data.basicInfo.menu_name,
+            "是否登录": isuserid
+          });
+          
+          /*头图*/
+          $(".video").css("background-image", 'url("' + data.data.basicInfo.images[0] + '")');
+          /*判断是否有播放器*/
+          if (data.data.basicInfo.video == null || data.data.basicInfo.video == "") {
+            $(".play").hide();
+          } else {
+            $(".play").show();
+            $('#videobox').find('#vd').attr('src', data.data.basicInfo.video);
+          }
+          
+          /*播放器*/
+          (function () {
+            var video = $('#videobox video')[0],
+              playBtn = $('#videobox .play');
+            playBtn.on('click', function () {
+              $(this).hide();
+              var vheight = $("#videobox video").height();
+              $('#vd').css({"position": "absolute", "left": "0"});
+              $('#videobox').css({"position": "fixed"});
 //            $("#videobox").animate({height: vheight - 1 + "px",}, 1000);
 //            $(".jf-buy").animate({top: vheight - 1,}, 1000);
-                            $("#videobox").css({height: vheight - 1 + "px",});
-                            $(".jf-buy").css({top: vheight - 1,});
-                            $(".smartLabel").hide();
-                            video.play();
-                            video.controls = true;
-                        });
-
-                        video.addEventListener('ended', function () {
-                            playBtn.show();
-                            video.controls = false;
-                            $('#vd').css({"position": "absolute", "left": "-10rem"});
-                            $('#videobox').css({"position": "absolute"});
+              $("#videobox").css({height: vheight - 1 + "px",});
+              $(".jf-buy").css({top: vheight - 1,});
+              $(".smartLabel").hide();
+              video.play();
+              video.controls = true;
+            });
+            
+            video.addEventListener('ended', function () {
+              playBtn.show();
+              video.controls = false;
+              $('#vd').css({"position": "absolute", "left": "-10rem"});
+              $('#videobox').css({"position": "absolute"});
 //            $("#videobox").animate({"height": "10rem"}, 1000);
 //            $(".jf-buy").animate({"top": "10rem"}, 1000);
-                            $("#videobox").css({"height": "10rem"});
-                            $(".jf-buy").css({"top": "10rem"});
-                            if (data.data.basicInfo.type == 2) {
-                                $(".smartLabel").show();
-                            }
-                        }, false);
-                        video.addEventListener('pause', function () {
-                            playBtn.hide();
-                            video.controls = true;
-                        }, false);
-                    })();
-
-                    /*判断是否收藏*/
-                    // if (userid == 1 || userid == "1") {
-                    //     $("#star").addClass("icon-msg");
-                    //     $("#star").removeClass("icon-msg2");
-                    // } else {
-                    //     if (data.data.basicInfo.isFavorite == 1) {
-                    //         $("#star").addClass("icon-msg2");
-                    //         $("#star").removeClass("icon-msg");
-                    //     } else {
-                    //         $("#star").addClass("icon-msg");
-                    //         $("#star").removeClass("icon-msg2");
-                    //     }
-                    // }
-
-                    /*判断是否有智能标签*/
-                    if (data.data.basicInfo.type == 2) {
-                        $(".smartLabel").css("display", "block");
-                    } else {
-                        $(".smartLabel").css("display", "none");
-                    }
-
-                    /*判断是否有来源*/
-                    if (data.data.basicInfo.user_name == "") {
-                        $(".text h5").css("display", "none");
-                    }
-
-                    /*判断是否有智能设备*/
-                    // if (data.data.devices.length == 0 || data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
-                    //     $("#devices").css("display", "none");
-                    //     $(".jiange:eq(0)").remove();
-                    // }
-                    // if (data.data.basicInfo.subNameList.length == 0) {
-                    //     $("#classification").css("display", "none");
-                    //     $("#classification").prev(".bottomdiv").css("display", "none");
-                    // }
+              $("#videobox").css({"height": "10rem"});
+              $(".jf-buy").css({"top": "10rem"});
+              if (data.data.basicInfo.type == 2) {
+                $(".smartLabel").show();
+              }
+            }, false);
+            video.addEventListener('pause', function () {
+              playBtn.hide();
+              video.controls = true;
+            }, false);
+          })();
+          
+          /*判断是否收藏*/
+          // if (userid == 1 || userid == "1") {
+          //     $("#star").addClass("icon-msg");
+          //     $("#star").removeClass("icon-msg2");
+          // } else {
+          //     if (data.data.basicInfo.isFavorite == 1) {
+          //         $("#star").addClass("icon-msg2");
+          //         $("#star").removeClass("icon-msg");
+          //     } else {
+          //         $("#star").addClass("icon-msg");
+          //         $("#star").removeClass("icon-msg2");
+          //     }
+          // }
+          
+          /*判断是否有智能标签*/
+          if (data.data.basicInfo.type == 2) {
+            $(".smartLabel").css("display", "block");
+          } else {
+            $(".smartLabel").css("display", "none");
+          }
+          
+          /*判断是否有来源*/
+          if (data.data.basicInfo.user_name == "") {
+            $(".text h5").css("display", "none");
+          }
+          
+          /*判断是否有智能设备*/
+          // if (data.data.devices.length == 0 || data.data.devices[0].products == undefined || data.data.devices[0].products.length == 0) {
+          //     $("#devices").css("display", "none");
+          //     $(".jiange:eq(0)").remove();
+          // }
+          // if (data.data.basicInfo.subNameList.length == 0) {
+          //     $("#classification").css("display", "none");
+          //     $("#classification").prev(".bottomdiv").css("display", "none");
+          // }
 //                if(ata.data.kitchenwares.length==0){
 //                    $("#kitchenwares").css("display", "none");
 //                }
@@ -527,539 +530,539 @@
 //                     if (data.data.end_steps[0].descriptionText == "" && data.data.end_steps[0].images[0] == "") {
 //                         $("#end_steps").css("display", "none");
 //                     }
-
-
-                    /*晒作品*/
-                    $(document).ready(function () {
-                        $.ajax({
-                            url: urlport + 'comment/work/list',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                "pageNum": 1,
-                                "pageSize": 5,
-                                "refId": id,
-                                "userId": userid
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (datalist) {
-                                console.log("晒作品：");
-                                console.log(datalist);
-                                $("#gio #menucount").text(datalist.data.count);
-                                callback(datalist);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
-                            }
-                        });
-
-                        function callback(datalist) {
-                            if (datalist.status == 200) {
-                                $this.datalist = datalist.data;
-                                // console.log($this.datalist.workList);
-                            }
-                        }
-                    });
-
-                    /*问答模块*/
-                    $(document).ready(function () {
-                        $.ajax({
-                            url: urlport + 'comment/answer/list',
-                            type: 'POST',
-                            data: JSON.stringify({
-                                "pageNum": 1,
-                                "pageSize": 2,
-                                "refId": id,
-                                "userId": userid
-                            }),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (dataask) {
-                                console.log("问大家：");
-                                console.log(dataask);
-                                $("#gio #askcount").text(dataask.data.count);
-                                callback(dataask);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
-                            }
-                        });
-
-                        function callback(dataask) {
-                            if (dataask.status == 200) {
-                                $this.dataask = dataask.data;
-                                // console.log($this.dataask);
-                            }
-                        }
-                    });
-
-                    /*推荐菜谱*/
-                    $(document).ready(function () {
-                        $.ajax({
-                            url: urlport + 'menu/detail',
-                            type: 'POST',
-                            data: JSON.stringify({"id": id, "userId": userid}),
-                            timeout: 5000, //超时时间
-                            contentType: "application/json;charset=utf-8",
-                            dataType: 'json', //返回的数据格式
-                            success: function (data) {
-                                // console.log(data);
-                                callback1(data);
-                            },
-                            error: function (errorMsg) {
-                                console.log('错误');
-                                console.log(errorMsg);
-                            }
-                        });
-
-                        function callback1(data) {
-                            console.log("推荐条件：");
-                            console.log(data);
-                            var sunNameJson = data.data.basicInfo.subNameList;
-                            if (sunNameJson == null) {
-                                sunNameJson = ["平和质"];
-                            }
-                            // console.log(sunNameJson);
-                            $.ajax({
-                                url: urlport + 'menu/getMenuByRecommend',
-                                type: 'POST',
-                                data: JSON.stringify({
-                                    "pageNum": 1,
-                                    "pageSize": 4,
-                                    "subNameList": sunNameJson
-                                }),
-                                timeout: 5000, //超时时间
-                                contentType: "application/json;charset=utf-8",
-                                dataType: 'json', //返回的数据格式
-                                success: function (dataother) {
-                                    console.log("推荐菜谱：");
-                                    console.log(dataother);
-                                    callback2(dataother);
-                                },
-                                error: function (errorMsg) {
-                                    console.log('错误');
-                                    console.log(errorMsg);
-                                }
-                            });
-
-                            function callback2(dataother) {
-                                if (dataother.status == 200) {
-                                    // console.log(dataother.data);
-                                    /*url添加device标志*/
-                                    for (var i = 0; i < dataother.data.length; i++) {
-                                        // console.log(dataother.data[i].url);
-                                        var url = dataother.data[i].url;
-                                        urlnew = url + "&device=" + device + "&jump=jump";
-                                        // console.log(urlnew);
-                                        dataother.data[i].url = urlnew;
-                                    }
-                                    console.log(dataother.data);
-                                    $this.dataother = dataother.data;
-                                    // console.log($this.dataother);
-                                }
-                            }
-                        }
-                    });
-
-                    setTimeout(function giosend() {
-                        /*GIO埋点——页面级变量*/
-                        //是否智能菜谱？
-                        if (data.data.basicInfo.type == 2) {
-                            var issmart = "是";
-                        } else {
-                            var issmart = "否";
-                        }
-                        //问答个数
-                        var askcount = $("#gio #askcount").text();
-                        //晒作品个数
-                        var menucount = $("#gio #menucount").text();
-                        //分类
-                        var foodlist = [];
-                        for (var i = 0; i < data.data.materialsList[0].list.length; i++) {
-                            var namelist = data.data.materialsList[0].list[i].name;
-                            // console.log(namelist);
-                            foodlist.push(namelist);
-                        }
-
-                        //有无时长
-                        if (typeof (data.data.basicInfo.videoLong) == "undefined") {
-                            var videotime = "";
-                        } else {
-                            var videotime = data.data.basicInfo.videoLong;
-                        }
-                        //custom page code begin here
-                        gio("page.set", "menu", "菜谱");//页面类型
-                        gio("page.set", "id", data.data.basicInfo.id);//ID
-                        gio("page.set", "menu_name", data.data.basicInfo.menu_name);//标题
-                        gio("page.set", "create_time", data.data.create_time);//发布时间
-                        gio("page.set", "user_name", data.data.basicInfo.user_name);//作者
-                        gio("page.set", "issmart", issmart);//是否智能菜谱
-                        gio("page.set", "videotime", videotime);//视频时长
-                        gio("page.set", {"foodlist": foodlist});//食材
-                        gio("page.set", {"subNameList": data.data.basicInfo.subNameList});//分类
-                        gio("page.set", {"tag": ""});//标签
-                        gio("page.set", "collect_count", data.data.basicInfo.favoriteCount);//收藏数
-                        gio("page.set", "askcount", askcount);//问答数
-                        gio("page.set", "menucount", menucount);//晒作品数
-                        //custom page code end here
-
-                        gio('send');
-                        <!-- End GrowingIO Analytics code version: 2.1 -->
-                    }, 2000);
-
-                    /*分享链接专用*/
-                    var sharetitle = data.data.basicInfo.menu_name;
-                    var sharedesc;
-                    var contents = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
-                    var count = contents.length;
-                    if (count > 40) {
-                        var nr = contents.substring(0, 40) + "...";
-                        sharedesc = nr;
-                    } else {
-                        sharedesc = contents;
-                    }
-                    var shareimg = data.data.basicInfo.images[0];
-                    var sharestr = data.data.basicInfo.url;
-                    var sharelink = sharestr.replace(/api/, "h5");
-                    var jsoninfo = {
-                        id: data.data.basicInfo.id,
-                        type: 1,
-                        sharetitle: sharetitle,
-                        sharedesc: sharedesc,
-                        shareimg: shareimg,
-                        sharelink: sharelink
-                    };
-                    window.setTimeout(function () {
-                        console.info(jsoninfo);
-                        /*APP分享专用*/
-                        if (device == null || device == "null") {
-                            console.log("不是APP打开");
-                        } else {
-                            ft.shareInfo(jsoninfo, function (result) {
-
-                            });
-
-                        }
-                    }, 2000);
-                    /*微信分享专用*/
-                    $.ajax({
-                        type: 'GET',
-                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
-                        success: function (data) {
-                            // console.info(data.appId);
-                            wx.config({
-                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-                                appId: data.appId, // 必填，公众号的唯一标识
-                                timestamp: data.timestamp, // 必填，生成签名的时间戳
-                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
-                                signature: data.signature,
-                                jsApiList: [
-                                    "onMenuShareTimeline",
-                                    "onMenuShareAppMessage",
-                                    "onMenuShareQQ",
-                                    "onMenuShareWeibo",
-                                    "onMenuShareQZone"
-                                ]
-                            });
-                            wx.ready(function () {
-                                //分享给朋友圈
-                                wx.onMenuShareTimeline({
-                                    title: sharetitle, // 分享标题
-                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                    imgUrl: shareimg, // 分享图标
-                                    success: function () {
-                                        // 用户确认分享后执行的回调函数
-                                    },
-                                    cancel: function () {
-                                        // 用户取消分享后执行的回调函数
-                                    }
-                                });
-                                //分享给朋友
-                                wx.onMenuShareAppMessage({
-                                    title: sharetitle, // 分享标题
-                                    desc: contents, // 分享描述
-                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                                    imgUrl: shareimg, // 分享图标
-                                    type: '', // 分享类型,music、video或link，不填默认为link
-                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                                    success: function () {
-                                        // 用户确认分享后执行的回调函数
-                                    },
-                                    cancel: function () {
-                                        // 用户取消分享后执行的回调函数
-                                    }
-                                });
-                            });
-                        },
-                        error: function (xhr, type) {
-                            //alert(111);
-                        }
-                    })
-                }
-
-            },
-            methods: {
-                atten: function () {
-                    if (this.isgray) return;
-                    this.isgray = true;
-                    console.info(11);
-                },
-                play: function (obj) {
-                    var obj = document.getElementById("video");
-                    obj.play();
-                    document.getElementById("play").style.display = 'none';
-                    obj.controls = true;
-                    obj.addEventListener('ended', function () {
-                        document.getElementById("play").style.display = 'block';
-                        obj.controls = false;
-                    });
-                    obj.addEventListener('pause', function () {
-                        document.getElementById("play").style.display = 'block';
-                        obj.controls = false;
-                    });
-                    //console.info(55);
-                },
-                imgclick: function (obj) {
-                    /*点击查看大图*/
-                    // console.log(obj.currentTarget);
-                    var imgdom = obj.currentTarget.innerHTML;
-                    $("#imgSrc").empty().append(imgdom.toString());
-                    var _this = $("#imgSrc .pageimg2");
-                    // console.log(_this.attr("src"));
-                    imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
-                },
-                openq: function(obj){
-                    var $this = this;
-                    $this.issue=true;
-                    console.log(this.issue);
-                    $(".footer").hide();
-                    $('html,body').css('overflow','hidden');
-                    // $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
-                },
-                closeq:function(obj){
-                    var $this = this;
-                    $this.issue=false;
-                    console.log(this.issue);
-                    $(".footer").show();
-                    $('html,body').css('overflow','auto');
-                    // $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
-                },
-                deeplikopen: function (obj) {
-                    function GetQueryString(name) {
-                        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-                        var r = window.location.search.substr(1).match(reg);
-                        if (r != null) return unescape(r[2]);
-                        return null;
-                    }
-
-                    var id = GetQueryString("id");
-
-                    function GetPageName() {
-                        var url = window.location.href;//获取完整URL
-                        var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
-                        var name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
-                        return name;
-                    }
-
-                    // alert(GetPageName());
-                    /*页面参数（页面类型+id）*/
-                    var id = id;
-                    var refid = id;
-                    var action = GetPageName();
-                    var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + id;
-                    var imageURL = "";
-                    var shareTitle = "";
-                    var shareSubTitle = "";
-                    var iostype = "";
-
-                    console.log({
-                        "id": id,
-                        "action": action,
-                        "weburl": weburl,
-                        "refid": refid,
-                        "imageURL": imageURL,
-                        "shareTitle": shareTitle,
-                        "shareSubTitle": shareSubTitle,
-                        "iostype": iostype
-                    });
-
-                    var urlright = "?action=" + encodeURIComponent(action) +
-                        "&id=" + encodeURIComponent(id) +
-                        "&weburl=" + encodeURIComponent(weburl) +
-                        "&refid=" + encodeURIComponent(refid) +
-                        "&imageURL=" + encodeURIComponent(imageURL) +
-                        "&shareTitle=" + encodeURIComponent(shareTitle) +
-                        "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
-                        "&iostype=" + encodeURIComponent(iostype);
-
-                    /*判断是IOS还是Android机型*/
-                    var u = navigator.userAgent;
-                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-                    // console.log('是否是Android：' + isAndroid);
-                    // console.log('是否是iOS：' + isiOS);
-
-                    /*判断是否微信浏览器内打开*/
-                    function isWeiXin() {
-                        var ua = window.navigator.userAgent.toLowerCase();
-                        // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
-                        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-
-                    if (isWeiXin()) {
-                        console.log(" 是来自微信内置浏览器");
-                        /*弹出浏览器打开提示*/
-                        var alertstr = "<div class='blackbg'><div class='reminder'>" +
-                            "<img src='../img/arrowdashed.png' >" +
-                            "<p class='title'>在微信中无法打开？</p>" +
-                            "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
-                            "</div></div>";
-                        $("body").prepend(alertstr);
-                        $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
-
-                        /*隐藏提示*/
-                        $(".blackbg").unbind().click(function () {
-                            $(".blackbg").remove();
-                            $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
-                        });
-                        $(".reminder").click(function (event) {
-                            event.stopPropagation();//阻止冒泡
-                        });
-
-                    } else {
-                        console.log("不是来自微信内置浏览器");
-                        /*深链接打开*/
-                        var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
-                        // alert(deeplinkurl);
-                        window.location.href = deeplinkurl;
-                        /***打开app的协议***/
-                        window.setTimeout(function () {
-                            if (isiOS == true) {/*ios手机*/
-                                window.location.href = "https://gio.ren/re0Y923";
-                            } else if (isAndroid == true) {/*Android手机*/
-                                window.location.href = "https://gio.ren/rBZ2ApB";
-                            }
-                        }, 1000);
-                    }
-                },
-                callKitchenware: function (obj) {
-                    //app交互——唤起智能菜谱
-                    // alert(obj.currentTarget.innerHTML);
-                    var dom = obj.currentTarget.innerHTML;
-                    $("#DeviceId").empty().append(dom.toString());
-                    var dom2 = $("#DeviceId span").text();
-                    // alert(dom2);
-                    ft.callKitchenware({
-                        pid: dom2.toString()
-                    })
-                },
-                homeuser: function (userId) {
-                    window.location.href = "home-user.html?id=" + userId;
-                },
-                star: function (obj) {
-                    console.log(canClick);
-                    if (!canClick) return;
-                    canClick = false;
-
-                    // app交互——获取登录状态
-                    ft.isLogin(function (result) {
-                        var errorcode = result.errorCode.toString();
-                        if (errorcode == "1") {
-                            //$api.toast('登陆成功', 2000);
-                            userid = result.data.userId.toString();
-                            $.cookie('userid', userid);
-                            if (userid !== "1" && userid !== 1) {
-                                token = result.data.token.toString();
-                                $.cookie('token', token);
-                            }
-                            //alert(userid);
-                            //收藏
-                            var follow = $("#star").attr('class');
-                            if (follow == "icon-msg") {
-                                $.ajax({
-                                    url: urlport + 'favorite/create',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "refId": id,
-                                        "type": 1,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式
-                                    success: function (data) {
-                                        console.log(data);
-                                        console.log("111");
-                                        $("#star").addClass("icon-msg2");
-                                        $("#star").removeClass("icon-msg");
-                                        var oldnum = $("#star").next().text();
-                                        $("#star").next().text(parseInt(oldnum) + 1);
-                                        $api.toast('收藏成功！', 3000);
-                                        /*友盟打点：菜谱收藏*/
-                                        UMAnalyticsAgent.trackWithProperty("h5收藏菜谱", {
-                                            "菜谱名称": data.data.name
-                                        });
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
-                            } else if (follow == "icon-msg2") {
-                                $.ajax({
-                                    url: urlport + 'favorite/cancel',
-                                    type: 'POST',
-                                    data: JSON.stringify({
-                                        "refId": id,
-                                        "type": 1,
-                                        "userId": userid
-                                    }),
-                                    timeout: 5000, //超时时间
-                                    contentType: "application/json;charset=utf-8",
-                                    dataType: 'json', //返回的数据格式
-                                    success: function (data) {
-                                        console.log(data);
-                                        console.log("222");
-                                        $("#star").addClass("icon-msg");
-                                        $("#star").removeClass("icon-msg2");
-                                        var oldnum = $("#star").next().text();
-                                        $("#star").next().text(parseInt(oldnum) - 1);
-                                        $api.toast('取消收藏！', 3000);
-                                    },
-                                    error: function (errorMsg) {
-                                        console.log('错误');
-                                        console.log(errorMsg);
-                                    }
-                                });
-                            }
-                        } else if (errorCode == "0") {
-                            $api.toast('登陆取消', 2000);
-                        } else if (errorCode == "-1") {
-                            $api.toast('登陆失败', 2000);
-                        } else if (errorCode == "-2") {
-                            $api.toast('登陆不支持', 2000);
-                        }
-                    });
-
-                    setTimeout(function () {
-                        canClick = true;
-                    }, 3000);
-
-
-                }
-
+          
+          
+          /*晒作品*/
+          $(document).ready(function () {
+            $.ajax({
+              url: urlport + 'comment/work/list',
+              type: 'POST',
+              data: JSON.stringify({
+                "pageNum": 1,
+                "pageSize": 5,
+                "refId": id,
+                "userId": userid
+              }),
+              timeout: 5000, //超时时间
+              contentType: "application/json;charset=utf-8",
+              dataType: 'json', //返回的数据格式
+              success: function (datalist) {
+                console.log("晒作品：");
+                console.log(datalist);
+                $("#gio #menucount").text(datalist.data.count);
+                callback(datalist);
+              },
+              error: function (errorMsg) {
+                console.log('错误');
+                console.log(errorMsg);
+              }
+            });
+            
+            function callback(datalist) {
+              if (datalist.status == 200) {
+                $this.datalist = datalist.data;
+                // console.log($this.datalist.workList);
+              }
             }
-        });
-
-    }
+          });
+          
+          /*问答模块*/
+          $(document).ready(function () {
+            $.ajax({
+              url: urlport + 'comment/answer/list',
+              type: 'POST',
+              data: JSON.stringify({
+                "pageNum": 1,
+                "pageSize": 2,
+                "refId": id,
+                "userId": userid
+              }),
+              timeout: 5000, //超时时间
+              contentType: "application/json;charset=utf-8",
+              dataType: 'json', //返回的数据格式
+              success: function (dataask) {
+                console.log("问大家：");
+                console.log(dataask);
+                $("#gio #askcount").text(dataask.data.count);
+                callback(dataask);
+              },
+              error: function (errorMsg) {
+                console.log('错误');
+                console.log(errorMsg);
+              }
+            });
+            
+            function callback(dataask) {
+              if (dataask.status == 200) {
+                $this.dataask = dataask.data;
+                // console.log($this.dataask);
+              }
+            }
+          });
+          
+          /*推荐菜谱*/
+          $(document).ready(function () {
+            $.ajax({
+              url: urlport + 'menu/detail',
+              type: 'POST',
+              data: JSON.stringify({"id": id, "userId": userid}),
+              timeout: 5000, //超时时间
+              contentType: "application/json;charset=utf-8",
+              dataType: 'json', //返回的数据格式
+              success: function (data) {
+                // console.log(data);
+                callback1(data);
+              },
+              error: function (errorMsg) {
+                console.log('错误');
+                console.log(errorMsg);
+              }
+            });
+            
+            function callback1(data) {
+              console.log("推荐条件：");
+              console.log(data);
+              var sunNameJson = data.data.basicInfo.subNameList;
+              if (sunNameJson == null) {
+                sunNameJson = ["平和质"];
+              }
+              // console.log(sunNameJson);
+              $.ajax({
+                url: urlport + 'menu/getMenuByRecommend',
+                type: 'POST',
+                data: JSON.stringify({
+                  "pageNum": 1,
+                  "pageSize": 4,
+                  "subNameList": sunNameJson
+                }),
+                timeout: 5000, //超时时间
+                contentType: "application/json;charset=utf-8",
+                dataType: 'json', //返回的数据格式
+                success: function (dataother) {
+                  console.log("推荐菜谱：");
+                  console.log(dataother);
+                  callback2(dataother);
+                },
+                error: function (errorMsg) {
+                  console.log('错误');
+                  console.log(errorMsg);
+                }
+              });
+              
+              function callback2(dataother) {
+                if (dataother.status == 200) {
+                  // console.log(dataother.data);
+                  /*url添加device标志*/
+                  for (var i = 0; i < dataother.data.length; i++) {
+                    // console.log(dataother.data[i].url);
+                    var url = dataother.data[i].url;
+                    urlnew = url + "&device=" + device + "&jump=jump";
+                    // console.log(urlnew);
+                    dataother.data[i].url = urlnew;
+                  }
+                  console.log(dataother.data);
+                  $this.dataother = dataother.data;
+                  // console.log($this.dataother);
+                }
+              }
+            }
+          });
+          
+          setTimeout(function giosend() {
+            /*GIO埋点——页面级变量*/
+            //是否智能菜谱？
+            if (data.data.basicInfo.type == 2) {
+              var issmart = "是";
+            } else {
+              var issmart = "否";
+            }
+            //问答个数
+            var askcount = $("#gio #askcount").text();
+            //晒作品个数
+            var menucount = $("#gio #menucount").text();
+            //分类
+            var foodlist = [];
+            for (var i = 0; i < data.data.materialsList[0].list.length; i++) {
+              var namelist = data.data.materialsList[0].list[i].name;
+              // console.log(namelist);
+              foodlist.push(namelist);
+            }
+            
+            //有无时长
+            if (typeof (data.data.basicInfo.videoLong) == "undefined") {
+              var videotime = "";
+            } else {
+              var videotime = data.data.basicInfo.videoLong;
+            }
+            //custom page code begin here
+            gio("page.set", "menu", "菜谱");//页面类型
+            gio("page.set", "id", data.data.basicInfo.id);//ID
+            gio("page.set", "menu_name", data.data.basicInfo.menu_name);//标题
+            gio("page.set", "create_time", data.data.create_time);//发布时间
+            gio("page.set", "user_name", data.data.basicInfo.user_name);//作者
+            gio("page.set", "issmart", issmart);//是否智能菜谱
+            gio("page.set", "videotime", videotime);//视频时长
+            gio("page.set", {"foodlist": foodlist});//食材
+            gio("page.set", {"subNameList": data.data.basicInfo.subNameList});//分类
+            gio("page.set", {"tag": ""});//标签
+            gio("page.set", "collect_count", data.data.basicInfo.favoriteCount);//收藏数
+            gio("page.set", "askcount", askcount);//问答数
+            gio("page.set", "menucount", menucount);//晒作品数
+            //custom page code end here
+            
+            gio('send');
+            <!-- End GrowingIO Analytics code version: 2.1 -->
+          }, 2000);
+          
+          /*分享链接专用*/
+          var sharetitle = data.data.basicInfo.menu_name;
+          var sharedesc;
+          var contents = $("#instructions").text().replace(/[\r\n]/g, "").replace(/(^\s+)|(\s+$)/g, "").replace(/\s/g, "");
+          var count = contents.length;
+          if (count > 40) {
+            var nr = contents.substring(0, 40) + "...";
+            sharedesc = nr;
+          } else {
+            sharedesc = contents;
+          }
+          var shareimg = data.data.basicInfo.images[0];
+          var sharestr = data.data.basicInfo.url;
+          var sharelink = sharestr.replace(/api/, "h5");
+          var jsoninfo = {
+            id: data.data.basicInfo.id,
+            type: 1,
+            sharetitle: sharetitle,
+            sharedesc: sharedesc,
+            shareimg: shareimg,
+            sharelink: sharelink
+          };
+          window.setTimeout(function () {
+            console.info(jsoninfo);
+            /*APP分享专用*/
+            if (device == null || device == "null") {
+              console.log("不是APP打开");
+            } else {
+              ft.shareInfo(jsoninfo, function (result) {
+              
+              });
+              
+            }
+          }, 2000);
+          /*微信分享专用*/
+          $.ajax({
+            type: 'GET',
+            url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+            success: function (data) {
+              // console.info(data.appId);
+              wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appId, // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,
+                jsApiList: [
+                  "onMenuShareTimeline",
+                  "onMenuShareAppMessage",
+                  "onMenuShareQQ",
+                  "onMenuShareWeibo",
+                  "onMenuShareQZone"
+                ]
+              });
+              wx.ready(function () {
+                //分享给朋友圈
+                wx.onMenuShareTimeline({
+                  title: sharetitle, // 分享标题
+                  link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                  imgUrl: shareimg, // 分享图标
+                  success: function () {
+                    // 用户确认分享后执行的回调函数
+                  },
+                  cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                  }
+                });
+                //分享给朋友
+                wx.onMenuShareAppMessage({
+                  title: sharetitle, // 分享标题
+                  desc: contents, // 分享描述
+                  link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                  imgUrl: shareimg, // 分享图标
+                  type: '', // 分享类型,music、video或link，不填默认为link
+                  dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                  success: function () {
+                    // 用户确认分享后执行的回调函数
+                  },
+                  cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                  }
+                });
+              });
+            },
+            error: function (xhr, type) {
+              //alert(111);
+            }
+          })
+        }
+        
+      },
+      methods: {
+        atten: function () {
+          if (this.isgray) return;
+          this.isgray = true;
+          console.info(11);
+        },
+        play: function (obj) {
+          var obj = document.getElementById("video");
+          obj.play();
+          document.getElementById("play").style.display = 'none';
+          obj.controls = true;
+          obj.addEventListener('ended', function () {
+            document.getElementById("play").style.display = 'block';
+            obj.controls = false;
+          });
+          obj.addEventListener('pause', function () {
+            document.getElementById("play").style.display = 'block';
+            obj.controls = false;
+          });
+          //console.info(55);
+        },
+        imgclick: function (obj) {
+          /*点击查看大图*/
+          // console.log(obj.currentTarget);
+          var imgdom = obj.currentTarget.innerHTML;
+          $("#imgSrc").empty().append(imgdom.toString());
+          var _this = $("#imgSrc .pageimg2");
+          // console.log(_this.attr("src"));
+          imgShow("#outerdiv", "#innerdiv", "#bigimg", _this);
+        },
+        openq: function (obj) {
+          var $this = this;
+          $this.issue = true;
+          console.log(this.issue);
+          $(".footer").hide();
+          $('html,body').css('overflow', 'hidden');
+          // $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+        },
+        closeq: function (obj) {
+          var $this = this;
+          $this.issue = false;
+          console.log(this.issue);
+          $(".footer").show();
+          $('html,body').css('overflow', 'auto');
+          // $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+        },
+        deeplikopen: function (obj) {
+          function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+          }
+          
+          var id = GetQueryString("id");
+          
+          function GetPageName() {
+            var url = window.location.href;//获取完整URL
+            var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
+            var name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+            return name;
+          }
+          
+          // alert(GetPageName());
+          /*页面参数（页面类型+id）*/
+          var id = id;
+          var refid = id;
+          var action = GetPageName();
+          var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + id;
+          var imageURL = "";
+          var shareTitle = "";
+          var shareSubTitle = "";
+          var iostype = "";
+          
+          console.log({
+            "id": id,
+            "action": action,
+            "weburl": weburl,
+            "refid": refid,
+            "imageURL": imageURL,
+            "shareTitle": shareTitle,
+            "shareSubTitle": shareSubTitle,
+            "iostype": iostype
+          });
+          
+          var urlright = "?action=" + encodeURIComponent(action) +
+            "&id=" + encodeURIComponent(id) +
+            "&weburl=" + encodeURIComponent(weburl) +
+            "&refid=" + encodeURIComponent(refid) +
+            "&imageURL=" + encodeURIComponent(imageURL) +
+            "&shareTitle=" + encodeURIComponent(shareTitle) +
+            "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
+            "&iostype=" + encodeURIComponent(iostype);
+          
+          /*判断是IOS还是Android机型*/
+          var u = navigator.userAgent;
+          var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+          var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+          // console.log('是否是Android：' + isAndroid);
+          // console.log('是否是iOS：' + isiOS);
+          
+          /*判断是否微信浏览器内打开*/
+          function isWeiXin() {
+            var ua = window.navigator.userAgent.toLowerCase();
+            // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+              return true;
+            } else {
+              return false;
+            }
+          }
+          
+          if (isWeiXin()) {
+            console.log(" 是来自微信内置浏览器");
+            /*弹出浏览器打开提示*/
+            var alertstr = "<div class='blackbg'><div class='reminder'>" +
+              "<img src='../img/arrowdashed.png' >" +
+              "<p class='title'>在微信中无法打开？</p>" +
+              "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
+              "</div></div>";
+            $("body").prepend(alertstr);
+            $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+            
+            /*隐藏提示*/
+            $(".blackbg").unbind().click(function () {
+              $(".blackbg").remove();
+              $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+            });
+            $(".reminder").click(function (event) {
+              event.stopPropagation();//阻止冒泡
+            });
+            
+          } else {
+            console.log("不是来自微信内置浏览器");
+            /*深链接打开*/
+            var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+            // alert(deeplinkurl);
+            window.location.href = deeplinkurl;
+            /***打开app的协议***/
+            window.setTimeout(function () {
+              if (isiOS == true) {/*ios手机*/
+                window.location.href = "https://gio.ren/re0Y923";
+              } else if (isAndroid == true) {/*Android手机*/
+                window.location.href = "https://gio.ren/rBZ2ApB";
+              }
+            }, 1000);
+          }
+        },
+        callKitchenware: function (obj) {
+          //app交互——唤起智能菜谱
+          // alert(obj.currentTarget.innerHTML);
+          var dom = obj.currentTarget.innerHTML;
+          $("#DeviceId").empty().append(dom.toString());
+          var dom2 = $("#DeviceId span").text();
+          // alert(dom2);
+          ft.callKitchenware({
+            pid: dom2.toString()
+          })
+        },
+        homeuser: function (userId) {
+          window.location.href = "home-user.html?id=" + userId;
+        },
+        star: function (obj) {
+          console.log(canClick);
+          if (!canClick) return;
+          canClick = false;
+          
+          // app交互——获取登录状态
+          ft.isLogin(function (result) {
+            var errorcode = result.errorCode.toString();
+            if (errorcode == "1") {
+              //$api.toast('登陆成功', 2000);
+              userid = result.data.userId.toString();
+              $.cookie('userid', userid);
+              if (userid !== "1" && userid !== 1) {
+                token = result.data.token.toString();
+                $.cookie('token', token);
+              }
+              //alert(userid);
+              //收藏
+              var follow = $("#star").attr('class');
+              if (follow == "icon-msg") {
+                $.ajax({
+                  url: urlport + 'favorite/create',
+                  type: 'POST',
+                  data: JSON.stringify({
+                    "refId": id,
+                    "type": 1,
+                    "userId": userid
+                  }),
+                  timeout: 5000, //超时时间
+                  contentType: "application/json;charset=utf-8",
+                  dataType: 'json', //返回的数据格式
+                  success: function (data) {
+                    console.log(data);
+                    console.log("111");
+                    $("#star").addClass("icon-msg2");
+                    $("#star").removeClass("icon-msg");
+                    var oldnum = $("#star").next().text();
+                    $("#star").next().text(parseInt(oldnum) + 1);
+                    $api.toast('收藏成功！', 3000);
+                    /*友盟打点：菜谱收藏*/
+                    UMAnalyticsAgent.trackWithProperty("h5收藏菜谱", {
+                      "菜谱名称": data.data.name
+                    });
+                  },
+                  error: function (errorMsg) {
+                    console.log('错误');
+                    console.log(errorMsg);
+                  }
+                });
+              } else if (follow == "icon-msg2") {
+                $.ajax({
+                  url: urlport + 'favorite/cancel',
+                  type: 'POST',
+                  data: JSON.stringify({
+                    "refId": id,
+                    "type": 1,
+                    "userId": userid
+                  }),
+                  timeout: 5000, //超时时间
+                  contentType: "application/json;charset=utf-8",
+                  dataType: 'json', //返回的数据格式
+                  success: function (data) {
+                    console.log(data);
+                    console.log("222");
+                    $("#star").addClass("icon-msg");
+                    $("#star").removeClass("icon-msg2");
+                    var oldnum = $("#star").next().text();
+                    $("#star").next().text(parseInt(oldnum) - 1);
+                    $api.toast('取消收藏！', 3000);
+                  },
+                  error: function (errorMsg) {
+                    console.log('错误');
+                    console.log(errorMsg);
+                  }
+                });
+              }
+            } else if (errorCode == "0") {
+              $api.toast('登陆取消', 2000);
+            } else if (errorCode == "-1") {
+              $api.toast('登陆失败', 2000);
+            } else if (errorCode == "-2") {
+              $api.toast('登陆不支持', 2000);
+            }
+          });
+          
+          setTimeout(function () {
+            canClick = true;
+          }, 3000);
+          
+          
+        }
+        
+      }
+    });
+    
+  }
 
 </script>
 
