@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <!-- 全屏显示-->
+  <meta content="yes" name="apple-touch-fullscreen">
+  <!-- 不要让设备识别电话号码和邮箱地址-->
+  <meta content="telephone=no,email=no" name="format-detection">
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
+  <!-- DNS预解析-->
+  <meta content="on" http-equiv="x-dns-prefetch-control">
+  <link href="../css/common/reset.css" rel="stylesheet">
+  <link href="../css/sitecard.css" rel="stylesheet">
+  <title>核销卡券</title>
+</head>
+<body>
+<div class="elbox">
+  <h4>即将核销下述卡券</h4>
+  <div class="blackbox">
+    <span class="title" v-html="title"></span>
+    <p>限定使用场馆：上海体验馆、慈溪体验店、上海田林体验店、北京中塔体验店</p>
+    <span class="endtime">有效期限至 <span>2018/3/3</span></span>
+  </div>
+  <ul class="info">
+    <li>
+      <span>用户昵称</span>
+      <p>小张</p>
+    </li>
+    <li>
+      <span>用户手机号</span>
+      <p>12445646464</p>
+    </li>
+    <li>
+      <span>券码</span>
+      <p>8572 3942 3491 4272</p>
+    </li>
+  </ul>
+  <button @click="openbox" class="openbox">核销</button>
+  <div class="shadowbg" v-if="isshow==true">
+    <div class="whitebox">
+      <img @click="closebox" class="closebox" src="../img/closex.png">
+      <span class="title">请输入核销密钥</span>
+      <input placeholder="输入秘钥" type="text" value="">
+      <textarea placeholder="备注（选填）"></textarea>
+      <button @click="submit" class="submit">确认核销</button>
+    </div>
+  </div>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="../js/remjs.js"></script>
+<script src="../js/url.js"></script>
+<script>
+  var vm = new Vue({
+    el: '.elbox',
+    data:{
+      title:'方太小公仔兑换券',
+      isshow:false
+    },
+    created:function(){
+      var $this = this;
+      this.$http.post(urlport+'instruction/detail','{"code":"integral"}').then(function(data){
+        console.info(data.data);
+        var data = data.data;
+        if(data.status == 200){
+          $this.instruction = data.data.instruction;
+        }
+      },function(){
+        console.info('error');
+      });
+    },
+    methods:{
+      openbox: function () {
+        var $this=this;
+        $this.isshow=true;
+      },
+      closebox: function () {
+        var $this=this;
+        $this.isshow=false;
+      },
+      submit: function () {
+    
+      }
+    }
+  });
+
+</script>
+</body>
+</html>

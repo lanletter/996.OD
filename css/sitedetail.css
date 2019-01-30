@@ -101,13 +101,23 @@ img{
 }
 
 .info li p span {
+    display: block;
     color: rgb(31, 31, 31);
     font-size: 18px;
     font-weight: bold;
     height: 0.5rem;
     line-height: 0.5rem;
-    display: inline-block;
     max-width: 4.7rem;
+}
+
+.info li p .gold {
+    display: block;
+    float: left;
+    min-height:0.52rem;
+    font-size:0.28rem;
+    font-weight:bold;
+    color:rgba(200,175,112,1);
+    line-height:0.52rem;
 }
 
 .info li p strong {
@@ -117,7 +127,6 @@ img{
     font-size: 14px;
     color: rgb(154, 154, 154);
 }
-
 .site-info .address i {
     background: url(../img/car.png);
     background-size: 0.7rem 0.7rem;
@@ -146,11 +155,23 @@ img{
     background: url(../img/CallGoldFill.png);
     position: absolute;
     right: 0;
-    bottom: -0.07rem;
+    top: 0.5rem;
     width: 0.64rem;
     height: 0.64rem;
     background-size: 0.64rem 0.64rem;
     border: none;
+}
+
+.tel .copy {
+    position: absolute;
+    right: 0;
+    top: 0.5rem;
+    width: 0.56rem;
+    height: 0.44rem;
+    border: none;
+    color:rgba(200,175,112,1);
+    border-bottom: 1px solid;
+    font-size: 0.28rem;
 }
 
 .site-service {
@@ -1088,4 +1109,63 @@ img{
     color: rgb(102, 102, 102);
     padding: 0.2rem 0.3rem;
     line-height: 0.52rem;
+}
+
+
+/*选项卡*/
+.listbox{
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+.sitelist{
+    width: 100%;
+    height: 0.8rem;
+    padding-left: 0.4rem;
+    border-bottom: 1px solid rgb(237,237,237);
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space:nowrap;
+}
+.sitelist li{
+    display: inline-block;
+    margin:0 0.78rem 0 0;
+    font-size: 0.24rem;
+    color: rgb(154,154,154);
+    height: 0.8rem;
+    line-height: 0.8rem;
+    /*float: left;*/
+}
+.sitelist .cur{
+    color: rgb(31,31,31);
+    font-weight: bold;
+}
+.sitelist .cur:after {
+    content: '';
+    display: block;
+    width: 50%;
+    border-radius: 0.35rem;
+    margin-top: -1px;
+    margin-left: 25%;
+    height: 4px;
+    background-color: rgb(200,175,112);
+}
+.sitecontent div{
+    width: 100%;
+}
+.sitecontent p{color: #1f1f1f;}
+.sitecontent .title{
+    margin: 0.8rem 0.4rem 0 0.4rem;
+    padding-left:0.8rem;
+    font-size: 0.48rem;
+    font-weight: bold;
+    text-indent: -0.8rem;
+    letter-spacing: 1px;
+    line-height: 0.66rem;
+}
+.sitecontent .texts{
+    text-align: justify;
+    line-height: 0.48rem;
+    margin: 0.4rem 0.6rem 0 0.6rem;
+    font-size: 0.28rem;
 }
