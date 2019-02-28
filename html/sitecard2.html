@@ -11,47 +11,11 @@
   <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport" name="viewport">
   <!-- DNS预解析-->
   <meta content="on" http-equiv="x-dns-prefetch-control">
-  <link href="../css/common/reset.css" rel="stylesheet">
-  <link href="../css/sitecard.css" rel="stylesheet">
   <title>核销卡券</title>
 </head>
 <body>
-<div class="elbox">
-  <h4>即将核销下述卡券</h4>
-  <div class="blackbox">
-    <span class="title" v-html="voucherdata.title"></span>
-    <p v-html="voucherdata.remark">限定使用场馆：上海体验馆、慈溪体验店、上海田林体验店、北京中塔体验店</p>
-    <span class="endtime">有效期限至 <span v-html="dateFormat(voucherdata.endDate)">2018/3/3</span></span>
-  </div>
-  <ul class="info">
-    <li>
-      <span>用户昵称</span>
-      <p v-html="userinfo.nickName">小张</p>
-    </li>
-    <li>
-      <span>用户手机号</span>
-      <p v-html="userinfo.tel">12445646464</p>
-    </li>
-    <li>
-      <span>券码</span>
-      <p v-html="voucherdata.voucherNo">8572 3942 3491 4272</p>
-    </li>
-  </ul>
-  <button @click="openbox" class="openbox">核销</button>
-  <div class="shadowbg" v-if="isshow==true">
-    <div class="whitebox">
-      <img @click="closebox" class="closebox" src="../img/closex.png">
-      <span class="title">请输入核销密钥</span>
-      <input placeholder="输入秘钥" type="text" v-model="password" value="">
-      <textarea placeholder="备注（选填）" v-model="coderemark"></textarea>
-      <button @click="submit" class="submit">确认核销</button>
-    </div>
-  </div>
-</div>
-<script src="../js/vue.min.js"></script>
-<script src="../js/vue-resource1.3.4.js"></script>
-<script src="../js/remjs.js"></script>
-<script src="../js/url.js"></script>
+
+<script src='../js/lib.js' type="text/javascript"></script>
 <script>
   
   function GetQueryString(name) {
@@ -60,85 +24,82 @@
     if (r != null) return unescape(r[2]);
     return null;
   }
-  
-  var voucherno = GetQueryString("voucherno").toString();
+
+  var voucherno = GetQueryString("voucherno");
   var code = GetQueryString("code");
+  var password = GetQueryString("password");
+  var coderemark = GetQueryString("coderemark");
   alert(voucherno);
   alert(code);
+
+  //三方登录接口
+  $.ajax({
+    type: 'POST',
+    url: urlport + "pay/wxtoken",
+    datatype: "json",
+    data: JSON.stringify({
+      code: code
+    }),
+    contentType: 'application/json;charset=UTF-8',
+    success: function (obj) {
+      console.log(obj);
+      alert(JSON.stringify(obj));
+      if (obj.status == 200) {
+        var data = obj.data;
+        /*token信息*/
+        var access_token = data.wxtoken.access_token;
+        var refresh_token = data.wxtoken.refresh_token;
+        var expires_in = data.wxtoken.expires_in;
+        var openid = data.wxtoken.openid;
+        var scope = data.wxtoken.scope;
+        var unionid = data.wxtoken.unionid;
+        /*用户信息*/
+        var nickname = data.wxinfo.nickname;
+        var sex = data.wxinfo.sex;
+        var province = data.wxinfo.province;
+        var city = data.wxinfo.city;
+        var country = data.wxinfo.country;
+        var headimgurl = data.wxinfo.headimgurl;
+        var privilege = data.wxinfo.privilege;
   
-  var vm = new Vue({
-    el: '.elbox',
-    data: {
-      voucherdata: {},
-      userinfo: {},
-      isshow: false,
-      password: "",
-      coderemark: ""
-    },
-    created: function () {
-      var $this = this;
-      this.$http.post(urlport + 'voucher/applyVoucherNoDetail', JSON.stringify({"voucherNo": voucherno})).then(function (data) {
-        var data = data.data;
-        if (data.status == 200) {
-          console.log(data.data);
-          $this.voucherdata = data.data.voucher;
-          $this.userinfo = data.data.user.userInfomation;
-        }
-      }, function () {
-        console.info('error');
-      });
-    },
-    methods: {
-      openbox: function () {
-        var $this = this;
-        $this.isshow = true;
-      },
-      closebox: function () {
-        var $this = this;
-        $this.isshow = false;
-      },
-      submit: function () {
-        /*获取code*/
-        // var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-        var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno;
-        //alert(urllong);
-        window.location.href = urllong;
-        var $this = this;
-        console.log($this.password);
-        console.log($this.coderemark);
-        this.$http.post(
-          urlport + 'voucher/applyVoucherNo',
-          JSON.stringify({
-            "applyRemark": $this.coderemark,
-            "applySecret": $this.password,
-            "applyWx": $this.userinfo,
-            "voucherNo": voucherno
-          })
-        ).then(function (data) {
-          var data = data.data;
-          if (data.status == 200) {
-            console.log(data.data);
-            $this.voucherdata = data.data.voucher;
-            $this.userinfo = data.data.user.userInfomation;
-          }
-        }, function () {
-          console.info('error');
+        console.log({
+          "applyRemark": coderemark,
+          "applySecret": password,
+          "voucherNo": voucherno,
+          "applyWx": data.wxinfo.nickname,
+          "applyWxid": data.wxtoken.openid
         });
-      },
-      dateFormat: function (time) {
-        var date = new Date(time);
-        var year = date.getFullYear();
-        /* 在日期格式中，月份是从0开始的，因此要加0
-         * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
-         * */
-        var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
-        var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-        var hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-        var minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-        var seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-        // 拼接
-        return year + "-" + month + "-" + day;
+  
+        alert(JSON.stringify({
+          "applyRemark": coderemark,
+          "applySecret": password,
+          "voucherNo": voucherno,
+          "applyWx": data.wxinfo.nickname,
+          "applyWxid": data.wxtoken.openid
+        }));
+        $.ajax({
+          type: 'POST',
+          url: urlport + "voucher/applyVoucherNo",
+          datatype: "json",
+          data: JSON.stringify({
+            "applyRemark": coderemark,
+            "applySecret": password,
+            "voucherNo": voucherno,
+            "applyWx": data.wxinfo.nickname,
+            "applyWxid": data.wxtoken.openid
+          }),
+          contentType: 'application/json;charset=UTF-8',
+          success: function (data) {
+            alert(JSON.stringify(data));
+            var data = data.data;
+            alert(data.errorMessage)
+          }
+        });
+      } else {
+        alert(JSON.stringify(data));
+        alert(obj.errorMessage);
       }
+    
     }
   });
 

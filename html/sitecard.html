@@ -96,14 +96,23 @@
         $this.isshow = false;
       },
       submit: function () {
-        /*获取code*/
-        // var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-        var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno;
-        //alert(urllong);
-        window.location.href = urllong;
         var $this = this;
-        console.log($this.password);
-        console.log($this.coderemark);
+        if($this.password!==""){
+          /*获取code*/
+          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno + "&password=" + password + "&coderemark=" + coderemark + "&voucherno=" + voucherno;
+          window.location.href = urllong;
+        }else {
+          alert("请输入秘钥");
+        }
+  
+  
+  
+        console.log({
+          "applyRemark": $this.coderemark,
+          "applySecret": $this.password,
+          "applyWx": $this.userinfo,
+          "voucherNo": voucherno
+        });
         this.$http.post(
           urlport + 'voucher/applyVoucherNo',
           JSON.stringify({
