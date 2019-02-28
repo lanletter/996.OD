@@ -444,7 +444,7 @@
       var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         paginationClickable: true,
-        autoplay: 5000,
+        autoplay: false,
         loop: true
       });
       /*轮播图end*/
@@ -894,7 +894,7 @@
       if (data.menuList.length == 0) {
         $(".site-pic").css({display: "none"});
       }
-      /*场馆图集*/
+      /*课程图集*/
       data.menuList.forEach(function (item, index) {
         if (item.remark != null) {
           var img = $('<div class="swiper-slide">\

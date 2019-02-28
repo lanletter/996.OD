@@ -4,8 +4,9 @@
 <head>
   <title>场馆详情</title>
   <meta charset="utf-8">
-  <meta content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0,telephone=yes'
-        name='viewport'>
+  <meta
+    content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0,telephone=yes'
+    name='viewport'>
   <!--<script src="../js/tingyun-rum.js"></script>-->
   <link href="../css/common.css?ver=420" rel="stylesheet" type="text/css">
   <link href="../css/swiper.min.css" rel="stylesheet" type="text/css">
@@ -88,35 +89,29 @@
     </div>
     
     
-    <div class="listbox">
-      <div class="sitelist">
-        <ul>
-          <li class="cur" onclick="JavaScript:ChangeDiv('0','JKDiv_',1)">积分说明</li>
-          <li onclick="JavaScript:ChangeDiv('1','JKDiv_',1)">会员说明</li>
-          <li onclick="JavaScript:ChangeDiv('2','JKDiv_',1)">会员说明</li>
-          <li onclick="JavaScript:ChangeDiv('3','JKDiv_',1)">会员说明</li>
-          <li onclick="JavaScript:ChangeDiv('4','JKDiv_',1)">会员说明</li>
-          <li onclick="JavaScript:ChangeDiv('5','JKDiv_',1)">会员说明</li>
-        </ul>
-      </div>
-    </div>
-    <div class="sitecontent" id="BigDIV">
-      <div id="JKDiv_0">
-        1
-      </div>
-      <div id="JKDiv_1" style="display: none;">
-        2
-      </div>
-    </div>
-    <div class="site-pic">
-      <h3 class="section-title">场馆图集</h3>
-      <div id="swipers">
-        <div class="swiper-container2">
-          <div class="swiper-wrapper">
+    <div class="site-detail clearfix">
+      <h3 class="section-title">场地详情</h3>
+      
+      <div class="listbox">
+        <div class="sitelist">
+          <ul>
           
-          </div>
+          </ul>
         </div>
-        <ul class="pagination"></ul>
+      </div>
+      <div class="sitelistdetail">
+        <h4></h4>
+        <p></p>
+      </div>
+      <div class="site-pic">
+        <div id="swipers">
+          <div class="swiper-container2">
+            <div class="swiper-wrapper">
+            
+            </div>
+          </div>
+          <ul class="pagination"></ul>
+        </div>
       </div>
     </div>
     
@@ -129,10 +124,14 @@
   
   </header>
   
-  <div class="order-byn mark"><a>立即预约</a></div>
-  <div class="order-pop">
+  <div class="order-byn mark ">
+    <a class="click-yy red">预约体验</a>
+    <a class="click-zl black">场地租赁</a>
+  </div>
+  <div class="order-pop pop-yy">
     <div class="pop">
-      <!--<p class="title">立即预约</p>-->
+      <div class="close" src="../img/closex.png"></div>
+      <p class="title">预约体验</p>
       <ul>
         <li>
           <span class="key first">您的姓名</span>
@@ -142,28 +141,62 @@
           <span class="key">联系方式</span>
           <input class="tel" placeholder="手机号码" readonlyunselectable="on" type="tel">
         </li>
-        <li style="border: none;">
+        <li>
+          <span class="key">参观时间</span>
+          <input class="order-time" placeholder="选择日期" readonlyunselectable="on" type="text">
+        </li>
+        <textarea class="remark" placeholder="备注（选填）"></textarea>
+        <p class="tips">您可以在此预约场地参观、产品体验等 成功提交后，将有工作人员对您进行回访</p>
+      </ul>
+      <div class="btnbg">
+        <a class="dark-btn commit-yy">提交</a>
+      </div>
+    </div>
+  </div>
+  <div class="order-pop pop-zl">
+    <div class="pop">
+      <div class="close" src="../img/closex.png"></div>
+      <p class="title">租赁信息</p>
+      <ul>
+        <li>
+          <span class="key first">您的姓名</span>
+          <input class="name" placeholder="姓名" readonlyunselectable="on" type="text">
+        </li>
+        <li>
+          <span class="key">联系方式</span>
+          <input class="tel" placeholder="手机号码" readonlyunselectable="on" type="tel">
+        </li>
+        <li>
           <div class="order-type">
-            <span class="key">预约类型</span>
-            <div>
-              <button class="type-btn" value="1">场地参观<a style="display: none">1</a></button>
-              <button class="type-btn" value="2">场地租赁<a style="display: none">2</a></button>
-              <button class="type-btn" value="3">定制课程<a style="display: none">3</a></button>
+            <span class="key">租赁场地</span>
+            <!--<div>-->
+              <!--<button class="type-btn" value="1">场地参观<a style="display: none">1</a></button>-->
+              <!--<button class="type-btn" value="2">场地租赁<a style="display: none">2</a></button>-->
+              <!--<button class="type-btn" value="3">定制课程<a style="display: none">3</a></button>-->
+            <!--</div>-->
+            <div class="selects">
+              <span class="placeholder">选择场地</span>
             </div>
+            <dl class="selectBoxs" id=" " value="">
+              <dd value=""><div class="status_circle status_circle_online"></div>待定</dd>
+              <dd value=""><div class="status_circle "></div>烹饪教室</dd>
+              <dd value=""><div class="status_circle "></div>会议室</dd>
+              <dd value=""><div class="status_circle "></div>私厨会</dd>
+              <dd value=""><div class="status_circle "></div>景厅</dd>
+              <dd value=""><div class="status_circle "></div>咖啡吧</dd>
+            </dl>
           </div>
         </li>
         <li>
-          <span class="key">预约时间</span>
-          <input class="order-time" placeholder="（日期时间选择框，精确到小时）" readonlyunselectable="on" type="text">
+          <span class="key">租赁时间</span>
+          <input class="order-time" placeholder="选择日期" readonlyunselectable="on" type="text">
         </li>
-        <li>
-          <span class="key">备注</span>
-          <input class="des" placeholder="输入备注信息" readonlyunselectable="on" style="margin-bottom: 0;"
-                 type='text'>
-        </li>
+        <textarea class="remark" placeholder="备注（选填）"></textarea>
+        <p class="tips">您可以在此预约场地参观、产品体验等 成功提交后，将有工作人员对您进行回访</p>
       </ul>
-      <a class="dark-btn do-order">提交</a>
-      <span class="close">返回详情</span>
+      <div class="btnbg">
+        <a class="dark-btn commit-zl">提交</a>
+      </div>
     </div>
   </div>
 </div>
@@ -188,20 +221,14 @@
     }
   }, false);
   
-  
-  $(".sitelist li").click(function (e) {
-    $(".sitelist li").removeClass("cur");
-    $(this).addClass("cur");
-  });
-  
-  function ChangeDiv(divId, divName, zDivCount) {
-    console.log(divId);
-    console.log(zDivCount);
-    for (i = 0; i <= zDivCount; i++) {
-      document.getElementById(divName + i).style.display = "none";
-    }
-    document.getElementById(divName + divId).style.display = "block";
-  }
+  // function ChangeDiv(divId, divName, zDivCount) {
+  //   console.log(parseInt(divId)+1);
+  //   console.log(zDivCount);
+  //   // for (i = 0; i <= zDivCount; i++) {
+  //   //   document.getElementById(divName + i).style.display = "none";
+  //   // }
+  //   // document.getElementById(divName + divId).style.display = "block";
+  // }
   
   $(function () {
     function GetQueryString(name) {
@@ -219,10 +246,24 @@
       $(".footer").hide();
     }
     
-    $api.post(urlport + 'store/detail', {
-      id: id
-    }, function (res) {
-      console.log(res);
+    $.ajax({
+      url: urlport + 'store/detailSimple',
+      type: 'POST',
+      data: JSON.stringify({"id": id}),
+      // timeout: 5000, //超时时间
+      contentType: "application/json;charset=utf-8",
+      dataType: 'json', //返回的数据格式
+      success: function (res) {
+        // console.log(res);
+        callback(res);
+      },
+      error: function (errorMsg) {
+        console.log('错误');
+        console.log(errorMsg);
+      }
+    });
+    
+    function callback(res) {
       data = res.data;
       console.log(data);
       
@@ -280,28 +321,99 @@
 //        $('.site-service ul').append(item);
 //      });
       
-      if (data.storePictures.length == 0) {
-        $(".site-pic").css({display: "none"});
-      }
-      /*图集*/
-      data.storePictures.forEach(function (item, index) {
-        if (item.remark != null) {
-          var img = $('<div class="swiper-slide">\
+      
+      if (data.storeServices.length == 0) {
+        $(".site-detail").css({display: "none"});
+      } else {
+        /*文字*/
+        $(".sitelistdetail h4").text(data.storeServices[0].serviceTitle);
+        $(".sitelistdetail p").text(data.storeServices[0].serviceDesc);
+        /*图集*/
+        var pictureList = data.storeServices[0].storeServicePictureList;
+        console.log(pictureList.length);
+        if(pictureList.length!==0){
+          storePictures = pictureList;
+          storePictures.forEach(function (item, index) {
+            if (item.remark != null) {
+              var img = $('<div class="swiper-slide">\
                     <figure>\
                 <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
                 <figcaption>' + item.remark + '</figcaption>\
                 </figure>\
                 </div>');
-        } else {
-          var img = $('<div class="swiper-slide">\
+            } else {
+              var img = $('<div class="swiper-slide">\
                     <figure>\
               <img class="overlayimg" src="../img/Overlay Copy 2.png">\
               <img src="' + item.picture.path + '">\
               </figure>\
               </div>');
+            }
+            $('.swiper-wrapper').append(img);
+          });
+        }else {
+          $('.site-pic').hide();
         }
-        $('.swiper-wrapper').append(img);
         
+      }
+      /*tab标签*/
+      if (data.storeServices.length >= 0) {
+        data.storeServices.forEach(function (item, index) {
+          // console.log(index);
+          var JKDiv_ = "JKDiv_";
+          if (index == 0) {
+            var tabs = $('\
+                <li class="cur">' + item.serviceName + '</li>\
+                ');
+          } else {
+            var tabs = $('\
+                <li>' + item.serviceName + '</li>\
+                ');
+          }
+          $('.sitelist ul').append(tabs);
+          // console.log(item);
+          // item.pic=storePictures;
+        });
+      }
+      console.log(data.storeServices);
+      
+      //切换轮播图
+      $(".sitelist li").click(function (e) {
+        console.log($(this).index());
+        var index = $(this).index();
+        //tab选项卡样式变更
+        $(".sitelist li").removeClass("cur");
+        $(this).addClass("cur");
+        //文字内容变更
+        $(".sitelistdetail h4").text(data.storeServices[index].serviceTitle);
+        $(".sitelistdetail p").text(data.storeServices[index].serviceDesc);
+        
+        $('.swiper-wrapper .swiper-slide').remove();
+        var pictureList=data.storeServices[index].storeServicePictureList;
+        if(pictureList.length!==0){
+          $('.site-pic').show();
+          storePictures = pictureList;
+          storePictures.forEach(function (item, index) {
+            if (item.remark != null) {
+              var img = $('<div class="swiper-slide">\
+                    <figure>\
+                <div class="imgbox" style="background-image:url(' + item.picture.path + ') "></div>\
+                <figcaption>' + item.remark + '</figcaption>\
+                </figure>\
+                </div>');
+            } else {
+              var img = $('<div class="swiper-slide">\
+                    <figure>\
+              <img class="overlayimg" src="../img/Overlay Copy 2.png">\
+              <img src="' + item.picture.path + '">\
+              </figure>\
+              </div>');
+            }
+            $('.swiper-wrapper').append(img);
+          });
+        }else {
+          $('.swiper-wrapper .swiper-slide').remove();
+        }
       });
       
       /*轮播图效果*/
@@ -331,14 +443,43 @@
         }
       });
       
+      //预约选择
+      var selectBox = $('.selectBoxs'); //下拉框
+      var selectlist = $('.selectBoxs dd');
+      var stuate = $('.selects span');  //点击状态
+  
+      stuate.click(function () {
+        selectBox.show();
+      });
+  
+      selectlist.click(function () {
+        selectBox.hide();
+        $(this).parent().find("div").removeClass("status_circle_online");
+        $(this).find("div").addClass("status_circle_online");
+        $(this).parent().prev().find("span").html($(this).text());
+      });
       
-      $('.mark').on('click', function () {
-        $('.order-pop').show();
+      //预约
+      $('.click-yy').on('click', function () {
+        $('.pop-yy').show();
         $('.name').val("");
         $('.tel').val("");
         $('.order-type button').removeClass('check');
         $('.order-time').val("");
-        $('.des').val("");
+        $('.remark').val("");
+        disableScroll = true;//禁止滚动
+        $("html,body").css({overflow: "hidden"}); //禁用滚动条
+        $(".mark").hide();
+      });
+      
+      //租赁
+      $('.click-zl').on('click', function () {
+        $('.pop-zl').show();
+        $('.name').val("");
+        $('.tel').val("");
+        $('.order-type button').removeClass('check');
+        $('.order-time').val("");
+        $('.remark').val("");
         disableScroll = true;//禁止滚动
         $("html,body").css({overflow: "hidden"}); //禁用滚动条
         $(".mark").hide();
@@ -367,13 +508,13 @@
         })
       }();
       
-      $('.do-order').on('click', function () {
-        var orderInfo = $('.pop'),
+      $('.commit-yy').on('click', function () {
+        var orderInfo = $('.pop-yy'),
           name = orderInfo.find('.name').val().trim(),
           tel = orderInfo.find('.tel').val().trim(),
           type = orderInfo.find('.order-type .check').text(),
           time = orderInfo.find('.order-time').val().trim(),
-          des = orderInfo.find('.des').val();
+          remark = orderInfo.find('.remark').val();
         
         /*时间戳转时间*/
         var str = time.toString();
@@ -387,10 +528,6 @@
         }
         if (!tel || !/^\d{7,}$/.test(tel)) {
           alert('请正确输入联系方式');
-          return;
-        }
-        if (orderInfo.find('.order-type .check').length == 0) {
-          alert('请选择预约类型');
           return;
         }
         var typestring = orderInfo.find('.order-type .check a').text();
@@ -411,19 +548,93 @@
           tel: tel,
           serviceId: typestring,
           time: time2,
-          remark: des,
-          storeId: data.id
+          remark: remark,
+          storeId: data.id,
+          userId:1,
+          type:1
         });
         $api.post(urlport + 'user/appoint', {
           name: name,
           tel: tel,
           serviceId: typestring,
           time: time2,
-          remark: des,
-          storeId: data.id
+          remark: remark,
+          storeId: data.id,
+          userId:1,
+          type:1
         }, function (data) {
           console.log(data);
           $('.order-pop').hide();
+          $('.order-byn').show();
+          disableScroll = false;//允许滚动
+          $("html,body").css({overflow: "auto"}); //启用滚动条
+          $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
+        })
+      });
+      $('.commit-zl').on('click', function () {
+        var orderInfo = $('.pop-zl'),
+          name = orderInfo.find('.name').val().trim(),
+          tel = orderInfo.find('.tel').val().trim(),
+          type = orderInfo.find('.order-type .placeholder').text(),
+          time = orderInfo.find('.order-time').val().trim(),
+          remark = orderInfo.find('.remark').val();
+    
+        /*时间戳转时间*/
+        var str = time.toString();
+        str = str.replace(/-/g, '/');
+        var date = new Date(str);
+        var time2 = date.getTime(str);
+    
+        if (!name) {
+          alert('请输入姓名');
+          return;
+        }
+        if (!tel || !/^\d{7,}$/.test(tel)) {
+          alert('请正确输入联系方式');
+          return;
+        }
+        if (type=="选择场地") {
+          alert('请选择预约类型');
+          return;
+        }
+        var typestring = orderInfo.find('.order-type .check a').text();
+        // if(typestring=="场地参观"){
+        //     type=1;
+        // }else if(typestring=="场地租赁"){
+        //     type=2;
+        // }else if(typestring=="定制课程"){
+        //     type=3;
+        // }
+        if (!time) {
+          alert('请选择预约时间');
+          return;
+        }
+    
+        console.log({
+          name: name,
+          tel: tel,
+          serviceId: typestring,
+          time: time2,
+          remark: remark,
+          storeId: data.id,
+          userId:1,
+          type:2,
+          rentType:$(".selects .placeholder").text()
+        });
+        $api.post(urlport + 'user/appoint', {
+          name: name,
+          tel: tel,
+          serviceId: typestring,
+          time: time2,
+          remark: remark,
+          storeId: data.id,
+          userId:1,
+          type:2,
+          rentType:$(".selects .placeholder").text()
+        }, function (data) {
+          console.log(data);
+          $('.order-pop').hide();
+          $('.order-byn').show();
           disableScroll = false;//允许滚动
           $("html,body").css({overflow: "auto"}); //启用滚动条
           $api.toast('提交成功！感谢您的预约，我们将在24小时内与您电话联系！谢谢！', 3000)
@@ -473,7 +684,7 @@
         type: 'GET',
         url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
         success: function (data) {
-          console.info(data.appId);
+          // console.info(data.appId);
           wx.config({
             debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
             appId: data.appId, // 必填，公众号的唯一标识
@@ -522,7 +733,8 @@
           //alert(111);
         }
       })
-    });
+    }
+    
   });
 </script>
 </body>

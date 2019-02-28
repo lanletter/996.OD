@@ -62,7 +62,9 @@
   }
   
   var voucherno = GetQueryString("voucherno").toString();
+  var code = GetQueryString("code");
   console.log(voucherno);
+  console.log(code);
   
   var vm = new Vue({
     el: '.elbox',
@@ -98,7 +100,7 @@
       submit: function () {
         /*获取code*/
         var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-        var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/sitecard.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno;
+        var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno;
         //alert(urllong);
         window.location.href = urllong;
         var $this = this;

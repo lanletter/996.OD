@@ -115,7 +115,6 @@ img{
     float: left;
     min-height:0.52rem;
     font-size:0.28rem;
-    font-weight:bold;
     color:rgba(200,175,112,1);
     line-height:0.52rem;
 }
@@ -166,12 +165,35 @@ img{
     position: absolute;
     right: 0;
     top: 0.5rem;
-    width: 0.56rem;
+    width: 0.58rem;
     height: 0.44rem;
     border: none;
     color:rgba(200,175,112,1);
     border-bottom: 1px solid;
     font-size: 0.28rem;
+    text-align: center;
+}
+
+.site-detail .section-title{
+    margin-left: 0.4rem;
+}
+
+.sitelistdetail{
+    margin-top: 0.58rem;
+    padding: 0 0.6rem;
+}
+.sitelistdetail h4{
+    margin-bottom: 0.2rem;
+    font-size:0.48rem;
+    font-weight:bold;
+    color:rgba(31,31,31,1);
+    line-height:0.66rem;
+}
+.sitelistdetail p{
+    margin-bottom: 0.8rem;
+    font-size:0.24rem;
+    color:rgba(31,31,31,1);
+    line-height:0.48rem;
 }
 
 .site-service {
@@ -281,21 +303,35 @@ img{
     background: -ms-linear-gradient(top, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
     background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgb(255,255,255) 50%);
     z-index: 999999;
+    padding:0 0.25rem;
+    box-sizing: border-box;
 }
 
 .order-byn a {
     display: block;
-    width: 6.7rem;
-    margin: 0 auto;
+    float: left;
+    width: 3.2rem;
+    margin: 0 0.15rem;
     margin-top: 0.72rem;
     height: 0.96rem;
     line-height: 0.96rem;
     text-align: center;
     background: rgb(31, 31, 31);
     border-radius: 0.08rem;
-    font-size: 14px;
+    font-size: 0.28rem;
     color: rgb(200, 175, 112);
 }
+
+.order-byn a.red {
+    background: #D64247FF;
+    color: #fff;
+}
+
+.order-byn a.black {
+    background: rgb(31, 31, 31);
+    color: rgb(200, 175, 112);
+}
+
 
 .order-pop {
     display: none;
@@ -304,36 +340,39 @@ img{
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #fff;
+    background:rgba(31,31,31,0.6);
     z-index: 2;
+    padding: 2.35rem 0.8rem;
+    box-sizing: border-box;
 }
 
-.order-pop .close {
+.order-pop .pop {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    border-radius: 0.16rem;
+    box-sizing: border-box;
+}
+
+.order-pop .pop .close {
     display: block;
-    margin: 0 auto;
-    margin-top: 0.36rem;
-    height: 0.4rem;
-    line-height: 0.4rem;
-    width: 1.2rem;
+    float: right;
+    margin: 0.16rem;
+    height: 0.64rem;
+    width: 0.64rem;
     text-decoration: underline;
     text-align: center;
     font-size: 0.28rem;
     color: rgb(200, 175, 112);
-}
-
-.order-pop .pop {
-    overflow: hidden;
-    margin: 1.8rem 0.48rem 0 0.48rem;
-}
-
-.pop li{
-    border-bottom: 1px solid rgb(232, 212, 199);
-    margin-bottom: 0.6rem;
-    overflow: hidden;
+    background: url("../img/closex.png") center no-repeat;
+    background-size: 0.64rem;
 }
 .pop .title {
-    margin: 0.8rem 0;
-    text-align: center;
+    position: absolute;
+    left: 0;
+    margin: 0.6rem 0.4rem;
     height: 0.66rem;
     line-height: 0.66rem;
     font-size: 0.48rem;
@@ -342,9 +381,24 @@ img{
     letter-spacing: 1px;
 }
 
+.pop ul{
+    width: 100%;
+    height: 100%;
+    margin-top: 1.6rem;
+    padding:0 0.4rem 3.6rem 0.4rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.pop li{
+    border-bottom: 1px solid rgb(232, 212, 199);
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+}
+
 .pop .key {
     color: rgb(31, 31, 31);
-    font-size: 14px;
+    font-size: 0.28rem;
+    font-weight: bold;
     display: block;
     height: 0.4rem;
     line-height: 0.4rem;
@@ -361,7 +415,7 @@ img{
     border: none;
     height: 0.88rem;
     line-height: 0.48rem;
-    font-size: 0.48rem;
+    font-size: 0.24rem;
     color: rgb(31, 31, 31);
     border-radius: 0;
     overflow:hidden
@@ -369,12 +423,92 @@ img{
 
 .pop input::-webkit-input-placeholder {
     color: rgb(154, 154, 154);
-    font-size: 12px;
+    font-size: 0.24rem;
     line-height: 0.88rem;
+}
+
+.pop .remark{
+    width:5.1rem;
+    height:1.8rem;
+    background:rgba(200,175,112,0.05);
+    border-radius:0.12rem;
+    border:1px solid rgba(200,175,112,0.3);
+    box-sizing: border-box;
+    padding: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.24rem;
+    color:rgba(31,31,31,1);
+    resize: none;
+}
+.pop .remark::-webkit-input-placeholder {
+    color: rgba(154,154,154,1);;
+}
+.pop .tips{
+    margin-top: 0.2rem;
+    width: 5rem;
+    font-size:0.24rem;
+    color:rgba(154,154,154,1);
+    line-height:0.4rem;
+    text-align: justify;
 }
 
 .pop .order-type {
     overflow: hidden;
+}
+
+
+.pop .order-type .placeholder{
+    margin-left: 0;
+    padding-left: 0;
+    color: rgb(154, 154, 154);
+    font-size: 0.24rem;
+    line-height: 0.88rem;
+}
+
+.selectBoxs{
+    margin: 0 0.52rem;
+    margin-top: -50%;
+    background-color: rgb(255, 255, 255);
+    padding: 0.2rem 0;
+    position: absolute;
+    top: 50%;
+    z-index: 999999;
+    border-radius: 0.08rem;
+    color: #989898;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    display: none;
+    width:4.06rem;
+    text-align: center;
+    background:rgba(255,255,255,1);
+    box-shadow:0 0.04rem 0.16rem 0 rgba(0,0,0,0.15);
+    border: 0;
+}
+.selectBoxs dd{
+    height: 0.4rem;
+    line-height: 0.4rem;
+    margin: 0.4rem 0;
+}
+
+.status_circle_online{
+    width: 0.24rem;
+    height: 0.24rem;
+    margin: 0.08rem 0.46rem;
+    background: url("../img/Shape@3x.png") center no-repeat;
+    background-size: 0.24rem;
+}
+
+.status_circle{
+    position: absolute;
+    float: left;
+}
+
+.pop .order-type .selects option:first-child{
+    margin-top: 0.52rem;
+}
+
+.pop .order-type .selects option{
+
 }
 
 .order-type .type-btn {
@@ -401,17 +535,25 @@ img{
     color: rgb(200, 175, 112);
 }
 
+.pop .btnbg{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2rem;
+    background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 31%,rgba(255,255,255,1) 100%);
+    border-radius:0 0 0.16rem 0.16rem;
+}
 .pop .dark-btn {
     display: block;
-    margin-top: 0.4rem;
-    width: 6.7rem;
+    margin:0.64rem 0.4rem 0.4rem 0.4rem;
+    width: 5.1rem;
     height: 0.96rem;
     line-height: 0.96rem;
-    color: rgb(200, 175, 112);
+    color: #fff;
     text-align: center;
-    background: rgb(31, 31, 31);
+    background:rgba(21,146,74,1);
     border-radius: 0.08rem;
-    font-size: 14px;
+    font-size: 0.28rem;
 }
 
 /*移动*/
