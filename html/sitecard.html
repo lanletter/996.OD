@@ -99,7 +99,7 @@
         var $this = this;
         if($this.password!==""){
           /*获取code*/
-          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno + "&password=" + password + "&coderemark=" + coderemark + "&voucherno=" + voucherno;
+          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno + "&password=" + $this.password + "&coderemark=" + $this.coderemark ;
           window.location.href = urllong;
         }else {
           alert("请输入秘钥");

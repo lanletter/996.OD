@@ -29,8 +29,12 @@
   var code = GetQueryString("code");
   var password = GetQueryString("password");
   var coderemark = GetQueryString("coderemark");
-  alert(voucherno);
-  alert(code);
+  alert(JSON.stringify({
+    "coderemark": coderemark,
+    "password": password,
+    "voucherno": voucherno,
+    "code": code,
+  }));
 
   //三方登录接口
   $.ajax({
