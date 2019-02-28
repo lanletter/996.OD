@@ -99,38 +99,11 @@
         var $this = this;
         if($this.password!==""){
           /*获取code*/
-          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+"&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" + "&voucherno=" + voucherno + "&password=" + $this.password + "&coderemark=" + $this.coderemark ;
+          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?voucherno="+voucherno+ "&password=" + $this.password + "&coderemark=" + $this.coderemark + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect" ;
           window.location.href = urllong;
         }else {
           alert("请输入秘钥");
         }
-  
-  
-  
-        console.log({
-          "applyRemark": $this.coderemark,
-          "applySecret": $this.password,
-          "applyWx": $this.userinfo,
-          "voucherNo": voucherno
-        });
-        this.$http.post(
-          urlport + 'voucher/applyVoucherNo',
-          JSON.stringify({
-            "applyRemark": $this.coderemark,
-            "applySecret": $this.password,
-            "applyWx": $this.userinfo,
-            "voucherNo": voucherno
-          })
-        ).then(function (data) {
-          var data = data.data;
-          if (data.status == 200) {
-            console.log(data.data);
-            $this.voucherdata = data.data.voucher;
-            $this.userinfo = data.data.user.userInfomation;
-          }
-        }, function () {
-          console.info('error');
-        });
       },
       dateFormat: function (time) {
         var date = new Date(time);
