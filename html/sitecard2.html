@@ -30,12 +30,13 @@
   var code = GetQueryString("code");
   var datastr = GetQueryString("datastr");
   // alert(decodeURIComponent(datastr));
-  console.log(decodeURIComponent(datastr));
-  console.log(JSON.parse(decodeURIComponent(datastr)));
-  var datajson=JSON.parse(decodeURIComponent(datastr));
-  var password = unescape(datajson.password);
-  var coderemark = unescape(datajson.coderemark);
-  var voucherno = unescape(datajson.voucherno);
+  var str = decodeURIComponent(datastr);
+  console.log(str);
+  var obj = str.parseJSON();
+  console.log(obj);
+  var password = unescape(obj.password);
+  var coderemark = unescape(obj.coderemark);
+  var voucherno = unescape(obj.voucherno);
   console.log({
     "coderemark": coderemark,
     "password": password,
