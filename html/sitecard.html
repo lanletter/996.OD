@@ -109,16 +109,19 @@
           //   "password": encodeURIComponent($this.password),
           //   "voucherno": voucherno
           // }));
-          var str=JSON.stringify({
+          var str1=JSON.stringify({
             "coderemark": encodeURIComponent(coderemark),
             "password": encodeURIComponent($this.password),
             "voucherno": encodeURIComponent(voucherno)
           });
-          console.log(str);
-          var datastr=escape(str);
+          console.log(str1);
+          var str2=escape(str1);
+          console.log(str2);
+          var datastr=encodeURIComponent(str2);
           console.log(datastr);
           var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?datastr=" + datastr + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-          window.location.href = urllong;
+          console.log(urllong);
+          // window.location.href = urllong;
         }else {
           alert("请输入秘钥");
         }
