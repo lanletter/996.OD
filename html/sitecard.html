@@ -116,7 +116,7 @@
           });
           console.log(datastr);
           alert(datastr);
-          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?datastr="+encodeURIComponent(datastr) + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+          var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?datastr="+escape(datastr) + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
           window.location.href = urllong;
         }else {
           alert("请输入秘钥");

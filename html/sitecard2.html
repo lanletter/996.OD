@@ -31,7 +31,7 @@
   var datastr = GetQueryString("datastr");
   // alert(decodeURIComponent(datastr));
   console.log(datastr);
-  var str = decodeURIComponent(datastr);
+  var str = unescape(datastr);
   console.log(str);
   var obj = eval('(' + str + ')');
   console.log(obj);
