@@ -28,14 +28,17 @@
   alert(window.location);
   var voucherno = GetQueryString("voucherno");
   var code = GetQueryString("code");
-  var password = GetQueryString("password");
-  var coderemark = GetQueryString("coderemark");
-  alert(JSON.stringify({
-    "coderemark": coderemark,
-    "password": password,
-    "voucherno": voucherno,
-    "code": code
-  }));
+  // var password = GetQueryString("password");
+  // var coderemark = GetQueryString("coderemark");
+  // alert(JSON.stringify({
+  //   "coderemark": coderemark,
+  //   "password": password,
+  //   "voucherno": voucherno,
+  //   "code": code
+  // }));
+  var datastr = GetQueryString("datastr");
+  alert(JSON.parse(decodeURIComponent(datastr)));
+  
 
   //三方登录接口
   $.ajax({
