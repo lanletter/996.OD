@@ -92,14 +92,7 @@
           "applyWx": data.wxinfo.nickname,
           "applyWxid": data.wxtoken.openid
         });
-  
-        alert(JSON.stringify({
-          "applyRemark": coderemark,
-          "applySecret": password,
-          "voucherNo": voucherno,
-          "applyWx": data.wxinfo.nickname,
-          "applyWxid": data.wxtoken.openid
-        }));
+        
         $.ajax({
           type: 'POST',
           url: urlport + "voucher/applyVoucherNo",
@@ -113,14 +106,11 @@
           }),
           contentType: 'application/json;charset=UTF-8',
           success: function (data) {
-            alert(JSON.stringify(data));
-            var data = data.data;
-            alert(data.errorMessage)
+            console.log(data);
           }
         });
       } else {
-        alert(JSON.stringify(data));
-        alert(obj.errorMessage);
+        console.log(data);
       }
     
     }
