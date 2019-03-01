@@ -25,12 +25,13 @@
     return null;
   }
 
-  alert(window.location);
+  console.log(window.location);
   // var voucherno = GetQueryString("voucherno");
   var code = GetQueryString("code");
   var datastr = GetQueryString("datastr");
-  alert(decodeURIComponent(datastr));
+  // alert(decodeURIComponent(datastr));
   console.log(decodeURIComponent(datastr));
+  console.log(JSON.parse(decodeURIComponent(datastr)));
   var datajson=JSON.parse(decodeURIComponent(datastr));
   var password = unescape(datajson.password);
   var coderemark = unescape(datajson.coderemark);
@@ -41,12 +42,12 @@
     "voucherno": voucherno,
     "code": code
   });
-  alert(JSON.stringify({
-    "coderemark": coderemark,
-    "password": password,
-    "voucherno": voucherno,
-    "code": code
-  }));
+  // alert(JSON.stringify({
+  //   "coderemark": coderemark,
+  //   "password": password,
+  //   "voucherno": voucherno,
+  //   "code": code
+  // }));
   
 
 
