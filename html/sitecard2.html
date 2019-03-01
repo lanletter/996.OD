@@ -30,6 +30,7 @@
   var code = GetQueryString("code");
   var datastr = GetQueryString("datastr");
   // alert(decodeURIComponent(datastr));
+  console.log(datastr);
   var str = decodeURIComponent(datastr);
   console.log(str);
   var obj = eval('(' + str + ')');
