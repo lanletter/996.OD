@@ -27,19 +27,19 @@
   }
 
   console.log(window.location);
-  // var voucherno = GetQueryString("voucherno");
   var code = GetQueryString("code");
   var datastr = GetQueryString("datastr");
-  // alert(decodeURIComponent(datastr));
   console.log(datastr);
+  /*三重解码开始*/
   var str1 = decodeURIComponent(datastr);
   var str = unescape(str1);
   console.log(str);
-  var obj = eval('(' + str + ')');
+  var obj = JSON.parse(str);
   console.log(obj);
   var password = unescape(obj.password);
   var coderemark = unescape(obj.coderemark);
   var voucherno = unescape(obj.voucherno);
+  /*三重解码结束*/
   console.log({
     "coderemark": coderemark,
     "password": password,
