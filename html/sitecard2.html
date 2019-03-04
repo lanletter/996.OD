@@ -30,6 +30,7 @@
   var code = GetQueryString("code");
   var datastr = GetQueryString("datastr");
   console.log(datastr);
+  
   /*三重解码开始*/
   var str1 = decodeURIComponent(datastr);
   var str = unescape(str1);
@@ -40,21 +41,13 @@
   var coderemark = unescape(obj.coderemark);
   var voucherno = unescape(obj.voucherno);
   /*三重解码结束*/
+  
   console.log({
     "coderemark": coderemark,
     "password": password,
     "voucherno": voucherno,
     "code": code
   });
-  // alert(JSON.stringify({
-  //   "coderemark": coderemark,
-  //   "password": password,
-  //   "voucherno": voucherno,
-  //   "code": code
-  // }));
-  
-
-
   //三方登录接口
   $.ajax({
     type: 'POST',
@@ -66,7 +59,6 @@
     contentType: 'application/json;charset=UTF-8',
     success: function (obj) {
       console.log(obj);
-      alert(JSON.stringify(obj));
       if (obj.status == 200) {
         var data = obj.data;
         /*token信息*/

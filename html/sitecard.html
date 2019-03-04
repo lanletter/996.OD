@@ -20,7 +20,13 @@
   <h4>即将核销下述卡券</h4>
   <div class="blackbox">
     <span class="title" v-html="voucherdata.title"></span>
-    <p v-html="voucherdata.remark">限定使用场馆：上海体验馆、慈溪体验店、上海田林体验店、北京中塔体验店</p>
+    <div class="store">
+      <ul v-for="(item,index) in voucherdata.storeList">
+        <li>限定使用场馆：</li>
+        <li v-html="item.storeName" v-if="index==0"></li>
+        <li v-else v-html="'，' + item.storeName"></li>
+      </ul>。
+    </div>
     <span class="endtime">有效期限至 <span v-html="dateFormat(voucherdata.endDate)">2018/3/3</span></span>
   </div>
   <ul class="info">
@@ -62,6 +68,7 @@
   }
   
   var voucherno = GetQueryString("voucherno");
+  voucherno = "5e661d3100093406";
   console.log(voucherno);
   
   var vm = new Vue({
@@ -97,29 +104,29 @@
       },
       submit: function () {
         var $this = this;
-        if($this.coderemark == ""){
-          var coderemark="无";
-        }else {
-          var coderemark=$this.coderemark;
+        if ($this.coderemark == "") {
+          var coderemark = "无";
+        } else {
+          var coderemark = $this.coderemark;
         }
-        if($this.password!==""){
+        if ($this.password !== "") {
           /*三重编码开始*/
-          var str1=JSON.stringify({
+          var str1 = JSON.stringify({
             "coderemark": encodeURIComponent(coderemark),
             "password": encodeURIComponent($this.password),
             "voucherno": encodeURIComponent(voucherno)
           });
           console.log(str1);
-          var str2=escape(str1);
+          var str2 = escape(str1);
           console.log(str2);
-          var datastr=encodeURIComponent(str2);
+          var datastr = encodeURIComponent(str2);
           console.log(datastr);
           /*三重编码开始*/
           //获取code url
           var urllong = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/sitecard2.html?datastr=" + datastr + "&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
           console.log(urllong);
           window.location.href = urllong;
-        }else {
+        } else {
           alert("请输入秘钥");
         }
       },
