@@ -54,6 +54,7 @@
     </div>
   </div>
 </div>
+<script src="../js/jquery-2.1.1.min.js"></script>
 <script src="../js/vue.min.js"></script>
 <script src="../js/vue-resource1.3.4.js"></script>
 <script src="../js/remjs.js"></script>
@@ -70,6 +71,8 @@
   var voucherno = GetQueryString("voucherno");
   voucherno = "5e661d3100093406";
   console.log(voucherno);
+
+  $(document).ready(function () { $('body').css({'height':$(window).height()})});
   
   var vm = new Vue({
     el: '.elbox',

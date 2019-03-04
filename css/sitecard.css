@@ -146,6 +146,7 @@ h4 {
   font-size: 0.28rem;
   font-weight: bold;
   color: rgba(31, 31, 31, 1);
+  -webkit-appearance: none;
 }
 
 .whitebox input::-webkit-input-placeholder {
@@ -185,6 +186,7 @@ h4 {
   font-size: 0.32rem;
   color: rgba(31, 31, 31, 1);
   resize:none;
+  -webkit-appearance: none;
 }
 .whitebox textarea::-webkit-input-placeholder {
   color: #9a9a9a;
