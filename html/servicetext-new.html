@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>方太会员注册协议</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <style>
+        html, body {
+            overflow-x: hidden;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .headtitle {
+            color: rgb(211, 174, 77);
+            font-size: 22px;
+            width: 100%;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            margin-top: 26px;
+            margin-bottom: 40px;
+        }
+
+        .ulbox {
+            padding: 0 28px;
+            padding-bottom: 2.56rem;
+        }
+
+        .ulbox li {
+            margin-top: 38px;
+        }
+
+        .ulbox li p {
+            margin-top: 18px;
+            margin-right: -14px;
+            color: rgb(47, 47, 47);
+            font-size: 14px;
+            line-height: 25px;
+        }
+
+        .ulbox li img {width: 97%;}
+        .bottombg {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding: 0.8rem 0.4rem;
+            background: #ffffff;
+        }
+
+        #agreebtn {
+            display: block;
+            width: 6.7rem;
+            height: 0.96rem;
+            line-height: 0.96rem;
+            background: rgb(21, 146, 74);
+            border-radius: 0.08rem;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<p class="headtitle">方太会员注册协议</p>
+<ul class="ulbox">
+    <li v-html="instruction"></li>
+</ul>
+<div class="bottombg">
+    <a id="agreebtn">同意《方太生活家会员注册协议》并继续</a>
+</div>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+<script>
+    /*获取url*/
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
+    var phonenum = $.cookie('phonenum');
+    $.cookie('phonenum', phonenum);
+    var codenum = $.cookie('codenum');
+    $.cookie('codenum', codenum);
+    console.log(JSON.stringify({
+        "phonenum": phonenum,
+        "codenum": codenum
+    }));
+    //  alert(h5url);
+    $("#agreebtn").click(function () {
+        // alert(JSON.stringify({
+        //     accountName: phonenum,
+        //     verificationCode:codenum,
+        //     resource: "web"
+        // }));
+        $.ajax({
+            type: 'POST',
+            url: urlport + "user/LoginBySmsCode",
+            datatype: "json",
+            data: JSON.stringify({
+                accountName: phonenum,
+                verificationCode: codenum,
+                resource: "web"
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (obj) {
+                console.log(obj);
+                if (obj.status == 200) {
+                    var phonenum = obj.data.accountName;
+                    var userid = obj.data.userInfomation.userId;
+                    $.cookie('phonenum', $("#phonenum").val());
+                    $.cookie('userid', obj.data.userInfomation.userId);
+                    window.location.href = "setpwd.html";
+                } else {
+                    alert(obj.errorMessage);
+                }
+            }
+        });
+    });
+
+    var vm = new Vue({
+        el: '.ulbox',
+        data: {
+            instruction: '积分说明积分说明积分说明积分说明积分说明'
+        },
+        created: function () {
+            var $this = this;
+            this.$http.post(urlport + 'instruction/detail', '{"code":"register"}').then(function (data) {
+                console.info(data.data);
+                var data = data.data;
+                if (data.status == 200) {
+                    $this.instruction = data.data.instruction;
+                }
+            }, function () {
+                console.info('error');
+            });
+        }
+    });
+
+</script>
+</html>

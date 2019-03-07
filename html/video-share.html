@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link href="../css/common.css?ver=420" rel="stylesheet">
+    <link href="../css/hls/video-share.css?ver=420" rel="stylesheet">
+    <title>直播分享</title>
+    <script type='text/javascript'>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
+    </script>
+</head>
+<body>
+<div class="vide-share">
+    <div id="videobox" class="video">
+        <video id="live-video" class="video-js vjs-default-skin" controls>
+            <source type="application/x-mpegURL">
+        </video>
+        <button class="play"></button>
+    </div>
+    <div class="tit">
+        <img :src="kk.cookPicture" alt="">
+        <p class="name">{{kk.name}}</p>
+        <p class="cookdesc">{{kk.topic}}</p>
+        <!--<p class="header__opt">-->
+            <!--<span class="view-count">{{kk.count}}</span>-->
+        <!--</p>-->
+        <h3>简介</h3>
+        <p class="introduct">{{kk.desc}}</p>
+    </div>
+</div>
+<div class="footer">
+    <img src="../img/logo_gold2.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <span id="jump" class="deeplikopen">打开</span>
+    <span id="download">下载</span>
+</div>
+
+<script src="../js/lib.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="../js/url.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+<link href="../css/hls/video-js.css" rel="stylesheet">
+<script src="../js/hls/video.js"></script>
+<script src="../js/hls/videojs-flash.js"></script>
+<script src="../js/hls/videojs-contrib-hls.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.vide-share',
+        data: {
+            kk: {},
+            // http: {
+            //     headers: {
+            //         token: 'Basic YXBpOnBhc3N3b3Jk'
+            //     }
+            // }
+        },
+        created: function () {
+            var $this = this;
+            this.$http.post(urlport + 'video/detail', {"id": "1111"}).then(function (data) {
+                var data = data.data;
+                if (data.status == 200) {
+
+                    $this.kk = data.data;
+                    console.info($this.kk);
+                    console.info($this.kk.url);
+                    console.info($this.kk.status);
+
+                    /*title取值*/
+                    var txt = data.data.videoName;
+                    if (txt == undefined) {
+                        $('head title').text("菜谱详情");
+                    } else {
+                        $('head title').text(txt);
+                    }
+                    document.setTitle = function (t) {
+                        document.title = t;
+                        var i = document.createElement('iframe');
+                        i.style.display = 'none';
+                        i.onload = function () {
+                            setTimeout(function () {
+                                i.remove();
+                            })
+                        };
+                        document.body.appendChild(i);
+                    };
+                    setTimeout(function () {
+                        document.setTitle(data.data.videoName);
+                    });
+
+                    /*判断状态*/
+                    if ($this.kk.status == "living") {
+                        /*视频直播中*/
+                        (function (window, videojs) {
+                            $('#live-video source').attr('src', $this.kk.url);
+                            var player = window.player = videojs('live-video');
+                            var playBtn = $('#videobox .play');
+                            playBtn.on('click', function () {
+                                var vheight = $("#videobox video").height();
+                                $('#live-video').css({"position": "absolute", "left": "0"});
+                                var vheight = $("#live-video").height();
+                                $("#videobox").css({height: vheight - 1 + "px"});
+                                player.play();
+                                playBtn.hide();
+                                $("#live-video .vjs-control-bar").css({"display": "block"});
+                            });
+                            player.on("pause", function () {
+                                playBtn.show();
+                                $("#live-video .vjs-control-bar").css({"display": "none"});
+                            });
+                            player.on("ended", function () {
+                                $('#live-video').css({"position": "absolute", "left": "-10rem"});
+                                playBtn.show();
+                                $("#live-video .vjs-control-bar").css({"display": "none"});
+                            });
+                            player.on("play", function () {
+                                playBtn.trigger("click");
+                            });
+                        }(window, window.videojs));
+                    } else {
+                        /*非直播中*/
+                        $(".video").css({
+                            "background": "url('../img/noliving.png') no-repeat",
+                            "background-size": "100% 4.22rem"
+                        });
+                        $(".video .play").hide();
+                    }
+
+                    /*分享链接专用*/
+                    var sharetitle = data.data.videoName;
+                    var sharedesc = data.data.desc;
+                    var shareimg = data.data.picture;
+                    var sharestr = window.location.href;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    // var jsoninfo = {
+                    //     id: 1111,
+                    //     type: 11,
+                    //     sharetitle: sharetitle,
+                    //     sharedesc: sharedesc,
+                    //     shareimg: shareimg,
+                    //     sharelink: sharelink
+                    // };
+                    // window.setTimeout(function () {
+                    //     console.info(jsoninfo);
+                    //     /*APP分享专用*/
+                    //     if (device == null || device == "null") {
+                    //         console.log("不是APP打开");
+                    //     } else {
+                    //         ft.shareInfo(jsoninfo, function (result) {
+                    //
+                    //         });
+                    //     }
+                    // }, 1000);
+                    /*微信分享专用*/
+                    $.ajax({
+                        type: 'GET',
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+        },
+        updated: function () {
+            console.info(11);
+        }
+    });
+
+</script>
+</body>
+</html>

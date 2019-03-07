@@ -1,0 +1,276 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+}
+body{
+    position: relative;
+}
+img{
+    border: none;
+    margin: 0;
+}
+.clearfix:after{
+    content: "."; /*在类名为“clearfix”的元素内最后面加入内容； */
+    display:block; /*默认是inline，加入的这个元素转换为块级元素*/
+    height:0px; /*一、该方法中必须为需要清除浮动元素的伪对象中设置 height:0，否则该元素会比实际高出若干像素；*/
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    /* 触发 hasLayout  这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。具体意思的话，不用深究，听说微软的工程师自己都无法解释清楚。height:1%效果也是一样。 */
+    zoom: 1;
+}
+#top{
+    position: relative;
+    margin: 0 auto;
+    width:100%;
+    height:6.36rem;
+    background: url("../img/0@3x.png")  no-repeat center;
+    background-size:7.5rem auto;
+    -webkit-background-size:7.5rem auto;
+}
+#top .top_tit{
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 2.58rem;
+}
+#top .top_tit img{
+    width: 2.38rem;
+    height:2.26rem;
+}
+#top .tit_txt{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 0.3rem;
+    color: rgb(255,255,255);
+}
+#content{
+    margin: 0 auto;
+}
+.lines{
+    width:1.6rem;
+    height:5px;
+    background-color: rgb(255,255,255);
+    margin: 0 auto;
+    margin-top: 0.36rem;
+}
+.sub_tit{
+    font-size: 0.32rem;
+    color: rgb(255,255,255);
+    width: 6.67rem;
+    height: 1.28rem;
+    line-height: 0.64rem;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:1.02rem;
+    text-shadow:rgba(0,0,0,0.5);
+}
+#content .book{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0 auto;
+    margin-top: 2.44rem;
+    text-align: center;
+}
+#content .menu_tit{
+    width: 1.06rem;
+    height: 0.52rem;
+    margin: 0 auto;
+    margin-top: 0.26rem;
+    text-align: center;
+}
+.con_txt{
+    margin: 0 auto;
+    margin-top: 0.48rem;
+    width: 5.8rem;
+    height: 1.86rem;
+    text-align: center;
+    font-size: 0.32rem;
+    color: #000;
+    line-height: 0.62rem;
+    letter-spacing: 1px;
+}
+#content .con_pic{
+    position: relative;
+    margin: 0 auto;
+    margin-top: -1px;
+    width: 7.5rem;
+    text-align: center;
+}
+#content .con_pic img{
+    width: 7.5rem;
+}
+#btn1{
+    position: absolute;
+    top:5.65rem ;
+    left: 50%;
+    margin-left: -1.6rem;
+    width: 3.2rem;
+    height: 0.9rem;
+    border-radius: 0.9rem;
+    background: none;
+}
+#btn2{
+    position: absolute;
+    top:4.98rem;
+    left: 50%;
+    margin-left: -1.33rem;
+    width: 2.71rem;
+    height: 0.91rem;
+    border-radius: 0.9rem;
+    background: none;
+}
+.life_book{
+    margin: 0 auto;
+    margin-top: 0.86rem;
+    height: 1.2rem;
+    width:1.2rem;
+    text-align: center;
+}
+.life_tit{
+    margin: 0 auto;
+    margin-top:0.38rem;
+    width: 1.6rem;
+    height: 0.52rem;
+    text-align: center;
+}
+.life_txt{
+    height: 1.24rem;
+    width: 6.48rem;
+    margin: 0 auto;
+    margin-top: 0.48rem;
+    text-align: center;
+    font-size: 0.32rem;
+    line-height:0.62rem;
+    letter-spacing: 1px;
+    color:rgb(0,0,0);
+}
+.life_pic{
+    margin: 0 auto;
+    margin-top: 0.92rem;
+    text-align: center;
+}
+.cook_school{
+    width: 7.5rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 1.88rem;
+    background: url("../img/H5poppic/Group 2.png") top no-repeat;
+    background-size:7.5rem auto;
+    -webkit-background-size:7.5rem auto;
+}
+.cook_icon{
+    width:1.2rem;
+    height: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 3.16rem;
+}
+.cook_tit{
+    width: 2.28rem;
+    height: 0.68rem;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 0.22rem;
+}
+.cook_txt{
+    font-size:0.32rem;
+    color: rgb(255,255,255);
+    text-shadow: rgba(0,0,0,0.5);
+    height: 1.86rem;
+    width:4.78rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top:0.36rem;
+    line-height:0.62rem;
+}
+.phone{
+    text-align: center;
+    margin: 0 auto;
+    margin-top:0.92rem;
+}
+#bottom{
+    margin: 0 auto;
+    padding-bottom: 1.18rem;
+}
+#bottom .bottom_pic{
+    margin: 0 auto;
+    text-align: center;
+    line-height:0.62rem;
+}
+#bottom .bottom_pic img{
+    width: 100%;
+}
+#bottom .ad{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:1.2rem;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.ad_l,.ad_m{
+    float: left;
+    height: 1.2rem;
+}
+.ad_l{
+    width:1.2rem;
+    margin: 0 auto;
+    text-align: center;
+}
+.ad_l img{
+    width: 100%;
+}
+.ad_m{
+    padding-top: 0.24rem;
+    padding-left: 0.28rem;
+}
+.ad_m .ad_txt1{
+    font-size:0.28rem;
+    color: rgb(47,47,47);
+    height: 0.4rem;
+    letter-spacing: -0.6px;
+}
+.ad_m .ad_txt2{
+    font-size: 0.24rem;
+    letter-spacing: -0.5px;
+    color: rgb(130,130,130);
+    padding-top: 1px;
+    height: 0.34rem;
+}
+.ad_r{
+    float: right;
+}
+.ad_btn{
+    height: 0.6rem;
+    width: 1.64rem;
+    background-color: rgb(251,76,76);
+    border-radius: 0.28rem;
+    color: rgb(255,255,255);
+    font-size:0.26rem;
+    letter-spacing: -0.6px;
+    text-align: center;
+    margin-top: 0.3rem;
+    margin-right: 9px;
+    line-height: 0.6rem;
+}
+
+#videobox{
+    position: absolute;
+    top: 0.51rem;
+    left: 50%;
+    margin-left: -2.72rem;
+    width: 5.46rem;
+    height: 11.24rem;
+    background: none;
+}
+#videobox video{
+    width: 100%;
+    height: 100%;
+}

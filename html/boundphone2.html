@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置登录密码</title>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
+</head>
+<body>
+<div class="divbreak"></div>
+<ul class="ulstyle">
+    <li class="explain">
+        <p id="nickname">你好</p>
+        <p>设置登录密码</p>
+    </li>
+    <li class="edit">
+        <input type="password" placeholder="请输入新密码" maxlength="20" id="newpwd"/>
+        <!--<img src="../img/findx.png" id="delete1">-->
+    </li>
+    <li>
+        <span class="nextbtn">确认密码并完成绑定</span>
+    </li>
+</ul>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/jsencrypt.min.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+
+<script>
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
+    var phonenum = $.cookie('phonenum');
+    var codenum = $.cookie('codenum');
+    var unionid = $.cookie('unionid');
+    var nickname = $.cookie('nickname');
+    var headimgurl = $.cookie('headimgurl');
+
+    $("#nickname").text(nickname+"你好！");
+
+    $(".nextbtn").click(function () {
+        /*使用加密*/
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
+        var passwordkey = encrypt.encrypt($("#newpwd").val());
+
+        /*设置密码*/
+        $.ajax({
+            type: 'POST',
+            url: urlport + 'user/loginByUnionIDAndTel',
+            datatype: "json",
+            data: JSON.stringify({
+                unionId: unionid,
+                weChat: nickname,
+                picture: headimgurl,
+                tel: phonenum,
+                verificationCode: codenum,
+                password:passwordkey
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+                console.log(ret);
+                // alert(JSON.stringify(ret));
+                if (ret.status == "200") {
+                    $api.toast('微信绑定成功', 2000);
+                    window.location.href = h5url;
+                } else {
+                    alert(ret.errorMessage);
+                }
+            }
+        });
+    });
+
+</script>
+</html>

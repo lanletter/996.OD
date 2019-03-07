@@ -1,0 +1,235 @@
+@import "common/_functions.scss";
+@import "common/_variables.scss";
+body{
+    background:rgb(237,237,237);
+}
+
+i.icon-1{
+    background: url(../img/foods@2x.png) no-repeat center center;
+    background-size: cover;
+    display: inline-block;
+    width: rem(24);
+    height: rem(26);
+    vertical-align: middle;
+}
+i.icon-2{
+    background: url(../img/foods-1@2x.png) no-repeat center center;
+    background-size: cover;
+    display: inline-block;
+    width: rem(24);
+    height: rem(26);
+    vertical-align: middle;
+}
+
+
+//topic.html
+html,body{
+    height: 100%;
+}
+.topic{
+    background:#fff;
+    min-height: 100%;
+}
+.topic .box{
+    position: relative;
+    img{
+        display: inline-block;
+        width: 100%;
+        height:rem(210);
+    }
+    .pictext{
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        bottom:rem(32);
+        h4{
+            color: #fff;
+            font-size:rem(14);
+        }
+        p{
+            font-size: rem(10);
+            color: #999;
+        }
+    }
+
+}
+
+.topic .box-li{
+
+    padding:0;
+    position: relative;
+    img{
+        display: inline-block;
+        width: 100%;
+        height:rem(205);
+        border-radius: rem(4);
+    }
+    .pictext{
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        bottom:rem(13);
+        h4{
+            color: #fff;
+            font-size:rem(14);
+        }
+        p{
+            font-size: rem(10);
+            color: #999;
+        }
+    }
+
+}
+.topic .info{
+    padding:rem(24);
+    font-size: rem(14);
+    color: rgb(76,80,81);
+    line-height: 1.5;
+}
+.topic .info-li{
+    padding:rem(24) rem(20);
+    font-size: rem(14);
+    color: rgb(76,80,81);
+    line-height: 1.5;
+}
+
+
+.foods{
+    padding-top: rem(24);
+    h3{
+        line-height: rem(24);
+        font-size: rem(14);
+        text-align: center;
+        i{
+            margin-top: rem(-3);
+        }
+    }
+    li.item{
+        border-bottom: 1px solid rgb(237, 237, 237);
+        padding: 0 rem(4);
+        margin-bottom: rem(12);
+        
+    }
+
+
+}
+
+
+.mybody{
+    
+    height: rem(250);
+    margin:0 rem(24);
+    -webkit-box-shadow:0 0 10px rgba(237, 237, 237, 1);  
+    -moz-box-shadow:0 0 10px rgba(237, 237, 237, 1);  
+    box-shadow:0 0 10px rgba(237, 237, 237, 1); 
+    position: relative;
+    h5{
+        padding:rem(16) 0 0 rem(24);
+        color:rgb(255, 101, 101);
+        font-size: rem(16);
+
+    }
+    p.info{
+        padding:0 0 0 rem(24);
+        color: rgb(201, 203, 213);
+        font-size: rem(12);
+    }
+    .box{
+        padding: rem(24) rem(12);
+        color: rgb(130, 130, 130);
+    }
+
+    ul.one{
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        position: absolute;
+        bottom: rem(30);
+        width: 100%;
+        div.line{
+            width: rem(13);
+            // height: rem(50);
+            background: rgb(237, 237, 237);
+            border-radius: rem(10) rem(10) 0 0;
+
+        }
+        div.line.cur{
+            
+        }
+        li.cur{
+            div.line{background: rgb(255, 101, 101);}
+            p{
+                color: rgb(47, 47, 47);
+            }
+        }
+        
+        li p{
+            color: rgb(201, 203, 213);         
+            writing-mode:tb-rl;
+        }
+    }
+
+    ul{
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        flex-wrap:wrap;
+        flex-direction:row;
+
+        li{
+            span{
+                display: inline-block;
+                border: 1px solid rgb(237, 237, 237);
+                padding: rem(4) rem(6) rem(5);
+                border-radius: rem(10);
+                color: rgb(130, 130, 130);
+                margin:rem(5);
+            }
+        }
+    }
+}
+.bodytwo{
+    height: auto;
+    padding-bottom: rem(30);
+
+}
+
+.foods{
+    .m-line{
+        display: inline-block;
+        width: 100%;
+        border-top:1px solid rgb(237, 237, 237);
+        margin:rem(24) 0;
+
+    }
+    .m-line-6{
+        display: inline-block;
+        width: 100%;
+        border-top:6px solid rgb(237, 237, 237);
+        margin:rem(12) 0 rem(24);
+
+    }
+}
+
+.more{
+    text-align: center;
+    padding-bottom:rem(12);
+    a{
+        text-decoration: underline;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

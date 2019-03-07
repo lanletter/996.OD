@@ -1,0 +1,901 @@
+.ft-comment {
+    overflow: hidden;
+    background: #ffffff;
+    z-index: 0;
+    padding-top: 0.66rem;
+}
+
+.ft-comment li {
+    z-index: 0;
+    padding: 0.64rem 0.4rem 0.4rem 0.4rem;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid #ededed;
+}
+
+.ft-comment li:last-child {
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.loadbox:first-child .ft-comment-ul:nth-child(3) li {
+    border-top: none;
+!important;
+    padding: 0.16rem 0.24rem;
+}
+
+.loadbox .ft-comment-ul {
+    z-index: -1;
+    padding-left: 0rem;
+}
+
+.ft-titles {
+    padding: 0 0.4rem;
+    padding-top: 0.8rem;
+    background: #ffffff;
+}
+
+.ft-titles .title1 {
+    height: 0.66rem;
+    font-size: 0.48rem;
+    color: rgb(31, 31, 31);
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.ft-titles .title2 {
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.28rem;
+    color: rgb(102, 102, 102);
+}
+
+.ft-comment__header {
+    padding: 0 0.4rem;
+    padding-bottom: 0.16rem;
+}
+
+.loadbox:first-child .ft-comment__header {
+    display: block;
+}
+
+.ft-comment__header .left {
+    text-align: left
+}
+.ft-comment__header .sofa{
+    display: block;
+    width: 4.8rem;
+    height: 3.8rem;
+    margin: 0 auto;
+}
+
+.ft-comment__header .welcome {
+    display: block;
+    margin: 0 auto;
+    font-size: 0.32rem;
+    font-family: "PingFang SC";
+    width: 4.78rem;
+    height: 1.24rem;
+    line-height: 0.64rem;
+    color: rgb(102, 102, 102);
+    margin-bottom: 0.8rem;
+}
+
+.ft-comment__header .nocomment {
+    font-family: "PingFang SC";
+    width: 100%;
+    height: 1.12rem;
+    background: #fff;
+    box-sizing: border-box;
+    border: 1px solid rgba(102, 102, 102, 0.3);
+    border-radius: 0.12rem;
+    margin-bottom: 0.26rem;
+}
+
+.ft-comment__header .nocomment span {
+    float: left;
+    margin: 0.24rem 0.24rem 0 0.32rem;
+    width: 0.64rem;
+    height: 0.64rem;
+    line-height: 0.64rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(200, 175, 112);
+}
+
+.ft-comment__header .nocomment div {
+    float: left;
+    margin: 0.28rem 0 0 0;
+    padding-left: 0.3rem;
+    height: 0.56rem;
+    line-height: 0.56rem;
+    color: rgb(154, 154, 154);
+    border-left: 1px solid rgb(214, 214, 214);
+}
+
+.ft-comment__header .comment {
+    font-family: "PingFang SC";
+    width: 100%;
+    height: 1.12rem;
+    background: rgba(200, 175, 112, 0.05);
+    border: 1px solid rgba(200, 175, 112, 0.3);
+    box-sizing: border-box;
+    border-radius: 0.12rem;
+    margin-bottom: 0.26rem;
+}
+
+.ft-comment__header .comment img {
+    float: left;
+    margin: 0.24rem 0.24rem 0 0.32rem;
+    width: 0.64rem;
+    height: 0.64rem;
+    border-radius: 50%;
+}
+
+.ft-comment__header .comment div {
+    float: left;
+    margin: 0.28rem 0 0 0;
+    padding-left: 0.3rem;
+    height: 0.56rem;
+    line-height: 0.56rem;
+    color: rgb(154, 154, 154);
+    border-left: 1px solid rgb(214, 214, 214);
+}
+
+.author .add-care {
+    width: 1.28rem;
+    height: 0.44rem;
+    color: #fff;
+    background-color: #fd6669;
+    float: right;
+    margin-top: 0.58rem;
+    border-radius: 0.28rem;
+    font-size: 0.16rem;
+    font-weight: 100;
+}
+
+.author .add-care:before {
+    content: '';
+    display: inline-block;
+    width: 0.28rem;
+    height: 0.28rem;
+    background: url(../img/care.png);
+    background-size: 0.28rem 0.28rem;
+    vertical-align: middle;
+    margin: 0.08rem;
+}
+
+.ft-comment__content {
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+}
+
+.ft-comment__content .name {
+    color: rgb(31, 31, 31);
+    font-size: 24px;
+    font-weight: bold;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    letter-spacing: 1px;
+}
+
+.parentdiv .delete {
+    position: absolute;
+    top: 0.23rem;
+    right: 0;
+    font-size: 12px;
+    text-align: center;
+    width: 1.28rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    color: rgb(200, 175, 112);
+    border: 1px solid rgb(200, 175, 112);
+    border-radius: 0.24rem;
+    display: none;
+}
+
+.parentdiv .bottom {
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    z-index: 0;
+}
+
+.parentdiv .bottom .time {
+    display: inline-block;
+    font-size: 12px;
+    color: rgb(201, 203, 213);
+    margin-right: 0.24rem;
+}
+
+.parentdiv .bottom .praise {
+    font-size: 14px;
+    color: rgb(200,175,112);
+    float: right;
+    line-height: 0.4rem;
+}
+
+.praisebg:before {
+    content: ' ';
+    display: inline-block;
+    height: 0.48rem;
+    width: 0.48rem;
+    background: url(../img/GoodLine.png) left top no-repeat;
+    background-size: 0.48rem 0.48rem;
+    vertical-align: middle;
+    margin:-0.04rem 0.08rem -0.04rem 0;
+}
+
+.praisebg2:before {
+    content: ' ';
+    display: inline-block;
+    height: 0.48rem;
+    width: 0.48rem;
+    background: url(../img/GoodFill.png) left top no-repeat;
+    background-size: 0.48rem 0.48rem;
+    vertical-align: middle;
+    margin:-0.04rem 0.08rem -0.04rem 0;
+}
+
+.parentdiv .bottom .dot {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0.4rem;
+    width: 0.06rem;
+    height: 0.06rem;
+    background: rgb(102, 102, 102) center no-repeat;
+    background-size: 0.06rem 0.06rem;
+    border-radius: 50%;
+    margin: 0.17rem 0.2rem;
+    float: right;
+}
+
+.parentdiv .bottom .reply {
+    font-size: 14px;
+    color: rgb(200, 175, 112);
+    float: right;
+    line-height: 0.4rem;
+}
+
+.ft-comment__content .header-pic {
+    position: absolute;
+    left: 0;
+    float: left;
+    margin: 0 0.4rem;
+    width: 0.96rem;
+    height: 0.96rem;
+    border-radius: 50%;
+    border: none;
+}
+.ft-comment__content .header-pic img{
+    width: 0.96rem;
+    height: 0.96rem;
+    border-radius: 50%;
+    border: none;
+    pointer-events: none;
+}
+
+.ft-comment__content p {
+    overflow: hidden;
+    position: relative;
+}
+
+.ft-comment__content .key {
+    display: none;
+    padding: 0;
+    margin: 0;
+    height: 0;
+}
+
+.ft-comment__content .boxright {
+    width: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.ft-comment__content .parentdiv .titles {
+    margin-left: 1.2rem;
+}
+
+.ft-comment__content .parentdiv .time {
+    display: block;
+    color: rgb(154, 154, 154);
+    font-family: "PingFangSC-Light";
+    font-size: 12px;
+    font-weight: 100;
+    height: 0.34rem;
+    line-height: 0.34rem;
+}
+
+.ft-comment__content .parentdiv .texts {
+    display: block;
+    margin: 0.82rem 0.2rem 0.24rem 0.2rem;
+    color: rgb(31, 31, 31);
+    font-family: "PingFangSC-Light";
+    text-align: justify;
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 0.48rem;
+}
+
+.ft-comment__content .imglist {
+    width: 6.3rem;
+    margin: 0 0.2rem;
+}
+
+.ft-comment__content .imglist .img {
+    width: 2.08rem;
+    height: 2.08rem;
+    object-fit: cover;
+    float: left;
+    margin:0 1px 1px 0;
+}
+
+.ft-comment__content .imglist .imgbig {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+}
+
+#greybg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 0;
+}
+
+.ft-comment__content button {
+    margin-right: 0.16rem;
+    font-size: 0.16rem;
+}
+
+.ft-comment__content .title-box {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+
+.ft-comment__content .sondiv {
+    width: 100%;
+    margin-top: 0.06rem;
+    /*background: rgb(247, 247, 247);*/
+    z-index: -1;
+}
+
+.ft-comment__content .sondiv .review {
+    font-size: 14px;
+    text-align: center;
+    color: rgb(130, 130, 130);
+    display: block;
+    width: 100%;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    border-radius: 0.1rem;
+    background: rgb(244,244,244);
+}
+
+.son-comments .praise {
+    font-size: 12px;
+    color: rgb(200, 175, 112);
+    height: 0.4rem;
+    line-height: 0.4rem;
+}
+
+.son-comments .time {
+    float: right;
+    height: 0.4rem;
+    margin-left: 0.04rem;
+    line-height: 0.4rem;
+    font-size: 12px;
+    color: rgb(154, 154, 154);
+}
+
+.son-comments .dot {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 0.4rem;
+    width: 0.06rem;
+    height: 0.06rem;
+    background: rgb(102, 102, 102) center no-repeat;
+    background-size: 0.06rem 0.06rem;
+    border-radius: 50%;
+    margin: 0.17rem 0.2rem;
+}
+
+.son-comments .praise , .dot , .reply , .delete{float: left;}
+
+.son-comments .reply {
+    font-size: 14px;
+    color: rgb(200, 175, 112);
+    line-height: 0.4rem;
+}
+
+.son-comments .rpbutton span {
+    pointer-events: none;
+}
+
+.son-comments .delete {
+    font-size: 12px;
+    line-height: 0.4rem;
+    color: rgb(154, 154, 154);
+    margin-left: 0.8rem;
+    display: none;
+}
+
+.son-comments {
+    margin-left: 0.6rem;
+}
+
+.son-comments p {
+    overflow: hidden;
+    position: relative;
+}
+
+.son-comments .right {
+    width: 100%;
+    overflow: hidden;
+    padding-top: 0.34rem;
+    border-top: 1px solid #ededed;
+}
+
+.son-comments .center {
+    width: 6.54rem;
+}
+
+.son-comments .bottom {
+    width: 100%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+.son-comments .header-pic {
+    width: 0.72rem;
+    height: 0.72rem;
+    border-radius: 50%;
+}
+
+.son-comments .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(200, 175, 112);
+}
+
+.son-comments .name b {
+    font-weight: bold;
+    color: rgb(31, 31, 31);
+}
+
+.son-comments .text {
+    display: block;
+    color: rgb(47, 47, 47);
+    font-family: "PingFangSC-Light";
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 3px;
+    margin: 0.16rem 0 0.24rem 0;
+}
+
+.more {
+    display: block;
+    background: rgb(247, 247, 247);
+    text-align: center;
+    width: 6.22rem;
+}
+
+/*发表评论*/
+.leave-words {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    text-align: center;
+    z-index: 999999 !important;
+}
+
+.leave-words .boxpl {
+    margin: 0 auto;
+    width: 6.7rem;
+    height: 100%;
+}
+
+.leave-words .bgfff {
+    display: block;
+    width: 100%;
+    height: 1.28rem;
+}
+
+.leave-words textarea {
+    display: block;
+    margin-top: 0.66rem;
+    padding: 0.24rem 0.38rem;
+    line-height: 0.64rem;
+    font-size: 16px;
+    width: 100%;
+    height: 4.38rem;
+    text-align: left;
+    color: rgb(154, 154, 154);
+    background: rgba(200, 175, 112, 0.05);
+    border: 1px solid rgba(200, 175, 112, 0.3);
+    border-radius: 0.12rem;
+    box-sizing: border-box;
+    resize: none;
+    z-index: 999999 !important;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(154, 154, 154);
+    font-size: 16px;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgb(201, 203, 213);
+    font-size: 0.28rem;
+    font-weight: lighter;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgb(201, 203, 213);
+    font-size: 0.28rem;
+    font-weight: lighter;
+}
+
+:-ms-input-placeholder {
+    color: rgb(201, 203, 213);
+    font-size: 0.28rem;
+    font-weight: lighter;
+}
+
+/*.leave-words .buttons {*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*width: 50% !important;*/
+    /*height: 48px;*/
+    /*line-height: 48px;*/
+    /*display: inline-block;*/
+    /*font-size: 0.28rem;*/
+    /*letter-spacing: 4px;*/
+    /*font-weight: 300;*/
+    /*color: rgb(247, 247, 247);*/
+/*}*/
+
+.leave-words .backto {
+    margin: 0.4rem auto;
+    width: 1.12rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    text-align: center;
+    text-decoration: underline;
+    color: rgb(200,175,112);
+    font-size: 0.28rem;
+    z-index: 999999 !important;
+}
+
+.leave-words .commit {
+    margin-top: 0.48rem;
+    width: 100%;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    background: rgb(31, 31, 31);
+    color: rgb(200,175,112);
+    font-size: 0.28rem;
+    border-radius: 0.08rem;
+    z-index: 999999 !important;
+}
+
+/*回复评论*/
+#leave-words2 {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    z-index: 999999 !important;
+    background: rgba(0, 0, 0, 0.2);
+    padding-bottom: 1rem;
+}
+
+#leave-words2:after {
+    content: '';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+#leave-words2 #bgfff {
+    display: block;
+    float: left;
+    width: 100%;
+    height: 100%;
+    background: none;
+    z-index: 999998;
+}
+
+#leave-words2 .topborder {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background: rgb(237, 237, 237);
+    width: 100%;
+    height: 0.92rem;
+    border-top: 1px solid #dddddd;
+    z-index: 999999 !important;
+}
+
+#leave-words2 .topborder:after {
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+#leave-words2 .boxhf {
+    position: relative;
+    margin-top: 0.12rem;
+    width: 100%;
+    height: 0.8rem;
+    background: rgb(247, 247, 247);
+    text-align: center;
+    z-index: 999999 !important;
+}
+
+#leave-words2 textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.14rem;
+    padding-left: 0.1rem;
+    font-size: 0.2rem;
+    color: #333;
+    width: 6.3rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    text-align: left;
+    background: #ffffff;
+    resize: none;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 2px;
+    z-index: 999999 !important;
+}
+
+#leave-words2 .textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0.14rem;
+    padding-left: 0.1rem;
+    font-size: 0.2rem;
+    color: #333;
+    width: 6.2rem;
+    height: 0.48rem;
+    line-height: 0.48rem;
+    text-align: left;
+    background: #ffffff;
+    resize: none;
+    /*border:1px solid rgb(151,151,151);*/
+    border-radius: 2px;
+    -webkit-appearance: none;
+    z-index: 999999 !important;
+}
+
+#leave-words2 .textarea:before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    border: 1px solid #000;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.5, 0.5);
+    -ms-transform: scale(0.5, 0.5);
+    -o-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#leave-words2 .commit {
+    margin: 0.14rem 0.24rem 0 0.14rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: rgb(130, 130, 130);
+    z-index: 999999 !important;
+    font-size: 16px;
+}
+
+#leave-words2::-webkit-input-placeholder {
+    color: rgba(130, 130, 130, 0.87);
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+#leave-words2:-moz-placeholder {
+    /* Firefox 18- */
+    color: rgba(130, 130, 130, 0.87);
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+#leave-words2::-moz-placeholder {
+    /* Firefox 19+ */
+    color: rgba(130, 130, 130, 0.87);
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+#leave-words2:-ms-input-placeholder {
+    color: rgba(130, 130, 130, 0.87);
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+/*上传图片插件的样式*/
+.img-box {
+    background: #ffffff;
+}
+
+.z_photo {
+    overflow: hidden;
+    padding-top: 0.4rem;
+}
+
+.z_photo .z_file {
+    position: relative;
+    display: inline-block;
+    width: 0.96rem;
+    height: 0.96rem;
+    margin: 0 0.28rem 0.28rem 0;
+}
+
+.z_file .file {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+}
+
+.z_photo .up-section {
+    position: relative;
+    display: inline-block;
+    width: 0.96rem;
+    height: 0.96rem;
+    margin: 0 0.28rem 0.28rem 0;
+    border-radius: 0.08rem;
+}
+
+.up-section .close-upimg {
+    position: absolute;
+    top: -0.16rem;
+    right: -0.16rem;
+    display: block;
+    z-index: 10;
+    width: 0.32rem;
+    height: 0.32rem;
+}
+
+.up-section .up-span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 9;
+}
+
+.up-section:hover .up-span {
+    visibility: visible;
+}
+
+.z_photo .up-img {
+    display: inline-block;
+    width: 0.96rem;
+    height: 0.96rem;
+    border-radius: 0.12rem;
+}
+
+.up-opcity {
+    opacity: 0;
+}
+
+.img-name-p {
+    display: none;
+}
+
+.upimg-div .up-section {
+    float: left;
+    width: 0.96rem;
+    height: 0.96rem;
+}
+
+.img-box .upimg-div .z_file {
+    float: left;
+    width: 0.96rem;
+    height: 0.96rem;
+}
+
+.z_file .add-img {
+    float: left;
+    width: 0.96rem;
+    height: 0.96rem;
+    border-radius: 0.12rem;
+    background:rgb(237,237,237) url("../img/add.png") center no-repeat;
+    background-size: 0.64rem;
+}
+
+#loading {
+    width: 100%;
+    height: 1.36rem;
+    background: #fff;
+    overflow: hidden;
+}
+
+#loading .btnload {
+    margin: 0.2rem auto;
+    width: 6.7rem;
+    height: 0.96rem;
+    border-radius: 0.1rem;
+    line-height: 0.96rem;
+    font-size: 14px;
+    text-align: center;
+    color: rgb(102, 102, 102);
+    background: rgb(244, 244, 244);
+}
+
+#loading .imgift {
+    width: 100%;
+    height: 100%;
+    background: #ffffff url(../img/loading.gif) center no-repeat;
+}
+
+#loading .nomore {
+    display: block;
+    margin: 0.2rem auto;
+    width: 6.7rem;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(214, 214, 214);
+}
+
+#loading .nomore div {
+    height: 0;
+    width: 1.4rem;
+    margin: 0.48rem 0;
+    border-top: 1px solid rgb(237, 237, 237);
+}
+
+#loading .nomore div:first-child {
+    float: left;
+    margin-left: 1rem;
+}
+
+#loading .nomore div:last-child {
+    float: right;
+    margin-right: 1rem;
+}

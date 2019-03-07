@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+    <title>推荐健康餐说明</title>
+</head>
+<body>
+<div class="topic foods">
+    <h3><i class="icon-2"></i> {{recFoodTitle}}</h3>
+    <p class="info">{{recFoodDesc}}</p>
+    <ul class="box-li">
+        <li class="item" v-show="item.images.length!==0" v-for="item in lists">
+            <div class="box-li">
+                <a :href="item.url">
+                    <img src="../img/Overlay Copy 2.png" class="overlayimg">
+                    <!--<img :src="item.images[0]" alt="">-->
+                    <div class="imgbg" :style="{backgroundImage: 'url(' + item.images[0] +')'}"></div>
+
+                </a>
+                <div class="pictext">
+                    <h4>{{item.name}}</h4>
+                    <p>{{item.labelInfo}}</p>
+                    <div class="header__opt">
+                        <span class="view-count">{{item.pageviews}}</span>
+                        <span class="favorite-count">{{item.collect_count}}</span>
+                    </div>
+                </div>
+            </div>
+            <p class="info-li" v-html="item.instructions"></p>
+        </li>
+
+    </ul>
+</div>
+
+<script src="../js/lib2.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script src="../js/url.js"></script>
+<script>
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null)return unescape(r[2]);
+        return null;
+    }
+    var userid = GetQueryString("userid");
+    var urlinfo = window.location.href;//获取url
+    var sub_name = urlinfo.split("?")[1].split("=")[2];//拆分url得到”=”后面的参数
+    var type=decodeURI(sub_name);
+    console.log(userid+type);
+
+    var vm = new Vue({
+        el: '.topic',
+        data: {
+            lists: {},
+            recMaterialTitle: '',
+            recMaterialDesc: '',
+            recFoodTitle: '',
+            recFoodDesc: ''
+        },
+        created: function () {
+            var $this = this;
+            this.$http.post(urlport + 'health/userDetail', {"userId": userid}).then(function (data) {
+                var data = data.data;
+                console.log(data);
+                if (data.status == 200) {
+                    this.recMaterialTitle = data.data.health.userHealthType.recMaterialTitle;
+                    this.recMaterialDesc = data.data.health.userHealthType.recMaterialDesc;
+                    this.recFoodTitle = data.data.health.userHealthType.recFoodTitle;
+                    this.recFoodDesc = data.data.health.userHealthType.recFoodDesc;
+
+
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+            var pageNum=1;
+            this.$http.post(urlport + 'menu/getMenuBySubClassName', {
+                "pageNum": pageNum,
+                "pageSize": 5,
+                "sub_name": type
+            }).then(function (data) {
+                var data = data.data;
+                if (data.status == 200) {
+                    $this.lists = data.data;
+                    console.log(data);
+                }
+
+            }, function () {
+                console.info('error');
+            });
+
+            $(window).off('scroll').on('scroll', $api.throttle(function () {
+                var scrollTop = $(this).scrollTop();
+                var scrollHeight = $(document).height();
+                var windowHeight = $(this).height();
+                if (scrollTop + windowHeight == scrollHeight) {
+                    pageNum = pageNum + 1;
+                    $.ajax({
+                        type: 'post',
+                        url: urlport+'menu/getMenuBySubClassName',
+                        data: JSON.stringify({
+                            "pageNum": pageNum,
+                            "pageSize": 5,
+                            "sub_name": type
+                        }),
+                        timeout: 5000, //超时时间
+                        contentType: "application/json;charset=utf-8",
+                        dataType: 'json',
+                        success: function (data) {
+                            var data = data.data;
+                            console.log(data);
+                            if(data.length==0){
+                                return
+                            }else{
+                                $this.lists = data;
+                            }
+                        },
+                        error: function () {
+                            console.info('error');
+                        }
+                    })
+
+                }
+            }, 1500))
+
+        }
+    });
+
+</script>
+
+</body>
+</html>

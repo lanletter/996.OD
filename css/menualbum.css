@@ -1,0 +1,70 @@
+.menulist header h3 {
+    width: 5rem;
+    margin: 0 auto;
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+    font-size: 0.48rem;
+    line-height: 0.66rem;
+    text-align: center;
+}
+.menulist header div{
+    padding: 0 0.6rem;
+    font-size: 0.24rem;
+    color: #1F1F1F;
+    line-height: 0.56rem;
+    margin-bottom: 0.9rem;
+}
+.menuul{
+    padding:0 0.4rem;
+    padding-bottom: 1.8rem;
+}
+.menuul li{
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+}
+.menuul li a{
+    display: block;
+    width: 6.7rem;
+    height: 3.76rem;
+    background-size: 6.7rem auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.16rem;
+}
+.menuul .name{
+    width: 6.2rem;
+    font-size: 0.36rem;
+    font-weight: bold;
+    margin: 0.18rem 0 0.16rem 0.26rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.menuul .num{
+    padding-left: 0.26rem;
+    height: 0.34rem;
+    line-height: 0.34rem;
+}
+.menuul .num span{
+    display: inline-block;
+    font-size: 0.24rem;
+    color: #9A9A9A;
+    margin-right: 0.32rem;
+}
+.menuul .num span:before {
+    display: inline-block;
+    content: '';
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-right: 0.06rem;
+    vertical-align: top;
+}
+
+.menuul .num .viewnum:before {
+    background: url('../img/IconsView.png') no-repeat;
+    background-size: 0.32rem 0.32rem;
+}
+.menuul .num .collectnum:before {
+    background: url('../img/IconsHeart.png') no-repeat;
+    background-size: 0.32rem 0.32rem;
+}

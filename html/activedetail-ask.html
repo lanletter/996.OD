@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>活动详情</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/ftcomment.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/activedetail.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/active-pro.css?ver=403">
+    <script>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
+    </script>
+</head>
+
+<body style="overflow-x: hidden;">
+<div class="avtive">
+    <div class=" pbfoot">
+        <header class="header">
+            <div class="header_img" :style="{backgroundImage: 'url(' + data.picture.path + ')'}"></div>
+            <div class="header__main">
+                <div class="title">
+                    <h3 class="txt" v-html="data.title"></h3>
+                    <time v-if="data.isshow == 1 || data.isshow == null " v-html="data.time2"></time>
+                </div>
+            </div>
+            <div class="header__opt">
+                <span class="view-count"><strong v-html="data.viewCount"></strong></span>
+                <span class="share-count"><strong v-html="data.shareCount"></strong></span>
+            </div>
+        </header>
+        <article id="instructions" v-html="contenthtml"></article>
+        <div class="asklist" v-if="dataexclist.length > 0">
+            <h2>优秀回答</h2>
+            <div class="listarea">
+                <ul class="list">
+                    <li v-for="(item,index) in dataexclist">
+                        <div class="ask">
+                            <div class="title">
+                                <img class="askimg" @click="homeuser(item.answer.userId)"
+                                     :src="item.answer.userInfomation.titlePicture">
+                                <div class="userinfo">
+                                    <div class="name" v-html="item.answer.userInfomation.nickName" @click="homeuser(item.answer.userId)"></div>
+                                    <div class="time" v-html="item.answer.createat"></div>
+                                </div>
+                                <!--<span class="likeCount" v-html="item.answer.likeCount"></span>-->
+                                <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                                      v-if="parseInt(item.answer.isLike) == 0 "
+                                      v-html="item.likenum"
+                                      @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                                <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
+                            </div>
+                            <p class="txt">回答了<span>[<b v-html="item.question.title"></b>]</span>中的提问：<span
+                                    v-html="item.answer.content"></span></p>
+                        </div>
+                        <div class="answer" @click="menulink(item.question.id,item.question.url)">
+                            <div class="answerinfo">
+                                <span class="answername" v-html="item.question.userInfomation.nickName"></span>的提问：
+                            </div>
+                            <p class="content" v-html="item.question.content"></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="asklist" id="ask" v-if="datalist.length > 0">
+            <h2>活动动态</h2>
+            <div class="listarea">
+                <ul class="list">
+                    <li v-for="(item,index) in datalist">
+                        <div class="ask">
+                            <div class="title">
+                                <img class="askimg" @click="homeuser(item.answer.userId)"
+                                     :src="item.answer.userInfomation.titlePicture">
+                                <div class="userinfo">
+                                    <div class="name" v-html="item.answer.userInfomation.nickName" @click="homeuser(item.answer.userId)"></div>
+                                    <div class="time" v-html="item.answer.createat"></div>
+                                </div>
+                                <!--<span class="likeCount" v-html="item.answer.likeCount"></span>-->
+                                <span v-bind:class="{'likenum':item.isLike==0,'likenum0': item.isLike!==0}"
+                                      v-if="parseInt(item.answer.isLike) == 0 "
+                                      v-html="item.likenum"
+                                      @click="givePraise(item,item.id, item.likenum, item.isLike)"></span>
+                                <span class="likenum2" v-else v-html="item.likenum" @click="deeplikopen"></span>
+                            </div>
+                            <p class="txt">回答了<span>[<b v-html="item.question.title"></b>]</span>中的提问：<span
+                                    v-html="item.answer.content"></span></p>
+                        </div>
+                        <div class="answer" @click="menulink(item.question.id,item.question.url)">
+                            <div class="answerinfo">
+                                <span class="answername" v-html="item.question.userInfomation.nickName"></span>的提问：
+                            </div>
+                            <p class="content" v-html="item.question.content"></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="noanswer" v-else>
+                <img src="../img/noask.png">
+                <p>暂时还没有待回答的提问</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="alertlist listarea" style="display: none;">
+        <ul class="listul" v-if="dataask.length > 0">
+            <li class="listli" v-for="item in dataask">
+                <a :href="item.url + '&jump=jump'">
+                    <div class="ask">
+                        <div class="title">
+                            <img class="askimg" :src="item.picturePath">
+                            <div class="userinfo" v-html="item.name"></div>
+                            <div class="btn">前往回答</div>
+                        </div>
+                    </div>
+                    <div class="answer" v-if="item.answerList.length > 0 ">
+                        <div class="best" v-if="item.bestAnswer == 1"></div>
+                        <div class="listlist" v-for="index in item.answerList">
+                            <p class="content" v-html="index.content"></p>
+                            <p class="num">
+                                <span class="answerCount" v-if="index.count == 0">还没有人解答</span>
+                                <span class="answerCount" v-else>已有{{index.count}}人回答</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+        <div class="noanswer" v-else>
+            <img src="../img/noask.png">
+            <p>暂时还没有待回答的提问</p>
+        </div>
+        <div class="floatbtn">
+            <a @click="closelist">返回活动详情</a>
+        </div>
+    </div>
+
+    <div class="floatbtn" id="menuup">
+        <a v-if="start" @click="startbtn">我要参与</a>
+        <a class="over" v-else>活动已结束</a>
+    </div>
+</div>
+
+<div id="instruct" style="display: none"></div>
+
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script src="../js/BigPictureOpen.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
+<script type="text/javascript" src='../js/loadcomment.js'></script>
+<script type="text/javascript" src='../js/ft.js'></script>
+<script type="text/javascript" src='../js/judge.js'></script>
+<script type="text/javascript" src="../js/url.js"></script>
+<script type="text/javascript" src="../js/UMAnalytics.js"></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+
+<script type="text/javascript">
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var id = GetQueryString("id");
+
+    var device = GetQueryString("device");
+
+    if (device == "ios" || device == "android") {
+        var userid;
+        var token;
+        //app交互—获取userid
+        window.onload = function () {
+            ft.isLogin2(function (result) {
+                var errorcode = result.errorCode.toString();
+                //alert(errorcode);
+                console.log(errorcode);
+                if (errorcode == "1") {
+                    userid = result.data.userId.toString();
+                    $.cookie('userid', userid);
+                    if (userid !== "1" && userid !== 1) {
+                        token = result.data.token.toString();
+                        $.cookie('token', token);
+                    }
+
+                    choose(userid,token);
+
+                } else if (errorCode == "0") {
+                } else if (errorCode == "-1") {
+                } else if (errorCode == "-2") {
+                }
+            });
+        };
+    } else {
+        var userid = 1;
+        var token;
+        choose(userid,token);
+    }
+
+    function choose(userid,token) {
+        var vm = new Vue({
+            el: '.avtive',
+            data: {
+                data: {},
+                dataexclist: [],
+                datalist: [],
+                dataask: [],
+                contenthtml: {},
+                item: [],
+                isLike: '',
+                likenum: '',
+                start: '',
+                createat:''
+            },
+            created: function () {
+                var $this = this;
+                $.ajax({
+                    url: urlport + 'activity/detail',
+                    type: 'POST',
+                    headers: { // 默认添加请求头
+                        "userId": userid,
+                        "token": token,
+                        "deviceType": "web",
+                        "version": "v440"
+                    },
+                    data: JSON.stringify({"id": id}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (data) {
+                        // console.log(data);
+                        callback(data);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+
+                function callback(data) {
+                    var data = data;
+
+                    $this.data = data.data;
+                    console.log($this.data);
+
+                    /*title取值*/
+                    var txt = $this.data.title;
+                    if (txt == undefined) {
+                        $('head title').text("活动详情");
+                    } else {
+                        $('head title').text($this.data.title);
+                    }
+
+                    /*曲线救国富文本*/
+                    var $content = $('#instruct');
+                    $content.append($this.data.content);
+                    /*文章内链接加device，必须放在content内容append后面！*/
+                    var qs = 'device=' + device+'&jump=jump';
+                    $content.find('a').each(function () {
+                        var href = $(this).attr('href');
+                        // console.log(href);
+                        if (href) {
+                            href += (href.match(/\?/) ? '&' : '?') + qs;
+                            $(this).attr('href', href);
+                            // console.log(href);
+                        }
+                    });
+                    $this.contenthtml = $content.html();
+
+
+                    /*活动状态*/
+                    endDate = $this.data.endDate;
+                    var timestamp = Date.parse(new Date());
+                    if (timestamp < endDate) {
+                        $this.start = true;
+                    } else {
+                        $this.start = false;
+                    }
+
+                    /*友盟埋点-页面访问*/
+                    var isuserid;//登录判断
+                    if (userid !== 1 && userid !== "1") {
+                        isuserid = "是";
+                    } else {
+                        isuserid = "否";
+                    }
+                    UMAnalyticsAgent.trackWithProperty("h5页面访问", {
+                        "页面类型": "活动详情页",
+                        "页面名称": $this.data.title,
+                        "是否登录": isuserid
+                    });
+
+                    /*优秀回答*/
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: urlport + 'activity/getExcellentAnswer',
+                            type: 'POST',
+                            data: JSON.stringify({
+                                "id": id
+                            }),
+                            timeout: 5000, //超时时间
+                            contentType: "application/json;charset=utf-8",
+                            dataType: 'json', //返回的数据格式
+                            success: function (dataexclist) {
+                                console.log("优秀回答：");
+                                console.log(dataexclist);
+                                callback(dataexclist);
+                            },
+                            error: function (errorMsg) {
+                                console.log('错误');
+                                console.log(errorMsg);
+                            }
+                        });
+
+                        function callback(dataexclist) {
+                            if (dataexclist.status == 200) {
+                                $this.dataexclist = dataexclist.data.list;
+                                // console.log($this.dataexclist);
+                                for (var i = 0; i < $this.dataexclist.length; i++) {
+                                    var item = $this.dataexclist[i];
+                                    /*点赞相关*/
+                                    var item = $this.dataexclist[i];
+                                    item.isLike = $this.dataexclist[i].answer.isLike;
+                                    item.id = $this.dataexclist[i].answer.id;
+                                    item.likenum = $this.dataexclist[i].answer.likeCount;
+                                    /*时间相关*/
+                                    item.createat = $this.dataexclist[i].answer.createat;
+                                    item.createat = new Date(item.createat).app();
+                                    Date.prototype.app=function() {
+                                        var time = this.getTime();
+                                        var now = new Date().getTime();
+                                        var dif = now - time;
+                                        // if (dif < 0) return '刚刚';
+                                        if (dif < 60*1000) {
+                                            return Math.floor(dif/(1000))+'秒前';
+                                        } else if (dif < 60*60*1000) {
+                                            return Math.floor(dif/(1000*60))+'分钟前';
+                                        } else if (dif < 24*60*60*1000) {
+                                            return Math.floor(dif/(1000*60*60))+'小时前';
+                                        } else {
+                                            // if (this.getYear() == new Date().getYear()) {
+                                            //     return (this.getMonth()+1)+'/'+this.getDate();
+                                            // } else {
+                                            //     return this.getFullYear()+'/'+(this.getMonth()+1)+'/'+this.getDate();
+                                            // }
+                                            var FullYear = this.getFullYear();
+                                            var Month = this.getMonth()+1;
+                                            var Day = this.getDate();
+                                            var hours = this.getHours();
+                                            if (hours < 10) { hours = "0" + hours; }
+                                            var Minutes = this.getMinutes();
+                                            var Seconds = this.getSeconds();
+                                            var time = FullYear + '/' + Month + '/' + Day + ' ' + hours + ':' + Minutes + ':' + Seconds;
+                                            return time;
+                                        }
+                                    };
+                                    /*修改后的数据：*/
+                                    $this.dataexclist[i].answer.createat=item.createat;
+                                }
+                                console.log($this.dataexclist);
+                            }
+                        }
+                    });
+
+                    /*问答活动动态*/
+                    $(document).ready(function () {
+                        var pageSize=40;
+                        function ajaxscoll(pageSize){
+                            $.ajax({
+                                url: urlport + 'activity/getActivityAnswerDynamic',
+                                type: 'POST',
+                                data: JSON.stringify({
+                                    "pageNum": 1,
+                                    "pageSize": pageSize,
+                                    "id": id
+                                }),
+                                timeout: 5000, //超时时间
+                                contentType: "application/json;charset=utf-8",
+                                dataType: 'json', //返回的数据格式
+                                success: function (datalist) {
+                                    console.log("问答活动动态：");
+                                    // console.log(datalist);
+                                    if (datalist.status == 200) {
+                                        $this.datalist = datalist.data.list;
+                                        for (var i = 0; i < $this.datalist.length; i++) {
+                                            var item = $this.datalist[i];
+                                            /*点赞相关*/
+                                            item.isLike = $this.datalist[i].answer.isLike;
+                                            item.id = $this.datalist[i].answer.id;
+                                            item.likenum = $this.datalist[i].answer.likeCount;
+                                            /*时间相关*/
+                                            item.createat = $this.datalist[i].answer.createat;
+                                            item.createat = new Date(item.createat).app();
+                                            Date.prototype.app=function() {
+                                                var time = this.getTime();
+                                                var now = new Date().getTime();
+                                                var dif = now - time;
+                                                // if (dif < 0) return '刚刚';
+                                                if (dif < 60*1000) {
+                                                    return Math.floor(dif/(1000))+'秒前';
+                                                } else if (dif < 60*60*1000) {
+                                                    return Math.floor(dif/(1000*60))+'分钟前';
+                                                } else if (dif < 24*60*60*1000) {
+                                                    return Math.floor(dif/(1000*60*60))+'小时前';
+                                                } else {
+                                                    var FullYear = this.getFullYear();
+                                                    var Month = this.getMonth()+1;
+                                                    var Day = this.getDate();
+                                                    var hours = this.getHours();
+                                                    if (hours < 10) { hours = "0" + hours; }
+                                                    var Minutes = this.getMinutes();
+                                                    var Seconds = this.getSeconds();
+                                                    var time = FullYear + '/' + Month + '/' + Day + ' ' + hours + ':' + Minutes + ':' + Seconds;
+                                                    return time;
+                                                }
+                                            };
+                                            /*修改后的数据：*/
+                                            $this.datalist[i].answer.createat=item.createat;
+                                        }
+                                        console.log($this.datalist);
+                                    }
+                                },
+                                error: function (errorMsg) {
+                                    console.log('错误');
+                                    console.log(errorMsg);
+                                }
+                            });
+                        }
+                        ajaxscoll(pageSize);
+
+                        /*下拉加载更多*/
+                        var windowHeight = $(window).height();
+                        $(window).off('scroll').on('scroll', function () {
+                            var scrollTop = $(window).scrollTop();
+                            var scrollHeight = $(document).height();
+                            // console.log(scrollTop);
+                            // console.log(windowHeight);
+                            // console.log(scrollHeight);
+                            if (scrollTop + windowHeight == scrollHeight) {
+                                pageSize = pageSize + 40;
+                                ajaxscoll(pageSize);
+                            }
+                        });
+                        /*下拉加载结束*/
+                    });
+
+                    /*问答模块列表*/
+                    $(document).ready(function () {
+                        $.ajax({
+                            url: urlport + 'activity/getActivityMenuAnswerList',
+                            type: 'POST',
+                            data: JSON.stringify({
+                                "pageNum": 1,
+                                "pageSize": 40,
+                                "id": id,
+                                "userId": userid
+                            }),
+                            timeout: 5000, //超时时间
+                            contentType: "application/json;charset=utf-8",
+                            dataType: 'json', //返回的数据格式
+                            success: function (dataask) {
+                                if (dataask.status == 200) {
+                                    $this.dataask = dataask.data.list;
+                                    console.log("问答列表：");
+                                    console.log($this.dataask);
+                                }
+                            },
+                            error: function (errorMsg) {
+                                console.log('错误');
+                                console.log(errorMsg);
+                            }
+                        });
+                    });
+
+                    /*GIO参数集合*/
+                    //发布时间
+                    var date = new Date(data.createat);
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    var creattime = Y + M + D + h + m + s;
+                    // console.log(creattime);
+
+                    //custom page code begin here
+                    gio("page.set", "activity", "活动");//页面类型
+                    gio("page.set", "ID", $this.data.id);//id
+                    gio("page.set", "titleactivity", $this.data.title);//标题
+                    gio("page.set", "creattime", creattime);//发布时间
+                    gio("page.set", "commentCount", $this.data.commentCount);//类型
+                    //custom page code end here
+                    gio('send');
+
+                    /*GIO参数集合发送完毕*/
+
+                    /*分享链接专用*/
+                    // console.info($this.data);
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.desc;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = $this.data.url;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    var jsoninfo = {
+                        id: id,
+                        type: 6,
+                        sharetitle: sharetitle,
+                        sharedesc: sharedesc,
+                        shareimg: shareimg,
+                        sharelink: sharelink
+                    };
+                    window.setTimeout(function () {
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+
+                            });
+
+                        }
+                    }, 2000);
+                    /*微信分享专用*/
+                    $.ajax({
+                        type: 'GET',
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    });
+
+
+                }
+
+            },
+            methods: {
+                menulink: function (id, url) {
+                    if (device == "ios" || device == "android") {
+                        ft.questionDetail({
+                            id: id,
+                            menuurl: url
+                        }, function (result) {
+                        })
+                    } else {
+                        window.location.href = url;
+                    }
+                },
+                homeuser: function (userId) {
+                    if (device == "ios" || device == "android") {
+                        ft.tutorInfo({
+                            id: userId,
+                            type: "1"
+                        }, function (result) {
+                        })
+                    } else {
+                        window.location.href = "home-user.html?id=" + userId;
+                    }
+                },
+                startbtn: function () {
+                    var $this = this;
+                    if (device == "ios" || device == "android") {
+                        // alert(device);
+                        // app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                /*打开隐藏列表*/
+                                $this.openlist();
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+                    } else {
+                        // $this.openlist();
+                        $this.deeplikopen();
+                    }
+                },
+                openlist: function () {
+                    $(".alertlist").show();
+                    $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+                },
+                closelist: function () {
+                    $(".alertlist").hide();
+                    $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+                },
+                givePraise: function (item, id, likenum, isLike) {  //点赞
+                    var $this = this;
+                    if (device == "ios" || device == "android") {
+                        // app交互——获取登录状态
+                        ft.isLogin(function (result) {
+                            var errorcode = result.errorCode.toString();
+                            if (errorcode == "1") {
+                                //$api.toast('登陆成功', 2000);
+                                userid = result.data.userId.toString();
+                                if (userid !== "1" && userid !== 1) {
+                                    token = result.data.token.toString();
+                                }
+                                /*一次性点赞*/
+                                $this.item = item;
+                                $this.likenum = likenum;
+                                $this.isLike = isLike;
+                                if ($this.isLike == 0) {
+                                    $.ajax({
+                                        url: urlport + 'like/create',
+                                        type: 'POST',
+                                        data: JSON.stringify({
+                                            "refId": id,
+                                            "type": 9,
+                                            "userId": userid
+                                        }),
+                                        timeout: 5000, //超时时间
+                                        contentType: "application/json;charset=utf-8",
+                                        dataType: 'json', //返回的数据格式
+                                        success: function (data) {
+                                            console.log(data);
+                                            newnum = parseInt(likenum) + 1;
+                                            $this.item.likenum = newnum;
+                                            $this.item.isLike = 1;
+                                            console.log($this.item.likenum);
+                                            Vue.set($this.item, likenum, newnum);//改变视图点赞值
+                                            Vue.set($this.item, isLike, 1);//改变视图点赞状态
+                                            console.log($this.item);
+                                        },
+                                        error: function (errorMsg) {
+                                            console.log('错误');
+                                            console.log(errorMsg);
+                                        }
+                                    });
+                                }
+                            } else if (errorCode == "0") {
+                                $api.toast('登陆取消', 2000);
+                            } else if (errorCode == "-1") {
+                                $api.toast('登陆失败', 2000);
+                            } else if (errorCode == "-2") {
+                                $api.toast('登陆不支持', 2000);
+                            }
+                        });
+                    } else {
+                        $this.deeplikopen();
+                    }
+
+                },
+                deeplikopen: function (obj) {
+                    function GetQueryString(name) {
+                        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                        var r = window.location.search.substr(1).match(reg);
+                        if (r != null) return unescape(r[2]);
+                        return null;
+                    }
+
+                    var id = GetQueryString("id");
+
+                    function GetPageName() {
+                        var url = window.location.href;//获取完整URL
+                        var tmp = location.pathname.replace(/(.+)[＼＼/]/, "");//获取带后缀的文件名称
+                        var name = tmp.replace(/.html/, "");//获取不带后缀的文件名称
+                        return name;
+                    }
+
+                    // alert(GetPageName());
+                    /*页面参数（页面类型+id）*/
+                    var id = id;
+                    var refid = id;
+                    var action = GetPageName();
+                    var weburl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + id;
+                    var imageURL = "";
+                    var shareTitle = "";
+                    var shareSubTitle = "";
+                    var iostype = "";
+
+                    console.log({
+                        "id": id,
+                        "action": action,
+                        "weburl": weburl,
+                        "refid": refid,
+                        "imageURL": imageURL,
+                        "shareTitle": shareTitle,
+                        "shareSubTitle": shareSubTitle,
+                        "iostype": iostype
+                    });
+
+                    var urlright = "?action=" + encodeURIComponent(action) +
+                        "&id=" + encodeURIComponent(id) +
+                        "&weburl=" + encodeURIComponent(weburl) +
+                        "&refid=" + encodeURIComponent(refid) +
+                        "&imageURL=" + encodeURIComponent(imageURL) +
+                        "&shareTitle=" + encodeURIComponent(shareTitle) +
+                        "&shareSubTitle=" + encodeURIComponent(shareSubTitle) +
+                        "&iostype=" + encodeURIComponent(iostype);
+
+                    /*判断是IOS还是Android机型*/
+                    var u = navigator.userAgent;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+                    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    // console.log('是否是Android：' + isAndroid);
+                    // console.log('是否是iOS：' + isiOS);
+
+                    /*判断是否微信浏览器内打开*/
+                    function isWeiXin() {
+                        var ua = window.navigator.userAgent.toLowerCase();
+                        // console.log(ua);//mozilla/5.0 (iphone; cpu iphone os 9_1 like mac os x) applewebkit/601.1.46 (khtml, like gecko)version/9.0 mobile/13b143 safari/601.1
+                        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                    if (isWeiXin()) {
+                        console.log(" 是来自微信内置浏览器");
+                        /*弹出浏览器打开提示*/
+                        var alertstr = "<div class='blackbg'><div class='reminder'>" +
+                            "<img src='../img/arrowdashed.png' >" +
+                            "<p class='title'>在微信中无法打开？</p>" +
+                            "<p>请点击右上角，选择在浏览器或Safari中打开。</p>" +
+                            "</div></div>";
+                        $("body").prepend(alertstr);
+                        $("html,body").css({"height": "100%", "position": "relative", "overflow": "hidden"}); //禁用滚动条
+
+                        /*隐藏提示*/
+                        $(".blackbg").unbind().click(function () {
+                            $(".blackbg").remove();
+                            $("html,body").css({"height": "auto", "position": "static", "overflow": "auto"}); //启用滚动条
+                        });
+                        $(".reminder").click(function (event) {
+                            event.stopPropagation();//阻止冒泡
+                        });
+
+                    } else {
+                        console.log("不是来自微信内置浏览器");
+                        /*深链接打开*/
+                        var deeplinkurl = "fotile://api.fotilestyle.com/" + urlright;
+                        // alert(deeplinkurl);
+                        window.location.href = deeplinkurl;
+                        /***打开app的协议***/
+                        window.setTimeout(function () {
+                            if (isiOS == true) {/*ios手机*/
+                                window.location.href = "https://gio.ren/re0Y923";
+                            } else if (isAndroid == true) {/*Android手机*/
+                                window.location.href = "https://gio.ren/rBZ2ApB";
+                            }
+                        }, 1000);
+
+                    }
+                }
+
+            }
+        });
+
+    }
+
+
+</script>
+</body>
+</html>

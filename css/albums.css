@@ -1,0 +1,213 @@
+body{background: #fff;font-family: "PingFang SC", "PingHei", "STHeitiSC-Light", "tahoma", "Myriad Set Pro", "Lucida Grande", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif", "microsoft yahei"}
+
+/*课程专辑*/
+.banner{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 1.32rem;
+}
+.bannerdiv{
+    width: 100%;
+    height: 4.2rem;
+    background-size:7.5rem auto;
+    -webkit-background-size:7.5rem auto;
+    background-repeat:no-repeat;
+    background-position:center;
+    margin-bottom: 0.24rem;
+    text-align: center;
+    position: relative;
+}
+.bannerdiv .titlebox{
+    position: relative;
+    top: 2.2rem;
+}
+.bannerdiv h3{
+    margin: 0 auto;
+    width:5.56rem ;
+    height: 0.88rem;
+    font-size: 16px;
+    font-weight: inherit;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.bannerdiv span{
+    color: rgb(211,174,77);
+    font-size: 12px;
+    font-weight: inherit;
+}
+.bannerdiv span:before{
+    content: '';
+    display: inline-block;
+    height: 0.32rem;
+    width: 0.32rem;
+    background: url("../img/goldpng.png");
+    background-size: 0.32rem 0.32rem;
+    vertical-align: middle;
+    margin-right: 0.08rem;
+}
+.bannerdiv p{
+    color: rgba(237,237,237,0.7);
+    font-size: 12px;
+    font-weight: inherit;
+}
+.listdiv {
+    padding-left: 0.09rem;
+    padding-bottom: 1.44rem;
+    overflow: hidden;}
+.listdiv li{
+    float: left;
+    width: 3.52rem;
+    height: 6.32rem;
+    margin:0 0.074rem;
+    margin-bottom: 0.26rem;
+}
+.listdiv li:first-child{display: none;}
+.listdiv li .img{
+    height: 4.68rem;
+    background-size: auto 100%;
+    -webkit-background-size: auto 100%;
+    background-repeat:no-repeat;
+    background-position:center;
+    border-radius: 0.08rem;
+}
+.listdiv li h3{
+    margin-top: 0.08rem;
+    max-height: 0.8rem;
+    line-height: 0.4rem;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(47,47,47);
+    overflow: hidden;
+}
+
+.listdiv li p{height: 0.4rem;line-height: 0.4rem;}
+.listdiv li .txtgrey1{
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(130,130,130);
+}
+.listdiv li .txtgrey2{
+    font-size: 10px;
+    font-weight: normal;
+    color: rgb(201,201,201);
+}
+.listdiv li .txtgrey2 b{font-weight: normal;}
+.listdiv li .txt1:before{
+    content: '';
+    display: inline-block;
+    height: 0.4rem;
+    width: 0.4rem;
+    background: url("../img/timewatch.png");
+    background-size: 0.4rem 0.4rem;
+    vertical-align: top;
+    margin-right: 0.08rem;
+}
+.listdiv li .txt2:before{
+    content: '';
+    display: inline-block;
+    height: 0.4rem;
+    width: 0.4rem;
+    background: url("../img/people.png");
+    background-size: 0.4rem 0.4rem;
+    vertical-align: middle;
+    margin-right: 0.08rem;
+}
+.listdiv li .price{
+    margin-left: 0.27rem;
+    color: rgb(211,174,77);
+    font-size: 10px;
+    font-weight: inherit;
+}
+.listdiv li .price:before{
+    content: '';
+    display: inline-block;
+    height: 0.28rem;
+    width: 0.28rem;
+    background: url("../img/goldpng.png");
+    background-size: 0.28rem 0.28rem;
+    margin:0.06rem 0.08rem 0 0 ;
+    vertical-align: top;
+}
+
+/*.footer{*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*width: 100%;*/
+    /*height: 1.2rem;*/
+    /*overflow: hidden;*/
+    /*background: #fff;*/
+/*}*/
+/*.footer img{*/
+    /*float: left;*/
+    /*width: 1.2rem;*/
+    /*height: 1.2rem;*/
+/*}*/
+/*.footer p{*/
+    /*float: left;*/
+    /*margin: 0.24rem 0 0 0.3rem;*/
+    /*width: 3rem;*/
+/*}*/
+/*.footer p span{*/
+    /*display: block;*/
+    /*height: 0.4rem;*/
+    /*line-height: 0.4rem;*/
+/*}*/
+/*.footer p span:first-child{*/
+    /*font-size: 14px;*/
+    /*font-weight: bold;*/
+    /*color: rgb(47,47,47);*/
+/*}*/
+/*.footer p span:last-child{*/
+    /*font-size: 12px;*/
+    /*font-weight: normal;*/
+    /*color: rgb(130,130,130);*/
+/*}*/
+/*.footer a{*/
+    /*float: right;*/
+    /*width: 1.64rem;*/
+    /*height: 0.6rem;*/
+    /*line-height: 0.6rem;*/
+    /*border-radius: 0.28rem;*/
+    /*background: rgb(251,76,76);*/
+    /*font-size: 13px;*/
+    /*font-weight: normal;*/
+    /*text-align: center;*/
+    /*color: #fff;*/
+    /*margin: 0.3rem 0.18rem 0 0;*/
+/*}*/
+
+/*活动专辑*/
+.listbanner{
+    width: 100%;
+    height: 4.2rem;
+    background-size:7.5rem auto;
+    -webkit-background-size:7.5rem auto;
+    background-repeat:no-repeat;
+    background-position:center;
+    margin-bottom: 0.32rem;
+    text-align: center;
+    position: relative;
+}
+.listbanner .titlebox{
+    position: relative;
+    top: 2.62rem;
+}
+.listbanner h3{
+    margin: 0 auto;
+    width:5.56rem ;
+    height: 0.88rem;
+    line-height: 0.44rem;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+.listbanner p{
+    margin-top: 0.04rem;
+    color: rgb(250,250,250);
+    font-size: 12px;
+    font-weight: inherit;
+}

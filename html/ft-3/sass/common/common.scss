@@ -1,0 +1,167 @@
+@import "../common/_functions.scss";
+@import "../common/_variables.scss";
+.clearfix:before,
+.clearfix:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+.hide
+{
+    display: none !important;
+}
+.bottomfix
+{
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+
+    width: 100%;
+    max-width: 750px;
+}
+.h_box
+{
+
+    display:-moz-box; /* Firefox */
+    display:-webkit-box; /* Safari and Chrome */
+    display:box;
+
+    width: 100%;
+}
+.flex_1
+{
+    display:block;
+    -webkit-box-flex: 1;
+            box-flex: 1;
+
+}
+.flex_pjustify
+{
+    justify-content: space-between;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.jd{
+    position: relative;
+    overflow: hidden;
+    &:after{
+        content: "";
+        position: absolute;
+        width: 0.62667rem;
+        height: 0.56rem;
+        background: url(../../img/jdd.jpg) no-repeat;
+        background-size: 0.62667rem 0.56rem;
+        top: 0;
+        left: 0;
+    }
+}
+.t-l{text-align:left;}
+.t-c{text-align: center;}
+.t-r{text-align:right;}
+
+.pr{
+    position: relative;
+}
+.pa{
+    position: absolute;
+}
+
+.dsp-n{
+    display:none;
+}
+ul,li,ol{
+    list-style: none;
+}
+
+
+
+body{
+    background-color:#fff;
+    // font-size:0.5rem;
+    color: $_333;
+    line-height: 1.3;
+    a{
+        color: $_333;
+    }
+}
+
+.c666{
+    color: $_666;
+}
+.c333{
+    color: $_333;
+}
+.c999{
+    color: $_999;
+}
+
+
+.mr-10{
+    margin-right: px2rem(10);
+    display: inline-block;
+}
+.mr-20{
+    margin-right: px2rem(20);
+}
+
+.mb-20{
+    margin-bottom: px2rem(20);
+}
+.ml-218{
+    margin-left: rem(218);
+}
+.pl-20{    
+    padding-left: rem(52);
+}
+.pt-44{
+    padding-top: rem(44);
+}
+.mt-40{
+    margin-top: rem(40);
+}
+.mt-100{
+    margin-top: rem(100);
+}
+
+.btn{
+    width: 100%;
+    height: rem(100);
+    line-height: rem(100);
+    background-color: #d8d8d8;
+    color: #fff;
+    font-size: rem(40);
+    text-align: center;
+    border:none;
+    border-radius: rem(10);
+    outline: none;
+}
+.btn.active{
+    background-color: #009ce1;
+}
+.btn.active-fff{
+    background-color: #fff;
+    border:1px solid #009ce1;
+    color: #009ce1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
