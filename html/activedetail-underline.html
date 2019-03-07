@@ -262,6 +262,7 @@
           $cell.siblings().hide();
           $cell.find('.num').text(data.price);
           break;
+          
         case 'NEW': // 进行中
           if(data.isFree==3){
             var $cell=$('.integral');
@@ -274,6 +275,7 @@
           $cell.siblings().hide();
           $cell.find('.num').text(data.price);
           break;
+          
         case 'FREE': // 免费，相当于可购买的免费活动
           var $cell=$('.free');
           $cell.show();
@@ -284,16 +286,19 @@
           $cell.show();
           $cell.siblings().hide();
           break;
+          
         case 'DBL': // 已取消
           var $cell=$('.end');
           $cell.show();
           $cell.siblings().hide();
           break;
+          
         case 'DON': // 已结束
           var $cell=$('.end');
           $cell.show();
           $cell.siblings().hide();
           break;
+          
         default:
           console.log('no');
       }
