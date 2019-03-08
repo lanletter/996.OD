@@ -57,20 +57,13 @@
       <h4>活动信息</h4>
       <ul>
         <li class="cooks">
-          <div class="cooker">
-            <img src="https://oss.fotilestyle.com/4/ae39bdc7626ec55d3a1955898bae5033.jpg">
-            <div>
-              <span>张歆欣</span>
-              <span>乐味到，为你探索和甄选全球精品食材乐味到</span>
-            </div>
-          </div>
-          <div class="cooker">
-            <img src="https://oss.fotilestyle.com/4/ae39bdc7626ec55d3a1955898bae5033.jpg">
-            <div>
-              <span>张歆欣</span>
-              <span>乐味到，为你探索和甄选全球精品食材乐味到</span>
-            </div>
-          </div>
+          <!--<div class="cooker">-->
+            <!--<img src="https://oss.fotilestyle.com/4/ae39bdc7626ec55d3a1955898bae5033.jpg">-->
+            <!--<div>-->
+              <!--<span>张歆欣</span>-->
+              <!--<span>乐味到，为你探索和甄选全球精品食材乐味到</span>-->
+            <!--</div>-->
+          <!--</div>-->
         </li>
         <li>
           <span class="title">场馆名称</span>
@@ -914,20 +907,18 @@
       });
       
       data.cooks.forEach(function (item, index) {
-        var cooker = $('<section class="author teacher">\
-                    <div class="author__info">\
+        var cooker = $('<div class="cooker">\
                         <span id="id" style="display: none">' + item.id + '</span>\
                         <img src="' + item.picture.path + '">\
-                        <span>\
-                          <b>' + item.cookName + '</b>\
-                          <strong class="text-overflow say">' + item.remark + '</strong>\
-                        </span>\
-                    </div>\
-                </section>');
-        $('.teacher-box').append(cooker);
+                        <div>\
+                           <span>' + item.cookName + '</span>\
+                           <span>' + item.remark + '</span>\
+                        </div>\
+                </div>');
+        $('.cooks').append(cooker);
         
         if (device == "ios" || device == "android") {
-          $(".author__info").on("click", function (event) {
+          $(".cooker").on("click", function (event) {
             var id = $(this).find("#id").text();
             ft.tutorInfo({
               id: id,
@@ -936,15 +927,15 @@
             })
           });
         } else {
-          $(".author__info").on("click", function (event) {
+          $(".cooker").on("click", function (event) {
             var id = $(this).find("#id").text();
             window.location.href = "home-tutor.html?id=" + id;
           });
         }
       });
       if (data.cooks.length == 0) {
-        $(".teacher-box").hide();
-        $(".bgGroup").hide();
+        $(".cooks").hide();
+        // $(".bgGroup").hide();
         // $(".title").css({"margin-bottom": "0.6rem"})
       }
       
