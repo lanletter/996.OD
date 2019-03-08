@@ -199,9 +199,19 @@
     <!--</div>-->
     
     <div class="buy-box">
-      <span class="canbuy">
-          立即购买¥<em>300</em>
-      </span>
+      <div class="status canbuy money">
+        立即报名 ¥
+        <em class="num">2.00</em>
+      </div>
+      <div class="status canbuy free">
+        免费报名
+      </div>
+      <div class="status nobuy end">
+        已截止报名
+      </div>
+      <div class="status nobuy full">
+        名额已满
+      </div>
     </div>
   </div>
   
@@ -498,6 +508,59 @@
       } else {
         $('head title').text(data.title);
       }
+  
+      //按钮状态
+      switch (data.status) {
+        case 'PRE': // 立即报名，相当于可购买的未开始活动
+          var $cell=$('.money');
+          $cell.show();
+          $cell.siblings().hide();
+          $cell.find('.num').text(data.price);
+          break;
+    
+        case 'NEW': // 进行中
+          var $cell=$('.money');
+          $cell.show();
+          $cell.siblings().hide();
+          $cell.find('.num').text(data.price);
+          break;
+    
+        case 'FREE': // 免费，相当于可购买的免费活动
+          var $cell=$('.free');
+          $cell.show();
+          $cell.siblings().hide();
+          break;
+        case 'FULL': // 人数已满
+          var $cell=$('.full');
+          $cell.show();
+          $cell.siblings().hide();
+          break;
+    
+        case 'DBL': // 已取消
+          var $cell=$('.end');
+          $cell.show();
+          $cell.siblings().hide();
+          break;
+    
+        case 'DON': // 已结束
+          var $cell=$('.end');
+          $cell.show();
+          $cell.siblings().hide();
+          break;
+    
+        default:
+          console.log('no');
+      }
+  
+      //点击跳转结算
+      $(".canbuy").on("click", function () {
+        ft.toOrder({
+          type:"course",
+          id:data.id
+        }, function (result) {
+      
+        });
+      });
       
       /*友盟埋点-页面访问*/
       var isuserid;//登录判断

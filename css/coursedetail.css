@@ -1303,8 +1303,7 @@ img{
 	overflow: hidden;
 }
 
-.buy-box span {
-	display: block;
+.buy-box .status {
 	box-sizing: border-box;
 	margin: 0 0.4rem;
 	width:6.70rem;
@@ -1313,13 +1312,18 @@ img{
 	text-align: center;
 	border-radius: 0.08rem;
 	overflow: hidden;
-	/*display: none;*/
 }
 
-.buy-box span.canbuy{
-	display: block;
+.buy-box .canbuy{
 	background:rgba(31,31,31,1);
 	color:#C8AF70 ;
+	font-size: 0.28rem;
+	font-weight: bold;
+}
+
+.buy-box .nobuy{
+	background:rgba(214,214,214,1);
+	color:#ffffff ;
 	font-size: 0.28rem;
 	font-weight: bold;
 }
