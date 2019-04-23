@@ -38,6 +38,7 @@ OD，英文Occupational Disease的缩写
 
 职业病案例
 ---
+[椎间盘脱出](https://maimai.cn/web/gossip_detail?src=app&webid=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1IjozNDAyMzU3MywiaWQiOjIxMzUxNDkyfQ.qPTsPPDo3UBwhCVmvsBtWxrn_ifcGgVIykmiWz7WR74)
 
 猝死案例
 ---
