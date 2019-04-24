@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>用户登录</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/login.css?ver=403">
+    <script>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
+    </script>
+</head>
+<body>
+<img src="../img/logo_gold.png" class="logo">
+<span class="logotxt">账号密码登录</span>
+<ul class="ulstyle">
+    <li class="edit">
+        <img src="../img/loginphone.png">
+        <input placeholder="手机号" id="phonenum" maxlength="11"/>
+        <img src="../img/loginx.png" id="delete1" style="display: none;">
+    </li>
+    <li class="edit">
+        <img src="../img/loginpwd.png">
+        <input type="password" placeholder="密码" id="password" maxlength="20"/>
+        <img src="../img/loginx.png" id="delete2" style="display: none;">
+    </li>
+    <li>
+        <a href="#" class="loginbtn" style="margin-top: 1rem;">登录</a>
+    </li>
+    <li class="txtbtn">
+        <a id="findpwd">忘记密码？</a>
+    </li>
+</ul>
+<ul class="otherlogins">
+    <div class="title">
+        <span>其他方式登录</span>
+    </div>
+    <li><img src="../img/login-wx.png" id="loginwx"></li>
+</ul>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/jsencrypt.min.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+<script>
+    /*获取url*/
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
+    //  alert(h5url);
+
+    /*输入框选中效果*/
+    $(document).ready(function () {
+        $("#phonenum").focus(function () {
+            $("#delete1").css("display", "block");
+            $("#delete1").click(function () {
+                $("#phonenum").val("");
+                $("#delete1").css("display", "none");
+            });
+            $("#phonenum").keyup(function () {
+                var tmptxt = $(this).val();
+                $(this).val(tmptxt.replace(/\D|^0/g, ''));
+            }).bind("paste", function () {
+                var tmptxt = $(this).val();
+                $(this).val(tmptxt.replace(/\D|^0/g, ''));
+            }).css("ime-mode", "disabled");
+        });
+        $("#phonenum").blur(function () {
+            if ($("#phonenum").val() == "") {
+                $("#delete1").css("display", "none");
+            }
+        });
+        $("#password").focus(function () {
+            $("#delete2").css("display", "block");
+            $("#delete2").click(function () {
+                $("#password").val("");
+                $("#delete2").css("display", "none");
+            });
+        });
+        $("#password").blur(function () {
+            if ($("#password").val() == "") {
+                $("#delete2").css("display", "none");
+            }
+        });
+    });
+    $(".loginbtn").click(function () {
+        if (!loginInputValid()) return;
+        loginServer();
+    });
+
+    function loginInputValid() {
+        var phone = document.getElementById('phonenum').value;
+        var password = document.getElementById('password').value;
+        if (!(/^1[0-9]{10}$/.test(phone))) {
+            alert('手机号码输入有误，请重新输入');
+            document.getElementById("phonenum").value = "";
+            $("#delete1").css("display", "none");
+            return false;
+        }
+        if (!(/^.{6,20}$/.test(password))) {
+            alert('密码输入有误，请重新输入');
+            document.getElementById("password").value = "";
+            $("#delete2").css("display", "none");
+            return false;
+        }
+        return true;
+    }
+
+    function loginServer() {
+        /*使用加密*/
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
+        var passwordkey = encrypt.encrypt($("#password").val());
+        console.log(passwordkey);
+//      alert(JSON.stringify({
+//          accountName: $("#phonenum").val(),
+//          passwordold: $("#password").val(),
+//          password: passwordkey,
+//          resource: "web",
+//          corp_id: "1007d4b036464a00"
+//      }));
+        $.ajax({
+            type: 'POST',
+            url: urlport + "user/login/v421",
+            datatype: "json",
+            headers: {
+                version: 'v432'
+            },
+            data: JSON.stringify({
+                accountName: $("#phonenum").val(),
+                password: passwordkey,
+                resource: "web",
+                corp_id: "1007d4b036464a00"
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (obj) {
+                console.log(obj);
+//              alert(JSON.stringify(obj));
+                if (obj.status == 200) {
+                    var userid = obj.data.userInfomation.userId;
+                    var token = obj.data.token;
+                    $.cookie('token', token);
+                    $.cookie('userid', userid);
+                    $.cookie('phonenum', $("#phonenum").val());
+                    window.location.href = h5url;
+                } else if (obj.status == 525) {
+                    alert("用户名或密码错误");
+                } else if (obj.resultCode == "2002") {
+                    alert("用户名或密码错误");
+                } else {
+                    $api.toast('网络错误，请稍后再试!', 2000);
+                }
+            }
+        });
+    }
+
+    $("#signin").click(function () {
+        var buyurl = "signin.html";
+        window.location.href = buyurl;
+    });
+    $("#findpwd").click(function () {
+        var buyurl = "findpwd.html";
+        window.location.href = buyurl;
+    });
+
+    $("#loginwx").click(function () {
+        // var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+     var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+        window.location.href = loginwx;
+    })
+
+</script>
+</html>

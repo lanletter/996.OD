@@ -1,0 +1,206 @@
+body {
+    background: #fff;
+    font-family: "PingFang SC";
+    overflow: hidden;
+}
+
+.divbreak {
+    background: rgb(237, 237, 237);
+    height: 6px;
+    width: 100%;
+}
+
+.ulstyle {
+    margin: 0.56rem auto;
+    width: 6.54rem;
+}
+.ulstyle li{
+    position: relative;
+}
+
+.txtbig {
+    margin-top: 0.4rem;
+    font-size: 16px;
+    color: rgb(47, 47, 47);
+    height: 0.5rem;
+    line-height: 0.5rem;
+}
+
+.txtsmall {
+    font-size: 10px;
+    font-weight: normal;
+    color: rgb(130, 130, 130);
+    height: 0.5rem;
+    line-height: 0.5rem;
+}
+
+.ulstyle input{border: none;background: none;}
+.ulstyle input::-webkit-input-placeholder {
+    color: rgb(154, 154, 154);
+    font-size: 0.24rem;
+    font-weight: normal;
+}
+
+.ulstyle input:-moz-placeholder {
+    color: rgb(154, 154, 154);
+    font-size: 0.24rem;
+    font-weight: normal;
+}
+
+.ulstyle input::-moz-placeholder {
+    color: rgb(154, 154, 154);
+    font-size: 0.24rem;
+    font-weight: normal;
+}
+
+.ulstyle input:-ms-input-placeholder {
+    color: rgb(154, 154, 154);
+    font-size: 0.24rem;
+    font-weight: normal;
+}
+
+.edit {
+    border-bottom: 1px solid rgb(232,212,199);
+    margin-top: 0.18rem;
+    margin-bottom: 0.4rem;
+    padding-bottom: 0.22rem;
+}
+.bdred {
+    border-bottom: 1px solid rgb(255, 101, 101)!important;
+}
+.edit input {
+    width: 6.26rem;
+    font-size: 0.48rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    color: rgb(31, 31, 31);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.edit img {
+    background: #eee;
+    float: right;
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-top: 0.15rem;
+}
+
+.editshort {
+    border-bottom: 1px solid rgb(201, 203, 213);
+    margin-top: 0.14rem;
+    padding-bottom: 0.14rem;
+    width: 4.5rem;
+}
+
+.editshort input {
+    font-size: 0.48rem;
+    height: 0.66rem;
+    line-height: 0.66rem;
+    color: rgb(31, 31, 31);
+    font-weight: bold;
+}
+
+.editshort img {
+    background: #eee;
+    float: right;
+    width: 0.32rem;
+    height: 0.32rem;
+    margin-top: 0.15rem;
+}
+
+.nextbtn {
+    display: block;
+    margin-top: 0.82rem;
+    background-color: rgb(0, 0, 0);
+    border-radius: 0.08rem;
+    width: 100%;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: "PingFang SC";
+    font-weight: bold;
+    font-size: 0.28rem;
+    color:rgb(200,175,112);
+}
+
+.codebtn {
+    display: inline-block;
+    float: right;
+    width: 2.16rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    margin-top: -0.9rem;
+    border-radius: 0.08rem;
+}
+
+.codebtn button {
+    width: 2.16rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    border-radius: 0.08rem;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+#verifycode{
+    float: right;
+    width: 1.94rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    border-radius: 0.08rem;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    font-size: 0.24rem;
+}
+
+.yellowbg {
+    background-color: rgb(245, 166, 35);
+}
+
+.greenbg {
+    background-color: rgb(21,146,74);
+}
+
+.greybg {
+    background-color: rgb(203, 203, 203);
+}
+
+.explain {
+    margin-top: 0.4rem;
+    margin-bottom: 0.22rem;
+    font-weight: 200;
+}
+
+.explain p:first-child {
+    font-size: 16px;
+    color: rgb(47, 47, 47);
+}
+
+.explain p:last-child {
+    font-size: 12px;
+    color: rgb(130, 130, 130);
+    height: 0.5rem;
+    line-height: 0.5rem;
+}
+.warn{
+    position: absolute;
+    top: -0.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    color: rgb(255,101,101);
+    font-size: 10px;
+    font-weight: lighter;
+}
+.warn2{
+    position: absolute;
+    bottom: -0.5rem;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    color: rgb(255,101,101);
+    font-size: 10px;
+    font-weight: lighter;
+}

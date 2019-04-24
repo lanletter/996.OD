@@ -1,0 +1,80 @@
+// 白色
+$_fff    : #fff;
+$_fafbfc : #fafbfc;
+
+// 蓝色
+$_03a9f4 : #03a9f4;
+$_0093ff : #0093ff;
+$_0592d2 : #0592D2;
+$_478bd2 : #478bd2;
+$_0093ff : #0093ff;
+
+// 橙色
+$_f96301 : #f96301;
+$_ee898d : #ee898d;
+$_orange : #f39800;
+
+// 绿色
+$_1fe13a : #1fe13a;
+
+// 红色
+$_fe3033 : #fe3033;
+$_f62b3f : #f62b3f;
+$_e51c23 : #e51c23;
+$_e51d23 : #e51d23;
+$_e60012 : #e60012;
+$_ed888c : #ed888c;
+$_f3dfe0 : #F3DFE0;
+$_ff00a6 : #ff00a6;
+
+// 灰色
+$_666    : #666;
+$_999    : #999;
+$_ccc    : #ccc;
+$_eee    : #eee;
+$_ddd    : #ddd;
+$_f5f5f5 : #f5f5f5;
+$_c8c8cc : #c8c8cc;
+$_cfcfcf : #cfcfcf;
+$_e5e7ea : #e5e7ea;
+$_e3e5e9 : #e3e5e9;
+$_cbcbcb : #CBCBCB;
+$_9fa1a5 : #9FA1A5;
+
+// 黑色
+$_111    : #111;
+$_333    : #333;
+$_000    : #000;
+$_313131 : #313131;
+$_404042 : #404042;
+
+// 混合宏
+@mixin bcgColor($color) {
+	background-color: $color;
+}
+@mixin bcgIColor($color) {
+	background-color: $color !important;
+}
+@mixin clrColor($color) {
+	color: $color;
+}
+@mixin clrIColor($color) {
+	color: $color !important;
+}
+
+
+$blue:#03a9f4;
+$red:#e51c23;
+$cfff:#ffffff;
+$c333:#333333;
+$c666:#666666;
+$c999:#999999;
+$cCCC:#cccccc;
+$dividers:#c8c8cc;
+
+//Font
+$sans-serif: PingFangSC-Regular,'Helvetica Neue', Helvetica, Rotobo;
+$font-family: $sans-serif;
+
+//Other
+$border: 1px solid $_c8c8cc;

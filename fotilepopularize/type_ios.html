@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <!-- 不要让设备识别电话号码和邮箱地址-->
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" id="viewport"
+          name="viewport">
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <link rel="stylesheet" href="css/poppage.css?ver=403">
+    <link rel="stylesheet" href="css/common/common.css?ver=403">
+    <title>方太生活家</title>
+    <script>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
+        gio('send');
+    </script>
+</head>
+<body>
+<!--<header id="top">-->
+    <!--<a id="btn1" onclick="javascript:window.location.href='http://a.app.qq.com/o/simple.jsp?pkgname=com.fq.android.fangtai'"></a>-->
+<!--</header>-->
+<main id="content">
+    <div class="con_pic">
+        <a id="btn1" onclick="shop()"></a>
+        <img src="img/1@3x.png">
+    </div>
+    <div class="con_pic">
+        <!--<div id="videobox">-->
+            <!--<video id="video" src="mp4/iphonex_final.mp4" autoplay="autoplay" loop="loop" webkit-playsinline playsinline x5-video-player-type='h5' x5-video-player-fullscreen='true'></video>-->
+        <!--</div>-->
+        <img src="img/2@3x.png">
+    </div>
+    <div class="con_pic">
+        <img src="img/3@3x.png">
+    </div>
+    <div class="con_pic">
+        <img src="img/4@3x.png">
+    </div>
+    <div class="con_pic">
+        <img src="img/5@3x.png">
+    </div>
+    <div class="con_pic">
+        <a id="btn2" onclick="shop()"></a>
+        <img src="img/6@3x.png">
+    </div>
+</main>
+
+</body>
+<script src="js/lib.js"></script>
+<!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>-->
+<script>
+    // document.getElementById("video").play();
+    // document.addEventListener("WeixinJSBridgeReady", function () {
+    //     document.getElementById("video").play();
+    // }, false);
+
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    // alert('是否是Android：'+isAndroid);
+    // alert('是否是iOS：'+isiOS);
+    function shop(){
+        if(isiOS==true){
+            window.location.href="https://itunes.apple.com/cn/app/fang-tai-sheng-huo-jia-mei/id935598547?mt=8"
+        }
+        if(isAndroid==true){
+            window.location.href="http://downapp.fotilestyle.com/ftyy/fotilestyle.apk"
+        }
+    }
+</script>
+</html>

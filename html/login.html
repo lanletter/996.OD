@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>用户登录</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/login.css?ver=403">
+    <script>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
+    </script>
+</head>
+<body>
+<img src="../img/logo_gold.png" class="logo">
+<span class="logotxt">快速登录</span>
+<ul class="ulstyle">
+    <li class="edit">
+        <img src="../img/loginphone.png">
+        <input placeholder="输入手机号码" id="phonenum" maxlength="11"/>
+    </li>
+    <li class="edit">
+        <img src="../img/loginpwd.png">
+        <input placeholder="输入短信验证码" id="codenum" maxlength="6" style="width: 3rem;"/>
+        <button class="greenbg" id="verifycode">获取验证码</button>
+    </li>
+    <li>
+        <p class="txt">如果该手机号没有注册将会自动完成注册</p>
+        <a href="#" class="loginbtn">登录</a>
+    </li>
+    <li class="txtbtn">
+        <a id="login2">账号密码登录</a>
+    </li>
+</ul>
+<ul class="otherlogins">
+    <div class="title">
+        <span>其他方式登录</span>
+    </div>
+    <li><img src="../img/login-wx.png" id="loginwx"></li>
+</ul>
+<span id="isRegister" style="display: none"></span>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/ajaxsetup.js'></script>
+<script>
+    /*获取url*/
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    var id = $.cookie('id');
+    $.cookie('id', id);
+    //  alert(h5url);
+
+    /*获取验证码*/
+    $("#verifycode").click(function () {
+        /*倒计时60s*/
+        function invokeSettime(obj) {
+            var countdown = 60;
+            settime(obj);
+
+            function settime(obj) {
+                if (countdown == 0) {
+                    $(obj).attr("disabled", false);
+                    $(obj).text("获取验证码");
+                    $(obj).addClass("yellowbg");
+                    $(obj).removeClass("greybg");
+                    countdown = 60;
+                    return;
+                } else {
+                    $(obj).attr("disabled", true);
+                    $(obj).text("(" + countdown + ") s 重新发送");
+                    $(obj).addClass("greybg");
+                    $(obj).removeClass("yellowbg");
+                    countdown--;
+                }
+                setTimeout(function () {
+                    settime(obj)
+                }, 1000)
+            }
+        }
+
+        new invokeSettime("#verifycode");
+
+        $.ajax({
+            type: 'POST',
+            url: urlport + 'user/getVerificationCode',
+            datatype: "json",
+            data: JSON.stringify({
+                phone: $("#phonenum").val(),
+                type: 6
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+                // alert(JSON.stringify(ret));
+                console.log(ret);
+                if (ret.status !== 200) {
+                    alert(ret.errorMessage);
+                }
+                $("#isRegister").text(ret.data.isRegister);
+
+            }
+        });
+    });
+
+    $(".loginbtn").click(function () {
+        var isRegister = $("#isRegister").text();
+        if (isRegister == "true") {
+            loginServer();
+        } else {
+            loginServer();
+            $.cookie('phonenum', $("#phonenum").val());
+            $.cookie('codenum', $("#codenum").val());
+            window.location.href = "servicetext-new.html";
+        }
+    });
+
+    function loginServer() {
+        // alert(JSON.stringify({
+        //     accountName: $("#phonenum").val(),
+        //     verificationCode: $("#codenum").val(),
+        //     resource: "web"
+        // }));
+        $.ajax({
+            type: 'POST',
+            // url: "https://h5.fotilestyle.com/AccountProxytest/v2/user_auth",
+            url: urlport + "user/LoginBySmsCode",
+            datatype: "json",
+            data: JSON.stringify({
+                accountName: $("#phonenum").val(),
+                verificationCode: $("#codenum").val(),
+                resource: "web"
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (obj) {
+                console.log(obj);
+//              alert(JSON.stringify(obj));
+                /*string转json*/
+                // var obj = eval('(' + ret + ')');
+                if (obj.status == 200) {
+//                  $api.toast('登录成功', 2000);
+                    var phonenum = obj.data.accountName;
+                    var userid = obj.data.userInfomation.userId;
+                    var token = obj.data.token;
+                    $.cookie('token', token);
+                    $.cookie('userid', userid);
+                    $.cookie('phonenum', $("#phonenum").val());
+                    window.location.href = h5url;
+                } else {
+                    alert(obj.errorMessage);
+                }
+            }
+        });
+    }
+
+    $("#login2").click(function () {
+        var buyurl = "login2.html";
+        window.location.href = buyurl;
+    });
+
+    $("#loginwx").click(function () {
+        // var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/fotilestyle-test/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+        var loginwx = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2dae981699450aec&redirect_uri=https://h5.fotilestyle.com/html/login-wx.html?id=978&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+        window.location.href = loginwx;
+    })
+
+</script>
+</html>

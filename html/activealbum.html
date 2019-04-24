@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>活动专辑</title>
+    <meta charset="utf-8">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/albums.css?ver=403">
+    <script>
+        !function (e, t, n, g, i) {
+            e[i] = e[i] || function () {
+                (e[i].q = e[i].q || []).push(arguments)
+            }, n = t.createElement("script"), tag = t.getElementsByTagName("script")[0], n.async = 1, n.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + g, tag.parentNode.insertBefore(n, tag)
+        }(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+        gio('init', '80624a28abff7348', {});
+    </script>
+</head>
+
+<body>
+<ul class="banner">
+    <li v-for="item in data.products" @click="jump(item.activity.id)" class="listbanner"
+        :style="{backgroundImage: 'url(' +item.activity.picture.path+ ')'}">
+        <img class="overimg" src="../img/Overlay Copy 2.png">
+        <div class="titlebox">
+            <h3 v-text="item.activity.title">三明治特辑：浓情加州虎虾云朵三明治三明智明智</h3>
+            <p>{{format(item.activity.startDate,item.activity.endDate).toLocaleString()}}</p>
+        </div>
+    </li>
+</ul>
+
+<div class="footer" style="display: none;">
+    <img src="../img/logo_gold2.png">
+    <p>
+        <span>方太生活家</span>
+        <span>分享生活味道</span>
+    </p>
+    <span id="jump" class="deeplikopen">打开</span>
+    <span id="download">下载</span>
+</div>
+
+<script src="../js/lib.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-resource1.3.4.js"></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script src="../js/ft.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src='../js/deeplink.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+
+<script type="text/javascript">
+    /*获取url*/
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var id = GetQueryString("id");
+    var device = GetQueryString("device");
+    if (device == null || device == "null") {
+        $(".footer").show();
+    } else {
+        $(".footer").hide();
+    }
+
+    var vm = new Vue({
+            el: '.banner',
+            data: {
+                data: {}
+            },
+            created: function () {
+                var $this = this;
+                $.ajax({
+                    url: urlport + 'special/detail',
+                    type: 'POST',
+                    data: JSON.stringify({"id": id}),
+                    timeout: 5000, //超时时间
+                    contentType: "application/json;charset=utf-8",
+                    dataType: 'json', //返回的数据格式
+                    success: function (data) {
+                        console.log(data);
+                        callback(data);
+                    },
+                    error: function (errorMsg) {
+                        console.log('错误');
+                        console.log(errorMsg);
+                    }
+                });
+
+                function callback(res) {
+                    var data = res;
+                    // console.log(data);
+                    if (data.status == 200) {
+                        $this.data = data.data;
+                        id = $this.data.id;
+                        console.log($this.data);
+                    }
+                    document.setTitle = function (t) {
+                        document.title = t;
+                        var i = document.createElement('iframe');
+                        i.style.display = 'none';
+                        i.onload = function () {
+                            setTimeout(function () {
+                                i.remove();
+                            })
+                        };
+                        document.body.appendChild(i);
+                    };
+                    setTimeout(function () {
+                        document.setTitle($this.data.title);
+                    });
+
+                    /*分享链接专用*/
+                    var sharetitle = $this.data.title;
+                    var sharedesc = $this.data.desc;
+                    var shareimg = $this.data.picture.path;
+                    var sharestr = window.location.href;
+                    var sharelink = sharestr.replace(/api/, "h5");
+                    var jsoninfo = {
+                        id: $this.data.id,
+                        type: 7,
+                        "sharetitle": sharetitle,
+                        "sharedesc": sharedesc,
+                        "shareimg": shareimg,
+                        "sharelink": sharelink
+                    };
+                    window.setTimeout(function () {
+                        console.info(jsoninfo);
+                        /*APP分享专用*/
+                        if (device == null || device == "null") {
+                            console.log("不是APP打开");
+                        } else {
+                            ft.shareInfo(jsoninfo, function (result) {
+
+                            });
+                        }
+                    }, 2000);
+
+                    /*微信分享专用*/
+                    $.ajax({
+                        type: 'GET',
+                        url: urlport + 'wx/wxConfig.json?url=' + encodeURIComponent(window.location.href.split('#')[0]),
+                        success: function (data) {
+                            console.info(data.appId);
+                            wx.config({
+                                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                appId: data.appId, // 必填，公众号的唯一标识
+                                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                                signature: data.signature,
+                                jsApiList: [
+                                    "onMenuShareTimeline",
+                                    "onMenuShareAppMessage",
+                                    "onMenuShareQQ",
+                                    "onMenuShareWeibo",
+                                    "onMenuShareQZone"
+                                ]
+                            });
+                            wx.ready(function () {
+                                //分享给朋友圈
+                                wx.onMenuShareTimeline({
+                                    title: sharetitle, // 分享标题
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                                //分享给朋友
+                                wx.onMenuShareAppMessage({
+                                    title: sharetitle, // 分享标题
+                                    desc: sharedesc, // 分享描述
+                                    link: sharelink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                    imgUrl: shareimg, // 分享图标
+                                    type: '', // 分享类型,music、video或link，不填默认为link
+                                    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                    success: function () {
+                                        // 用户确认分享后执行的回调函数
+                                    },
+                                    cancel: function () {
+                                        // 用户取消分享后执行的回调函数
+                                    }
+                                });
+                            });
+                        },
+                        error: function (xhr, type) {
+                            //alert(111);
+                        }
+                    })
+
+                }
+
+            },
+            methods: {
+                addnum: function (m) {
+                    return m < 10 ? '0' + m : m
+                }
+                ,
+                format: function (starttime, endtime) {
+                    var $this = this;
+                    var time1 = new Date(starttime);
+                    var month1 = time1.getMonth() + 1;
+                    var date1 = time1.getDate();
+                    var hour1 = time1.getHours();
+                    var minute1 = time1.getMinutes();
+                    var time2 = new Date(endtime);
+                    var month2 = time2.getMonth() + 1;
+                    var date2 = time2.getDate();
+                    var hour2 = time2.getHours();
+                    var minute2 = time2.getMinutes();
+                    if (month1 == month2 && date1 == date2) {
+                        return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
+                            + '-' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
+                    } else {
+                        return $this.addnum(month1) + '月' + $this.addnum(date1) + '日' + '  ' + $this.addnum(hour1) + ':' + $this.addnum(minute1)
+                            + '-' + $this.addnum(month2) + '月' + $this.addnum(date2) + '日' + $this.addnum(hour2) + ':' + $this.addnum(minute2);
+                    }
+                }
+                ,
+                jump: function (id) {
+                    curriculumurl = "activedetail.html?id=" + id + "&device=" + device + "&jump=jump";
+                    window.location.href = curriculumurl;
+                }
+            }
+        })
+    ;
+
+
+</script>
+</body>
+
+</html>

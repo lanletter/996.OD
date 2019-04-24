@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+    <meta charset="utf-8">
+    <!-- 这是个iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览；-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- 全屏显示-->
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name='viewport'
+          content='width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no,minimum-scale=1.0'>
+    <!-- DNS预解析-->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+    <script src="../js/tingyun-rum.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/common.css?ver=403">
+    <link rel="stylesheet" type="text/css" href="../css/findpwd.css?ver=403">
+</head>
+<body>
+<ul class="ulstyle">
+    <li class="edit">
+        <input type="text" placeholder="输入手机号码" maxlength="11" id="phonenum"/>
+    </li>
+    <li class="edit">
+        <input type="text" placeholder="输入短信验证码" maxlength="6" id="codenum" style="width:3.13rem"/>
+        <button class="greenbg" id="verifycode">获取验证码</button>
+    </li>
+    <li class="edit">
+        <input type="password" placeholder="输入新的密码" id="newpwd"/>
+    </li>
+    <li>
+        <span class="nextbtn" id="nextbtn">确认</span>
+    </li>
+</ul>
+</body>
+<script type="text/javascript" src='../js/lib.js'></script>
+<script type="text/javascript" src='../js/api.js'></script>
+<script type="text/javascript" src='../js/url.js'></script>
+<script type="text/javascript" src='../js/jquery.cookie.js'></script>
+<script type="text/javascript" src='../js/jsencrypt.min.js'></script>
+<script type="text/javascript" src="../js/ajaxsetup.js"></script>
+<script>
+    /*获取url*/
+    var h5url = $.cookie('h5url');
+    $.cookie('h5url', h5url);
+    //  alert(h5url);
+
+    /*获取验证码*/
+    $("#verifycode").click(function () {
+        /*倒计时60s*/
+        function invokeSettime(obj) {
+            var countdown = 60;
+            settime(obj);
+
+            function settime(obj) {
+                if (countdown == 0) {
+                    $(obj).attr("disabled", false);
+                    $(obj).text("获取验证码");
+                    $(obj).addClass("yellowbg");
+                    $(obj).removeClass("greybg");
+                    countdown = 60;
+                    return;
+                } else {
+                    $(obj).attr("disabled", true);
+                    $(obj).text("(" + countdown + ") s 重新发送");
+                    $(obj).addClass("greybg");
+                    $(obj).removeClass("yellowbg");
+                    countdown--;
+                }
+                setTimeout(function () {
+                    settime(obj)
+                }, 1000)
+            }
+        }
+
+        new invokeSettime("#verifycode");
+
+        $.ajax({
+            type: 'POST',
+            url: urlport + 'user/getVerificationCode',
+            datatype: "json",
+            data: JSON.stringify({
+                phone: $("#phonenum").val(),
+                type: 3
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+//              alert(JSON.stringify(ret));
+                console.log(ret);
+                if (ret.status !== 200) {
+                    alert(ret.errorMessage);
+                }
+            }
+        });
+    });
+
+    /*提交*/
+    $("#nextbtn").click(function () {
+        /*使用加密*/
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCWeeRf2oYrE4DX0op0MHTIrOF1sfTQ84W3UptSMEXfgf4VLogeaFJt+fqnZfwv39kz/BzekGDyjvfezHU5jIXu4NdNPct0NOBck3ib7SIsKRqyF/4Gv1EyP1uMCQexGIHoXJaLGX3OWtCb/PItcxDv7QXaSVcEove2DyO+VxiGpQIDAQAB");
+        var passwordkey = encrypt.encrypt($("#newpwd").val());
+        console.log(passwordkey);
+//      alert(JSON.stringify({
+//          accountName: $("#phonenum").val(),
+//          password: passwordkey,
+//          verificationCode: $("#codenum").val()
+//      }));
+        $.ajax({
+            type: 'POST',
+            url: urlport + 'user/forgetPassword/v421',
+            datatype: "json",
+            headers: {
+                version: 'v432'
+            },
+            data: JSON.stringify({
+                accountName: $("#phonenum").val(),
+                password: passwordkey,
+                verificationCode: $("#codenum").val()
+            }),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (ret) {
+                // alert(JSON.stringify(ret));
+                if (ret.status == "200") {
+                    $api.toast('密码修改成功', 2000);
+                    var buyurl = "login.html";
+                    // alert(buyurl);
+                    window.location.href = buyurl;
+                } else {
+                    alert(ret.errorMessage);
+                }
+            }
+        });
+    });
+
+</script>
+</html>

@@ -1,0 +1,249 @@
+body {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    font-family: "PingFang SC";
+    overflow: hidden;
+}
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 2.22rem;
+    height: 0.916rem;
+    margin-top: 0.78rem;
+}
+.logotxt{
+    display: block;
+    margin: 0 auto;
+    width: 1.68rem;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    font-size: 0.28rem;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(31,31,31);
+    margin-top: 0.62rem;
+}
+/*.backto{*/
+    /*font-size: 14px;*/
+    /*color: #fff;*/
+    /*position: absolute;*/
+    /*top: 0.48rem;*/
+    /*left: 0.1rem;*/
+    /*font-weight: 200;*/
+/*}*/
+/*.backto::before{*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*width: 0.48rem;*/
+    /*height: 0.48rem;*/
+    /*background: url(../img/backto.png);*/
+    /*background-size: 0.48rem 0.48rem;*/
+    /*vertical-align: middle;*/
+    /*margin-right: 0.04rem;*/
+/*}*/
+.ulstyle {
+    margin: 0 auto;
+    margin-top: 0.65rem;
+    width: 6.42rem;
+}
+.ulstyle li{overflow: hidden;position: relative;}
+.ulstyle li .txt{
+    margin-top: 1.34rem;
+    margin-bottom: 0.16rem;
+    font-size: 0.24rem;
+    color: rgb(102,102,102);
+    text-align: center;
+}
+.ulstyle .edit {
+    margin-top: 0.54rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid rgb(232,212,199);
+    width: 100%;
+    position: relative;
+}
+.ulstyle .edit img:last-child{position: absolute;right:0;margin-top: -0.5rem;}
+.ulstyle img {
+    width: 0.48rem;
+    height: 0.48rem;
+    color: #fff;
+}
+.ulstyle .txtbtn{
+    margin-top: 0.16rem;
+}
+.ulstyle .txtbtn a {
+    color: rgb(200,175,112);
+    font-weight: 200;
+    font-size: 0.24rem;
+}
+
+.ulstyle input {
+    width: 6.54rem;
+    background: none;
+    border: none;
+    color: rgb(31,31,31);
+    font-weight: bold;
+    font-size: 0.48rem;
+    letter-spacing: 2px;
+    float: left;
+}
+.ulstyle input::-webkit-input-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.ulstyle input:-moz-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.ulstyle input::-moz-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.ulstyle input:-ms-input-placeholder { color:rgb(154,154,154);font-size: 0.24rem;font-weight: normal;}
+.loginbtn {
+    display: block;
+    background-color: #000;
+    border-radius: 0.08rem;
+    width: 6.42rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: "PingFang SC";
+    font-weight: normal;
+    font-size: 0.28rem;
+    color: rgb(200,175,112);
+}
+.loginbtn:link {color: rgb(200,175,112);}
+.loginbtn:visited {color: rgb(200,175,112);}
+.loginbtn:hover {color: rgb(200,175,112);}
+.loginbtn:active {color: rgb(200,175,112);}
+
+/*注册*/
+.ulstyle2 {
+    margin: 0 auto;
+    margin-top: 1.86rem;
+    width: 6.42rem;
+    background: #ccc;
+}
+.ulstyle2 li{overflow: hidden;}
+.ulstyle2 .edit {
+    margin-top: 0.54rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid #fff;
+    width: 100%;
+}
+.ulstyle2 .edit img:last-child{float: right;}
+.ulstyle2 .edit2 {
+    margin-top: 0.54rem;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid #fff;
+    width: 60%;
+}
+.ulstyle2 .edit2 img:last-child{float: right;}
+.ulstyle2 img {
+    width: 0.48rem;
+    height: 0.48rem;
+    color: #fff;
+}
+.ulstyle2 .txt{
+    margin-top: 0.16rem;
+    color: #fff;
+    font-size: 12px;
+    font-weight: lighter;
+}
+.ulstyle2 .txt a {
+    color: #fff;
+    text-decoration: underline!important;
+}
+.ulstyle2 input {
+    width: 5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-weight: lighter;
+    font-size: 14px;
+}
+.ulstyle2 input::-webkit-input-placeholder { color:rgba(255,255,255,0.75)}
+.ulstyle2 input:-moz-placeholder { color:rgba(255,255,255,0.75)}
+.ulstyle2 input::-moz-placeholder { color:rgba(255,255,255,0.75)}
+.ulstyle2 input:-ms-input-placeholder { color:rgba(255,255,255,0.75)}
+.codebtn{
+    display: inline-block;
+    float: right;
+    width: 2.16rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    margin-top: -0.9rem;
+    border-radius: 0.08rem;
+}
+.codebtn button{
+    width: 2.16rem;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    border-radius: 0.08rem;
+    color: rgb(247,247,247);
+    text-align: center;
+    font-weight: lighter;
+    font-size: 12px;
+}
+.yellowbg{background-color: rgb(245,166,35);}
+.greybg{background-color: rgb(203,203,203);}
+.ulstyle2 .explain{
+    margin-top: 0.74rem;
+    color: #fff;
+    font-weight: lighter;
+}
+.ulstyle2 .explain p:first-child{font-size: 16px;}
+.ulstyle2 .explain p:last-child{font-size: 12px;}
+
+/*三方登录*/
+.otherlogins{
+    margin-top: 0.8rem;
+    text-align: center;
+}
+.otherlogins .title{
+    display: block;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    margin-bottom: 0.36rem;
+    text-align: center;
+}
+.otherlogins .title div:first-child{float: left;margin-left: 1.42rem;}
+.otherlogins .title div:last-child{float: right;margin-right: 1.42rem;}
+.otherlogins .title div{
+    width: 1.33rem;
+    height: 1px;
+    border-top: 2px solid #fff;
+    background: #000;
+    margin-top: 0.15rem;
+}
+.otherlogins .title span{
+    display: inline-block;
+    color: rgb(154,154,154)!important;
+    font-size: 0.24rem!important;
+}
+.otherlogins li{
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+.otherlogins li img{
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+/*获取验证码*/
+#verifycode{
+    float: right;
+    width: 1.94rem;
+    height: 0.72rem;
+    line-height: 0.72rem;
+    border-radius: 0.08rem;
+    color: rgb(247, 247, 247);
+    text-align: center;
+    font-size: 0.24rem;
+}
+.yellowbg {
+    background-color: rgb(245, 166, 35);
+}
+
+.greenbg {
+    background-color: rgb(21,146,74);
+}
+
+.greybg {
+    background-color: rgb(203, 203, 203);
+}

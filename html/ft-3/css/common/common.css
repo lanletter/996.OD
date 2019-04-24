@@ -1,0 +1,135 @@
+.clearfix:before,
+.clearfix:after {
+  display: block;
+  clear: both;
+  content: ''; }
+
+.hide {
+  display: none !important; }
+
+.bottomfix {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  width: 100%;
+  max-width: 750px; }
+
+.h_box {
+  display: -moz-box;
+  /* Firefox */
+  display: -webkit-box;
+  /* Safari and Chrome */
+  display: box;
+  width: 100%; }
+
+.flex_1 {
+  display: block;
+  -webkit-box-flex: 1;
+  box-flex: 1; }
+
+.flex_pjustify {
+  -webkit-box-pack: justify;
+          justify-content: space-between; }
+
+.fl {
+  float: left; }
+
+.fr {
+  float: right; }
+
+.jd {
+  position: relative;
+  overflow: hidden; }
+  .jd:after {
+    content: "";
+    position: absolute;
+    width: 0.62667rem;
+    height: 0.56rem;
+    background: url(../../img/jdd.jpg) no-repeat;
+    background-size: 0.62667rem 0.56rem;
+    top: 0;
+    left: 0; }
+
+.t-l {
+  text-align: left; }
+
+.t-c {
+  text-align: center; }
+
+.t-r {
+  text-align: right; }
+
+.pr {
+  position: relative; }
+
+.pa {
+  position: absolute; }
+
+.dsp-n {
+  display: none; }
+
+ul, li, ol {
+  list-style: none; }
+
+body {
+  background-color: #fff;
+  color: #333;
+  line-height: 1.3; }
+  body a {
+    color: #333; }
+
+.c666 {
+  color: #666; }
+
+.c333 {
+  color: #333; }
+
+.c999 {
+  color: #999; }
+
+.mr-10 {
+  margin-right: 0.13333rem;
+  display: inline-block; }
+
+.mr-20 {
+  margin-right: 0.26667rem; }
+
+.mb-20 {
+  margin-bottom: 0.26667rem; }
+
+.ml-218 {
+  margin-left: 2.90667rem; }
+
+.pl-20 {
+  padding-left: 0.69333rem; }
+
+.pt-44 {
+  padding-top: 0.58667rem; }
+
+.mt-40 {
+  margin-top: 0.53333rem; }
+
+.mt-100 {
+  margin-top: 1.33333rem; }
+
+.btn {
+  width: 100%;
+  height: 1.33333rem;
+  line-height: 1.33333rem;
+  background-color: #d8d8d8;
+  color: #fff;
+  font-size: 0.53333rem;
+  text-align: center;
+  border: none;
+  border-radius: 0.13333rem;
+  outline: none; }
+
+.btn.active {
+  background-color: #009ce1; }
+
+.btn.active-fff {
+  background-color: #fff;
+  border: 1px solid #009ce1;
+  color: #009ce1; }
+
+/*# sourceMappingURL=../../sourcemap/common/common.css.map */

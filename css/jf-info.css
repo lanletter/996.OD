@@ -1,0 +1,73 @@
+html, body {
+  overflow-x: hidden;
+  height: 100%; }
+
+.jf-info {
+  padding: 2rem 2.7rem 2.7rem 2.7rem;
+  font-size: 1.4rem;
+  color: #2f2f2f; }
+  .jf-info h4 {
+    text-align: center;
+    color: #d3ae4d;
+    font-size: 2.2rem;}
+  .jf-info li {
+    padding-bottom: 2rem; }
+.jf-info li img{
+  margin: 0;
+  padding: 0;
+  width: 100%; }
+
+.video {
+  width: 7.5rem;
+  height: 10rem;
+  position: absolute;
+  background-repeat:no-repeat;
+  background-size:auto 10rem!important;
+  -webkit-background-size:auto 10rem!important;
+  background-position:center center;
+  z-index: 999999;
+}
+.video video{
+  width: 7.5rem;
+  position: absolute;
+  left:-8rem;
+}
+.video .play {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  width: 2.44rem;
+  height: 0.72rem;
+  line-height: 0.72rem;
+  background:rgba(0,0,0,0.2) url('../img/triangle.png') 0.48rem 0.2rem no-repeat;
+  background-size: 0.32rem 0.32rem;
+  padding-left: 0.24rem;
+  color: #fff;
+  font-weight: bold;
+  box-sizing: border-box;
+  border: 1px solid #fff;
+  border-radius: 0.38rem;
+  font-size: 0.28rem;
+}
+
+.video .noplay:focus {
+  border: none;
+  outline: none;
+}
+.video .noplay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: url('../img/playIcon.png');
+  background-size: 1.6rem 1.6rem;
+  margin-left: -0.8rem;
+  margin-top: -0.8rem;
+  border: none;
+}
+
+.video .play:focus {
+  outline: none;
+}
+

@@ -1,0 +1,167 @@
+body{
+	background: #fff;
+	font-family: "PingFang SC";
+}
+.buynow-div{
+	overflow: hidden;
+}
+
+.editlist{
+	margin:0 0.22rem 0 0.22rem;
+}
+.editlist>li{
+	position: relative;
+	overflow: hidden;
+}
+.boedert{
+	border-top: 1px solid rgb(237,237,237);
+	padding-bottom: 0.25rem;
+	min-height:0.52rem ;
+	overflow: hidden;
+}
+.editlist>li .spantext{
+	color: rgb(130,130,130);
+	font-size: 0.28rem;
+	vertical-align: top;
+}
+.editlist>li .span14{
+	color: rgb(47,47,47);
+	font-size: 14px;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	vertical-align: top;
+}
+.editlist>li .lightgrey{
+	display: inline-block;
+	color: rgb(155,155,155);
+	font-size: 0.28rem;
+	line-height: 0.5rem;
+	max-width: 3rem;
+}
+
+.editlist>li #desc{
+	display: inline-block;
+	color: rgb(130,130,130);
+	font-size: 14px;
+	font-weight: lighter;
+	margin-top: 2px;
+	width: 5.94rem;
+	height: 1.35rem;
+	line-height: 0.45rem;
+}
+
+.editinput{
+	color: rgb(47,47,47);
+	font-weight: normal;
+	width: 100%;
+	height: 0.34rem;
+	line-height: 0.34rem;
+	padding: 0;
+	border: none;
+}
+.editinput::-webkit-input-placeholder { font-weight: lighter;color: rgb(201, 203, 213); }
+.editinput:-moz-placeholder {font-weight: lighter; color: rgb(201, 203, 213)  }
+.editinput::-moz-placeholder {font-weight: lighter; color: rgb(201, 203, 213)  }
+.editinput:-ms-input-placeholder {font-weight: lighter; color: rgb(201, 203, 213) }
+.borderb{
+	border-bottom: 1px solid rgb(237,237,237);
+}
+#close-div{
+	width:0.52rem ;
+	height: 0.52rem;
+	position: absolute;
+	right:0.18rem ;
+	top: 0.18rem;
+}
+.numbox{
+	position: absolute;
+	right: 0;
+	margin-top: -0.5rem;
+}
+.numbox input{
+	display: inline-block;
+	height: 0.48rem;
+	width: 0.48rem;
+	background-size: 0.48rem 0.48rem!important;
+	-webkit-background-size:0.48rem 0.48rem!important;
+	border: none;
+}
+.numbox input:first-child{
+	background: url("../img/path2Copy.png") no-repeat ;
+}
+.numbox input:last-child{
+	background: url("../img/group3.png") no-repeat;
+}
+.numbox .num{
+	background: rgb(245,245,245);
+	border: 1px solid rgb(203,203,203);
+	border-radius: 0.08rem;
+	width: 0.92rem;
+	height: 0.48rem;
+	line-height: 0.48rem;
+	text-align: center;
+	display: inline-block;
+	margin: 0 0.3rem;
+}
+.titlepic{
+	display: inline-block;
+	width:3.2rem!important;
+	height: 1.8rem!important;
+	border-radius: 0.08rem!important;
+	overflow: hidden;
+	border: none!important;
+	background-repeat:no-repeat;
+	background-size:3.2rem auto!important;
+	-webkit-background-size:3.2rem auto!important;
+	background-position:center;
+}
+.titletxt{
+	display: inline-block;
+	width: 3.5rem;
+	height: 1.76rem;
+	overflow: hidden;
+	color: rgb(47,47,47);
+	line-height: 0.44rem;
+	vertical-align: top;
+	margin: 0.04rem 0 0 0.04rem;
+	font-size: 16px;
+	font-weight: bold;
+}
+.ttprice{
+	position: absolute;
+	bottom: 0;
+	left:0;
+	margin:0;
+	width: 100%;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	border-top:1px solid rgb(237,237,237);
+	background: #fff;
+	z-index:-1;
+}
+.ttprice span{
+	font-size: 0.32rem;
+	color: rgb(211,174,77);
+	margin-left: 0.24rem;
+}
+.ttprice s{
+	font-size: 0.28rem;
+	color: rgb(203,203,203);
+	margin-left: 0.14rem;
+	text-decoration: line-through;
+}
+.editbtn{
+	float: right;
+	height: 0.9rem;
+	line-height: 0.9rem;
+	width: 1.8rem;
+	background: rgb(255,101,101);
+	font-size: 0.28rem;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+.padding1{padding: 0.18rem 0;}
+.padding2{padding: 0.16rem 0 0.12rem 0;}
+.padding3{padding: 0.32rem 0 0.08rem;}
+.padding4{padding-top: 0.24rem;}
