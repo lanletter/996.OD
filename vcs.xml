@@ -34,6 +34,10 @@
           <option name="url" value="https://github.com/lanletter/996.OD.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/aliyunvideo/AliyunPlayer_Web.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="/Applications/XAMPP/xamppfiles/htdocs" />
