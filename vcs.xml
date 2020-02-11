@@ -38,8 +38,16 @@
           <option name="url" value="https://github.com/aliyunvideo/AliyunPlayer_Web.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://192.168.130.40:9051/WEB/CMS.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://192.168.130.40:9051" />
+          <option name="userName" value="liuanning" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="/Applications/XAMPP/xamppfiles/htdocs" />
+    <option name="cloneParentDir" value="$USER_HOME$/git" />
   </component>
 </application>
