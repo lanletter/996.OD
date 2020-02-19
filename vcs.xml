@@ -58,6 +58,10 @@
           <option name="url" value="http://192.168.130.40:9051/v2x/frontend/V2X-web.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="http://192.168.130.40:9051/sypt/yqtxz.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="$USER_HOME$/git" />
